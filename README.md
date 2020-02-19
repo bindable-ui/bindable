@@ -67,7 +67,7 @@ If you need to use a custom view and ViewModel (in a table for instance)
 ```js
 import {CTableCol} from 'bindable';
 ...
-public listCols: VTableCol[] = [
+public listCols: CTableCol[] = [
     {
         checkChanged: row => console.log(row),
         colClass: 't30',
