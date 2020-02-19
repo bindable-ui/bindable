@@ -1,0 +1,129 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+.svg_arrow-tip-down {
+  width: 7px;
+  height: 5px;
+}
+.svg_assets {
+  width: 16px;
+  height: 12px;
+}
+.svg_android,
+.svg_bin,
+.svg_appleinc,
+.svg_cog,
+.svg_linux,
+.svg_windows8,
+.svg_xbox {
+  width: 16px;
+  height: 16px;
+}
+.svg_actions {
+  width: 17px;
+  height: 10px;
+}
+.svg_calendar {
+  width: 13px;
+  height: 13px;
+}
+.svg_chevron-down,
+.svg_chevron-up {
+  width: 11px;
+  height: 7px;
+}
+.svg_checkmark {
+  width: 32px;
+  height: 32px;
+}
+.svg_circle {
+  width: 25px;
+  height: 25px;
+}
+.svg_chevron-right {
+  width: 9px;
+  height: 12px;
+}
+.svg_chevron-left {
+  width: 7px;
+  height: 11px;
+}
+.svg_cols {
+  width: 12px;
+  height: 15px;
+}
+.svg_copy {
+  width: 13px;
+  height: 16px;
+}
+.svg_clip {
+  width: 15px;
+  height: 16px;
+}
+.svg_facebook {
+  width: 216px;
+  height: 216px;
+}
+.svg_info,
+.svg_warning {
+  width: 20px;
+  height: 20px;
+}
+.svg_grid-large,
+.svg_question,
+.svg_time {
+  width: 14px;
+  height: 14px;
+}
+.svg_draggable {
+  width: 6px;
+  height: 10px;
+}
+.svg_lines {
+  width: 225.9px;
+  height: 81.6px;
+}
+.svg_logo-uplynk {
+  width: 186px;
+  height: 16px;
+}
+.svg_play {
+  width: 13px;
+  height: 15px;
+}
+.svg_logo-uplynk-small {
+  width: 162px;
+  height: 14px;
+}
+.svg_save {
+  width: 10px;
+  height: 17px;
+}
+.svg_logo-vdms-white {
+  width: 205px;
+  height: 20px;
+}
+.svg_search {
+  width: 18px;
+  height: 18px;
+}
+.svg_rules {
+  width: 13px;
+  height: 10px;
+}
+.svg_signal {
+  width: 17px;
+  height: 16px;
+}
+.svg_table-sort-desc,
+.svg_table-sort-asc,
+.svg_table-sort-none {
+  width: 7px;
+  height: 13px;
+}
+.svg_x {
+  width: 10px;
+  height: 10px;
+}

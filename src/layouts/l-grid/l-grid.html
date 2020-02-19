@@ -1,0 +1,28 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./l-grid.css"></require>
+
+    <div
+        class="
+            ${styles.grid}
+            ${styles[autoSizing]}
+            ${styles[spacingValue]}
+        "
+        css="
+            --grid-min-size: ${minSize};
+            --grid-gap: ${gap};
+            --grid-auto-sizing: ${autoSizing};
+        "
+		id.bind="id"
+    >
+        <slot></slot>
+
+        <div if.bind="isLoading" class="${styles.loader}">
+            <c-spinner size="small"></c-spinner>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,135 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Actions</c-h2>
+                <c-table cols.bind="tableCols" rows.bind="tableActions"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>actions</c-h3>
+                <c-notification type="info">
+                    Pass in callbacks for c-table. These include:<br/>getRowClass - Assigns class to a tr<br/>getColClass - Assigns class to a td<br><br>
+                    Available classes to assign:
+                    <c-list>
+                        <li>bgHealthy</li>
+                        <li>bgWarning</li>
+                        <li>bgCritical</li>
+                        <li>bgInfo</li>
+                        <li>bgProcess</li>
+                        <li>healthy</li>
+                        <li>info</li>
+                        <li>warning</li>
+                        <li>critical</li>
+                        <li>neutral</li>
+                    </c-list>
+                </c-notification>
+    <c-code>constructor() {
+    this.basicCols = [
+        {
+            colClass: 't270',
+            colHeadValue: 'Name',
+            colHeadName: 'name',
+        },
+        {
+            colHeadValue: 'Ship',
+            colHeadName: 'ship',
+        },
+        {
+            colClass: 't85',
+            colHeadValue: 'Gender',
+            colHeadName: 'gender',
+        },
+    ];
+
+    this.basicData = [
+        {
+            name: 'Luke Skywalker',
+            ship: 'X-Wing',
+            gender: 'Male',
+            _status: 'crtiical',
+        },
+        {
+            name: 'Han Solo',
+            ship: 'M. Falcon',
+            gender: 'Male',
+            _status: 'warning',
+        },
+        {
+            name: 'Fin',
+            ship: 'Tie Fighter',
+            gender: 'Male',
+        },
+        {
+            name: 'Ray',
+            ship: 'M. Falcon',
+            gender: 'Female',
+            _status: 'healthy',
+        },
+        {
+            name: 'Yoda',
+            ship: 'None',
+            gender: 'Male',
+            _status: 'info',
+        },
+    ];
+}</c-code>
+    <c-code>tableActionsSample1 = {
+    getRowClass: row => {
+        let cls = row._class || '';
+        if (row.name && row.name === 'Fin') {
+            cls += ' bgInfo';
+        }
+        return cls;
+    },
+
+    getColClass: (row, col) => {
+        if (col.colHeadName === 'ship') {
+            if (row.ship === 'X-Wing') {
+                return 'bgWarning';
+            }
+        } else if (col.colHeadName === 'name') {
+            if (row.name === 'Ray') {
+               return 'bgCritical';
+            }
+            if (row.name === 'Yoda') {
+                return 'bgProcessing';
+            }
+        } else if (col.colHeadName === 'gender') {
+            if (row.gender === 'Male') {
+                return 'bgHealthy';
+            }
+        }
+        return col._class;
+    },
+};
+
+tableActionsSample2 = {
+    getColClass: (row, col) => {
+        let cls = col._class;
+        if (col.colHeadName === 'name') {
+            cls = ` \${row._status}`;
+        }
+        return cls;
+    },
+};</c-code>
+    <c-code-sample>
+        <c-table actions.bind="tableActionsSample1" cols.bind="basicCols" rows.bind="basicData"></c-table>
+    </c-code-sample>
+
+    <c-code-sample>
+        <c-table actions.bind="tableActionsSample2" cols.bind="basicCols" rows.bind="basicData"></c-table>
+    </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

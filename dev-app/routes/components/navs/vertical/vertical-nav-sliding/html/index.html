@@ -1,0 +1,28 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>HTML</c-h2>
+                <c-h3>Place the nav on the page</c-h3>
+                <c-code>&lt;c-nav-vertical-sliding&gt;&lt;/c-nav-vertical-sliding&gt;</c-code>
+            </l-stack>
+        </div>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Optional replace-part</c-h3>
+                <c-notification type="info">Use if you need to place html below the last nav item.</c-notification>
+<c-code>&lt;c-nav-vertical-sliding&gt;
+    &lt;template replace-part="below"&gt;
+        Your HTML
+    &lt;/template&gt;
+&lt;/c-nav-vertical-sliding&gt;</c-code>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

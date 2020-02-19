@@ -1,0 +1,25 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-form-checkbox.css"></require>
+
+    <div
+        show.bind="_state !== 'hidden'"
+        drag-dropzone.bind="dropOptions"
+    >
+        <l-cluster spacing="var(--s-5)">
+            <div>
+                <c-drag-handle
+                    if.bind="draggable && _state !== 'disabled'"
+                    class="${styles.draggable}"
+                    drag-options.bind="dragOptions"
+                ></c-drag-handle>
+                <c-checkbox-input id="${id}" checked-value.bind="checkedValue" state="${_state}" on-change.call="valueChanged(val)"></c-checkbox-input>
+                <c-checkbox-label id="${id}" state="${_state}"><slot></slot></c-checkbox-label>
+            </div>
+        </l-cluster>
+    </div>
+</template>

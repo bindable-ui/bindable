@@ -1,0 +1,150 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  WRAPPER
+ *  DATES
+ *  DAYS
+ *  CONTENT
+ *  TODAY
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !WRAPPER
+\*------------------------------------*/
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper > :last-child{
+    margin-bottom: auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !DATES
+\*------------------------------------*/
+
+.dates{
+    display: flex;
+    background: var(--c_slate);
+    position: sticky;
+    top: 0;
+    z-index: var(--z_weekTimelineDates);
+}
+
+.dates > :first-child{
+    padding-left: 50px;
+    flex: 1 0 300px;
+}
+
+.dates > *{
+    flex: 1 0 250px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #444;
+    background: var(--c_slate);
+}
+
+.dates a{
+    text-decoration: none;
+    color: var(--c_marshmellow);
+    transition: color var(--trans_main);
+}
+
+.dates a:hover{
+    color: var(--c_smoke);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !DAYS
+\*------------------------------------*/
+
+.days{
+    display: flex;
+}
+
+.days > :first-child{
+    width: 50px;
+    position: sticky;
+    left: 0;
+    background: var(--c_slate);
+    z-index: var(--z_weekTimelineHours);
+}
+
+.days > :first-child c-timeline-block > div{
+    border-right: solid 1px var(--c_gray);
+}
+
+.days > :nth-child(2) > :first-child {
+    border-left: none;
+}
+
+
+.days > :last-child{
+    flex: 1 1 auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !CONTENT
+\*------------------------------------*/
+
+.content{
+    display: flex;
+}
+
+.content > *{
+    flex: 1 0 250px;
+    border-left: solid 1px var(--c_gray);
+    transform: unset;
+}
+
+.content :global c-time-entry > div,
+.content :global .timeline-week > div{
+    width: calc(100% - 30px);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TODAY
+\*------------------------------------*/
+
+.today{
+    position: relative;
+}
+
+.today::after{
+    content: '';
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    background: var(--c_primaryMain);
+}

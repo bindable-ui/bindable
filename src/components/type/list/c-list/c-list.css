@@ -1,0 +1,74 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  NO BULLETS
+ *  LABEL WRAPPER
+ *  LINKS
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.base{
+    color: var(--c_smoke);
+}
+
+.base li{
+    word-break: break-word;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !NO BULLETS
+\*------------------------------------*/
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LABEL WRAPPER
+\*------------------------------------*/
+
+.label-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--s-3);
+}
+
+.label-wrapper > c-label{
+    margin-right: var(--s-4);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LINKS
+\*------------------------------------*/
+
+.base li a{
+    color: var(--c_subOneMain);
+}

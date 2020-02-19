@@ -1,0 +1,79 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  TRUNCATE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.base{
+    margin-top: -0.55rem;
+    font-family: var(--ff_primary-bold);
+    font-size: var(--s3);
+    font-weight: normal;
+}
+
+.not-flush-top{
+    margin-top: initial;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TRUNCATE
+\*------------------------------------*/
+
+.truncate{
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-height: var(--s4);
+}
+
+.truncate h1{
+    min-width: 0;
+    padding-right: var(--s-1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.truncate h1:hover{
+    position: absolute;
+    width: 100%;
+    background: var(--c_slate);
+    text-overflow: initial;
+    white-space: normal;
+    word-break: break-word;
+    z-index: var(--z_copy);
+}
+
+@media screen and (max-width: 780px){
+    .truncate h1{
+        text-overflow: initial;
+        white-space: unset;
+        overflow: visible;
+        word-break: break-word;
+    }
+
+    .truncate h1:hover{
+        position: relative;
+    }
+}

@@ -1,0 +1,148 @@
+{
+  "name": "bindable",
+  "description": "An Aurelia component library",
+  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bindable-ui/bindable"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "@types/jquery": "^3.3.29",
+    "@types/lodash": "^4.14.133",
+    "@types/node": "^10.11.6",
+    "async": "^3.1.0",
+    "aurelia-animator-css": "^1.0.4",
+    "aurelia-bootstrapper": "^2.3.2",
+    "aurelia-cli": "^1.0.1",
+    "aurelia-loader-nodejs": "^1.0.1",
+    "aurelia-pal-nodejs": "^1.2.0",
+    "aurelia-testing": "^1.0.0",
+    "aurelia-tools": "^2.0.0",
+    "autoprefixer": "^9.6.0",
+    "aws-sdk": "^2.494.0",
+    "browser-sync": "^2.26.3",
+    "connect-history-api-fallback": "^1.6.0",
+    "cssnano": "^4.1.10",
+    "debounce": "^1.2.0",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-tslint": "^8.1.4",
+    "gulp-typescript": "^5.0.0",
+    "gulp-watch": "^5.0.1",
+    "husky": "^2.4.1",
+    "jest": "^24.1.0",
+    "jest-cli": "^24.1.0",
+    "jest-localstorage-mock": "^2.4.0",
+    "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^8.2.1",
+    "merge2": "^1.2.3",
+    "mime-types": "^2.1.24",
+    "minimatch": "^3.0.4",
+    "minimist": "^1.2.0",
+    "postcss-modules": "^1.4.1",
+    "postcss-url": "^8.0.0",
+    "prettier": "^1.18.2",
+    "promise-polyfill": "^8.1.3",
+    "recursive-readdir": "^2.2.2",
+    "requirejs": "^2.3.6",
+    "text": "requirejs/text#latest",
+    "through2": "^3.0.0",
+    "ts-jest": "^24.0.0",
+    "ts-mockito": "^2.3.1",
+    "ts-polyfill": "^3.5.3",
+    "tslint": "^5.13.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.1.2",
+    "vinyl-fs": "^3.0.3"
+  },
+  "scripts": {
+    "build": "au build-plugin",
+    "build:pack": "npm run build && npm pack",
+    "build:serve": "au build-serve-watch",
+    "start": "au run",
+    "build-site": "au build",
+    "prepare": "npm run build",
+    "preversion": "au test",
+    "test": "au test"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "main": "dist/commonjs/index.js",
+  "module": "dist/native-modules/index.js",
+  "private": true,
+  "files": [
+    "dist"
+  ],
+  "jest": {
+    "moduleNameMapper": {
+      "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding"
+    },
+    "modulePaths": [
+      "<rootDir>/src",
+      "<rootDir>/node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/jest-setup.ts"
+    ],
+    "transform": {
+      "^.+\\.(css|less|sass|scss|styl|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-transform-stub",
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.ts$",
+    "setupFiles": [
+      "<rootDir>/test/jest-pretest.ts",
+      "jest-localstorage-mock"
+    ],
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!**/*.test.{js,ts}",
+      "!**/node_modules/**",
+      "!**/test/**"
+    ],
+    "coverageDirectory": "<rootDir>/test/coverage-jest",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ]
+  },
+  "dependencies": {
+    "aurelia-dialog": "1.0.0-rc.2.0.0",
+    "dompurify": "^2.0.7",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "src/**/*.ts": [
+        "prettier --write",
+        "node_modules/tslint/bin/tslint --project tsconfig.json --config tslint.json --fix --format codeFrame",
+        "git add"
+      ]
+    }
+  }
+}

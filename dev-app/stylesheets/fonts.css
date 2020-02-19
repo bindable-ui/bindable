@@ -1,0 +1,69 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  HAAS GROTESK DISPLAY
+ *  HELVETICA NEUE COND
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !HAAS GROTESK DISPLAY
+\*------------------------------------*/
+
+@font-face{
+    font-family: 'HGD_55';
+    src: url('../assets/fonts/NHGD55.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'HGD_56';
+    src: url('../assets/fonts/NHGD56It.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'HGD_75';
+    src: url('../assets/fonts/NHGD75.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'HGD_76';
+    src: url('../assets/fonts/NHGD76It.woff') format('woff');
+}
+
+
+
+
+
+/*------------------------------------*\
+    !HELVETICA NEUE COND
+\*------------------------------------*/
+
+@font-face{
+    font-family: 'HN_57_Cond';
+    src: url('../assets/fonts/HN57Con.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'HN_57_Cond_It';
+    src: url('../assets/fonts/HN57ConIt.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'HN_67_Cond';
+    src: url('../assets/fonts/HN67Con.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'HN_67_Cond_It';
+    src: url('../assets/fonts/HN67ConIt.woff') format('woff');
+}

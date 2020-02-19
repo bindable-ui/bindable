@@ -1,0 +1,35 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Methods</c-h2>
+                <c-table cols.bind='formFileCols' rows.bind='formFileMethods'></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>on-reset</c-h3>
+                <c-code-sample>
+                    <l-grid max-size="25ch">
+                        <c-form-file
+                            image-picker.bind="true"
+                            image-src="https://placeimg.com/150/75/any"
+                            label="File Label w/ Image"
+                            files.bind="files"
+                            show-reset.bind="true"
+                            on-reset.call="resetClicked()"
+                        ></c-form-file>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

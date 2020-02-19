@@ -1,0 +1,47 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-notification type="info">NOTE: This component is used inside the &lt;c-list-container&gt; component.</c-notification>
+                <c-table cols.bind="listItemCols" rows.bind="listItemProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>state</c-h3>
+                <c-code-sample>
+                    <c-list-container>
+                        <c-list-item><a href="#">One</a></c-list-item>
+                        <c-list-item state="active"><a href="#">Two</a></c-list-item>
+                        <c-list-item><a href="#">Three</a></c-list-item>
+                        <c-list-item><c-p size="large">This is a paragraph and not a link.</c-p></c-list-item>
+                    </c-list-container>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>wrap</c-h3>
+                <c-code-sample>
+                    <c-list-container>
+                        <c-list-item><a href="#">This is a link with long text and will not wrap because we did not get the component to wrap. Hope this helps because I have to put a lot of text here to make sure it truncates.</a></c-list-item>
+                        <c-list-item wrap.bind="true"><a href="#">This is a link with long text and will wrap because we told it to wrap. Hope this helps. Ice cream is my favorite food. It is really yummy. I hope to eat some more later today.</a></c-list-item>
+                        <c-list-item wrap.bind="true"><c-p size="large">This is a paragraph and not a link but also has really long text so thay we can see that the text will indeed wrap when we tell it to.</c-p></c-list-item>
+                    </c-list-container>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

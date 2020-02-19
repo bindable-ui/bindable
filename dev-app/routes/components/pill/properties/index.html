@@ -1,0 +1,94 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="pillCols" rows.bind="pillProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>color &amp; href</c-h3>
+                <c-code-sample>
+                    <c-cluster align="start">
+                        <div>
+                            <c-h3>Text in a paragraph</c-h3>
+                            <c-pill>
+                                <span slot="pill-content">
+                                    Pill with no link
+                                </span>
+                            </c-pill>
+                            <c-pill color="neutral" href="http://google.com">
+                                <span slot="pill-link-content">
+                                    Pill link
+                                </span>
+                            </c-pill>
+                        </div>
+                    </c-cluster>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>icon</c-h3>
+                <c-code-sample>
+                    <c-pill icon="x" icon-action.call="testFunction()">
+                        <span slot="pill-content">I have an icon</span>
+                    </c-pill>
+                    <c-pill color="neutral" href="http://google.com" icon="x" icon-action.call="testFunction()">
+                        <span slot="pill-link-content">
+                            Pill link
+                        </span>
+                    </c-pill>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>In a table</c-h3>
+    <c-code>this.pillTableCols = [
+    {
+        colHeadValue: 'Name',
+        colHeadName: 'name',
+        view: PLATFORM.moduleName('resources/components/tables/td-contents/c-td-pill/c-td-pill.html'),
+        viewModel: PLATFORM.moduleName('resources/components/tables/td-contents/c-td-pill/c-td-pill'),
+    },
+    {
+        colHeadValue: 'Description',
+        colHeadName: 'description',
+        view: PLATFORM.moduleName('resources/components/tables/td-contents/c-td-pill/c-td-pill.html'),
+        viewModel: PLATFORM.moduleName('resources/components/tables/td-contents/c-td-pill/c-td-pill'),
+    },
+];
+
+this.pillTableData = [
+    {
+        name: 'stuff here',
+        namePill: 'Name Pill',
+        description: 'more text here',
+        descriptionPill: 'Desc Pill',
+    },
+];</c-code>
+            <c-code-sample>
+                <c-table cols.bind="pillTableCols" rows.bind="pillTableData"></c-table>
+            </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>
+
+

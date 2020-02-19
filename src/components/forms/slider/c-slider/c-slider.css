@@ -1,0 +1,99 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  STATE
+ *      - Disabled
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.slider{
+    appearance: none;
+    width: 100%;
+    height: var(--s-3);
+    padding: 0;
+    border: solid 1px var(--c_smoke);
+    border-radius: var(--s-5);
+    outline: none;
+    background: var(--c_gray);
+    box-shadow: none;
+    opacity: 0.8;
+    transition: opacity var(--trans_main);
+}
+
+.slider:focus{
+    box-shadow: none;
+}
+
+.slider:hover{
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb{
+    appearance: none;
+    width: var(--s0);
+    height: var(--s0);
+    border: solid 1px var(--c_subOneLighter);
+    border-radius: var(--s-3);
+    background-color: var(--c_subOneMain);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: ew-resize;
+}
+
+.slider::-moz-range-thumb{
+    width: var(--s0);
+    height: var(--s0);
+    border: solid 1px var(--c_subOneLighter);
+    border-radius: var(--s-3);
+    background-color: var(--c_subOneMain);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: ew-resize;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Disabled
+ */
+
+.disabled:hover{
+    cursor: not-allowed;
+}
+
+.disabled{
+    border: solid 1px var(--c_charcoal);
+    background: var(--c_ash);
+}
+
+.disabled::-webkit-slider-thumb{
+    border: solid 1px var(--c_gray);
+    background-color: var(--c_charcoal);
+    cursor: not-allowed;
+}
+
+.disabled::-moz-range-thumb{
+    border: solid 1px var(--c_gray);
+    background-color: var(--c_charcoal);
+    cursor: not-allowed;
+}
+

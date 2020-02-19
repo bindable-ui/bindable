@@ -1,0 +1,323 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  COLORS
+ *      - Primary
+ *      - Secondary
+ *      - Neutral
+ *  ICON
+ *      - Base
+ *  SIZE
+ *      - Medium
+ *      - Small
+ *  STATE
+ *      - Disabled
+ *      - Thinking
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.button{
+    display: inline-block;
+    margin: 0;
+    border-width: 0 !important;
+    border-radius: var(--s-5);
+    outline: none;
+    background: none;
+    color: var(--c_white) !important;
+    font-family: var(--ff_primary-bold);
+    font-size: var(--s-1);
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: all var(--trans_main);
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COLORS
+\*------------------------------------*/
+
+/**
+ * ^Primary
+ */
+
+.primary{
+    background-color: var(--c_primaryMain);
+    background-image: linear-gradient(180deg, rgba(205, 4, 11, 1), rgba(205, 4, 11, 0));
+}
+
+.primary:hover{
+    background-color: var(--c_primaryLight) !important;
+}
+
+
+/**
+ * ^Secondary
+ */
+
+.secondary{
+    background-color: var(--c_secondaryMain);
+    background-image: linear-gradient(180deg, rgba(55, 165, 108, 1), rgba(55, 165, 108, 0));
+}
+
+.secondary:hover{
+    background-color: var(--c_secondaryLight) !important;
+}
+
+
+/**
+* ^Neutral
+*/
+
+.neutral{
+    background-color: var(--c_gray);
+    background-image: linear-gradient(180deg, rgba(125, 125, 125, 1), rgba(125, 125, 125, 0));
+}
+
+.neutral:hover{
+    background-color: var(--c_smoke) !important;
+}
+
+
+/**
+* ^Danger
+*/
+
+.danger{
+    background-color: var(--c_primaryLight);
+    background-image: linear-gradient(180deg, rgba(232, 83, 88, 1), rgba(232, 83, 88, 0));
+}
+
+.danger:hover{
+    background-color: var(--c_primaryLighter) !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ICON
+\*------------------------------------*/
+
+/**
+ * ^Base
+ */
+
+.icon{
+    position: relative;
+}
+
+.icon svg{
+    position: absolute;
+    /* stylelint-disable */
+    fill: #FFF;
+    fill: var(--c_white);
+    /* stylelint-enable */
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIZE
+\*------------------------------------*/
+
+/**
+ * ^Medium
+ */
+
+.medium{
+    padding: var(--s-3) var(--s1);
+}
+
+.medium.left{
+    padding-left: var(--s4);
+}
+
+.medium.right{
+    padding-right: var(--s4);
+}
+
+.medium svg{
+    width: var(--s0);
+    height: var(--s0);
+    margin-top: var(--s-5);
+    margin-top: 1px;
+}
+
+.medium.left svg{
+    left: var(--s0);
+}
+
+.medium.right svg{
+    right: var(--s0);
+}
+
+.medium.center{
+    padding: var(--s-3) var(--s-1);
+}
+
+.medium.center svg{
+    position: relative;
+    margin-top: -3px;
+}
+
+
+/**
+ * ^Small
+ */
+
+.small{
+    padding: var(--s-5) var(--s-1);
+}
+
+.small.left{
+    padding-left: var(--s3);
+}
+
+.small.right{
+    padding-right: var(--s3);
+}
+
+.small svg{
+    top: var(--s-3);
+    width: var(--s-1);
+    height: var(--s-1);
+}
+
+.small.left svg{
+    left: var(--s-1);
+}
+
+.small.right svg{
+    right: var(--s-1);
+}
+
+.small.center svg{
+    position: relative;
+    top: 0;
+    margin-top: -2px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Disabled
+ */
+
+.disabled{
+    background-image: none;
+    color: #939393 !important;
+}
+
+.disabled svg{
+    fill: #939393 !important;
+}
+
+.disabled:hover{
+    cursor: not-allowed;
+}
+
+.primary.disabled,
+.primary.disabled:hover{
+    background-color: #7A1516 !important;
+}
+
+.secondary.disabled,
+.secondary.disabled:hover{
+    background-color: #20623F !important;
+}
+
+.neutral.disabled,
+.neutral.disabled:hover{
+    background-color: #454545 !important;
+}
+
+.danger.disabled,
+.danger.disabled:hover{
+    background-color: #913236 !important;
+}
+
+
+/**
+ * ^Thinking
+ */
+
+.thinking{
+    composes: disabled;
+    position: relative;
+    padding-left: var(--s4);
+}
+
+.thinking:hover{
+    cursor: progress;
+}
+
+/* Thinking w/ Icon Position Left */
+.thinking.left{
+    padding-left: calc(15px + var(--s5));
+}
+
+.thinking.left svg{
+    left: var(--s4);
+}
+
+/* Thinking Spinner */
+.thinking::after{
+    position: absolute;
+    top: calc(50% - var(--s-4));
+    left: var(--s0);
+    width: var(--s-1);
+    height: var(--s-1);
+    content: 'Loading…';
+}
+
+.thinking:not(:required)::after{
+    border-top: 2px solid var(--c_smoke);
+    border-right: 2px solid transparent;
+    border-radius: 50%;
+    content: '';
+    animation: spinner 0.6s linear infinite;
+}
+
+/* Keyframe Animation */
+@keyframes spinner{
+    to{transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spinner{
+    to{-webkit-transform: rotate(360deg);}
+}

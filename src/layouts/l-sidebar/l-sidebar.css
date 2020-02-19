@@ -1,0 +1,82 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  SCROLLING
+ *  SIDE
+ */
+
+
+
+
+
+/*------------------------------------*\
+ *
+    !BASE
+\*------------------------------------*/
+
+.sidebar{
+    overflow: hidden;
+}
+
+.sidebar > *{
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--sidebar-spacing) / 2 * -1)
+}
+
+.sidebar > * > *{
+    flex-grow: 1;
+    margin: calc(var(--sidebar-spacing) / 2);
+    flex-basis: var(--sidebar-side-width);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SCROLLING
+\*------------------------------------*/
+
+.scrolling,
+.scrolling > div,
+.scrolling > div > *{
+    height: 100%;
+}
+
+.scrolling > div > *{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIDE
+\*------------------------------------*/
+
+.left > * > :last-child,
+.right > * > :first-child{
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: calc(var(--sidebar-content-min) - var(--sidebar-spacing));
+}
+
+@media screen and (max-width: 650px){
+    .left > * > :last-child,
+    .right > * > :first-child{
+        flex-basis: unset;
+        min-width: unset;
+        width: 100%;
+    }
+}

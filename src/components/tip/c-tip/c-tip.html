@@ -1,0 +1,54 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-tip.css"></require>
+
+    <div
+        class="
+            ${styles.container}
+            ${styles[positionTrigger]}
+            ${fillWidthTrigger ? styles.fillWidth : ''}
+        "
+        mouseleave.trigger="onMouseLeave()"
+    >
+        <span
+            class="${styles.trigger}"
+            click.trigger="toggleVisible($event)"
+            mouseenter.trigger="onMouseEnter()"
+        >
+            <slot name="trigger"></slot>
+        </span>
+
+        <span
+            class="
+                ${styles.tip}
+                ${styles.arrow}
+                ${styles[side]}
+                ${styles[arrowPosition]}
+                ${styles[size]}
+                ${iconTip ? styles.iconTip : ''}
+                ${contentVisible ? styles.visible : ''}
+                ${styles.altColor}
+                ${styles[altColor]}
+            "
+            show.bind="contentDisplay"
+            class.bind="contentVisible"
+        >
+            <slot name="content"></slot>
+            <span
+                show.bind="triggerType === 'click'"
+                class="${styles.close}"
+                click.trigger="toggleVisible($event)"
+            >×</span>
+            <span class="${styles.color}  ${styles[color]}"></span>
+        </span>
+    </div>
+    <div
+        class="${styles.fullScreenClose}"
+        if.bind="contentDisplay && forceClose"
+        click.trigger="toggleVisible($event)"
+    ></div>
+</template>

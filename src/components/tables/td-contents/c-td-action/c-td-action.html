@@ -1,0 +1,16 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-td-action.css"></require>
+
+    <span class="${styles.base}" if.bind="row[col.colHeadName + 'Icon'] && col.colAction" click.delegate="col.colAction(row)">
+        <c-icon icon="${row[col.colHeadName + 'Icon']}"></c-icon>
+    </span>
+
+    <a class="${styles.base}" if.bind="row[col.colHeadName + 'URL']" href="${row[col.colHeadName + 'URL']}">${value}</a>
+
+    <span class="${styles.base}  ${styles.textAction}" if.bind="col.colAction" click.delegate="col.colAction(row)">${value}</span>
+</template>

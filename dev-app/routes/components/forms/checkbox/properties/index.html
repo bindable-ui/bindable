@@ -1,0 +1,86 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="formCheckboxCols" rows.bind="formCheckboxProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>checked-value / id</c-h3>
+                <c-code-sample>
+                    <c-form-checkbox-radio-container label="Checkbox Group">
+                        <c-form-checkbox id="first" checked-value.bind="vCheckbox1Output">First</c-form-checkbox>
+                        <c-form-checkbox id="second" checked-value.bind="vCheckbox2Output">Second</c-form-checkbox>
+                    </c-form-checkbox-radio-container>
+                </c-code-sample>
+                <br>
+                <c-p>Checkbox 1: ${vCheckbox1Output}</c-p>
+                <c-p>Checkbox 2: ${vCheckbox2Output}</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>draggable</c-h3>
+                <l-stack spacing="var(--s1)">
+                    <c-code-sample>
+                        <c-form-checkbox-radio-container
+                            label="Draggable Checkbox Group"
+                        >
+                            <c-form-checkbox
+                                repeat.for="box of draggableBoxes"
+                                draggable.bind="true"
+                                drag-options.bind="dragOptions(box)"
+                                drop-options.bind="getDropOptions(box)"
+                                id="${box.id}"
+                                checked-value.bind="box.checked"
+                            >
+                                ${box.text}
+                            </c-form-checkbox>
+                        </c-form-checkbox-radio-container>
+                    </c-code-sample>
+                    <div>
+                        <l-stack spacing="var(--s0)">
+                            <c-p repeat.for="box of draggableBoxes">
+                                ${box.text}: ${box.checked}
+                            </c-p>
+                        </l-stack>
+                    </div>
+                    <div>
+                        <c-p drag-dropzone.bind="getDropOptions()">
+                            DROPZONE: ${dropId}
+                        </c-p>
+                    </div>
+                </l-stack>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>state</c-h3>
+                <c-code>vCheckbox1BOutput = true;</c-code>
+                <c-code-sample>
+                    <c-form-checkbox-radio-container label="Checkbox State Example" name="group3">
+                        <c-form-checkbox id="first3" checked-value.bind="vCheckbox1BOutput" state="disabled" draggable.bind="true">First</c-form-checkbox>
+                        <c-form-checkbox id="second3" checked-value.bind="vCheckbox2BOutput" state="disabled">Second</c-form-checkbox>
+                        <c-form-checkbox id="third3" checked-value.bind="vCheckbox3BOutput" state="hidden">Third</c-form-checkbox>
+                    </c-form-checkbox-radio-container>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

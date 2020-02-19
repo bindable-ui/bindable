@@ -1,0 +1,284 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .color-swatches{
+            overflow: hidden;
+        }
+
+        .color-swatch{
+            margin-right: 10px;
+            margin-bottom: 10px;
+            float: left;
+            position: relative;
+        }
+
+        .color-swatch-sample{
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+
+        .color-swatch-name{
+            width: 100%;
+            padding: 5px 0;
+            background-color: var(--c_ash);
+            font-size: var(--s-1);
+            text-align: center;
+        }
+
+        .color-swatch-sample-small{
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            text-align: left;
+            font-size: var(--s0);
+            color: var(--c_white);
+            margin-bottom: 15px;
+        }
+
+        .black{
+            color: var(--c_black);
+        }
+
+        .opacity{
+            opacity: 0.65;
+        }
+
+        .opacity-less{
+            opacity: 0.85;
+        }
+    </style>
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Color</c-h1>
+                    <c-p size="large" spacing-bottom="sbMedium">Colors in Bindable are controlled with CSS variables. Below are the names of the variables used.</c-p>
+                </l-stack>
+            </div>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Primary</c-h2>
+                    <div class="color-swatches">
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_primaryMain);"></div>
+                            <div class="color-swatch-sample-small">#454324<br><span class="opacity">c_primaryMain</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_primaryLight);"></div>
+                            <div class="color-swatch-sample-small">#E85358<br><span class="opacity">c_primaryLight</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_primaryLighter);"></div>
+                            <div class="color-swatch-sample-small">#FF878B<br><span class="opacity">c_primaryLighter</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_primaryDark);"></div>
+                            <div class="color-swatch-sample-small">#301919<br><span class="opacity">c_primaryDark</span></div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Secondary</c-h2>
+                    <div class="color-swatches">
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_secondaryMain);"></div>
+                            <div class="color-swatch-sample-small">#37A56C<br><span class="opacity">c_secondaryMain</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_secondaryLight);"></div>
+                            <div class="color-swatch-sample-small">#5DC691<br><span class="opacity">c_secondaryLight</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_secondaryLighter);"></div>
+                            <div class="color-swatch-sample-small">#8BCDAB<br><span class="opacity">c_secondaryLighter</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_secondaryDark);"></div>
+                            <div class="color-swatch-sample-small">#0E2B1C<br><span class="opacity">c_secondaryDark</span></div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Sub One</c-h2>
+                    <div class="color-swatches">
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subOneMain);"></div>
+                            <div class="color-swatch-sample-small">#3599C5<br><span class="opacity">c_subOneMain</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subOneLight);"></div>
+                            <div class="color-swatch-sample-small">#51AFDB<br><span class="opacity">c_subOneLight</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subOneLighter);"></div>
+                            <div class="color-swatch-sample-small">#8AD6F7<br><span class="opacity-less">c_subOneLighter</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subOneDark);"></div>
+                            <div class="color-swatch-sample-small">#14263F<br><span class="opacity">c_subOneDark</span></div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Sub Two</c-h2>
+                    <div class="color-swatches">
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subTwoMain);"></div>
+                            <div class="color-swatch-sample-small">#CEA832<br><span class="opacity">c_subTwoMain</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subTwoLight);"></div>
+                            <div class="color-swatch-sample-small">#E9C558<br><span class="opacity">c_subTwoLight</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subTwoLighter);"></div>
+                            <div class="color-swatch-sample-small">#F7D362<br><span class="opacity-less">c_subTwoLighter</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subTwoDark);"></div>
+                            <div class="color-swatch-sample-small">#312810<br><span class="opacity">c_subTwoDark</span></div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Sub Three</c-h2>
+                    <div class="color-swatches">
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subThreeMain);"></div>
+                            <div class="color-swatch-sample-small">#C35E37<br><span class="opacity">c_subThreeMain</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subThreeLight);"></div>
+                            <div class="color-swatch-sample-small">#D47452<br><span class="opacity">c_subThreeLight</spam></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subThreeLighter);"></div>
+                            <div class="color-swatch-sample-small">#F69671<br><span class="opacity-less">c_subThreeLighter</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subThreeDark);"></div>
+                            <div class="color-swatch-sample-small">#4B2E0C<br><span class="opacity">c_subThreeDark</span></div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+
+                    <c-h2>Sub Four</c-h2>
+                    <div class="color-swatches">
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subFourMain);"></div>
+                            <div class="color-swatch-sample-small">#8E5CB1<br><span class="opacity">c_subFourMain</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subFourLight);"></div>
+                            <div class="color-swatch-sample-small">#B491CE<br><span class="opacity">c_subFourLight</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subFourLighter);"></div>
+                            <div class="color-swatch-sample-small">#C5ABD8<br><span class="opacity-less">c_subFourLighter</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_subFourDark);"></div>
+                            <div class="color-swatch-sample-small">#331C44<br><span class="opacity">c_subFourDark</span></div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Grays</c-h2>
+                    <div class="color-swatches">
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_black);"></div>
+                            <div class="color-swatch-sample-small">#000<br><span class="opacity">c_black</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_soot);"></div>
+                            <div class="color-swatch-sample-small">#161616<br><span class="opacity">c_soot</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_darkGray);"></div>
+                            <div class="color-swatch-sample-small">#282828<br><span class="opacity">c_darkGray</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_asphalt);"></div>
+                            <div class="color-swatch-sample-small">#242424<br><span class="opacity">c_asphalt</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_slate);"></div>
+                            <div class="color-swatch-sample-small">#313131<br><span class="opacity">c_slate</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_ash);"></div>
+                            <div class="color-swatch-sample-small">#3D3D3D<br><span class="opacity">c_ash</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_charcoal);"></div>
+                            <div class="color-swatch-sample-small">#4D4D4D<br><span class="opacity">c_charcoal</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_gray);"></div>
+                            <div class="color-swatch-sample-small">#7D7D7D<br><span class="opacity">c_gray</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_smoke);"></div>
+                            <div class="color-swatch-sample-small">#9B9B9B<br><span class="opacity">c_smoke</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample" style="background: var(--c_lightGray);"></div>
+                            <div class="color-swatch-sample-small">#C6C6C6<br><span class="opacity">c_lightGray</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample  black" style="background: var(--c_marshmellow);"></div>
+                            <div class="color-swatch-sample-small  black">#D7D7D7<br><span class="opacity">c_marshmellow</span></div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch-sample  black" style="background: var(--c_white);"></div>
+                            <div class="color-swatch-sample-small  black">#FFF<br><span class="opacity">c_white</span></div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

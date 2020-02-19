@@ -1,0 +1,62 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="addRemoveCols" rows.bind="addRemoveProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>left-title &amp; right-title</c-h3>
+                <c-code-sample>
+                    <c-form-add-remove title-left="Left Title Here" list-left.two-way="leftVals" title-right="Right Title Here" list-right.two-way="rightVals" is-loading-left.bind="true" is-loading-more-right.bind="true"></c-form-add-remove>
+                </c-code-sample>
+            </l-stack>
+            <br>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>reorder</c-h3>
+                <c-code-sample>
+                    <c-form-add-remove title-left="Left Title" list-left.two-way="leftVals" title-right="Reorder Option" list-right.two-way="rightVals" reorder.bind="true"></c-form-add-remove>
+                </c-code-sample>
+            </l-stack>
+            <br>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>state disabled</c-h3>
+                <c-code-sample>
+                    <c-form-add-remove state="disabled" title-left="Disabled Left List" list-left.two-way="leftVals" title-right="Disabled Right List" list-right.two-way="rightVals"></c-form-add-remove>
+                </c-code-sample>
+            </l-stack>
+            <br>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>state hidden</c-h3>
+                <c-code-sample>
+                    <c-form-add-remove state="hidden" title-left="Hidden Left List" list-left.two-way="leftVals" title-right="Hidden Right List" list-right.two-way="rightVals"></c-form-add-remove>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

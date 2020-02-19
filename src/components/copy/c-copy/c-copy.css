@@ -1,0 +1,90 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  LABEL WRAPPER
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.copy button{
+    border: solid 1px var(--c_gray);
+    border-left: none;
+    border-radius: 0 var(--s-5) var(--s-5) 0;
+}
+
+.container{
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 74px;
+}
+
+.content{
+    position: absolute;
+    min-width: 0;
+    width: calc(100% - 73px);
+    padding: var(--s-3) var(--s-1) calc(var(--s-3) - 2px);
+    border: solid 1px var(--c_charcoal);
+    background: var(--c_darkGray);
+    color: var(--c_gray);
+    font-size: var(--s-1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.wrap,
+.content:hover{
+    white-space: normal;
+    word-break: break-all;
+    cursor: text;
+    z-index: var(--z_copy);
+}
+
+.content:hover{
+    position: absolute;
+}
+
+.hide{
+    position: relative;
+    visibility: hidden;
+}
+
+.container c-button{
+    position: absolute;
+    right: 0;
+}
+
+a.content:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LABEL WRAPPER
+\*------------------------------------*/
+
+.label-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.label-wrapper > c-label{
+    margin-right: 5px;
+}

@@ -1,0 +1,26 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./l-cover.css"></require>
+
+    <div
+        class="
+            ${styles.cover}
+            ${center ? styles.center : ''}
+            ${scrolling ? styles.scrolling : ''}
+        "
+        css="
+            --cover-padding-top: ${paddingTop};
+            --cover-padding-right: ${paddingRight};
+            --cover-padding-bottom: ${paddingBottom};
+            --cover-padding-left: ${paddingLeft};
+            --cover-top-gutter: ${topGutter};
+            --cover-bottom-gutter: ${bottomGutter};
+        "
+    >
+        <slot></slot>
+    </div>
+</template>

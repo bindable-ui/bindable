@@ -1,0 +1,39 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="deleteConfirmCols" rows.bind="deleteConfirmProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Example</c-h3>
+                <c-code-sample>
+                    <e-delete-confirm tip-side="top" tip-size="xlarge" tip-arrow-position="leftEdge" title="Thing" action.call="testDelete()" match="Thing"></e-delete-confirm>
+                </c-code-sample>
+
+                <c-code-sample>
+                    <e-delete-confirm
+                        tip-side="top"
+                        tip-size="xlarge"
+                        tip-arrow-position="leftEdge"
+                        title="Thing"
+                        delete-message="Confirm delete by typing DELETE ME in the field below."
+                        action.call="testDelete()"
+                        match="DELETE ME"
+                    >
+                    </e-delete-confirm>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

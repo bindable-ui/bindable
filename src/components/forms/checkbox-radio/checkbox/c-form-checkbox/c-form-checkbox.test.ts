@@ -1,0 +1,88 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+import {bootstrap} from 'aurelia-bootstrapper';
+import {StageComponent} from 'aurelia-testing';
+
+describe('c-form-checkbox component', () => {
+    let component;
+
+    describe('Integration', () => {
+        afterEach(() => {
+            component.dispose();
+        });
+
+        it('testing draggable', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-form-checkbox draggable.bind="customDraggableNew"></c-form-checkbox>')
+                .boundTo({
+                    customDraggableNew: 1,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.draggable).toBe(false);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing click with no action', async done => {
+            const handler = jest.fn();
+            const checkedValue = false;
+            const queryStr = 'input';
+            component = StageComponent.withResources()
+                .inView('<c-form-checkbox checked-value.bind="checkedValue"></c-form-checkbox>')
+                .boundTo({
+                    checkedValue,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                document.querySelector(queryStr).click();
+                expect(handler).toHaveBeenCalledTimes(0);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing click with action', async done => {
+            const handler = jest.fn();
+            const checkedValue = false;
+            const queryStr = 'input';
+            component = StageComponent.withResources()
+                .inView('<c-form-checkbox checked-value.bind="checkedValue" on-change.bind="action"></c-form-checkbox>')
+                .boundTo({
+                    checkedValue,
+                    action: handler,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                document.querySelector(queryStr).click();
+                expect(handler).toHaveBeenCalledTimes(1);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        describe('CSS Classes', () => {
+            it('css class: draggable', async done => {
+                component = StageComponent.withResources().inView('<c-form-checkbox id="checkbox"></c-form-checkbox>');
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.styles.draggable).not.toBe(undefined);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+        });
+    });
+});

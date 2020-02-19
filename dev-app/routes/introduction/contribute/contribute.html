@@ -1,0 +1,45 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        @media screen and (max-width: 1300px){
+            .chart{
+                width: 100%;
+            }
+        }
+    </style>
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h1>Contribute</c-h1>
+                <c-h2>Report a bug</c-h2>
+                <c-p size="large">It's hard for us to keep an eye on all parts of Bindable. As you are using it you might come across a bug. If so you can report it on the <a href="https://github.com/bindable-ui/bindable/issues" target="_blank">Github page</a>. You can also chat with us on the Slack channel #bindable.</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Propose a change or a new component/element</c-h2>
+                <c-p size="large" spacing-bottom="sbLarge">Sometimes deciding if a new component should be created or if a modification should be made to an existing component can be hard. Use the chart below to help figure it out. Once you decide what you need to accomplish your goals hit us up on the Slack channel #bindable to discuss.</c-p>
+                <l-stack spacing="var(--s3)">
+                    <l-center>
+                        <img class="chart" src="resources/img/bindable-change-chart.png" alt="How to decide what to change in Bindable.">
+                    </l-center>
+                </l-stack>
+
+            </l-stack>
+        </div>
+        </l-stack>
+    </l-box>
+</template>

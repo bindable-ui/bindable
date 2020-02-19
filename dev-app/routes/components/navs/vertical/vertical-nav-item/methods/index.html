@@ -1,0 +1,30 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Methods</c-h2>
+                <c-notification type="info">NOTE: This component is used inside the &lt;c-nav-vertical&gt; component.</c-notification>
+                <c-table cols.bind="verticalItemCols" rows.bind="verticalItemMethods"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>click-action / icon-action</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical>
+                        <c-nav-vertical-item state="active" title="Nav Link 1" href="http://google.com" click-action.call="fireClickFunction()"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 2" href="http://google.com" icon="cog" icon-action.call="fireIconFunction()"></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

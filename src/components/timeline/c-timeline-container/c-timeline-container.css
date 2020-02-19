@@ -1,0 +1,119 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  HALF HOUR SIZE
+ *  CURRENT TIME
+ *  LOADING SPINNERS
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.container{
+    z-index: var(--z_timelineContainer);
+    overflow-y: auto;
+}
+
+.timeline{
+    overflow-y: hidden;
+}
+
+.wrapper{
+    position: relative;
+}
+
+@media screen and (max-width: 780px){
+    .timeline{
+        margin-bottom: 0;
+    }
+}
+
+
+/* Safari only hack */
+/* Without this the timeline scroll bar
+ * stays at the top forcing more past time
+ * blocks to be added over and over.
+ * Crashes stuff that does. */
+
+/* This has been taken out since we are no longer Polling on the timeline */
+/* _::-webkit-full-page-media, */
+/* _:future, */
+/* :root .timeline{ */
+/*     height: calc(54vh - 44px); */
+/*     background-color: var(--c_slate); */
+/* } */
+/*  */
+/* @media screen and (max-width: 960px){ */
+/*     .timeline{ */
+/*         overflow-y: visible; */
+/*     } */
+/* } */
+/*  */
+/* @media screen and (max-width: 500px){ */
+/*     .timeline{ */
+/*         overflow-y: auto; */
+/*     } */
+/* } */
+
+
+
+
+
+/*------------------------------------*\
+    !HALF HOUR SIZE
+\*------------------------------------*/
+
+.medium > div > div > c-timeline-block{
+    display: block;
+    height: 50px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !CURRENT TIME
+\*------------------------------------*/
+
+.current-time{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--c_secondaryMain);
+    z-index: var(--z_currentTimeMarker);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LOADING SPINNERS
+\*------------------------------------*/
+
+.spinner{
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z_currentTimeMarker);
+}
+
+.spinner-loading-bottom{
+    bottom: 0;
+}

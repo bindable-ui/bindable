@@ -1,0 +1,30 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-nav-horizontal-item.css"></require>
+
+    <li class="${styles.navHorizontalItem}  ${styles[state]}  ${styles[position]}" hide.bind="state === 'hidden'">
+        <a if.bind="route" href.bind="generatedLink" click.trigger="toggleMobileNav()">
+            ${title}
+            <div class="${styles.icon}" if.bind="icon">
+                <c-icon icon="${icon}" color="${iconColor}"></c-icon>
+            </div>
+        </a>
+        <a if.bind="href" href="${href}">
+            ${title}
+            <div class="${styles.icon}" if.bind="icon">
+                <c-icon icon="${icon}" color="${iconColor}"></c-icon>
+            </div>
+        </a>
+        <a if.bind="action" click.trigger="actionFunction()">
+            ${title}
+            <div class="${styles.icon}" if.bind="icon">
+                <c-icon icon="${icon}" color="${iconColor}"></c-icon>
+            </div>
+        </a>
+        <slot></slot>
+    </li>
+</template>

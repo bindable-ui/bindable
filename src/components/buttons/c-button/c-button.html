@@ -1,0 +1,26 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-button.css"></require>
+
+    <button
+        disabled.bind="_state === 'thinking' || _state === 'disabled'"
+        hide.bind="title || _state === 'hidden'"
+        class="${styles.button}  ${styles[color]}  ${styles[size]}  ${styles[_state]}  ${icon ? styles.icon : ''}  ${styles[iconPosition]}"
+        click.trigger="actionFunction()"
+        type="${type}"
+    >
+        <c-icon if.bind="showLeftIcon()" icon="${icon}"></c-icon>
+        <slot></slot>
+        <c-icon if.bind="showRightOrCenterIcon()" icon="${icon}"></c-icon>
+    </button>
+
+    <a href.bind="href" if.bind="title && _state !== 'hidden'" target="${targetNew ? '_blank' : '_self'}" class="${styles.button}  ${styles[color]}  ${styles[size]}  ${styles[_state]}  ${icon ? styles.icon : ''}  ${styles[iconPosition]}">
+        <c-icon if.bind="showLeftIcon()" icon="${icon}"></c-icon>
+        ${title}
+        <c-icon if.bind="showRightOrCenterIcon()" icon="${icon}"></c-icon>
+    </a>
+</template>

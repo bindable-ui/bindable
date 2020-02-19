@@ -1,0 +1,216 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Cover</c-h1>
+                    <div>
+                        <l-stack spacing="var(--s-1)">
+                            <c-notification type="info">NOTE: You can have three items in &lt;l-cover&gt;. The first and last ones are optional. The middle one has to have ' data-value="cover" ' on it.</c-notification>
+                            <c-h2>Properties</c-h2>
+                        </l-stack>
+                    </div>
+                    <c-table cols.bind="coverCols" rows.bind="coverProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>Default</c-h3>
+                    <c-code-sample>
+                        <l-sidebar side-width="28ch">
+                            <l-box>
+                                <l-stack>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box>
+                                <l-cover>
+                                    <div>I am at the top</div>
+                                    <div data-value="cover">
+                                        Cover content goes here
+                                    </div>
+                                    <div>I am at the bottom</div>
+                                </l-cover>
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>center</c-h3>
+                    <c-code-sample>
+                        <l-sidebar side-width="28ch">
+                            <l-box>
+                                <l-stack>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box>
+                                <l-cover center.bind="true">
+                                    <div>I am at the top</div>
+                                    <div data-value="cover">
+                                        I am in the center<br>
+                                        I am in the center<br>
+                                        I am in the center<br>
+                                    </div>
+                                    <div>I am at the bottom</div>
+                                </l-cover>
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>padding</c-h3>
+                    <c-code-sample>
+                        <l-sidebar side-width="28ch">
+                            <l-box>
+                                <l-stack>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box>
+                                <l-cover padding-top="var(--s3)" padding-bottom="var(--s3)">
+                                    <div>I am at the top</div>
+                                    <div data-value="cover">
+                                        I am in the center<br>
+                                        I am in the center<br>
+                                        I am in the center<br>
+                                    </div>
+                                    <div>I am at the bottom</div>
+                                </l-cover>
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>scroll</c-h3>
+                    <c-code-sample>
+                        <l-sidebar side-width="28ch">
+                            <l-box>
+                                <l-stack>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box>
+                                <l-cover scrolling.bind="true" spacing="medium">
+                                    <div>I am at the top</div>
+                                    <div data-value="cover" style="height: 300px; flex: 1 0 0px;">
+                                        Setting height on this container will happen from the surrounding layout option.
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                        <br>More Content
+                                    </div>
+                                    <div>I am at the bottom</div>
+                                </l-cover>
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>gutters</c-h3>
+                    <c-code-sample>
+                        <l-sidebar side-width="28ch">
+                            <l-box>
+                                <l-stack>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box>
+                                <l-cover top-gutter="var(--s4)">
+                                    <div>I am at the top</div>
+                                    <div data-value="cover">
+                                        Cover content goes here
+                                    </div>
+                                    <div>I am at the bottom</div>
+                                </l-cover>
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

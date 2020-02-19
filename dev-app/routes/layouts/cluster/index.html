@@ -1,0 +1,290 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Cluster</c-h1>
+                    <div>
+                        <l-stack spacing="var(--s-1)">
+                            <c-notification type="info">Note: An intermediary wrapper is required just inside the &lt;c-cluster&gt; component. This can be a &lt;div&gt;, &lt;ul&gt;, or other tag.</c-notification>
+                            <c-h2>Properties</c-h2>
+                        </l-stack>
+                    </div>
+                    <c-table cols.bind="clusterCols" rows.bind="clusterProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>Default</c-h3>
+                    <c-code-sample>
+                        <l-cluster>
+                            <div>
+                                <l-box>Tennis</l-box>
+                                <l-box>Pickleball</l-box>
+                                <l-box>Table Tennis</l-box>
+                                <l-box>Ping Pong</l-box>
+                                <l-box>Badmitton</l-box>
+                                <l-box>Volleyball</l-box>
+                            </div>
+                        </l-cluster>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>align</c-h3>
+                    <l-stack>
+                        <div>
+                            <c-h4>center</c-h4>
+                            <c-code-sample>
+                                <l-cluster>
+                                    <div>
+                                        <img src="https://placeimg.com/122/122/animals" alt="animals">
+                                        <l-box>I am aligned in the middle</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+                        <div>
+                        	<c-h4>flex-start</c-h4>
+                            <c-code-sample>
+                                <l-cluster align="flex-start">
+                                    <div>
+                                        <img src="https://placeimg.com/122/122/animals" alt="animals">
+                                        <l-box>I am aligned at the start</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+                        <div>
+                        	<c-h4>flex-end</c-h4>
+                            <c-code-sample>
+                                <l-cluster align="flex-end">
+                                    <div>
+                                        <img src="https://placeimg.com/122/122/animals" alt="animals">
+                                        <l-box>I am aligned at the end</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+                        <div>
+                        	<c-h4>stretch</c-h4>
+                            <c-code-sample>
+                                <l-cluster align="stretch">
+                                    <div>
+                                        <img src="https://placeimg.com/122/122/animals" alt="animals">
+                                        <l-box>I am stretched</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+
+                        <div>
+                        	<c-h4>baseline</c-h4>
+                            <c-code-sample>
+                                <l-cluster align="baseline">
+                                    <div>
+                                        <img src="https://placeimg.com/122/122/animals" alt="animals">
+                                        <l-box>I am aligned at the baseline</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+                    </l-stack>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>justify</c-h3>
+                    <l-stack>
+                        <div>
+                            <c-h4>center</c-h4>
+                            <c-code-sample>
+                                <l-cluster justify="center">
+                                    <div>
+                                        <l-box>We</l-box>
+                                        <l-box>Are</l-box>
+                                        <l-box>Centered</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+
+                        <div>
+                            <c-h4>flex-start</c-h4>
+                            <c-code-sample>
+                                <l-cluster justify="flex-start">
+                                    <div>
+                                        <l-box>We</l-box>
+                                        <l-box>Are</l-box>
+                                        <l-box>Start</l-box>
+                                        <l-box>Justified</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+
+                        <div>
+                            <c-h4>flex-end</c-h4>
+                            <c-code-sample>
+                                <l-cluster justify="flex-end">
+                                    <div>
+                                        <l-box>We</l-box>
+                                        <l-box>Are</l-box>
+                                        <l-box>End</l-box>
+                                        <l-box>Justified</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+
+                        <div>
+                            <c-h4>space-between</c-h4>
+                            <c-code-sample>
+                                <l-cluster justify="space-between">
+                                    <div>
+                                        <l-box>We</l-box>
+                                        <l-box>Are</l-box>
+                                        <l-box>Between</l-box>
+                                        <l-box>Justified</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+
+                        <div>
+                            <c-h4>space-around</c-h4>
+                            <c-code-sample>
+                                <l-cluster justify="space-around">
+                                    <div>
+                                        <l-box>We</l-box>
+                                        <l-box>Are</l-box>
+                                        <l-box>Around</l-box>
+                                        <l-box>Justified</l-box>
+                                    </div>
+                                </l-cluster>
+                            </c-code-sample>
+                        </div>
+                    </l-stack>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>spacing</c-h3>
+                    <c-code-sample>
+                        <l-cluster spacing="var(--s3)">
+                            <div>
+                                <l-box>Tennis</l-box>
+                                <l-box>Pickleball</l-box>
+                                <l-box>Table Tennis</l-box>
+                                <l-box>Ping Pong</l-box>
+                                <l-box>Badmitton</l-box>
+                                <l-box>Volleyball</l-box>
+                            </div>
+                        </l-cluster>
+
+                        <l-cluster spacing="0px">
+                            <div>
+                                <l-box>Tennis</l-box>
+                                <l-box>Pickleball</l-box>
+                                <l-box>Table Tennis</l-box>
+                                <l-box>Ping Pong</l-box>
+                                <l-box>Badmitton</l-box>
+                                <l-box>Volleyball</l-box>
+                            </div>
+                        </l-cluster>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>spacing-direction</c-h3>
+                    <c-code-sample>
+                        <l-cluster spacing-direction="right">
+                            <div>
+                                <l-box>Tennis</l-box>
+                                <l-box>Pickleball</l-box>
+                            </div>
+                        </l-cluster>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>truncated-content</c-h3>
+                    <c-code-sample>
+                        <l-cluster
+                            spacing="var(--s-3)"
+                            spacing-direction="right"
+                            truncated-content.bind="true"
+                        >
+                            <div>
+                                <c-icon
+                                    icon="chevron-left"
+                                    size="medium"
+                                    spacing-right="srSmall"
+                                ></c-icon>
+                                <c-h1 truncate.bind="true">
+                                    A really long title here that will truncate when it hits the end of the window and all that
+                                </c-h1>
+                            </div>
+                        </l-cluster>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>wrap</c-h3>
+                    <c-code-sample>
+                        <l-cluster wrap.bind="false">
+                            <div>
+                                <l-box>Tennis</l-box>
+                                <l-box>Pickleball</l-box>
+                                <l-box>Table Tennis</l-box>
+                                <l-box>Ping Pong</l-box>
+                                <l-box>Badmitton</l-box>
+                                <l-box>Volleyball</l-box>
+                                <l-box>Tennis</l-box>
+                                <l-box>Pickleball</l-box>
+                                <l-box>Table Tennis</l-box>
+                                <l-box>Ping Pong</l-box>
+                                <l-box>Badmitton</l-box>
+                                <l-box>Volleyball</l-box>
+                            </div>
+                        </l-cluster>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

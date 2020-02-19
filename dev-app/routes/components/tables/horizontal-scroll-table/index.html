@@ -1,0 +1,44 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <c-code>&lt;c-table-fixed-header cols.bind="testCols"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;c-table actions.bind="tableActions" cols.bind="testCols" rows.bind="testData" hover.bind="true" sortable="true"&gt;&lt;/c-table&gt;
+&lt;/c-table-fixed-header&gt;</c-code>
+    <c-code>export class NestedCoverTableHorizontalScrolling {
+    public testCols = [
+        {
+            colClass: 't270',
+            colHeadName: 'name',
+            colHeadValue: 'Name',
+            colWidth: 270,
+            sort: true,
+        },
+        {
+            colHeadName: 'ship',
+            colHeadValue: 'Ship',
+            colWidth: 1700,
+            sort: true,
+        },
+        {
+            colClass: 't50',
+            colHeadName: 'gender',
+            colHeadValue: 'Gender',
+            colWidth: 50,
+        },
+    ];
+
+    public testData = [
+        {
+            _status: 'healthy',
+            name: 'Luke Skywalker',
+            gender: 'Male',
+            ship: 'X-Wing',
+        },
+        ...
+    ]
+}</c-code>
+    <c-button title="View Example" target-new.bind="true" href="#/layout-examples/nested-cover-table-horizontal-scrolling"></c-button>
+</template>

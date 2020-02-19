@@ -1,0 +1,26 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Actions</c-h2>
+                <c-table cols.bind="fixedHeaderTableCols" rows.bind="fixedHeaderTableProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Example</c-h3>
+    <c-code>&lt;c-table-fixed-header&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;c-table actions.bind="tableActions" cols.bind="testCols" rows.bind="testData" hover.bind="true" sortable="true"&gt;&lt;/c-table&gt;
+&lt;/c-table-fixed-header&gt;</c-code>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

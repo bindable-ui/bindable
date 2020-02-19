@@ -1,0 +1,18 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-sidebar side-width="19rem" content-min="40rem" spacing="0px" scrolling.bind="true">
+        <c-nav-vertical>
+            <c-nav-vertical-item
+                repeat.for="row of router.navigation"
+                title.bind="row.title"
+                href.bind="row.href"
+                state="${row.isActive ? 'active' : ''}">
+            </c-nav-vertical-item>
+        </c-nav-vertical>
+        <router-view></router-view>
+    </l-sidebar>
+</template>

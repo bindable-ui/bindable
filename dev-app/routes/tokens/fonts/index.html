@@ -1,0 +1,212 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .font-swatches{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .font-swatch{
+            margin-right: 10px;
+            margin-bottom: 10px;
+            width: 155px;
+            background: var(--c_darkGray);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .font-swatch-full{
+            width: 100%;
+            margin-bottom: 30px;
+            background: var(--c_darkGray);
+        }
+
+        .font-swatch-sample{
+            display: block;
+            width: 100%;
+            margin-top: 35px;
+            margin-bottom: 35px;
+            text-align: center;
+            font-size: var(--s5);
+        }
+
+        .font-swatch-full .font-swatch-sample{
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: var(--s3);
+            text-align: left;
+            padding: 30px;
+        }
+
+        .font-swatch-sample-small{
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: var(--s-1);
+            color: var(--c_smoke);
+            margin-bottom: 15px;
+        }
+
+        .font-swatch-name{
+            width: 100%;
+            padding: 5px 0;
+            background-color: var(--c_ash);
+            font-size: var(--s-1);
+            text-align: center;
+        }
+
+        .ff-hgd55{
+            font-family: var(--ff_primary-normal);
+        }
+
+        .ff-hgd56{
+            font-family: var(--ff_primary-normal-italic);
+        }
+
+        .ff-hgd65{
+            font-family: var(--ff_primary-bold);
+        }
+
+        .ff-hgd66{
+            font-family: var(--ff_primary-bold-italic);
+        }
+
+        .ff-hn-57-cond{
+            font-family: var(--ff_secondary-normal);
+        }
+
+        .ff-hn-57-cond-it{
+            font-family: var(--ff_secondary-normal-italic);
+        }
+
+        .ff-hn-67-cond{
+            font-family: var(--ff_secondary-bold);
+        }
+
+        .ff-hn-67-cond-it{
+            font-family: var(--ff_secondary-bold-italic);
+        }
+
+        .ff-mono{
+            font-family: var(--ff_mono);
+        }
+    </style>
+
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Fonts</c-h1>
+                    <c-p size="large" spacing-bottom="sbMedium">Fonts in Bindable are controlled with CSS variables. Below are the names of the variables used.</c-p>
+                </l-stack>
+            </div>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Primary Font</c-h2>
+                    <c-notification type="info">The Bindable docs use Haas Grotesk Display as the primary font. That font does not come included with Bindable. You will need to run @font-face on your own and set these variables to your chosen font.</c-notification>
+                    <div class="font-swatches">
+                        <div class="font-swatch-full">
+                            <div class="font-swatch-sample  ff-hgd55">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</div>
+                        </div>
+                    </div>
+
+                    <c-h3>Weights &amp; Styles</c-h3>
+                    <div class="font-swatches">
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample  ff-hgd55">Aa</div>
+                            <div class="font-swatch-sample-small">Regular</div>
+                            <div class="font-swatch-name">ff_primary-normal</div>
+                        </div>
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample  ff-hgd56">Aa</div>
+                            <div class="font-swatch-sample-small">Italic</div>
+                            <div class="font-swatch-name">ff_primary-normal-italic</div>
+                        </div>
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample ff-hgd65">Aa</div>
+                            <div class="font-swatch-sample-small">Bold</div>
+                            <div class="font-swatch-name">ff_primary-bold</div>
+                        </div>
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample ff-hgd66">Aa</div>
+                            <div class="font-swatch-sample-small">Bold Italic</div>
+                            <div class="font-swatch-name">ff_primary-bold-italic</div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Secondary Font</c-h2>
+                    <c-notification type="info">The Bindable docs use Helvetica Neue Cond as the secondary font. That font does not come included with Bindable. You will need to run @font-face on your own and set these variables to your chosen font.</c-notification>
+                    <div class="font-swatches">
+                        <div class="font-swatch-full">
+                            <div class="font-swatch-sample  ff-hn-57-cond">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</div>
+                        </div>
+                    </div>
+
+                    <c-h3>Weights &amp; Styles</c-h3>
+                    <div class="font-swatches">
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample  ff-hn-57-cond">Aa</div>
+                            <div class="font-swatch-sample-small">Regular</div>
+                            <div class="font-swatch-name">ff_secondary-normal</div>
+                        </div>
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample  ff-hn-57-cond-it">Aa</div>
+                            <div class="font-swatch-sample-small">Italic</div>
+                            <div class="font-swatch-name">ff_secondary-normal-italic</div>
+                        </div>
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample  ff-hn-67-cond">Aa</div>
+                            <div class="font-swatch-sample-small">Bold</div>
+                            <div class="font-swatch-name">ff_secondary-bold</div>
+                        </div>
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample  ff-hn-67-cond-it">Aa</div>
+                            <div class="font-swatch-sample-small">Bold Italic</div>
+                            <div class="font-swatch-name">ff_secondary-bold-italic</div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Monospaced</c-h2>
+                    <c-notification type="info">Consolas is the default monospaced font.</c-notification>
+                    <div class="font-swatches">
+                        <div class="font-swatch-full">
+                            <div class="font-swatch-sample  ff-mono">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</div>
+                        </div>
+                    </div>
+
+                    <c-h3>Weights &amp; Styles</c-h3>
+                    <div class="font-swatches">
+                        <div class="font-swatch">
+                            <div class="font-swatch-sample  ff-mono">Aa</div>
+                            <div class="font-swatch-sample-small">Regular</div>
+                            <div class="font-swatch-name">ff_mono</div>
+                        </div>
+                    </div>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

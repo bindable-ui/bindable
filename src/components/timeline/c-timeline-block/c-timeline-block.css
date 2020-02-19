@@ -1,0 +1,33 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.time-block{
+    position: relative;
+    height: 100%;
+    padding-left: 6px;
+    border-bottom: solid 1px #444;
+}
+
+.time{
+    color: var(--c_smoke);
+    font-size: 12px;
+    z-index: var(--z_base);
+}

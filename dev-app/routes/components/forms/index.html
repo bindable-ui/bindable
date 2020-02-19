@@ -1,0 +1,29 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-cover
+        scrolling.bind="true"
+        padding-top="var(--s3)"
+        padding-left="var(--s3)"
+        padding-right="var(--s3)"
+        top-gutter="var(--s2)"
+    >
+        <l-stack spacing="var(--s-3)">
+            <c-h1>Forms</c-h1>
+            <l-box padding-sides="var(--s2)" padding-ends="0px">
+                <c-nav-horizontal size="small" spacing="var(--s2)">
+                    <c-nav-horizontal-item
+                        repeat.for="row of router.navigation"
+                        title.bind="row.title"
+                        href.bind="row.href"
+                        state="${row.isActive ? 'active' : ''}">
+                    </c-nav-horizontal-item>
+                </c-nav-horizontal>
+            </l-box>
+        </l-stack>
+        <router-view data-value="cover"></router-view>
+    </l-cover>
+</template>

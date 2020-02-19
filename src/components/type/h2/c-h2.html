@@ -1,0 +1,12 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-h2.css"></require>
+
+    <span class="${truncate ? styles.truncate : ''}">
+        <h2 class="${styles.base}"><slot></slot></h2>
+    </span>
+</template>

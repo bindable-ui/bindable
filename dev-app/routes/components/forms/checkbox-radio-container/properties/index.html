@@ -1,0 +1,88 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind='formCheckboxRadioContainerCols' rows.bind='formCheckboxRadioContainerProperties'></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>error-msg / warning-msg / state</c-h3>
+                <c-code-sample>
+                    <l-grid>
+                        <c-form-checkbox-radio-container label="Checkbox Group Label Error" error-msg="This is an error" state="error">
+                            <c-form-radio name="stacked" id="another">Another</c-form-radio>
+                            <c-form-radio name="stacked" id="last">Last</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                        <c-form-checkbox-radio-container label="Checkbox Group Label Warning" warning-msg="This is a warning" state="warning">
+                            <c-form-radio name="stacked" id="another_warning">Another</c-form-radio>
+                            <c-form-radio name="stacked" id="last_warning">Last</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                        <c-form-checkbox-radio-container label="Checkbox Group Label Disabled">
+                            <c-form-radio name="stacked_disabled" id="another_disabled" state="disabled">Another Disabled</c-form-radio>
+                            <c-form-radio name="stacked_disabled" id="last_disabled" state="disabled">Last Disabled</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                        <c-form-checkbox-radio-container label="Checkbox Group Label Hidden" state="hidden">
+                            <c-form-radio name="stacked_hidden" id="another_hidden">Will not show</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                        <c-form-checkbox-radio-container label="Checkbox Group Label Hidden" state="disabled">
+                            <c-form-radio name="stacked_hidden" id="another_hidden">Will not show</c-form-radio>
+                            <c-form-radio name="stacked_hidden" id="another_hidden">Will not show</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>label</c-h3>
+                <c-code-sample>
+                    <l-grid>
+                        <l-stack>
+                            <c-form-checkbox-radio-container label="Checkbox Group">
+                                <c-form-checkbox id="first" checked-value.bind="vCheckbox1Output">First</c-form-checkbox>
+                                <c-form-checkbox id="second" checked-value.bind="vCheckbox2Output">Second</c-form-checkbox>
+                            </c-form-checkbox-radio-container>
+                            <div>
+                                <c-p>Checkbox 1: ${vCheckbox1Output}</c-p>
+                                <c-p>Checkbox 2: ${vCheckbox2Output}</c-p>
+                            </div>
+                        </l-stack>
+                        <c-form-checkbox-radio-container>
+                            <c-form-checkbox id="first2">First</c-form-checkbox>
+                            <c-form-checkbox id="second2">Second</c-form-checkbox>
+                        </c-form-checkbox-radio-container>
+                    </l-grid>
+                    <div>
+                    </div>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>layout / name</c-h3>
+                <c-code-sample>
+                    <c-form-checkbox-radio-container label="Radio Group Label" name="radios" layout="inline">
+                        <c-form-radio id="firstRadio">First Radio</c-form-radio>
+                        <c-form-radio id="secondRadio">Second Radio</c-form-radio>
+                    </c-form-checkbox-radio-container>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

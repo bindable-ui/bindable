@@ -1,0 +1,51 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-notification type="info">NOTE: c-nav-horizonontal uses l-cluster. The properties of l-cluster can be used here.</c-notification>
+                <c-table cols.bind="horizontalCols" rows.bind="horizontalProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>mobile</c-h3>
+<c-code>&lt;c-nav-horizontal&nbsp;mobile.bind=<span class="String">"true"</span>&gt;
+    &lt;c-nav-horizontal-item&nbsp;title=<span class="String">"Nav&nbsp;Link&nbsp;1"</span>&nbsp;href=<span class="String">"http://google.com"</span>&gt;&lt;/c-nav-horizontal-item&gt;
+    &lt;c-nav-horizontal-item&nbsp;title=<span class="String">"Nav&nbsp;Link&nbsp;2"</span>&nbsp;href=<span class="String">"http://google.com"</span>&gt;&lt;/c-nav-horizontal-item&gt;
+&lt;/c-nav-horizontal&gt;</c-code>
+<c-p>For example shrink your window to see the mobile nav.</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>size</c-h3>
+                <c-code-sample>
+                    <c-nav-horizontal>
+                        <c-nav-horizontal-item title="Nav Link 1" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item title="Nav Link 2" href="http://google.com"></c-nav-horizontal-item>
+                    </c-nav-horizontal>
+                    <c-nav-horizontal size="small">
+                        <c-nav-horizontal-item title="Nav Link 1" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item title="Nav Link 2" href="http://google.com"></c-nav-horizontal-item>
+                    </c-nav-horizontal>
+                    <c-nav-horizontal size="tiny">
+                        <c-nav-horizontal-item title="Nav Link 1" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item title="Nav Link 2" href="http://google.com"></c-nav-horizontal-item>
+                    </c-nav-horizontal>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

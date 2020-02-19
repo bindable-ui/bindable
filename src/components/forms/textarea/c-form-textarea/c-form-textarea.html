@@ -1,0 +1,27 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-form-textarea.css"></require>
+
+    <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
+        <c-label state="${_state}">
+            ${label}
+        </c-label>
+        <slot name="tip"></slot>
+    </div>
+    <c-textarea-input
+        if.bind="_state !== 'disabled' && _state !== 'hidden'"
+        placeholder.bind="placeholder"
+        class="${styles[state]}  ${styles.textarea}"
+        state.bind="_state"
+        textarea-value.bind="textareaValue"
+    ></c-textarea-input>
+    <c-disabled if.bind="_state === 'disabled'">
+        ${textareaValue || 'None'}
+    </c-disabled>
+    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
+    <c-form-warning state="${_state}" if.bind="_state !== 'hidden' && warningMsg">${warningMsg}</c-form-warning>
+</template>

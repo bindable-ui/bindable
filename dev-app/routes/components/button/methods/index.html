@@ -1,0 +1,27 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Methods</c-h2>
+                <c-table cols.bind="buttonCols" rows.bind="buttonMethods"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>action</c-h3>
+                <c-code-sample>
+                    <c-button action.call="testFunction()">Click Me</c-button>
+                    <c-button action.call="testFunction()" state="disabled">Click Will Not Work</c-button>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

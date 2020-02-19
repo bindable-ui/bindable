@@ -1,0 +1,68 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="timelineCols" rows.bind="timelineProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>ITimeEntryBasic</c-h2>
+                <c-table cols.bind="timelineEntriesCols" rows.bind="timelineEntriesRows"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Example</c-h3>
+<c-code>&lt;c-timeline
+    start-time="8"
+    entries.bind="entries"
+    time-view="day"
+    days="7"
+    date.bind="today"
+    snap-add.bind="true"
+&gt;
+&lt;/c-timeline&gt;</c-code>
+    <c-code>public entries = [
+    {
+        background: 'var(--c_subOneDark)',
+        color: 'var(--c_white)',
+        duration: 5500,
+        start: moment(this.today).add(8, 'hours').toISOString(),
+        title: 'Overlap 1',
+    },
+    {
+        duration: 1700,
+        start: moment(this.today).add(12, 'hours').toISOString(),
+    },
+    {
+        duration: 2200,
+        start: moment(this.today).add(15, 'hours').toISOString(),
+        title: 'Click me',
+    },
+    {
+        duration: 2500,
+        icons: ['time', 'rules'],
+        sizeDay: 'small',
+        sizeWeek: 'expandable',
+        start: moment(this.today).add(10, 'hours').add(15, 'minutes').toISOString(),
+        title: 'Small/Expandable Entry',
+    },
+];</c-code>
+                <c-button href="#/components/timeline/demo" title="View Example"></c-button>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

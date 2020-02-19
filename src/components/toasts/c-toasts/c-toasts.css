@@ -1,0 +1,118 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  TITLE BAR
+ *  MESSAGE
+ *  TYPE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.wrapper{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 260px;
+    z-index: var(--z_toasts);
+}
+
+@media screen and (max-width: 780px){
+    .wrapper{
+        width: calc(100% - 40px);
+    }
+}
+
+.toaster{
+    margin-bottom: var(--s2);
+    border: solid 1px var(--c_charcoal);
+    background-color: var(--c_charcoal);
+    overflow: hidden;
+    transition: all var(--trans_main);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TITLE BAR
+\*------------------------------------*/
+
+.title-bar{
+    display: flex;
+    align-content: center;
+}
+
+.title{
+    align-self: center;
+    margin-left: var(--s-1);
+}
+
+.title h4{
+    margin-bottom: 0;
+}
+
+.close{
+    align-self: center;
+    margin-right: var(--s-1);
+    margin-left: auto;
+}
+
+.icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--s3);
+    height: var(--s3);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !MESSAGE
+\*------------------------------------*/
+
+.message{
+    padding: var(--s0) var(--s-1) var(--s-1);
+    color: var(--c_charcoal);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TYPE
+\*------------------------------------*/
+
+.info .icon-container{
+    background: var(--c_subOneMain);
+}
+
+.success .icon-container{
+    background: var(--c_secondaryMain);
+}
+
+.warning .icon-container{
+    background: var(--c_subTwoMain);
+}
+
+.error .icon-container{
+    background: var(--c_primaryLight);
+}

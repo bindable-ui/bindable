@@ -1,0 +1,79 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Methods</c-h2>
+                <c-table cols.bind="labelBoxCols" rows.bind="labelBoxMethods"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>editing-action &amp; done-editing-action</c-h3>
+                <c-code>public editing = false;
+
+public pills = [
+    {
+        text: 'Live Events',
+    },
+    {
+        text: 'Movies',
+    },
+    {
+        text: 'Cartoons',
+    },
+    {
+        text: 'Sports',
+    },
+    {
+        text: 'Slates',
+    },
+];
+
+public edit() {
+    this.editing = true;
+}
+
+public done() {
+    this.editing = false;
+}
+
+public iconClick() {
+    window.alert('Clicked');
+}</c-code>
+<c-code>&lt;c-label-box
+    label="Libraries"
+    editable.bind="true"
+    editing-action.call="edit()"
+    done-editing-action.call="done()"
+&gt;
+    &lt;c-pill
+        repeat.for="pill of pills"
+        color="neutral"
+        icon="\${editing ? 'x' : ''}"
+        icon-action.call="iconClick()"
+    &gt;
+        &lt;span slot="pill-content"&gt;
+            ${pill.text}
+        &lt;/span&gt;
+    &lt;/c-pill&gt;
+/&lt;c-label-box&gt;</c-code>
+            <c-label-box
+                label="Libraries" editable.bind="true" editing-action.call="edit()" done-editing-action.call="done()">
+                <c-pill repeat.for="pill of pills" color="neutral" icon="${editing ? 'x' : ''}" icon-action.call="iconClick()">
+                    <span slot="pill-content">
+                        ${pill.text}
+                    </span>
+                </c-pill>
+            </c-label-box>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

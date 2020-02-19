@@ -1,0 +1,85 @@
+<!--
+
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Overview</c-h1>
+                    <c-h2>What are access modifiers</c-h2>
+                    <c-p size="large" max-width="65rem">
+                        Access Modifiers are used to show, hide, or disable components/elements based on user permission or application state. This can be done in two ways.
+                    </c-p>
+                    <div>
+                    	<l-stack spacing="var(--s2)">
+                            <c-table cols.bind="accessModifiersCols" rows.bind="accessModifiersProperties"></c-table>
+                            <div>
+                                <c-h4>Source code for authState decorator can be found at:</c-h4>
+                                <c-code>src/decorators/auth-state.ts</c-code>
+                            </div>
+                        </l-stack>
+                    </div>
+
+                    <c-notification type="info">
+                        The state property is only considered if authState is 'enabled'. For 'disabled' or 'hidden' authState, state is ignored. These properties can either be manually added as class properties (only state should be bindable) or can be added automatically by using @authState decorator in the component class.
+                    </c-notification>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+
+
+    <c-h2>Demo</c-h2>
+<c-code>&lt;c-form-checkbox-radio-container label="Select authState value (Sets authStateVal)"&gt;
+    &lt;c-form-radio name="authState" id="enabled" checked.bind="authStateVal"&gt;enabled&lt;/c-form-radio&gt;
+    &lt;c-form-radio name="authState" id="disabled" checked.bind="authStateVal"&gt;disabled&lt;/c-form-radio&gt;
+    &lt;c-form-radio name="authState" id="hidden" checked.bind="authStateVal"&gt;hidden&lt;/c-form-radio&gt;
+&lt;/c-form-checkbox-radio-container&gt;
+
+&lt;c-form-checkbox-radio-container label="Select state value (Sets stateVal)"&gt;
+    &lt;c-form-radio name="state" id="enabled" checked.bind="stateVal">enabled&lt;/c-form-radio&gt;
+    &lt;c-form-radio name="state" id="disabled" checked.bind="stateVal">disabled&lt;/c-form-radio&gt;
+    &lt;c-form-radio name="state" id="hidden" checked.bind="stateVal">hidden&lt;/c-form-radio&gt;
+    &lt;c-form-radio name="state" id="thinking" checked.bind="stateVal">thinking&lt;/c-form-radio&gt;
+&lt;/c-form-checkbox-radio-container&gt;
+
+&lt;c-button <b>state.bind="stateVal" view-model.ref="buttonRef"</b>&gt;My Restricted Button&lt;/c-button&gt;</c-code>
+    <c-h3>In View Model</c-h3>
+<c-code>public authStateValChanged() {
+    if (this.buttonRef) {
+        this.buttonRef.authState = this.authStateVal;
+    }
+}</c-code>
+
+<l-cluster align="flex-start">
+    <div>
+    <c-form-checkbox-radio-container label="Select authState value (Sets authStateVal)">
+        <c-form-radio name="authState" id="enabled" checked.bind="authStateVal">enabled</c-form-radio>
+        <c-form-radio name="authState" id="disabled" checked.bind="authStateVal">disabled</c-form-radio>
+        <c-form-radio name="authState" id="hidden" checked.bind="authStateVal">hidden</c-form-radio>
+    </c-form-checkbox-radio-container>
+    <c-form-checkbox-radio-container label="Select state value (Sets stateVal)">
+        <c-form-radio name="state" id="state-enabled" checked.bind="stateVal">enabled</c-form-radio>
+        <c-form-radio name="state" id="state-disabled" checked.bind="stateVal">disabled</c-form-radio>
+        <c-form-radio name="state" id="state-hidden" checked.bind="stateVal">hidden</c-form-radio>
+        <c-form-radio name="state" id="state-thinking" checked.bind="stateVal">thinking</c-form-radio>
+    </c-form-checkbox-radio-container>
+    <c-button state="${stateVal.replace('state-', '')}" view-model.ref="buttonRef">My Restricted Button</c-button>
+    </div>
+</l-cluster>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

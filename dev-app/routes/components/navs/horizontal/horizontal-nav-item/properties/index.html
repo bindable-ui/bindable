@@ -1,0 +1,207 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-notification type="info">NOTE: This component is used inside the &lt;c-nav-horizontal&gt; component.</c-notification>
+                <c-table cols.bind="horizontalItemCols" rows.bind="horizontalItemProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>href</c-h3>
+                <c-code-sample>
+                    <c-nav-horizontal size="small">
+                        <c-nav-horizontal-item title="Nav Link 1" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item title="Nav Link 2" href="http://google.com"></c-nav-horizontal-item>
+                    </c-nav-horizontal>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>icon &amp; icon-color</c-h3>
+                <c-code-sample>
+                    <c-nav-horizontal size="small">
+                        <c-nav-horizontal-item title="Nav Link 1" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item icon="warning" title="Nav Link 2" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item icon="checkmark" icon-color="secondary" title="Nav Link 3" href="http://google.com"></c-nav-horizontal-item>
+                    </c-nav-horizontal>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>position</c-h3>
+                <c-code-sample>
+                    <c-nav-horizontal size="small">
+                        <c-nav-horizontal-item title="Nav Link 1" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item title="Nav Link 2" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item position="right" icon="arrow-tip-down" title="Nav Link 3" href="http://google.com"></c-nav-horizontal-item>
+                    </c-nav-horizontal>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>route</c-h3>
+<c-code>&lt;c-nav-horizontal mobile.bind=&quot;true&quot; wrap.bind=&quot;false&quot; id=&quot;js_MobileNav&quot;&gt;
+    &lt;c-nav-horizontal-item
+        repeat.for=&quot;link of router.navigation&quot;
+        title.bind=&quot;link.title&quot;
+        route.bind=&quot;link.relativeHref&quot;
+        state=&quot;\${link.isActive ? 'active' : ''}&quot;&gt;
+    &lt;/c-nav-horizontal-item&gt;
+    &lt;c-nav-horizontal-item position=&quot;right&quot;&gt;
+        &lt;user-menu&gt;&lt;/user-menu&gt;
+    &lt;/c-nav-horizontal-item&gt;
+&lt;/c-nav-horizontal&gt;</c-code>
+
+<c-code>import {PLATFORM} from 'aurelia-pal';
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+
+@inject(Router)
+export class App {
+    constructor(router, config) {
+        this.router = router;
+        this.config = config;
+
+        this.routes = [
+            {
+                route: '',
+                redirect: 'introduction',
+            }, {
+                route: 'introduction',
+                name: 'introduction',
+                moduleId: PLATFORM.moduleName('./routes/introduction/index'),
+                nav: true,
+                title: 'Introduction',
+            }, {
+                route: 'core',
+                name: 'core',
+                moduleId: PLATFORM.moduleName('./routes/core/index'),
+                nav: true,
+                title: 'Core',
+            }, {
+                route: 'components',
+                name: 'components',
+                moduleId: PLATFORM.moduleName('./routes/components/index'),
+                nav: true,
+                title: 'Components',
+            }, {
+                route: 'layoutSample',
+                name: 'layoutSample',
+                moduleId: PLATFORM.moduleName('./routes/layoutSample/index'),
+                nav: false,
+                title: 'Layout Sample',
+            },
+        ];
+    }
+
+    configureRouter(config, router) {
+        this.router = router;
+        config.map(this.routes);
+    }
+}</c-code>
+<c-p>NOTE: Use route instead of href when needing to use the mobile nav. This will enable the auto closing of the mobile nav. For an example see the main nav of this app. src/apps/design-system/app.js and app.html</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>state &amp; title</c-h3>
+                <c-code-sample>
+                    <c-nav-horizontal size="small">
+                        <c-nav-horizontal-item state="active" title="Nav Link 1" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item title="Nav Link 2" href="http://google.com"></c-nav-horizontal-item>
+                        <c-nav-horizontal-item state="hidden" title="Nav Link 3" href="http://google.com"></c-nav-horizontal-item>
+                    </c-nav-horizontal>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>with a router</c-h3>
+<c-code>&lt;c-nav-horizontal size=&quot;small&quot;&gt;
+    &lt;c-nav-horizontal-item
+        repeat.for=&quot;row of router.navigation&quot;
+        title.bind=&quot;row.title&quot;
+        href.bind=&quot;row.href&quot;
+        state=&quot;${row.isActive ? 'active' : ''}&quot;&gt;
+    &lt;/c-nav-horizontal-item&gt;
+&lt;/c-nav-horizontal&gt;
+</c-code>
+<c-code>import {PLATFORM} from 'aurelia-pal';
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+
+@inject(Router)
+export class Navs {
+    constructor(router) {
+        this.router = router;
+
+        this.routes = [
+            {
+                route: '',
+                name: 'horizontal',
+                moduleId: PLATFORM.moduleName('./horizontal/horizontal'),
+                nav: true,
+                title: 'Horizontal Nav',
+            },
+            {
+                route: 'horizontal-item',
+                name: 'horizontal-item',
+                moduleId: PLATFORM.moduleName('./horizontal/horizontal-item'),
+                nav: true,
+                title: 'Horizontal Nav Item',
+            },
+            {
+                route: 'vertical',
+                name: 'vertical',
+                moduleId: PLATFORM.moduleName('./vertical/vertical'),
+                nav: true,
+                title: 'Vertical Nav',
+            },
+            {
+                route: 'vertical-item',
+                name: 'vertical-item',
+                moduleId: PLATFORM.moduleName('./vertical/vertical-item'),
+                nav: true,
+                title: 'Vertical Nav Item',
+            },
+        ];
+    }
+
+    configureRouter(config, router) {
+        this.router = router;
+        config.map(this.routes);
+    }
+}</c-code>
+    <c-p>NOTE: Use route instead of href when needing to use the mobile nav. This will enable the auto closing of the mobile nav.</c-p>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

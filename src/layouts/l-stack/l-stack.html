@@ -1,0 +1,22 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./l-stack.css"></require>
+
+    <div
+        role.bind="list ? 'list' : '' & attr"
+        class="
+            ${styles.stack}
+            ${recursive ? styles.recursive : styles.notRecursive}
+            ${splitAfter ? styles[splitAfter] : ''}
+            ${list ? styles.list : ''}
+            ${list ? styles[list] : ''}
+        "
+        css="--stack-spacing: ${spacing};"
+    >
+        <slot></slot>
+    </div>
+</template>

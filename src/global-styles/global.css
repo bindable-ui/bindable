@@ -1,0 +1,93 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  DEFAULT FONT
+ *  SELECTED TEXT
+ *  SCROLLBARS
+ *  LINKS
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !DEFAULT FONT
+\*------------------------------------*/
+
+body{
+    font-family: var(--ff_primary-normal);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SELECTED TEXT
+\*------------------------------------*/
+
+::selection{
+    background-color: var(--c_primaryMain);
+    color: var(--c_white);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SCROLLBARS
+\*------------------------------------*/
+
+body{
+    scrollbar-color: var(--scrollbar_color) var(--scrollbar_track_color);
+    scrollbar-width: var(--scrollbar_width);
+}
+
+::-webkit-scrollbar{
+    width: 14px;
+    background-color: var(--scrollbar_track_color);
+}
+
+::-webkit-scrollbar-thumb{
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: var(--scrollbar_width);
+    background-color: var(--scrollbar_color);
+}
+
+select[multiple]::-webkit-scrollbar{
+    width: 12px !important;
+}
+
+select[multiple]::-webkit-scrollbar-thumb{
+    border-radius: var(--scrollbar_width) !important;
+    background-color: var(--scrollbar_color) !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LINKS
+\*------------------------------------*/
+
+a{
+    --a-color: var(--c_smoke);
+    --a-color-hover: var(--c_lightGray);
+    color: var(--a-color);
+    transition: color var(--trans_main);
+}
+
+a:hover{
+    color: var(--a-color-hover);
+}

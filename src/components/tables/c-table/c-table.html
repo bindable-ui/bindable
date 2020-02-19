@@ -1,0 +1,69 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-table.css"></require>
+
+    <table
+        if.bind="_state !== 'hidden'"
+        class="${styles.table}  ${striped ? styles.striped : ''}  ${hover ? styles.hover : ''}  ${noVerticalBorders ? styles.noVerticalBorders : ''}  ${responsive ? styles.responsive : ''}"
+    >
+        <colgroup>
+            <col
+                repeat.for="col of cols"
+                class="${styles[col.colClass]}"
+                if.bind="!col._hidden && !(col.colHeadSelectedChanged && _state==='disabled')"
+            >
+        </colgroup>
+        <thead>
+            <tr>
+                <th
+                    repeat.for="col of cols"
+                    class="${styles[col._class]}"
+                    click.delegate="columnClick(col)"
+                    if.bind="!col._hidden && !(col.colHeadSelectedChanged && _state==='disabled')"
+                >
+                    <div class.bind="col.sortClass">
+                        <span if.bind="!col.colHeadSelectedChanged">${col.colHeadValue}</span>
+                        <span if.bind="col.colHeadSelectedChanged">
+                            <input
+                                id="${id}"
+                                type="checkbox"
+                                class="${vCheckboxInputStyles.check}"
+                                checked.two-way="col.colHeadSelectedVal"
+                                change.delegate="col.colHeadSelectedChanged($event.target.checked)"
+                            >
+                        </span>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                repeat.for="row of rows"
+                class="${(row._class || actions.getRowClass) ? getClasses(getRowClass(row)) : ''}"
+                show.bind="!row._hidden"
+                id="${row.id || generateRandomId()}"
+                show.bind="row"
+                drag-dropzone.bind="rowDropzoneActions(row)"
+            >
+                <td
+                    as-element="c-td"
+                    repeat.for="col of cols"
+                    data-th="${col.colHeadValue}"
+                    class="${(col._class || actions.getColClass) ? getClasses(getColClass(row, col)) : ''}"
+                    col.bind="col"
+                    row.bind="row"
+                    get-col-value.call="getColValue(row, col)"
+                    show.bind="(row[col.colHeadName] !== undefined || !row._strictShow) && !col._hidden && !(col.colHeadSelectedChanged && _state==='disabled')"
+                    colspan="${row[col.colHeadName + 'Span'] || 1}"
+                    click.delegate="rowClick(row, col)"
+                >
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</template>

@@ -1,0 +1,22 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-p.css"></require>
+
+    <p
+        class="
+            ${styles.base}
+            ${styles[size]}
+            ${truncate ? styles.truncate : ''}
+        "
+        css="
+            --p-max-width: ${maxWidth};
+            --p-color: ${color};
+        "
+    >
+        <slot></slot>
+    </p>
+</template>

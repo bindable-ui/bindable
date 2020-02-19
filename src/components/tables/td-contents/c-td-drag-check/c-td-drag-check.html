@@ -1,0 +1,12 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <c-drag-handle
+        drag-options.bind="col.getDragOptions(row)"
+    >
+    </c-drag-handle>
+    <c-checkbox-input checked-value.bind="row[col.colHeadName]"></c-checkbox-input>
+</template>

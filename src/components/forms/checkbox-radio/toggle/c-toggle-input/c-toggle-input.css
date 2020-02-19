@@ -1,0 +1,178 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Bin
+ *      - Check
+ *      - Bar
+ *      - Nub
+ *  TD
+ *  STATE
+ *      - Disabled
+ */
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Bin
+*/
+
+.bin {
+    position: relative;
+    width: var(--s2);
+    height: var(--s0);
+    margin: calc(var(--s-5) - 3px) var(--s-2) calc(var(--s-5) - 3px) var(--s-5);
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
+/**
+ * ^Check
+*/
+
+.check {
+    opacity: 0 !important;
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    z-index: 4;
+}
+
+.check::before {
+    display: none !important;
+}
+
+.check:hover ~ .nub {
+    border-color: var(--c_white);
+}
+
+.check:checked ~ .nub {
+    border-color: var(--c_white);
+    background-color: var(--c_primaryMain);
+    transform: translateX(calc(var(--s-1) + 2px));
+}
+
+.check:hover ~ .nub::before {
+    opacity: 0.25;
+}
+
+.check:checked ~ .bar {
+    background-color: var(--c_primaryLight);
+}
+
+
+/**
+ * ^Bar
+*/
+
+.bar {
+    background-color: var(--c_charcoal);
+    border-radius: var(--s-5);
+    box-shadow: inset 0px 0px 2px var(--c_black);
+    position: absolute;
+    top: 2px;
+    height: var(--s-1);
+    width: var(--s3);
+    flex: none !important;
+    transition: all 0.1s ease-in-out;
+    z-index: 1;
+}
+
+
+/**
+ * ^Nub
+*/
+
+.nub {
+    flex: none !important;
+    width: var(--s0) !important;
+    height: var(--s0) !important;
+    position: absolute;
+    border: solid 1px var(--c_smoke);
+    border-radius: var(--s-3);
+    background: var(--c_slate);
+    transition: all 0.1s ease-in-out;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.nub::before {
+    width: calc(var(--s2) + 1px);
+    height: calc(var(--s2) + 1px);
+    border-radius: var(--s-1);
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: var(--c_gray);
+    left: -6px;
+    top: -6px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TD
+\*------------------------------------*/
+
+td .bin {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Disabled
+ */
+
+.disabled:hover,
+.disabled .check:hover {
+    cursor: not-allowed;
+}
+
+.disabled .nub {
+    background: var(--c_slate);
+}
+
+.disabled .nub,
+.disabled .check:hover ~ .nub,
+.disabled .check:checked ~ .nub {
+    border-color: var(--c_charcoal);
+}
+
+.disabled .check:checked ~ .nub {
+    background: var(--c_primaryDark);
+}
+
+.disabled .check:hover ~ .nub::before {
+    opacity: 0;
+}
+
+.disabled .check:checked ~ .bar {
+    opacity: 0.5;
+}

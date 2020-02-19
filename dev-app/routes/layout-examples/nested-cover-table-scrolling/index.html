@@ -1,0 +1,75 @@
+<!--
+    Copyright 2019, Verizon Media
+    Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-sidebar side-width="28ch" scrolling.bind="true">
+        <l-cover scrolling.bind="true">
+            <div>I'm at the top</div>
+            <div data-value="cover">
+                <l-stack spacing="var(--s0)">
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                    <div>Sidebar Item</div>
+                </l-stack>
+            </div>
+            <div>I'm at the bottom</div>
+        </l-cover>
+        <l-cover padding-top="var(--s3)" padding-right="var(--s3)" scrolling.bind="true">
+            <div>I am at the top</div>
+            <div data-value="cover">
+                <c-table-fixed-header>
+                    <c-table actions.bind="tableActions" cols.bind="testCols" rows.bind="testData" hover.bind="true" sortable="true"></c-table>
+                </c-table-fixed-header>
+            </div>
+            <div>I am at the bottom</div>
+        </l-cover>
+    </l-sidebar>
+</template>

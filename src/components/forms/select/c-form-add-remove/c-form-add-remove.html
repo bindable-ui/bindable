@@ -1,0 +1,76 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-form-add-remove.css"></require>
+
+    <div class="${styles.container}" hide.bind="_state === 'hidden'">
+        <c-form-select
+            options.two-way="listLeft"
+            label="${titleLeft}"
+            multiple.bind="true"
+            search.bind="true"
+            search-text.two-way="searchTextLeft"
+            select-value.bind="selectLeft"
+            simple.bind="simple"
+            is-loading.bind="isLoadingLeft"
+            is-loading-more.bind="isLoadingMoreLeft"
+            scroll-to-load.bind="scrollToLoadLeft"
+            actions.bind="actionsLeft"
+        >
+            <span slot="tip" show.bind="tipLeftContent">
+                <c-tip side="top" icon-tip.bind="true" arrow-position="leftEdge" size="medium">
+                    <div slot="trigger">
+                        <c-icon icon="question"></c-icon>
+                    </div>
+                    <div slot="content">
+                        <c-p color="var(--c_white)">${tipLeftContent}</c-p>
+                    </div>
+                </c-tip>
+            </span>
+        </c-form-select>
+        <l-stack spacing="var(--s-3)">
+            <c-button
+                size="small"
+                icon="chevron-right"
+                icon-position="center"
+                click.trigger="moveRight()"
+                state="${_state === 'disabled' ? 'hidden' : ''}"
+            >
+            </c-button>
+            <c-button
+                size="small"
+                icon="chevron-left"
+                icon-position="center"
+                click.trigger="moveLeft()"
+                state="${_state === 'disabled' ? 'hidden' : ''}"
+            >
+            </c-button>
+        </l-stack>
+        <c-form-select
+            options.two-way="listRight"
+            label="${titleRight}"
+            multiple.bind="true"
+            reorder.bind="reorder"
+            search.bind="true"
+            search-text.two-way="searchTextRight"
+            select-value.bind="selectRight"
+            simple.bind="simple"
+            is-loading.bind="isLoadingRight"
+            is-loading-more.bind="isLoadingMoreRight"
+            scroll-to-load.bind="scrollToLoadRight"
+            actions.bind="actionsRight"
+        >
+            <span slot="tip" show.bind="tipRightContent">
+                <c-tip side="top" icon-tip.bind="true" arrow-position="rightEdge" size="medium">
+                    <div slot="trigger"><c-icon icon="question"></c-icon></div>
+                    <div slot="content">
+                        <c-p color="var(--c_white)">${tipRightContent}</c-p>
+                    </div>
+                </c-tip>
+            </span>
+        </c-form-select>
+    </div>
+</template>

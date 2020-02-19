@@ -1,0 +1,38 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./l-sidebar.css"></require>
+    <style
+        if.bind="scrolling && contentMin && sideWidth !== 'initial'"
+        media="screen and (max-width: ${whenToStack ? whenToStack : stackWidth})"
+    >
+        #${id},
+        #${id} > div,
+        #${id} > div > *{
+            height: auto;
+            max-height: unset
+        }
+    </style>
+
+    <div
+        class="
+            ${scrolling ? styles.scrolling : ''}
+            ${styles.sidebar}
+            ${styles[side]}
+            ${styles[spacing]}
+        "
+        id.bind="id"
+        css="
+            --sidebar-content-min: ${contentMin};
+            --sidebar-side-width: ${sideWidth};
+            --sidebar-spacing: ${spacing};
+        "
+    >
+        <div>
+            <slot></slot>
+        </div>
+    </div>
+</template>

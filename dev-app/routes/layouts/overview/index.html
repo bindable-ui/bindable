@@ -1,0 +1,247 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .lsi-main{
+            height: 30px;
+            width: 100%;
+        }
+
+        .lsi-cluster{
+            height: 30px;
+        }
+
+        .lsi-cover{
+            height: 150px;
+        }
+
+        .lsi-box{
+            height: 200px;
+        }
+
+        .lsi-wrapper a{
+            text-decoration: none;
+        }
+    </style>
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s4)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Overview</c-h1>
+                    <c-h2>What are layouts</c-h2>
+                    <c-p size="large" max-width="65rem">Layouts are what set the spacing between components and elements. It is recommended that when using layouts you set the spacing using the <a href="#/tokens/modular-scale">modular scale tokens</a> but you are free to set the size and spacing to whatever you wish. The layouts are fully responsive and will adapt to the space they are put in.</c-p>
+                </l-stack>
+            </div>
+            <div class="lsi-wrapper">
+                <l-grid min-size="300px">
+                    <l-box>
+                        <a href="#/layouts/box">
+                            <l-cover bottom-gutter="var(--s1)">
+                                <div data-value="cover">
+                                    <l-box background="#888">
+                                        <div class="lsi-box"></div>
+                                    </l-box>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Box</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                    <l-box>
+                        <a href="#/layouts/center">
+                            <l-cover bottom-gutter="var(--s1)">
+                                <div data-value="cover">
+                                    <l-center max-width="100px">
+                                        <l-box background="#888"></l-box>
+                                    </l-center>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Center</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                    <l-box>
+                        <a href="#/layouts/cluster">
+                            <l-cover bottom-gutter="var(--s1)">
+                                <div data-value="cover">
+                                    <l-cluster>
+                                        <div>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 50px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 90px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 20px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 30px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 120px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 90px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 40px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                            <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                                <div style="width: 180px;" class="lsi-cluster"></div>
+                                            </l-box>
+                                        </div>
+                                    </l-cluster>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Cluster</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                    <l-box>
+                        <a href="#/layouts/cover">
+                            <l-cover top-gutter="var(--s1)" bottom-gutter="var(--s1)">
+                                <l-box background="#888">
+                                    <div></div>
+                                </l-box>
+                                <div data-value="cover">
+                                    <l-box background="#888">
+                                        <div class="lsi-cover"></div>
+                                    </l-box>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Cover</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                    <l-box>
+                        <a href="#/layouts/grid">
+                            <l-cover top-gutter="var(--s1)" bottom-gutter="var(--s1)">
+                                <div data-value="cover">
+                                    <l-grid min-size="60px">
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-cluster"></div>
+                                        </l-box>
+                                    </l-grid>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Grid</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                    <l-box>
+                        <a href="#/layouts/sidebar">
+                            <l-cover top-gutter="var(--s1)" bottom-gutter="var(--s1)">
+                                <div data-value="cover">
+                                    <l-sidebar>
+                                        <l-box background="#888">
+                                            <div class="lsi-main  lsi-box"></div>
+                                        </l-box>
+                                        <l-box background="#888">
+                                            <div class="lsi-main  lsi-box"></div>
+                                        </l-box>
+                                    </l-sidebar>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Sidebar</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                    <l-box>
+                        <a href="#/layouts/stack">
+                            <l-cover bottom-gutter="var(--s1)">
+                                <div data-value="cover">
+                                    <l-stack spacing="var(--s1)">
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-main"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-main"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-main"></div>
+                                        </l-box>
+                                    </l-stack>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Stack</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                    <l-box>
+                        <a href="#/layouts/switcher">
+                            <l-cover top-gutter="var(--s5)" bottom-gutter="var(--s1)">
+                                <l-grid min-size="60px">
+                                    <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                        <div class="lsi-cluster"></div>
+                                    </l-box>
+                                    <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                        <div class="lsi-cluster"></div>
+                                    </l-box>
+                                    <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                        <div class="lsi-cluster"></div>
+                                    </l-box>
+                                </l-grid>
+                                <div data-value="cover">
+                                    <l-stack spacing="var(--s1)">
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-main"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-main"></div>
+                                        </l-box>
+                                        <l-box background="#888" padding-sides="0px" padding-ends="0px">
+                                            <div class="lsi-main"></div>
+                                        </l-box>
+                                    </l-stack>
+                                </div>
+                                <l-center text-center.bind="true">
+                                    <c-h3>Switcher</c-h3>
+                                </l-center>
+                            </l-cover>
+                        </a>
+                    </l-box>
+                </l-grid>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

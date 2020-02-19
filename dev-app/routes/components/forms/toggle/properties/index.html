@@ -1,0 +1,46 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="formToggleCols" rows.bind="formToggleProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>checked-value / id</c-h3>
+                <c-code-sample>
+                    <c-form-checkbox-radio-container label="Toggle Group">
+                        <c-form-toggle id="first" checked-value.bind="vToggle1Output">First</c-form-toggle>
+                        <c-form-toggle id="second" checked-value.bind="vToggle2Output">Second</c-form-toggle>
+                    </c-form-checkbox-radio-container>
+                </c-code-sample>
+                <c-p>Toggle 1: ${vToggle1Output}</c-p>
+                <c-p>Toggle 2: ${vToggle2Output}</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>state</c-h3>
+                <c-code>vToggle1BOutput = true;</c-code>
+                <c-code-sample>
+                    <c-form-checkbox-radio-container label="Toggle State Example" name="group3">
+                        <c-form-toggle id="first3" checked-value.bind="vToggle1BOutput" state="disabled">Selected but Inactive</c-form-toggle>
+                        <c-form-toggle id="second3" checked-value.bind="vToggle2BOutput" state="disabled">Inactive</c-form-toggle>
+                    </c-form-checkbox-radio-container>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

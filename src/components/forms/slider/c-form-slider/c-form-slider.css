@@ -1,0 +1,51 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  LABEL WRAPPER
+ *  INLINE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !LABEL WRAPPER
+\*------------------------------------*/
+
+.label-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.label-wrapper > c-label{
+    margin-right: 5px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !INLINE
+\*------------------------------------*/
+
+.inline{
+    display: flex;
+}
+
+.inline > :first-child{
+    flex: 0 1 auto;
+}
+
+.inline > :last-child{
+    flex: 1;
+}

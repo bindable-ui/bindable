@@ -1,0 +1,39 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-nav-vertical-item.css"></require>
+
+    <li class="
+            ${styles.navVerticalItem}
+            ${styles[accordionState]}
+            ${accordionItem ? styles.accordionItem : ''}
+            ${accordionItem && accordionTransitionIn ? styles.nextTransIn : ''}
+            ${accordionItem && !accordionTransitionIn ? styles.nextTransOut : ''}
+            ${alignBottom ? styles.alignBottom : ''}
+            ${styles[state]}
+        "
+        hide.bind="state === 'hidden'"
+        drag-dropzone.bind="dropzoneActions"
+    >
+        <span class="${styles.accordionArrow}" if.bind="accordionItem">
+            <svg class="icon">
+                <use xlink:href="#chevron-right"></use>
+            </svg>
+        </span>
+        <a if.bind="accordionItem && title" click.trigger="toggleAccordion()" class="${styles.accordionLink}">
+            ${title}
+        </a>
+        <a if.bind="!accordionItem && title" click.delegate="clickTrigger()">
+            ${title}
+            <span class="${styles.sub}" if.bind="subText">${subText}</span>
+        </a>
+        <div if.bind="icon && iconAction" click.trigger="actionFunction()" class="${styles.iconContainer}">
+            <c-icon icon="${icon}"></c-icon>
+        </div>
+        <h4 if.bind="sectionTitle">${sectionTitle}</h4>
+        <slot></slot>
+    </li>
+</template>

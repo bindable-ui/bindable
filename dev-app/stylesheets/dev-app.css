@@ -1,0 +1,50 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  DEV APP STYLES
+ *      - Logo
+ *      - Mobile Nav Trigger
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !DEV APP STYLES
+\*------------------------------------*/
+
+/**
+ * ^Logo
+ */
+
+:global .logo{
+    background: var(--c_primaryMain);
+    padding: .5rem 1.5rem 0;
+}
+
+:global .logo > svg{
+    height: 39px;
+}
+
+:global .logo-vdms{
+    font-family: var(--ff_primary-bold);
+    color: white;
+    text-decoration: none;
+}
+
+:global .footer-links{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+:global .footer-links:hover{
+    text-decoration: underline;
+}

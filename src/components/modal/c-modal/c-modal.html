@@ -1,0 +1,30 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-modal.css"></require>
+
+    <ux-dialog class="
+        ${styles.dialog}
+        ${styles[model.size]}
+        ${model.size == 'full' ? 'js-full' : ''}
+        ${model.size == 'large' ? 'js-large' : ''}
+    ">
+        <ux-dialog-header class="${styles.header}">
+            <c-h2>${model.title}</c-h2>
+            <c-button click.delegate="controller.cancel()" class="${styles.closeButton}" icon="x" icon-position="center"></c-button>
+        </ux-dialog-header>
+
+        <ux-dialog-body class="${styles.body}" if.bind="model.bodyText || model.bodyViewModel">
+            <c-p if.bind="!model.bodyViewModel">${model.bodyText}</c-p>
+            <compose if.bind="model.bodyViewModel" view-model.bind="model.bodyViewModel" model.bind="{body: model.bodyModel, controller: controller, shared: model.sharedModel}"></compose>
+        </ux-dialog-body>
+
+        <ux-dialog-footer if.bind="model.footerEnable">
+            <c-p if.bind="!model.footerViewModel">${model.footerText}</c-p>
+            <compose if.bind="model.footerViewModel" view-model.bind="model.footerViewModel" model.bind="{footer: model.footerModel, controller: controller, shared: model.sharedModel}"></compose>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

@@ -1,0 +1,110 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="gridCols" rows.bind="gridProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Default</c-h3>
+                <c-code-sample>
+                    <l-grid>
+                        <l-box>First Item</l-box>
+                        <l-box>Second Item</l-box>
+                        <l-box>Third Item</l-box>
+                        <l-box>Fourth Item</l-box>
+                        <l-box>Fifth Item</l-box>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>min-size</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="30rem" gap="var(--s3)">
+                        <l-box>First Item</l-box>
+                        <l-box>Second Item</l-box>
+                        <l-box>Third Item</l-box>
+                        <l-box>Fourth Item</l-box>
+                        <l-box>Fifth Item</l-box>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>gap</c-h3>
+                <c-code-sample>
+                    <l-grid gap="var(--s5)">
+                        <l-box>First Item</l-box>
+                        <l-box>Second Item</l-box>
+                        <l-box>Third Item</l-box>
+                        <l-box>Fourth Item</l-box>
+                        <l-box>Fifth Item</l-box>
+                    </l-grid>
+
+                    <l-grid gap="0px">
+                        <l-box>First Item</l-box>
+                        <l-box>Second Item</l-box>
+                        <l-box>Third Item</l-box>
+                        <l-box>Fourth Item</l-box>
+                        <l-box>Fifth Item</l-box>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>auto-sizing</c-h3>
+                <c-code-sample>
+                    <l-grid>
+                        <l-box>First Item</l-box>
+                        <l-box>Second Item</l-box>
+                    </l-grid>
+
+                    <l-grid auto-sizing="auto-fill">
+                        <l-box>First Item</l-box>
+                        <l-box>Second Item</l-box>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>is-loading</c-h3>
+                <c-code-sample>
+                    <l-grid is-loading.bind="true">
+                        <l-box>First Item</l-box>
+                        <l-box>Second Item</l-box>
+                        <l-box>Third Item</l-box>
+                        <l-box>Fourth Item</l-box>
+                        <l-box>Fifth Item</l-box>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

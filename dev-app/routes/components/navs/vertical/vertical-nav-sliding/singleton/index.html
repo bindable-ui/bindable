@@ -1,0 +1,19 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Singleton</c-h2>
+                <c-table cols.bind="verticalCols" rows.bind="verticalOptions"></c-table>
+    <c-code>public attached() {
+    this.sharedNav.initMainNav(this.router);
+    this.sharedNav.setNextText('Assets List');
+}</c-code>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

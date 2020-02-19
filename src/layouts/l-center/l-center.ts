@@ -1,0 +1,31 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+import {bindable, containerless} from 'aurelia-framework';
+import * as styles from './l-center.css.json';
+
+@containerless
+export class LCenter {
+    @bindable
+    public intrinsic = false;
+    @bindable
+    public maxWidth = 'none';
+    @bindable
+    public spacing = '0';
+    @bindable
+    public textCenter = false;
+
+    public styles = styles;
+
+    public attached() {
+        if (typeof this.intrinsic !== 'boolean') {
+            this.intrinsic = false;
+        }
+
+        if (typeof this.textCenter !== 'boolean') {
+            this.textCenter = false;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Slots</c-h2>
+                <c-table cols.bind="formSelectColsSlots" rows.bind="formSelectOptionsSlots"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Example</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-select options.bind="testOptions" label="Select Label" error-msg="This is an error">
+                            <span slot="tip">
+                                <c-tip side="top" icon-tip.bind="true" arrow-position="leftEdge" size="medium">
+                                    <div slot="trigger"><c-icon icon="question"></c-icon></div>
+                                    <div slot="content">
+                                        <c-p>Content Here.</c-p>
+                                    </div>
+                                </c-tip>
+                            </span>
+                        </c-form-select>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

@@ -1,0 +1,27 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./l-box.css"></require>
+
+    <div
+        class="
+            ${styles.box}
+            ${borderTop ? styles.borderTop : ''}
+            ${scrolling ? styles.scrolling : ''}
+        "
+        css="
+            --box-margin-ends: ${marginEnds};
+            --box-margin-sides: ${marginSides};
+            --box-padding-ends: ${paddingEnds};
+            --box-padding-sides: ${paddingSides};
+            --box-background: ${background};
+            --box-color: ${color};
+            --box-top-border: ${borderTop};
+        "
+    >
+        <slot></slot>
+    </div>
+</template>

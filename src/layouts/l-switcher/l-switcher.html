@@ -1,0 +1,24 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./l-switcher.css"></require>
+
+    <div
+        class="
+            ${styles.switcher}
+            ${styles[limit]}
+            ${styles[doubleWidth]}
+        "
+        css="
+            --switcher-threshold: ${threshold};
+            --switcher-spacing: ${spacing};
+        "
+    >
+        <div>
+            <slot></slot>
+        </div>
+    </div>
+</template>

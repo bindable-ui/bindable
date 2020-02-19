@@ -1,0 +1,115 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  COLOR
+ *  SIZES
+ *      - Medium
+ *      - Small
+ *  DIVIDERS
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.list{
+    position: relative;
+    max-height: 200px;
+    margin: 1px;
+    padding: 0;
+    overflow: auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COLOR
+\*------------------------------------*/
+
+.dark{
+    background: var(--c_darkGray);
+}
+
+.dark li a:hover{
+    color: var(--c_white);
+    background: var(--c_soot);
+}
+
+.light{
+    color: var(--c_smoke);
+    background: var(--c_charcoal);
+}
+
+.light li a:hover{
+    color: var(--c_white);
+}
+
+.light li a svg{
+    transition: fill var(--trans_main);
+}
+
+.light li a:hover svg{
+    fill: var(--c_subOneMain);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIZES
+\*------------------------------------*/
+
+/**
+ * ^Medium
+ */
+
+.medium li a,
+.medium li c-p{
+    padding: var(--s-5) var(--s-2);
+}
+
+.medium li c-h5{
+    padding: var(--s-5) var(--s-2) 0;
+}
+
+
+/**
+ * ^Small
+ */
+
+.small li a,
+.small li p{
+    padding: var(--s-5) var(--s-1);
+    font-size: var(--s-1);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !DIVIDERS
+\*------------------------------------*/
+
+.dividers li{
+    border-bottom: solid 1px var(--c_gray);
+}
+
+.dividers li:last-child{
+    border-bottom: none;
+}

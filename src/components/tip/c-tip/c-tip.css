@@ -1,0 +1,577 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Setup
+ *      - Close
+ *      - Position Trigger
+ *  SIDE
+ *      - Setup
+ *      - Top & Bottom
+ *      - Top
+ *      - Bottom
+ *      - Right & Left
+ *      - Right
+ *      - Left
+ *      - No Arrow
+ *  WIDTHS & ARROW POSITION
+ *      - All
+ *      - Small
+ *      - Medium
+ *      - Large
+ *      - Auto
+ *  COLOR
+ *  FULL SCREEN CLOSE
+ *  COMPONENT BASED SPACING
+ *      - c-nav-horizontal
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Setup
+*/
+
+[slot='trigger'],
+c-tip{
+    display: block;
+}
+
+.container {
+    display: inline-block;
+    position: relative;
+}
+
+/* Make tip triggers full width of tip container e.g. truncated table cells */
+.fill-width {
+    width: 100%;
+}
+
+.tip{
+    display: inline-block;
+    position: absolute;
+    padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
+    border: solid 1px var(--c_soot);
+    background: var(--c_charcoal);
+    color: var(--c_white);
+    text-align: left;
+    opacity: 0;
+    white-space: nowrap;
+    word-wrap: break-word;
+    cursor: default;
+    z-index: var(--z_tip);
+    transition: opacity var(--trans_main);
+}
+
+.tip p{
+    margin-top: 0;
+}
+
+.visible{
+    opacity: 1;
+}
+
+@media only screen and (max-width: 780px){
+    .tip{
+        position: fixed !important;
+        top: auto !important;
+        right: 50% !important;
+        bottom: 50% !important;
+        left: 50% !important;
+        width: 300px !important;
+        height: unset !important;
+        margin-left: -150px !important;
+    }
+
+    .tip::before,
+    .tip::after{
+        display: none;
+    }
+}
+
+.trigger > div > svg{
+    vertical-align: unset;
+}
+
+td .trigger > div > svg{
+    margin-bottom: -2%;
+    cursor: pointer;
+}
+
+.trigger:hover{
+    cursor: pointer;
+}
+
+.color{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+
+/**
+ * ^Close
+*/
+
+.close{
+    position: absolute;
+    right: 0;
+    height: unset;
+    padding: 1px 4px 2px 5px;
+    background-color: var(--c_slate);
+    color: var(--c_white);
+    font-size: 14px;
+    line-height: 15px;
+    cursor: pointer;
+    transition: background-color var(--trans_main);
+}
+
+.close:hover{
+    background-color: var(--c_soot);
+}
+
+.close:hover{
+    background-color: var(--c_smoke);
+}
+
+
+/**
+ * ^Position Trigger
+*/
+
+.right-side{
+    float: right;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIDE
+\*------------------------------------*/
+
+/**
+ * ^Setup
+ */
+
+.arrow::before,
+.arrow::after{
+    position: absolute;
+    border: 11px solid transparent;
+    border-collapse: separate;
+    content: '';
+}
+
+.arrow::after{
+    border: 10px solid transparent;
+}
+
+
+/**
+ * ^Top & Bottom
+ */
+
+.top.center::before,
+.bottom.center::before{
+    left: 50%;
+    margin-left: -11px;
+}
+
+.top.right-edge::before,
+.bottom.right-edge::before{
+    right: 10px;
+}
+
+.top.left-edge::before,
+.bottom.left-edge::before{
+    left: 10px;
+}
+
+.top.center::after,
+.bottom.center::after{
+    left: 50%;
+    margin-left: -10px;
+}
+
+.top.right-edge::after,
+.bottom.right-edge::after{
+    right: 11px;
+}
+
+.top.left-edge::after,
+.bottom.left-edge::after{
+    left: 11px;
+}
+
+
+/**
+ * ^Top
+ */
+
+.top{
+    bottom: calc(100% + 5px);
+}
+
+.top.icon-tip{
+    bottom: calc(100% + 10px);
+}
+
+.top .color{
+    top: 0;
+    bottom: auto;
+}
+
+.top .close{
+    top: 1px;
+    bottom: auto;
+}
+
+.top::before{
+    top: 100%;
+    border-top-color: var(--c_soot);
+}
+
+.top::after{
+    top: 100%;
+    border-top-color: var(--c_charcoal);
+}
+
+
+/**
+ * ^Bottom
+ */
+
+.bottom{
+    top: calc(100% + 4px);
+}
+
+.bottom.icon-tip{
+    top: calc(100% + 7px);
+}
+
+.bottom .color{
+    top: auto;
+    bottom: 0;
+}
+
+.bottom .close{
+    top: auto;
+    bottom: 1px;
+}
+
+.bottom::before{
+    bottom: 100%;
+    border-bottom-color: var(--c_soot);
+}
+
+.bottom::after{
+    bottom: 100%;
+    border-bottom-color: var(--c_charcoal);
+}
+
+/**
+ * ^Right & Left
+ */
+
+.right,
+.left{
+    top: -2px;
+}
+
+td .right,
+td .left{
+    top: -9px;
+}
+
+.right.icon-tip,
+.left.icon-tip{
+    top: -10px;
+}
+
+.right .close,
+.left .close{
+    bottom: 0;
+}
+
+.right::before,
+.left::before{
+    top: 8px;
+}
+
+.right::after,
+.left::after{
+    top: 9px;
+}
+
+.right::before,
+.left::before{
+    border: 10px solid transparent;
+}
+
+.right::after,
+.left::after{
+    border: 9px solid transparent;
+}
+
+
+/**
+ * ^Right
+ */
+
+.right{
+    left: 100%;
+    margin-left: 10px;
+}
+
+.right::before{
+    right: 100%;
+    border-right-color: var(--c_soot);
+}
+
+.right::after{
+    right: 100%;
+    border-right-color: var(--c_charcoal);
+}
+
+/**
+ * ^Left
+ */
+
+.left{
+    right: 100%;
+    margin-right: 10px;
+}
+
+.left .close{
+    bottom: 0;
+}
+
+.left::before{
+    left: 100%;
+    border-left-color: var(--c_soot);
+}
+
+.left::after{
+    left: 100%;
+    border-left-color: var(--c_charcoal);
+}
+
+
+/**
+ * ^No Arrow
+ */
+
+.none::after,
+.none::before{
+    display: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !WIDTHS & ARROW POSITION
+\*------------------------------------*/
+
+/**
+ * ^All
+ */
+
+.small,
+.medium,
+.large,
+.xlarge{
+    padding: 15px;
+    white-space: inherit;
+}
+
+.small.center,
+.medium.center,
+.large.center,
+.xlarge.center,
+.auto.center{
+    left: 50%;
+}
+
+.small.right-edge,
+.medium.right-edge,
+.large.right-edge,
+.xlarge.right-edge,
+.auto.right-edge{
+    right: 0;
+}
+
+.small.right-edge.icon-tip,
+.medium.right-edge.icon-tip,
+.large.right-edge.icon-tip,
+.xlarge.right-edge.icon-tip,
+.auto.right-edge.icon-tip{
+    right: -15px;
+}
+
+.small.left-edge,
+.medium.left-edge,
+.large.left-edge,
+.xlarge.left-edge,
+.auto.left-edge{
+    left: 0;
+}
+
+.small.left-edge.icon-tip,
+.medium.left-edge.icon-tip,
+.large.left-edge.icon-tip,
+.xlarge.left-edge.icon-tip,
+.auto.left-edge.icon-tip{
+    left: -15px;
+}
+
+
+/**
+ * ^Small
+ */
+
+.small{
+    width: 150px;
+}
+
+.small.center{
+    margin-left: -75px;
+}
+
+
+/**
+ * ^Medium
+ */
+
+.medium{
+    width: 180px;
+}
+
+.medium.center{
+    margin-left: -90px;
+}
+
+
+/**
+* ^Large
+*/
+
+.large{
+    width: 220px;
+}
+
+.large.center{
+    margin-left: -110px;
+}
+
+
+/**
+* ^XLarge
+*/
+
+.xlarge{
+    width: 300px;
+}
+
+.xlarge.center{
+    margin-left: -150px;
+}
+
+
+/**
+ * ^Auto
+ */
+
+.auto{
+    width: auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COLOR
+\*------------------------------------*/
+
+.primary-light{
+    background-color: var(--c_primaryLight);
+}
+
+.secondary{
+    background-color: var(--c_secondaryMain);
+}
+
+.sub-one{
+    background-color: var(--c_subOneMain);
+}
+
+.sub-two{
+    background-color: var(--c_subTwoMain);
+}
+
+.sub-three{
+    background-color: var(--c_subThreeMain);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !FULL SCREEN CLOSE
+\*------------------------------------*/
+
+.full-screen-close{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: var(--z_tipFullScreenClose);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COMPONENT BASED SPACING
+\*------------------------------------*/
+
+/**
+ * ^c-nav-horizontal
+ */
+
+c-nav-horizontal .tip{
+    right: 0 !important;
+}
+
+c-nav-horizontal .container{
+    width: 100%;
+}
+
+c-nav-horizontal .container p{
+    margin-top: 4px;
+    margin-bottom: 0;
+}

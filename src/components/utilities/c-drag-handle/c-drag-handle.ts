@@ -1,0 +1,17 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+import {bindable} from 'aurelia-framework';
+import {IDragOptions} from 'index.js';
+import * as styles from './c-drag-handle.css.json';
+
+export class CDragHandle {
+    @bindable
+    public size = 'small';
+    @bindable
+    public dragOptions: IDragOptions;
+
+    public styles = styles;
+}

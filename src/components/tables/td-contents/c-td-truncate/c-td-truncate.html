@@ -1,0 +1,39 @@
+<!--
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-td-truncate.css"></require>
+
+	<c-tip
+	if.bind="row[col.colHeadName + 'Tip']"
+	side="${row[col.colHeadName + 'TipSide']}"
+	arrow-position="${row[col.colHeadName + 'TipArrowPosition']}"
+	size="${row[col.colHeadName + 'TipSize']}"
+	fill-width-trigger.bind="true"
+	force-close.bind="true">
+		<div slot="trigger" >
+			<div class="${styles.container}">
+				<div class="${styles.truncate}">
+	                <span if.bind="!searchHighlight">${value}</span>
+	                <span if.bind="searchHighlight" innerhtml.bind="searchHighlight"></span>
+		        </div>
+			</div>
+		</div>
+		<div slot="content">
+			<compose if.bind="row[col.colHeadName + 'TipViewModel']" view-model.bind="row[col.colHeadName + 'TipViewModel']" model.bind="{row:row, col:col}"></compose>
+			<div else>${value}</div>
+		</div>
+	</c-tip>
+
+    <div else class="${styles.container}">
+        <c-icon icon="${row[col.colHeadName + 'Icon']}" if.bind="row[col.colHeadName + 'Icon']"></c-icon>
+        <div class="${styles.truncate}">
+            <span title="${value}">
+                <span if.bind="!searchHighlight">${value}</span>
+                <span if.bind="searchHighlight" innerhtml.bind="searchHighlight"></span>
+            </span>
+        </div>
+    </div>
+</template>

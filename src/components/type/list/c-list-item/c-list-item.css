@@ -1,0 +1,82 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  STATE
+ *      - Active
+ *  DIVIDERS
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.list-item{
+    list-style-type: none;
+    display: table;
+    width: 100%;
+    white-space: nowrap;
+    table-layout: fixed;
+}
+
+.wrap{
+    white-space: normal;
+}
+
+.list-item a,
+.list-item c-p{
+    display: table-cell;
+    color: var(--c_lightGray);
+}
+
+.list-item c-h5{
+    display: block;
+}
+
+.list-item a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background var(--trans_main), color var(--trans_main);
+}
+
+.list-item svg{
+    margin-right: var(--s-5);
+}
+
+.list-item c-p p{
+    margin-bottom: 0;
+    color: var(--c_lightGray);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Active
+ */
+
+.active a,
+.active a:hover{
+    background: var(--c_primaryMain);
+    color: var(--c_white);
+}

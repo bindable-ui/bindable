@@ -1,0 +1,217 @@
+/*
+Copyright 2019, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  VARIABLES
+ *      == Modular Scale
+ *      - Ratio
+ *      - Smaller
+ *      - Base
+ *      - Larger
+ *
+ *      == Colors
+ *      - Primary
+ *      - Secondary
+ *      - Sub One
+ *      - Sub Two
+ *      - Sub Three
+ *      - Sub Four
+ *      - Grays
+ *
+ *      == Fonts
+ *      - Haas Grotesk Display
+ *      - Helvetica Neue Cond
+ *      - Mono
+ *
+ *      == Transitions
+ *      - Transitions
+ *
+ *      == Popover
+ *
+ *      == Z-Index
+ *      - Z-Index
+ *
+ *      == Scrollbars
+ *      - Scrollbars
+ */
+
+
+
+
+
+:root{
+
+    /**
+     * ^Ratio
+     */
+    --ratio: 1.25;
+
+    /**
+     * ^Smaller
+     */
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+
+    /**
+     * ^Base
+     */
+    --s0: 1rem;
+
+    /**
+     * ^Larger
+     */
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+
+    /**
+     * ^Primary
+     */
+    --c_primaryMain: #CD040B;
+    --c_primaryLight: #E85358;
+    --c_primaryLighter: #FF878B;
+    --c_primaryDark: #301919;
+
+
+    /**
+     * ^Secondary
+     */
+    --c_secondaryMain: #37A56C;
+    --c_secondaryLight: #5DC691;
+    --c_secondaryLighter: #8BCDAB;
+    --c_secondaryDark: #0E2B1C;
+
+
+    /**
+     * ^Sub One
+     */
+    --c_subOneMain: #3599C5;
+    --c_subOneLight: #51AFDB;
+    --c_subOneLighter: #8AD6F7;
+    --c_subOneDark: #14263F;
+
+
+    /**
+     * ^Sub Two
+     */
+    --c_subTwoMain: #CEA832;
+    --c_subTwoLight: #E9C558;
+    --c_subTwoLighter: #F7D362;
+    --c_subTwoDark: #312810;
+
+
+    /**
+     * ^Sub Three
+     */
+    --c_subThreeMain: #C35E37;
+    --c_subThreeLight: #D47452;
+    --c_subThreeLighter: #F69671;
+    --c_subThreeDark: #4B2E0C;
+
+
+    /**
+     * ^Sub Four
+     */
+    --c_subFourMain: #8E5CB1;
+    --c_subFourLight: #B491CE;
+    --c_subFourLighter: #C5ABD8;
+    --c_subFourDark: #331C44;
+
+
+    /**
+     * ^Grays
+     */
+    --c_black: #000;
+    --c_soot: #161616;
+    --c_darkGray: #282828;
+    --c_asphalt: #242424;
+    --c_slate: #313131;
+    --c_ash: #3D3C3C;
+    --c_charcoal: #4D4D4D;
+    --c_gray: #7D7D7D;
+    --c_smoke: #9B9B9B;
+    --c_lightGray: #C6C6C6;
+    --c_marshmellow: #D7D7D7;
+    --c_white: #FFF;
+
+
+    /**
+     * ^Font Family Primary
+     */
+    --ff_primary-normal: 'HGD_55', Helvetica, sans-serif;
+    --ff_primary-normal-italic: 'HGD_56', Helvetica, sans-serif;
+    --ff_primary-bold: 'HGD_75', Helvetica, sans-serif;
+    --ff_primary-bold-italic: 'HGD_76', Helvetica, sans-serif;
+
+
+    /**
+     * ^Font Family Secondary
+     */
+    --ff_secondary-normal: 'HN_57_Cond', Helvetica, sans-serif;
+    --ff_secondary-normal-italic: 'HN_57_Cond_It', Helvetica, sans-serif;
+    --ff_secondary-bold: 'HN_67_Cond', Helvetica, sans-serif;
+    --ff_secondary-bold-italic: 'HN_67_Cond_It', Helvetica, sans-serif;
+
+
+    /**
+     * ^Font Family Mono
+     */
+    --ff_mono: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+
+    /**
+     * ^Transitions
+     */
+    --trans_main: 0.3s ease-in-out;
+
+
+    /**
+     * ^ Popover
+     */
+    --w_popover: 215px;
+
+
+    /**
+     * ^Z-Index
+     */
+    --z_actionBar: -1;
+    --z_base: 1;
+    --z_tileTip: 9;
+    --z_weekTimelineDays: 2;
+    --z_timeLineEntry: 3;
+    --z_timeLineLiveHover: 4;
+    --z_timeEntrySmall: 5;
+    --z_currentTimeMarker: 6;
+    --z_timeEntryHover: 7;
+    --z_timeEntryActive: 8;
+    --z_timelineContainer: 9;
+    --z_weekTimelineHours: 10;
+    --z_weekTimelineDates: 11;
+    --z_tileCheckbox: 12;
+    --z_tipFullScreenClose: 17;
+    --z_copy: 20;
+    --z_tip: 21;
+    --z_mainNav: 23;
+    --z_mobileNavTrigger: 24;
+    --z_gridLoadMore: 25;
+    --z_toasts: 1001;
+
+
+    /**
+     * ^Scrollbars
+     */
+    --scrollbar_width: 7px;
+    --scrollbar_color: #7B7B7B;
+    --scrollbar_track_color: #222;
+}
