@@ -1,0 +1,93 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  CENTER
+ *  SCROLLING
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.cover{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    height: 100%;
+    padding-top: var(--cover-padding-top);
+    padding-right: var(--cover-padding-right);
+    padding-bottom: var(--cover-padding-bottom);
+    padding-left: var(--cover-padding-left);
+}
+
+.cover > *{
+    margin-top: var(--cover-bottom-gutter);
+    margin-bottom: var(--cover-top-gutter);
+}
+
+.cover > :first-child:not([data-value='cover']){
+    flex: 0 0 auto;
+    margin-top: 0;
+}
+
+.cover > :last-child:not([data-value='cover']){
+    flex: 0 0 auto;
+    margin-bottom: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !CENTER
+\*------------------------------------*/
+
+.cover > [data-value='cover']{
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+.center > [data-value='cover']{
+    margin-top: auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SCROLLING
+\*------------------------------------*/
+
+.scrolling{
+    height: 100%;
+}
+
+.scrolling > [data-value='cover']{
+    overflow-y: auto;
+    flex: 1;
+}
+
+.scrolling > [data-value='cover'] > c-table-fixed-header{
+    height: 100%;
+}
+
+@media screen and (max-width: 550px){
+    .scrolling{
+        height: auto;
+        max-height: unset;
+    }
+}

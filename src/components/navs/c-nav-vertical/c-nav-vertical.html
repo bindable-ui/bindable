@@ -1,0 +1,17 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-nav-vertical.css"></require>
+
+    <nav class="${styles.navVertical}  ${navBottom ? styles.navBottom : ''}">
+        <ul class="${navBottom ? styles.overflow : ''}" scroll.trigger="onScroll($event) & throttle">
+        	<slot></slot>
+        </ul>
+        <ul class="${styles.secondList}" show.bind="navBottom">
+        	<slot name="bottom"></slot>
+        </ul>
+    </nav>
+</template>

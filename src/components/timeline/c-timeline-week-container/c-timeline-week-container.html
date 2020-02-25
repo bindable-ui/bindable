@@ -1,0 +1,22 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-timeline-week-container.css"></require>
+
+    <div class="${styles.wrapper}">
+        <div class="${styles.dates}">
+            <span repeat.for="day of days">
+                <a click.trigger="changeDate(day.date)" class="${day.today ? styles.today : ''}">${day.date | isoToDayWeek}</a>
+            </span>
+        </div>
+        <div class="${styles.days}">
+            <slot name="hours"></slot>
+            <div class="${styles.content}">
+                <slot></slot>
+            </div>
+        </div>
+    </div>
+</template>

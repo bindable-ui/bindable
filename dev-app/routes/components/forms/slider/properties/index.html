@@ -1,0 +1,71 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind='formSliderCols' rows.bind='formSliderProperties'></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>error-msg / state</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-slider label="Slider Label" error-msg="This is an error" state="error"></c-form-slider>
+                        <c-form-slider label="Disabled Slider Label" state="disabled"></c-form-slider>
+                        <c-form-slider label="Hidden Slider Label" state="hidden"></c-form-slider>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>label</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-slider
+                            slider-value.bind="vFormSliderOutput"
+                            increments.bind="6"
+                            label="Slider Label"
+                        ></c-form-slider>
+                        <c-form-slider></c-form-slider>
+                    </l-grid>
+                </c-code-sample>
+                <br>
+                <c-p>c-form-slider output: ${vFormSliderOutput}</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>inline</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-slider
+                            inline.bind="true"
+                            slider-value.bind="vFormSliderOutput2"
+                            increments.bind="6"
+                            label="Slider Label : "
+                            debounce-time.bind="1000"
+                        ></c-form-slider>
+                    </l-grid>
+                </c-code-sample>
+                <br>
+                <c-p>c-form-slider output: ${vFormSliderOutput2}</c-p>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

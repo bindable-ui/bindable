@@ -1,0 +1,99 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Box</c-h1>
+                    <c-h2>Properties</c-h2>
+                    <c-table cols.bind="boxCols" rows.bind="boxProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>Default</c-h3>
+                    <c-code-sample>
+                        <l-box>
+                            <span>I am in a box</span>
+                        </l-box>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>background, color, &amp; border-top</c-h3>
+                    <c-code-sample>
+                        <l-stack>
+                            <l-box background="white" color="black">
+                                <span>I am in a white box with black text.</span>
+                            </l-box>
+                            <l-box background="transparent">
+                                <span>I am in a transparent box</span>
+                            </l-box>
+
+                            <l-box border-top="var(--c_primaryMain)">
+                                <span>I am in a top border box</span>
+                            </l-box>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>margin-sides &amp; margin-ends</c-h3>
+                    <c-code-sample>
+                        <l-stack>
+                            <l-box margin-sides="var(--s4)" margin-ends="var(--s3)">
+                                <span>I am in a box</span>
+                            </l-box>
+                            <l-box margin-sides="var(--s3)" margin-ends="var(--s2)">
+                                <span>I am in a box</span>
+                            </l-box>
+                            <l-box margin-sides="var(--s0)" margin-ends="var(--s-1)">
+                                <span>I am in a box</span>
+                            </l-box>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>padding-sides &amp; padding-ends</c-h3>
+                    <c-code-sample>
+                        <l-stack>
+                            <l-box padding-sides="var(--s4)" padding-ends="var(--s3)">
+                                <span>I am in a box</span>
+                            </l-box>
+                            <l-box padding-sides="var(--s3)" padding-ends="var(--s2)">
+                                <span>I am in a box</span>
+                            </l-box>
+                            <l-box padding-sides="var(--s0)" padding-ends="var(--s-1)">
+                                <span>I am in a box</span>
+                            </l-box>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

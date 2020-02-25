@@ -1,0 +1,57 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  INTRINSIC
+ *  TEXT CENTER
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.center{
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--center-spacing);
+    padding-right: var(--center-spacing);
+    max-width: var(--center-max-width);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !INTRINSIC
+\*------------------------------------*/
+
+.intrinsic{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TEXT CENTER
+\*------------------------------------*/
+
+.text-center{
+    text-align: center;
+}

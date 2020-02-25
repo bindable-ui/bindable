@@ -1,0 +1,88 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="tableCols" rows.bind="tableProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Example</c-h3>
+    <c-code>this.basicCols = [
+    {
+        colClass: 't270',
+        colHeadName: 'name',
+        colHeadValue: 'Name',
+    },
+    {
+        colHeadName: 'ship',
+        colHeadValue: 'Ship',
+    },
+    {
+        colClass: 't85',
+        colHeadName: 'gender',
+        colHeadValue: 'Gender',
+    },
+];
+
+this.basicRows = [
+    {
+        name: 'Luke Skywalker',
+        ship: 'X-Wing',
+        gender: 'Male',
+    },
+    {
+        name: 'Han Solo',
+        ship: 'M.Falcon',
+        gender: 'Male',
+    },
+    {
+        name: 'Fin',
+        ship: 'M. Falcon',
+        gender: 'Male',
+    },
+    {
+        name: 'Ray',
+        ship: 'M. Falcon',
+        gender: 'Female',
+    },
+    {
+        name: 'Yoda',
+        ship: 'Any',
+        gender: 'Male',
+    },
+];</c-code>
+                <c-code-sample>
+                    <c-table cols.bind="basicCols" rows.bind="basicRows"></c-table>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Cols Object</c-h2>
+                <c-table cols.bind="colsCols" rows.bind="colsRows"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Rows Object</c-h2>
+                <c-table cols.bind="rowsCols" rows.bind="rowsRows"></c-table>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

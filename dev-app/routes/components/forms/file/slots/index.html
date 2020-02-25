@@ -1,0 +1,37 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Slots</c-h2>
+                <c-table cols.bind='formFileColsSlots' rows.bind='formFileOptionsSlots'></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Example</c-h3>
+                <c-code-sample>
+                    <l-grid max-size="25ch">
+                        <c-form-file label="File Label" error-msg="This is an error" >
+                            <span slot="tip">
+                                <c-tip icon-tip.bind="true" side="top" arrow-position="leftEdge" size="medium">
+                                    <div slot="trigger"><c-icon icon="question"></c-icon></div>
+                                    <div slot="content">
+                                        <c-p>Content Here.</c-p>
+                                    </div>
+                                </c-tip>
+                            </span>
+                        </c-form-file>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

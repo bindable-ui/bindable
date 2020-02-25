@@ -1,0 +1,56 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="copyCols" rows.bind="copyProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>content, label, and link</c-h3>
+                <c-code-sample>
+                    <c-copy
+                        label="Test Label"
+                        link.bind="true"
+                        content="http://content.uplynk.localhost:8000/event/7544976a0cbe4cc78cf963ec0dbb4e08.m3u8"></c-copy>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>No Wrap</c-h3>
+                <c-code-sample>
+                    <c-copy
+                        label="This Content Will Not Wrap"
+                        content="7544976a0cbe4cc78cf963ec0dbb4e0aklsjdbnlakueblaubscelkuabsleubflakbsvlbasefdaljbsljbcslejbflaiubvliuablskrubvalkubrelaukb8.m3u8"></c-copy>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Wrap</c-h3>
+                <c-code-sample>
+                    <c-copy
+                        label="My Contents Will Wrap"
+                        wrap.bind="true"
+                        content="7544976a0cbe4cc78cf963ec0dbb4e0aklsjdbnlakueblaubscelkuabsleubflakbsvlbasefdaljbsljbcslejbflaiubvliuablskrubvalkubrelaukb8.m3u8"></c-copy>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

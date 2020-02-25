@@ -1,0 +1,134 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Set Up
+ *      - Responsiveness
+ *  LOADER
+*/
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Set Up
+*/
+
+c-table-fixed-header{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 1%;
+    overflow: auto;
+}
+
+.fixed-table-header-bg{
+    flex: 0 0 auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    height: calc(var(--s4) + 5px);
+    border: solid 1px var(--c_charcoal);
+    background-color: var(--c_soot);
+}
+
+.fixed-table-header{
+    overflow-y: auto;
+}
+
+.fixed-table-header c-table{
+    display: inherit;
+    flex: 1 0 auto;
+    width: 100%;
+    /* overflow: auto; */
+}
+
+.fixed-table-header table{
+    margin-top: -2px;
+}
+
+.fixed-table-header th > div{
+    position: absolute;
+    margin-top: calc((var(--s4) * -1) - 3px);
+    margin-left: -1px;
+    padding-left: var(--s0);
+    border-left: solid 1px var(--c_charcoal);
+    color: var(--c_white);
+    line-height: calc(var(--s4) + 3px);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.fixed-table-header thead tr th{
+    padding: 0;
+}
+
+.fixed-table-header thead tr th:first-child .th-inner{
+    border-left: none;
+}
+
+.fixed-table-header table{
+    margin-bottom: 0;
+}
+
+.fixed-table-header thead th input[type='checkbox']{
+    margin-top: var(--s-1) !important;
+}
+
+
+/**
+ * ^Responsiveness
+ */
+
+@media screen and (max-width: 780px){
+    .fixed-table-header-bg{
+        display: none;
+    }
+
+    .fixed-table-header{
+        overflow: visible;
+    }
+
+    .fixed-table-header table{
+        margin-top: 0;
+    }
+
+    /*
+     * !important here to override the inline js
+     * generated witdth for sidescrolling tables
+     */
+    .fixed-table-header-bg,
+    .fixed-table-header{
+        width: auto !important;
+    }
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LOADER
+\*------------------------------------*/
+
+.loader{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: var(--c_asphalt);
+}

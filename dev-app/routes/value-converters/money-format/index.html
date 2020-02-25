@@ -1,0 +1,79 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Money Format</c-h1>
+                    <c-h2>Basic Usage</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-code>\${5 | moneyFormat}
+\${2.4 | moneyFormat}
+\${1298.44 | moneyFormat}</c-code>
+                                <c-p size="large">${5 | moneyFormat}</c-p>
+                                <c-p size="large">${2.4 | moneyFormat}</c-p>
+                                <c-p size="large">${1298.44 | moneyFormat}</c-p>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Table Usage</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+    <c-code>public moneyFormatCols = [
+    {
+        _class: 'code',
+        colHeadName: 'money1',
+        colHeadValue: 'Money 1',
+        valueConverter: 'moneyFormat',
+    },
+    {
+        _class: 'code',
+        colHeadName: 'money2',
+        colHeadValue: 'Money 2',
+        valueConverter: 'moneyFormat',
+    },
+    {
+        _class: 'code',
+        colHeadName: 'money3',
+        colHeadValue: 'Money 3',
+        valueConverter: 'moneyFormat',
+    },
+];
+
+public moneyFormatRows = [
+    {
+        money1: 5,
+        money2: 2.4,
+        money3: 1298.44,
+    },
+];</c-code>
+    <c-code-sample>
+        <c-table cols.bind="moneyFormatCols" rows.bind="moneyFormatRows"></c-table>
+    </c-code-sample>
+
+                        </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

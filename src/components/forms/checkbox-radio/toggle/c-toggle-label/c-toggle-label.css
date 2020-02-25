@@ -1,0 +1,49 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Setup
+ *  STATE
+ *      - Disabled
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Setup
+ */
+
+.label{
+    color: var(--c_smoke);
+    font-size: var(--s-1);
+    cursor: pointer;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Disabled
+ */
+
+.disabled:hover{
+    cursor: not-allowed;
+}

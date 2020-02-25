@@ -1,0 +1,73 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-nav-vertical-sliding.css"></require>
+
+    <div class="${styles.container} ${navState === 'right' ? styles[navState] : ''}  ${!showHidden ? styles.hidden : ''}" show.bind="!isPageLoading">
+        <div class="${styles.block}" repeat.for="page of nav.pages">
+            <div class="${styles.triggerContainer}  ${(isTriggerContentHidden && $index === 0) ? styles.triggerContentHidden : ''}">
+                <div>
+                    <div class="${styles.trigger}" click.trigger="toggleNav()" show.bind="page.prevText && (showTrigger || $index > 0)">
+                        <c-icon icon="chevron-left" size="itzy"></c-icon>
+                        <span>${page.prevText}</span>
+                    </div>
+                    <div class="${styles.trigger}" click.trigger="toggleNav()" show.bind="page.nextText && (showTrigger || $index > 0)">
+                        <span>${page.nextText}</span>
+                        <c-icon icon="chevron-right" size="itzy"></c-icon>
+                    </div>
+                </div>
+                <c-h3 truncate.bind="true" dark-back.bind="true" if.bind="page.title && (showTrigger || $index > 0)">${page.title}</c-h3>
+                <c-form-text
+                    placeholder.bind="page.searchPlaceholder"
+                    button="search"
+                    clearable.bind="true"
+                    text-value.bind="page.searchQuery"
+                    button-action.call="page.searchFn(textValue)"
+                    if.bind="page.searchFn && page.searchPlaceholder && (showTrigger || $index > 0)"
+                >
+                </c-form-text>
+                <c-notification if.bind="!page.navs.length">No Results Found</c-notification>
+            </div>
+            <c-nav-vertical
+                show.bind="page.navs.length"
+                load-more.bind="page.loadMore"
+                nav-bottom.bind="navBottom"
+            >
+                <c-nav-vertical-item
+                    repeat.for="row of page.navs"
+                    title.bind="row.title"
+                    href.bind="row.href"
+                    section-title="${row.sectionTitle}"
+                    icon="${row.icon}"
+                    icon-action.call="row.iconAction()"
+                    click-action.bind="row.clickAction"
+                    state="${row.active ? 'active' : ''}"
+                    dropzone-actions.bind="row.dropzoneActions"
+                    sub-text.bind="row.subText"
+                    accordion-item.bind="row.isAccordion"
+                    accordion-state.bind="row.accordionState"
+                >
+                    <c-nav-vertical if.bind="row.navs">
+                        <c-nav-vertical-item
+                            repeat.for="subRow of row.navs"
+                            title.bind="subRow.title"
+                            href.bind="subRow.href"
+                            section-title="${subRow.sectionTitle}"
+                            icon="${subRow.icon}"
+                            icon-action.call="subRow.iconAction()"
+                            click-action.bind="subRow.clickAction"
+                            state="${subRow.active ? 'active' : ''}"
+                            dropzone-actions.bind="subRow.dropzoneActions"
+                            sub-text.bind="subRow.subText"
+                        ></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-nav-vertical-item>
+                <template replaceable part="below"></template>
+            </c-nav-vertical>
+        </div>
+    </div>
+    <c-spinner size="small" if.bind="isPageLoading"></c-spinner>
+</template>

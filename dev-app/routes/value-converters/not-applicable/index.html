@@ -1,0 +1,37 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Not Applicable</c-h1>
+                    <c-h2>Basic Usage</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-code>\${null | notApplicable}</c-code>
+                                <c-p size="large">${null | notApplicable}</c-p>
+                            </div>
+                            <div>
+                                <c-code>\${undefined | notApplicable}</c-code>
+                                <c-p size="large">${undefined | notApplicable}</c-p>
+                            </div>
+                            <div>
+                                <c-code>\${'good' | notApplicable}</c-code>
+                                <c-p size="large">${'good' | notApplicable}</c-p>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

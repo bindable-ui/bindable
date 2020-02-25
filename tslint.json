@@ -1,0 +1,62 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-airbnb"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "!src/**/*"
+    ]
+  },
+  "rules": {
+    "align": [
+      true,
+      "parameters",
+      "statements",
+      "members",
+      "element"
+    ],
+    "file-name-casing": [
+      true,
+      "kebab-case"
+    ],
+    "interface-name": false,
+    "max-classes-per-file": [
+      true,
+      10,
+      "exclude-class-expressions"
+    ],
+    "max-line-length": [
+      true,
+      120
+    ],
+    "no-var-requires": false,
+    "object-curly-spacing": [
+      true,
+      "never"
+    ],
+    "object-literal-sort-keys": [
+      true,
+      "shorthand-first"
+    ],
+    "object-shorthand-properties-first": false,
+    "ter-arrow-parens": [
+      true,
+      "as-needed"
+    ],
+    "ter-indent": [
+      true,
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore",
+      "allow-snake-case"
+    ]
+  }
+}

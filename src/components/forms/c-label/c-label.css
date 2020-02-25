@@ -1,0 +1,87 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  ERRORS
+ *  WARNINGS
+ *  EDIT
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.label{
+    position: relative;
+    color: var(--c_white);
+    font-family: var(--ff_primary-bold);
+    word-break: break-all;
+}
+
+.label > svg {
+    margin-top: -3px;
+    margin-right: 3px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ERRORS
+\*------------------------------------*/
+
+.error{
+    color: var(--c_primaryLight);
+}
+
+
+
+
+/*------------------------------------*\
+    !WARNINGS
+\*------------------------------------*/
+
+.warning{
+    color: var(--c_subTwoMain);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !EDIT
+\*------------------------------------*/
+
+.edit{
+    font-size: var(--s-1);
+    color: var(--c_subOneMain);
+    vertical-align: super;
+    margin-left: 5px;
+    transition: color var(--trans_main);
+}
+
+.edit:hover{
+    cursor: pointer;
+    color: var(--c_subOneLighter);
+}
+
+.done{
+    color: var(--c_subTwoMain);
+}
+
+.done:hover{
+    color: var(--c_subTwoLighter);
+}

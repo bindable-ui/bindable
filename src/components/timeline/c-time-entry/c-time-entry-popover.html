@@ -1,0 +1,21 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <require from="./c-time-entry.css"></require>
+
+    <div>
+        <div class="${styles.container}">
+            <div class="${styles.info}" style="padding: 0;">
+                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone">
+                    ${item.title}
+                </c-p>
+                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone" if.bind="item.startTime && item.endTime">
+                    ${item.startTime} - ${item.endTime}
+                </c-p>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,34 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Slots</c-h2>
+                <c-table cols.bind="formDateColsSlots" rows.bind="formDateOptionsSlots"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-code-sample>
+                    <c-form-date id="test8" label="Text">
+                        <span slot="tip">
+                            <c-tip side="top" icon-tip.bind="true" arrow-position="leftEdge" size="medium">
+                                <div slot="trigger"><c-icon icon="question"></c-icon></div>
+                                <div slot="content">
+                                    <c-p>Content Here</c-p>
+                                </div>
+                            </c-tip>
+                        </span>
+                    </c-form-date>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

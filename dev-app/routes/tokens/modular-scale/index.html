@@ -1,0 +1,128 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .h{
+            display: block;
+            width: 100px;
+            background: var(--c_subOneMain);
+        }
+
+        .ms-info{
+            display: block;
+            width: 100px;
+        }
+
+        .h-5{
+            height: var(--s-5);
+        }
+
+        .h-4{
+            height: var(--s-4);
+        }
+
+        .h-3{
+
+            height: var(--s-3);
+        }
+
+        .h-2{
+
+            height: var(--s-2);
+        }
+
+        .h-1{
+
+            height: var(--s-1);
+        }
+
+        .h0{
+            height: var(--s0);
+        }
+
+        .h1{
+            height: var(--s1);
+        }
+
+        .h2{
+            height: var(--s2);
+        }
+
+        .h3{
+            height: var(--s3);
+        }
+
+        .h4{
+            height: var(--s4);
+        }
+
+        .h5{
+            height: var(--s5);
+        }
+    </style>
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Modular Scale</c-h1>
+                    <l-cluster align="flex-start">
+                        <div>
+                            <l-stack>
+                                <div class="h h-5"></div>
+                                <div class="ms-info"><c-code>--s-5</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h-4"></div>
+                                <div class="ms-info"><c-code>--s-4</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h-3"></div>
+                                <div class="ms-info"><c-code>--s-3</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h-2"></div>
+                                <div class="ms-info"><c-code>--s-2</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h-1"></div>
+                                <div class="ms-info"><c-code>--s-1</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h0"></div>
+                                <div class="ms-info"><c-code>--s0</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h1"></div>
+                                <div class="ms-info"><c-code>--s1</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h2"></div>
+                                <div class="ms-info"><c-code>--s2</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h3"></div>
+                                <div class="ms-info"><c-code>--s3</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h4"></div>
+                                <div class="ms-info"><c-code>--s4</c-code></div>
+                            </l-stack>
+                            <l-stack>
+                                <div class="h h5"></div>
+                                <div class="ms-info"><c-code>--s5</c-code></div>
+                            </l-stack>
+                        </div>
+                    </l-cluster>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

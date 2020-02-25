@@ -1,0 +1,286 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Datetime</c-h1>
+                    <c-h2>Milliseconds</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-code>\${872386823 | msToHms}</c-code>
+                                <c-p size="large">${872386823 | msToHms}</c-p>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Seconds</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <c-code>\${872323 | secondsToHms}</c-code>
+                                <c-p size="large">${872323 | secondsToHms}</c-p>
+                            </div>
+                            <div>
+                                <c-h3>Table Usage</c-h3>
+<c-code>public secondsToHmsCols = [
+    {
+        colClass: 't150',
+        colHeadName: 'secondsToHms',
+        colHeadValue: 'Alt Time Stamp',
+        valueConverter: 'secondsToHms',
+    },
+];
+
+public secondsToHmsRows = [
+    {
+        secondsToHms: 872323,
+    },
+];</c-code>
+                                <c-code-sample>
+                                    <c-table cols.bind="secondsToHmsCols" rows.bind="secondsToHmsRows"></c-table>
+                                </c-code-sample>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Current Standard Date</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>// In viewModel
+this.curDateTime = new Date();</c-code>
+                                    <c-code>&lt;!-- In HTML --&gt;
+\${curDateTime | standardDate}</c-code>
+                                    <c-p size="large">${curDateTime | standardDate}</c-p>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Current Standard Time</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>// In viewModel
+this.curDateTime = new Date();</c-code>
+                                    <c-code>&lt;!-- In HTML --&gt;
+\${curDateTime | standardTime}</c-code>
+                                    <c-p size="large">${curDateTime | standardTime}</c-p>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Convert data string to time in ms</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>\${'Sun, 20 Jan 2019 01:56:21 GMT' | dateToMs}</c-code>
+                                    <c-p size="large">${'Sun, 20 Jan 2019 01:56:21 GMT' | dateToMs}</c-p>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Convert server-side timestamp to DMY</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>\${1547949381000 | timestampToDMY}</c-code>
+                                    <c-p size="large">${1547949381000 | timestampToDMY}</c-p>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Alternate Convert server-side timestamp to DMY</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>\${1547949381000 | altTimestampToDMY}</c-code>
+                                    <c-p size="large">${1547949381000 | altTimestampToDMY}</c-p>
+                                </div>
+                            </div>
+                            <div>
+                                <c-h3>Table Usage</c-h3>
+                                <div>
+                                    <c-code>public altTimeStampCols = [
+    {
+        colClass: 't150',
+        colHeadName: 'altTimeStamp',
+        colHeadValue: 'Alt Time Stamp',
+        valueConverter: 'altTimestampToDMY',
+    },
+];
+
+public altTimeStampRows = [
+    {
+        altTimeStamp: '1547949381000',
+    },
+];</c-code>
+    <c-code-sample>
+        <c-table cols.bind="altTimeStampCols" rows.bind="altTimeStampRows"></c-table>
+    </c-code-sample>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Convert server-side timestamp to DMY with sepecific format</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>\${1547949381000 | msToFormattedMoment:'MMM Do YYY at h:mm a'}</c-code>
+                                    <c-p size="large">${1547949381000 | msToFormattedMoment:'MMM Do YYYY at h:mm a'}</c-p>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Convert a hyperion server-side timestamp to DMY with sepecific format</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>\${1547949381000 | isoToFormattedMoment:'MMM Do YYYY at h:mm a'}</c-code>
+                                    <c-p size="large">${1547949381000 | isoToFormattedMoment:'MMM Do YYYY at h:mm a'}</c-p>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Month Year Converter</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>\${curDateTime | monthYear}</c-code>
+                                    <c-p size="large">${curDateTime | monthYear}</c-p>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Convert an ISO time with timezone with specific format</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-h3>Basic Usage</c-h3>
+                                <div>
+                                    <c-code>\${1547949381034 | timezoneTimeToStandardDateTimeMS}</c-code>
+                                    <c-p size="large">${1547949381034 | timezoneTimeToStandardDateTimeMS}</c-p>
+                                </div>
+                            </div>
+                            <div>
+                                <c-h3>Table Usage</c-h3>
+                                <c-code>public timezoneTimeToStandardCols = [
+    {
+        colClass: 't150',
+        colHeadName: 'timezoneTimeToStandard',
+        colHeadValue: 'Timezone Time To Standard',
+        valueConverter: 'timezoneTimeToStandardDateTimeMS',
+    },
+];
+
+public timezoneTimeToStandardRows = [
+    {
+        timezoneTimeToStandard: 1547949381034,
+    },
+];</c-code>
+    <c-code-sample>
+        <c-table cols.bind="timezoneTimeToStandardCols" rows.bind="timezoneTimeToStandardRows"></c-table>
+    </c-code-sample>
+                                </div>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

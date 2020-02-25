@@ -1,0 +1,41 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  TRUNCATE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.base{
+    margin-top: -0.1rem;
+    font-family: var(--ff_primary-normal);
+    font-weight: normal;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TRUNCATE
+\*------------------------------------*/
+
+.truncate{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

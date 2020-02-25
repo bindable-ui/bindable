@@ -1,0 +1,67 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="0px"
+        padding-ends="0px"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Properties</c-h2>
+                    <c-table cols.bind="formRadioCols" rows.bind="formRadioProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>checked / name</c-h3>
+                    <c-code-sample>
+                        <c-form-checkbox-radio-container label="Radio Group">
+                            <c-form-radio id="first" name="group1" checked.bind="radioChecked">First</c-form-radio>
+                            <c-form-radio id="second" name="group1" checked.bind="radioChecked">Second</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                    </c-code-sample>
+                    <br>
+                    <c-p>Selected: ${radioChecked}</c-p>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>id</c-h3>
+                    <c-code-sample>
+                        <c-form-checkbox-radio-container label="Radio Group" name="group2">
+                            <c-form-radio id="first2" checked.bind="radioTest">First</c-form-radio>
+                            <c-form-radio id="second2" checked.bind="radioTest">Second</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>state</c-h3>
+                    <c-code>radioTest = 'first3';</c-code>
+                    <c-code-sample>
+                        <c-form-checkbox-radio-container label="Radio State Example" name="group3">
+                            <c-form-radio id="first3" checked.bind="radioStateTest" state="disabled">First</c-form-radio>
+                            <c-form-radio id="second3" checked.bind="radioStateTest" state="disabled">Second</c-form-radio>
+                            <c-form-radio id="third3" checked.bind="radioStateTest" state="hidden">Third</c-form-radio>
+                        </c-form-checkbox-radio-container>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

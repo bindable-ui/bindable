@@ -1,0 +1,39 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-timeline-container.css"></require>
+
+    <div class="${styles.container}">
+        <div
+            id="${id}"
+            class="
+                ${styles.timeline}
+                ${styles[halfHourSize]}
+            "
+            scroll.trigger="scrollCheck() & debounce:100"
+        >
+            <c-spinner if.bind="loading"></c-spinner>
+            <div class="${styles.wrapper}">
+                <div
+                    class="${styles.spinner}  ${loadingBottom ? styles.spinnerLoadingBottom : ''}"
+                    if.bind="loadingTop || loadingBottom"
+                >
+                    <c-spinner size="small"></c-spinner>
+                </div>
+                <div
+                    show.bind="!loading"
+                    class="${styles.currentTime}"
+                    css="top: ${currentTimeTop}px;"
+                    if.bind="currentTimeTop >= 0"
+                >
+                </div>
+                <div show.bind="!loading">
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

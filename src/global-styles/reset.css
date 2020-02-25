@@ -1,0 +1,155 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+/**
+ *  RESET
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !RESET
+\*------------------------------------*/
+
+html{
+    height: 100vh;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--c_slate);
+    color: var(--c_white);
+    font-weight: 400;
+}
+
+/* Thanks Andy! */
+/* https://hankchizljaw.com/wrote/a-modern-css-reset/ */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+pre,
+input{
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Give form elements some cursor interactions */
+input,
+textarea,
+button,
+select,
+option{
+    cursor: pointer;
+}
+
+textarea:active,
+textarea:focus{
+    outline: none;
+    cursor: text;
+}
+
+time{
+    text-transform: uppercase;
+}
+
+/* Remove most spacing between table cells */
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Prevent modern browsers from displaying `audio` without controls */
+audio:not([controls]){
+    display: none;
+    height: 0;
+}
+
+/* Improve readability when focused and also mouse hovered in all browsers */
+a,
+a:active,
+a:hover{
+    outline: 0;
+}
+
+/* Remove _all_ animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-play-state: paused !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

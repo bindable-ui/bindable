@@ -1,0 +1,28 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Methods</c-h2>
+                <c-table cols.bind="pillCols" rows.bind="pillMethods"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>action</c-h3>
+                <c-code-sample><c-pill icon="x" icon-action.call="testFunction()">
+    <span slot="pill-content">
+        Pill with action on icon
+    </span>
+</c-pill></c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

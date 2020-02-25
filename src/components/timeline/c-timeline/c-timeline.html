@@ -1,0 +1,55 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <c-spinner if.bind="isLoading"></c-spinner>
+    <c-timeline-container
+        if.bind="timeView === 'day' && !isLoading"
+        current-time-top.bind="currentTimeLine"
+        loading-top.bind="isLoadingTop"
+        loading-bottom.bind="isLoadingBottom"
+    >
+        <c-timeline-block
+            repeat.for="block of blocks"
+            time.bind="block.time"
+            iso-time.bind="block.isoTime"
+            add-entry-offset.call="calculatePlaceholder(isoTime, mouseOffset)"
+            prevent-create.call="checkPreventAdd(isoTime)"
+            new-entry-view-model.bind="newEntryViewModel"
+        >
+        </c-timeline-block>
+        <c-time-entry
+            repeat.for="entry of transformedEntries"
+            item.bind="entry"
+            class="timeline-day"
+        >
+        </c-time-entry>
+    </c-timeline-container>
+    <c-timeline-week-container if.bind="timeView === 'week' && !isLoading" days.bind="displayDays" day-click.call="dayClick(date)">
+        <div slot="hours">
+            <c-timeline-container>
+                <c-timeline-block repeat.for="block of blocks" time.one-time="block.time">
+            </c-timeline-container>
+        </div>
+        <c-timeline-container repeat.for="day of displayDays" current-time-top.bind="day.currentTimeLine">
+            <c-timeline-block
+                repeat.for="block of day.blocks & oneTime"
+                iso-time.bind="block.isoTime"
+                add-entry-offset.call="calculatePlaceholder(isoTime, mouseOffset)"
+                prevent-create.call="checkPreventAdd(isoTime)"
+                new-entry-view-model.bind="newEntryViewModel"
+            >
+            </c-timeline-block>
+            <c-time-entry
+                repeat.for="entry of day.entries"
+                item.bind="entry"
+                class="timeline-week"
+            >
+        </c-timeline-container>
+    </c-timeline-week-container>
+    <div if.bind="timeView === 'month' && !isLoading">
+        month view
+    </div>
+</template>

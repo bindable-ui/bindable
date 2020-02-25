@@ -1,0 +1,312 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Setup
+ *      - Hover
+ *  STATE
+ *      - Active
+ *  ACCORDION
+ *      - Base
+ *      - Open
+ *      - Transition In & Transition Out
+ *  ALIGN
+ *      - Align Bottom
+ *  MOBILE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Setup
+ */
+
+.nav-vertical-item{
+    display: inline-table;
+    flex: 0 1 auto;
+    position: relative;
+    width: 100%;
+}
+
+.nav-vertical-item > a{
+    display: block;
+    width: 100%;
+    padding: var(--s-3) var(--s0) var(--s-3) var(--s2);
+    color: var(--c_smoke);
+    text-decoration: none;
+    transition: color var(--trans_main), background-color var(--trans_main);
+    cursor: pointer;
+    word-break: break-word;
+}
+
+.nav-vertical-item > a::before{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--s-5);
+    height: 100%;
+    background-color: var(--c_darkGray);
+    content: '';
+    transition: background-color var(--trans_main);
+}
+
+.nav-vertical-item > c-button > button{
+    margin: var(--s-1) 0 var(--s-1) var(--s2);
+}
+
+.nav-vertical-item h4{
+    margin-top: var(--s-1);
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-left: var(--s2);
+    color: var(--c_white);
+    font-size: var(--s-1);
+}
+
+.nav-vertical-item c-tip{
+    margin-left: var(--s2);
+}
+
+.icon-container{
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    padding: 0 0 5px 5px;
+    opacity: 0;
+    transition: opacity var(--trans_main);
+}
+
+.icon-container:hover{
+    cursor: pointer;
+}
+
+.nav-vertical-item:hover > .icon-container{
+    opacity: 1;
+}
+
+.icon-container > svg{
+    fill: var(--c_gray);
+    transition: fill var(--trans_main);
+}
+
+.icon-container:hover > svg{
+    fill: var(--c_lightGray);
+}
+
+
+/**
+ * ^Hover
+ */
+
+.nav-vertical-item > a:hover{
+    background-color: var(--c_ash);
+    color: var(--c_white);
+}
+
+.nav-vertical-item > a:hover::before{
+    background-color: var(--c_ash);
+}
+
+
+/**
+ * ^Sub
+ */
+
+.sub{
+    display: block;
+    font-size: var(--s-1);
+    color: var(--c_gray);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Active
+ */
+
+.active a,
+.active a:hover{
+    background-color: var(--c_black);
+    color: var(--c_white);
+}
+
+.active a::before,
+.active a:hover::before{
+    background-color: var(--c_primaryMain);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ACCORDION
+\*------------------------------------*/
+
+/**
+ * ^Base
+ */
+
+.accordion-arrow svg{
+    position: absolute;
+    top: calc(var(--s-1) + 3px);
+    left: 22px;
+    width: var(--s-3);
+    height: var(--s-3);
+    fill: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-vertical-item c-nav-vertical ul{
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    opacity: 0;
+}
+
+.nav-vertical-item c-nav-vertical ul li a{
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 50px;
+    font-size: inherit;
+    word-break: break-word;
+}
+
+/* If the nav item has sub-text */
+.nav-vertical-item c-nav-vertical ul li a span{
+    font-size: inherit;
+}
+
+.nav-vertical-item c-nav-vertical ul li:last-child{
+    margin-bottom: 0;
+}
+
+.accordion-link{
+    padding-left: 36px !important;
+}
+
+.accordion-link:hover{
+    cursor: pointer;
+}
+
+/* Hide the left border on an accordion link */
+.accordion-link::before{
+    display: none !important;
+}
+
+.accordion-item .icon-container{
+    top: 3px;
+}
+
+/**
+ * ^Open
+*/
+
+.open .accordion-arrow svg{
+    transform: rotate(90deg);
+}
+
+.open c-nav-vertical nav ul{
+    font-size: inherit !important;
+    opacity: 1 !important;
+}
+
+.open c-nav-vertical nav ul li:last-child{
+    margin-bottom: 15px;
+}
+
+.open c-nav-vertical nav ul li a{
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    font-size: var(--s-1);
+}
+
+
+/**
+ * ^Transition In & Transition Out
+*/
+
+.next-trans-out > c-nav-vertical > nav > ul{
+    transition: font-size 0.3s ease-in-out 0.4s, padding 0.3s ease-in-out 0.4s, opacity 0.3s ease-in-out !important;
+}
+
+.next-trans-out c-nav-vertical ul li:last-child{
+    transition: margin-bottom 0.3s ease-in-out 0.4s !important;
+}
+
+.next-trans-out > c-nav-vertical > nav > ul > li > a{
+    transition: font-size 0.3s ease-in-out 0.4s, padding 0.3s ease-in-out 0.4s, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.next-trans-in > c-nav-vertical > nav > ul{
+    transition: font-size 0.3s ease-in-out, padding 0.3s ease-in-out, opacity 0.3s ease-in-out 0.4s !important;
+}
+
+.next-trans-in c-nav-vertical ul li:last-child{
+    transition: margin-bottom 0.3s ease-in-out 0.3s;
+}
+
+.next-trans-in > c-nav-vertical > nav > ul > li > a{
+    transition: padding 0.3s ease-in-out;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ALIGN
+\*------------------------------------*/
+
+/**
+ * ^Align Bottom
+ */
+
+.align-bottom{
+    margin-top: auto;
+}
+
+/* If there is a button at the bottom of the sidebar
+ * let's make it full width. */
+.align-bottom c-tip > div{
+    width: calc(100% - 25px);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !MOBILE
+\*------------------------------------*/
+
+@media screen and (max-width: 780px){
+    .accordion-link,
+    .open c-nav-vertical nav ul{
+        font-size: var(--s-1) !important;
+    }
+
+    .nav-vertical-item h4{
+        font-size: var(--s0);
+    }
+}

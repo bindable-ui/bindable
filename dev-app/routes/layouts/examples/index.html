@@ -1,0 +1,86 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+        >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Example Layouts</c-h1>
+                    <l-grid gap="var(--s4)" min-size="30ch">
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Basic"
+                            action.call="goToExample('layout-examples/basic')"
+                        ></c-tile>
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Basic Centered"
+                            action.call="goToExample('layout-examples/basic-centered')"
+                        ></c-tile>
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Sidebar"
+                            action.call="goToExample('layout-examples/sidebar')"
+                        ></c-tile>
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Sidebar Scrolling"
+                            action.call="goToExample('layout-examples/sidebar-scrolling')"
+                        ></c-tile>
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Nested Cover Scrolling"
+                            action.call="goToExample('layout-examples/nested-cover-scrolling')"
+                        ></c-tile>
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Nested Sidebar Scrolling"
+                            action.call="goToExample('layout-examples/nested-sidebar-scrolling')"
+                        ></c-tile>
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Nested Cover Table Scrolling"
+                            action.call="goToExample('layout-examples/nested-cover-table-scrolling')"
+                        ></c-tile>
+                        <c-tile
+                            image-url="https://placeimg.com/160/250/any"
+                            image-container-height.bind="250"
+                            show-checkbox.bind="false"
+                            hover.bind="true"
+                            title="Nested Cover Table Horizontal Scrolling"
+                            action.call="goToExample('layout-examples/nested-cover-table-horizontal-scrolling')"
+                        ></c-tile>
+                    </l-grid>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>
