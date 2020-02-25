@@ -1,6 +1,5 @@
 # Bindable
 
-
 Bindable is a design system that aims to provide the video products in <a href="https://www.verizondigitalmedia.com" target="_blank">Verizon Media</a> tools to build cohesive and consistent interfaces. Bindable will provide a common pattern for desginers and engineers to follow. Bindable is developed as an <a href="https://aurelia.io" target="_blank">Aurelia</a> plugin and built with the <a href="https://github.com/aurelia/cli" target="_blank">aurelia-cli</a>.
 
 ## Table of Contents
