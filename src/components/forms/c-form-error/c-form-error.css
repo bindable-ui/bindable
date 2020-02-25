@@ -8,9 +8,23 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
 */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-form-error{
+    --form-error-color: var(--c_primaryLight);
+    --form-error-font-size: var(--s-1);
+}
 
 
 
@@ -31,8 +45,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: inline-block;
     position: absolute;
     margin-top: 2px;
-    color: var(--c_primaryLight);
-    font-size: var(--s-1);
+    color: var(--form-error-color);
+    font-size: var(--form-error-font-size);
 }
 
 .error{

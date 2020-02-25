@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  COLORS
  *      - Primary
@@ -28,6 +29,59 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-button{
+    /* Base */
+    --button-border-radius: var(--s-5);
+    --button-color: var(--c_white);
+    --button-font-family: var(--ff_primary-bold);
+    --button-font-size: var(--s-1);
+    --button-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    --button-transition: all var(--trans_main);
+
+    /* Colors */
+    --button-primary-background: var(--c_primaryMain);
+    --button-primary-hover-background: #F12930;
+    --button-primary-disabled-background: #7A1516;
+    --button-secondary-background: var(--c_secondaryMain);
+    --button-secondary-hover-background: var(--c_secondaryLight);
+    --button-secondary-disabled-background: #20623F;
+    --button-neutral-background: var(--c_gray);
+    --button-neutral-hover-background: var(--c_smoke);
+    --button-neutral-disabled-background: #454545;
+    --button-danger-background: var(--c_primaryLight);
+    --button-danger-hover-background: var(--c_primaryLighter);
+    --button-danger-disabled-background: #913236;
+    --button-disabled-color: #939393;
+    --button-icon-color: var(--c_white);
+
+    /* Sizes */
+    --button-medium-padding: var(--s-3) var(--s1);
+    --button-medium-icon-side-padding: var(--s4);
+    --button-medium-icon-center-padding: var(--s-3) var(--s-1);
+    --button-medium-icon-svg-size: var(--s0);
+    --button-medium-icon-svg-spacing: var(--s0);
+    --button-small-padding: var(--s-5) var(--s-1);
+    --button-small-icon-side-padding: var(--s3);
+    --button-small-icon-svg-size: var(--s-1);
+    --button-small-icon-svg-spacing: var(--s-1);
+    --button-small-icon-svg-top: var(--s-3);
+
+    /* Thinking */
+    --button-thinking-padding-left: var(--s4);
+    --button-thinking-padding-left-with-icon: calc(15px + var(--s5));
+    --button-thinking-spinner-top: calc(50% - var(--s-4));
+    --button-thinking-spinner-left: var(--s0);
+    --button-thinking-spinner-size: var(--s-1);
+}
+
+
+
+
+
+/*------------------------------------*\
     !BASE
 \*------------------------------------*/
 
@@ -35,19 +89,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: inline-block;
     margin: 0;
     border-width: 0 !important;
-    border-radius: var(--s-5);
+    border-radius: var(--button-border-radius);
     outline: none;
     background: none;
-    color: var(--c_white) !important;
-    font-family: var(--ff_primary-bold);
-    font-size: var(--s-1);
+    color: var(--button-color) !important;
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
     text-align: center;
     text-decoration: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--button-text-shadow);
     white-space: nowrap;
     cursor: pointer;
     vertical-align: middle;
-    transition: all var(--trans_main);
+    transition: var(--button-transition);
 }
 
 .button:hover{
@@ -67,12 +121,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .primary{
-    background-color: var(--c_primaryMain);
-    background-image: linear-gradient(180deg, rgba(205, 4, 11, 1), rgba(205, 4, 11, 0));
+    background-color: var(--button-primary-background);
+    /* background-image: linear-gradient(180deg, rgba(205, 4, 11, 1), rgba(205, 4, 11, 0)); */
 }
 
 .primary:hover{
-    background-color: var(--c_primaryLight) !important;
+    background-color: var(--button-primary-hover-background) !important;
 }
 
 
@@ -81,12 +135,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .secondary{
-    background-color: var(--c_secondaryMain);
-    background-image: linear-gradient(180deg, rgba(55, 165, 108, 1), rgba(55, 165, 108, 0));
+    background-color: var(--button-secondary-background);
+    /* background-image: linear-gradient(180deg, rgba(55, 165, 108, 1), rgba(55, 165, 108, 0)); */
 }
 
 .secondary:hover{
-    background-color: var(--c_secondaryLight) !important;
+    background-color: var(--button-secondary-hover-background) !important;
 }
 
 
@@ -95,12 +149,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .neutral{
-    background-color: var(--c_gray);
-    background-image: linear-gradient(180deg, rgba(125, 125, 125, 1), rgba(125, 125, 125, 0));
+    background-color: var(--button-neutral-background);
+    /* background-image: linear-gradient(180deg, rgba(125, 125, 125, 1), rgba(125, 125, 125, 0)); */
 }
 
 .neutral:hover{
-    background-color: var(--c_smoke) !important;
+    background-color: var(--button-neutral-hover-background) !important;
 }
 
 
@@ -109,12 +163,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .danger{
-    background-color: var(--c_primaryLight);
-    background-image: linear-gradient(180deg, rgba(232, 83, 88, 1), rgba(232, 83, 88, 0));
+    background-color: var(--button-danger-background);
+    /* background-image: linear-gradient(180deg, rgba(232, 83, 88, 1), rgba(232, 83, 88, 0)); */
 }
 
 .danger:hover{
-    background-color: var(--c_primaryLighter) !important;
+    background-color: var(--button-danger-hover-background) !important;
 }
 
 
@@ -135,10 +189,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon svg{
     position: absolute;
-    /* stylelint-disable */
-    fill: #FFF;
-    fill: var(--c_white);
-    /* stylelint-enable */
+    fill: var(--button-icon-color);
 }
 
 
@@ -154,34 +205,33 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .medium{
-    padding: var(--s-3) var(--s1);
+    padding:var(--button-medium-padding);
 }
 
 .medium.left{
-    padding-left: var(--s4);
+    padding-left: var(--button-medium-icon-side-padding);
 }
 
 .medium.right{
-    padding-right: var(--s4);
+    padding-right: var(--button-medium-icon-side-padding);
+}
+
+.medium.center{
+    padding: var(--button-medium-icon-center-padding);
 }
 
 .medium svg{
-    width: var(--s0);
-    height: var(--s0);
-    margin-top: var(--s-5);
+    width: var(--button-medium-icon-svg-size);
+    height: var(--button-medium-icon-svg-size);
     margin-top: 1px;
 }
 
 .medium.left svg{
-    left: var(--s0);
+    left: var(--button-medium-icon-svg-spacing);
 }
 
 .medium.right svg{
-    right: var(--s0);
-}
-
-.medium.center{
-    padding: var(--s-3) var(--s-1);
+    right: var(--button-medium-icon-svg-spacing);
 }
 
 .medium.center svg{
@@ -195,29 +245,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .small{
-    padding: var(--s-5) var(--s-1);
+    padding: var(--button-small-padding);
 }
 
 .small.left{
-    padding-left: var(--s3);
+    padding-left: var(--button-small-icon-side-padding);
 }
 
 .small.right{
-    padding-right: var(--s3);
+    padding-right: var(--button-small-icon-side-padding);
 }
 
 .small svg{
-    top: var(--s-3);
-    width: var(--s-1);
-    height: var(--s-1);
+    top: var(--button-small-icon-svg-top);
+    width: var(--button-small-icon-svg-size);
+    height: var(--button-small-icon-svg-size);
 }
 
 .small.left svg{
-    left: var(--s-1);
+    left: var(--button-small-icon-svg-spacing);
 }
 
 .small.right svg{
-    right: var(--s-1);
+    right: var(--button-small-icon-svg-spacing);
 }
 
 .small.center svg{
@@ -240,11 +290,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .disabled{
     background-image: none;
-    color: #939393 !important;
+    color: var(--button-disabled-color) !important;
 }
 
 .disabled svg{
-    fill: #939393 !important;
+    fill: var(--button-disabled-color) !important;
 }
 
 .disabled:hover{
@@ -253,22 +303,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .primary.disabled,
 .primary.disabled:hover{
-    background-color: #7A1516 !important;
+    background-color: var(--button-primary-disabled-background) !important;
 }
 
 .secondary.disabled,
 .secondary.disabled:hover{
-    background-color: #20623F !important;
+    background-color: var(--button-secondary-disabled-background) !important;
 }
 
 .neutral.disabled,
 .neutral.disabled:hover{
-    background-color: #454545 !important;
+    background-color: var(--button-neutral-disabled-background) !important;
 }
 
 .danger.disabled,
 .danger.disabled:hover{
-    background-color: #913236 !important;
+    background-color: var(--button-danger-disabled-background) !important;
 }
 
 
@@ -279,7 +329,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .thinking{
     composes: disabled;
     position: relative;
-    padding-left: var(--s4);
+    padding-left: var(--button-thinking-padding-left);
 }
 
 .thinking:hover{
@@ -288,20 +338,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /* Thinking w/ Icon Position Left */
 .thinking.left{
-    padding-left: calc(15px + var(--s5));
+    padding-left: var(--button-thinking-padding-left-with-icon);
 }
 
 .thinking.left svg{
-    left: var(--s4);
+    left: var(--button-thinking-padding-left);
 }
 
 /* Thinking Spinner */
 .thinking::after{
     position: absolute;
-    top: calc(50% - var(--s-4));
-    left: var(--s0);
-    width: var(--s-1);
-    height: var(--s-1);
+    top: var(--button-thinking-spinner-top);
+    left: var(--button-thinking-spinner-left);
+    width: var(--button-thinking-spinner-size);
+    height: var(--button-thinking-spinner-size);
     content: 'Loading…';
 }
 

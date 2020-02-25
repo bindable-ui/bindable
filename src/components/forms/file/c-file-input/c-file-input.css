@@ -8,12 +8,23 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
  *  STATE
  *      - Error
  *  IMAGE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+/* See components/forms/text/c-text-input/c-text-input.css */
 
 
 
@@ -30,20 +41,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .file{
     display: block;
     width: 100%;
-    padding: var(--s-5) var(--s-3);
-    border: solid 1px var(--c_black);
+    padding: var(--input-padding);
+    border: var(--input-border);
     border-radius: 0;
     outline: none;
-    background: var(--c_charcoal);
-    color: var(--c_smoke);
-    box-shadow: inset 0 -1px 0 var(--c_gray);
-    transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+    background: var(--input-background);
+    color: var(--input-color);
+    box-shadow: var(--input-box-shadow);
+    transition: var(--input-transition);
 }
 
 .file:focus,
 .file:active{
-    color: var(--c_lightGray);
-    box-shadow: inset 0 -1px 0 var(--c_secondaryMain);
+    color: var(--input-color-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 
@@ -69,7 +80,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .error:focus,
 .error:active,
 .error{
-    box-shadow: inset 0 -1px 0 var(--c_primaryLight);
+    background: var(--input-background-error);
+    box-shadow: var(--input-box-shadow-error);
 }
 
 
@@ -87,8 +99,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     overflow: hidden;
 }
 
+.image span a {
+    color: var(--a-color);
+}
+
 .image:hover span a {
-    color: var(--c_lightGray);
+    color: var(--a-color-hover);
 }
 
 .image input{

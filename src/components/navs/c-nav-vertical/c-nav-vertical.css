@@ -8,10 +8,26 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  NAV BOTTOM
  *  MOBILE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-nav-vertical{
+    --nav-padding: var(--s-2) 0 0;
+    --nav-background: var(--c_darkGray);
+    --nav-last-child-margin-bottom: var(--s-2);
+    --nav-bottom-last-child-margin-bottom: var(--s0);
+}
 
 
 
@@ -33,13 +49,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: flex;
     height: 100%;
     margin: 0;
-    padding: var(--s-2) 0 0;
-    background-color: var(--c_darkGray);
+    padding: var(--nav-padding);
+    background-color: var(--nav-background);
     list-style: none;
 }
 
 .nav-vertical > ul > li:last-child{
-    margin-bottom: var(--s-2);
+    margin-bottom: var(--nav-last-child-margin-bottom);
 }
 
 .nav-vertical > ul > li:first-child h4{
@@ -65,7 +81,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .second-list > * > li:last-child{
-    margin-bottom: var(--s0);
+    margin-bottom: var(--nav-bottom-last-child-margin-bottom);
 }
 
 

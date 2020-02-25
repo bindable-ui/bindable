@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Bin
  *      - Check
@@ -17,6 +18,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  STATE
  *      - Disabled
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+:global(.c-toggle-input){
+    --toggle-nub-border-hover: var(--c_white);
+    --toggle-nub-border-checked: var(--c_white);
+    --toggle-nub-border-disabled: var(--c_charcoal);
+    --toggle-nub-background: var(--c_slate);
+    --toggle-nub-background-disabled: var(--c_slate);
+    --toggle-nub-background-checked: var(--c_primaryMain);
+    --toggle-nub-background-checked-disabled: var(--c_primaryDark);
+    --toggle-nub-hover-background: var(--c_gray);
+    --toggle-bar-background-checked: var(--c_primaryLight);
+    --toggle-bar-background: var(--c_charcoal);
+    --toggle-bar-shadow: inset 0px 0px 2px var(--c_black);
+}
+
+
 
 
 
@@ -57,12 +82,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .check:hover ~ .nub {
-    border-color: var(--c_white);
+    border-color: var(--toggle-nub-border-hover);
 }
 
 .check:checked ~ .nub {
-    border-color: var(--c_white);
-    background-color: var(--c_primaryMain);
+    border-color: var(--toggle-nub-border-checked);
+    background-color: var(--toggle-nub-background-checked);
     transform: translateX(calc(var(--s-1) + 2px));
 }
 
@@ -71,7 +96,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .check:checked ~ .bar {
-    background-color: var(--c_primaryLight);
+    background-color: var(--toggle-bar-background-checked);
 }
 
 
@@ -80,9 +105,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .bar {
-    background-color: var(--c_charcoal);
+    background-color: var(--toggle-bar-background);
     border-radius: var(--s-5);
-    box-shadow: inset 0px 0px 2px var(--c_black);
+    box-shadow: var(--toggle-bar-shadow);
     position: absolute;
     top: 2px;
     height: var(--s-1);
@@ -104,7 +129,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: absolute;
     border: solid 1px var(--c_smoke);
     border-radius: var(--s-3);
-    background: var(--c_slate);
+    background: var(--toggle-nub-background);
     transition: all 0.1s ease-in-out;
     z-index: 3;
     pointer-events: none;
@@ -117,7 +142,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     content: '';
     display: block;
     position: absolute;
-    background-color: var(--c_gray);
+    background-color: var(--toggle-nub-hover-background);
     left: -6px;
     top: -6px;
     z-index: 2;
@@ -156,17 +181,17 @@ td .bin {
 }
 
 .disabled .nub {
-    background: var(--c_slate);
+    background: var(--toggle-nub-background-disabled);
 }
 
 .disabled .nub,
 .disabled .check:hover ~ .nub,
 .disabled .check:checked ~ .nub {
-    border-color: var(--c_charcoal);
+    border-color: var(--toggle-nub-border-disabled);
 }
 
 .disabled .check:checked ~ .nub {
-    background: var(--c_primaryDark);
+    background: var(--toggle-nub-background-checked-disabled);
 }
 
 .disabled .check:hover ~ .nub::before {

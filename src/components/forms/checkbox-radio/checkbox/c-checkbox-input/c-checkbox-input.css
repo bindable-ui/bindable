@@ -8,11 +8,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Check
  *  STATE
  *      - Disabled
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-form-checkbox-radio-container{
+    --checkbox-size: var(--s0);
+    --checkbox-border: solid 1px var(--c_black);
+    --checkbox-background: var(--c_charcoal);
+    --checkbox-hover-background: var(--c_gray);
+    --checkbox-selected-background: var(--c_secondaryMain);
+    --checkbox-selected-check-size: var(--s-2);
+    --checkbox-disabled-background: var(--c_slate);
+}
 
 
 
@@ -27,19 +46,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .check{
-    width: var(--s0) !important;
-    height: var(--s0) !important;
-    border: solid 1px var(--c_black);
+    width: var(--checkbox-size) !important;
+    height: var(--checkbox-size) !important;
+    border: var(--checkbox-border);
     border-radius: 2px;
     outline: none;
-    background: var(--c_charcoal);
+    background: var(--checkbox-background);
     box-shadow: none;
     transition: background 0.2s ease-in-out;
     -webkit-appearance: none;
 }
 
 .check:hover{
-    background-color: var(--c_gray);
+    background-color: var(--checkbox-hover-background);
 }
 
 .check::before{
@@ -50,14 +69,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     background-image: url('data:image/svg+xml;utf8,<svg width="32" height="25" viewBox="0 0 32 25" xmlns="http://www.w3.org/2000/svg"><path d="M27 0L12 15 5 8l-5 5 12 12L32 5l-5-5z" fill="\%23FFF" fill-rule="evenodd"/></svg>');
     background-repeat: no-repeat;
     background-position: top 50% left 50%;
-    background-size: var(--s-2);
+    background-size: var(--checkbox-selected-check-size);
     content: '';
     opacity: 0;
     transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .check:checked::before{
-    background-color: var(--c_secondaryMain);
+    background-color: var(--checkbox-selected-background);
     opacity: 1;
 }
 
@@ -74,11 +93,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .disabled{
-    background: var(--c_slate);
+    background: var(--checkbox-disabled-background);
 }
 
 .disabled:hover{
-    background: var(--c_slate);
+    background: var(--checkbox-disabled-background);
     cursor: not-allowed;
 }
 

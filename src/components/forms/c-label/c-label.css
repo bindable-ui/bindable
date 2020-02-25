@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  ERRORS
  *  WARNINGS
@@ -19,13 +20,33 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-label{
+    --label-color: var(--c_white);
+    --label-font-family: var(--ff_primary-bold);
+    --label-color-error: var(--c_primaryLight);
+    --label-color-warning: var(--c_subTwoMain);
+    --label-edit-font-size: var(--s-1);
+    --label-edit-color: var(--c_subOneMain);
+    --label-edit-hover-color: var(--c_subOneLighter);
+    --label-done-color: var(--c_subTwoMain);
+    --label-done-hover-color: var(--c_subTwoLighter);
+}
+
+
+
+
+
+/*------------------------------------*\
     !BASE
 \*------------------------------------*/
 
 .label{
     position: relative;
-    color: var(--c_white);
-    font-family: var(--ff_primary-bold);
+    color: var(--label-color);
+    font-family: var(--label-font-family);
     word-break: break-all;
 }
 
@@ -43,7 +64,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .error{
-    color: var(--c_primaryLight);
+    color: var(--label-color-error);
 }
 
 
@@ -54,7 +75,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .warning{
-    color: var(--c_subTwoMain);
+    color: var(--label-color-warning);
 }
 
 
@@ -66,8 +87,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .edit{
-    font-size: var(--s-1);
-    color: var(--c_subOneMain);
+    font-size: var(--label-edit-font-size);
+    color: var(--label-edit-color);
     vertical-align: super;
     margin-left: 5px;
     transition: color var(--trans_main);
@@ -75,13 +96,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .edit:hover{
     cursor: pointer;
-    color: var(--c_subOneLighter);
+    color: var(--label-edit-hover-color);
 }
 
 .done{
-    color: var(--c_subTwoMain);
+    color: var(--label-done-color);
 }
 
 .done:hover{
-    color: var(--c_subTwoLighter);
+    color: var(--label-done-hover-color);
 }

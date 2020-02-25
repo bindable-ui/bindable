@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  INLINE
  *  ICON
@@ -15,6 +16,33 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  GLOBAL OVERRIDES
  */
 
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-text-input{
+    --form-date-calendar-icon-color: var(--c_smoke);
+    --form-date-calendar-icon-right-space: var(--s-2);
+}
+
+:global(.bootstrap-datetimepicker-widget){
+    --form-date-calendar-background: var(--c_soot);
+    --form-date-calendar-day-hover-background: var(--c_charcoal);
+    --form-date-calendar-old-new-color: #777;
+    --form-date-calendar-today-marker-color: var(--c_primaryMain);
+    --form-date-calendar-day-active-background: var(--c_primaryMain);
+    --form-date-calendar-day-active-color: var(--c_white);
+    --form-date-calendar-day-disabled-color: #777;
+    --form-date-calendar-button-color: var(--c_lightGray);
+    --form-date-prev-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='11' viewBox='0 0 7 11' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M5.5 11L0 5.5 5.5 0l1.29 1.29L2.577 5.5l4.21 4.212L5.5 11z'/%3E%3C/svg%3E");
+    --form-date-next-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E");
+    --form-date-up-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E");
+    --form-date-down-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E");
+}
 
 
 
@@ -81,12 +109,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     top: calc(var(--s-3) + 1px);
     width: var(--s0);
     height: var(--s0);
-    fill: var(--c_smoke);
+    fill: var(--form-date-calendar-icon-color);
     z-index: var(--z_base);
 }
 
 .right svg{
-    right: var(--s-2);
+    right: var(--form-date-calendar-icon-right-space);
 }
 
 
@@ -145,7 +173,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     top: -2px;
     left: 105px;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid var(--c_soot);
+    border-bottom: 7px solid ;
     border-left: 7px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.2);
 }
@@ -154,14 +182,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     top: -2px;
     left: 105px;
     border-right: 6px solid transparent;
-    border-bottom: 6px solid var(--c_soot);
+    border-bottom: 6px solid var(--form-date-calendar-background);
     border-left: 6px solid transparent;
 }
 
 :global .bootstrap-datetimepicker-widget.dropdown-menu.top::before{
     bottom: -2px;
     left: 105px;
-    border-top: 7px solid var(--c_soot);
+    border-top: 7px solid var(--form-date-calendar-background);
     border-right: 7px solid transparent;
     border-left: 7px solid transparent;
     border-top-color: rgba(0, 0, 0, 0.2);
@@ -170,7 +198,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 :global .bootstrap-datetimepicker-widget.dropdown-menu.top::after{
     bottom: -2px;
     left: 105px;
-    border-top: 6px solid var(--c_soot);
+    border-top: 6px solid var(--form-date-calendar-background);
     border-right: 6px solid transparent;
     border-left: 6px solid transparent;
 }
@@ -359,11 +387,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 :global .bootstrap-datetimepicker-widget table thead th{
-    background-color: var(--c_soot);
+    background-color: var(--form-date-calendar-background);
 }
 
 :global .bootstrap-datetimepicker-widget table tbody{
-    background-color: var(--c_soot);
+    background-color: var(--form-date-calendar-background);
 }
 
 :global .bootstrap-datetimepicker-widget table td,
@@ -383,7 +411,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 :global .bootstrap-datetimepicker-widget table th.prev{
-    background-color: var(--c_soot);
+    background-color: var(--form-date-calendar-background);
 }
 
 :global .bootstrap-datetimepicker-widget table th.prev::after{
@@ -449,13 +477,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 :global .bootstrap-datetimepicker-widget table td.second:hover,
 :global .bootstrap-datetimepicker-widget table thead tr:first-child th:hover,
 :global .bootstrap-datetimepicker-widget table td span:hover{
-    background: var(--c_charcoal);
+    background: var(--form-date-calendar-day-hover-background);
     cursor: pointer;
 }
 
 :global .bootstrap-datetimepicker-widget table td.old,
 :global .bootstrap-datetimepicker-widget table td.new{
-    color: #777;
+    color: var(--form-date-calendar-old-new-color);
 }
 
 :global .bootstrap-datetimepicker-widget table td.today{
@@ -470,14 +498,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     border: solid transparent;
     border-width: 0 0 7px 7px;
     border-top-color: rgba(0, 0, 0, 0.2);
-    border-bottom-color: var(--c_primaryMain);
+    border-bottom-color: var(--form-date-calendar-today-marker-color);
     content: '';
 }
 
 :global .bootstrap-datetimepicker-widget table td.active,
 :global .bootstrap-datetimepicker-widget table td.active:hover{
-    background-color: var(--c_primaryMain);
-    color: #FFF;
+    background-color: var(--form-date-calendar-day-active-background);
+    color: var(--form-date-calendar-day-active-color);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -488,7 +516,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 :global .bootstrap-datetimepicker-widget table td.disabled,
 :global .bootstrap-datetimepicker-widget table td.disabled:hover{
     background: none;
-    color: #777;
+    color: var(--form-date-calendar-day-disabled-color);
     cursor: not-allowed;
 }
 
@@ -512,19 +540,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 :global .bootstrap-datetimepicker-widget table td span.active{
-    background-color: var(--c_primaryMain);
+    background-color: var(--form-date-calendar-day-active-background);
     color: #FFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 :global .bootstrap-datetimepicker-widget table td span.old{
-    color: #777;
+    color: --form-date-calendar-old-new-color;
 }
 
 :global .bootstrap-datetimepicker-widget table td span.disabled,
 :global .bootstrap-datetimepicker-widget table td span.disabled:hover{
     background: none;
-    color: #777;
+    color: var(--form-date-calendar-day-disabled-color);
     cursor: not-allowed;
 }
 
@@ -563,11 +591,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     border: none;
     border-radius: 0;
     background-color: transparent;
-    color: var(--c_lightGray);
+    color: var(--form-date-calendar-button-color);
+    transition: background var(--trans_main);
 }
 
 :global .bootstrap-datetimepicker-widget table .btn:hover{
-    background: var(--c_charcoal);
+    background: var(--form-date-calendar-day-hover-background);
 }
 
 :global .bootstrap-datetimepicker-widget table td span:hover{
@@ -584,7 +613,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     width: 11px !important;
     height: 11px;
     margin-left: 5px;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='11' viewBox='0 0 7 11' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M5.5 11L0 5.5 5.5 0l1.29 1.29L2.577 5.5l4.21 4.212L5.5 11z'/%3E%3C/svg%3E") no-repeat;
+    background: var(--form-date-prev-icon);
+    background-repeat: no-repeat;
 }
 
 :global .bootstrap-datetimepicker-widget table thead tr:first-child th.next span{
@@ -592,33 +622,35 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     width: 8px !important;
     height: 13px;
     margin-left: 5px;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E") no-repeat;
+    background: var(--form-date-prev-icon);
+    background-repeat: no-repeat;
 }
 
 :global .bootstrap-datetimepicker-widget table td span.glyphicon-chevron-up{
     display: block;
     width: 11px !important;
     height: 7px;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E") no-repeat;
+    background: var(--form-date-up-icon);
+    background-repeat: no-repeat;
 }
 
 :global .bootstrap-datetimepicker-widget table td span.glyphicon-chevron-down{
     display: block;
     width: 12px !important;
     height: 7px;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E") no-repeat;
+    background: var(--form-date-down-icon);
+    background-repeat: no-repeat;
 }
-
 /* stylelint-enable */
 
 :global .bootstrap-datetimepicker-widget > .row{
-    background-color: var(--c_soot);
+    background-color: var(--form-date-calendar-background);
 }
 
 
 :global .bootstrap-datetimepicker-widget .timepicker{
     width: 220px;
-    background-color: var(--c_soot);
+    background-color: var(--form-date-calendar-background);
 }
 
 :global .bootstrap-datetimepicker-widget .timepicker-picker table td{
@@ -673,10 +705,3 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 :global .bootstrap-datetimepicker-widget ul.list-unstyled .picker-switch.accordion-toggle{
     display: none;
 }
-
-
-
-
-
-
-

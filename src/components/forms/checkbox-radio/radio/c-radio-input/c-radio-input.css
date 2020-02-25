@@ -8,11 +8,31 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Radio
  *  STATE
  *      - Disabled
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+:global(.c-form-image),
+c-form-checkbox-radio-container{
+    --radio-size: var(--s0);
+    --radio-border: solid 1px var(--c_black);
+    --radio-background: var(--c_charcoal);
+    --radio-hover-background: var(--c_gray);
+    --radio-selected-background: var(--c_secondaryMain);
+    --radio-selected-dot-size: calc(var(--s-5) - 1px);
+    --radio-disabled-background: var(--c_slate);
+}
 
 
 
@@ -27,24 +47,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .radio{
-    /* width: 16px !important; */
-    /* height: 16px !important; */
-    width: var(--s0) !important;
-    height: var(--s0) !important;
-    /* margin-top: 3px !important; */
-    /* margin-right: 5px; */
-    /* float: left; */
-    border: solid 1px var(--c_black);
+    width: var(--radio-size) !important;
+    height: var(--radio-size) !important;
+    border: var(--radio-border);
     border-radius: 50%;
     outline: none;
-    background: var(--c_charcoal);
+    background: var(--radio-background);
     box-shadow: none;
     transition: background 0.2s ease-in-out;
     -webkit-appearance: none;
 }
 
 .radio:hover{
-    background-color: var(--c_gray);
+    background-color: var(--radio-hover-background);
 }
 
 .radio::before{
@@ -54,11 +69,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     margin: 0;
     padding: 6px;
     border-radius: 50%;
-    background-color: var(--c_secondaryMain);
+    background-color: var(--radio-selected-background);
     background-image: url('data:image/svg+xml;utf8,<svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><circle fill="\%23FFF" cx="12.5" cy="12.5" r="12.5"/></svg>');
     background-repeat: no-repeat;
     background-position: top 50% left 50%;
-    background-size: calc(var(--s-5) - 1px);
+    background-size: var(--radio-selected-dot-size);
     content: '';
     opacity: 0;
     transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -81,11 +96,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .disabled{
-    background: var(--c_slate);
+    background: var(--radio-disabled-background);
 }
 
 .disabled:hover{
-    background: var(--c_slate);
+    background: var(--radio-disabled-background);
     cursor: not-allowed;
 }
 

@@ -8,8 +8,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-disabled{
+    --form-disabled-color: var(--c_subOneMain);
+    --form-disabled-font-family: var(--ff_primary-normal-italic);
+}
 
 
 
@@ -22,7 +36,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .disabled{
     display: inline-block;
     margin-top: 8px;
-    color: var(--c_subOneMain);
-    font-style: italic;
+    color: var(--form-disabled-color);
+    font-family: var(--form-disabled-font-family);
     word-break: break-word;
 }

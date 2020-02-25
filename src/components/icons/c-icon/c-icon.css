@@ -8,10 +8,28 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  COLORS
  *  SIZE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+:global(.c-icon){
+    --icon-itzy: var(--s-3);
+    --icon-tiny: var(--s-2);
+    --icon-small: var(--s-1);
+    --icon-medium: var(--s0);
+    --icon-large: var(--s1);
+    --icon-huge: var(--s2);
+}
 
 
 
@@ -78,33 +96,33 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .itzy{
-    width: var(--s-3);
-    height: var(--s-3);
+    width: var(--icon-itzy);
+    height: var(--icon-itzy);
 }
 
 .tiny{
-    width: var(--s-2);
-    height: var(--s-2);
+    width: var(--icon-tiny);
+    height: var(--icon-tiny);
 }
 
 .small{
-    width: var(--s-1);
-    height: var(--s-1);
+    width: var(--icon-small);
+    height: var(--icon-small);
 }
 
 .medium{
-    width: var(--s0);
-    height: var(--s0);
+    width: var(--icon-medium);
+    height: var(--icon-medium);
 }
 
 .large{
-    width: var(--s1);
-    height: var(--s1);
+    width: var(--icon-large);
+    height: var(--icon-large);
 }
 
 .huge{
-    width: var(--s2);
-    height: var(--s2);
+    width: var(--icon-huge);
+    height: var(--icon-huge);
 }
 
 

@@ -8,10 +8,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  STATE
  *      - Disabled
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-slider{
+    --slider-track-border: solid 1px var(--c_smoke);
+    --slider-track-background: var(--c_gray);
+    --slider-track-border-disabled: solid 1px var(--c_charcoal);
+    --slider-track-background-disabled: var(--c_ash);
+    --slider-thumb-border: solid 1px var(--c_subOneLighter);
+    --slider-thumb-background: var(--c_subOneMain);
+    --slider-thumb-border-disabled: solid 1px var(--c_gray);
+    --slider-thumb-background-disabled: var(--c_charcoal);
+}
 
 
 
@@ -26,10 +46,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     width: 100%;
     height: var(--s-3);
     padding: 0;
-    border: solid 1px var(--c_smoke);
+    border: var(--slider-track-border);
     border-radius: var(--s-5);
     outline: none;
-    background: var(--c_gray);
+    background: var(--slider-track-background);
     box-shadow: none;
     opacity: 0.8;
     transition: opacity var(--trans_main);
@@ -47,9 +67,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     appearance: none;
     width: var(--s0);
     height: var(--s0);
-    border: solid 1px var(--c_subOneLighter);
+    border: var(--slider-thumb-border);
     border-radius: var(--s-3);
-    background-color: var(--c_subOneMain);
+    background-color: var(--slider-thumb-background);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     cursor: ew-resize;
 }
@@ -57,9 +77,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .slider::-moz-range-thumb{
     width: var(--s0);
     height: var(--s0);
-    border: solid 1px var(--c_subOneLighter);
     border-radius: var(--s-3);
-    background-color: var(--c_subOneMain);
+    background-color: var(--slider-thumb-background);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     cursor: ew-resize;
 }
@@ -81,19 +100,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .disabled{
-    border: solid 1px var(--c_charcoal);
-    background: var(--c_ash);
+    border: var(--slider-track-border-disabled);
+    background: var(--slider-track-background-disabled);
 }
 
 .disabled::-webkit-slider-thumb{
-    border: solid 1px var(--c_gray);
-    background-color: var(--c_charcoal);
+    border: var(--slider-thumb-border-disabled);
+    background-color: var(--slider-thumb-background-disabled);
     cursor: not-allowed;
 }
 
 .disabled::-moz-range-thumb{
-    border: solid 1px var(--c_gray);
-    background-color: var(--c_charcoal);
+    border: var(--slider-thumb-border-disabled);
+    background-color: var(--slider-thumb-background-disabled);
     cursor: not-allowed;
 }
-

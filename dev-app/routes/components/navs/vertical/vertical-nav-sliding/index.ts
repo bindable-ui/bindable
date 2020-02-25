@@ -35,6 +35,13 @@ export class Copy {
             route: 'singleton',
             title: 'Singleton',
         },
+        {
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
+        },
     ];
 
     constructor(public router: Router) {}

@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
  *      - Placeholder
@@ -25,6 +26,56 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-text-input,
+c-textarea-input,
+c-file-input{
+    /* Base */
+    --input-padding: var(--s-5) var(--s-3);
+    --input-border: solid 1px var(--c_black);
+    --input-background: var(--c_charcoal);
+    --input-color: var(--c_smoke);
+    --input-box-shadow: inset 0 -1px 0 var(--c_gray);
+    --input-transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+
+    /* State */
+    --input-color-focus: var(--c_lightGray);
+    --input-box-shadow-focus: inset 0 -1px 0 var(--c_secondaryMain);
+    --input-box-shadow-error: inset 0 -1px 0 var(--c_primaryLight);
+    --input-background-error: var(--c_charcoal);
+    --input-box-shadow-warning: inset 0 -1px 0 var(--c_subTwoMain);
+    --input-background-warning: var(--c_charcoal);
+
+    /* Icon */
+    --input-icon-padding: var(--s3);
+    --input-icon-side-spacing: var(--s-2);
+    --input-icon-top-spacing: calc(var(--s-3) + 1px);
+    --input-icon-size: var(--s0);
+    --input-icon-color: var(--c_smoke);
+
+    /* Button */
+    --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
+    --input-button-border-size: 1px;
+    --input-button-border-color: var(--c_black);
+    --input-button-border-radius: 0 5px 5px 0;
+    --input-button-bin-hover-background: var(--c_primaryLight);
+
+    /* Clearable */
+    --input-clearable-spacing-right: var(--s3);
+    --input-clearable-icon-top: var(--s-5);
+    --input-clearable-icon-right: var(--s-1);
+    --input-clearable-icon-right-w-button: var(--s4);
+    --input-clearable-icon-size: var(--s-2);
+    --input-clearable-icon-hover-color: var(--c_primaryLight);
+}
+
+
+
+
+
+/*------------------------------------*\
     !BASE
 \*------------------------------------*/
 
@@ -35,14 +86,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .input{
     display: block;
     width: 100%;
-    padding: var(--s-5) var(--s-3);
-    border: solid 1px var(--c_black);
+    padding: var(--input-padding);
+    border: var(--input-border);
     border-radius: 0;
     outline: none;
-    background: var(--c_charcoal);
-    color: var(--c_smoke);
-    box-shadow: inset 0 -1px 0 var(--c_gray);
-    transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+    background: var(--input-background);
+    color: var(--input-color);
+    box-shadow: var(--input-box-shadow);
+    transition: var(--input-transition);
 }
 
 /* Show the number button all the time */
@@ -52,8 +103,8 @@ input::-webkit-inner-spin-button{
 
 .input:focus,
 .input:active{
-    color: var(--c_lightGray);
-    box-shadow: inset 0 -1px 0 var(--c_secondaryMain);
+    color: var(--input-color-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 input[type='email'],
@@ -100,18 +151,20 @@ input[type='text']{
 .error:focus,
 .error:active,
 .error{
-    box-shadow: inset 0 -1px 0 var(--c_primaryLight);
+    background: var(--input-background-error);
+    box-shadow: var(--input-box-shadow-error);
 }
 
 /**
  * ^Warning
  */
 
- .warning:focus,
- .warning:active,
- .warning{
-     box-shadow: inset 0 -1px 0 var(--c_subTwoMain);
- }
+.warning:focus,
+.warning:active,
+.warning{
+    background: var(--input-background-warning);
+    box-shadow: var(--input-box-shadow-warning);
+}
 
 
 
@@ -122,11 +175,11 @@ input[type='text']{
 \*------------------------------------*/
 
 .left{
-    padding-left: var(--s3);
+    padding-left: var(--input-icon-padding);
 }
 
 .right{
-    padding-right: var(--s3);
+    padding-right: var(--input-icon-padding);
 }
 
 
@@ -143,11 +196,11 @@ input[type='text']{
 
 .button > button{
     margin-top: 0 !important;
-    padding: calc(var(--s-4) + 1px) var(--s-3) !important;
-    border: solid 1px var(--c_black);
+    padding: var(--input-button-padding) !important;
+    border: solid var(--input-button-border-size) var(--input-button-border-color);
     border-left: 0;
-    border-width: 1px !important;
-    border-radius: 0 5px 5px 0;
+    border-width: var(--input-button-border-size) !important;
+    border-radius: var(--input-button-border-radius);
 }
 
 .button-input{
@@ -170,7 +223,7 @@ input[type='text']{
 }
 
 .bin > button:hover{
-    background: var(--c_primaryLight);
+    background: var(--input-button-bin-hover-background) !important;
 }
 
 
@@ -188,22 +241,22 @@ input[type='text']{
 }
 
 .container > input{
-    padding-right: var(--s3);
+    padding-right: var(--input-clearable-spacing-right);
 }
 
 .clearable{
     position: absolute;
-    top: var(--s-5);
-    right: var(--s-1);
+    top: var(--input-clearable-icon-top);
+    right: var(--input-clearable-icon-right);
 }
 
 .clear-button{
-    right: var(--s4);
+    right: var(--input-clearable-icon-right-w-button);
 }
 
 .clearable svg{
-    width: var(--s-2);
-    height: var(--s-2);
+    width: var(--input-clearable-icon-size);
+    height: var(--input-clearable-icon-size);
     transition: fill var(--trans_main);
 }
 
@@ -212,5 +265,5 @@ input[type='text']{
 }
 
 .clearable:hover svg{
-    fill: var(--c_primaryLight);
+    fill: var(--input-clearable-icon-hover-color);
 }

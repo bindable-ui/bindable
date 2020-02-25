@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
  *      - Hover
@@ -21,6 +22,41 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Align Bottom
  *  MOBILE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-nav-vertical{
+    --nav-item-padding: var(--s-3) var(--s0) var(--s-3) var(--s2);
+    --nav-item-color: var(--c_smoke);
+    --nav-item-color-hover: var(--c_white);
+    --nav-item-background-hover: var(--c_ash);
+    --nav-item-color-active: var(--c_white);
+    --nav-item-background-active: var(--c_black);
+    --nav-item-active-bar-size: var(--s-5);
+    --nav-item-active-bar-color: var(--c_darkGray);
+    --nav-item-active-bar-color-active: var(--c_primaryMain);
+    --nav-item-button-margin: var(--s-1) 0 var(--s-1) var(--s2);
+    --nav-item-h4-top: var(--s-1);
+    --nav-item-h4-left: var(--s2);
+    --nav-item-h4-color: var(--c_white);
+    --nav-item-h4-size: var(--s-1);
+    --nav-item-icon-top: 6px;
+    --nav-item-icon-left: 10px;
+    --nav-item-icon-color: var(--c_gray);
+    --nav-item-sub-size: var(--s-1);
+    --nav-item-sub-color: var(--c_gray);
+    --nav-item-accordion-icon-top: calc(var(--s-1) + 3px);
+    --nav-item-accordion-icon-left: 22px;
+    --nav-item-accordion-icon-size: var(--s-3);
+    --nav-item-accordion-icon-color: var(--c_white);
+}
+
 
 
 
@@ -44,8 +80,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .nav-vertical-item > a{
     display: block;
     width: 100%;
-    padding: var(--s-3) var(--s0) var(--s-3) var(--s2);
-    color: var(--c_smoke);
+    padding: var(--nav-item-padding);
+    color: var(--nav-item-color);
     text-decoration: none;
     transition: color var(--trans_main), background-color var(--trans_main);
     cursor: pointer;
@@ -57,24 +93,24 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--s-5);
+    width: var(--nav-item-active-bar-size);
     height: 100%;
-    background-color: var(--c_darkGray);
+    background-color: var(--nav-item-active-bar-color);
     content: '';
     transition: background-color var(--trans_main);
 }
 
 .nav-vertical-item > c-button > button{
-    margin: var(--s-1) 0 var(--s-1) var(--s2);
+    margin: var(--nav-item-button-margin);
 }
 
 .nav-vertical-item h4{
-    margin-top: var(--s-1);
+    margin-top: var(--nav-item-h4-top);
     margin-bottom: 0;
     padding-bottom: 0;
-    padding-left: var(--s2);
-    color: var(--c_white);
-    font-size: var(--s-1);
+    padding-left: var(var(--s2));
+    color: var(var(--c_white));
+    font-size: var(var(--s-1));
 }
 
 .nav-vertical-item c-tip{
@@ -83,8 +119,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon-container{
     position: absolute;
-    top: 6px;
-    right: 10px;
+    top:  var(--nav-item-icon-top);
+    right: var(--nav-item-icon-left);
     padding: 0 0 5px 5px;
     opacity: 0;
     transition: opacity var(--trans_main);
@@ -99,7 +135,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .icon-container > svg{
-    fill: var(--c_gray);
+    fill: var(--nav-item-icon-color);
     transition: fill var(--trans_main);
 }
 
@@ -113,12 +149,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .nav-vertical-item > a:hover{
-    background-color: var(--c_ash);
-    color: var(--c_white);
+    background-color: var(--nav-item-background-hover);
+    color: var(--nav-item-color-hover);
 }
 
 .nav-vertical-item > a:hover::before{
-    background-color: var(--c_ash);
+    background-color: var(--nav-item-background-hover);
 }
 
 
@@ -128,8 +164,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .sub{
     display: block;
-    font-size: var(--s-1);
-    color: var(--c_gray);
+    font-size: var(--nav-item-sub-size);
+    color: var(--nav-item-sub-color);
 }
 
 
@@ -146,13 +182,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .active a,
 .active a:hover{
-    background-color: var(--c_black);
-    color: var(--c_white);
+    background-color: var(--nav-item-background-active);
+    color: var(--nav-item-color-active);
 }
 
 .active a::before,
 .active a:hover::before{
-    background-color: var(--c_primaryMain);
+    background-color: var(--nav-item-active-bar-color-active);
 }
 
 
@@ -169,11 +205,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .accordion-arrow svg{
     position: absolute;
-    top: calc(var(--s-1) + 3px);
-    left: 22px;
-    width: var(--s-3);
-    height: var(--s-3);
-    fill: white;
+    top: var(--nav-item-accordion-icon-top);
+    left: var(--nav-item-accordion-icon-left);
+    width: var(--nav-item-accordion-icon-size);
+    height: var(--nav-item-accordion-icon-size);
+    fill: var(--nav-item-accordion-icon-color);
     transition: transform 0.3s ease-in-out;
 }
 

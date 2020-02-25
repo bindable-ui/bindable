@@ -57,6 +57,13 @@ export class Forms {
             title: 'Image',
         },
         {
+            moduleId: PLATFORM.moduleName('./label/index'),
+            name: 'label',
+            nav: true,
+            route: 'label',
+            title: 'Label',
+        },
+        {
             moduleId: PLATFORM.moduleName('./radio/index'),
             name: 'radio',
             nav: true,

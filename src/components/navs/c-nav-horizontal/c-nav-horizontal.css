@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  SIZE
  *      - Medium
@@ -25,11 +26,34 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-nav-horizontal{
+    --nav-background: var(--c_darkGray);
+    --nav-medium-padding: var(--s0) 0;
+    --nav-small-padding: var(--s-1) 0;
+    --nav-small-font-size: calc(var(--s0) - 0.12rem);
+    --nav-tiny--padding: var(--s-5) 0;
+    --nav-tiny-font-size: var(--s-1);
+    --nav-mobile-background: var(--c_soot);
+    --nav-mobile-font-size: var(--s-1);
+    --nav-mobile-hover: var(--c_slate);
+    --nav-mobile-active: var(--c_primaryMain);
+    --nav-mobile-trigger-background: var(--c_primaryMain);
+    --nav-mobile-trigger-bars-color: var(--c_white);
+}
+
+
+
+
+
+/*------------------------------------*\
     !BASE
 \*------------------------------------*/
 
 .nav-horizontal{
-    background-color: var(--c_darkGray);
+    background-color: var(--nav-background);
 }
 
 .nav-horizontal ul{
@@ -49,7 +73,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .medium a{
-    padding: var(--s0) 0;
+    padding: var(--nav-medium-padding);
 }
 
 
@@ -58,8 +82,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .small a{
-    padding: var(--s-1) 0;
-    font-size: calc(var(--s0) - 0.12rem);
+    padding: var(--nav-small-padding);
+    font-size: var(--nav-small-font-size);
 }
 
 
@@ -72,8 +96,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .tiny a{
-    padding: var(--s-5) 0;
-    font-size: var(--s-1);
+    padding: var(--nav-tiny--padding);
+    font-size: var(--nav-tiny-font-size);
 }
 
 
@@ -94,7 +118,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         height: 100%;
         margin: 0;
         padding: 55px 49px 10px !important;
-        background: var(--c_soot);
+        background: var(--nav-mobile-background);
         opacity: 0;
         overflow: auto;
         z-index: var(--z_mainNav);
@@ -117,17 +141,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         display: block;
         margin: 0 auto;
         padding: 10px 0;
-        font-size: var(--s-1);
+        font-size: var(--nav-mobile-font-size);
         transition: background-color var(--trans_main), color var(--trans_main);
     }
 
     .nav-mobile li a:hover{
-        background-color: var(--c_slate);
+        background-color: var(--nav-mobile-hover);
     }
 
     .active a,
     .active a:hover{
-        background-color: var(--c_primaryMain);
+        background-color: var(--nav-mobile-active);
     }
 }
 
@@ -156,7 +180,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     border: none;
     border-radius: 0;
     outline: 0;
-    background-color: var(--c_primaryMain);
+    background-color: var(--nav-mobile-trigger-background);
     font-size: 0;
     text-indent: -9999px;
     box-shadow: none;
@@ -185,10 +209,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     right: 7px;
     left: 7px;
     height: 2px;
-    /* stylelint-disable */
-    background: #FFF;
-    background: var(--c_white);
-    /* stylelint-enable */
+    background: var(--nav-mobile-trigger-bars-color);
 }
 
 .mobile-trigger span::before,
@@ -198,10 +219,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     left: 0;
     width: 100%;
     height: 2px;
-    /* stylelint-disable */
-    background-color: #FFF;
-    background-color: var(--c_white);
-    /* stylelint-enable */
+    background-color: var(--nav-mobile-trigger-bars-color);
     content: '';
 }
 

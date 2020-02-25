@@ -8,9 +8,23 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
 */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-form-warning{
+    --form-warning-color: var(--c_subTwoMain);
+    --form-warning-font-size: var(--s-1);
+}
 
 
 
@@ -31,8 +45,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: inline-block;
     position: absolute;
     margin-top: 2px;
-    color: var(--c_subTwoMain);
-    font-size: 12px;
+    color: var(--form-warning-color);
+    font-size: var(--form-warning-font-size);
 }
 
 .warning{

@@ -8,11 +8,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
  *  STATE
  *      - Disabled
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+/* See forms/checkbox-radio/radio/c-radio-label/c-radio-label.css */
 
 
 
@@ -27,8 +38,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .label{
-    color: var(--c_smoke);
-    font-size: var(--s-1);
+    color: var(--radio-checkbox-label-color);
+    font-size: var(--radio-checkbox-label-size);
     cursor: pointer;
 }
 
