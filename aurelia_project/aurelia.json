@@ -5,6 +5,7 @@
     "root": "dev-app",
     "resources": "../src",
     "bindable": "../src",
+    "@bindable-ui/bindable": "../src",
     "elements": "../src/elements",
     "components": "../src/components",
     "helpers": "../src/helpers",

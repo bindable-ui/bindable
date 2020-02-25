@@ -28,18 +28,18 @@ export function dirtyCheckPrompt<T extends new (...args: any[]) => {}>(construct
                     .get(DialogService)
                     .open({
                         model: {
-                            bodyViewModel: PLATFORM.moduleName('bindable/decorators/dirty-check-prompt/modal/body'),
+                            bodyViewModel: PLATFORM.moduleName('@bindable-ui/bindable/decorators/dirty-check-prompt/modal/body'),
                             footerEnable: true,
                             footerModel: {
                                 canSave: _.isFunction(this.save),
                                 isLoading: false,
                                 save: async () => await this.save(),
                             },
-                            footerViewModel: PLATFORM.moduleName('bindable/decorators/dirty-check-prompt/modal/footer'),
+                            footerViewModel: PLATFORM.moduleName('@bindable-ui/bindable/decorators/dirty-check-prompt/modal/footer'),
                             size: 'medium',
                             title: 'Are you sure you want to leave?',
                         },
-                        viewModel: PLATFORM.moduleName('bindable/components/modal/c-modal/c-modal'),
+                        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/modal/c-modal/c-modal'),
                     })
                     .whenClosed(async response => {
                         if (response.wasCancelled) {

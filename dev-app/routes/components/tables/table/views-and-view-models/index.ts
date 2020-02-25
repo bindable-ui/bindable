@@ -67,138 +67,138 @@ export class TableViews {
                 description: 'Set to place c-button in a cell.',
                 name: 'c-td-button',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-button/c-td-button" +
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button" +
                 ".html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-button/c-td-button')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button')",
             },
             {
                 description: 'Set to place c-toggle and corresponding "Enabled/Disabled" text in a cell.',
                 name: 'c-td-button',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-toggle/c-td-toggle" +
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle" +
                 ".html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-toggle/c-td-toggle')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle')",
             },
             {
                 description: 'Set to place c-text-input in a cell. Both the view and viewModel must be used. ',
                 name: 'c-td-text-input',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-text-input/c-td-text-input" +
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input" +
                 ".html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-text-input/c-td-text-input')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input')",
             },
             {
                 description: 'Set to allow the text in a td to truncate.',
                 name: 'c-td-truncate',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-truncate/c-td-truncate.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-truncate/c-td-truncate')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate')",
             },
             {
                 description: 'Set to place an image in a table cell.',
                 name: 'c-td-image',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-image/c-td-image.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-image/c-td-image')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image')",
             },
             {
                 description: 'Set to place c-checkbox-input in a cell.',
                 name: 'c-td-check',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-check/c-td-check.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-check/c-td-check')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check')",
             },
             {
                 description: 'Set to place c-drag-handle in a cell.',
                 name: 'c-drag-handle',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/utilities/c-drag-handle/c-drag-handle.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/utilities/c-drag-handle/c-drag-handle.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html')",
             },
             {
                 description: 'Set to place c-checkbox-input and a drag in a cell.',
                 name: 'c-td-drag-check',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check" +
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check" +
                 ".html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check')",
             },
             {
                 description: 'Set to place c-pill in a cell.',
                 name: 'c-td-pill',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-pill/c-td-pill.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-pill/c-td-pill')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill')",
             },
             {
                 description: 'Set to place something that run an action (go to a link or run a function) in ' +
                     'a cell.',
                 name: 'c-td-action',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action')",
             },
             {
                 description: 'Set to place a tip in a single cell.',
                 name: 'c-td-tip',
                 type: 'view',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-tip/c-td-tip.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-tip/c-td-tip')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip')",
             },
         ];
 
@@ -218,8 +218,8 @@ export class TableViews {
                 colHeadName: 'action',
                 colHeadValue: 'Action',
                 colAction: () => window.alert('Clicked'),
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-button/c-td-button.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-button/c-td-button'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button'),
             },
         ];
 
@@ -254,8 +254,8 @@ export class TableViews {
                 colClass: 't240',
                 colHeadName: 'status',
                 colHeadValue: 'Status',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
             },
         ];
 
@@ -275,10 +275,10 @@ export class TableViews {
                 colHeadName: 'textInput',
                 colHeadValue: 'Text Input',
                 view: PLATFORM.moduleName(
-                    'bindable/components/tables/td-contents/c-td-text-input/c-td-text-input.html',
+                    '@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input.html',
                 ),
                 viewModel: PLATFORM.moduleName(
-                    'bindable/components/tables/td-contents/c-td-text-input/c-td-text-input',
+                    '@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input',
                 ),
             },
             {
@@ -322,8 +322,8 @@ export class TableViews {
                 colClass: 't175',
                 colHeadName: 'name',
                 colHeadValue: 'Name',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-truncate/c-td-truncate.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-truncate/c-td-truncate'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate'),
             },
             {
                 colHeadName: 'ship',
@@ -402,8 +402,8 @@ export class TableViews {
                 colClass: 't150',
                 colHeadName: 'image',
                 colHeadValue: 'Image',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-image/c-td-image.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-image/c-td-image'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image'),
             },
             {
                 colHeadName: 'description',
@@ -441,8 +441,8 @@ export class TableViews {
                 colClass: 't30',
                 colHeadName: 'checkbox',
                 colHeadValue: '',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-check/c-td-check.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-check/c-td-check'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check'),
             },
             {
                 colHeadName: 'ship',
@@ -486,8 +486,8 @@ export class TableViews {
                 colClass: 't30',
                 colHeadName: 'drag',
                 colHeadValue: '',
-                view: PLATFORM.moduleName('bindable/components/utilities/c-drag-handle/c-drag-handle.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/utilities/c-drag-handle/c-drag-handle'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle'),
             },
             {
                 colHeadName: 'ship',
@@ -548,10 +548,10 @@ export class TableViews {
                     };
                 },
                 view: PLATFORM.moduleName(
-                    'bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html',
+                    '@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html',
                 ),
                 viewModel: PLATFORM.moduleName(
-                    'bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check',
+                    '@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check',
                 ),
             },
             {
@@ -597,14 +597,14 @@ export class TableViews {
             {
                 colHeadName: 'name',
                 colHeadValue: 'Name',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
             },
             {
                 colHeadName: 'description',
                 colHeadValue: 'Description',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
             },
         ];
 
@@ -622,21 +622,21 @@ export class TableViews {
                 colAction: () => this.testModal(),
                 colHeadName: 'delete',
                 colHeadValue: 'Delete',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
             },
             {
                 colHeadName: 'link',
                 colHeadValue: 'Link',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
             },
             {
                 colAction: () => this.testModal(),
                 colHeadName: 'modal',
                 colHeadValue: 'Modal',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-action/c-td-action'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
             },
         ];
 
@@ -654,14 +654,14 @@ export class TableViews {
             {
                 colHeadName: 'tipOne',
                 colHeadValue: 'Tip One',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
             },
             {
                 colHeadName: 'tipTwo',
                 colHeadValue: 'Tip Two',
-                view: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
-                viewModel: PLATFORM.moduleName('bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
             },
         ];
 
@@ -720,7 +720,7 @@ export class TableViews {
                 size: 'large',
                 title: 'Hi',
             },
-            viewModel: PLATFORM.moduleName('bindable/components/modal/c-modal/c-modal'),
+            viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/modal/c-modal/c-modal'),
         });
     }
 
