@@ -1,0 +1,44 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-time-entry.css"></require>
+
+    <div
+        class="
+            ${styles.entry}
+            ${styles.clickable}
+            ${popoverOpen ? 'popover-open' : ''}
+            ${item.sizeDay === 'small' ? styles.smallDay : ''}
+            ${item.sizeDay === 'expandable' ? styles.expandableDay : ''}
+            ${item.sizeDay === 'expandable' ? 'expandable-day' : ''}
+            ${item.sizeWeek === 'small' ? styles.smallWeek : ''}
+            ${item.sizeWeek === 'expandable' ? styles.expandableWeek : ''}
+            ${item.sizeWeek === 'expandable' ? 'expandable-week' : ''}
+        "
+        css="
+            top: ${item.top}px;
+            height: ${item.height}px;
+            min-height: 1px;
+            width: ${item.widthCalc ? item.widthCalc : ''};
+            right: ${item.rightCalc ? item.rightCalc : ''};
+            --time-entry-background: ${item.background ? item.background : '#252525'};
+            --time-entry-color: ${item.color ? item.color : 'inherit'};
+        "
+    >
+        <div click.trigger="openPopover($event)" class="${styles.container}">
+            <div class="${styles.info}  ${item.icons ? styles.infoWithIcons : ''}">
+                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone">
+                    ${item.title}
+                </c-p>
+                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone" if.bind="item.startTime && item.endTime && !item.altTime">${item.startTime} - ${item.endTime}</c-p>
+                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone" if.bind="item.altTime">${item.altTime}</c-p>
+            </div>
+            <div class="${styles.icons}" if.bind="item.icons">
+                <c-icon repeat.for="icon of item.icons" icon="${icon}" if.bind="$index < 2"></c-icon>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,83 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .transition-swatches{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .transition-swatch{
+            margin-right: 10px;
+            margin-bottom: 10px;
+            width: 155px;
+            background: var(--c_darkGray);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .transition-swatch-sample{
+            display: block;
+            width: 100%;
+            margin-top: 38px;
+            margin-bottom: 35px;
+            text-align: center;
+            opacity: 1;
+            transition: opacity var(--trans_main);
+        }
+
+        .transition-swatch-sample:hover{
+            opacity: 0;
+        }
+
+        .transition-swatch-name{
+            width: 100%;
+            padding: 5px 0;
+            background-color: #282828;
+            font-size: var(--s-1);
+            text-align: center;
+        }
+
+        .transition-swatch-sample-small{
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: var(--s-1);
+            color: var(--c_smoke);
+            margin-bottom: 15px;
+        }
+
+        .transition-swatch-name{
+            width: 100%;
+            padding: 5px 0;
+            background-color: var(--c_ash);
+            font-size: var(--s-1);
+            text-align: center;
+        }
+    </style>
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h1>Transitions</c-h1>
+                <c-p size="large" spacing-bottom="sbMedium">There is currently only one css transition used. Hover on it to see a sample.</c-p>
+                <div class="transition-swatches">
+                    <div class="transition-swatch">
+                        <div class="transition-swatch-sample">Main</div>
+                        <div class="transition-swatch-sample-small">0.3s ease-in-out</div>
+                        <div class="transition-swatch-name">trans_main</div>
+                    </div>
+                </div>
+            </l-stack>
+        </div>
+    </l-box>
+</template>

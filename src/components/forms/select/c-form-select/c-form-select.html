@@ -1,0 +1,52 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <require from="./c-form-select.css"></require>
+
+    <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
+        <c-label state="${_state}">
+            ${label}
+        </c-label>
+        <slot name="tip"></slot>
+    </div>
+    <l-stack spacing="var(--s-3)">
+        <c-form-text
+            if.bind="search && _state !== 'hidden' && _state !== 'disabled'"
+            text-value.bind="searchText"
+            class="${styles.search}"
+            clearable.bind="true"
+            placeholder="Search"
+            button="search"
+            button-action.call="searchSelect(textValue)">
+        </c-form-text>
+        <select
+            if.bind="!isLoading && _state !== 'hidden' && _state !== 'disabled'"
+            class="${styles.select}  ${styles[_state]}  ${multiple ? styles.multiple : ''}"
+            value.bind="selectValue"
+            multiple.bind="multiple"
+            scroll.trigger="onScroll() & throttle"
+        >
+            <option if.bind="!simple" repeat.for="option of filteredOptions" value="${option.value}">${option.text}</option>
+            <option if.bind="simple" repeat.for="option of filteredOptions" value="${option}">${option}</option>
+        </select>
+        <div if.bind="reorder">
+            <l-cluster spacing="var(--s-3)">
+                <div>
+                    <c-button size="small" color="neutral" icon="chevron-up" icon-position="center" click.trigger="moveItems(-1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
+                    <c-button size="small" color="neutral" icon="chevron-down" icon-position="center" click.trigger="moveItems(1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
+                </div>
+            </l-cluster>
+        </div>
+    </l-stack>
+    <div class="${isLoading ? styles.loader : ''}  ${isLoadingMore ? styles.loadingMore : ''}" if.bind="(isLoading || isLoadingMore) && multiple">
+        <c-spinner size="small"></c-spinner>
+    </div>
+    <c-disabled if.bind="_state === 'disabled'">
+        ${selectValue || 'None'}
+    </c-disabled>
+    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
+    <c-form-warning state="${_state}" if.bind="_state !== 'hidden' && warningMsg">${warningMsg}</c-form-warning>
+</template>

@@ -1,0 +1,267 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Tile
+ *      - Image
+ *      - Title
+ *      - Checked
+ *  CHECKBOX
+ *  DRAG
+ *  TIP
+ *  STATE
+ *      - Base
+ *      - Healthy
+ *      - Info
+ *      - Warning
+ *      - Error
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Tile
+ */
+
+.tile{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: var(--s-5);
+    background: var(--c_darkGray);
+}
+
+.container{
+    position: relative;
+}
+
+.hover{
+    transition: background var(--trans_main), border var(--trans_main);
+}
+
+.hover:hover{
+    background: var(--c_charcoal);
+    cursor: pointer;
+}
+
+.tile p{
+    margin-top: 3px;
+}
+
+.tile c-tip ul li a{
+    padding-left: 0;
+}
+
+
+/**
+ * ^Image
+ */
+
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: var(--c_soot);
+    text-align: center;
+    overflow: hidden;
+}
+
+.image img{
+    width: 100%;
+}
+
+
+/**
+ * ^Title
+ */
+
+.title{
+    margin-top: var(--s-5);
+}
+
+.title c-h4{
+    max-width: calc(100% - var(--s3));
+}
+
+.title h4{
+    color: var(--c_marshmellow);
+    font-size: var(--s-1);
+    margin-top: 0;
+}
+
+.title h4 > svg{
+    margin-top: -2px;
+    margin-right: var(--s-5);
+}
+
+
+/**
+ * ^Checked
+ */
+
+.checked{
+    background: var(--c_gray) !important;
+}
+
+.checked p{
+    color: var(--c_marshmellow);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !CHECKBOX
+\*------------------------------------*/
+
+.checkbox-container{
+    line-height: 0px;
+    z-index: var(--z_tileCheckbox);
+}
+
+.tile input[type='checkbox']{
+    margin-top: 0 !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !DRAG
+\*------------------------------------*/
+
+.drag{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--s0);
+    height: 100%;
+    background: var(--c_black);
+    opacity: 0;
+    transition: opacity var(--trans_main);
+}
+
+.drag span{
+    position: absolute;
+    top: calc(50% - 7px);
+    left: 0;
+}
+
+.tile:hover .drag{
+    opacity: 1;
+}
+
+.tile:hover .drag:hover{
+    cursor: move;
+    /* stylelint-disable */
+    cursor: -webkit-grab;
+    /* stylelint-enable */
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TIP
+\*------------------------------------*/
+
+.tip{
+    position: absolute;
+    top: calc(var(--s-5) * -1);
+    right: calc(var(--s-5) * -1);
+    padding: var(--s-5) var(--s-3);
+    z-index: var(--z_tileTip);
+    background: var(--c_charcoal);
+    opacity: 0;
+    transition: var(--trans_main) background, var(--trans_main) opacity;
+}
+
+.tile:hover .tip{
+    opacity: 1;
+}
+
+.tip:hover{
+    cursor: pointer;
+}
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Base
+ */
+
+.status{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: var(--s-5);
+}
+
+
+/**
+ * ^Healthy
+ */
+
+.healthy{
+    background: var(--c_secondaryMain);
+}
+
+
+/**
+ * ^Info
+ */
+
+.info{
+    background: var(--c_subOneMain);
+}
+
+
+/**
+ * ^Warning
+ */
+
+.warning{
+    background: var(--c_subTwoMain);
+}
+
+
+/**
+ * ^Error
+ */
+
+.critical,
+.error{
+    background: var(--c_primaryLight);
+}
+
+
+/**
+ * ^Processing
+ */
+
+.processing{
+    background: #CCC url('../../../global-styles/assets/images/td-processing.gif');
+    background-blend-mode: hard-light;
+}

@@ -1,0 +1,71 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="tableCols" rows.bind="tableProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>hover</c-h3>
+                <c-code-sample>
+                    <c-table cols.bind="basicCols" rows.bind="basicData" hover.bind="true"></c-table>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>no-vertical-border</c-h3>
+                <c-code-sample>
+                    <c-table cols.bind="basicCols" rows.bind="basicData" no-vertical-borders.bind="true"></c-table>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>responsive</c-h3>
+                <c-code-sample>
+                    <c-table cols.bind="basicCols" rows.bind="basicData" responsive.bind="false"></c-table>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>sortable</c-h3>
+                <c-notification type="info">This property works with the 'sort' key in the cols object. Both must be present to get sorting working. This sortable propertiy tells the table to allow sorting. The other says which cols you want sorting on.</c-notification>
+                <c-code-sample>
+                    <c-table cols.bind="sortableCols" rows.bind="sortableData" sortable.bind="true"></c-table>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>striped</c-h3>
+                <c-code-sample>
+                    <c-table cols.bind="basicCols" rows.bind="basicData" striped.bind="false"></c-table>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

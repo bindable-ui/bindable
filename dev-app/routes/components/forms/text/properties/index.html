@@ -1,0 +1,130 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="formTextCols" rows.bind="formTextProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>align-input / label / label-icon / placeholder</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text text-value.bind="vFormTextOutput" label="Label Text" placeholder="Placeholder Text"></c-form-text>
+                        <c-form-text text-value.bind="vFormTextOutput" label="Label Icon" label-icon="time" placeholder="Placeholder Text"></c-form-text>
+                        <c-form-text placeholder="No Label" align-input.bind="true"></c-form-text>
+                        <c-form-text placeholder="No Label"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+                <br>
+                <c-p>c-form-text output: ${vFormTextOutput}</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>button</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text label="Button Text Input" placeholder="Name Here" button="bin" button-action.call="testFunction()"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>clearable</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text label="Label Text" placeholder="Placeholder Text" clearable.bind="true"></c-form-text>
+                        <c-form-text label="Button Text Input" placeholder="Name Here" button="bin" clearable.bind="true"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>error-msg / warning-msg / state</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text label="Error Field" placeholder="Placeholder Text" error-msg="This is the error message" state="error"></c-form-text>
+                        <c-form-text label="Warning Field" placeholder="Placeholder Text" warning-msg="This is the warning message" state="warning"></c-form-text>
+                        <c-form-text label="Disabled Input" state="disabled" text-value="I cannot be changed"></c-form-text>
+                        <c-form-text label="Hidden Input" state="hidden"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>has-focus</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text has-focus.bind="true" type="number" label="Number" placeholder="Placeholder Text"></c-form-text>
+                        <c-form-text type="number" label="Age"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>icon / icon-position</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text label="Icon Field" icon="bin" icon-position="left" placeholder="Placeholder Text"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>text-value</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text label="Label Text" text-value="some text here"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>type</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-text type="number" label="Number" placeholder="23"></c-form-text>
+                        <c-form-text type="number" label="Age"></c-form-text>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

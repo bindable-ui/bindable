@@ -1,0 +1,71 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <c-tip
+        side.bind="tipSide"
+        arrow-position.bind="tipArrowPosition"
+        color="primaryLight"
+        size.bind="tipSize"
+        view-model.ref="deleteConf"
+        actions.bind="tipActions"
+    >
+        <div slot="trigger">
+            <c-button
+                color="neutral"
+                icon="bin"
+                icon-position="left"
+                auth-state="${authState}"
+                state.bind="mainButtonState"
+            >
+                Delete ${title}
+            </c-button>
+        </div>
+        <div slot="content">
+            <form
+                role="form"
+                submit.delegate="delete()"
+            >
+                <l-stack spacing="var(--s0)">
+                    <div>
+                        <c-h3>Are you sure?</c-h3>
+                        <c-p if.bind="showDeleteMessage">${deleteMessage}</c-p>
+                        <c-p else>To delete this ${title} please type the name of the ${title}.</c-p>
+                    </div>
+                    <c-form-text
+                        label="${textLabel}"
+                        icon="bin"
+                        icon-position="left"
+                        error-msg.bind="error"
+                        has-focus.bind="hasFocus"
+                        text-value.bind="matchCheck"
+                        state="error"
+                    ></c-form-text>
+                    <l-cluster spacing="var(--s-2)">
+                        <div>
+                            <c-button
+                                size="small"
+                                color="danger"
+                                state.bind="buttonState"
+                                type="submit"
+                            >
+                                Delete ${title}
+                            </c-button>
+                            <c-button
+                                size="small"
+                                color="neutral"
+                                state="${isDeleting ? 'disabled' : ''}"
+                                action.call="deleteConf.toggleVisible()"
+                                type="button"
+                            >
+                                Cancel
+                            </c-button>
+                        </div>
+                    </l-cluster>
+                </l-stack>
+            </form>
+        </div>
+    </c-tip>
+</template>

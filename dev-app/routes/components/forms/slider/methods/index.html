@@ -1,0 +1,31 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Methods</c-h2>
+                <c-table cols.bind='formSliderCols' rows.bind='formSliderMethods'></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>on-change</c-h3>
+                <c-code>public changed() {
+    alert('changed');
+}</c-code>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-slider label="Slide Me" on-change.call="changed()"></c-form-file>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

@@ -1,0 +1,81 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Center</c-h1>
+                    <c-h2>Properties</c-h2>
+                    <c-table cols.bind="centerCols" rows.bind="centerProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>Default</c-h3>
+                    <c-code-sample>
+                        <l-center max-width="60ch">
+                            <l-box>I am centered</l-box>
+                        </l-center>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>spacing</c-h3>
+                    <c-code-sample>
+                        <l-center max-width="60ch" spacing="var(--s5)">
+                            <l-box>Large Spacing</l-box>
+                        </l-center>
+                        <l-center max-width="60ch" spacing="var(--s3)">
+                            <l-box>Medium Spacing</l-box>
+                        </l-center>
+                        <l-center max-width="60ch" spacing="var(--s1)">
+                            <l-box>Small Spacing</l-box>
+                        </l-center>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>text-center</c-h3>
+                    <c-code-sample>
+                        <l-center max-width="60ch" text-center.bind="true">
+                            <l-box>I am center aligned text</l-box>
+                        </l-center>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>max-width</c-h3>
+                    <c-code-sample>
+                        <l-center>
+                            <l-box>No Max</l-box>
+                        </l-center>
+                        <l-center max-width="60ch">
+                            <l-box>60ch max-width</l-box>
+                        </l-center>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+</template>

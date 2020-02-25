@@ -1,0 +1,74 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  ICON
+ *  LABEL WRAPPER
+ *  ALIGN INPUT
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !ICON
+\*------------------------------------*/
+
+.icon{
+    display: block;
+    position: relative;
+}
+
+.icon svg{
+    position: absolute;
+    top: calc(var(--s-3) + 1px);
+    width: var(--s0);
+    height: var(--s0);
+    fill: var(--c_smoke);
+    z-index: var(--z_base);
+}
+
+.left svg{
+    left: var(--s-2);
+}
+
+.right svg{
+    right: var(--s-2);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LABEL WRAPPER
+\*------------------------------------*/
+
+.label-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.label-wrapper > c-label{
+    margin-right: 5px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ALIGN INPUT
+\*------------------------------------*/
+
+.align-input{
+    display: block;
+    margin-top: var(--s2);
+}

@@ -1,0 +1,142 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  STATUS
+ *      - Info
+ *      - Warning
+ *      - Critical
+ *      - Success
+ *  CALLOUT
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.notification{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    font-size: var(--s-1);
+    color: var(--c_white);
+}
+
+.notification svg{
+    flex: 0 0 var(--s3);
+}
+
+.content{
+    padding: var(--s-3) var(--s0) var(--s-3) 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATUS
+\*------------------------------------*/
+
+/**
+ * ^Info
+*/
+
+.info{
+    border: solid 1px var(--c_subOneMain);
+    background: var(--c_subOneDark);
+}
+
+.info svg{
+    fill: var(--c_subOneLighter);
+}
+
+
+/**
+ * ^Warning
+*/
+
+.warning{
+    border: solid 1px var(--c_subTwoMain);
+    background: var(--c_subTwoDark);
+}
+
+.warning svg{
+    fill: var(--c_subTwoLight);
+}
+
+
+/**
+ * ^Critical
+*/
+
+.critical{
+    border: solid 1px var(--c_primaryLighter);
+    background: var(--c_primaryDark);
+}
+
+.critical svg{
+    fill: var(--c_primaryLighter);
+}
+
+
+/**
+ * ^Success
+*/
+
+.success{
+    border: solid 1px var(--c_secondaryLighter);
+    background: var(--c_secondaryDark);
+}
+
+.success svg{
+    fill: var(--c_secondaryLighter);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !CALLOUT
+\*------------------------------------*/
+
+.callout{
+    flex: 0 0 calc(var(--s5) + 120px);
+    padding: var(--s0) var(--s2);
+}
+
+.callout h5{
+    font-size: var(--s0);
+}
+
+.info .callout h5{
+    color: var(--c_subOneLight);
+}
+
+.warning .callout h5{
+    color: var(--c_subTwoMain);
+}
+
+.critical .callout h5{
+    color: var(--c_primaryLighter);
+}
+
+.success .callout h5{
+    color: var(--c_secondaryLighter);
+}
+
+.callout h2{
+    margin-bottom: 0;
+}

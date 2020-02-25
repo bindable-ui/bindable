@@ -1,0 +1,137 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .example > div{
+            height: 500px;
+        }
+    </style>
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Stack</c-h1>
+                    <c-h2>Properties</c-h2>
+                    <c-table cols.bind="stackCols" rows.bind="stackProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>Default</c-h3>
+                    <c-code-sample>
+                        <l-stack>
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>list</c-h3>
+                    <c-code-sample>
+                        <l-grid gap="var(--s3)">
+                            <l-stack list="ordered">
+                                <div role="listitem">Stacked Ordered List Item</div>
+                                <div role="listitem">Stacked Ordered List Item</div>
+                                <div role="listitem">Stacked Ordered List Item</div>
+                                <div role="listitem">Stacked Ordered List Item</div>
+                                <div role="listitem">Stacked Ordered List Item</div>
+                            </l-stack>
+                            <l-stack list="un-ordered">
+                                <div role="listitem">Stacked Un-Ordered List Item</div>
+                                <div role="listitem">Stacked Un-Ordered List Item</div>
+                                <div role="listitem">Stacked Un-Ordered List Item</div>
+                                <div role="listitem">Stacked Un-Ordered List Item</div>
+                                <div role="listitem">Stacked Un-Ordered List Item</div>
+                            </l-stack>
+                        </l-grid>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>recursive</c-h3>
+                    <c-code-sample>
+                        <l-stack recursive.bind="true">
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                            <div>
+                                <div>Nested Stacked Item</div>
+                                <div>Nested Stacked Item</div>
+                                <div>Nested Stacked Item</div>
+                            </div>
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>spacing</c-h3>
+                    <c-code-sample>
+                        <l-grid gap="var(--s3)" min-size="30ch">
+                            <l-stack spacing="var(--s5)">
+                                <div>Large Spacing</div>
+                                <div>Large Spacing</div>
+                                <div>Large Spacing</div>
+                                <div>Large Spacing</div>
+                                <div>Large Spacing</div>
+                            </l-stack>
+                            <l-stack spacing="0px">
+                                <div>No Spacing</div>
+                                <div>No Spacing</div>
+                                <div>No Spacing</div>
+                                <div>No Spacing</div>
+                                <div>No Spacing</div>
+                            </l-stack>
+                        </l-grid>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>Split After</c-h3>
+                    <c-code-sample class="example">
+                        <l-stack split-after="three">
+                            <div>Stacked Item</div>
+                            <div>Stacked Item</div>
+                            <div>Split After Me</div>
+                            <div>At the bottom</div>
+                            <div>At the bottom</div>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

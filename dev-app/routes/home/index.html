@@ -1,0 +1,114 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .grid-content-area{
+            grid-template-columns: 1fr;
+            grid-template-areas: "content";
+        }
+
+        .home-header {
+            background: url('resources/img/bindable-home-header.jpg') no-repeat center center;
+            background-size: cover;
+            height: 517px;
+        }
+
+        .home-header svg{
+            margin: 106px 0 0 77px;
+        }
+
+        .home-header p{
+            color: #FFF;
+            width: 500px;
+            margin: 30px 0 0 77px;
+            line-height: 27px;
+        }
+
+        .home-header a{
+            color: #FFF;
+        }
+
+        .home-content{
+            padding: 58px 77px;
+        }
+
+        .home-content h2{
+            font-family: var(--ff_primary-bold);
+        }
+
+        .home-content p{
+            line-height: 23px;
+        }
+
+        .home-content a{
+            color: #D6D6D6;
+        }
+
+        .home-content > div > div{
+            grid-gap: 60px;
+        }
+
+        @media screen and (max-width: 780px) {
+            .grid-content-area {
+                padding: 0;
+            }
+
+            .home-header svg{
+                margin: 50px 0 0 25px;
+            }
+
+            .home-header p{
+                margin: 30px 0 0 25px;
+                width: 80%;
+            }
+
+            .home-content{
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+    </style>
+
+    <div class="home-header">
+        <svg width="88" height="142" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="15.456%" x2="50%" y2="100%" id="a"><stop stop-color="#CD040B" offset="0%"/><stop stop-color="#E85358" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#C5C5C5" offset="0%"/><stop stop-color="#F6F6F6" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M44 142c24.3 0 44-19.7 44-44S68.3 54.5 44 54.5 0 73.7 0 98s19.7 44 44 44z" fill="url(#a)"/><path d="M14.667 130.83c9.001-8.031 14.666-19.704 14.666-32.695 0-.576-.01-1.15-.033-1.72h.033V56.766A44.05 44.05 0 0 1 44 54.27c24.3 0 44 19.64 44 43.865C88 122.361 68.3 142 44 142a43.913 43.913 0 0 1-29.333-11.17zM0 98.37L0 98.136v-1.72h.033c-.02.5-.03 1-.032 1.505L0 96.415V41.369C0 22.269 12.244 6.022 29.333 0v56.766z" fill="url(#b)"/></g></svg>
+        <c-p size="large" spacing-bottom="sbLarge">Bindable is a design system that aims to provide the video products in <a href="https://verizondigitalmedia.com" target="_blank">Verizon Media</a> tools to build cohesive and consistent interfaces. Bindable will provide a common pattern for designers and engineers to follow. Bindable is developed as an <a target="_blank" href="https://aurelia.io/">Aurelia</a> plugin and built with the <a target="_blank" href="https://github.com/aurelia/cli">aurelia-cli</a>.</c-p>
+    </div>
+    <div class="home-content">
+        <l-grid gap="var(--s4)">
+            <div>
+                <c-h2>Tokens</c-h2>
+                <c-p size="large">Tokens are the CSS variables used to define color, fonts, scale, and transitions.</c-p>
+                <a href="#/tokens">View Tokens</a>
+            </div>
+            <div>
+                <c-h2>Layouts</c-h2>
+                <c-p size="large">Layouts are re-usable blocks that allow you to set the spacing and layouts of your page.</c-p>
+                <a href="#/layouts">View Layouts</a>
+            </div>
+            <div>
+                <c-h2>Components</c-h2>
+                <c-p size="large">Components are re-usable UI blocks that often have various properties. These properties can be adjusted to cover various needs.</c-p>
+                <a href="#/components">View Components</a>
+            </div>
+            <div>
+                <c-h2>Elements</c-h2>
+                <c-p size="large">Elements do one thing and one thing only. They are made up of a combination of components.</c-p>
+                <a href="#/elements">View Elements</a>
+            </div>
+            <div>
+                <c-h2>Access Modifiers</c-h2>
+                <c-p size="large">Access Modifiers are used to show, hide, or disable components/elements based on user permission or application state.
+                </c-p>
+                <a href="#/access-modifiers">View Access Modifiers</a>
+            </div>
+            <div>
+                <c-h2>Value Converters</c-h2>
+                <c-p size="large">Value Converters will take data and convert it to a more human friendly version that can be displayed in the UI.</c-p>
+                <a href="#/value-converters">View Value Converters</a>
+            </div>
+        </l-grid>
+    </div>
+</template>

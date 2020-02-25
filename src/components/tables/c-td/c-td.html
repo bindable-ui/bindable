@@ -1,0 +1,13 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-td.css"></require>
+
+    <compose if.bind="col.view" view.bind="col.view" view-model.bind="col.viewModel" model.bind="modelData"></compose>
+    <span if.bind="!col.view">
+        ${modelData.value | meta:col.valueConverter:col.valueConverterFormat}
+    </span>
+</template>

@@ -1,0 +1,78 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind='formFileCols' rows.bind='formFileProperties'></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Required Initialization</c-h3>
+                <c-code>public files = null;</c-code>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+        	<l-stack spacing="var(--s-3)">
+                <c-h3>error-msg / label / state</c-h3>
+                <c-code-sample>
+                    <l-grid max-size="25ch">
+                        <c-form-file label="File Label" error-msg="This is an error" state="error"></c-form-file>
+                        <c-form-file label="File Label" state="disabled"></c-form-file>
+                        <c-form-file></c-form-file>
+                        <c-form-file label="File Label" state="hidden"></c-form-file>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+        	<l-stack spacing="var(--s-3)">
+                <c-h3>image-picker / image-src / is-uploading</c-h3>
+                <c-code-sample>
+                    <l-grid max-size="25ch">
+                        <c-form-file
+                            image-picker.bind="true"
+                            image-src=""
+                            label="File Label w/ Image"
+                            files.bind="files"
+                        ></c-form-file>
+                        <c-form-file
+                            image-picker.bind="true"
+                            image-src="https://placeimg.com/150/75/any"
+                            is-uploading.bind="true"
+                            label="File Label w/ Image Uploading"
+                            files.bind="files1"
+                        ></c-form-file>
+                        <c-form-file
+                            label="Disabled File Image"
+                            image-picker.bind="true"
+                            image-src="https://placeimg.com/150/75/any"
+                            state="disabled"
+                        ></c-form-file>
+                        <c-form-file
+                            label="File Label"
+                            files.bind="files2"
+                        ></c-form-file>
+                    </l-grid>
+                </c-code-sample>
+                <br>
+                <c-p>c-form-file output: ${files[0].name}</c-p>
+                <br>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

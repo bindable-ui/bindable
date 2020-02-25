@@ -1,0 +1,120 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Switcher</c-h1>
+                    <c-h2>Properties</c-h2>
+                    <c-table cols.bind="switcherCols" rows.bind="switcherProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>Default</c-h3>
+                    <c-code-sample>
+                        <l-switcher>
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                            <l-box>Third Item</l-box>
+                            <l-box>Fourth Item</l-box>
+                            <l-box>Fifth Item</l-box>
+                        </l-switcher>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(-s-3)">
+                    <c-h3>double-width</c-h3>
+                    <c-code-sample>
+                        <l-switcher double-width="second">
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                            <l-box>Third Item</l-box>
+                        </l-switcher>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(-s-3)">
+                    <c-h3>limit</c-h3>
+                    <c-code-sample>
+                        <l-switcher limit="three">
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                            <l-box>Third Item</l-box>
+                            <l-box>Fourth Item</l-box>
+                        </l-switcher>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(-s-3)">
+                    <c-h3>spacing</c-h3>
+                    <c-code-sample>
+                        <l-switcher spacing="var(--s5)">
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                            <l-box>Third Item</l-box>
+                        </l-switcher>
+
+                        <l-switcher spacing="0px">
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                            <l-box>Third Item</l-box>
+                        </l-switcher>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(-s-3)">
+                    <c-h3>threshold</c-h3>
+                    <c-code-sample>
+                        <l-stack>
+                            <l-switcher threshold="40rem">
+                                <l-box>First Item</l-box>
+                                <l-box>Second Item</l-box>
+                                <l-box>Third Item</l-box>
+                            </l-switcher>
+
+                            <l-switcher threshold="50rem">
+                                <l-box>First Item</l-box>
+                                <l-box>Second Item</l-box>
+                                <l-box>Third Item</l-box>
+                            </l-switcher>
+
+                            <l-switcher threshold="60rem">
+                                <l-box>First Item</l-box>
+                                <l-box>Second Item</l-box>
+                                <l-box>Third Item</l-box>
+                            </l-switcher>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

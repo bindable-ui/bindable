@@ -1,0 +1,63 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Base
+ *      - svg
+ *  TEXT
+*/
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Base
+ */
+
+.base{
+    color: var(--c_marshmellow);
+    transition: color var(--trans_main);
+}
+
+.base:hover{
+    color: var(--c_white);
+    cursor: pointer;
+}
+
+
+/**
+ * ^svg
+ */
+
+.base svg{
+    transition: fill var(--trans_main);
+    margin-right: var(--s-3);
+}
+
+.base:hover svg{
+    fill: var(--c_white);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TEXT
+\*------------------------------------*/
+
+.text-action{
+    text-decoration: underline;
+}

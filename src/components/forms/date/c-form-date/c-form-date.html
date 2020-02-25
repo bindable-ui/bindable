@@ -1,0 +1,34 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-form-date.css"></require>
+
+    <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
+        <c-label state="${_state}" icon="${labelIcon}" if.bind="label">
+            ${label}
+        </c-label>
+        <slot name="tip"></slot>
+    </div>
+    <div class="${styles.container}  ${inline ? styles.inlineContainer : ''}">
+        <c-text-input
+            if.bind="_state !== 'disabled' && _state !== 'hidden'"
+            placeholder.bind="placeholder"
+            text-value.bind="textValue"
+            state.bind="_state"
+            icon="${!inline ? 'calendar' : ''}"
+            icon-position="${!inline ? 'right' : ''}"
+            class="${styles.icon}  ${styles.right}  ${inline ? styles.inline : ''}"
+            id="${id}"
+        >
+        </c-text-input>
+        <c-disabled if.bind="_state === 'disabled'">
+            <span if.bind="!disabledText">${timestamp | altTimestampToDMY}</span>
+            <span if.bind="disabledText">${disabledText}</span>
+        </c-disabled>
+    </div>
+    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
+    <c-form-warning state="${_state}" if.bind="_state !== 'hidden' && warningMsg">${warningMsg}</c-form-warning>
+</template>

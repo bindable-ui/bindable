@@ -1,0 +1,92 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bindable</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body aurelia-app="main">
+        <div class="splash">
+            <style>
+body{
+    background: #313131;
+}
+
+.splash{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    height: 88px;
+    margin-top: -44px;
+    margin-left: -120px;
+}
+
+.loader-three-bounce{
+    width: 80px;
+    margin: 40px 0 40px 80px;
+    text-align: center;
+}
+
+.loader-three-bounce .ltb__child{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: var(--c_white);
+    -webkit-animation: loader-three-bounce 1.4s ease-in-out 0s infinite both;
+    animation: loader-three-bounce 1.4s ease-in-out 0s infinite both;
+}
+
+.loader-three-bounce .ltb__child--1{
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.loader-three-bounce .ltb__child--2{
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes loader-three-bounce{
+    0%,
+    80%,
+    100%{
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40%{
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes loader-three-bounce{
+    0%,
+    80%,
+    100%{
+        -webkit-transform: scale(0);
+        transform: scale(0); }
+    40%{
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+            </style>
+                <div class="loader-three-bounce">
+                    <div class="ltb__child  ltb__child--1"></div>
+                    <div class="ltb__child  ltb__child--2"></div>
+                    <div class="ltb__child  ltb__child--3"></div>
+                </div>
+            </div>
+        </div>
+        <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+    </body>
+</html>

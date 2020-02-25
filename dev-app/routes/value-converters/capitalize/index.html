@@ -1,0 +1,71 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Capitalize</c-h1>
+                    <c-h2>Basic Usage</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+                                <c-code>\${'something' | capitalize}</c-code>
+                                <c-p size="large">${'something' | capitalize}</c-p>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h2>Table Usage</c-h2>
+                    <div>
+                        <l-stack spacing="var(--s3)">
+                            <div>
+<c-code>public capitalizeCols = [
+    {
+        colClass: 't150',
+        colHeadName: 'firstName',
+        colHeadValue: 'First Name',
+        valueConverter: 'capitalize',
+    },
+    {
+        colHeadName: 'lastName',
+        colHeadValue: 'Last Name',
+        valueConverter: 'capitalize',
+    },
+    {
+        colHeadName: 'eyeColor',
+        colHeadValue: 'Eye Color',
+    },
+];
+
+public capitalizeRows = [
+    {
+        firstName: 'luke',
+        lastName: 'skywalker',
+        eyeColor: 'green',
+    },
+];</c-code>
+    <c-code-sample>
+        <c-table cols.bind="capitalizeCols" rows.bind="capitalizeRows"></c-table>
+    </c-code-sample>
+                            </div>
+                        </l-stack>
+                    </div>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>
