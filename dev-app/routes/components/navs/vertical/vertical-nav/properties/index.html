@@ -1,0 +1,45 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="verticalCols" rows.bind="verticalProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>nav-bottom</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical nav-bottom.bind="true">
+                        <c-nav-vertical-item title="Link 1"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Link 2"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Link 3"></c-nav-vertical-item>
+                        <span slot="bottom">
+                            <c-nav-vertical-item>
+                                <c-tip side="top" arrow-position="leftEdge" color="secondary">
+                                    <div slot="trigger">
+                                        <c-button color="secondary">Launch Tip</c-button>
+                                    </div>
+                                    <div slot="content">
+                                        <l-stack spacing="var(--s2)">
+                                            <c-form-text label="Label Text"></c-form-text>
+                                            <c-button size="small" color="secondary">Save</c-button>
+                                        </l-stack>
+                                    </div>
+                                </c-tip>
+                            </c-nav-vertical-item>
+                        </span>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

@@ -1,0 +1,120 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  COLORS
+ *  SIZE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.icon{
+    vertical-align: middle;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COLORS
+\*------------------------------------*/
+
+.white{
+    fill: var(--c_white);
+}
+
+.light-gray{
+    fill: var(--c_lightGray);
+}
+
+.gray{
+    fill: var(--c_gray);
+}
+
+.charcoal{
+    fill: var(--c_charcoal);
+}
+
+.primary{
+    fill: var(--c_primaryMain);
+}
+
+.primary-light{
+    fill: var(--c_primaryLight);
+}
+
+.secondary{
+    fill: var(--c_secondaryMain);
+}
+
+.sub-one{
+    fill: var(--c_subOneMain);
+}
+
+.sub-two{
+    fill: var(--c_subTwoMain);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIZE
+\*------------------------------------*/
+
+.itzy{
+    width: var(--s-3);
+    height: var(--s-3);
+}
+
+.tiny{
+    width: var(--s-2);
+    height: var(--s-2);
+}
+
+.small{
+    width: var(--s-1);
+    height: var(--s-1);
+}
+
+.medium{
+    width: var(--s0);
+    height: var(--s0);
+}
+
+.large{
+    width: var(--s1);
+    height: var(--s1);
+}
+
+.huge{
+    width: var(--s2);
+    height: var(--s2);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ACTION
+\*------------------------------------*/
+
+.action:hover{
+    cursor: pointer;
+}

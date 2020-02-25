@@ -1,0 +1,103 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Setup
+ *  STATE
+ *      - Error
+ *  IMAGE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Set Up
+ */
+
+.file{
+    display: block;
+    width: 100%;
+    padding: var(--s-5) var(--s-3);
+    border: solid 1px var(--c_black);
+    border-radius: 0;
+    outline: none;
+    background: var(--c_charcoal);
+    color: var(--c_smoke);
+    box-shadow: inset 0 -1px 0 var(--c_gray);
+    transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+}
+
+.file:focus,
+.file:active{
+    color: var(--c_lightGray);
+    box-shadow: inset 0 -1px 0 var(--c_secondaryMain);
+}
+
+
+@-moz-document url-prefix(){
+    .file{
+        padding-top: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Error
+ */
+
+.error:focus,
+.error:active,
+.error{
+    box-shadow: inset 0 -1px 0 var(--c_primaryLight);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !IMAGE
+\*------------------------------------*/
+
+.image{
+    display: table;
+    margin: var(--s-5) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.image:hover span a {
+    color: var(--c_lightGray);
+}
+
+.image input{
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: var(--s1) 0 0;
+    height: var(--s2);
+    opacity: 0;
+    direction: ltr;
+    cursor: pointer;
+}

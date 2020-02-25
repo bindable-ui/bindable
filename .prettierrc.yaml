@@ -1,0 +1,12 @@
+# github max line length for code reviews is 125
+printWidth: 120
+trailingComma: 'all'
+tabWidth: 4
+semi: true
+singleQuote: true
+bracketSpacing: false
+overrides:
+    - files: '{package*.json,jsconfig.json,aurelia.json,build/**/*.js}'
+      options:
+          trailingComma: 'es5'
+          tabWidth: 2

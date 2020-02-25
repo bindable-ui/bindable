@@ -1,0 +1,95 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Radio
+ *  STATE
+ *      - Disabled
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Radio
+ */
+
+.radio{
+    /* width: 16px !important; */
+    /* height: 16px !important; */
+    width: var(--s0) !important;
+    height: var(--s0) !important;
+    /* margin-top: 3px !important; */
+    /* margin-right: 5px; */
+    /* float: left; */
+    border: solid 1px var(--c_black);
+    border-radius: 50%;
+    outline: none;
+    background: var(--c_charcoal);
+    box-shadow: none;
+    transition: background 0.2s ease-in-out;
+    -webkit-appearance: none;
+}
+
+.radio:hover{
+    background-color: var(--c_gray);
+}
+
+.radio::before{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: var(--c_secondaryMain);
+    background-image: url('data:image/svg+xml;utf8,<svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><circle fill="\%23FFF" cx="12.5" cy="12.5" r="12.5"/></svg>');
+    background-repeat: no-repeat;
+    background-position: top 50% left 50%;
+    background-size: calc(var(--s-5) - 1px);
+    content: '';
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.radio:checked::before{
+    opacity: 1;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Disabled
+ */
+
+.disabled{
+    background: var(--c_slate);
+}
+
+.disabled:hover{
+    background: var(--c_slate);
+    cursor: not-allowed;
+}
+
+.disabled::before{
+    background-color: rgba(64, 164, 110, 0.3);
+    background-image: url('data:image/svg+xml;utf8,<svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><circle fill="\%23BBB" cx="12.5" cy="12.5" r="12.5"/></svg>');
+}

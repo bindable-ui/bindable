@@ -1,0 +1,85 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  LABEL WRAPPER
+ *  IMAGE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !LABEL WRAPPER
+\*------------------------------------*/
+
+.label-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.label-wrapper > c-label{
+    margin-right: 5px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !IMAGE
+\*------------------------------------*/
+
+.image-src-container{
+    position: relative;
+    width: 50%;
+    min-width: 100px;
+    max-width: 200px;
+    height: 75px;
+    margin-top: 5px;
+}
+
+.image{
+    height: 100%;
+}
+
+.remove-image{
+    float: left;
+    margin-top: -30px;
+    margin-left: 75px;
+    text-decoration: underline;
+}
+
+.remove-image:hover{
+    cursor: pointer;
+}
+
+.no-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    min-width: 100px;
+    max-width: 200px;
+    height: 75px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: var(--c_darkGray);
+    text-align: center;
+}
+
+.is-uploading > div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+}

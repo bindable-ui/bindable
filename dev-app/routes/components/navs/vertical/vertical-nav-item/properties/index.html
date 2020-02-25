@@ -1,0 +1,214 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-notification type="info">NOTE: This component is used inside the &lt;c-nav-vertical&gt; component.</c-notification>
+                <c-table cols.bind="verticalItemCols" rows.bind="verticalItemProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>accordion-item &amp; accordion-state</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical style="height: 400px; display: block;">
+                        <c-nav-vertical-item title="Accordion 1" accordion-item.bind="true" accordion-state="open" href="http://google.com">
+                            <c-nav-vertical>
+                                <c-nav-vertical-item title="Accordion Sub 1" href="http://google.com"></c-nav-vertical-item>
+                                <c-nav-vertical-item state="active" title="Accordion Sub 2" href="http://google.com"></c-nav-vertical-item>
+                                <c-nav-vertical-item title="Accordion Sub 3" href="http://google.com"></c-nav-vertical-item>
+                            </c-nav-vertical>
+                        </c-nav-vertical-item>
+                        <c-nav-vertical-item title="Accordion 2" accordion-item.bind="true" href="http://google.com">
+                            <c-nav-vertical>
+                                <c-nav-vertical-item
+                                    title="Accordion Sub 1"
+                                    href="http://google.com"
+                                    sub-text="Sub Text Here"
+                                    ></c-nav-vertical-item>
+                                <c-nav-vertical-item
+                                    title="Accordion Sub 2"
+                                    href="http://google.com"
+                                    sub-text="Sub Text Here"
+                                    ></c-nav-vertical-item>
+                                <c-nav-vertical-item
+                                    title="Accordion Sub 3"
+                                    href="http://google.com"
+                                    sub-text="Sub Text Here"
+                                    ></c-nav-vertical-item>
+                            </c-nav-vertical>
+                        </c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>align-bottom</c-h3>
+                <c-code-sample>
+                    <style>
+.example-only nav{
+    height: 300px;
+}
+                    </style>
+                    <c-nav-vertical class="example-only">
+                        <c-nav-vertical-item title="Nav Item 1" href="http://google.com">
+                            <c-button>Button</c-button>
+                        </c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Item 2" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Item 3" href="http://google.com" align-bottom.bind="true"></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>href</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical style="height: 200px; display: block;">
+                        <c-nav-vertical-item state="active" title="Nav Link 1" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 2" href="http://google.com"></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>icon</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical c-nav-vertical style="height: 200px; display: block;">
+                        <c-nav-vertical-item state="active" title="Nav Link 1" href="http://google.com" icon="cog"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 2" href="http://google.com" icon="cog" icon-action.call="fireIconFunction()"></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>section-title</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical style="height: 200px; display: block;">
+                        <c-nav-vertical-item title="Nav Link 1" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 2" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item section-title="Title Here"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 3" href="http://google.com"></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>sub-text</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical style="height: 300px; display: block;">
+                        <c-nav-vertical-item section-title="Section Title Here"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 1" sub-text="Some Sub Text" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 2" sub-text="Different Text" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 3" sub-text="More Sub Text" href="http://google.com"></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>state / title</c-h3>
+                <c-code-sample>
+                    <c-nav-vertical style="height: 200px; display: block;">
+                        <c-nav-vertical-item state="active" title="Nav Link 1" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item title="Nav Link 2" href="http://google.com"></c-nav-vertical-item>
+                        <c-nav-vertical-item state="hidden" title="Nav Link 2" href="http://google.com"></c-nav-vertical-item>
+                    </c-nav-vertical>
+                </c-code-sample>
+
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>With A Router</c-h3>
+<c-code>&lt;c-nav-vertical class=&quot;grid-content-area-nav&quot;&gt;
+    &lt;c-nav-vertical-item
+        repeat.for=&quot;row of router.navigation&quot;
+        title.bind=&quot;row.title&quot;
+        href.bind=&quot;row.href&quot;
+        state=&quot;\${row.isActive ? 'active' : ''}&quot;&gt;
+    &lt;/c-nav-vertical-item&gt;
+&lt;/c-nav-vertical&gt;</c-code>
+
+<c-code>import {PLATFORM} from 'aurelia-pal';
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+
+@inject(Router)
+export class Components {
+    constructor(router) {
+        this.router = router;
+
+        this.routes = [
+            {
+                route: '',
+                redirect: 'branding',
+            },
+            {
+                route: 'branding',
+                name: 'branding',
+                moduleId: PLATFORM.moduleName('./branding/branding'),
+                nav: true,
+                title: 'Branding',
+            },
+            {
+                route: 'button',
+                name: 'button',
+                moduleId: PLATFORM.moduleName('./button/button'),
+                nav: true,
+                title: 'Button',
+            },
+            {
+                route: 'forms',
+                name: 'forms',
+                moduleId: PLATFORM.moduleName('./forms/index'),
+                nav: true,
+                title: 'Forms',
+            },
+        ];
+    }
+
+    configureRouter(config, router) {
+        this.router = router;
+        config.map(this.routes);
+    }
+}</c-code>
+
+                <c-p>See side nav of this app for an exmaple. src/apps/design-system/routes/components/index.js and index.html</c-p>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

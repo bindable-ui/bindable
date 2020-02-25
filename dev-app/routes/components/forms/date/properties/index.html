@@ -1,0 +1,171 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="formDateCols" rows.bind="formDateProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>error-msg / warning-msg / state / disabled-text</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <div>
+                            <c-form-date
+                                id="test3"
+                                label="Error"
+                                state="error"
+                                error-msg="Date is required"
+                            ></c-form-date>
+                        </div>
+                        <div>
+                            <c-form-date
+                                id="test54"
+                                label="Warning"
+                                state="warning"
+                                warning-msg="Date is required"
+                            ></c-form-date>
+                        </div>
+                        <div>
+                            <c-form-date
+                                id="test31"
+                                label="Error"
+                                label-icon="info"
+                                error-msg="Date is required"
+                            ></c-form-date>
+                        </div>
+                        <div>
+                            <c-form-date
+                                id="test9"
+                                label="Disabled"
+                                state="disabled"
+                                timestamp="1546206420000"
+                            ></c-form-date>
+                        </div>
+                        <div>
+                            <c-form-date
+                                disabled-text="Disabled Text"
+                                id="test14"
+                                label="Disabled"
+                                state="disabled"
+                                timestamp="1546206420000"
+                            ></c-form-date>
+                        </div>
+                        <div>
+                            <c-form-date
+                                id="test10"
+                                label="Hidden"
+                                state="hidden"
+                            ></c-form-date>
+                        </div>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>id / label / placeholder / text-value</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <div>
+                            <c-form-date
+                                id="test1"
+                                callbacks.bind="callbacks"
+                                timestamp.bind="vFormDateOutput1"
+                                text-value.bind="vFormDateText"
+                                label="Label Text"
+                                placeholder="Placeholder Text"
+                            ></c-form-date>
+                        </div>
+                        <div>
+                            <c-form-date
+                                id="test2"
+                                timestamp.two-way="vFormDateOutput2"
+                                label=""
+                                placeholder="No Label"
+                            ></c-form-date>
+                        </div>
+                    </l-grid>
+                </c-code-sample>
+                <br>
+                <c-p>c-form-date output 1: ${vFormDateOutput1}</c-p>
+                <c-p>c-form-date output 2: ${vFormDateOutput2}</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>inline</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <div>
+                            <c-form-date
+                                id="test7"
+                                label="Inline"
+                                inline.bind="true"
+                            ></c-form-date>
+                        </div>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>timeofday</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <div>
+                            <c-form-date
+                                id="test5"
+                                label="Start"
+                                timeofday="start"
+                            ></c-form-date>
+                        </div>
+                        <div>
+                            <c-form-date
+                                id="test6"
+                                label="End"
+                            timeofday="end"></c-form-date>
+                        </div>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>timestamp</c-h3>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <div>
+                        <c-form-date
+                            id="test4"
+                            label="Label Text"
+                            timestamp="1546206420000"
+                        ></c-form-date>
+                        </div>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

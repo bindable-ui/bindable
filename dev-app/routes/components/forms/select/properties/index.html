@@ -1,0 +1,107 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="formSelectCols" rows.bind="formSelectProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>error-msg / warning-msg / state</c-h2>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-select options.bind="testOptions" label="Select Error" error-msg="This is an error" state="error"></c-form-select>
+                        <c-form-select options.bind="testOptions" label="Select Warning" warning-msg="This is a warning" state="warning"></c-form-select>
+                        <c-form-select options.bind="testOptions" label="Select Disabled" state="disabled" select-value="Selected Value"></c-form-select>
+                        <c-form-select options.bind="testOptions" label="Select Hidden" state="hidden"></c-form-select>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>is-loading / is-loading-more / multiple / reorder</c-h2>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-select options.bind="testOptions" label="Select Label" error-msg="This is an error" multiple.bind="true"></c-form-select>
+                        <c-form-select options.bind="testOptions" label="Reorder Select" multiple.bind="true" reorder.bind="true"></c-form-select>
+                        <c-form-select options.bind="testOptions" label="Select Label" error-msg="This is an error" multiple.bind="true" is-loading.bind="true"></c-form-select>
+                        <c-form-select options.bind="testOptions" label="Select Label" error-msg="This is an error" multiple.bind="true" is-loading-more.bind="true"></c-form-select>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>label / options.bind / select-value</c-h2>
+                <c-code>constructor() {
+    this.testOptions = [{
+        value: 'value1',
+        text: 'Value 1',
+    },
+    {
+        value: 'value2',
+        text: 'Value 2',
+    }];
+}</c-code>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-select select-value.bind="vSelectOutput" options.bind="testOptions" label="Select Label" error-msg="This is an error"></c-form-select>
+                        <c-form-select options.bind="testOptions" error-msg="This is an error"></c-form-select>
+                    </l-grid>
+                    <c-p>select: ${vSelectOutput}</c-p>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>search / search-text</c-h2>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-select options.bind="testOptions" label="Select Label" multiple.bind="true" search.bind="true" search-text="Search Text Here"></c-form-select>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>simple</c-h2>
+                <c-code>this.testSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
+this.testSelectValues = [];</c-code>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-select
+                            simple.bind="true"
+                            options.bind="testSimpleOptions"
+                            select-value.bind="testSelectValues"
+                            label="Select Simple Label" error-msg="This is an error"
+                        ></c-form-select>
+                    </l-grid>
+                </c-code-sample>
+
+                <c-p>Output: ${testSelectValues}</c-p>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

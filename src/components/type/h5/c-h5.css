@@ -1,0 +1,40 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  COLOR
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.base{
+    margin-top: -0.2rem;
+    font-family: var(--ff_secondary-normal);
+    font-weight: normal;
+    font-size: var(--s0);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COLOR
+\*------------------------------------*/
+
+.smoke{
+    color: var(--c_smoke);
+}

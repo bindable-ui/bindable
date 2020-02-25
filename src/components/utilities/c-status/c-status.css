@@ -1,0 +1,106 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  STATUS
+ *      - Set Up
+ *      - Healthy
+ *      - Warning
+ *      - Critical
+ *      - Info
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.link,
+.container c-p{
+    flex: 1;
+    margin-left: var(--s-5);
+    color: var(--c_smoke);
+    font-size: var(--s-1);
+}
+
+.link,
+.container c-p,
+.container p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.container p{
+    margin-top: auto;
+}
+
+.container svg{
+    vertical-align: initial;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATUS
+\*------------------------------------*/
+
+/**
+ * ^Set Up
+ */
+
+@keyframes fading{
+    0%{ opacity: 0; }
+    30%{ opacity: 1; }
+    70%{ opacity: 1; }
+    100%{ opacity: 0; }
+}
+
+.none{
+    display: none;
+}
+
+
+/**
+ * ^Healthy & Info
+ */
+
+.healthy,
+.info{
+    animation: fading 4.5s infinite;
+}
+
+
+/**
+ * ^Warning
+ */
+
+.warning{
+    animation: fading 3s infinite;
+}
+
+
+/**
+ * ^Critical
+ */
+
+.critical{
+    animation: fading 1.5s infinite;
+}

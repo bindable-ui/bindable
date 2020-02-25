@@ -1,0 +1,87 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  TRUNCATE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.base{
+    margin-top: -0.4rem;
+    font-family: var(--ff_secondary-normal);
+    font-size: var(--s1);
+    font-weight: normal;
+}
+
+.base a{
+    color: var(--c_subOneMain);
+}
+
+.not-flush-top{
+    margin-top: initial;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TRUNCATE
+\*------------------------------------*/
+
+.truncate{
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-height: 23px;
+    min-height: var(--s2);
+}
+
+.truncate h3{
+    min-width: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.truncate h3:hover{
+    position: absolute;
+    width: 100%;
+    background: var(--c_slate);
+    text-overflow: initial;
+    white-space: normal;
+    word-break: break-word;
+    z-index: var(--z_copy);
+}
+
+.truncate.dark-back h3:hover{
+    background: var(--c_darkGray);
+}
+
+@media screen and (max-width: 780px){
+    .truncate h3{
+        text-overflow: initial;
+        white-space: unset;
+        overflow: visible;
+        word-break: break-word;
+    }
+
+    .truncate h3:hover{
+        position: relative;
+    }
+}

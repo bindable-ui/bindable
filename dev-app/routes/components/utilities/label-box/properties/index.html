@@ -1,0 +1,67 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="labelBoxCols" rows.bind="labelBoxProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>label</c-h3>
+                <c-code-sample>
+                    <l-stack>
+                        <c-label-box label="Some Image">
+                            <img src="https://placeimg.com/122/67/animals" alt="animals">
+                        </c-label-box>
+                        <c-label-box label="Some Text">
+                            <l-stack spacing="var(--s-3)">
+                            <c-p>Some text in a c-p component</c-p>
+                            <c-button size="small">Primary Button</c-button>
+                            </l-stack>
+                        </c-label-box>
+                        <c-label-box label="A Button">
+                            <c-button>Primary Button</c-button>
+                        </c-label-box>
+                    </l-stack>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>editable</c-h3>
+                <c-code-sample>
+                    <c-label-box
+                        label="Some Image" editable.bind="true">
+                        <c-pill color="neutral">
+                            <span slot="pill-content">
+                                Pill Sample 1
+                            </span>
+                        </c-pill>
+                        <c-pill color="neutral">
+                            <span slot="pill-content">
+                                Pill Sample 2
+                            </span>
+                        </c-pill>
+                        <c-pill color="neutral">
+                            <span slot="pill-content">
+                                Pill Sample 3
+                            </span>
+                        </c-pill>
+                    </c-label-box>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

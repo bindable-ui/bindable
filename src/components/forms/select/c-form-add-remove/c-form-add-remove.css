@@ -1,0 +1,47 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.container c-form-select{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.container c-form-select > div:nth-child(2){
+    height: 100%;
+}
+
+.container select,
+.container > div{
+    flex: 1;
+}
+
+.container > div{
+    justify-content: center;
+    flex: 0;
+    margin: 20px var(--s-2) 0;
+}

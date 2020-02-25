@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "amd",
+    "noImplicitAny": false,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016.array.include",
+      "es2017.object",
+      "es2017.string",
+      "es2018.asynciterable",
+      "es2018.promise",
+      "es2019.array",
+      "es2019.object",
+      "es2019.string",
+      "es2020.string"
+    ],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": false,
+    "baseUrl": "src"
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./dev-app/**/*.ts",
+    "./test/**/*.ts",
+    "./types/**/*.d.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": false
+  }
+}

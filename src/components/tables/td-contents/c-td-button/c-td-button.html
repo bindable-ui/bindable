@@ -1,0 +1,16 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <c-button
+            size="small"
+            color="${row[col.colHeadName + 'ButtonColor'] ? row[col.colHeadName + 'ButtonColor'] : 'primary'}"
+            state="${row[col.colHeadName + 'ButtonState']}"
+            icon="${row[col.colHeadName + 'ButtonIcon']}"
+            icon-position="center"
+            action.call="col.colAction(row)">
+        ${value}
+    </c-button>
+</template>

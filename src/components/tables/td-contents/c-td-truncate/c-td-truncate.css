@@ -1,0 +1,56 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.container{
+    overflow: hidden;
+    /* For mobile only. Center vertically.*/
+    display: list-item;
+}
+
+.container > svg{
+    float: left;
+    margin-right: var(--s-2);
+    margin-top: 1px;
+}
+
+.truncate{
+    position: relative;
+    height: var(--s0) !important;
+    overflow: hidden;
+    flex: unset !important;
+}
+
+.truncate > span{
+    display: block;
+    position: absolute;
+    max-width: 100%;
+    line-height: var(--s0);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.truncate::after{
+    display: block;
+    height: 0;
+    content: attr(title);
+    overflow: hidden;
+}

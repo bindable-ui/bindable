@@ -1,0 +1,83 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  NAV BOTTOM
+ *  MOBILE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.nav-vertical{
+    height: 100%;
+}
+
+.nav-vertical ul{
+    flex-direction: column;
+}
+
+.nav-vertical > ul{
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: var(--s-2) 0 0;
+    background-color: var(--c_darkGray);
+    list-style: none;
+}
+
+.nav-vertical > ul > li:last-child{
+    margin-bottom: var(--s-2);
+}
+
+.nav-vertical > ul > li:first-child h4{
+    margin-top: 4px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !NAV BOTTOM
+\*------------------------------------*/
+
+.navBottom{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr auto;
+}
+
+.overflow{
+    overflow-y: auto;
+}
+
+.second-list > * > li:last-child{
+    margin-bottom: var(--s0);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !MOBILE
+\*------------------------------------*/
+
+@media screen and (max-width: 780px){
+    .nav-vertical ul{
+        padding: 0;
+    }
+}

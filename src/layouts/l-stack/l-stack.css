@@ -1,0 +1,89 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  RECURSIVE
+ *  SPLIT AFTER
+ *  LIST
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.stack{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Where the Stack is the only child of its parent, nothing
+ * forces it to stretch to fill the space. This allows that. */
+.stack:only-child{
+    height: 100%;
+}
+
+.stack > *{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !RECURSIVE
+\*------------------------------------*/
+.not-recursive > * + *,
+.recursive * + *{
+    margin-top: var(--stack-spacing);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SPLIT AFTER
+\*------------------------------------*/
+
+.one > :nth-child(1),
+.two > :nth-child(2),
+.three > :nth-child(3),
+.four > :nth-child(4),
+.five > :nth-child(5){
+    margin-bottom: auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LIST
+\*------------------------------------*/
+
+.list > *{
+    display: list-item;
+    list-style-position: inside;
+}
+
+.ordered > *{
+    list-style-type: decimal;
+}
+
+.un-ordered > *{
+    list-style-type: disc;
+}

@@ -1,0 +1,258 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  SIZE
+ *      - Medium
+ *      - Small
+ *      - Tiny
+ *  MOBILE
+ *  MOBILE TRIGGER
+ *      - Setup
+ *      - White Bars
+ *      - Animate to X
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.nav-horizontal{
+    background-color: var(--c_darkGray);
+}
+
+.nav-horizontal ul{
+    list-style: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIZE
+\*------------------------------------*/
+
+/**
+ * ^Medium
+ */
+
+.medium a{
+    padding: var(--s0) 0;
+}
+
+
+/**
+ * ^Small
+ */
+
+.small a{
+    padding: var(--s-1) 0;
+    font-size: calc(var(--s0) - 0.12rem);
+}
+
+
+/**
+ * ^Tiny
+*/
+
+.tiny{
+    background-color: transparent;
+}
+
+.tiny a{
+    padding: var(--s-5) 0;
+    font-size: var(--s-1);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !MOBILE
+\*------------------------------------*/
+
+@media screen and (max-width: 780px){
+    .nav-mobile{
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 55px 49px 10px !important;
+        background: var(--c_soot);
+        opacity: 0;
+        overflow: auto;
+        z-index: var(--z_mainNav);
+        transition: opacity var(--trans_main), left var(--trans_main);
+    }
+
+    .nav-mobile.nav-mobile-active{
+        left: 0;
+        opacity: 1;
+        margin: 0 !important;
+    }
+
+    .nav-mobile li{
+        display: block;
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-mobile li a{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 0;
+        font-size: var(--s-1);
+        transition: background-color var(--trans_main), color var(--trans_main);
+    }
+
+    .nav-mobile li a:hover{
+        background-color: var(--c_slate);
+    }
+
+    .active a,
+    .active a:hover{
+        background-color: var(--c_primaryMain);
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    !MOBILE TRIGGER
+\*------------------------------------*/
+
+/**
+ * ^Setup
+*/
+
+.mobile-trigger{
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    float: right;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+    background-color: var(--c_primaryMain);
+    font-size: 0;
+    text-indent: -9999px;
+    box-shadow: none;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: var(--z_mobileNavTrigger);
+    transition: background var(--trans_main);
+
+}
+
+@media screen and (max-width: 780px){
+    .mobile-trigger{
+        display: block;
+    }
+}
+
+
+/**
+ * ^White Bars
+*/
+
+.mobile-trigger span{
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 7px;
+    left: 7px;
+    height: 2px;
+    /* stylelint-disable */
+    background: #FFF;
+    background: var(--c_white);
+    /* stylelint-enable */
+}
+
+.mobile-trigger span::before,
+.mobile-trigger span::after{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    /* stylelint-disable */
+    background-color: #FFF;
+    background-color: var(--c_white);
+    /* stylelint-enable */
+    content: '';
+}
+
+.mobile-trigger span::before{
+    top: -7px;
+}
+
+.mobile-trigger span::after{
+    bottom: -7px;
+}
+
+
+/**
+ * ^Animate to X
+*/
+
+.mobile-trigger span{
+    transition: background 0s 0.3s;
+}
+
+.mobile-trigger span::before,
+.mobile-trigger span::after{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.mobile-trigger span::before{
+    /* autoprefixer: off */
+    transition-property: top, transform;
+}
+
+.mobile-trigger span::after{
+    /* autoprefixer: off */
+    transition-property: bottom, transform;
+}
+
+.mobile-trigger-active span{
+    background: none;
+}
+
+.mobile-trigger-active span::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.mobile-trigger-active span::after{
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.mobile-trigger-active span::before,
+.mobile-trigger-active span::after{
+    transition-delay: 0s, 0.3s;
+}

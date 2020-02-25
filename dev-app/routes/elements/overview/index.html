@@ -1,0 +1,22 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s4)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Overview</c-h1>
+                    <c-h2>What are elements</c-h2>
+                    <c-p size="large" max-width="65rem">Elements are designed to accomplish a very specific task. For example if you want a Delete Confirmation tip to show on a delete button you'd use the e-delete-confirm element. The difference between an element and a component is that you can use components for many different reasons and put different types of data in them while an Element is only used for one thing. The c-button component is a good example. You could use the c-button to save, edit, open a modal and the text in the button could be whatever you want. In contrast the e-delete-confrim element is only used to confirm a delete action. You can't make it do anything else and its contents are set.</c-p>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

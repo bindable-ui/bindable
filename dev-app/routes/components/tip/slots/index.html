@@ -1,0 +1,33 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Slots</c-h2>
+                <c-table cols.bind="tipCols" rows.bind="tipSlots"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>trigger &amp; content</c-h3>
+                <c-code-sample>
+                    <c-tip side="right" actions.bind="tipActionsFunction">
+                        <div slot="trigger">
+                            <c-button spacing-bottom="sbNone">Open Tip</c-button>
+                        </div>
+                        <div slot="content">
+                            <c-p color="var(--c_white)">Tip Content Here</c-p>
+                        </div>
+                    </c-tip>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

@@ -1,0 +1,156 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Sidebar</c-h1>
+                    <div>
+                    	<l-stack spacing="var(--s-1)">
+                            <c-notification type="info">NOTE: There can only be two tag inside the &lt;c-sidebar&gt;. When side="left" the sidebar is the first item. When side="right" the sidebar is the last item.</c-notification>
+                            <c-h2>Properties</c-h2>
+                        </l-stack>
+                    </div>
+                    <c-table cols.bind="sidebarCols" rows.bind="sidebarProperties"></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>Default</c-h3>
+                    <c-code-sample>
+                        <l-sidebar>
+                            <l-box>
+                                <l-stack>
+                                    <div>In the sidebar</div>
+                                    <div>In the sidebar</div>
+                                    <div>In the sidebar</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box>
+                                In the content area
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>content-min</c-h3>
+                    <c-code-sample>
+                        <l-sidebar content-min="80%">
+                            <l-box>
+                                <l-stack>
+                                    <div>In the sidebar</div>
+                                    <div>In the sidebar</div>
+                                    <div>In the sidebar</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box>
+                                In the content area
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>side</c-h3>
+                    <c-code-sample>
+                        <l-sidebar side="right">
+                            <l-box>
+                                In the content area
+                            </l-box>
+                            <l-box>
+                                <l-stack>
+                                    <div>In the sidebar</div>
+                                    <div>In the sidebar</div>
+                                    <div>In the sidebar</div>
+                                </l-stack>
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+            	<l-stack spacing="var(--s-3)">
+                    <c-h3>side-width &amp; spacing</c-h3>
+                    <l-stack>
+                        <div>
+                            <c-h4>Example 1</c-h4>
+                            <c-code-sample>
+                                <l-sidebar side-width="50ch" spacing="var(--s5)">
+                                    <l-box>
+                                        <l-stack>
+                                            <div>In a wide sidebar</div>
+                                            <div>In a wide sidebar</div>
+                                            <div>In a wide sidebar</div>
+                                        </l-stack>
+                                    </l-box>
+                                    <l-box>
+                                        In the content area
+                                    </l-box>
+                                </l-sidebar>
+                            </c-code-sample>
+                        </div>
+
+                        <div>
+                            <c-h4>Example 2</c-h4>
+                            <c-code-sample>
+                                <l-sidebar side-width="25ch">
+                                    <l-box>
+                                        <l-stack>
+                                            <div>In a normal sidebar</div>
+                                            <div>In a normal sidebar</div>
+                                            <div>In a normal sidebar</div>
+                                        </l-stack>
+                                    </l-box>
+                                    <l-box>
+                                        In the content area
+                                    </l-box>
+                                </l-sidebar>
+                            </c-code-sample>
+                        </div>
+
+                        <div>
+                            <c-h4>Example 3</c-h4>
+                            <c-code-sample>
+                                <l-sidebar side-width="13ch" spacing="0px">
+                                    <l-box>
+                                        <l-stack>
+                                            <div>In a small sidebar</div>
+                                            <div>In a small sidebar</div>
+                                            <div>In a small sidebar</div>
+                                        </l-stack>
+                                    </l-box>
+                                    <l-box>
+                                        In the content area
+                                    </l-box>
+                                </l-sidebar>
+                            </c-code-sample>
+                        </div>
+                    </l-stack>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

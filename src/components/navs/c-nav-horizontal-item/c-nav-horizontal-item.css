@@ -1,0 +1,120 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *  STATE
+ *      - Active
+ *  ICON
+ *  RIGHT ITEM
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.nav-horizontal-item{
+    position: relative;
+}
+
+.nav-horizontal-item::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: solid 3px var(--c_primaryMain);
+    content: '';
+    opacity: 0;
+    transition: opacity var(--trans_main);
+}
+
+.nav-horizontal-item a{
+    display: inline-block;
+    color: var(--c_lightGray);
+    text-decoration: none;
+    transition: color var(--trans_main);
+}
+
+.nav-horizontal-item a:hover,
+.nav-horizontal-item li.active a{
+    /* stylelint-disable */
+    color: #FFF;
+    color: var(--c_white);
+    /* stylelint-enable */
+}
+
+.nav-horizontal-item a:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1220px){
+    .nav-horizontal-item > a{
+        text-transform: none;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATE
+\*------------------------------------*/
+
+/**
+ * ^Active
+ */
+
+.active a,
+.active a:hover{
+    color: var(--c_white);
+    cursor: default;
+}
+
+.active::after{
+    opacity: 1;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ICON
+\*------------------------------------*/
+
+.nav-horizontal-item .icon{
+    top: 4px;
+    right: -15px;
+    position: absolute;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !RIGHT ITEM
+\*------------------------------------*/
+
+.right{
+    flex: 1;
+    min-width: 0;
+    text-align: right;
+}
+
+.right p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
