@@ -1,12 +1,11 @@
 import 'aurelia-polyfills';
-import {PLATFORM} from 'aurelia-pal';
 import {bootstrap} from 'aurelia-bootstrapper';
 import {Options} from 'aurelia-loader-nodejs';
 import {globalize} from 'aurelia-pal-nodejs';
 import * as path from 'path';
 import * as _ from 'lodash';
 
-Options.relativeToDir = path.join(__dirname, 'unit');
+Options.relativeToDir = path.join(__dirname, '../src');
 globalize();
 
 declare const global: any;

@@ -61,12 +61,12 @@ c-table{
 
     /* Drag */
     --table-drag-background-hover: var(--c_darkGray);
-    --table-drag-height: calc(var(--s4) + 9%);
+    --table-drag-height: var(--s4);
     --table-drag-padding-top: calc(var(--s-1) + 1px);
     --table-drag-padding-right: var(--s-2);
     --table-drag-padding-left: var(--s-3);
-    --table-drag-check-height: calc(var(--s4) + 33%);
-    --table-drag-check-padding-top: calc(var(--s-2) + 1px);
+    --table-drag-check-height: calc(var(--s4) + 3%);
+    --table-drag-check-padding-top: calc(var(--s-2) + 2px);
 
     /* Colored Cell */
     --table-background-healthy: var(--c_secondaryDark);
@@ -123,10 +123,6 @@ c-table{
 .table td compose{
     display: block;
     line-height: 0;
-}
-
-.table td compose *{
-    line-height: initial;
 }
 
 .table td input[type='checkbox'],
@@ -341,7 +337,7 @@ td.text-input{
 }
 
 .drag-check compose span{
-    top: -100%;
+    top: calc(-100% +2px);
     left: -16px;
     height: var(--table-drag-check-height);
     padding-top: var(--table-drag-check-padding-top);

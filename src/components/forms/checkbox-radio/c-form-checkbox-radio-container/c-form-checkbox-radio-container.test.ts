@@ -3,7 +3,6 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bootstrap} from 'aurelia-bootstrapper';
 import {StageComponent} from 'aurelia-testing';
 
 describe('c-form-checkbox-radio-container component', () => {
@@ -39,20 +38,6 @@ describe('c-form-checkbox-radio-container component', () => {
         });
 
         describe('CSS Classes', () => {
-            it('css class: list', async done => {
-                component = StageComponent.withResources().inView(
-                    '<c-form-checkbox-radio-container></c-form-checkbox-radio-container>',
-                );
-
-                try {
-                    await bootStrapEnvironment(component);
-                    expect(component.viewModel.styles.list).not.toBe(undefined);
-                    done();
-                } catch (e) {
-                    done.fail(e);
-                }
-            });
-
             it('css class: no-label', async done => {
                 component = StageComponent.withResources().inView(
                     '<c-form-checkbox-radio-container></c-form-checkbox-radio-container>',
@@ -81,7 +66,7 @@ describe('c-form-checkbox-radio-container component', () => {
                 }
             });
 
-            const existingStateClasses = ['error'];
+            const existingStateClasses = [];
             existingStateClasses.forEach(state => {
                 it(`css class: ${state}`, async done => {
                     component = StageComponent.withResources()

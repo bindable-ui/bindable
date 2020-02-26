@@ -3,7 +3,6 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bootstrap} from 'aurelia-bootstrapper';
 import {StageComponent} from 'aurelia-testing';
 
 describe('l-cluster component', () => {
@@ -14,7 +13,7 @@ describe('l-cluster component', () => {
             component.dispose();
         });
 
-        it('is wrap endabled', async done => {
+        it('is wrap enabled', async done => {
             component = StageComponent.withResources()
                 .inView('<l-cluster wrap.bind="isWrap"></l-cluster>')
                 .boundTo({
@@ -23,7 +22,7 @@ describe('l-cluster component', () => {
 
             try {
                 await bootStrapEnvironment(component);
-                expect(component.viewModel.wrap).toBe(false);
+                expect(component.viewModel.wrap).toBe(true);
                 done();
             } catch (e) {
                 done.fail(e);

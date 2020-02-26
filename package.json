@@ -1,7 +1,7 @@
 {
   "name": "@bindable-ui/bindable",
   "description": "An Aurelia component library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/bindable-ui/bindable"
@@ -71,6 +71,7 @@
     "build-site": "au build",
     "prepare": "npm run build",
     "preversion": "au test",
+    "test-coverage": "jest --coverage true",
     "test": "au test"
   },
   "engines": {

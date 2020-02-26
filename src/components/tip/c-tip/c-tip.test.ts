@@ -3,7 +3,6 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bootstrap} from 'aurelia-bootstrapper';
 import {StageComponent} from 'aurelia-testing';
 
 describe('c-tip component', () => {
@@ -239,14 +238,14 @@ describe('c-tip component', () => {
         it('testing hover toggle', async () => {
             const {viewModel} = component;
             expect(viewModel.contentDisplay).toBe(false);
-            expect(viewModel.contentVisible).toBe('hidden');
+            expect(viewModel.contentVisible).toBe(false);
             await viewModel.onMouseEnter();
             jest.runAllTimers();
             expect(viewModel.contentDisplay).toBe(true);
-            expect(viewModel.contentVisible).toBe('visible');
+            expect(viewModel.contentVisible).toBe(true);
             component.viewModel.onMouseLeave();
             jest.runAllTimers();
-            expect(component.viewModel.contentVisible).toBe('hidden');
+            expect(component.viewModel.contentVisible).toBe(false);
             expect(viewModel.contentDisplay).toBe(false);
         });
     });
@@ -269,21 +268,21 @@ describe('c-tip component', () => {
             try {
                 const {viewModel} = component;
 
-                expect(viewModel.contentVisible).toBe('hidden');
+                expect(viewModel.contentVisible).toBe(false);
                 expect(viewModel.contentDisplay).toBe(false);
 
                 await viewModel.toggleVisible();
 
                 jest.runOnlyPendingTimers();
 
-                expect(viewModel.contentVisible).toBe('visible');
+                expect(viewModel.contentVisible).toBe(true);
                 expect(viewModel.contentDisplay).toBe(true);
 
                 await viewModel.toggleVisible();
 
                 jest.runOnlyPendingTimers();
 
-                expect(viewModel.contentVisible).toBe('hidden');
+                expect(viewModel.contentVisible).toBe(false);
                 expect(viewModel.contentDisplay).toBe(false);
 
                 const toggle = document.querySelector('[class="close"]');
