@@ -3,7 +3,6 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bootstrap} from 'aurelia-bootstrapper';
 import {StageComponent} from 'aurelia-testing';
 import {CPill} from './c-pill';
 
@@ -15,27 +14,27 @@ describe('c-pill component', () => {
             component = new CPill();
         });
 
-        describe('#removeActionFunction', () => {
-            test('without removeAction callback', () => {
-                expect(component.removeActionFunction).toBeDefined();
-                expect(component.removeAction).toBeFalsy();
+        describe('#actionFunction', () => {
+            test('without iconAction callback', () => {
+                expect(component.actionFunction).toBeDefined();
+                expect(component.iconAction).toBeFalsy();
 
-                jest.spyOn(component, 'removeActionFunction');
+                jest.spyOn(component, 'actionFunction');
 
-                component.removeActionFunction();
+                component.actionFunction();
 
-                expect(component.removeActionFunction).toHaveBeenCalled();
+                expect(component.actionFunction).toHaveBeenCalled();
             });
 
-            test('with removeAction callback', () => {
-                component.removeAction = jest.fn();
+            test('with iconAction callback', () => {
+                component.iconAction = jest.fn();
 
-                expect(component.removeActionFunction).toBeDefined();
-                expect(component.removeAction).toBeDefined();
+                expect(component.actionFunction).toBeDefined();
+                expect(component.iconAction).toBeDefined();
 
-                component.removeActionFunction();
+                component.actionFunction();
 
-                expect(component.removeAction).toHaveBeenCalled();
+                expect(component.iconAction).toHaveBeenCalled();
             });
         });
     });
