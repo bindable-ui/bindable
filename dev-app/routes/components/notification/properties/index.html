@@ -1,0 +1,43 @@
+<!--
+    Copyright 2020, Verizon Media
+    Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="notificationCols" rows.bind="notificationProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>callout-title &amp; callout-content</c-h3>
+                <c-code-sample>
+                    <c-notification type="info" callout-title="Current Usage" callout-content="$45.00">
+                        Estimate based on usage from December 1 through end of yesterday. Bill will be sent on January 1 and payment will be due no later than February 1, 2017. Total does not reflect any transactions in progress, any unpaid balance, or any credits.
+                    </c-notification>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>type</c-h3>
+                <c-code-sample>
+                    <c-notification type="info">Info Notification</c-notification>
+                    <c-notification type="warning">Warning Notification</c-notification>
+                    <c-notification type="critical">Critical Notification</c-notification>
+                    <c-notification type="success">Success Notification</c-notification>
+                    <c-notification type="success" state="hidden">Will not show</c-notification>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

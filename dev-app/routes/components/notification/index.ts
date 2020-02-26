@@ -3,53 +3,37 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {autoinject} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-pal';
+import {Router} from 'aurelia-router';
+
+@autoinject()
 export class Notification {
-    public notificationCols = [
+    public routes = [
         {
-            _class: 'monospaced',
-            colClass: 't175',
-            colHeadName: 'name',
-            colHeadValue: 'Name',
+            redirect: 'properties',
+            route: '',
         },
         {
-            _class: 'monospaced',
-            colClass: 't350',
-            colHeadName: 'value',
-            colHeadValue: 'Value',
+            moduleId: PLATFORM.moduleName('./properties/index'),
+            name: 'properties',
+            nav: true,
+            route: 'properties',
+            title: 'Properties',
         },
         {
-            colHeadName: 'description',
-            colHeadValue: 'Description',
-        },
-        {
-            _class: 'monospaced',
-            colClass: 't120',
-            colHeadName: 'default',
-            colHeadValue: 'Default',
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
         },
     ];
 
-    public notificationProperties = [
-        {
-            description: 'Will add a second colymn with content text. Text should be short.',
-            name: 'callout-content',
-            value: 'string',
-        },
-        {
-            description: 'Will add a second column with headline text. Text should be short.',
-            name: 'callout-title',
-            value: 'string',
-        },
-        {
-            default: 'warning',
-            description: 'Sets the color and icon',
-            name: 'type',
-            value: 'info | warning | critical | success',
-        },
-        {
-            description: 'Hides if state is hidden.',
-            name: 'state',
-            value: 'hidden',
-        },
-    ];
+    constructor(public router: Router) {}
+
+    public configureRouter(config, router) {
+        this.router = router;
+        config.map(this.routes);
+    }
 }
