@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  COLORS
  *      - Info
@@ -20,14 +21,34 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-pill{
+    --pill-padding: 4px 7px 3px;
+    --pill-border-radius: 5px;
+    --pill-color: var(--c_white);
+    --pill-font-size: var(--s-2);
+    --pill-info-background: var(--c_subOneMain);
+    --pill-neutral-background: var(--c_charcoal);
+    --pill-link-color: var(--c_white);
+    --pill-link-info-background-hover: var(--c_subOneLight);
+    --pill-link-neutral-background-hover: var(--c_gray);
+}
+
+
+
+
+
+/*------------------------------------*\
     !BASE
 \*------------------------------------*/
 
 .pill{
-    padding: 4px 7px 3px;
-    border-radius: 5px;
-    color: var(--c_white);
-    font-size: var(--s-2);
+    padding: var(--pill-padding);
+    border-radius: var(--pill-border-radius);
+    color: var(--pill-color);
+    font-size: var(--pill-font-size);
     display: inline-block;
 }
 
@@ -48,7 +69,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .info{
-    background-color: var(--c_subOneMain);
+    background-color: var(--pill-info-background);
 }
 
 
@@ -57,7 +78,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .neutral{
-    background-color: var(--c_charcoal);
+    background-color: var(--pill-neutral-background);
 }
 
 
@@ -69,15 +90,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 a.pill{
-    color: var(--c_white) !important;
+    color: var(--pill-link-color) !important;
     text-decoration: none;
     transition: background var(--trans_main);
 }
 
 a.info:hover{
-    background: var(--c_subOneLight);
+    background: var(--pill-link-info-background-hover);
 }
 
 a.neutral:hover{
-    background: var(--c_gray);
+    background: var(--pill-link-neutral-background-hover);
 }
