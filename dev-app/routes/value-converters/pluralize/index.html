@@ -17,12 +17,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <div>
                         <l-stack spacing="var(--s3)">
                             <div>
-                                <c-code>Item\${1 | pluralize:'s':''}</c-code>
-                                <c-p size="large">Item${1 | pluralize:'s':''}</c-p>
+                                <c-code>Item\${1 | pluralize}</c-code>
+                                <c-p size="large">Item${1 | pluralize}</c-p>
                             </div>
                             <div>
-                                <c-code>Item\${2 | pluralize:'s':''}</c-code>
-                                <c-p size="large">Item${2 | pluralize:'s':''}</c-p>
+                                <c-code>Item\${2 | pluralize}</c-code>
+                                <c-p size="large">Item${2 | pluralize}</c-p>
+                            </div>
+                            <div>
+                              <c-code>this.counts = [0, 1/8, 1, 2]</c-code>
+                              <c-code>&lt;p repeat.for="num of counts">
+  \${num} Octop\${num | pluralize:'i':'us'} ha\${mum | pluralize:'ve':'s'} \${8 * num} leg\${(8 * num) | pluralize}
+&lt;/p></c-code>
+                              <c-p size="large" repeat.for="num of counts">${num} Octop${num | pluralize:'i':'us'} ha${num | pluralize:'ve':'s'} ${8 * num} leg${(8 * num) | pluralize}</c-p>
                             </div>
                         </l-stack>
                     </div>
