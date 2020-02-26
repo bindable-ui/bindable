@@ -17,4 +17,9 @@ jobs:
         node-version: '12.x'
     - run: npm install -g jest
     - run: npm ci
-    - run: jest
+    - run: npm run test-coverage
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./test/coverage-jest/lcov.info
