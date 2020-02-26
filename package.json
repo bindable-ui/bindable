@@ -71,6 +71,7 @@
     "build-site": "au build",
     "prepare": "npm run build",
     "preversion": "au test",
+    "test-coverage": "jest --coverage true",
     "test": "au test"
   },
   "engines": {

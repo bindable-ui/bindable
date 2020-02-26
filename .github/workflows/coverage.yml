@@ -15,9 +15,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
+    - run: npm install -g jest
     - run: npm ci
-    - run: npm run test
+    - run: npm run test-coverage
     - name: Uploads results
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./test/coverage-jest/coverage-final.json
