@@ -16,4 +16,4 @@ jobs:
       with:
         node-version: '12.x'
     - run: npm ci
-    - run: jest
+    - run: ./node_modules/tslint/bin/jest
