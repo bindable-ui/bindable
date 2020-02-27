@@ -119,7 +119,7 @@ export class TableColsRows {
                 description: 'Set a class for specific use cases.',
                 key: '_class',
                 value: 'textInput, monospaced, alighRight, active, bgHealthy, bgWarning, bgCritical, ' +
-                'bgInfo, bgProcess, footer, dragCheck',
+                'bgInfo, bgProcess, footer, dragCheck, button',
             },
             {
                 description: 'This will set a width on a column. At least one column needs to be left blank to ' +

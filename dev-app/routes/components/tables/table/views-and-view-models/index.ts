@@ -215,9 +215,10 @@ export class TableViews {
                 colHeadValue: 'Gender',
             },
             {
+                _class: 'button',
+                colAction: () => window.alert('Clicked'),
                 colHeadName: 'action',
                 colHeadValue: 'Action',
-                colAction: () => window.alert('Clicked'),
                 view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button.html'),
                 viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button'),
             },
@@ -225,16 +226,16 @@ export class TableViews {
 
         this.buttonData = [
             {
+                action: 'Retry',
                 gender: 'Male',
                 ship: 'X-Wing',
-                action: 'Retry',
             },
             {
-                gender: 'Female',
-                ship: 'Y-Wing',
                 actionButtonColor: 'secondary',
                 actionButtonIcon: 'checkmark',
                 actionButtonState: 'disabled',
+                gender: 'Female',
+                ship: 'Y-Wing',
             },
         ];
 

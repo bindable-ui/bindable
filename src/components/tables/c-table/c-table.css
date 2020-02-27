@@ -66,7 +66,7 @@ c-table{
     --table-drag-padding-right: var(--s-2);
     --table-drag-padding-left: var(--s-3);
     --table-drag-check-height: calc(var(--s4) + 3%);
-    --table-drag-check-padding-top: calc(var(--s-2) + 2px);
+    --table-drag-check-padding-top: var(--s-2);
 
     /* Colored Cell */
     --table-background-healthy: var(--c_secondaryDark);
@@ -122,6 +122,14 @@ c-table{
 
 .table td compose{
     display: block;
+    line-height: 0;
+}
+
+.table td compose *{
+    line-height: initial;
+}
+
+.table td compose c-drag-handle{
     line-height: 0;
 }
 
@@ -312,6 +320,19 @@ td.text-input{
 
 
 /*------------------------------------*\
+    !BUTTON
+\*------------------------------------*/
+
+td.button{
+    padding-top: var(--s-4) !important;
+    padding-bottom: var(--s-4)!important;
+}
+
+
+
+
+
+/*------------------------------------*\
     !DRAG
 \*------------------------------------*/
 
@@ -341,6 +362,11 @@ td.text-input{
     left: -16px;
     height: var(--table-drag-check-height);
     padding-top: var(--table-drag-check-padding-top);
+
+    /* master */
+    /* height: calc(var(--s4) + 3%); */
+    /* padding-top: var(--s-2); */
+
     padding-right: 0;
     padding-left: 0;
 }
