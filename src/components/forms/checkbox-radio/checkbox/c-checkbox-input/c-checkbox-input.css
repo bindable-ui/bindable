@@ -23,7 +23,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !THEMING
 \*------------------------------------*/
 
-c-form-checkbox-radio-container{
+c-form-checkbox-radio-container,
+c-table{
     --checkbox-size: var(--s0);
     --checkbox-border: solid 1px var(--c_black);
     --checkbox-background: var(--c_charcoal);
