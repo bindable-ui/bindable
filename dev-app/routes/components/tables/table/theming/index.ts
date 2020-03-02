@@ -20,168 +20,194 @@ export class TableThemeProperties {
 
     public tableThemeProperties = [
         {
-            default: '',
-            name: '--table-border',
-        },
-        {
-            default: '',
-            name: '--table-font-size',
-        },
-        {
-            default: '',
-            name: '--table-td-padding',
-        },
-        {
-            default: '',
-            name: '--table-td-border',
-        },
-        {
-            default: '',
-            name: '--table-td-color',
-        },
-        {
-            default: '',
+            default: 'var(--c_soot)',
             name: '--table-th-background',
         },
         {
-            default: '',
+            default: 'var(--c_white)',
             name: '--table-th-color',
         },
+    ];
+
+    public tableThemeProperties2 = [
         {
-            default: '',
+            default: '1px solid var(--c_charcoal)',
+            name: '--table-border',
+        },
+        {
+            default: 'var(--s-1)',
+            name: '--table-font-size',
+        },
+        {
+            default: 'calc(var(--s-1) - 2px) var(--s0)',
+            name: '--table-td-padding',
+        },
+        {
+            default: '1px solid var(--c_charcoal)',
+            name: '--table-td-border',
+        },
+        {
+            default: 'var(--c_marshmellow)',
+            name: '--table-td-color',
+        },
+        {
+            default: '#3A3A3A',
             name: '--table-striped-background',
         },
         {
-            default: '',
+            default: '#444',
             name: '--table-hover-background',
         },
         {
-            default: '',
+            default: '#5f5f5f',
             name: '--table-active-background',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%2337A56C" width="5" height="1"></rect></svg>\')',
             name: '--table-row-bar-healthy',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%233599C5" width="5" height="1"></rect></svg>\')',
             name: '--table-row-bar-info',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23CEA832" width="5" height="1"></rect></svg>\')',
             name: '--table-row-bar-warning',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23E85358" width="5" height="1"></rect></svg>\')',
             name: '--table-row-bar-critical',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%239B9B9B" width="5" height="1"></rect></svg>\')',
             name: '--table-row-bar-neutral',
         },
         {
-            default: '',
+            default: 'var(--s-4)',
             name: '--table-text-input-cell-padding',
         },
         {
-            default: '',
+            default: 'var(--s2)',
+            name: '--table-text-input-height',
+        },
+        {
+            default: 'var(--s-5) var(--s-4)',
+            name: '--table-text-input-padding',
+        },
+        {
+            default: 'var(--c_darkGray)',
             name: '--table-drag-background-hover',
         },
         {
-            default: '',
+            default: 'var(--s4)',
             name: '--table-drag-height',
         },
         {
-            default: '',
+            default: 'calc(var(--s-1) + 1px)',
             name: '--table-drag-padding-top',
         },
         {
-            default: '',
+            default: 'var(--s-2)',
             name: '--table-drag-padding-right',
         },
         {
-            default: '',
+            default: 'var(--s-3)',
             name: '--table-drag-padding-left',
         },
         {
-            default: '',
+            default: 'calc(var(--s4) + 3%)',
             name: '--table-drag-check-height',
         },
         {
-            default: '',
+            default: 'var(--s-2)',
             name: '--table-drag-check-padding-top',
         },
         {
-            default: '',
+            default: 'var(--c_secondaryDark)',
             name: '--table-background-healthy: var(--c_secondaryDark)',
         },
         {
-            default: '',
+            default: 'var(--c_secondaryLight)',
             name: '--table-color-healthy',
         },
         {
-            default: '',
+            default: 'var(--c_subTwoDark)',
             name: '--table-background-warning',
         },
         {
-            default: '',
+            default: 'var(--c_subTwoLight)',
             name: '--table-color-warning',
         },
         {
-            default: '',
+            default: 'var(--c_primaryDark)',
             name: '--table-background-critical',
         },
         {
-            default: '',
+            default: 'var(--c_primaryLighter)',
             name: '--table-color-critical',
         },
         {
-            default: '--table-background-info',
-            name: '',
+            default: 'var(--c_subOneDark)',
+            name: '--table-background-info',
         },
         {
-            default: '',
+            default: 'var(--c_subOneLight)',
             name: '--table-color-info',
         },
         {
-            default: '',
+            default: 'url(\'../../../global-styles/assets/images/td-processing.gif\')',
             name: '--table-background-processing',
         },
         {
-            default: '',
+            default: 'var(--table-td-color)',
             name: '--table-color-processing',
         },
         {
-            default: '',
+            default: '15px',
             name: '--table-sort-padding-right',
         },
         {
-            default: '',
+            default: 'right 0 top calc(var(--s-5) - 2px)',
             name: '--table-sort-icon-position',
         },
         {
-            default: '',
+            default: 'right 0 top calc(var(--s0) - 1px)',
             name: '--table-fixed-header-sort-icon-position',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="\%23FFFFFF" fill-rule="evenodd"><path d="M3.5 0L7 5H0zM0 8h7l-3.5 5z"/></g></svg>\')',
             name: '--table-sort-icon-none',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23FFF" d="M3.5 0L7 5H0z"/><path fill="\%23E85358" d="M0 8h7l-3.5 5z"/></g></svg>\')',
             name: '--table-sort-icon-desc',
         },
         {
-            default: '',
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23E85358" d="M3.5 0L7 5H0z"/><path fill="\%23FFF" d="M0 8h7l-3.5 5z"/></g></svg>\')',
             name: '--table-sort-icon-asc',
         },
         {
-            default: '',
+            default: 'var(--c_marshmellow)',
             name: '--table-mobile-label-color',
         },
         {
-            default: '',
+            default: 'var(--ff_primary-bold)',
             name: '--table-mobile-label-font-family',
+        },
+    ];
+
+    public tableThemeProperties3 = [
+        {
+            default: 'var(--c_marshmellow)',
+            name: '--table-action-color',
+        },
+        {
+            default: 'var(--s-2)',
+            name: '--table-truncate-margin-right',
+        },
+        {
+            default: 'var(--s0)',
+            name: '--table-truncate-height',
         },
     ];
 }

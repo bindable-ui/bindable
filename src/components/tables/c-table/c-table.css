@@ -36,6 +36,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !THEMING
 \*------------------------------------*/
 
+c-table,
+c-table-fixed-header{
+    --table-th-background: var(--c_soot);
+    --table-th-color: var(--c_white);
+}
+
 c-table{
     /* Base */
     --table-border: 1px solid var(--c_charcoal);
@@ -43,8 +49,6 @@ c-table{
     --table-td-padding: calc(var(--s-1) - 2px) var(--s0);
     --table-td-border: 1px solid var(--c_charcoal);
     --table-td-color: var(--c_marshmellow);
-    --table-th-background: var(--c_soot);
-    --table-th-color: var(--c_white);
     --table-striped-background: #3A3A3A;
     --table-hover-background: #444;
     --table-active-background: #5f5f5f;
@@ -58,6 +62,8 @@ c-table{
 
     /* Text Input */
     --table-text-input-cell-padding: var(--s-4);
+    --table-text-input-height: var(--s2);
+    --table-text-input-padding: var(--s-5) var(--s-4);
 
     /* Drag */
     --table-drag-background-hover: var(--c_darkGray);
@@ -91,6 +97,19 @@ c-table{
     /* Responsive */
     --table-mobile-label-color: var(--c_marshmellow);
     --table-mobile-label-font-family: var(--ff_primary-bold);
+}
+
+td compose{
+    /* c-td-action */
+    --table-action-color: var(--c_marshmellow);
+    --table-action-color-hover: var(--c_white);
+    --table-action-icon-color: var(--c_lightGray);
+    --table-action-icon-color-hover: var(--c_white);
+
+    /* c-td-truncate */
+    --table-truncate-margin-right: var(--s-2);
+    --table-truncate-height: var(--s0);
+
 }
 
 

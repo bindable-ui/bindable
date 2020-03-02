@@ -27,13 +27,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .container > svg{
     float: left;
-    margin-right: var(--s-2);
+    margin-right: var(--table-truncate-margin-right);
     margin-top: 1px;
 }
 
 .truncate{
     position: relative;
-    height: var(--s0) !important;
+    height: var(--table-truncate-height) !important;
     overflow: hidden;
     flex: unset !important;
 }
@@ -42,7 +42,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: block;
     position: absolute;
     max-width: 100%;
-    line-height: var(--s0);
+    line-height: var(--table-truncate-height);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
