@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Tile
  *      - Image
@@ -29,6 +30,36 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-tile{
+    --tile-padding: var(--s-5);
+    --tile-background: var(--c_darkGray);
+    --tile-background-hover: var(--c_charcoal);
+    --tile-image-background: var(--c_soot);
+    --tile-h4-color: var(--c_marshmellow);
+    --tile-h4-size: var(--s-1);
+    --tile-checked-background: var(--c_gray);
+    --tile-checked-text-color: var(--c_marshmellow);
+    --tile-drag-background: var(--c_black);
+    --tile-tip-top: calc(var(--s-5) * -1);
+    --tile-tip-right: calc(var(--s-5) * -1);
+    --tile-tip-padding: var(--s-5) var(--s-3);
+    --tile-tip-background: var(--c_charcoal);
+    --tile-status-height: var(--s-5);
+    --tile-status-healthy: var(--c_secondaryMain);
+    --tile-status-info: var(--c_subOneMain);
+    --tile-status-warning: var(--c_subTwoMain);
+    --tile-status-critical: var(--c_primaryLight);
+    --tile-status-processing: #CCC url('../../../global-styles/assets/images/td-processing.gif');
+}
+
+
+
+
+
+/*------------------------------------*\
     !BASE
 \*------------------------------------*/
 
@@ -40,8 +71,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: var(--s-5);
-    background: var(--c_darkGray);
+    padding: var(--tile-padding);
+    background: var(--tile-background);
 }
 
 .container{
@@ -53,7 +84,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .hover:hover{
-    background: var(--c_charcoal);
+    background: var(--tile-background-hover);
     cursor: pointer;
 }
 
@@ -75,7 +106,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     justify-content: center;
     align-items: center;
     position: relative;
-    background: var(--c_soot);
+    background: var(--tile-image-background);
     text-align: center;
     overflow: hidden;
 }
@@ -98,8 +129,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .title h4{
-    color: var(--c_marshmellow);
-    font-size: var(--s-1);
+    color: var(--tile-h4-color);
+    font-size: var(--tile-h4-size);
     margin-top: 0;
 }
 
@@ -114,11 +145,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .checked{
-    background: var(--c_gray) !important;
+    background: var(--tile-checked-background) !important;
 }
 
 .checked p{
-    color: var(--c_marshmellow);
+    color: var(--tile-checked-text-color);
 }
 
 
@@ -152,7 +183,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     left: 0;
     width: var(--s0);
     height: 100%;
-    background: var(--c_black);
+    background: var(--tile-drag-background);
     opacity: 0;
     transition: opacity var(--trans_main);
 }
@@ -184,11 +215,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .tip{
     position: absolute;
-    top: calc(var(--s-5) * -1);
-    right: calc(var(--s-5) * -1);
-    padding: var(--s-5) var(--s-3);
+    top: var(--tile-tip-top);
+    right: var(--tile-tip-right);
+    padding: var(--tile-tip-padding);
     z-index: var(--z_tileTip);
-    background: var(--c_charcoal);
+    background: var(--tile-tip-background);
     opacity: 0;
     transition: var(--trans_main) background, var(--trans_main) opacity;
 }
@@ -216,7 +247,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: absolute;
     top: 0;
     width: 100%;
-    height: var(--s-5);
+    height: var(--tile-status-height);
 }
 
 
@@ -225,7 +256,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .healthy{
-    background: var(--c_secondaryMain);
+    background: var(--tile-status-healthy);
 }
 
 
@@ -234,7 +265,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .info{
-    background: var(--c_subOneMain);
+    background: var(--tile-status-info);
 }
 
 
@@ -243,7 +274,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .warning{
-    background: var(--c_subTwoMain);
+    background: var(--tile-status-warning);
 }
 
 
@@ -253,7 +284,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .critical,
 .error{
-    background: var(--c_primaryLight);
+    background: var(--tile-status-critical);
 }
 
 
@@ -262,6 +293,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .processing{
-    background: #CCC url('../../../global-styles/assets/images/td-processing.gif');
+    background: var(--tile-status-processing);
     background-blend-mode: hard-light;
 }
