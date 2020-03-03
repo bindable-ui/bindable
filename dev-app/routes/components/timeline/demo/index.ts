@@ -11,7 +11,7 @@ export class TimelineExample {
         {
             accentColor: '#8E5DB2',
             duration: 6000,
-            icons: ['assets', 'rules'],
+            icons: ['play', 'rules'],
             start: moment(this.today).add(8, 'hours').toISOString(),
             title: 'Dumb and Dumber',
         },
@@ -25,7 +25,7 @@ export class TimelineExample {
         {
             accentColor: '#8E5DB2',
             duration: 6000,
-            icons: ['assets'],
+            icons: ['play'],
             start: moment(this.today).add(9.81, 'hours').toISOString(),
             title: 'Ace Ventura',
         },
