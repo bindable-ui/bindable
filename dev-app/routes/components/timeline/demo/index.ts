@@ -11,6 +11,7 @@ export class TimelineExample {
         {
             background: '#240e33',
             duration: 6000,
+            highlightColor: 'red',
             icons: ['assets', 'rules'],
             start: moment(this.today).add(8, 'hours').toISOString(),
             title: 'Dumb and Dumber',
@@ -18,6 +19,7 @@ export class TimelineExample {
         {
             background: 'var(--c_subOneDark)',
             duration: 500,
+            highlightColor: 'red',
             icons: ['ad-break'],
             start: moment(this.today).add(9.67, 'hours').toISOString(),
             title: 'Ad Break',
@@ -54,14 +56,14 @@ export class TimelineExample {
             // color: '#fff', // playing
             duration: 700,
             icons: ['ad-break'],
-            start: moment(this.today).add(13, 'hours').add(4, 'minutes').toISOString(),
+            start: moment(this.today).add(13, 'hours').add(3, 'minutes').toISOString(),
             title: 'Ad Break',
         },
         {
             background: 'var(--c_secondaryDark)',
             duration: 6500,
             icons: ['slicer', 'rules'],
-            start: moment(this.today).add(13, 'hours').add(16, 'minutes').toISOString(),
+            start: moment(this.today).add(13, 'hours').add(15, 'minutes').toISOString(),
             title: 'The Mask',
         },
         {

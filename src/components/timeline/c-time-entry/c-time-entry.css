@@ -32,8 +32,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     right: 0;
     width: calc(100% - 60px);
     overflow: hidden;
-    border: solid 1px var(--time-entry-background);
-    border-top: solid 1px var(--c_gray);
+    border-top: solid 1px var(--time-entry-highlight-color);
+    border-right: solid 3px var(--time-entry-highlight-color);
     background: var(--time-entry-background);
     font-size: 12px;
     z-index: var(--z_timeLineEntry);
