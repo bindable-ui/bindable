@@ -7,7 +7,7 @@ import {inject} from 'aurelia-framework';
 import {CToastsService} from 'components/toasts/c-toasts/c-toasts-service';
 
 @inject(CToastsService)
-export class Toasts {
+export class ToastsUsage {
     constructor(public vToastsService: CToastsService) {
         this.vToastsService.success('I am going to disappear.');
         this.vToastsService.error('I am error.', undefined, 80000);

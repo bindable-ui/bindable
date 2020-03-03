@@ -106,7 +106,7 @@ export class Components {
             title: 'Tip',
         },
         {
-            moduleId: PLATFORM.moduleName('./toasts/toasts'),
+            moduleId: PLATFORM.moduleName('./toasts/index'),
             name: 'toasts',
             nav: true,
             route: 'toasts',
