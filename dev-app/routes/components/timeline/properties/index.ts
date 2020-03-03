@@ -157,6 +157,12 @@ export class TimelineProperties {
     ];
 
     public timelineEntriesRows = [
+    {
+            description: 'Color of the borders and icons in the entry.',
+            key: 'accentColor',
+            value: '#8E5DB2',
+            type: 'CSS color'
+        },
         {
             description: 'Alternate text value to show in place of time when displaying entry (optional).',
             key: 'altTime',

@@ -64,6 +64,10 @@ body{
     background-color: var(--scrollbar_color);
 }
 
+::-webkit-scrollbar-corner{
+    background-color: var(--scrollbar_track_color);
+}
+
 select[multiple]::-webkit-scrollbar{
     width: 12px !important;
 }
