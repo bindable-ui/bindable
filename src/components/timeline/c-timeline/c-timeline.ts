@@ -4,7 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {autoinject, bindable, bindingMode, containerless, TaskQueue} from 'aurelia-framework';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 
 import {ITimeBlock, ITimeDay, ITimeEntry, ITimeEntryBasic, ITimelineActions} from './c-timeline-interfaces';
 
@@ -138,10 +138,12 @@ export class CTimeline {
     @bindable
     public newEntryViewModel: string = null;
 
+    @bindable
+    public timezone: string = null;
+
     public transformedEntries: ITimeEntry[] = [];
     public blocks: ITimeBlock[] = [];
     public displayDays: ITimeDay[] = [];
-    public today = moment();
     public currentTimeLine: number = -1;
     public currentTimeLineTracker = null;
     public isRendering: boolean = false;
@@ -279,28 +281,19 @@ export class CTimeline {
     // Observable properties
     // Listen to rebuild data
     public zoomLevelChanged() {
-        this.isRendering = true;
+        this.renderTimeline();
+    }
 
-        // If there is no delay, the browser chokes up and doesn't
-        // display the loading indicator until the very end
-        // 50ms wait seems to be a good middle ground
-        _.delay(() => this.buildTimeline(), 50);
+    public timeViewChanged() {
+        this.scrollCurrentTime = true;
+        this.renderTimeline();
     }
 
     public daysChanged() {
         if (this.timeView !== 'day') {
-            this.buildTimeline();
+            this.scrollCurrentTime = true;
+            this.renderTimeline();
         }
-    }
-
-    public timeViewChanged() {
-        this.isRendering = true;
-        this.scrollCurrentTime = true;
-
-        // If there is no delay, the browser chokes up and doesn't
-        // display the loading indicator until the very end
-        // 50ms wait seems to be a good middle ground
-        _.delay(() => this.buildTimeline(), 50);
     }
 
     public scrollDaysChanged() {
@@ -316,6 +309,20 @@ export class CTimeline {
 
     public dateChanged() {
         _.defer(() => this.buildTimeline());
+    }
+
+    public timezoneChanged() {
+        const tzNames = moment.tz.names();
+        const tzIndex = tzNames.findIndex(name => name === this.timezone);
+
+        if (tzIndex > -1) {
+            moment.tz.setDefault(this.timezone);
+        } else {
+            moment.tz.setDefault();
+        }
+
+        this.scrollCurrentTime = true;
+        this.renderTimeline();
     }
 
     /**
@@ -337,7 +344,7 @@ export class CTimeline {
         const startTime = moment(clickedTime).subtract(zoomLevelData.minutes, 'minutes');
         const endTime = moment(clickedTime).add(zoomLevelData.minutes, 'minutes');
 
-        let matchingEntries: ITimeEntry[] = [];
+        let matchingEntries: any[] = [];
 
         if (this.snapAdd) {
             if (this.timeView === 'day') {
@@ -418,6 +425,15 @@ export class CTimeline {
         } else if (this.zoomLevel < 0) {
             this.zoomLevel = 0;
         }
+    }
+
+    private renderTimeline() {
+        this.isRendering = true;
+
+        // If there is no delay, the browser chokes up and doesn't
+        // display the loading indicator until the very end
+        // 50ms wait seems to be a good middle ground
+        _.delay(() => this.buildTimeline(), 50);
     }
 
     /**
