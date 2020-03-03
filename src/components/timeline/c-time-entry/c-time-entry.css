@@ -32,8 +32,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     right: 0;
     width: calc(100% - 60px);
     overflow: hidden;
-    border-top: solid 1px var(--time-entry-highlight-color);
-    border-right: solid 3px var(--time-entry-highlight-color);
+    border-top: solid 1px var(--time-entry-accent-color);
+    border-right: solid 3px var(--time-entry-accent-color);
+    border-bottom: solid 0px transparent;
+    border-left: solid 1px transparent;
     background: var(--time-entry-background);
     font-size: 12px;
     z-index: var(--z_timeLineEntry);
@@ -62,7 +64,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     width: 100%;
     height: 100%;
     content: '';
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--time-entry-accent-color);
+    filter: brightness(25%);
     transition: opacity var(--trans_main);
 }
 
@@ -136,6 +139,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icons > *{
     margin-bottom: 6px;
+    fill: var(--time-entry-accent-color);
 }
 
 
@@ -152,6 +156,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     z-index: var(--z_timeEntrySmall);
 }
 
+:global .timeline-day :local .small-day .icons > *,
+:global .timeline-week :local .small-week .icons > *{
+    fill: #C6C6C6;
+}
+
+:global .small-day:before,
+:global .small-week:before{
+    filter: brightness(0%);
+}
+
 
 
 
@@ -159,6 +173,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /*------------------------------------*\
     !EXPANDABLE
 \*------------------------------------*/
+
+:global .timeline-day :local .expandable-day .icons > *,
+:global .timeline-week :local .expandable-week .icons > *{
+    fill: #C6C6C6;
+}
+
+:global .expandable-day:before,
+:global .expandable-week:before{
+    filter: brightness(0%);
+}
 
 :global .timeline-day :local .expandable-day,
 :global .timeline-week :local .expandable-week{
@@ -200,7 +224,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 :global .popover-open{
     min-height: 45px !important;
     overflow: visible;
-    border: solid 1px var(--c_gray);
+    border: solid 1px var(--time-entry-accent-color);
+    border-right: solid 3px var(--time-entry-accent-color);
     z-index: var(--z_timeEntryActive);
 }
 

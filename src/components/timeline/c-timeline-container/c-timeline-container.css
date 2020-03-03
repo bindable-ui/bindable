@@ -94,7 +94,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: absolute;
     width: 100%;
     height: 2px;
-    background: var(--c_secondaryMain);
+    background: #00AC3E;
     z-index: var(--z_currentTimeMarker);
 }
 
