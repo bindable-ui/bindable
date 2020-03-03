@@ -257,9 +257,7 @@ export class CTimeline {
         {trailing: true, leading: false},
     );
 
-    constructor(
-        private taskQueue: TaskQueue,
-    ) {
+    constructor(private taskQueue: TaskQueue) {
         // Generate allowed times at each level
         mapAllowedTimes();
     }
@@ -441,10 +439,11 @@ export class CTimeline {
      */
     private scrollToSpot() {
         if (!this.parentScrollElem) {
-            this.parentScrollElem = $(`#${this.id}`)
-                .closest($(`#${this.id}`)
-                .parents()
-                .filter((_i, e) => $(e).css('overflow-y') === 'auto'));
+            this.parentScrollElem = $(`#${this.id}`).closest(
+                $(`#${this.id}`)
+                    .parents()
+                    .filter((_i, e) => $(e).css('overflow-y') === 'auto'),
+            );
         }
 
         if (this.scrollCurrentTime) {
@@ -464,7 +463,7 @@ export class CTimeline {
             }
 
             if (currentTimeTop > -1) {
-                const scrollTop = currentTimeTop - (this.parentScrollElem.outerHeight() / 2);
+                const scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
                 this.parentScrollElem.animate({scrollTop}, 500);
             }
         }

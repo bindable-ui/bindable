@@ -9,29 +9,28 @@ export class TimelineExample {
     public today = moment().startOf('day').startOf('week').add(2, 'days').toISOString();
     public entries = [
         {
-            background: '#240e33',
+            accentColor: '#8E5DB2',
             duration: 6000,
-            icons: ['assets', 'rules'],
+            icons: ['play', 'rules'],
             start: moment(this.today).add(8, 'hours').toISOString(),
             title: 'Dumb and Dumber',
         },
         {
-            background: 'var(--c_subOneDark)',
+            accentColor: '#359AC5',
             duration: 500,
             icons: ['ad-break'],
             start: moment(this.today).add(9.67, 'hours').toISOString(),
             title: 'Ad Break',
         },
         {
-            // background: '#240e33',
-            background: '#5f307d', // playing
-            color: '#fff', // playing
+            accentColor: '#8E5DB2',
             duration: 6000,
-            icons: ['assets'],
+            icons: ['play'],
             start: moment(this.today).add(9.81, 'hours').toISOString(),
             title: 'Ace Ventura',
         },
         {
+            background: '#111',
             duration: 2500,
             icons: ['time', 'rules'],
             sizeDay: 'small',
@@ -40,31 +39,28 @@ export class TimelineExample {
             title: 'Match Time',
         },
         {
-            background: 'var(--c_secondaryDark)',
-            // background: '#175634', // playing
-            // color: '#fff', // playing
+            accentColor: '#38A56C',
             duration: 6500,
             icons: ['slicer', 'rules'],
             start: moment(this.today).add(11, 'hours').add(15, 'minutes').toISOString(),
             title: 'Ace Ventura 2',
         },
         {
-            background: 'var(--c_subOneDark)',
-            // background: '#294b79', // playing
-            // color: '#fff', // playing
+            accentColor: '#359AC5',
             duration: 700,
             icons: ['ad-break'],
-            start: moment(this.today).add(13, 'hours').add(4, 'minutes').toISOString(),
+            start: moment(this.today).add(11, 'hours').add(15, 'minutes').add(6500, 'seconds').toISOString(),
             title: 'Ad Break',
         },
         {
-            background: 'var(--c_secondaryDark)',
+            accentColor: '#38A56C',
             duration: 6500,
             icons: ['slicer', 'rules'],
-            start: moment(this.today).add(13, 'hours').add(16, 'minutes').toISOString(),
+            start: moment(this.today).add(11, 'hours').add(15, 'minutes').add(7200, 'seconds').toISOString(),
             title: 'The Mask',
         },
         {
+            background: '#111',
             duration: 2500,
             icons: ['signal', 'rules'],
             sizeDay: 'small',
@@ -73,6 +69,7 @@ export class TimelineExample {
             title: 'Match Signal',
         },
         {
+            background: '#111',
             duration: 2500,
             icons: ['signal', 'rules'],
             sizeDay: 'small',
