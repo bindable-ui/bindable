@@ -3,7 +3,12 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {TaskQueue} from 'aurelia-framework';
+import {instance, mock} from 'ts-mockito';
+
 import {CTimeline, ZOOM_LEVELS} from './c-timeline';
+
+const taskQueue = mock(TaskQueue);
 
 describe('c-timeline-block element', () => {
     let component;
@@ -22,7 +27,7 @@ describe('c-timeline-block element', () => {
 
     describe('Unit', () => {
         beforeEach(() => {
-            component = new CTimeline();
+            component = new CTimeline(instance(taskQueue));
         });
 
         describe('#mapAllowedTimes', () => {
