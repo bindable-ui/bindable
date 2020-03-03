@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
  *      - Close
@@ -32,6 +33,35 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  COMPONENT BASED SPACING
  *      - c-nav-horizontal
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-tip{
+    --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
+    --tip-boarder: solid 1px var(--c_soot);
+    --tip-background: var(--c_charcoal);
+    --tip-color: var(--c_white);
+    --tip-close-padding: 1px 4px 2px 5px;
+    --tip-close-background: var(--c_slate);
+    --tip-close-color: var(--c_white);
+    --tip-close-font-size: 14px;
+    --tip-close-background-hover: var(--c_smoke);
+    --tip-width-small: 150px;
+    --tip-width-medium: ;
+    --tip-width-large: ;
+    --tip-width-xlarge: ;
+    --tip-color-primary: ;
+    --tip-color-secondary: ;
+    --tip-color-sub-one: ;
+    --tip-color-sub-two: ;
+    --tip-color-sub-three: ;
+}
 
 
 
@@ -63,10 +93,10 @@ c-tip{
 .tip{
     display: inline-block;
     position: absolute;
-    padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
-    border: solid 1px var(--c_soot);
-    background: var(--c_charcoal);
-    color: var(--c_white);
+    padding: var(--tip-padding);
+    border: var(--tip-boarder);
+    background: var(--tip-background);
+    color: var(--tip-color);
     text-align: left;
     opacity: 0;
     white-space: nowrap;
@@ -132,21 +162,17 @@ td .trigger > div > svg{
     position: absolute;
     right: 0;
     height: unset;
-    padding: 1px 4px 2px 5px;
-    background-color: var(--c_slate);
-    color: var(--c_white);
-    font-size: 14px;
+    padding: var(--tip-close-padding);
+    background-color: var(--tip-close-background);
+    color: var(--tip-close-color);
+    font-size: var(--tip-close-font-size);
     line-height: 15px;
     cursor: pointer;
     transition: background-color var(--trans_main);
 }
 
 .close:hover{
-    background-color: var(--c_soot);
-}
-
-.close:hover{
-    background-color: var(--c_smoke);
+    background-color: var(--tip-close-background-hover);
 }
 
 
@@ -448,11 +474,11 @@ td .left{
  */
 
 .small{
-    width: 150px;
+    width: var(--tip-width-small);
 }
 
 .small.center{
-    margin-left: -75px;
+    margin-left: calc((var(--tip-width-small) / 2) * -1);
 }
 
 
