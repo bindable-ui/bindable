@@ -8,8 +8,23 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-timeline-block{
+    --time-block-border-bottom: solid 1px #444;
+    --time-color: var(--c_smoke);
+    --time-font-size: 12px;
+}
 
 
 
@@ -23,11 +38,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: relative;
     height: 100%;
     padding-left: 6px;
-    border-bottom: solid 1px #444;
+    border-bottom: var(--time-block-border-bottom);
 }
 
 .time{
-    color: var(--c_smoke);
-    font-size: 12px;
+    color: var(--time-color);
+    font-size: var(--time-font-size);
     z-index: var(--z_base);
 }

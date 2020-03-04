@@ -42,7 +42,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !THEMING
 \*------------------------------------*/
 
-c-tip{
+c-tip,
+c-popover{
     --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
     --tip-boarder: solid 1px var(--c_soot);
     --tip-background: var(--c_charcoal);
