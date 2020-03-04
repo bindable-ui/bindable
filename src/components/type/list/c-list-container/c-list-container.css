@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  COLOR
  *  SIZES
@@ -15,6 +16,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Small
  *  DIVIDERS
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-list-container{
+    --list-container-dark-background: var(--c_darkGray);
+}
 
 
 
@@ -41,7 +54,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .dark{
-    background: var(--c_darkGray);
+    background: var(--list-container-dark-background);
 }
 
 .dark li a:hover{
