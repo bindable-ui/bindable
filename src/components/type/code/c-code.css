@@ -8,8 +8,24 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-code{
+    --code-padding: var(--s-2) var(--s0);
+    --code-border: solid 1px var(--c_charcoal);
+    --code-background: var(--c_asphalt);
+    --code-color: var(--c_marshmellow);
+}
 
 
 
@@ -21,11 +37,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .base{
     display: block;
-    padding: var(--s-2) var(--s0);
+    padding: var(--code-padding);
     margin-bottom: var(--s0);
-    border: solid 1px var(--c_charcoal);
-    background: var(--c_asphalt);
-    color: var(--c_marshmellow);
+    border: var(--code-border);
+    background: var(--code-background);
+    color: var(--code-color);
     white-space: initial;
     overflow-y: auto;
 }

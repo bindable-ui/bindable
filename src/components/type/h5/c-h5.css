@@ -8,9 +8,25 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  COLOR
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+:global .bindable-h5{
+    --h5-margin-top: -0.2rem;
+    --h5-font-family: var(--ff_secondary-normal);
+    --h5-font-size: var(--s0);
+    --h5-color-smoke: var(--c_smoke);
+}
 
 
 
@@ -21,10 +37,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .base{
-    margin-top: -0.2rem;
-    font-family: var(--ff_secondary-normal);
+    margin-top: var(--h5-margin-top);
+    font-family: var(--h5-font-family);
     font-weight: normal;
-    font-size: var(--s0);
+    font-size: var(--h5-font-size);
 }
 
 
@@ -36,5 +52,5 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .smoke{
-    color: var(--c_smoke);
+    color: var(--h5-color-smoke);
 }
