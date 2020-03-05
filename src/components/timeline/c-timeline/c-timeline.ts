@@ -7,7 +7,7 @@ import {autoinject, bindable, bindingMode, containerless, TaskQueue} from 'aurel
 import * as moment from 'moment-timezone';
 
 import {ITimeBlock, ITimeDay, ITimeEntry, ITimeEntryBasic, ITimelineActions} from './c-timeline-interfaces';
-import {workerFns} from './workers';
+import {filterEntriesDay, mapEntries} from './workers';
 
 import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
@@ -182,12 +182,8 @@ export class CTimeline {
         });
 
         if (this.timeView === 'day') {
-            const dayEntries = await workerFns.filterEntriesDay(
-                sortedEntries,
-                startTime.toISOString(),
-                endTime.toISOString(),
-            );
-            this.transformedEntries = await workerFns.mapEntries(
+            const dayEntries = await filterEntriesDay(sortedEntries, startTime.toISOString(), endTime.toISOString());
+            this.transformedEntries = await mapEntries(
                 dayEntries,
                 pxPerMinute,
                 startTime.toISOString(),
@@ -200,12 +196,12 @@ export class CTimeline {
 
         if (this.timeView === 'week') {
             for (const day of this.displayDays) {
-                const dayEntries = await workerFns.filterEntriesDay(
+                const dayEntries = await filterEntriesDay(
                     sortedEntries,
                     startTime.toISOString(),
                     endTime.toISOString(),
                 );
-                day.entries = await workerFns.mapEntries(
+                day.entries = await mapEntries(
                     dayEntries,
                     pxPerMinute,
                     startTime.toISOString(),
@@ -223,10 +219,10 @@ export class CTimeline {
         this.taskQueue.queueMicroTask(() => {
             this.isRendering = false;
 
-            // Could potentially be 250ms behind with the throttle
+            // Could potentially be 350ms behind with the combined throttles
             _.delay(() => {
                 this.scrollToSpot();
-            }, 300);
+            }, 400);
         });
     }, 100);
 
