@@ -57,6 +57,10 @@ c-list-container{
     overflow: auto;
 }
 
+.list > li{
+    margin-top: 1px;
+}
+
 
 
 
@@ -132,10 +136,10 @@ c-list-container{
     !DIVIDERS
 \*------------------------------------*/
 
-.dividers li{
+.dividers li a{
     border-bottom: var(--list-container-divider);
 }
 
-.dividers li:last-child{
+.dividers li:last-child a{
     border-bottom: none;
 }
