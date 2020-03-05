@@ -26,7 +26,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 c-list-container{
+    --list-container-dark-color: initial;
     --list-container-dark-background: var(--c_darkGray);
+    --list-container-dark-a-color-hover: var(--c_white);
+    --list-container-dark-a-background-hover: var(--c_soot);
+    --list-container-light-color: var(--c_smoke);
+    --list-container-light-background: var(--c_charcoal);
+    --list-container-light-a-color-hover: var(--c_white);
+    --list-container-light-a-icon-hover: var(--c_subOneMain);
+    --list-container-medium-a-padding: var(--s-5) var(--s-2);
+    --list-container-medium-h5-padding: var(--s-5) var(--s-2) 0;
+    --list-container-small-a-padding: var(--s-5) var(--s-1);
+    --list-container-small-a-font-size: var(--s-1);
+    --list-container-divider: solid 1px var(--c_gray);
 }
 
 
@@ -54,21 +66,22 @@ c-list-container{
 \*------------------------------------*/
 
 .dark{
+    color: var(--list-container-dark-color);
     background: var(--list-container-dark-background);
 }
 
 .dark li a:hover{
-    color: var(--c_white);
-    background: var(--c_soot);
+    color: var(--list-container-dark-a-color-hover);
+    background: var(--list-container-dark-a-background-hover);
 }
 
 .light{
-    color: var(--c_smoke);
-    background: var(--c_charcoal);
+    color: var(--list-container-light-color);
+    background: var(--list-container-light-background);
 }
 
 .light li a:hover{
-    color: var(--c_white);
+    color: var(--list-container-light-a-color-hover);
 }
 
 .light li a svg{
@@ -76,7 +89,7 @@ c-list-container{
 }
 
 .light li a:hover svg{
-    fill: var(--c_subOneMain);
+    fill: var(--list-container-light-a-icon-hover);
 }
 
 
@@ -93,11 +106,11 @@ c-list-container{
 
 .medium li a,
 .medium li c-p{
-    padding: var(--s-5) var(--s-2);
+    padding: var(--list-container-medium-a-padding);
 }
 
 .medium li c-h5{
-    padding: var(--s-5) var(--s-2) 0;
+    padding: var(--list-container-medium-h5-padding);
 }
 
 
@@ -107,8 +120,8 @@ c-list-container{
 
 .small li a,
 .small li p{
-    padding: var(--s-5) var(--s-1);
-    font-size: var(--s-1);
+    padding: var(--list-container-small-a-padding);
+    font-size: var(--list-container-small-a-font-size);
 }
 
 
@@ -120,7 +133,7 @@ c-list-container{
 \*------------------------------------*/
 
 .dividers li{
-    border-bottom: solid 1px var(--c_gray);
+    border-bottom: var(--list-container-divider);
 }
 
 .dividers li:last-child{

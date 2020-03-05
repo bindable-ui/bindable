@@ -3,49 +3,37 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {autoinject} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-pal';
+import {Router} from 'aurelia-router';
+
+@autoinject()
 export class ListContainer {
-    public listContainerCols = [
+    public routes = [
         {
-            _class: 'monospaced',
-            colClass: 't150',
-            colHeadName: 'name',
-            colHeadValue: 'Name',
+            redirect: 'properties',
+            route: '',
         },
         {
-            _class: 'monospaced',
-            colHeadName: 'value',
-            colHeadValue: 'Value',
+            moduleId: PLATFORM.moduleName('./properties/index'),
+            name: 'properties',
+            nav: true,
+            route: 'properties',
+            title: 'Properties',
         },
         {
-            colHeadName: 'description',
-            colHeadValue: 'Description',
-        },
-        {
-            _class: 'monospaced',
-            colClass: 't120',
-            colHeadName: 'default',
-            colHeadValue: 'Default',
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
         },
     ];
 
-    public listContainerProperties = [
-        {
-            default: 'dark',
-            description: 'Set the colors of the list.',
-            name: 'color',
-            value: 'dark | light',
-        },
-        {
-            default: 'false',
-            description: 'Set to put a dividing line between each list item.',
-            name: 'dividers',
-            value: 'boolean',
-        },
-        {
-            default: 'medium',
-            description: 'Set the size of the list.',
-            name: 'size',
-            value: 'small | medium',
-        },
-    ];
+    constructor(public router: Router) {}
+
+    public configureRouter(config, router) {
+        this.router = router;
+        config.map(this.routes);
+    }
 }
