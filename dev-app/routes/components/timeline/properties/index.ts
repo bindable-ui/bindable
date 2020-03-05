@@ -157,71 +157,77 @@ export class TimelineProperties {
     ];
 
     public timelineEntriesRows = [
-    {
+        {
             description: 'Color of the borders and icons in the entry.',
             key: 'accentColor',
+            type: 'CSS color',
             value: '#8E5DB2',
-            type: 'CSS color'
+        },
+        {
+            description: 'Set if the entry is active.',
+            key: 'active',
+            type: 'boolean',
+            value: 'true',
         },
         {
             description: 'Alternate text value to show in place of time when displaying entry (optional).',
             key: 'altTime',
+            type: 'string',
             value: 'Started at 12:05AM.',
-            type: 'string'
         },
         {
             description: 'Background color of the time entry (optional).',
             key: 'background',
+            type: 'CSS color',
             value: 'blue',
-            type: 'CSS color'
         },
         {
             description: 'Font color of the time entry (optional).',
             key: 'color',
+            type: 'CSS color',
             value: 'white',
-            type: 'CSS color'
         },
         {
             description: 'Duration of entry in seconds.',
             key: 'duration',
+            type: 'number',
             value: 1320,
-            type: 'number'
         },
         {
             description: 'Array of icon names. Up to two are displayed (optional).',
             key: 'icons',
+            type: 'string[]',
             value: "['time', 'rules']",
-            type: 'string[]'
         },
         {
             description: 'The size of the entry on day views (optional).',
             key: 'sizeDay',
+            type: 'string',
             value: 'expandable | small',
-            type: 'string'
         },
         {
             description: 'The size of the entry on week views (optional).',
             key: 'sizeWeek',
+            type: 'string',
             value: 'expandable | small',
-            type: 'string'
         },
         {
             description: 'The start of the entry in ISOString format.',
             key: 'start',
+            type: 'ISOString',
             value: 'moment().toISOString()',
-            type: 'ISOString'
         },
         {
             description: 'The end of the entry in ISOString format (optional).',
             key: 'end',
+            type: 'ISOString',
             value: 'moment().toISOString()',
-            type: 'ISOString'
         },
         {
             description: 'Title of the time entry',
             key: 'title',
+            type: 'string',
             value: 'A title',
-            type: 'string'
         },
     ];
 }
