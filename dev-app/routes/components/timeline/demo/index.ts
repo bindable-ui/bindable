@@ -40,6 +40,7 @@ export class TimelineExample {
         },
         {
             accentColor: '#38A56C',
+            active: true,
             duration: 6500,
             icons: ['slicer', 'rules'],
             start: moment(this.today).add(11, 'hours').add(15, 'minutes').toISOString(),

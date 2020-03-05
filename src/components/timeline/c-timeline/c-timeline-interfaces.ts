@@ -10,6 +10,7 @@ export interface ITimelineActions {
 
 export interface ITimeEntryBasic {
     accentColor?: string;
+    active?: boolean;
     altTime?: string;
     background?: string;
     color?: string;
