@@ -171,4 +171,16 @@ export class TimelineExample {
     public displayView = 'week';
     public loading = false;
     public preventCreate = _isoTime => false;
+
+    // constructor() {
+    //     const genRandom = (min, max) => Math.random() * (max - min + 1) + min;
+
+    //     this.entries = _.map(_.times(1000, () => {
+    //         return {
+    //             duration: genRandom(60, 5000),
+    //             title: 'something dumb',
+    //             start: moment(this.today).add(genRandom(-50, 167), 'hours').toISOString(),
+    //         };
+    //     }));
+    // }
 }
