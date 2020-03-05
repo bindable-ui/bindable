@@ -7,6 +7,7 @@ import {autoinject, bindable, bindingMode, containerless, TaskQueue} from 'aurel
 import * as moment from 'moment-timezone';
 
 import {ITimeBlock, ITimeDay, ITimeEntry, ITimeEntryBasic, ITimelineActions} from './c-timeline-interfaces';
+import {filterEntriesDay, mapEntries} from './workers';
 
 import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
@@ -157,17 +158,8 @@ export class CTimeline {
     public buildTimeline = _.debounce(
         () => {
             this.buildBlocks();
-            this.transformEntries();
             this.calculateCurrentTimeLine();
-
-            this.taskQueue.queueMicroTask(() => {
-                this.isRendering = false;
-
-                // Could potentially be 250ms behind with the throttle
-                _.delay(() => {
-                    this.scrollToSpot();
-                }, 300);
-            });
+            this.transformEntries();
         },
         200,
         {trailing: false, leading: true},
@@ -176,7 +168,7 @@ export class CTimeline {
     /**
      * Take entries that are input and transform them into entries the calendar can use
      */
-    public transformEntries = _.throttle(() => {
+    public transformEntries = _.throttle(async () => {
         const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
         const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
         const [startTime, endTime] = this.getDayStartEndTimes();
@@ -190,34 +182,48 @@ export class CTimeline {
         });
 
         if (this.timeView === 'day') {
-            this.transformedEntries = this.mapEntries(sortedEntries, pxPerMinute, startTime, endTime);
-            return;
+            const dayEntries = await filterEntriesDay(sortedEntries, startTime.toISOString(), endTime.toISOString());
+            this.transformedEntries = await mapEntries(
+                dayEntries,
+                pxPerMinute,
+                startTime.toISOString(),
+                endTime.toISOString(),
+                this.timeView,
+                this.editEntryViewModel,
+                this.date,
+            );
         }
 
         if (this.timeView === 'week') {
-            _.forEach(this.displayDays, day => {
-                const clonedSort = _.cloneDeep(sortedEntries);
-
-                const dayEntries = _.filter(clonedSort, entry => {
-                    const entryStart = this.date ? entry.start : moment(entry.start, 'hmm').toISOString();
-                    const entryEnd = moment(entryStart)
-                        .add(entry.duration, 'seconds')
-                        .toISOString();
-
-                    const startIn = moment(entryStart).isBetween(startTime, endTime, null, '[]');
-                    const endIn = moment(entryEnd).isBetween(startTime, endTime, null, '[]');
-
-                    return startIn || endIn;
-                });
-
-                day.entries = this.mapEntries(dayEntries, pxPerMinute, startTime, endTime);
+            for (const day of this.displayDays) {
+                const dayEntries = await filterEntriesDay(
+                    sortedEntries,
+                    startTime.toISOString(),
+                    endTime.toISOString(),
+                );
+                day.entries = await mapEntries(
+                    dayEntries,
+                    pxPerMinute,
+                    startTime.toISOString(),
+                    endTime.toISOString(),
+                    this.timeView,
+                    this.editEntryViewModel,
+                    this.date,
+                );
 
                 startTime.add(1, 'day');
                 endTime.add(1, 'day');
-            });
-
-            return;
+            }
         }
+
+        this.taskQueue.queueMicroTask(() => {
+            this.isRendering = false;
+
+            // Could potentially be 350ms behind with the combined throttles
+            _.delay(() => {
+                this.scrollToSpot();
+            }, 400);
+        });
     }, 100);
 
     private calculateCurrentTimeLine = _.throttle(
@@ -726,125 +732,5 @@ export class CTimeline {
         endTime = moment(startTime).add(numOfBlocks * zoomLevelData.minutes, 'minutes');
 
         return [startTime, endTime];
-    }
-
-    /**
-     * Map a day of sorted entries to the ITimeEntry type
-     *
-     * @param sortedEntries any[]: Array of entries sorted by start time
-     * @param pxPerMinute number: The number of pixels it takes to display a minute
-     * @param startTime Moment: start time of the day
-     * @param endTime Moment: end time of the day
-     */
-    private mapEntries(sortedEntries: any[], pxPerMinute: number, startTime, endTime): ITimeEntry[] {
-        let nestedEntryWidth = 80;
-
-        return _.map(
-            sortedEntries,
-            (entry: ITimeEntry, index: number): ITimeEntry => {
-                if (!this.date) {
-                    entry.start = moment(entry.start, 'hmm').toISOString();
-                }
-
-                entry.startTime = moment(entry.start).format('HH:mm');
-
-                if (!entry.end) {
-                    entry.end = moment(entry.start)
-                        .add(entry.duration, 'seconds')
-                        .toISOString();
-                }
-
-                entry.endTime = moment(entry.end).format('HH:mm');
-
-                let diff = moment(entry.start).diff(startTime, 'seconds');
-                const diffEnd = moment(endTime).diff(entry.end, 'seconds');
-
-                // If entry starts before the day make sure it only displays what it needs
-                if (diff < 0) {
-                    entry.start = moment(startTime).toISOString();
-                    entry.duration += diff;
-                    diff = 0;
-                }
-
-                // If entry ends after the day make sure it only displays what it needs
-                if (diffEnd < 0) {
-                    entry.duration += diffEnd;
-                }
-
-                entry.top = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
-                entry.height = (entry.duration / SECONDS_IN_MINUTE) * pxPerMinute;
-
-                if (this.editEntryViewModel) {
-                    entry.contentViewModel = this.editEntryViewModel;
-                }
-
-                const width = this.timeView === 'week' ? 30 : 60;
-                const nextEntries = sortedEntries.slice(index + 1);
-
-                const sameTimeEntries = _.filter(nextEntries, filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = moment(filterEntry.start)
-                            .add(filterEntry.duration, 'seconds')
-                            .toISOString();
-                    }
-
-                    // Not the same time if it's later in the minute. Gives a buffer
-                    return (
-                        moment(entry.start).isSame(filterEntry.start, 'minute') &&
-                        !moment(filterEntry.start).isAfter(entry.end, 'second')
-                    );
-                });
-
-                const nestedEntries = _.filter(nextEntries, filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = moment(filterEntry.start)
-                            .add(filterEntry.duration, 'seconds')
-                            .toISOString();
-                    }
-
-                    // 10 second buffer
-                    return moment(filterEntry.start).isBetween(
-                        entry.start,
-                        moment(entry.end).subtract(10, 'seconds'),
-                        null,
-                        '()',
-                    );
-                });
-
-                const nestedEntry = _.first(nestedEntries); // We only care about the first one
-
-                if (!entry.widthCalc && sameTimeEntries.length) {
-                    const totalSameTime = sameTimeEntries.length + 1;
-                    const entryWidth = 100 / totalSameTime;
-
-                    // We don't want to use these props if we are showing multiple things at the same time
-                    entry.sizeDay = null;
-                    entry.sizeWeek = null;
-
-                    entry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-
-                    _.forEachRight(sameTimeEntries, (sameTimeEntry, sameTimeIndex) => {
-                        const offsetIndex = sameTimeIndex + 1;
-
-                        // We don't want to use these props if we are showing multiple things at the same time
-                        sameTimeEntry.small = null;
-                        sameTimeEntry.expandable = null;
-
-                        sameTimeEntry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-                        sameTimeEntry.rightCalc = `calc(${offsetIndex * entryWidth}% - ${(width / totalSameTime) *
-                            offsetIndex}px)`;
-                    });
-                } else if (nestedEntry) {
-                    if (nestedEntryWidth >= 40) {
-                        nestedEntry.widthCalc = `calc(${nestedEntryWidth}% - ${width}px)`;
-                        nestedEntryWidth -= 20;
-                    } else {
-                        nestedEntryWidth = 80; // Reset
-                    }
-                }
-
-                return entry;
-            },
-        );
     }
 }
