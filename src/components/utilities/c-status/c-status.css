@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  STATUS
  *      - Set Up
@@ -16,6 +17,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Critical
  *      - Info
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-status{
+    --status-color: var(--c_smoke);
+    --status-font-size: var(--s-1);
+    --status-margin-left: var(--s-5);
+}
 
 
 
@@ -33,9 +48,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .link,
 .container c-p{
     flex: 1;
-    margin-left: var(--s-5);
-    color: var(--c_smoke);
-    font-size: var(--s-1);
+    margin-left: var(--status-margin-left);
+    color: var(--status-color);
+    font-size: var(--status-font-size);
 }
 
 .link,

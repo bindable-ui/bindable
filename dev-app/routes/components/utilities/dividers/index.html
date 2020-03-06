@@ -4,10 +4,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <l-stack spacing="var(--s-3)">
-        <c-h2>Example</c-h2>
-        <c-code-sample>
-            <c-divider></c-divider>
-        </c-code-sample>
+    <l-stack>
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Example</c-h2>
+                <c-code-sample>
+                    <c-divider></c-divider>
+                </c-code-sample>
+            </l-stack>
+        </div>
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Theming</c-h2>
+                <c-table cols.bind="dividerThemeCols" rows.bind="dividerThemeProperties"></c-table>
+            </l-stack>
+        </div>
     </l-stack>
 </template>

@@ -3,8 +3,8 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-export class Dividers {
-    public dividerThemeCols = [
+export class StatusThemeProperties {
+    public statusThemeCols = [
         {
             _class: 'monospaced',
             colHeadName: 'name',
@@ -18,14 +18,18 @@ export class Dividers {
         },
     ];
 
-    public dividerThemeProperties = [
+    public statusThemeProperties = [
         {
             default: 'var(--c_smoke)',
-            name: '--list-color',
+            name: '--status-color',
         },
         {
-            default: 'var(--c_subOneMain)',
-            name: '--list-color-link',
+            default: 'var(--s-1)',
+            name: '--status-font-size',
+        },
+        {
+            default: 'var(--s-5)',
+            name: '--status-margin-left',
         },
     ];
 }

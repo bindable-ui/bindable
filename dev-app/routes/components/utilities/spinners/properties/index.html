@@ -1,0 +1,27 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="spinnerCols" rows.bind="spinnerProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>size</c-h3>
+                <c-code-sample>
+                    <c-spinner></c-spinner>
+                    <c-spinner size="small"></c-spinner>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

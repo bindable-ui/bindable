@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  CONTAINER
  *  BASE
  *      - Keyframes
@@ -16,6 +17,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Medium
  *      - Small
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+:global .c-spinner{
+    --spinner-color: var(--c_white);
+}
 
 
 
@@ -74,7 +87,7 @@ table .container{
 }
 
 .base:not(:required)::before{
-    border-top: 2px solid #FFF;
+    border-top: 2px solid var(--spinner-color);
     border-right: 2px solid transparent;
     border-radius: 50%;
     content: '';
