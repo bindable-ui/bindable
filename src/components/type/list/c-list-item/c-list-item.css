@@ -8,11 +8,26 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  STATE
  *      - Active
  *  DIVIDERS
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-list-container{
+    --list-item-color: var(--c_lightGray);
+    --list-item-color-active: var(--c_white);
+    --list-item-background-active: var(--c_primaryMain);
+}
 
 
 
@@ -37,7 +52,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .list-item a,
 .list-item c-p{
     display: table-cell;
-    color: var(--c_lightGray);
+    color: var(--list-item-color);
 }
 
 .list-item c-h5{
@@ -60,7 +75,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .list-item c-p p{
     margin-bottom: 0;
-    color: var(--c_lightGray);
+    color: var(--list-item-color);
 }
 
 
@@ -77,6 +92,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .active a,
 .active a:hover{
-    background: var(--c_primaryMain);
-    color: var(--c_white);
+    background: var(--list-item-background-active);
+    color: var(--list-item-color-active);
 }

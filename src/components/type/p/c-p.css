@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *  SIZE
  *      - Large
@@ -15,6 +16,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Small
  *  TRUNCATE
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-p{
+    --p-font-size-large: var(--s0);
+    --p-font-size-medium: var(--s-1);
+    --p-font-size-small: var(--s-2);
+}
 
 
 
@@ -44,7 +59,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .large{
-    font-size: var(--s0);
+    font-size: var(--p-font-size-large);
 }
 
 /**
@@ -52,7 +67,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .medium{
-    font-size: var(--s-1);
+    font-size: var(--p-font-size-medium);
 }
 
 /**
@@ -60,16 +75,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .small{
-    font-size: var(--s-2);
-}
-
-
-/**
- * ^Top
- */
-
-.st-small{
-    margin-top: var(--spacing_small);
+    font-size: var(--p-font-size-small);
 }
 
 
