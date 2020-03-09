@@ -16,7 +16,7 @@ export class TipProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't240',
+            colClass: 't350',
             colHeadName: 'value',
             colHeadValue: 'Value',
         },
@@ -26,7 +26,7 @@ export class TipProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't150',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -42,10 +42,10 @@ export class TipProperties {
             value: 'center | rightEdge | leftEdge | none',
         },
         {
-            default: 'subOne',
+            default: 'var(--c_subOne)',
             description: 'Set the color of the 1px bar.',
             name: 'color',
-            value: 'primaryLight | secondary | subOne | subThree',
+            value: 'CSS Color',
         },
         {
             default: 'false',
