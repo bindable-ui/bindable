@@ -54,6 +54,8 @@ export class CFormDate {
     @bindable
     public placeholder;
     @bindable
+    public startOf: moment.unitOfTime.StartOf = 'minute';
+    @bindable
     public state;
     @bindable
     public watchState;
@@ -82,7 +84,7 @@ export class CFormDate {
 
         if (newValue) {
             this.timestamp = moment(newValue)
-                .startOf('minute')
+                .startOf(this.startOf)
                 .format('x');
             this.setTimestamp(this.timestamp);
         } else {
@@ -116,7 +118,7 @@ export class CFormDate {
     public updateDate() {
         // UP-10723 : Timestamps should be at the beginning of a minute to avoid issues with relative time
         let newTimestamp = moment(this.datetimepicker.data('DateTimePicker').date())
-            .startOf('minute')
+            .startOf(this.startOf)
             .format('x');
         if (newTimestamp === 'Invalid date') {
             newTimestamp = '';
