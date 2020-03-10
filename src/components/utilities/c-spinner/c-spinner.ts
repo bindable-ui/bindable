@@ -9,6 +9,8 @@ import * as styles from './c-spinner.css.json';
 @containerless
 export class CSpinner {
     @bindable
+    public name: string;
+    @bindable
     public size = 'medium';
 
     public styles = styles;

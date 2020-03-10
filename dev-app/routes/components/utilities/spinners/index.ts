@@ -30,6 +30,11 @@ export class Spinners {
 
     public spinnerProperties = [
         {
+            description: 'Sets data-name on spinner',
+            name: 'name',
+            value: 'any string',
+        },
+        {
             default: 'medium',
             description: 'Set the size of the spinner',
             name: 'size',

@@ -4,6 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {StageComponent} from 'aurelia-testing';
+import {CSpinner} from './c-spinner';
 
 describe('c-spinner component', () => {
     let component;
@@ -20,6 +21,24 @@ describe('c-spinner component', () => {
                 try {
                     await bootStrapEnvironment(component);
                     expect(component.viewModel.styles.base).not.toBe(undefined);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+
+            it('allows name binding', async done => {
+                const customName = 'default-spinner';
+
+                component = StageComponent.withResources()
+                    .inView('<c-spinner name.bind="customName"></c-size>')
+                    .boundTo({
+                        customName,
+                    });
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.name).toBe(customName);
                     done();
                 } catch (e) {
                     done.fail(e);
@@ -44,6 +63,18 @@ describe('c-spinner component', () => {
                     }
                 });
             });
+        });
+    });
+
+    describe('Unit', () => {
+        beforeEach(() => {
+            component = new CSpinner();
+        });
+
+        it('Sets up component', () => {
+            expect(component.name).toBeUndefined();
+            expect(component.size).toBe('medium');
+            expect(component.styles).toBeDefined();
         });
     });
 });

@@ -4,8 +4,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <c-spinner if.bind="isLoading"></c-spinner>
-    <c-spinner if.bind="isRendering && !isLoading"></c-spinner>
+    <c-spinner name='timeline-loading' if.bind="isLoading"></c-spinner>
+    <c-spinner name='timeline-rendering' if.bind="isRendering && !isLoading"></c-spinner>
     <div if.bind="!isLoading" id.bind="id">
         <div show.bind="!isRendering">
             <c-timeline-container
