@@ -79,6 +79,12 @@ export class DateInputProperties {
             value: 'string',
         },
         {
+            default: 'minute',
+            description: 'Sets time truncation.',
+            name: 'start-of',
+            value: 'error | disabled | hidden',
+        },
+        {
             description: 'Set a state for the text input.',
             name: 'state',
             value: 'error | disabled | hidden',
