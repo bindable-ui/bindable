@@ -38,6 +38,7 @@ export class Modal {
         {
             description: 'If you just need text in your modal you can place it here in a string.',
             option: 'bodyText',
+            value: 'string',
         },
         {
             description:
@@ -52,6 +53,7 @@ export class Modal {
         {
             description: 'If you only need text in your footer you can put it here in a string.',
             option: 'footerText',
+            value: 'string',
         },
         {
             description: 'If you need to pass anything out of your template you can add it here.',
@@ -72,6 +74,12 @@ export class Modal {
         {
             description: 'Set what will be displayed as the title of the modal.',
             option: 'title',
+            value: 'string',
+        },
+        {
+            description: 'Set if you need a help tip next to the title of the modal',
+            option: 'titleHelp',
+            value: 'string',
         },
     ];
 
@@ -153,6 +161,7 @@ export class Modal {
                 footerViewModel: PLATFORM.moduleName('routes/components/modal/footer'),
                 size: 'auto',
                 title: 'Hi',
+                titleHelp: 'Help text here.',
             },
             viewModel: PLATFORM.moduleName('resources/components/modal/c-modal/c-modal'),
         });
