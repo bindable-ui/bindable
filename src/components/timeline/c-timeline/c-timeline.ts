@@ -231,8 +231,12 @@ export class CTimeline {
         this.taskQueue.queueMicroTask(() => {
             this.isRendering = false;
 
+            this.trackPosistion.cancel();
+            this.preventScrollCheck = true;
+
             // Could potentially be 350ms behind with the combined throttles
             _.delay(() => {
+                this.trackPosistion.cancel();
                 this.scrollToSpot();
             }, 400);
         });
@@ -277,21 +281,19 @@ export class CTimeline {
 
     private trackPosistion = _.debounce(
         () => {
-            _.defer(() => {
-                if (this.isRendering || this.isLoading || this.preventScrollCheck) {
-                    return;
-                }
+            if (this.isRendering || this.isLoading || this.preventScrollCheck) {
+                return;
+            }
 
-                const [, pxPerMinute] = this.getZoomLevelData();
-                const parentHeight = this.parentScrollElem.outerHeight();
-                const currentPos = this.parentScrollElem.scrollTop() + parentHeight / 2;
+            const [, pxPerMinute] = this.getZoomLevelData();
+            const parentHeight = this.parentScrollElem.outerHeight();
+            const currentPos = this.parentScrollElem.scrollTop() + parentHeight / 2;
 
-                if (parentHeight >= $(`#${this.id}`).outerHeight()) {
-                    return;
-                }
+            if (parentHeight >= $(`#${this.id}`).outerHeight()) {
+                return;
+            }
 
-                this.currentScroll = currentPos / pxPerMinute; // Minutes from the middle of the timeline view
-            });
+            this.currentScroll = currentPos / pxPerMinute; // Minutes from the middle of the timeline view
         },
         1000,
         {trailing: true, leading: false},
@@ -497,44 +499,44 @@ export class CTimeline {
      * Scroll to a designated spot on the timeline
      */
     private scrollToSpot() {
-        this.preventScrollCheck = true;
-        this.trackPosistion.cancel();
+        _.defer(() => {
+            const [, pxPerMinute] = this.getZoomLevelData();
 
-        const [, pxPerMinute] = this.getZoomLevelData();
+            let scrollTop = 0;
 
-        let scrollTop = 0;
+            if (this.scrollCurrentTime) {
+                this.scrollCurrentTime = false;
 
-        if (this.scrollCurrentTime) {
-            this.scrollCurrentTime = false;
+                let currentTimeTop = -1;
 
-            let currentTimeTop = -1;
+                if (this.timeView === 'day') {
+                    currentTimeTop = this.currentTimeLine;
+                } else {
+                    _.forEach(this.displayDays, day => {
+                        if (day.currentTimeLine > -1) {
+                            currentTimeTop = day.currentTimeLine;
+                            return false;
+                        }
+                    });
+                }
 
-            if (this.timeView === 'day') {
-                currentTimeTop = this.currentTimeLine;
-            } else {
-                _.forEach(this.displayDays, day => {
-                    if (day.currentTimeLine > -1) {
-                        currentTimeTop = day.currentTimeLine;
-                        return false;
-                    }
-                });
-            }
-
-            if (currentTimeTop > -1) {
-                scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
-                this.currentScroll = currentTimeTop / pxPerMinute;
+                if (currentTimeTop > -1) {
+                    scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
+                    this.currentScroll = currentTimeTop / pxPerMinute;
+                    this.parentScrollElem.animate({scrollTop}, 500);
+                }
+            } else if (this.scrollLastSpot) {
+                this.scrollLastSpot = false;
+                scrollTop = this.currentScroll * pxPerMinute - this.parentScrollElem.outerHeight() / 2;
                 this.parentScrollElem.animate({scrollTop}, 500);
             }
-        } else if (this.scrollLastSpot) {
-            this.scrollLastSpot = false;
-            scrollTop = this.currentScroll * pxPerMinute - this.parentScrollElem.outerHeight() / 2;
-            this.parentScrollElem.animate({scrollTop}, 500);
-        }
 
-        _.delay(() => {
-            this.preventScrollCheck = false;
-            this.trackPosistion.cancel();
-        }, 501);
+            // To be after the scroll animation
+            _.delay(() => {
+                this.preventScrollCheck = false;
+                this.trackPosistion.cancel();
+            }, 501);
+        });
     }
 
     /**

@@ -127,11 +127,11 @@
     "aurelia-dialog": "1.0.0-rc.2.0.0",
     "dompurify": "^2.0.7",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "fibrelite": "^2.0.1",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.28",
-    "simple-web-worker": "^1.2.0"
+    "moment-timezone": "^0.5.28"
   },
   "husky": {
     "hooks": {
