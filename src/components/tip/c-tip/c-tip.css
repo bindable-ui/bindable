@@ -146,14 +146,6 @@ td .trigger > div > svg{
     cursor: pointer;
 }
 
-.color{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-}
-
 
 /**
  * ^Close
@@ -538,24 +530,13 @@ td .left{
     !COLOR
 \*------------------------------------*/
 
-.primary-light{
-    background-color: var(--tip-color-primary);
-}
-
-.secondary{
-    background-color: var(--tip-color-secondary);
-}
-
-.sub-one{
-    background-color: var(--tip-color-sub-one);
-}
-
-.sub-two{
-    background-color: var(--tip-color-sub-two);
-}
-
-.sub-three{
-    background-color: var(--tip-color-sub-three);
+.color{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--tip-bar-color);
 }
 
 

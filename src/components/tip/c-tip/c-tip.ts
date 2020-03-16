@@ -14,9 +14,7 @@ export class CTip {
     @bindable
     public triggerType = 'click';
     @bindable
-    public color = 'subOne';
-    @bindable
-    public altColor;
+    public color = 'var(--c_subOneMain)';
     @bindable
     public forceClose = false;
     @bindable
