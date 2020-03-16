@@ -1,6 +1,23 @@
-import workerize from 'workerize';
+import * as SWorker from 'simple-web-worker';
 
 import {ITimeEntry} from './c-timeline-interfaces';
+
+const actions = [
+    {
+        func: filterEntriesDayFn,
+        message: 'filterEntriesDay',
+    },
+    {
+        func: mapEntriesFn,
+        message: 'mapEntries',
+    },
+];
+
+let worker: any = null;
+
+if (window.Worker) {
+    worker = SWorker.create(actions);
+}
 
 function mapEntriesFn(
     sortedEntries: any[],
@@ -162,11 +179,6 @@ function filterEntriesDayFn(sortedEntries: any[], startTime: string, endTime: st
     });
 }
 
-const workerFns = workerize(`
-    export ${filterEntriesDayFn.toString()}
-    export ${mapEntriesFn.toString()}
-`);
-
 export const mapEntries = async (
     sortedEntries: any[],
     pxPerMinute: number,
@@ -176,8 +188,8 @@ export const mapEntries = async (
     editEntryViewModel: string,
     date: string,
 ): Promise<ITimeEntry[]> => {
-    if (typeof Worker !== 'undefined') {
-        return await workerFns.mapEntriesFn(
+    if (window.Worker) {
+        return await worker.postMessage('mapEntries', [
             sortedEntries,
             pxPerMinute,
             startTime,
@@ -185,15 +197,15 @@ export const mapEntries = async (
             timeView,
             editEntryViewModel,
             date,
-        );
+        ]);
     }
 
     return mapEntriesFn(sortedEntries, pxPerMinute, startTime, endTime, timeView, editEntryViewModel, date);
 };
 
 export const filterEntriesDay = async (sortedEntries: any[], startTime: string, endTime: string): Promise<any[]> => {
-    if (typeof Worker !== 'undefined') {
-        return await workerFns.filterEntriesDayFn(sortedEntries, startTime, endTime);
+    if (window.Worker) {
+        return await worker.postMessage('filterEntriesDay', [sortedEntries, startTime, endTime]);
     }
 
     return filterEntriesDayFn(sortedEntries, startTime, endTime);

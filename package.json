@@ -131,7 +131,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
-    "workerize": "^0.1.8"
+    "simple-web-worker": "^1.2.0"
   },
   "husky": {
     "hooks": {
