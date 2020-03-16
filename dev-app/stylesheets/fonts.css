@@ -10,6 +10,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /**
  *  HAAS GROTESK DISPLAY
  *  HELVETICA NEUE COND
+ *  PROXIMA NOVA
  */
 
 
@@ -66,4 +67,27 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 @font-face{
     font-family: 'HN_67_Cond_It';
     src: url('../assets/fonts/HN67ConIt.woff') format('woff');
+}
+
+
+
+
+
+/*------------------------------------*\
+    !PROXIMA NOVA
+\*------------------------------------*/
+
+@font-face{
+    font-family: 'Proxima_Nova_Reg';
+    src: url('../assets/fonts/ProximaNova-Bold-webfont.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'Proxima_Nova_Semi_Bold';
+    src: url('../assets/fonts/ProximaNova-Sbold-webfont.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'Proxima_Nova_Bold';
+    src: url('../assets/fonts/ProximaNova-Bold-webfont.woff') format('woff');
 }

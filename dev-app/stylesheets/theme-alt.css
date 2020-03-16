@@ -1,0 +1,201 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ * BASE
+ *      - Tokens
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+/**
+ * ^Tokens
+ */
+
+.face{
+    display: block;
+}
+
+:root{
+    /**
+     * ^Ratio
+     */
+    --ratio: 1.25;
+
+    /**
+     * ^Smaller
+     */
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+
+    /**
+     * ^Base
+     */
+    --s0: 1rem;
+
+    /**
+     * ^Larger
+     */
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+
+    /**
+     * ^Primary (Yellow)
+     */
+    --c_primaryMain: #DFB233 !important;
+    --c_primaryLight: #F1CD68 !important;
+    --c_primaryLighter: #F2DB9C !important;
+    --c_primaryDark: #AF8611 !important;
+
+
+    /**
+     * ^Secondary (Blue)
+     */
+    --c_secondaryMain: #4DA1FF !important;
+    --c_secondaryLight: #6EB1FD !important;
+    --c_secondaryLighter: #96C7FF !important;
+    --c_secondaryDark: #1C65B6 !important;
+
+
+    /**
+     * ^Sub One (Green)
+     */
+    --c_subOneMain: #00AC3E !important;
+    --c_subOneLight: #27C961 !important;
+    --c_subOneLighter: #6DE99A !important;
+    --c_subOneDark: #007329 !important;
+
+
+    /**
+     * ^Sub Two (Purple)
+     */
+    --c_subTwoMain: #916DC9 !important;
+    --c_subTwoLight: #BA93F7 !important;
+    --c_subTwoLighter: #D2BAF7 !important;
+    --c_subTwoDark: #623F99 !important;
+
+
+    /**
+     * ^Sub Three (Red)
+     */
+    --c_subThreeMain: #F83D3D !important;
+    --c_subThreeLight: #F06F6F !important;
+    --c_subThreeLighter: #EC9090 !important;
+    --c_subThreeDark: #CC1212 !important;
+
+
+    /**
+     * ^Sub Four (Orange)
+     */
+    --c_subFourMain: #F9A02D !important;
+    --c_subFourLight: #EFB569 !important;
+    --c_subFourLighter: #EFC998 !important;
+    --c_subFourDark: #D57E0E !important;
+
+
+    /**
+     * ^Grays
+     */
+    --c_black: #000 !important;
+    --c_soot: #231F20 !important;
+    --c_darkGray: #707070 !important;
+    --c_asphalt: #6B6B6B !important;
+    --c_slate: #BCBCBC !important;
+    --c_ash: #B2B2B2 !important;
+    --c_charcoal: #7E7E7E !important;
+    --c_gray: #575757 !important;
+    --c_smoke: #F1FDF1 !important;
+    --c_lightGray: #E9E9E9 !important;
+    --c_marshmellow: #F6F6F6 !important;
+    --c_white: #FFF !important;
+
+
+    /**
+     * ^Font Family Primary
+     */
+    --ff_primary-normal: 'Proxima_Nova_Reg', Helvetica, sans-serif !important;
+    --ff_primary-semi-bold: 'Proxima_Nova_Semi_Bold', Helvetica, sans-serif !important;
+    --ff_primary-bold: 'Proxima_Nova_Bold', Helvetica, sans-serif !important;
+
+
+    /**
+     * ^Font Family Secondary
+     */
+    --ff_secondary-normal: 'HN_57_Cond', Helvetica, sans-serif;
+    --ff_secondary-normal-italic: 'HN_57_Cond_It', Helvetica, sans-serif;
+    --ff_secondary-bold: 'HN_67_Cond', Helvetica, sans-serif;
+    --ff_secondary-bold-italic: 'HN_67_Cond_It', Helvetica, sans-serif;
+
+
+    /**
+     * ^Font Family Mono
+     */
+    --ff_mono: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+
+    /**
+     * ^Transitions
+     */
+    --trans_main: 0.3s ease-in-out;
+
+
+    /**
+     * ^ Popover
+     */
+    --w_popover: 215px;
+
+
+    /**
+     * ^Z-Index
+     */
+    --z_actionBar: -1;
+    --z_base: 1;
+    --z_tileTip: 9;
+    --z_weekTimelineDays: 2;
+    --z_timeLineEntry: 3;
+    --z_timeLineLiveHover: 4;
+    --z_timeEntrySmall: 5;
+    --z_currentTimeMarker: 6;
+    --z_timeEntryHover: 7;
+    --z_timeEntryActive: 8;
+    --z_timelineContainer: 9;
+    --z_weekTimelineHours: 10;
+    --z_weekTimelineDates: 11;
+    --z_tileCheckbox: 12;
+    --z_tipFullScreenClose: 17;
+    --z_copy: 20;
+    --z_tip: 21;
+    --z_mainNav: 23;
+    --z_mobileNavTrigger: 24;
+    --z_gridLoadMore: 25;
+    --z_toasts: 1001;
+
+
+    /**
+     * ^Scrollbars
+     */
+    --scrollbar_width: 7px;
+    --scrollbar_color: #7B7B7B;
+    --scrollbar_track_color: #222;
+}
+
+
+
