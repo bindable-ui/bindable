@@ -1,13 +1,27 @@
-import fibrelite from 'fibrelite';
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+import * as SWorker from 'simple-web-worker';
 
 import {ITimeEntry} from './c-timeline-interfaces';
 
-let filterEntriesWorker: any = null;
-let mapEntriesWorker: any = null;
+const actions = [
+    {
+        func: filterEntriesDayFn,
+        message: 'filterEntriesDay',
+    },
+    {
+        func: mapEntriesFn,
+        message: 'mapEntries',
+    },
+];
+
+let worker: any = null;
 
 if (window.Worker) {
-    filterEntriesWorker = new fibrelite(filterEntriesDayFn, 1, 0);
-    mapEntriesWorker = new fibrelite(mapEntriesFn, 1, 0);
+    worker = SWorker.create(actions);
 }
 
 function mapEntriesFn(
@@ -180,7 +194,7 @@ export const mapEntries = async (
     date: string,
 ): Promise<ITimeEntry[]> => {
     if (window.Worker) {
-        return await mapEntriesWorker.execute(
+        return await worker.postMessage('mapEntries', [
             sortedEntries,
             pxPerMinute,
             startTime,
@@ -188,7 +202,7 @@ export const mapEntries = async (
             timeView,
             editEntryViewModel,
             date,
-        );
+        ]);
     }
 
     return mapEntriesFn(sortedEntries, pxPerMinute, startTime, endTime, timeView, editEntryViewModel, date);
@@ -196,7 +210,7 @@ export const mapEntries = async (
 
 export const filterEntriesDay = async (sortedEntries: any[], startTime: string, endTime: string): Promise<any[]> => {
     if (window.Worker) {
-        return await filterEntriesWorker.execute(sortedEntries, startTime, endTime);
+        return await worker.postMessage('filterEntriesDay', [sortedEntries, startTime, endTime]);
     }
 
     return filterEntriesDayFn(sortedEntries, startTime, endTime);

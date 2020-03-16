@@ -8,7 +8,12 @@ import * as _ from 'lodash';
 Options.relativeToDir = path.join(__dirname, '../');
 globalize();
 
-jest.mock('fibrelite', () => jest.fn());
+jest.mock('simple-web-worker', () =>
+    ({
+        create: jest.fn(),
+        postMessage: jest.fn(),
+    })
+);
 
 declare const global: any;
 
