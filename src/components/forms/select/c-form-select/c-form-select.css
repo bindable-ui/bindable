@@ -157,10 +157,10 @@ select.error{
 
 .loader{
     position: absolute;
-    top: 0;
+    top: 60px;
     bottom: 0;
     width: 100%;
-    min-height: 120px;
+    min-height: 109px;
 }
 
 .loading-more{
