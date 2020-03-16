@@ -1,7 +1,7 @@
 {
   "name": "@bindable-ui/bindable",
   "description": "An Aurelia component library",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "repository": {
     "type": "git",
     "url": "https://github.com/bindable-ui/bindable"
@@ -131,7 +131,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
-    "workerize": "^0.1.8"
+    "simple-web-worker": "^1.2.0"
   },
   "husky": {
     "hooks": {

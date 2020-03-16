@@ -8,7 +8,10 @@ import {instance, mock} from 'ts-mockito';
 
 import {CTimeline, ZOOM_LEVELS} from './c-timeline';
 
+import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
+
 const taskQueue = mock(TaskQueue);
+const toastsService = mock(CToastsService);
 
 describe('c-timeline-block element', () => {
     let component;
@@ -27,7 +30,7 @@ describe('c-timeline-block element', () => {
 
     describe('Unit', () => {
         beforeEach(() => {
-            component = new CTimeline(instance(taskQueue));
+            component = new CTimeline(instance(taskQueue), instance(toastsService));
         });
 
         describe('#mapAllowedTimes', () => {

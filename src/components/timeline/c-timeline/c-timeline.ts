@@ -11,6 +11,7 @@ import {filterEntriesDay, mapEntries} from './workers';
 
 import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
+import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
 
 type Moment = moment.Moment;
 
@@ -149,8 +150,11 @@ export class CTimeline {
     public currentTimeLineTracker = null;
     public isRendering: boolean = false;
     public scrollCurrentTime: boolean = true;
+    public scrollLastSpot: boolean = false;
     public parentScrollElem: JQuery<HTMLElement> = null;
     public id = generateRandom();
+    public currentScroll: number = 0;
+    public preventScrollCheck: boolean = true;
 
     /**
      * Build out the timeline. Put in a throttle so it doesn't bind up
@@ -181,27 +185,14 @@ export class CTimeline {
             return moment(entry.start, 'hmm').toISOString();
         });
 
-        if (this.timeView === 'day') {
-            const dayEntries = await filterEntriesDay(sortedEntries, startTime.toISOString(), endTime.toISOString());
-            this.transformedEntries = await mapEntries(
-                dayEntries,
-                pxPerMinute,
-                startTime.toISOString(),
-                endTime.toISOString(),
-                this.timeView,
-                this.editEntryViewModel,
-                this.date,
-            );
-        }
-
-        if (this.timeView === 'week') {
-            for (const day of this.displayDays) {
+        try {
+            if (this.timeView === 'day') {
                 const dayEntries = await filterEntriesDay(
                     sortedEntries,
                     startTime.toISOString(),
                     endTime.toISOString(),
                 );
-                day.entries = await mapEntries(
+                this.transformedEntries = await mapEntries(
                     dayEntries,
                     pxPerMinute,
                     startTime.toISOString(),
@@ -210,17 +201,42 @@ export class CTimeline {
                     this.editEntryViewModel,
                     this.date,
                 );
-
-                startTime.add(1, 'day');
-                endTime.add(1, 'day');
             }
+
+            if (this.timeView === 'week') {
+                for (const day of this.displayDays) {
+                    const dayEntries = await filterEntriesDay(
+                        sortedEntries,
+                        startTime.toISOString(),
+                        endTime.toISOString(),
+                    );
+                    day.entries = await mapEntries(
+                        dayEntries,
+                        pxPerMinute,
+                        startTime.toISOString(),
+                        endTime.toISOString(),
+                        this.timeView,
+                        this.editEntryViewModel,
+                        this.date,
+                    );
+
+                    startTime.add(1, 'day');
+                    endTime.add(1, 'day');
+                }
+            }
+        } catch (e) {
+            this.notification.error('There was an error parsing the entries. Please try again.');
         }
 
         this.taskQueue.queueMicroTask(() => {
             this.isRendering = false;
 
+            this.trackPosistion.cancel();
+            this.preventScrollCheck = true;
+
             // Could potentially be 350ms behind with the combined throttles
             _.delay(() => {
+                this.trackPosistion.cancel();
                 this.scrollToSpot();
             }, 400);
         });
@@ -263,28 +279,56 @@ export class CTimeline {
         {trailing: true, leading: false},
     );
 
-    constructor(private taskQueue: TaskQueue) {
+    private trackPosistion = _.debounce(
+        () => {
+            if (this.isRendering || this.isLoading || this.preventScrollCheck) {
+                return;
+            }
+
+            const [, pxPerMinute] = this.getZoomLevelData();
+            const parentHeight = this.parentScrollElem.outerHeight();
+            const currentPos = this.parentScrollElem.scrollTop() + parentHeight / 2;
+
+            if (parentHeight >= $(`#${this.id}`).outerHeight()) {
+                return;
+            }
+
+            this.currentScroll = currentPos / pxPerMinute; // Minutes from the middle of the timeline view
+        },
+        1000,
+        {trailing: true, leading: false},
+    );
+
+    constructor(private taskQueue: TaskQueue, private notification: CToastsService) {
         // Generate allowed times at each level
         mapAllowedTimes();
     }
 
     public attached() {
+        this.getParentScrollElem();
         this.buildTimeline();
 
         this.currentTimeLineTracker = setInterval(() => {
             this.calculateCurrentTimeLine();
         }, SECONDS_IN_MINUTE * 1000);
+
+        $(this.parentScrollElem).on('scroll', this.trackPosistion);
     }
 
     public detatched() {
         if (this.currentTimeLineTracker) {
             clearInterval(this.currentTimeLineTracker);
         }
+
+        if (this.parentScrollElem) {
+            $(this.parentScrollElem).off('scroll', this.trackPosistion);
+        }
     }
 
     // Observable properties
     // Listen to rebuild data
     public zoomLevelChanged() {
+        this.scrollLastSpot = true;
         this.renderTimeline();
     }
 
@@ -417,6 +461,17 @@ export class CTimeline {
     // Private methods
 
     /**
+     * Get the closest parent element that scrolls
+     */
+    private getParentScrollElem() {
+        this.parentScrollElem = $(`#${this.id}`).closest(
+            $(`#${this.id}`)
+                .parents()
+                .filter((_i, e) => $(e).css('overflow-y') === 'auto'),
+        );
+    }
+
+    /**
      * If zoom goes out of bounds, fix it here
      */
     private fixZoomBounds() {
@@ -444,35 +499,44 @@ export class CTimeline {
      * Scroll to a designated spot on the timeline
      */
     private scrollToSpot() {
-        if (!this.parentScrollElem) {
-            this.parentScrollElem = $(`#${this.id}`).closest(
-                $(`#${this.id}`)
-                    .parents()
-                    .filter((_i, e) => $(e).css('overflow-y') === 'auto'),
-            );
-        }
+        _.defer(() => {
+            const [, pxPerMinute] = this.getZoomLevelData();
 
-        if (this.scrollCurrentTime) {
-            this.scrollCurrentTime = false;
+            let scrollTop = 0;
 
-            let currentTimeTop = -1;
+            if (this.scrollCurrentTime) {
+                this.scrollCurrentTime = false;
 
-            if (this.timeView === 'day') {
-                currentTimeTop = this.currentTimeLine;
-            } else {
-                _.forEach(this.displayDays, day => {
-                    if (day.currentTimeLine > -1) {
-                        currentTimeTop = day.currentTimeLine;
-                        return false;
-                    }
-                });
-            }
+                let currentTimeTop = -1;
 
-            if (currentTimeTop > -1) {
-                const scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
+                if (this.timeView === 'day') {
+                    currentTimeTop = this.currentTimeLine;
+                } else {
+                    _.forEach(this.displayDays, day => {
+                        if (day.currentTimeLine > -1) {
+                            currentTimeTop = day.currentTimeLine;
+                            return false;
+                        }
+                    });
+                }
+
+                if (currentTimeTop > -1) {
+                    scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
+                    this.currentScroll = currentTimeTop / pxPerMinute;
+                    this.parentScrollElem.animate({scrollTop}, 500);
+                }
+            } else if (this.scrollLastSpot) {
+                this.scrollLastSpot = false;
+                scrollTop = this.currentScroll * pxPerMinute - this.parentScrollElem.outerHeight() / 2;
                 this.parentScrollElem.animate({scrollTop}, 500);
             }
-        }
+
+            // To be after the scroll animation
+            _.delay(() => {
+                this.preventScrollCheck = false;
+                this.trackPosistion.cancel();
+            }, 501);
+        });
     }
 
     /**
@@ -732,5 +796,12 @@ export class CTimeline {
         endTime = moment(startTime).add(numOfBlocks * zoomLevelData.minutes, 'minutes');
 
         return [startTime, endTime];
+    }
+
+    private getZoomLevelData() {
+        const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
+        const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
+
+        return [zoomLevelData, pxPerMinute];
     }
 }
