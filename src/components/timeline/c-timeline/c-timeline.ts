@@ -143,6 +143,9 @@ export class CTimeline {
     @bindable
     public timezone: string = null;
 
+    @bindable
+    public jumpToTime: string = null;
+
     public transformedEntries: ITimeEntry[] = [];
     public blocks: ITimeBlock[] = [];
     public displayDays: ITimeDay[] = [];
@@ -237,7 +240,15 @@ export class CTimeline {
             // Could potentially be 350ms behind with the combined throttles
             _.delay(() => {
                 this.trackPosistion.cancel();
-                this.scrollToSpot();
+
+                let jumpToTime;
+
+                if (this.jumpToTime) {
+                    const [hour, minute] = this.jumpToTime.split(/:/g);
+                    jumpToTime = Math.abs(this.timePosition(moment().set({hour, minute})));
+                }
+
+                this.scrollToSpot(jumpToTime);
             }, 400);
         });
     }, 100);
@@ -248,24 +259,19 @@ export class CTimeline {
                 return;
             }
 
-            const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
-            const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
-
             const [startTime, endTime] = this.getDayStartEndTimes();
             const now = moment();
 
             if (this.timeView === 'day') {
                 if (now.isBetween(startTime, endTime, null, '()')) {
-                    const diff = now.diff(startTime, 'seconds');
-                    this.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                    this.currentTimeLine = this.timePosition(startTime);
                 } else {
                     this.currentTimeLine = -1;
                 }
             } else {
                 _.forEach(this.displayDays, day => {
                     if (now.isBetween(startTime, endTime, null, '()')) {
-                        const diff = now.diff(startTime, 'seconds');
-                        day.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                        day.currentTimeLine = this.timePosition(startTime);
                     } else {
                         day.currentTimeLine = -1;
                     }
@@ -458,6 +464,15 @@ export class CTimeline {
         this.timeView = 'day';
     }
 
+    private timePosition(startTime) {
+        const now = moment();
+        const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
+        const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
+        const diff = now.diff(startTime, 'seconds');
+
+        return (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+    }
+
     // Private methods
 
     /**
@@ -498,26 +513,27 @@ export class CTimeline {
     /**
      * Scroll to a designated spot on the timeline
      */
-    private scrollToSpot() {
+    private scrollToSpot(timeTop = null) {
         _.defer(() => {
             const [, pxPerMinute] = this.getZoomLevelData();
 
             let scrollTop = 0;
+            let currentTimeTop = timeTop || -1;
 
             if (this.scrollCurrentTime) {
                 this.scrollCurrentTime = false;
 
-                let currentTimeTop = -1;
-
-                if (this.timeView === 'day') {
-                    currentTimeTop = this.currentTimeLine;
-                } else {
-                    _.forEach(this.displayDays, day => {
-                        if (day.currentTimeLine > -1) {
-                            currentTimeTop = day.currentTimeLine;
-                            return false;
-                        }
-                    });
+                if (currentTimeTop === -1) {
+                    if (this.timeView === 'day') {
+                        currentTimeTop = this.currentTimeLine;
+                    } else {
+                        _.forEach(this.displayDays, day => {
+                            if (day.currentTimeLine > -1) {
+                                currentTimeTop = day.currentTimeLine;
+                                return false;
+                            }
+                        });
+                    }
                 }
 
                 if (currentTimeTop > -1) {
