@@ -32,7 +32,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         <p else>Empty</p>
                     </div>
                     <span class="${tipStyles.close}  ${styles.close}" click.trigger="vPopoverService.close()">×</span>
-                    <span class="${tipStyles.color}  ${tipStyles[vPopoverService.color]}"></span>
+                    <span
+                        class="${tipStyles.color}"
+                        css="--tip-bar-color: ${vPopoverService.color};"
+                    ></span>
                 </div>
             </div>
         </div>

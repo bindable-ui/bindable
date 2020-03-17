@@ -21,7 +21,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             actions.bind="actionsLeft"
         >
             <span slot="tip" show.bind="tipLeftContent">
-                <c-tip side="top" icon-tip.bind="true" arrow-position="leftEdge" size="medium">
+                <c-tip side="bottom" icon-tip.bind="true" arrow-position="leftEdge" size="medium">
                     <div slot="trigger">
                         <c-icon icon="question"></c-icon>
                     </div>
@@ -64,8 +64,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             actions.bind="actionsRight"
         >
             <span slot="tip" show.bind="tipRightContent">
-                <c-tip side="top" icon-tip.bind="true" arrow-position="rightEdge" size="medium">
-                    <div slot="trigger"><c-icon icon="question"></c-icon></div>
+                <c-tip side="bottom" icon-tip.bind="true" arrow-position="rightEdge" size="medium">
+                    <div slot="trigger">
+                        <c-icon icon="question"></c-icon>
+                    </div>
                     <div slot="content">
                         <c-p color="var(--c_white)">${tipRightContent}</c-p>
                     </div>

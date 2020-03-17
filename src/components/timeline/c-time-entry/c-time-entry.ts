@@ -40,7 +40,11 @@ export class CTimeEntry {
 
         this.popoverOpen = true;
 
-        this.vPopoverService.color = this.item.placeholder ? 'secondary' : 'subOne';
+        this.vPopoverService.color = this.item.placeholder
+            ? 'var(--c_gray)'
+            : this.item.accentColor
+            ? this.item.accentColor
+            : 'var(--c_gray)';
 
         const {left, top} = this.getPopoverPosition($event);
 

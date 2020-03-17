@@ -1,6 +1,28 @@
-import workerize from 'workerize';
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+import * as SWorker from 'simple-web-worker';
 
 import {ITimeEntry} from './c-timeline-interfaces';
+
+const actions = [
+    {
+        func: filterEntriesDayFn,
+        message: 'filterEntriesDay',
+    },
+    {
+        func: mapEntriesFn,
+        message: 'mapEntries',
+    },
+];
+
+let worker: any = null;
+
+if (window.Worker) {
+    worker = SWorker.create(actions);
+}
 
 function mapEntriesFn(
     sortedEntries: any[],
@@ -32,6 +54,15 @@ function mapEntriesFn(
         const month = appendLeadingZeroes(dateObj.getMonth());
         const day = appendLeadingZeroes(dateObj.getDate());
         return `${year}-${month}-${day} ${formatHHmm(isoString)}`;
+    };
+
+    const checkSmallEntry = timeEntry => {
+        return (
+            timeEntry.sizeWeek === 'expandable' ||
+            timeEntry.sizeWeek === 'small' ||
+            timeEntry.sizeDay === 'expandable' ||
+            timeEntry.sizeDay === 'small'
+        );
     };
 
     const width = timeView === 'week' ? 30 : 60;
@@ -79,37 +110,69 @@ function mapEntriesFn(
                 entry.contentViewModel = editEntryViewModel;
             }
 
-            const nextEntries = sortedEntries.slice(index + 1);
+            let sameTimeEntries = [];
+            let nestedEntries = [];
 
-            const sameTimeEntries = nextEntries.filter(filterEntry => {
-                if (!filterEntry.end) {
-                    filterEntry.end = new Date(
-                        new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
-                    ).toISOString();
+            if (!checkSmallEntry(entry)) {
+                const nextEntries = sortedEntries.slice(index + 1);
+
+                sameTimeEntries = nextEntries.filter(filterEntry => {
+                    if (!filterEntry.end) {
+                        filterEntry.end = new Date(
+                            new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
+                        ).toISOString();
+                    }
+
+                    // Not the same time if it's just a really short entry
+                    return (
+                        upToMm(entry.start) === upToMm(filterEntry.start) &&
+                        new Date(filterEntry.start).getTime() < new Date(entry.end).getTime()
+                    );
+                });
+
+                nestedEntries = nextEntries.filter(filterEntry => {
+                    if (!filterEntry.end) {
+                        filterEntry.end = new Date(
+                            new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
+                        ).toISOString();
+                    }
+
+                    const filterEntryStart = new Date(filterEntry.start);
+
+                    // 10 second buffer
+                    return (
+                        filterEntryStart.getTime() > new Date(entry.start).getTime() &&
+                        filterEntryStart.getTime() < new Date(new Date(entry.end).getTime() - 10 * 1000).getTime()
+                    );
+                });
+
+                // Check if we need to shift icons over
+                if (entry.icons && entry.icons.length) {
+                    const iconHeight = entry.icons.length > 1 ? 42 : 26;
+                    const diffWindow = iconHeight / pxPerMinute;
+
+                    if (sameTimeEntries.length) {
+                        entry.shiftIcons = true;
+                    }
+
+                    if (!entry.shiftIcons) {
+                        nestedEntries.forEach(filterEntry => {
+                            const startDiff =
+                                (new Date(filterEntry.start).getTime() - entryStartDate.getTime()) /
+                                1000 /
+                                SECONDS_IN_MINUTE;
+                            if (startDiff <= diffWindow) {
+                                entry.shiftIcons = true;
+                                return false;
+                            }
+                        });
+                    }
                 }
 
-                // Not the same time if it's just a really short entry
-                return (
-                    upToMm(entry.start) === upToMm(filterEntry.start) &&
-                    new Date(filterEntry.start).getTime() < new Date(entry.end).getTime()
-                );
-            });
-
-            const nestedEntries = nextEntries.filter(filterEntry => {
-                if (!filterEntry.end) {
-                    filterEntry.end = new Date(
-                        new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
-                    ).toISOString();
-                }
-
-                const filterEntryStart = new Date(filterEntry.start);
-
-                // 10 second buffer
-                return (
-                    filterEntryStart.getTime() > new Date(entry.start).getTime() &&
-                    filterEntryStart.getTime() < new Date(new Date(entry.end).getTime() - 10 * 1000).getTime()
-                );
-            });
+                // Filter out items that would be considered 'small'
+                sameTimeEntries = sameTimeEntries.filter(filterEntry => !checkSmallEntry(filterEntry));
+                nestedEntries = nestedEntries.filter(filterEntry => !checkSmallEntry(filterEntry));
+            }
 
             const nestedEntry = nestedEntries[0]; // We only care about the first one
 
@@ -117,18 +180,10 @@ function mapEntriesFn(
                 const totalSameTime = sameTimeEntries.length + 1;
                 const entryWidth = 100 / totalSameTime;
 
-                // We don't want to use these props if we are showing multiple things at the same time
-                entry.sizeDay = null;
-                entry.sizeWeek = null;
-
                 entry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
 
                 sameTimeEntries.reverse().forEach((sameTimeEntry, sameTimeIndex) => {
                     const offsetIndex = sameTimeIndex + 1;
-
-                    // We don't want to use these props if we are showing multiple things at the same time
-                    sameTimeEntry.small = null;
-                    sameTimeEntry.expandable = null;
 
                     sameTimeEntry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
                     sameTimeEntry.rightCalc = `calc(${offsetIndex * entryWidth}% - ${(width / totalSameTime) *
@@ -162,11 +217,6 @@ function filterEntriesDayFn(sortedEntries: any[], startTime: string, endTime: st
     });
 }
 
-const workerFns = workerize(`
-    export ${filterEntriesDayFn.toString()}
-    export ${mapEntriesFn.toString()}
-`);
-
 export const mapEntries = async (
     sortedEntries: any[],
     pxPerMinute: number,
@@ -176,8 +226,8 @@ export const mapEntries = async (
     editEntryViewModel: string,
     date: string,
 ): Promise<ITimeEntry[]> => {
-    if (typeof Worker !== 'undefined') {
-        return await workerFns.mapEntriesFn(
+    if (window.Worker) {
+        return await worker.postMessage('mapEntries', [
             sortedEntries,
             pxPerMinute,
             startTime,
@@ -185,15 +235,15 @@ export const mapEntries = async (
             timeView,
             editEntryViewModel,
             date,
-        );
+        ]);
     }
 
     return mapEntriesFn(sortedEntries, pxPerMinute, startTime, endTime, timeView, editEntryViewModel, date);
 };
 
 export const filterEntriesDay = async (sortedEntries: any[], startTime: string, endTime: string): Promise<any[]> => {
-    if (typeof Worker !== 'undefined') {
-        return await workerFns.filterEntriesDayFn(sortedEntries, startTime, endTime);
+    if (window.Worker) {
+        return await worker.postMessage('filterEntriesDay', [sortedEntries, startTime, endTime]);
     }
 
     return filterEntriesDayFn(sortedEntries, startTime, endTime);

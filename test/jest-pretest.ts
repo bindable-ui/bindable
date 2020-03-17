@@ -8,11 +8,10 @@ import * as _ from 'lodash';
 Options.relativeToDir = path.join(__dirname, '../');
 globalize();
 
-jest.mock('workerize', () =>
+jest.mock('simple-web-worker', () =>
     ({
-        default: jest.fn(() => ({
-            expose: jest.fn(),
-        })),
+        create: jest.fn(),
+        postMessage: jest.fn(),
     })
 );
 
