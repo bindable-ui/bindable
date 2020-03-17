@@ -7,7 +7,7 @@ import * as moment from 'moment';
 
 export class TimelineExample {
     public today = moment().startOf('day').startOf('week').add(2, 'days').toISOString();
-    public entries = [
+    public entries: any = [
         {
             accentColor: '#8E5DB2',
             duration: 6000,
@@ -35,7 +35,7 @@ export class TimelineExample {
             icons: ['time', 'rules'],
             sizeDay: 'small',
             sizeWeek: 'expandable',
-            start: moment(this.today).add(10, 'hours').add(15, 'minutes').toISOString(),
+            start: moment(this.today).add(8, 'hours').add(15, 'minutes').toISOString(),
             title: 'Match Time',
         },
         {
