@@ -190,10 +190,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     --z_tileTip: 9;
     --z_weekTimelineDays: 2;
     --z_timeLineEntry: 3;
-    --z_timeLineLiveHover: 4;
+    --z_timeLineEntryHover: 4;
     --z_timeEntrySmall: 5;
     --z_currentTimeMarker: 6;
-    --z_timeEntryHover: 7;
     --z_timeEntryActive: 8;
     --z_timelineContainer: 9;
     --z_weekTimelineHours: 10;

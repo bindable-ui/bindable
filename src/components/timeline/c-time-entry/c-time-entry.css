@@ -44,6 +44,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .entry:hover{
+    z-index: var(--z_timeLineEntryHover);
     min-height: 45px !important;
 }
 
