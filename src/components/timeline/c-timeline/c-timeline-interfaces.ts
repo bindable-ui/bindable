@@ -28,6 +28,7 @@ export interface ITimeEntry extends ITimeEntryBasic {
     endTime: string;
     height: number;
     rightCalc?: number;
+    shiftIcons?: boolean;
     startTime: string;
     top: number;
     widthCalc?: string;

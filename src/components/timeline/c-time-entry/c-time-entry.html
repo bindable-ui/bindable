@@ -38,7 +38,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-p truncate.bind="true" size="small" if.bind="item.startTime && item.endTime && !item.altTime">${item.startTime} - ${item.endTime}</c-p>
                 <c-p truncate.bind="true" size="small" if.bind="item.altTime">${item.altTime}</c-p>
             </div>
-            <div class="${styles.icons}" if.bind="item.icons">
+            <div class="${styles.icons} ${item.shiftIcons ? styles.iconsShift : ''}" if.bind="item.icons">
                 <c-icon repeat.for="icon of item.icons" icon="${icon}" if.bind="$index < 2"></c-icon>
             </div>
         </div>

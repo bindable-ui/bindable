@@ -162,7 +162,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     fill: var(--time-entry-accent-color);
 }
 
+:global .timeline-week :local .icons-shift{
+    right: 50px;
+}
 
+:global .timeline-day :local .icons-shift{
+    right: calc(35% + 35px);
+}
 
 
 
