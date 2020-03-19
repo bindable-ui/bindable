@@ -155,7 +155,6 @@ c-nav-vertical{
 }
 
 .nav-vertical-item > a:hover::before{
-    background-color: var(--nav-item-background-hover);
     background-color: var(--nav-item-active-bar-color-hover);
 }
 
