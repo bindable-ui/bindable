@@ -27,6 +27,10 @@ export class TableThemeProperties {
             default: 'var(--c_white)',
             name: '--table-th-color',
         },
+        {
+            default: 'inherit',
+            name: '--table-th-font-family',
+        },
     ];
 
     public tableThemeProperties2 = [
@@ -39,6 +43,10 @@ export class TableThemeProperties {
             name: '--table-font-size',
         },
         {
+            default: 'var(--table-font-size)',
+            name: '--table-th-font-size',
+        },
+        {
             default: 'calc(var(--s-1) - 2px) var(--s0)',
             name: '--table-td-padding',
         },
@@ -47,8 +55,28 @@ export class TableThemeProperties {
             name: '--table-td-border',
         },
         {
+            default: '--table-border',
+            name: '--table-td-border-top',
+        },
+        {
+            default: '--table-border',
+            name: '--table-td-border-right',
+        },
+        {
+            default: '--table-border',
+            name: '--table-td-border-bottom',
+        },
+        {
+            default: '--table-border',
+            name: '--table-td-border-left',
+        },
+        {
             default: 'var(--c_marshmellow)',
             name: '--table-td-color',
+        },
+        {
+            default: 'var(--table-td-padding)',
+            name: '--table-td-padding',
         },
         {
             default: '#3A3A3A',

@@ -44,4 +44,10 @@ c-code{
     color: var(--code-color);
     white-space: initial;
     overflow-y: auto;
+
+}
+
+.bose code,
+.base code pre{
+    font-family: var(--ff_mono);
 }

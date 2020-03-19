@@ -40,15 +40,22 @@ c-table,
 c-table-fixed-header{
     --table-th-background: var(--c_soot);
     --table-th-color: var(--c_white);
+    --table-th-font-family: inherit;
 }
 
 c-table{
     /* Base */
     --table-border: 1px solid var(--c_charcoal);
     --table-font-size: var(--s-1);
+    --table-th-font-size: var(--table-font-size);
     --table-td-padding: calc(var(--s-1) - 2px) var(--s0);
-    --table-td-border: 1px solid var(--c_charcoal);
+    --table-td-border: --table-border;
+    --table-td-border-top: --table-border;
+    --table-td-border-right: --table-border;
+    --table-td-border-bottom: --table-border;
+    --table-td-border-left: --table-border;
     --table-td-color: var(--c_marshmellow);
+    --table-th-padding: var(--table-td-padding);
     --table-striped-background: #3A3A3A;
     --table-hover-background: #444;
     --table-active-background: #5f5f5f;
@@ -126,14 +133,25 @@ td compose{
 
 .table{
     width: 100%;
-    border: var(--table-border);
+    border-top: var(--table-border-top);
+    border-right: var(--table-border-right);
+    border-bottom: var(--table-border-bottom);
+    border-left: var(--table-border-left);
     font-size: var(--table-font-size);
+}
+
+.table th{
+    font-family: var(--table-th-font-family);
+    font-size: var(--table-th-font-size);
 }
 
 .table th,
 .table td{
     padding: var(--table-td-padding);
-    border: var(--table-td-border);
+    border-top: var(--table-td-border-top);
+    border-right: var(--table-td-border-right);
+    border-bottom: var(--table-td-border-bottom);
+    border-left: var(--table-td-border-left);
     color: var(--table-td-color);
     text-align: left;
     vertical-align: top;
@@ -167,6 +185,7 @@ td compose{
  */
 
 .table thead th{
+    padding: var(--table-th-padding);
     background-color: var(--table-th-background);
     color: var(--table-th-color);
 }
@@ -499,12 +518,6 @@ c-table-fixed-header .sort{
 /*------------------------------------*\
     !RESPONSIVE
 \*------------------------------------*/
-
-/* This is here to get the test to pass.
- * It can't read styles in a media query. */
-.responsive{
-    font-size: var(--s-1);
-}
 
 @media only screen and (max-width: 780px){
     .responsive{

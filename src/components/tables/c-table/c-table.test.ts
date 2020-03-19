@@ -492,19 +492,6 @@ describe('c-table component', () => {
                 });
             });
 
-            // Responsive Test
-            it('css class: responsive', async done => {
-                component = StageComponent.withResources().inView('<c-table></c-table>');
-
-                try {
-                    await bootStrapEnvironment(component);
-                    expect(component.viewModel.styles.responsive).not.toBe(undefined);
-                    done();
-                } catch (e) {
-                    done.fail(e);
-                }
-            });
-
             // Drag Tests
             const existingDragClasses = ['drag', 'dragCheck'];
             existingDragClasses.forEach(drag => {

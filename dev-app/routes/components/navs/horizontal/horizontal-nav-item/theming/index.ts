@@ -21,7 +21,11 @@ export class NavHorizontalItemThemeProperties {
     public navHorizontalItemThemeProperties = [
         {
             default: 'solid 3px var(--c_primaryMain)',
-            name: '--nav-item-border-bottom',
+            name: '--nav-item-border-bottom-active',
+        },
+        {
+            default: '0',
+            name: '--nav-item-border-bottom-hover',
         },
         {
             default: 'var(--c_lightGray)',

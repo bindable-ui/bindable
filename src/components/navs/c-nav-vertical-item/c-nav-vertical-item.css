@@ -39,8 +39,9 @@ c-nav-vertical{
     --nav-item-color-active: var(--c_white);
     --nav-item-background-active: var(--c_black);
     --nav-item-active-bar-size: var(--s-5);
-    --nav-item-active-bar-color: var(--c_darkGray);
     --nav-item-active-bar-color-active: var(--c_primaryMain);
+    --nav-item-active-bar-color-hover: var(--nav-background);
+    --nav-item-active-bar-color: var(--nav-background);
     --nav-item-button-margin: var(--s-1) 0 var(--s-1) var(--s2);
     --nav-item-h4-top: var(--s-1);
     --nav-item-h4-left: var(--s2);
@@ -155,6 +156,7 @@ c-nav-vertical{
 
 .nav-vertical-item > a:hover::before{
     background-color: var(--nav-item-background-hover);
+    background-color: var(--nav-item-active-bar-color-hover);
 }
 
 

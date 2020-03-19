@@ -20,12 +20,12 @@ export class Dividers {
 
     public dividerThemeProperties = [
         {
-            default: 'var(--c_smoke)',
-            name: '--list-color',
+            default: '1px',
+            name: '--divider-height',
         },
         {
-            default: 'var(--c_subOneMain)',
-            name: '--list-color-link',
+            default: 'var(--c_gray)',
+            name: '--divider-background',
         },
     ];
 }

@@ -52,8 +52,16 @@ export class NavVerticalItemThemeProperties {
             name: '--nav-item-active-bar-color',
         },
         {
-            default: 'var(--c_primaryMain)',
+            default: 'var(--nav-background)',
             name: '--nav-item-active-bar-color-active',
+        },
+        {
+            default: 'var(--nav-background)',
+            name: '--nav-item-active-bar-color-hover',
+        },
+        {
+            default: 'var(--c_primaryMain)',
+            name: '--nav-item-active-bar-color',
         },
         {
             default: 'var(--s-1) 0 var(--s-1) var(--s2)',

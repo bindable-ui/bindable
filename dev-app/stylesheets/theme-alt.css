@@ -8,9 +8,56 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ * DEV APP STYLES
  * BASE
+ *      - Body
  *      - Tokens
+ * NAVS
+ *      - c-nav-horizontal
+ *      - c-nav-vertical
+ * TABLES
+ * TYPE
+ *      - c-code
+ *      - bindable-h1
+ *      - bindable-h2
+ *      - bindable-h3
+ *      - bindable-h4
+ *      - bindable-h5
+ * UTILITIES
+ *      - c-divider
  */
+
+
+
+
+
+/*------------------------------------*\
+    !DEV APP STYLES
+\*------------------------------------*/
+
+/**
+ * ^Logo
+ */
+
+:global .logo{
+    background: var(--c_white);
+    padding: .5rem 1.5rem 0;
+}
+
+:global .logo > svg{
+    height: 39px;
+    fill: var(--c_primaryMain);
+}
+
+:global .logo-vdms{
+    font-family: var(--ff_primary-bold);
+    color: var(--c_primaryMain);
+    text-decoration: none;
+}
+
+c-nav-vertical + router-view > div{
+    --cover-padding-top: var(--s-1) !important;
+}
 
 
 
@@ -21,12 +68,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- * ^Tokens
+ * ^Body
  */
 
-.face{
-    display: block;
+body{
+    background-color: var(--c_white) !important;
+    color: var(--c_soot) !important;
 }
+
+
+/**
+ * ^Tokens
+ */
 
 :root{
     /**
@@ -115,16 +168,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
      * ^Grays
      */
     --c_black: #000 !important;
-    --c_soot: #231F20 !important;
-    --c_darkGray: #707070 !important;
-    --c_asphalt: #6B6B6B !important;
-    --c_slate: #BCBCBC !important;
-    --c_ash: #B2B2B2 !important;
-    --c_charcoal: #7E7E7E !important;
-    --c_gray: #575757 !important;
-    --c_smoke: #F1FDF1 !important;
-    --c_lightGray: #E9E9E9 !important;
-    --c_marshmellow: #F6F6F6 !important;
+    --c_soot: #272727 !important;
+    --c_darkGray: #343434 !important;
+    --c_asphalt: #3D3D3D !important;
+    --c_slate: #5A5A5A !important;
+    --c_ash: #707070 !important;
+    --c_charcoal: #808080 !important;
+    --c_gray: #9E9E9E !important;
+    --c_smoke: #BCBCBC !important;
+    --c_lightGray: #E6E6E6 !important;
+    --c_marshmellow: #F5F5F5 !important;
     --c_white: #FFF !important;
 
 
@@ -194,8 +247,172 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
      */
     --scrollbar_width: 7px;
     --scrollbar_color: #7B7B7B;
-    --scrollbar_track_color: #222;
+    --scrollbar_track_color: var(--c_white) !important;
 }
 
 
 
+
+
+/*------------------------------------*\
+    !NAVS
+\*------------------------------------*/
+
+/**
+ * ^c-nav-horizontal
+ */
+
+c-nav-horizontal{
+    --nav-background: var(--c_white) !important;
+    --nav-item-color: var(--c_black) !important;
+    --nav-item-hover-active-color: var(--c_black) !important;
+    --nav-item-border-bottom-active: solid 3px var(--c_black) !important;
+    --nav-item-border-bottom-hover: solid 3px var(--c_primaryMain) !important;
+    --nav-medium-padding: var(--s-5) var(--s0) !important;
+}
+
+:global .theme-alt-main-nav > nav > div{
+    --cluster-spacing: 0 !important;
+}
+
+:global .logo + div{
+    --box-background: transparent !important;
+    --box-padding-sides: var(--s0) !important;
+    --box-padding-ends: var(--s-2) !important;
+}
+
+:global .bindable-h1 + div{
+    --box-background: transparent !important;
+    --box-padding-sides: 0 !important;
+}
+
+router-view[data-value="cover"] > div > div > div{
+    --box-background: transparent !important;
+    --box-padding-sides: 0 !important;
+}
+
+
+/**
+ * ^c-nav-vertical
+ */
+
+c-nav-vertical{
+    --nav-background: var(--c_white) !important;
+    --nav-item-color: var(--c_ash) !important;
+    --nav-item-color-hover: var(--c_ash) !important;
+    --nav-item-color-active: var(--c_darkGray) !important;
+    --nav-item-background-hover: var(--c_marshmellow) !important;
+    --nav-item-background-active: var(--c_marshmellow) !important;
+    --nav-item-active-bar-color-active: var(--c_black) !important;
+    --nav-item-active-bar-color-hover: var(--c_primaryMain) !important;
+    --nav-item-active-bar-color: var(--nav-background);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TABLES
+\*------------------------------------*/
+
+c-table th{
+    font-family: var(--ff_primary-bold) !important;
+}
+
+c-table,
+c-table-fixed-header{
+    --table-th-background: var(--c_lightGray) !important;
+    --table-th-color: var(--c_darkGray) !important;
+    --table-th-font-family: var(--ff_primary-bold) !important;
+}
+
+c-table{
+    --table-font-size: var(--s0) !important;
+    --table-th-font-size: var(--s-1) !important;
+    --table-td-color: var(--c_slate) !important;
+    --table-striped-background: var(--c_marshmellow) !important;
+    --table-border: 0 !important;
+    --table-td-border-bottom: solid 1px var(--c_smoke) !important;
+    --table-td-padding: calc(var(--s-2) - 1px) var(--s0) calc(var(--s-2) - 3px) !important;
+    --table-th-padding: calc(var(--s-3) - 1px) var(--s0) calc(var(--s-3) - 4px) !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TYPE
+\*------------------------------------*/
+
+/**
+ * ^c-code
+ */
+
+c-code{
+    --code-padding: calc(var(--s-2) - 1px) var(--s0) calc(var(--s-2) - 3px) !important;
+    --code-border: solid 1px var(--c_smoke) !important;
+    --code-background: var(--c_marshmellow) !important;
+    --code-color: var(--c_subTwoMain) !important;
+}
+
+
+/**
+ * ^c-h1
+ */
+
+:global .bindable-h1{
+    --h1-font-family: var(--ff_primary-normal) !important;
+}
+
+
+/**
+ * ^c-h2
+ */
+
+:global .bindable-h2{
+    --h2-font-family: var(--ff_primary-normal) !important;
+}
+
+
+/**
+ * ^c-h3
+ */
+
+:global .bindable-h3{
+    --h3-font-family: var(--ff_primary-bold) !important;
+}
+
+
+/**
+ * ^c-h4
+ */
+
+:global .bindable-h4{
+    --h4-font-family: var(--ff_primary-bold) !important;
+}
+
+
+/**
+ * ^c-h5
+ */
+
+:global .bindable-h5{
+    --h5-font-family: var(--ff_primary-bold) !important;
+}
+
+
+
+/*------------------------------------*\
+    !UTILITIES
+\*------------------------------------*/
+
+/**
+ * ^c-divider
+ */
+
+c-divider{
+    --divider-background: var(--c_primaryMain) !important;
+    --divider-height: 2px !important;
+}
