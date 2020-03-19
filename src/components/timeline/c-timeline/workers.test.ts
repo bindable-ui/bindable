@@ -64,7 +64,7 @@ describe('Web worker functions', () => {
         it('tests positioning', async () => {
             const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString());
 
-            expect(data[0].top).toBe(1441);
+            expect(data[0].top).toBe(1440);
             expect(data[0].height).toBe(8);
         });
 

@@ -62,7 +62,7 @@ export class TimelineProperties {
         },
         {
             default: 'day',
-            description: 'What view to display: "day", "week", "month"',
+            description: 'What view to display: "day", "three-day", "week", "month"',
             name: 'timeView',
             type: 'string',
         },
