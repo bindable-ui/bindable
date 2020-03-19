@@ -17,16 +17,16 @@ export class TimelineExample {
         },
         {
             accentColor: '#359AC5',
-            duration: 500,
+            duration: 480,
             icons: ['ad-break'],
-            start: moment(this.today).add(9.67, 'hours').toISOString(),
+            start: moment(this.today).add(9, 'hours').add(40, 'minutes').toISOString(),
             title: 'Ad Break',
         },
         {
             accentColor: '#8E5DB2',
             duration: 6000,
             icons: ['play'],
-            start: moment(this.today).add(9.81, 'hours').toISOString(),
+            start: moment(this.today).add(9, 'hours').add(48, 'minutes').toISOString(),
             title: 'Ace Ventura',
         },
         {
@@ -168,7 +168,7 @@ export class TimelineExample {
         // },
     ];
 
-    public zoomLevel = 2;
+    public zoomLevel = 5;
     public displayView = 'week';
     public loading = false;
     public preventCreate = _isoTime => false;
