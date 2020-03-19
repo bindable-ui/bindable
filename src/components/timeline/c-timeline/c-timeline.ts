@@ -203,7 +203,7 @@ export class CTimeline {
                 );
             }
 
-            if (this.timeView === 'week') {
+            if (this.timeView === 'week' || this.timeView === 'three-day') {
                 for (const day of this.displayDays) {
                     const dayEntries = await filterEntriesDay(
                         sortedEntries,
@@ -338,7 +338,7 @@ export class CTimeline {
     }
 
     public daysChanged() {
-        if (this.timeView !== 'day') {
+        if (this.timeView === 'week') {
             this.scrollCurrentTime = true;
             this.renderTimeline();
         }
@@ -475,7 +475,7 @@ export class CTimeline {
      * If zoom goes out of bounds, fix it here
      */
     private fixZoomBounds() {
-        if (this.timeView !== 'day' && this.timeView !== 'week') {
+        if (this.timeView !== 'day' && this.timeView !== 'week' && this.timeView !== 'three-day') {
             return;
         }
 
@@ -558,11 +558,36 @@ export class CTimeline {
                 date = moment(date)
                     .startOf('week')
                     .toISOString();
+
                 this.displayDays = [];
 
                 this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
 
                 _.times(this.days, () => {
+                    const dayOfWeek: ITimeDay = {
+                        date,
+                        blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                        entries: [],
+                        today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
+                    };
+
+                    this.displayDays.push(dayOfWeek);
+                    date = moment(date)
+                        .add(1, 'days')
+                        .toISOString();
+                });
+                break;
+            case 'three-day':
+                date = moment(date)
+                    .subtract(1, 'day')
+                    .startOf('day')
+                    .toISOString();
+
+                this.displayDays = [];
+
+                this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
+
+                _.times(3, () => {
                     const dayOfWeek: ITimeDay = {
                         date,
                         blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
@@ -784,6 +809,18 @@ export class CTimeline {
                 startTime = moment(this.date).startOf('week');
             } else {
                 startTime = moment().startOf('week');
+            }
+        }
+
+        if (this.timeView === 'three-day') {
+            if (this.date) {
+                startTime = moment(this.date)
+                    .subtract(1, 'day')
+                    .startOf('day');
+            } else {
+                startTime = moment()
+                    .subtract(1, 'day')
+                    .startOf('day');
             }
         }
 

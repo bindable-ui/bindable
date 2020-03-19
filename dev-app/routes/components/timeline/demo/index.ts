@@ -6,7 +6,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 import * as moment from 'moment';
 
 export class TimelineExample {
-    public today = moment().startOf('day').startOf('week').add(2, 'days').toISOString();
+    public today = moment().startOf('day').startOf('week').add(4, 'days').toISOString();
     public entries: any = [
         {
             accentColor: '#8E5DB2',
@@ -169,7 +169,7 @@ export class TimelineExample {
     ];
 
     public zoomLevel = 5;
-    public displayView = 'week';
+    public displayView = 'three-day';
     public loading = false;
     public preventCreate = _isoTime => false;
 

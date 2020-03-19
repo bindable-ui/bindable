@@ -65,7 +65,7 @@ function mapEntriesFn(
         );
     };
 
-    const width = timeView === 'week' ? 30 : 60;
+    const width = timeView === 'week' || timeView === 'three-day' ? 30 : 60;
 
     let nestedEntryWidth = 80;
 
