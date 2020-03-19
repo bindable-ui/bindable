@@ -11,6 +11,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  BASE
  *  COLORS
  *  SIZE
+ *  ACTION
  */
 
 
@@ -23,50 +24,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon{
     vertical-align: middle;
-}
-
-
-
-
-
-/*------------------------------------*\
-    !COLORS
-\*------------------------------------*/
-
-.white{
-    fill: var(--c_white);
-}
-
-.light-gray{
-    fill: var(--c_lightGray);
-}
-
-.gray{
-    fill: var(--c_gray);
-}
-
-.charcoal{
-    fill: var(--c_charcoal);
-}
-
-.primary{
-    fill: var(--c_primaryMain);
-}
-
-.primary-light{
-    fill: var(--c_primaryLight);
-}
-
-.secondary{
-    fill: var(--c_secondaryMain);
-}
-
-.sub-one{
-    fill: var(--c_subOneMain);
-}
-
-.sub-two{
-    fill: var(--c_subTwoMain);
+    fill: var(--icon-color);
 }
 
 

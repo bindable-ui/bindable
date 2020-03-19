@@ -36,10 +36,10 @@ export class HorizontalItemProperties {
             value: 'Any icon value',
         },
         {
-            default: 'primaryLight',
+            default: 'var(--c_primaryLight)',
             description: 'Use to set the color of the icon.',
             name: 'icon-color',
-            value: 'white | lightGray | gray | primary | primaryLight | secondary | subOne | subTwo',
+            value: 'CSS Color',
         },
         {
             default: '',

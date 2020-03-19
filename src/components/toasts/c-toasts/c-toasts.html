@@ -17,12 +17,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         icon="${toast.type == 'success' ? 'checkmark'
                               : toast.type === 'info' ? toast.type
                               : 'warning'}"
-                        color="white">
+                        color="var(--c_white)">
                     </c-icon>
                 </div>
                 <c-h4 class="${styles.title}">${toast.title}</c-h4>
                 <a href="#" class="${styles.close}" click.trigger="vToastsService.remove(toast)">
-                    <c-icon icon="x" color="lightGray" size="tiny"></c-icon>
+                    <c-icon icon="x" color="var(--c_lightGray)" size="tiny"></c-icon>
                 </a>
             </div>
 

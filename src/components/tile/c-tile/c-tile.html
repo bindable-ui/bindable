@@ -10,7 +10,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div title="${title}" class="${styles.container}">
             <c-tip side="left" size="small" icon-tip.bind="true" class="${styles.tip}" if.bind="showTip">
                 <div slot="trigger">
-                    <c-icon icon="${tipIcon}" color="lightGray"></c-icon>
+                    <c-icon icon="${tipIcon}" color="var(--c_lightGray)"></c-icon>
                 </div>
                 <div slot="content">
                     <template part="tip-content" replaceable></template>
