@@ -13,6 +13,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Large
  *      - Medium
  *      - Small
+ *  BOLD
  *  TRUNCATE
  */
 
@@ -70,6 +71,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .st-small{
     margin-top: var(--spacing_small);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !BOLD
+\*------------------------------------*/
+
+.bold{
+    font-family: var(--ff_primary-bold);
 }
 
 

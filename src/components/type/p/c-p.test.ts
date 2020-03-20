@@ -13,6 +13,40 @@ describe('c-p component', () => {
             component.dispose();
         });
 
+        describe('Check Booleans', () => {
+            it('boolean: bold', async done => {
+                component = StageComponent.withResources()
+                    .inView('<c-p bold.bind="customBold"></c-p>')
+                    .boundTo({
+                        customBold: false,
+                    });
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.bold).toBe(false);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+
+            it('boolean: truncate', async done => {
+                component = StageComponent.withResources()
+                    .inView('<c-p truncate.bind="customTruncate"></c-p>')
+                    .boundTo({
+                        customTruncate: false,
+                    });
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.truncate).toBe(false);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+        });
+
         describe('CSS Classes', () => {
             it('css class: base', async done => {
                 component = StageComponent.withResources().inView('<c-p></c-p>');

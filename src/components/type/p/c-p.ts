@@ -8,6 +8,8 @@ import * as styles from './c-p.css.json';
 
 export class CP {
     @bindable
+    public bold = false;
+    @bindable
     public color = 'var(--c_smoke)';
     @bindable
     public maxWidth = 'unset';
@@ -17,4 +19,14 @@ export class CP {
     public truncate = false;
 
     public styles = styles;
+
+    public attached() {
+        if (typeof this.bold !== 'boolean') {
+            this.bold = false;
+        }
+
+        if (typeof this.truncate !== 'boolean') {
+            this.truncate = false;
+        }
+    }
 }

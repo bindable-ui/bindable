@@ -30,6 +30,12 @@ export class P {
 
     public pProperties = [
         {
+            default: 'false',
+            description: 'Set if you need your paragraph to be bold.',
+            name: 'bold',
+            value: 'boolean',
+        },
+        {
             default: 'var(--c_smoke)',
             description: 'Set the color on a <p> tag.',
             name: 'color',
