@@ -12,6 +12,8 @@ export class CP {
     @bindable
     public color = 'var(--c_smoke)';
     @bindable
+    public flushTop = true;
+    @bindable
     public maxWidth = 'unset';
     @bindable
     public size = 'medium';
@@ -27,6 +29,10 @@ export class CP {
 
         if (typeof this.truncate !== 'boolean') {
             this.truncate = false;
+        }
+
+        if (typeof this.flushTop !== 'boolean') {
+            this.flushTop = true;
         }
     }
 }

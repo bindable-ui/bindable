@@ -42,6 +42,12 @@ export class P {
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
         },
         {
+            default: 'true',
+            description: 'Will align the text to the top of its container.',
+            name: 'flush-top',
+            value: 'boolean',
+        },
+        {
             default: 'unset',
             description: 'Set the max-width on a <p> tag.',
             name: 'max-width',

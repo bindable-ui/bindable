@@ -32,6 +32,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     max-width: var(--p-max-width);
 }
 
+.not-flush-top{
+    margin-top: initial;
+}
+
 
 
 

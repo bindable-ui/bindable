@@ -45,6 +45,22 @@ describe('c-p component', () => {
                     done.fail(e);
                 }
             });
+
+            it('boolean: flush-top', async done => {
+                component = StageComponent.withResources()
+                    .inView('<c-p flush-top.bind="customFlushTop"></c-p>')
+                    .boundTo({
+                        customFlushTop: 1,
+                    });
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.flushTop).toBe(true);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
         });
 
         describe('CSS Classes', () => {

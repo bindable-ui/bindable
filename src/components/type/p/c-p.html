@@ -12,6 +12,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles[size]}
             ${bold ? styles.bold : ''}
             ${truncate ? styles.truncate : ''}
+            ${flushTop ? '' : styles.notFlushTop}
         "
         css="
             --p-max-width: ${maxWidth};
