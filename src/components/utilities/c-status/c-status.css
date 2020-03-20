@@ -9,7 +9,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  *  BASE
- *  STATUS
+ *  PULSE SPEED
  *      - Set Up
  *      - Healthy
  *      - Warning
@@ -59,7 +59,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !STATUS
+    !PULSE SPEED
 \*------------------------------------*/
 
 /**
@@ -79,28 +79,27 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /**
- * ^Healthy & Info
+ * ^Slow
  */
 
-.healthy,
-.info{
+.slow{
     animation: fading 4.5s infinite;
 }
 
 
 /**
- * ^Warning
+ * ^Medium
  */
 
-.warning{
+.medium{
     animation: fading 3s infinite;
 }
 
 
 /**
- * ^Critical
+ * ^Fast
  */
 
-.critical{
+.fast{
     animation: fading 1.5s infinite;
 }
