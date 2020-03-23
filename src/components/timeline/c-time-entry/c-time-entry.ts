@@ -15,7 +15,7 @@ const TIMELINE_BLOCK_MARGIN = 30;
 @inject(Element, CPopoverService)
 export class CTimeEntry {
     @bindable({defaultBindingMode: bindingMode.twoWay})
-    public item;
+    public item = null;
 
     public popoverOpen = false;
     public styles = styles;
@@ -23,6 +23,10 @@ export class CTimeEntry {
     constructor(public element: Element, private vPopoverService: CPopoverService) {}
 
     public openPopover($event) {
+        if (!this.item) {
+            return;
+        }
+
         if (!this.item.contentViewModel) {
             // Relative to popover component
             this.item.contentViewModel = PLATFORM.moduleName(
