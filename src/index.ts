@@ -75,7 +75,7 @@ import {
     IVNavSliderPageList,
 } from './components/navs/c-nav-vertical-sliding/c-nav-vertical-sliding-interfaces';
 import {CTableActions, CTableCol} from './components/tables/c-table/c-table-interfaces';
-import {CTimeline} from './components/timeline/c-timeline/c-timeline';
+import {CTimeline, ZOOM_LEVELS} from './components/timeline/c-timeline/c-timeline';
 import {ITimeEntryBasic, ITimelineActions} from './components/timeline/c-timeline/c-timeline-interfaces';
 import {CTipActions} from './components/tip/c-tip/c-tip-interfaces';
 import {IDragOptions} from './custom-attributes/drag-draggable';
@@ -221,7 +221,7 @@ export function configure(config: FrameworkConfiguration) {
 export {copyToClipboard, generateRandom, lazyLoadCheck, LocalStorageHelper, multiIndexSplicer, sorting, sortDropData};
 
 // Misc
-export {SharedNav, CToastsService, dirtyCheckPrompt, CPopoverService};
+export {SharedNav, CToastsService, dirtyCheckPrompt, CPopoverService, ZOOM_LEVELS};
 
 // Value converters
 export {

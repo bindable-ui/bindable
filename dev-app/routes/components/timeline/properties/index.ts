@@ -109,6 +109,12 @@ export class TimelineProperties {
             type: 'number',
         },
         {
+            default: 'null',
+            description: 'Time you wish to scroll to. Format: "15:15, "01:12", ect.',
+            name: 'scrollTime',
+            type: 'string',
+        },
+        {
             default: 'false',
             description: 'Automatically "snap" to a close time entry to create a new one with no gap.Number of days being displayed from lazy-loading. Only on "day" view.',
             name: 'snapAdd',

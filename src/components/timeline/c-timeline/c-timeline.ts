@@ -143,6 +143,9 @@ export class CTimeline {
     @bindable
     public timezone: string = null;
 
+    @bindable
+    public scrollTime: string = null;
+
     public transformedEntries: ITimeEntry[] = [];
     public blocks: ITimeBlock[] = [];
     public displayDays: ITimeDay[] = [];
@@ -356,7 +359,8 @@ export class CTimeline {
     }
 
     public dateChanged() {
-        _.defer(() => this.buildTimeline());
+        this.scrollCurrentTime = true;
+        this.renderTimeline();
     }
 
     public timezoneChanged() {
@@ -373,6 +377,19 @@ export class CTimeline {
         this.renderTimeline();
     }
 
+    public scrollTimeChanged() {
+        const scrollTime = moment(this.scrollTime, 'HH:mm');
+
+        if (this.scrollTime && (!scrollTime.isValid() || this.isRendering || this.isLoading)) {
+            return;
+        }
+
+        this.scrollCurrentTime = false;
+        this.scrollLastSpot = false;
+
+        this.scrollToSpot(this.scrollTime);
+    }
+
     /**
      * Passed into `c-time-block` elements. Allows you to set spot for placeholder
      * new time entry while popover is showing.
@@ -383,12 +400,12 @@ export class CTimeline {
     public calculatePlaceholder(isoTime: string, mouseOffset: number): [string, number] {
         const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
         const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
-        const offsetMinutes = Math.floor(mouseOffset / pxPerMinute);
+        const offsetMinutes = mouseOffset / pxPerMinute;
 
         // Buffer around clicked time to snap
         const clickedTime = moment(isoTime)
             .add(offsetMinutes, 'minutes')
-            .startOf('minute');
+            .startOf(this.zoomLevel < 5 ? 'minute' : 'second');
         const startTime = moment(clickedTime).subtract(zoomLevelData.minutes, 'minutes');
         const endTime = moment(clickedTime).add(zoomLevelData.minutes, 'minutes');
 
@@ -414,22 +431,22 @@ export class CTimeline {
 
         if (!matchingEntries.length) {
             const isoTimeMoment = moment(isoTime);
-            const halfBlock = Math.floor(BLOCK_HEIGHT / 2);
+            const halfBlock = BLOCK_HEIGHT / 2;
 
             if (mouseOffset >= halfBlock) {
                 offset = halfBlock;
-                isoTimeMoment.add(Math.floor(halfBlock / pxPerMinute), 'minutes');
+                isoTimeMoment.add((halfBlock / pxPerMinute) * SECONDS_IN_MINUTE, 'seconds');
             }
 
             return [isoTimeMoment.toISOString(), offset];
         }
 
         const sortedEntries = _.sortBy(matchingEntries, entry =>
-            Math.abs(moment(entry.end).diff(clickedTime, 'minutes')),
+            Math.abs(moment(entry.end).diff(clickedTime, 'seconds')),
         );
         const firstEntry = _.first(sortedEntries);
-        const diff = Math.ceil(moment(isoTime).diff(firstEntry.end, 'minutes')) * -1;
-        offset = Math.floor(diff * pxPerMinute) - 1;
+        const diff = Math.ceil(moment(isoTime).diff(firstEntry.end, 'seconds')) * -1;
+        offset = Math.floor((diff / SECONDS_IN_MINUTE) * pxPerMinute);
 
         return [firstEntry.end, offset];
     }
@@ -498,7 +515,7 @@ export class CTimeline {
     /**
      * Scroll to a designated spot on the timeline
      */
-    private scrollToSpot() {
+    private scrollToSpot(time?) {
         _.defer(() => {
             const [, pxPerMinute] = this.getZoomLevelData();
 
@@ -529,6 +546,35 @@ export class CTimeline {
                 this.scrollLastSpot = false;
                 scrollTop = this.currentScroll * pxPerMinute - this.parentScrollElem.outerHeight() / 2;
                 this.parentScrollElem.animate({scrollTop}, 500);
+            } else if (time) {
+                const [startTime, endTime] = this.getDayStartEndTimes();
+                const now = moment(time, 'HH:mm');
+
+                let timeToScroll = -1;
+
+                if (this.timeView === 'day') {
+                    if (now.isBetween(startTime, endTime, null, '()')) {
+                        const diff = now.diff(startTime, 'seconds');
+                        timeToScroll = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                    }
+                } else {
+                    _.forEach(this.displayDays, () => {
+                        if (now.isBetween(startTime, endTime, null, '()')) {
+                            const diff = now.diff(startTime, 'seconds');
+                            timeToScroll = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                            return false;
+                        }
+
+                        startTime.add(1, 'day');
+                        endTime.add(1, 'day');
+                    });
+                }
+
+                if (timeToScroll > -1) {
+                    scrollTop = timeToScroll - this.parentScrollElem.outerHeight() / 2;
+                    this.currentScroll = timeToScroll / pxPerMinute;
+                    this.parentScrollElem.animate({scrollTop}, 500);
+                }
             }
 
             // To be after the scroll animation
