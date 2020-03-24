@@ -5,9 +5,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 <template>
 	<require from="./c-toggle-input.css"></require>
-		<label class="${styles.bin} ${state === 'disabled' ? styles.disabled : ''}">
-			<input disabled.bind="state === 'disabled'" id="${id}" type="checkbox" class="${styles.check}" checked.bind="checkedValue" change.delegate="valueChanged()">
-			<div class="${styles.bar}"></div>
-			<div class="${styles.nub}"></div>
-		</label>
+    <label class="${styles.bin} ${state === 'disabled' ? styles.disabled : ''}">
+        <input disabled.bind="state === 'disabled'" id="${id}" type="checkbox" class="${styles.check}" checked.bind="checkedValue" change.delegate="valueChanged()">
+        <div class="${styles.bar}"></div>
+        <div class="${styles.nub}"></div>
+    </label>
 </template>

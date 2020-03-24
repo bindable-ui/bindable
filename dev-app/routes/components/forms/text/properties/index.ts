@@ -42,6 +42,11 @@ export class TextInputProperties {
             value: 'Icon name',
         },
         {
+            description: 'This will add a button with text attached to the input',
+            name: 'button-text',
+            value: 'string',
+        },
+        {
             default: 'false',
             description: 'This will add a x link to the right side of the input field.',
             name: 'clearable',

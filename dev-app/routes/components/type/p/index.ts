@@ -30,10 +30,22 @@ export class P {
 
     public pProperties = [
         {
+            default: 'false',
+            description: 'Set if you need your paragraph to be bold.',
+            name: 'bold',
+            value: 'boolean',
+        },
+        {
             default: 'var(--c_smoke)',
             description: 'Set the color on a <p> tag.',
             name: 'color',
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
+        },
+        {
+            default: 'true',
+            description: 'Will align the text to the top of its container.',
+            name: 'flush-top',
+            value: 'boolean',
         },
         {
             default: 'unset',
