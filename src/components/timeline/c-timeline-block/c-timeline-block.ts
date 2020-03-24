@@ -50,6 +50,7 @@ export class CTimelineBlock {
             this.newItem = {
                 isoTime,
                 top,
+                blockIsoTime: this.isoTime,
                 color: 'secondary',
                 height: 50,
                 placeholder: true,

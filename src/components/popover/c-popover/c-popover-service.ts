@@ -27,13 +27,13 @@ export class CPopoverService {
 
     public open(model: ICPopover) {
         // Don't nuke the data if an entry is the same as the current one
-        // Bad things happen
+        // BAD & STRANGE THINGS WILL HAPPEN!
         if (
             this.prevModel &&
             this.prevModel.data &&
             model &&
             model.data &&
-            model.data.title !== this.prevModel.data.title
+            model.data.blockIsoTime !== this.prevModel.data.blockIsoTime
         ) {
             this.closePrev();
         }
