@@ -175,7 +175,8 @@ export class CTimeline {
     /**
      * Take entries that are input and transform them into entries the calendar can use
      */
-    public transformEntries = _.throttle(async () => {
+    // tslint:disable-next-line:ter-arrow-parens
+    public transformEntries = _.throttle(async (noAutoScroll?) => {
         const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
         const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
         const [startTime, endTime] = this.getDayStartEndTimes();
@@ -237,9 +238,19 @@ export class CTimeline {
             this.trackPosistion.cancel();
             this.preventScrollCheck = true;
 
+            // Don't break unless we have actually transformed the entries
+            // at least once (so that it can scroll to the current time)
+            if (noAutoScroll) {
+                return;
+            }
+
             // Could potentially be 350ms behind with the combined throttles
             _.delay(() => {
                 this.trackPosistion.cancel();
+
+                if (!this.scrollLastSpot) {
+                    this.scrollCurrentTime = true;
+                }
                 this.scrollToSpot();
             }, 400);
         });
@@ -330,19 +341,22 @@ export class CTimeline {
 
     // Observable properties
     // Listen to rebuild data
-    public zoomLevelChanged() {
+    public zoomLevelChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
         this.scrollLastSpot = true;
         this.renderTimeline();
     }
 
     public timeViewChanged() {
-        this.scrollCurrentTime = true;
         this.renderTimeline();
     }
 
     public daysChanged() {
         if (this.timeView === 'week') {
-            this.scrollCurrentTime = true;
             this.renderTimeline();
         }
     }
@@ -354,12 +368,11 @@ export class CTimeline {
     public entriesChanged() {
         // Don't update unless there are blocks displaying
         if (this.blocks.length) {
-            this.transformEntries();
+            this.transformEntries(true);
         }
     }
 
     public dateChanged() {
-        this.scrollCurrentTime = true;
         this.renderTimeline();
     }
 
@@ -373,19 +386,20 @@ export class CTimeline {
             moment.tz.setDefault();
         }
 
-        this.scrollCurrentTime = true;
         this.renderTimeline();
     }
 
-    public scrollTimeChanged() {
+    public scrollTimeChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
         const scrollTime = moment(this.scrollTime, 'HH:mm');
 
         if (this.scrollTime && (!scrollTime.isValid() || this.isRendering || this.isLoading)) {
             return;
         }
-
-        this.scrollCurrentTime = false;
-        this.scrollLastSpot = false;
 
         this.scrollToSpot(this.scrollTime);
     }
@@ -521,32 +535,7 @@ export class CTimeline {
 
             let scrollTop = 0;
 
-            if (this.scrollCurrentTime) {
-                this.scrollCurrentTime = false;
-
-                let currentTimeTop = -1;
-
-                if (this.timeView === 'day') {
-                    currentTimeTop = this.currentTimeLine;
-                } else {
-                    _.forEach(this.displayDays, day => {
-                        if (day.currentTimeLine > -1) {
-                            currentTimeTop = day.currentTimeLine;
-                            return false;
-                        }
-                    });
-                }
-
-                if (currentTimeTop > -1) {
-                    scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
-                    this.currentScroll = currentTimeTop / pxPerMinute;
-                    this.parentScrollElem.animate({scrollTop}, 500);
-                }
-            } else if (this.scrollLastSpot) {
-                this.scrollLastSpot = false;
-                scrollTop = this.currentScroll * pxPerMinute - this.parentScrollElem.outerHeight() / 2;
-                this.parentScrollElem.animate({scrollTop}, 500);
-            } else if (time) {
+            if (time) {
                 const [startTime, endTime] = this.getDayStartEndTimes();
                 const now = moment(time, 'HH:mm');
 
@@ -575,6 +564,31 @@ export class CTimeline {
                     this.currentScroll = timeToScroll / pxPerMinute;
                     this.parentScrollElem.animate({scrollTop}, 500);
                 }
+            } else if (this.scrollCurrentTime) {
+                this.scrollCurrentTime = false;
+
+                let currentTimeTop = -1;
+
+                if (this.timeView === 'day') {
+                    currentTimeTop = this.currentTimeLine;
+                } else {
+                    _.forEach(this.displayDays, day => {
+                        if (day.currentTimeLine > -1) {
+                            currentTimeTop = day.currentTimeLine;
+                            return false;
+                        }
+                    });
+                }
+
+                if (currentTimeTop > -1) {
+                    scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
+                    this.currentScroll = currentTimeTop / pxPerMinute;
+                    this.parentScrollElem.animate({scrollTop}, 500);
+                }
+            } else if (this.scrollLastSpot) {
+                this.scrollLastSpot = false;
+                scrollTop = this.currentScroll * pxPerMinute - this.parentScrollElem.outerHeight() / 2;
+                this.parentScrollElem.animate({scrollTop}, 500);
             }
 
             // To be after the scroll animation
