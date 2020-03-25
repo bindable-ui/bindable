@@ -6,7 +6,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
     <require from="./c-form-select.css"></require>
 
-    <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
+    <div
+        class="${styles.labelWrapper}"
+        show.bind="_state !== 'hidden' && label"
+    >
         <c-label state="${_state}">
             ${label}
         </c-label>
@@ -32,25 +35,64 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             multiple.bind="multiple"
             scroll.trigger="onScroll() & throttle"
         >
-            <option if.bind="!simple" repeat.for="option of filteredOptions" value="${option.value}">${option.text}</option>
-            <option if.bind="simple" repeat.for="option of filteredOptions" value="${option}">${option}</option>
+            <option
+                repeat.for="option of filteredOptions"
+                value="${option.value}"
+                if.bind="!simple"
+            >
+                ${option.text}
+            </option>
+            <option
+                repeat.for="option of filteredOptions"
+                value="${option}"
+                if.bind="simple"
+            >
+                ${option}
+            </option>
         </select>
         <l-cluster
             spacing="var(--s-3)"
             if.bind="reorder"
         >
             <div>
-                <c-button size="small" color="neutral" icon="chevron-up" icon-position="center" click.trigger="moveItems(-1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
-                <c-button size="small" color="neutral" icon="chevron-down" icon-position="center" click.trigger="moveItems(1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
+                <c-button
+                    size="small"
+                    color="neutral"
+                    icon="chevron-up"
+                    icon-position="center"
+                    click.trigger="moveItems(-1)"
+                    state="${selectValue.length ? '': 'disabled'}"
+                ></c-button>
+                <c-button
+                    size="small"
+                    color="neutral"
+                    icon="chevron-down"
+                    icon-position="center"
+                    click.trigger="moveItems(1)"
+                    state="${selectValue.length ? '': 'disabled'}"
+                ></c-button>
             </div>
         </l-cluster>
     </l-stack>
-    <div class="${isLoading ? styles.loader : ''}  ${isLoadingMore ? styles.loadingMore : ''}" if.bind="(isLoading || isLoadingMore) && multiple">
+    <div
+        class="${isLoading ? styles.loader : ''}  ${isLoadingMore ? styles.loadingMore : ''}"
+        if.bind="(isLoading || isLoadingMore) && multiple"
+    >
         <c-spinner size="small"></c-spinner>
     </div>
     <c-disabled if.bind="_state === 'disabled'">
         ${selectValue || 'None'}
     </c-disabled>
-    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
-    <c-form-warning state="${_state}" if.bind="_state !== 'hidden' && warningMsg">${warningMsg}</c-form-warning>
+    <c-form-error
+        state="${_state}"
+        if.bind="_state !== 'hidden' && errorMsg"
+    >
+        ${errorMsg}
+    </c-form-error>
+    <c-form-warning
+        state="${_state}"
+        if.bind="_state !== 'hidden' && warningMsg"
+    >
+        ${warningMsg}
+    </c-form-warning>
 </template>
