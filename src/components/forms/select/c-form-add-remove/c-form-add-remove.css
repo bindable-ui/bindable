@@ -22,7 +22,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .container{
     display: flex;
     justify-content: space-between;
-    height: 100%;
 }
 
 .container c-form-select{
@@ -31,8 +30,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     flex: 1;
 }
 
-.container c-form-select > div:nth-child(2){
+.container c-form-select > l-stack{
     height: 100%;
+}
+
+.container l-stack > div{
+    height: unset;
 }
 
 .container select,
@@ -40,8 +43,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     flex: 1;
 }
 
-.container > div{
-    justify-content: center;
+.container > l-stack{
     flex: 0;
     margin: 20px var(--s-2) 0;
+}
+
+.container > l-stack > div{
+    justify-content: center;
 }

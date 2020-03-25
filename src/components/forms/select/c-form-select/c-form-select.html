@@ -12,9 +12,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         </c-label>
         <slot name="tip"></slot>
     </div>
-    <l-stack spacing="var(--s-3)">
+    <l-stack
+        spacing="var(--s-3)"
+        if.bind="_state !== 'disabled'"
+    >
         <c-form-text
-            if.bind="search && _state !== 'hidden' && _state !== 'disabled'"
+            if.bind="search && _state !== 'hidden'"
             text-value.bind="searchText"
             class="${styles.search}"
             clearable.bind="true"
@@ -23,7 +26,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             button-action.call="searchSelect(textValue)">
         </c-form-text>
         <select
-            if.bind="!isLoading && _state !== 'hidden' && _state !== 'disabled'"
+            if.bind="!isLoading && _state !== 'hidden'"
             class="${styles.select}  ${styles[_state]}  ${multiple ? styles.multiple : ''}"
             value.bind="selectValue"
             multiple.bind="multiple"
@@ -32,14 +35,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <option if.bind="!simple" repeat.for="option of filteredOptions" value="${option.value}">${option.text}</option>
             <option if.bind="simple" repeat.for="option of filteredOptions" value="${option}">${option}</option>
         </select>
-        <div if.bind="reorder">
-            <l-cluster spacing="var(--s-3)">
-                <div>
-                    <c-button size="small" color="neutral" icon="chevron-up" icon-position="center" click.trigger="moveItems(-1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
-                    <c-button size="small" color="neutral" icon="chevron-down" icon-position="center" click.trigger="moveItems(1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
-                </div>
-            </l-cluster>
-        </div>
+        <l-cluster
+            spacing="var(--s-3)"
+            if.bind="reorder"
+        >
+            <div>
+                <c-button size="small" color="neutral" icon="chevron-up" icon-position="center" click.trigger="moveItems(-1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
+                <c-button size="small" color="neutral" icon="chevron-down" icon-position="center" click.trigger="moveItems(1)" state="${selectValue.length ? '': 'disabled'}"></c-button>
+            </div>
+        </l-cluster>
     </l-stack>
     <div class="${isLoading ? styles.loader : ''}  ${isLoadingMore ? styles.loadingMore : ''}" if.bind="(isLoading || isLoadingMore) && multiple">
         <c-spinner size="small"></c-spinner>
