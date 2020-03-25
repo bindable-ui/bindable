@@ -7,19 +7,34 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-form-checkbox-radio-container.css"></require>
 
     <l-stack spacing="var(--s-4)">
-        <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && _state !== 'disabled' && label">
+        <div
+            class="${styles.labelWrapper}"
+            show.bind="_state !== 'hidden' && _state !== 'disabled' && label"
+        >
             <c-label state="${_state}">
                 ${label}
             </c-label>
             <slot name="tip"></slot>
         </div>
-
-        <div class="${styles[layout]}  ${label === undefined ? styles.noLabel : ''}  js-input-list" show.bind="_state !== 'hidden' && _state !== 'disabled'">
+        <div
+            class="${styles[layout]}  ${label === undefined ? styles.noLabel : ''}  js-input-list"
+            show.bind="_state !== 'hidden' && _state !== 'disabled'"
+        >
             <l-stack spacing="var(--s-4)">
                 <slot></slot>
             </l-stack>
         </div>
-        <c-form-error state="${_state}" if.bind="_state !== 'hidden' && _state !== 'disabled' && errorMsg">${errorMsg}</c-form-error>
-        <c-form-warning state="${_state}" if.bind="_state !== 'hidden' && _state !== 'disabled' && warningMsg">${warningMsg}</c-form-warning>
+        <c-form-error
+            state="${_state}"
+            if.bind="_state !== 'hidden' && _state !== 'disabled' && errorMsg"
+        >
+            ${errorMsg}
+        </c-form-error>
+        <c-form-warning
+            state="${_state}"
+            if.bind="_state !== 'hidden' && _state !== 'disabled' && warningMsg"
+        >
+            ${warningMsg}
+        </c-form-warning>
     </l-stack>
 </template>
