@@ -6,25 +6,71 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-form-file.css"></require>
 
-    <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
-        <c-label state="${_state}" if.bind="label">
+    <div
+        class="${styles.labelWrapper}"
+        show.bind="_state !== 'hidden' && label"
+    >
+        <c-label
+            state="${_state}"
+            if.bind="label"
+        >
             ${label}
         </c-label>
         <slot name="tip"></slot>
     </div>
-    <div class="${styles.noImage}" if.bind="!imgUrl && imagePicker">
+    <div
+        class="${styles.noImage}"
+        if.bind="!imgUrl && imagePicker"
+    >
         <c-p>No Image</c-p>
     </div>
-    <div if.bind="imgUrl && imagePicker" class="${styles.imageSrcContainer}  ${isUploading ? styles.isUploading : ''}">
-        <c-spinner size="small" if.bind="isUploading"></c-spinner>
-        <img class="${styles.image}" src="${imgUrl}" alt="${label}">
+    <div
+        class="${styles.imageSrcContainer}  ${isUploading ? styles.isUploading : ''}"
+        if.bind="imgUrl && imagePicker"
+    >
+        <c-spinner
+            size="small"
+            if.bind="isUploading"
+        ></c-spinner>
+        <img
+            class="${styles.image}"
+            src="${imgUrl}"
+            alt="${label}"
+        >
     </div>
-    <c-file-input image-picker.bind="imagePicker" if.bind="_state !== 'disabled' && _state !== 'hidden'" state.bind="_state" files.bind="files"></c-file-input>
+    <c-file-input
+        image-picker.bind="imagePicker"
+        state.bind="_state"
+        files.bind="files"
+        if.bind="_state !== 'disabled' && _state !== 'hidden'"
+    ></c-file-input>
     <c-disabled if.bind="_state === 'disabled' && !imagePicker">
-        <span if.bind="files.length" repeat.for="f of files">${f.name}</span>
+        <span
+            if.bind="files.length"
+            repeat.for="f of files"
+        >
+            ${f.name}
+        </span>
         <span if.bind="!files.length">None</span>
     </c-disabled>
-    <a if.bind="imagePicker && imgUrl !== imageSrc && !showReset && _state !== 'disabled'" click.delegate="removeImage()" class="${styles.removeImage}">Reset</a>
-    <a if.bind="imagePicker && showReset && _state !== 'disabled'" click.delegate="resetImage()" class="${styles.removeImage}">Reset</a>
-    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
+    <a
+        click.delegate="removeImage()"
+        class="${styles.removeImage}"
+        if.bind="imagePicker && imgUrl !== imageSrc && !showReset && _state !== 'disabled'"
+    >
+        Reset
+    </a>
+    <a
+        click.delegate="resetImage()"
+        class="${styles.removeImage}"
+        if.bind="imagePicker && showReset && _state !== 'disabled'"
+    >
+        Reset
+    </a>
+    <c-form-error
+        state="${_state}"
+        if.bind="_state !== 'hidden' && errorMsg"
+    >
+        ${errorMsg}
+    </c-form-error>
 </template>
