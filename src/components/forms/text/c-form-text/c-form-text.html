@@ -6,8 +6,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
     <require from="./c-form-text.css"></require>
 
-    <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
-        <c-label state="${_state}" icon="${labelIcon}" label-icon-color="${labelIconColor}">
+    <div
+        class="${styles.labelWrapper}"
+        show.bind="_state !== 'hidden' && label"
+    >
+        <c-label
+            state="${_state}"
+            icon="${labelIcon}"
+            label-icon-color="${labelIconColor}"
+        >
             ${label}
         </c-label>
         <slot name="tip"></slot>
@@ -33,6 +40,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     <c-disabled if.bind="_state === 'disabled'">
         ${textValue || 'None'}
     </c-disabled>
-    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
-    <c-form-warning state="${_state}" if.bind="_state !== 'hidden' && warningMsg">${warningMsg}</c-form-warning>
+    <c-form-error
+        state="${_state}"
+        if.bind="_state !== 'hidden' && errorMsg"
+    >
+        ${errorMsg}
+    </c-form-error>
+    <c-form-warning
+        state="${_state}"
+        if.bind="_state !== 'hidden' && warningMsg"
+    >
+        ${warningMsg}
+    </c-form-warning>
 </template>
