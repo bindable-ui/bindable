@@ -30,16 +30,41 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             --time-entry-color: ${item.color ? item.color : 'inherit'};
         "
     >
-        <div click.trigger="openPopover($event)" class="${styles.container}">
+        <div
+            click.trigger="openPopover($event)"
+            class="${styles.container}"
+        >
             <div class="${styles.info}  ${item.icons ? styles.infoWithIcons : ''}">
-                <c-p truncate.bind="true" size="small">
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                >
                     ${item.title}
                 </c-p>
-                <c-p truncate.bind="true" size="small" if.bind="item.startTime && item.endTime && !item.altTime">${item.startTime} - ${item.endTime}</c-p>
-                <c-p truncate.bind="true" size="small" if.bind="item.altTime">${item.altTime}</c-p>
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                    if.bind="item.startTime && item.endTime && !item.altTime"
+                >
+                    ${item.startTime} - ${item.endTime}
+                </c-p>
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                    if.bind="item.altTime"
+                >
+                    ${item.altTime}
+                </c-p>
             </div>
-            <div class="${styles.icons} ${item.shiftIcons ? styles.iconsShift : ''}" if.bind="item.icons">
-                <c-icon repeat.for="icon of item.icons" icon="${icon}" if.bind="$index < 2"></c-icon>
+            <div
+                class="${styles.icons} ${item.shiftIcons ? styles.iconsShift : ''}"
+                if.bind="item.icons"
+            >
+                <c-icon
+                    repeat.for="icon of item.icons"
+                    icon="${icon}"
+                    if.bind="$index < 2"
+                ></c-icon>
             </div>
         </div>
     </div>
