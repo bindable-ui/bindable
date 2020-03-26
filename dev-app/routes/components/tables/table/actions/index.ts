@@ -19,6 +19,11 @@ export class TableActions {
             if (row.name && row.name === 'Fin') {
                 cls += ' bgInfo';
             }
+
+            if (row.name && row.name === 'Han Solo') {
+                cls += ' notAllowed';
+            }
+
             return cls;
         },
 
