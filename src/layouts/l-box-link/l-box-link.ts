@@ -14,6 +14,8 @@ export class LBoxLink {
     @bindable
     public borderTop;
     @bindable
+    public fillSpace = false;
+    @bindable
     public color = 'var(--c_white)';
     @bindable
     public href = '#';
@@ -33,6 +35,10 @@ export class LBoxLink {
     public attached() {
         if (this.target !== '_self' && this.target !== '_blank') {
             this.target = '_self';
+        }
+
+        if (typeof this.fillSpace !== 'boolean') {
+            this.fillSpace = false;
         }
     }
 }

@@ -35,6 +35,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: block;
 }
 
+.fill-space{
+    height: 100%;
+}
+
 .border-top{
     border-top: solid 1px var(--box-top-border);
 }

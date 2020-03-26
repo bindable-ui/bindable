@@ -59,6 +59,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
             <div>
                 <l-stack spacing="var(--s-3)">
+                    <c-h3>fill-space</c-h3>
+                    <c-code-sample>
+                        <l-grid>
+                            <l-box-link fill-space.bind="true">
+                                <c-p>I am a tall box with muiltiple lines.</c-p>
+                                <c-p>I am a tall box with muiltiple lines.</c-p>
+                                <c-p>I am a tall box with muiltiple lines.</c-p>
+                            </l-box-link>
+                            <l-box-link fill-space.bind="true">
+                                <c-p>Single line yet the same height.</c-p>
+                            </l-box-link>
+                            <l-box-link fill-space.bind="false">
+                                <c-p>fill-space set to false</c-p>
+                            </l-box-link>
+                        </l-grid>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
                     <c-h3>margin-sides &amp; margin-ends</c-h3>
                     <c-code-sample>
                         <l-stack>

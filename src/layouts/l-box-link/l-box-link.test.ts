@@ -5,7 +5,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 import {StageComponent} from 'aurelia-testing';
 
-describe('l-box component', () => {
+describe('l-box-link component', () => {
     let component;
 
     describe('Integration', () => {
@@ -13,25 +13,9 @@ describe('l-box component', () => {
             component.dispose();
         });
 
-        it('is scrolling endabled', async done => {
-            component = StageComponent.withResources()
-                .inView('<l-box scrolling.bind="isScrolling"></l-box>')
-                .boundTo({
-                    isScrolling: 1,
-                });
-
-            try {
-                await bootStrapEnvironment(component);
-                expect(component.viewModel.scrolling).toBe(false);
-                done();
-            } catch (e) {
-                done.fail(e);
-            }
-        });
-
         it('is fill-space endabled', async done => {
             component = StageComponent.withResources()
-                .inView('<l-box fill-space.bind="isFillSpace"></l-box>')
+                .inView('<l-box-link fill-space.bind="isFillSpace"></l-box-link>')
                 .boundTo({
                     isFillSpace: 1,
                 });
@@ -47,7 +31,7 @@ describe('l-box component', () => {
 
         describe('CSS Classes', () => {
             it('css class: box', async done => {
-                component = StageComponent.withResources().inView('<l-box></l-box>');
+                component = StageComponent.withResources().inView('<l-box-link></l-box-link>');
 
                 try {
                     await bootStrapEnvironment(component);
@@ -59,7 +43,7 @@ describe('l-box component', () => {
             });
 
             it('css class: scrolling', async done => {
-                component = StageComponent.withResources().inView('<l-box></l-box>');
+                component = StageComponent.withResources().inView('<l-box-link></l-box-link>');
 
                 try {
                     await bootStrapEnvironment(component);

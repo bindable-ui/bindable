@@ -14,6 +14,8 @@ export class LBox {
     @bindable
     public color = 'var(--c_white)';
     @bindable
+    public fillSpace = false;
+    @bindable
     public marginSides = '0px';
     @bindable
     public marginEnds = '0px';
@@ -29,6 +31,10 @@ export class LBox {
     public attached() {
         if (typeof this.scrolling !== 'boolean') {
             this.scrolling = false;
+        }
+
+        if (typeof this.fillSpace !== 'boolean') {
+            this.fillSpace = false;
         }
     }
 }
