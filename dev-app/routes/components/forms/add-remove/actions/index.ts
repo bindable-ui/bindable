@@ -25,14 +25,14 @@ export class AddRemoveActions {
 
     public addRemoveActions = [
         {
-            description: 'Set a function to fire when the select contents changes on the left side.',
+            description: 'An object with callback functions. More details coming soon.',
             name: 'actions-left',
-            value: 'function',
+            value: 'object',
         },
         {
-            description: 'Set a function to fire when the select contents changes on the right side.',
+            description: 'An object with callback functions. More details coming soon.',
             name: 'actions-right',
-            value: 'function',
+            value: 'object',
         },
     ];
 }

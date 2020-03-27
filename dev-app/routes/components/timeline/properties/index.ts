@@ -15,6 +15,7 @@ export class TimelineProperties {
         },
         {
             _class: 'monospaced',
+            colClass: 't270',
             colHeadName: 'type',
             colHeadValue: 'Type',
         },
@@ -24,6 +25,7 @@ export class TimelineProperties {
         },
         {
             _class: 'monospaced',
+            colClass: 't150',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
