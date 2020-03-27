@@ -13,14 +13,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 current-time-top.bind="currentTimeLine"
                 loading-top.bind="isLoadingTop"
                 loading-bottom.bind="isLoadingBottom"
+                click.trigger="togglePopover($event)"
             >
                 <c-timeline-block
                     repeat.for="block of blocks"
                     time.bind="block.time"
-                    iso-time.bind="block.isoTime"
-                    add-entry-offset.call="calculatePlaceholder(isoTime, mouseOffset)"
-                    prevent-create.call="checkPreventAdd(isoTime)"
-                    new-entry-view-model.bind="newEntryViewModel"
                 >
                 </c-timeline-block>
                 <c-time-entry
@@ -29,27 +26,37 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     class="timeline-day"
                 >
                 </c-time-entry>
+                <c-time-entry
+                    if.bind="newItem"
+                    item.bind="newItem"
+                    view-model.ref="placeholderEntry"
+                >
+                </c-time-entry>
             </c-timeline-container>
             <c-timeline-week-container if.bind="timeView === 'week' || timeView === 'three-day'" days.bind="displayDays" day-click.call="dayClick(date)">
                 <div slot="hours">
                     <c-timeline-container>
-                        <c-timeline-block repeat.for="block of blocks" time.one-time="block.time">
+                        <c-timeline-block repeat.for="block of blocks" time.one-time="block.time"></c-timeline-block>
                     </c-timeline-container>
                 </div>
-                <c-timeline-container repeat.for="day of displayDays" current-time-top.bind="day.currentTimeLine">
-                    <c-timeline-block
-                        repeat.for="block of day.blocks & oneTime"
-                        iso-time.bind="block.isoTime"
-                        add-entry-offset.call="calculatePlaceholder(isoTime, mouseOffset)"
-                        prevent-create.call="checkPreventAdd(isoTime)"
-                        new-entry-view-model.bind="newEntryViewModel"
-                    >
-                    </c-timeline-block>
+                <c-timeline-container
+                    repeat.for="day of displayDays"
+                    current-time-top.bind="day.currentTimeLine"
+                    click.delegate="togglePopover($event, day)"
+                >
+                    <c-timeline-block repeat.for="block of day.blocks & oneTime"></c-timeline-block>
                     <c-time-entry
                         repeat.for="entry of day.entries"
                         item.bind="entry"
                         class="timeline-week"
                     >
+                    </c-time-entry>
+                    <c-time-entry
+                        if.bind="day.newItem"
+                        item.bind="day.newItem"
+                        view-model.ref="day.placeholderEntry"
+                    >
+                    </c-time-entry>
                 </c-timeline-container>
             </c-timeline-week-container>
             <div if.bind="timeView === 'month'">

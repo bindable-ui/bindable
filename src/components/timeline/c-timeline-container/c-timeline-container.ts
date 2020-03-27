@@ -9,7 +9,7 @@ import {generateRandom} from '../../../helpers/generate-random';
 
 import * as styles from './c-timeline-container.css.json';
 
-@containerless
+// @containerless
 export class CTimelineContainer {
     @bindable
     public currentTimeTop = -1;
