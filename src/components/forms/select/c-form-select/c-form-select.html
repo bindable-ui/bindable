@@ -29,11 +29,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             button-action.call="searchSelect(textValue)">
         </c-form-text>
         <select
-            if.bind="!isLoading && _state !== 'hidden'"
-            class="${styles.select}  ${styles[_state]}  ${multiple ? styles.multiple : ''}"
+            class="
+                ${styles.select}
+                ${styles[_state]}
+                ${multiple ? styles.multiple : ''}
+            "
             value.bind="selectValue"
             multiple.bind="multiple"
             scroll.trigger="onScroll() & throttle"
+            if.bind="!isLoading && _state !== 'hidden'"
         >
             <option
                 repeat.for="option of filteredOptions"
@@ -75,7 +79,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         </l-cluster>
     </l-stack>
     <div
-        class="${isLoading ? styles.loader : ''}  ${isLoadingMore ? styles.loadingMore : ''}"
+        class="
+            ${isLoading ? styles.loader : ''}
+            ${isLoadingMore ? styles.loadingMore : ''}
+        "
         if.bind="(isLoading || isLoadingMore) && multiple"
     >
         <c-spinner size="small"></c-spinner>

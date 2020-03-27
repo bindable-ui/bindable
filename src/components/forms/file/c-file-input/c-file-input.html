@@ -14,15 +14,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <a href="#">Upload</a>
         </span>
         <input
+            class="
+                ${styles.file}
+                ${state === 'error' ? styles.error : ''}
+            "
             type="file"
-            class="${styles.file}  ${state === 'error' ? styles.error : ''}"
             change.delegate="filesUploaded($event)"
             accept="image/*"
         >
     </div>
     <input
+        class="
+            ${styles.file}
+            ${state === 'error' ? styles.error : ''}
+        "
         type="file"
-        class="${styles.file}  ${state === 'error' ? styles.error : ''}"
         if.bind="!imagePicker"
         change.delegate="filesUploaded($event)"
     >

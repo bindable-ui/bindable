@@ -7,10 +7,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-notification.css"></require>
 
     <div
-        class="${styles.notification}  ${styles[type]}"
+        class="
+            ${styles.notification}
+            ${styles[type]}
+        "
         show.bind="_state !== 'hidden'"
     >
-        <c-icon icon="${type == 'info' ? 'info' : ''}${type == 'success' ? 'info' : ''}${type == 'warning' ? 'warning' : ''}${type == 'critical' ? 'warning' : ''}"></c-icon>
+        <c-icon
+            icon="
+                ${type == 'info' ? 'info' : ''}
+                ${type == 'success' ? 'info' : ''}
+                ${type == 'warning' ? 'warning' : ''}
+                ${type == 'critical' ? 'warning' : ''}
+            "
+        ></c-icon>
         <div
             class="${styles.callout}"
             if.bind="calloutTitle || calloutContent"

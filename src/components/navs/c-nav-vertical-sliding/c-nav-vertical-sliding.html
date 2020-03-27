@@ -7,14 +7,23 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-nav-vertical-sliding.css"></require>
 
     <div
-        class="${styles.container} ${navState === 'right' ? styles[navState] : ''}  ${!showHidden ? styles.hidden : ''}"
+        class="
+            ${styles.container}
+            ${navState === 'right' ? styles[navState] : ''}
+            ${!showHidden ? styles.hidden : ''}
+        "
         show.bind="!isPageLoading"
     >
         <div
             class="${styles.block}"
             repeat.for="page of nav.pages"
         >
-            <div class="${styles.triggerContainer}  ${(isTriggerContentHidden && $index === 0) ? styles.triggerContentHidden : ''}">
+            <div
+                class="
+                    ${styles.triggerContainer}
+                    ${(isTriggerContentHidden && $index === 0) ? styles.triggerContentHidden : ''}
+                "
+            >
                 <div>
                     <div
                         class="${styles.trigger}"

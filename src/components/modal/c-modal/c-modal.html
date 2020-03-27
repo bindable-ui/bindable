@@ -6,12 +6,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-modal.css"></require>
 
-    <ux-dialog class="
-        ${styles.dialog}
-        ${styles[model.size]}
-        ${model.size == 'full' ? 'js-full' : ''}
-        ${model.size == 'large' ? 'js-large' : ''}
-    ">
+    <ux-dialog
+        class="
+            ${styles.dialog}
+            ${styles[model.size]}
+            ${model.size == 'full' ? 'js-full' : ''}
+            ${model.size == 'large' ? 'js-large' : ''}
+        "
+    >
         <ux-dialog-header class="${styles.header}">
             <l-cluster
                 spacing="var(--s-1)"
@@ -36,8 +38,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 </div>
             </l-cluster>
             <c-button
-                click.delegate="controller.cancel()"
                 class="${styles.closeButton}"
+                click.delegate="controller.cancel()"
                 icon="x"
                 icon-position="center"
             ></c-button>

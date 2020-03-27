@@ -21,7 +21,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     >
         <slot></slot>
 
-        <div if.bind="isLoading" class="${styles.loader}">
+        <div
+            class="${styles.loader}"
+            if.bind="isLoading"
+        >
             <c-spinner size="small"></c-spinner>
         </div>
     </div>

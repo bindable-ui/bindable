@@ -7,7 +7,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-checkbox-label.css"></require>
 
     <label
-        class="${styles.label}  ${state === 'disabled' ? styles.disabled : ''}"
+        class="
+            ${styles.label}
+            ${state === 'disabled' ? styles.disabled : ''}
+        "
         for="${id}"
     >
         <slot></slot>

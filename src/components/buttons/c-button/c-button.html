@@ -8,7 +8,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
     <button
         disabled.bind="_state === 'thinking' || _state === 'disabled'"
-        class="${styles.button}  ${styles[color]}  ${styles[size]}  ${styles[_state]}  ${icon ? styles.icon : ''}  ${styles[iconPosition]}"
+        class="
+            ${styles.button}
+            ${styles[color]}
+            ${styles[size]}
+            ${styles[_state]}
+            ${icon ? styles.icon : ''}
+            ${styles[iconPosition]}
+        "
         click.trigger="actionFunction()"
         type="${type}"
         hide.bind="title || _state === 'hidden'"
@@ -26,7 +33,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     <a
         href.bind="href"
         target="${targetNew ? '_blank' : '_self'}"
-        class="${styles.button}  ${styles[color]}  ${styles[size]}  ${styles[_state]}  ${icon ? styles.icon : ''}  ${styles[iconPosition]}"
+        class="
+            ${styles.button}
+            ${styles[color]}
+            ${styles[size]}
+            ${styles[_state]}
+            ${icon ? styles.icon : ''}
+            ${styles[iconPosition]}
+        "
         if.bind="title && _state !== 'hidden'"
     >
         <c-icon

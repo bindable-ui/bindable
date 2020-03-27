@@ -20,7 +20,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <slot name="tip"></slot>
     </div>
     <c-text-input
-        if.bind="_state !== 'disabled' && _state !== 'hidden'"
+        class="
+            ${icon ? styles.icon : ''}
+            ${styles[iconPosition]}
+            ${alignInput && !label ? styles.alignInput : ''}
+        "
         has-focus.bind="hasFocus"
         placeholder.bind="placeholder"
         icon.bind="icon"
@@ -32,9 +36,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         button-action.call="onButtonAction(textValue)"
         clearable.bind="clearable"
         state.bind="_state"
-        class="${icon ? styles.icon : ''}  ${styles[iconPosition]}  ${alignInput && !label ? styles.alignInput : ''}"
         text-value.bind="textValue"
         event-listeners.bind="eventListeners"
+        if.bind="_state !== 'disabled' && _state !== 'hidden'"
     >
     </c-text-input>
     <c-disabled if.bind="_state === 'disabled'">

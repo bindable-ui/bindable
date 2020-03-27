@@ -8,7 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
     <span
         show.bind="!href"
-        class="${styles.pill}  ${styles[color]}"
+        class="
+            ${styles.pill}
+            ${styles[color]}
+        "
     >
         <c-icon
             icon="${icon}"
@@ -21,7 +24,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     </span>
     <a
         href.bind="href"
-        class="${styles.pill}  ${styles[color]}"
+        class="
+            ${styles.pill}
+            ${styles[color]}
+        "
         show.bind="href"
     >
         <c-icon

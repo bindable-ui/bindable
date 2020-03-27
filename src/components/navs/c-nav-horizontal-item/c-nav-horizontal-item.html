@@ -7,7 +7,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-nav-horizontal-item.css"></require>
 
     <li
-        class="${styles.navHorizontalItem}  ${styles[state]}  ${styles[position]}"
+        class="
+            ${styles.navHorizontalItem}
+            ${styles[state]}
+            ${styles[position]}
+        "
         hide.bind="state === 'hidden'"
     >
         <a

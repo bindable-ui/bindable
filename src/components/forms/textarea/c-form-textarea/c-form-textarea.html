@@ -16,11 +16,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <slot name="tip"></slot>
     </div>
     <c-textarea-input
-        if.bind="_state !== 'disabled' && _state !== 'hidden'"
+        class="
+            ${styles[state]}
+            ${styles.textarea}
+        "
         placeholder.bind="placeholder"
-        class="${styles[state]}  ${styles.textarea}"
         state.bind="_state"
         textarea-value.bind="textareaValue"
+        if.bind="_state !== 'disabled' && _state !== 'hidden'"
     ></c-textarea-input>
     <c-disabled if.bind="_state === 'disabled'">
         ${textareaValue || 'None'}

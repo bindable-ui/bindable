@@ -25,7 +25,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <c-p>No Image</c-p>
     </div>
     <div
-        class="${styles.imageSrcContainer}  ${isUploading ? styles.isUploading : ''}"
+        class="
+            ${styles.imageSrcContainer}
+            ${isUploading ? styles.isUploading : ''}
+        "
         if.bind="imgUrl && imagePicker"
     >
         <c-spinner
@@ -54,15 +57,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <span if.bind="!files.length">None</span>
     </c-disabled>
     <a
-        click.delegate="removeImage()"
         class="${styles.removeImage}"
+        click.delegate="removeImage()"
         if.bind="imagePicker && imgUrl !== imageSrc && !showReset && _state !== 'disabled'"
     >
         Reset
     </a>
     <a
-        click.delegate="resetImage()"
         class="${styles.removeImage}"
+        click.delegate="resetImage()"
         if.bind="imagePicker && showReset && _state !== 'disabled'"
     >
         Reset
