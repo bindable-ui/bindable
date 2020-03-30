@@ -4,8 +4,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {bindable} from 'aurelia-framework';
+import {authState} from '../../decorators/auth-state';
 import * as styles from '../l-box/l-box.css.json';
 
+@authState
 export class LBoxLink {
     @bindable
     public background = 'var(--c_darkGray)';

@@ -22,6 +22,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .container{
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
 
 .container c-form-select{
