@@ -17,6 +17,8 @@ export class CFormText {
     @bindable
     public button;
     @bindable
+    public buttonText;
+    @bindable
     public clearable;
     @bindable
     public errorMsg;

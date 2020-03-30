@@ -62,7 +62,7 @@ export class TimelineProperties {
         },
         {
             default: 'day',
-            description: 'What view to display: "day", "week", "month"',
+            description: 'What view to display: "day", "three-day", "week", "month"',
             name: 'timeView',
             type: 'string',
         },
@@ -107,6 +107,12 @@ export class TimelineProperties {
             description: 'Number of days being displayed from lazy-loading. Only on "day" view.',
             name: 'scrollDays',
             type: 'number',
+        },
+        {
+            default: 'null',
+            description: 'Time you wish to scroll to. Format: "15:15, "01:12", ect.',
+            name: 'scrollTime',
+            type: 'string',
         },
         {
             default: 'false',

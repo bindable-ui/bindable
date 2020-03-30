@@ -30,7 +30,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 >
                 </c-time-entry>
             </c-timeline-container>
-            <c-timeline-week-container if.bind="timeView === 'week'" days.bind="displayDays" day-click.call="dayClick(date)">
+            <c-timeline-week-container if.bind="timeView === 'week' || timeView === 'three-day'" days.bind="displayDays" day-click.call="dayClick(date)">
                 <div slot="hours">
                     <c-timeline-container>
                         <c-timeline-block repeat.for="block of blocks" time.one-time="block.time">

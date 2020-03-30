@@ -50,10 +50,11 @@ export class CTimelineBlock {
             this.newItem = {
                 isoTime,
                 top,
+                blockIsoTime: this.isoTime,
                 color: 'secondary',
                 height: 50,
                 placeholder: true,
-                title: '(New Item)',
+                title: `${moment(isoTime).format('HH:mm')} (New Item)`,
             };
 
             if (this.newEntryViewModel) {

@@ -14,6 +14,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Header
  *  STRIPED
  *  ROW HOVER
+ *  ROW NOT ALLOWED
  *  ROW ACTIVE
  *  NO VERTICAL BORDER
  *  CELL WIDTHS
@@ -217,6 +218,18 @@ td compose{
 .hover tbody tr:hover{
     background-color: var(--table-hover-background);
     cursor: pointer;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ROW NOT ALLOWED
+\*------------------------------------*/
+
+.not-allowed:hover{
+    cursor: not-allowed !important;
 }
 
 

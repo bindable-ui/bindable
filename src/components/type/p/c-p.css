@@ -14,6 +14,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Large
  *      - Medium
  *      - Small
+ *  BOLD
  *  TRUNCATE
  */
 
@@ -46,6 +47,10 @@ c-p{
     max-width: var(--p-max-width);
 }
 
+.not-flush-top{
+    margin-top: initial;
+}
+
 
 
 
@@ -76,6 +81,18 @@ c-p{
 
 .small{
     font-size: var(--p-font-size-small);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !BOLD
+\*------------------------------------*/
+
+.bold{
+    font-family: var(--ff_primary-bold);
 }
 
 
