@@ -6,10 +6,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-timeline-block.css"></require>
 
-    <div class="${styles.timeBlock}" click.trigger="togglePopoverFunction($event)">
+    <div class="${styles.timeBlock}">
         <span if.bind="time" class="${styles.time}">${time}</span>
         <slot></slot>
-
-        <c-time-entry if.bind="newItem" item.bind="newItem" view-model.ref="placeholderEntry"></c-time-entry>
     </div>
 </template>
