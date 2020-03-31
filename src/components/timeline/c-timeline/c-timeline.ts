@@ -263,7 +263,13 @@ export class CTimeline {
 
     public togglePopover = _.debounce(
         ($event, day?: ITimeDay) => {
-            // Check for disabled state //
+            if (
+                // @ts-ignore
+                this._state === 'disabled' ||
+                (_.isBoolean(this.preventCreate) && this.preventCreate)
+            ) {
+                return;
+            }
 
             let isoTime;
             const dayWeek = day;
@@ -330,7 +336,9 @@ export class CTimeline {
                 startIso = firstEntry.end;
             }
 
-            // Check if I can add something here //
+            if (_.isFunction(this.preventCreate) && this.preventCreate({isoTime: startIso})) {
+                return;
+            }
 
             const newItem: any = {
                 top,
