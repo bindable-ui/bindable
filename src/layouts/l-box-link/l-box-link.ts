@@ -15,7 +15,7 @@ export class LBoxLink {
     @bindable
     public borderTop;
     @bindable
-    public color = 'var(--c_white)';
+    public color = 'unset';
     @bindable
     public href = '#';
     @bindable

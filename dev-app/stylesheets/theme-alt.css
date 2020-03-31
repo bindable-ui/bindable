@@ -40,7 +40,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 :global .logo{
-    background: var(--c_white);
+    background: var(--c_marshmellow);
     padding: .5rem 1.5rem 0;
 }
 
@@ -57,6 +57,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 c-nav-vertical + router-view > div{
     --cover-padding-top: var(--s-1) !important;
+}
+
+:global .footer-logo > div{
+    background: var(--c_marshmellow) !important;
+}
+
+:global .footer-bar > div{
+    background: var(--c_white) !important;
 }
 
 
@@ -297,7 +305,7 @@ router-view[data-value="cover"] > div > div > div{
  */
 
 c-nav-vertical{
-    --nav-background: var(--c_white) !important;
+    --nav-background: var(--c_marshmellow) !important;
     --nav-item-color: var(--c_ash) !important;
     --nav-item-color-hover: var(--c_ash) !important;
     --nav-item-color-active: var(--c_darkGray) !important;

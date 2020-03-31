@@ -13,7 +13,7 @@ export class LBox {
     @bindable
     public borderTop;
     @bindable
-    public color = 'var(--c_white)';
+    public color = 'unset';
     @bindable
     public marginSides = '0px';
     @bindable

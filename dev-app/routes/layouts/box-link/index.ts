@@ -47,7 +47,7 @@ export class BoxLinkProperties {
             value: 'Any color',
         },
         {
-            default: 'var(--c_white)',
+            default: 'unset',
             description: 'Set the text color of the box.',
             name: 'color',
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
