@@ -448,7 +448,7 @@ describe('c-table component', () => {
             });
 
             // Background Tests
-            const existingBackgroundClasses = ['bgHealthy', 'bgWarning', 'bgCritical', 'bgInfo'];
+            const existingBackgroundClasses = ['bgHealthy', 'bgWarning', 'bgCritical', 'bgInfo', 'notAllowed'];
             existingBackgroundClasses.forEach(background => {
                 it(`css class: ${background}`, async done => {
                     component = StageComponent.withResources().inView('<c-table></c-table>');
