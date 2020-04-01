@@ -44,6 +44,10 @@ export class ButtonThemeProperties {
             name: '--button-transition',
         },
         {
+            default: 'none',
+            name: '--button-text-transform',
+        },
+        {
             default: 'var(--c_primaryMain)',
             name: '--button-primary-background',
         },
@@ -120,12 +124,20 @@ export class ButtonThemeProperties {
             name: '--button-medium-icon-svg-spacing',
         },
         {
+            default: '1px',
+            name: '--button-medium-icon-svg-top-spacing',
+        },
+        {
             default: 'var(--s-5) var(--s-1)',
             name: '--button-small-padding',
         },
         {
             default: 'var(--s3)',
             name: '--button-small-icon-side-padding',
+        },
+        {
+            default: 'var(--s-5) var(--s-1)',
+            name: '--button-small-icon-center-padding',
         },
         {
             default: 'var(--s-1)',
@@ -136,8 +148,8 @@ export class ButtonThemeProperties {
             name: '--button-small-icon-svg-spacing',
         },
         {
-            default: 'var(--s-3)',
-            name: '--button-small-icon-svg-top',
+            default: 'calc(var(--s-5) - 3px)',
+            name: '--button-small-icon-svg-top-spacing',
         },
         {
             default: 'var(--s4)',
@@ -158,6 +170,10 @@ export class ButtonThemeProperties {
         {
             default: 'var(--s-1)',
             name: '--button-thinking-spinner-size',
+        },
+        {
+            default: 'var(--c_smoke)',
+            name: '--button-thinking-spinner-color',
         },
     ];
 }

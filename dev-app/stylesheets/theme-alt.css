@@ -12,6 +12,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * BASE
  *      - Body
  *      - Tokens
+ * BUTTONS
  * NAVS
  *      - c-nav-horizontal
  *      - c-nav-vertical
@@ -256,6 +257,57 @@ body{
     --scrollbar_width: 7px;
     --scrollbar_color: #7B7B7B;
     --scrollbar_track_color: var(--c_white) !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !BUTTONS
+\*------------------------------------*/
+
+c-button{
+    --button-border-radius: var(--s5) !important;
+    --button-color: var(--c_black) !important;
+    --button-font-family: var(--ff_primary-normal) !important;
+    --button-text-shadow: none !important;
+    --button-font-size: var(--s0) !important;
+    --button-text-transform: uppercase !important;
+
+    --button-medium-padding: calc(var(--s-1) - 3px) var(--s3) var(--s-2) !important;
+    --button-medium-icon-side-padding: calc(var(--s5) + 5px) !important;
+    --button-medium-icon-svg-spacing: var(--s2) !important;
+    --button-medium-icon-svg-top-spacing: 4px !important;
+
+    --button-small-padding: calc(var(--s-4) - 1px) var(--s2) var(--s-5) !important;
+    --button-small-icon-side-padding: calc(var(--s4) + 3px) !important;
+    --button-small-icon-center-padding: calc(var(--s-5) - 2px) var(--s-1) var(--s-5) !important;
+    --button-small-icon-svg-spacing: var(--s1) !important;
+    --button-small-icon-svg-top-spacing: var(--s-5) !important;
+
+
+    --button-primary-hover-background: var(--c_primaryLight) !important;
+    --button-primary-disabled-background: #A38124!important;
+
+    --button-secondary-background: var(--c_soot) !important;
+    --button-secondary-hover-background: var(--c_ash) !important;
+    --button-secondary-disabled-background: #0F0F0F !important;
+    --button-secondary-disabled-color: #9E9E9E !important;
+    --button-secondary-color: var(--c_white) !important;
+
+    --button-neutral-background: var(--c_white) !important;
+    --button-neutral-disabled-background: var(--c_smoke) !important;
+
+    --button-danger-background: var(--c_subThreeMain) !important;
+    --button-danger-hover-background: var(--c_subThreeLight) !important;
+    --button-danger-disabled-background: #892222 !important;
+    --button-danger-disabled-color: #CDCDCD !important;
+    --button-danger-color: var(--c_white) !important;
+
+    --button-disabled-color: #313131 !important;
+
+    --button-thinking-spinner-color: #313131 !important;
 }
 
 
