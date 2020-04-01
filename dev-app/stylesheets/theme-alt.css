@@ -268,13 +268,16 @@ body{
 \*------------------------------------*/
 
 c-button{
+    /* Base */
     --button-border-radius: var(--s5) !important;
     --button-color: var(--c_black) !important;
     --button-font-family: var(--ff_primary-normal) !important;
     --button-text-shadow: none !important;
     --button-font-size: var(--s0) !important;
     --button-text-transform: uppercase !important;
+    --button-disabled-color: #313131 !important;
 
+    /* Sizes */
     --button-medium-padding: calc(var(--s-1) - 3px) var(--s3) var(--s-2) !important;
     --button-medium-icon-side-padding: calc(var(--s5) + 5px) !important;
     --button-medium-icon-svg-spacing: var(--s2) !important;
@@ -286,7 +289,7 @@ c-button{
     --button-small-icon-svg-spacing: var(--s1) !important;
     --button-small-icon-svg-top-spacing: var(--s-5) !important;
 
-
+    /* Colors */
     --button-primary-hover-background: var(--c_primaryLight) !important;
     --button-primary-disabled-background: #A38124!important;
 
@@ -297,17 +300,16 @@ c-button{
     --button-secondary-color: var(--c_white) !important;
 
     --button-neutral-background: var(--c_white) !important;
+    --button-neutral-hover-background: var(--c_lightGray) !important;
     --button-neutral-disabled-background: var(--c_smoke) !important;
+    --button-neutral-border-size: 3px !important;
+    --button-neutral-border-color: var(--c_black) !important;
 
     --button-danger-background: var(--c_subThreeMain) !important;
     --button-danger-hover-background: var(--c_subThreeLight) !important;
     --button-danger-disabled-background: #892222 !important;
     --button-danger-disabled-color: #CDCDCD !important;
     --button-danger-color: var(--c_white) !important;
-
-    --button-disabled-color: #313131 !important;
-
-    --button-thinking-spinner-color: #313131 !important;
 }
 
 

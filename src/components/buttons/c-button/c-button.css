@@ -61,15 +61,14 @@ c-button{
     --button-neutral-disabled-background: #454545;
     --button-neutral-disabled-color: var(--button-disabled-color);
     --button-neutral-color: var(--button-color);
+    --button-neutral-border-color: transparent;
+    --button-neutral-border-size: 0px;
 
     --button-danger-background: var(--c_primaryLight);
     --button-danger-hover-background: var(--c_primaryLighter);
     --button-danger-disabled-background: #913236;
     --button-danger-disabled-color: var(--button-disabled-color);
     --button-danger-color: var(--button-color);
-
-    --button-disabled-color: #939393;
-    --button-icon-color: var(--c_white);
 
     /* Sizes */
     --button-medium-padding: var(--s-3) var(--s1);
@@ -91,7 +90,6 @@ c-button{
     --button-thinking-spinner-top: calc(50% - var(--s-4));
     --button-thinking-spinner-left: var(--s0);
     --button-thinking-spinner-size: var(--s-1);
-    --button-thinking-spinner-color: var(--c_smoke);
 }
 
 
@@ -167,9 +165,23 @@ c-button{
 
 .neutral{
     background-color: var(--button-neutral-background);
-    border: solid 3px gray;
     color: var(--button-neutral-color) !important;
+    position: relative;
 }
+
+.neutral:before{
+  content: " ";
+  color: transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--button-border-radius);
+  border: var(--button-neutral-border-size) solid var(--button-neutral-border-color);
+}
+
+
 
 .neutral:hover{
     background-color: var(--button-neutral-hover-background) !important;
@@ -207,7 +219,7 @@ c-button{
 
 .icon svg{
     position: absolute;
-    fill: var(--button-icon-color);
+    fill: currentColor;
 }
 
 
@@ -315,7 +327,7 @@ c-button{
 }
 
 .disabled svg{
-    fill: var(--button-disabled-color) !important;
+    fill: currentColor !important;
 }
 
 .disabled:hover{
@@ -381,18 +393,11 @@ c-button{
 }
 
 .thinking:not(:required)::after{
+    border-top: 2px solid currentColor;
     border-right: 2px solid transparent;
     border-radius: 50%;
     content: '';
     animation: spinner 0.6s linear infinite;
-}
-
-.primary.thinking:not(:required)::after{
-    border-top: 2px solid var(--button-thinking-spinner-color);
-}
-
-.secondary.thinking:not(:required)::after{
-    border-top: 2px solid green;
 }
 
 /* Keyframe Animation */

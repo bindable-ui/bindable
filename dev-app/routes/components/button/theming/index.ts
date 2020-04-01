@@ -28,6 +28,10 @@ export class ButtonThemeProperties {
             name: '--button-color',
         },
         {
+            default: ' #939393',
+            name: '--button-disabled-color',
+        },
+        {
             default: 'var(--ff_primary-bold)',
             name: '--button-font-family',
         },
@@ -60,6 +64,14 @@ export class ButtonThemeProperties {
             name: '--button-primary-disabled-background',
         },
         {
+            default: 'var(--button-disabled-color)',
+            name: '--button-primary-disabled-color',
+        },
+        {
+            default: 'var(--button-color)',
+            name: '--button-primary-color',
+        },
+        {
             default: 'var(--c_secondaryMain)',
             name: '--button-secondary-background',
         },
@@ -70,6 +82,14 @@ export class ButtonThemeProperties {
         {
             default: '#20623F',
             name: '--button-secondary-disabled-background',
+        },
+        {
+            default: 'var(--button-disabled-color)',
+            name: '--button-secondary-disabled-color',
+        },
+        {
+            default: 'var(--button-color)',
+            name: '--button-secondary-color',
         },
         {
             default: 'var(--c_gray)',
@@ -84,6 +104,14 @@ export class ButtonThemeProperties {
             name: '--button-neutral-disabled-background',
         },
         {
+            default: 'var(--button-disabled-color)',
+            name: '--button-neutral-disabled-color',
+        },
+        {
+            default: 'var(--button-color)',
+            name: '--button-neutral-color',
+        },
+        {
             default: 'var(--c_primaryLight)',
             name: '--button-danger-background',
         },
@@ -96,12 +124,12 @@ export class ButtonThemeProperties {
             name: '--button-danger-disabled-background',
         },
         {
-            default: ' #939393',
-            name: '--button-disabled-color',
+            default: 'var(--button-disabled-color)',
+            name: '--button-danger-disabled-color',
         },
         {
-            default: 'var(--c_white)',
-            name: ' --button-icon-color',
+            default: 'var(--button-color)',
+            name: '--button-danger-color',
         },
         {
             default: 'var(--s-3) var(--s1)',
@@ -170,10 +198,6 @@ export class ButtonThemeProperties {
         {
             default: 'var(--s-1)',
             name: '--button-thinking-spinner-size',
-        },
-        {
-            default: 'var(--c_smoke)',
-            name: '--button-thinking-spinner-color',
         },
     ];
 }
