@@ -13,6 +13,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Body
  *      - Tokens
  * BUTTONS
+ * FORMS
+ *      - c-textinput, c-textarea, c-file-input
  * NAVS
  *      - c-nav-horizontal
  *      - c-nav-vertical
@@ -194,6 +196,7 @@ body{
      * ^Font Family Primary
      */
     --ff_primary-normal: 'Proxima_Nova_Reg', Helvetica, sans-serif !important;
+    --ff_primary-normal-italic: 'Proxima_Nova_Reg_Italic', Helvetica, sans-serif !important;
     --ff_primary-semi-bold: 'Proxima_Nova_Semi_Bold', Helvetica, sans-serif !important;
     --ff_primary-bold: 'Proxima_Nova_Bold', Helvetica, sans-serif !important;
 
@@ -310,6 +313,59 @@ c-button{
     --button-danger-disabled-background: #892222 !important;
     --button-danger-disabled-color: #CDCDCD !important;
     --button-danger-color: var(--c_white) !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !FORMS
+\*------------------------------------*/
+
+/**
+ * ^c-textinput, c-textarea, c-file-input
+ */
+
+c-text-input,
+c-textarea-input,
+c-file-input{
+    /* Base */
+    --input-padding: var(--s-5) var(--s-3) var(--s-5) 0 !important;
+    --input-border: none !important;
+    --input-background: transparent !important;
+    --input-color: var(--c_asphalt) !important;
+    --input-placeholder-color: var(--c_charcoal) !important;
+    --input-box-shadow: inset 0 -1px 0 var(--c_black) !important;
+    --input-transition: box-shadow var(--trans_main);
+
+    /* State */
+    --input-color-focus: var(--c_black) !important;
+    --input-box-shadow-focus: inset 0 -2px 0 var(--c_primaryMain) !important;
+    --input-box-shadow-error: inset 0 -2px 0 var(--c_subThreeMain) !important;
+    --input-background-error: transparent !important;
+    --input-box-shadow-warning: inset 0 -2px 0 var(--c_subTwoMain) !important;
+    --input-background-warning: transparent !important;
+
+    /* Icon */
+    --input-icon-padding: var(--s2) !important;
+    --input-icon-side-spacing: var(--s5) !important;
+    --input-icon-color: var(--c_subTwoMain) !important;
+
+    /* Button */
+    --input-button-padding: var(--s-5) 0 0 var(--s-5) !important;
+    --input-button-border-color: none !important;
+    --input-button-border-radius: var(--s5) !important;
+    --input-button-bin-hover-background: transparent !important;
+    --input-button-bin-hover-icon-color: var(--c_subThreeMain) !important;
+    --input-button-hover-background: transparent !important;
+    --input-button-hover-color: var(--c_primaryMain) !important;
+
+    /* Clearable */
+    --input-clearable-spacing-right: var(--s1);
+    --input-clearable-icon-right: var(--s-5) !important;
+    --input-clearable-icon-color: var(--c_charcoal) !important;
+    --input-clearable-icon-hover-color: var(--c_subThreeMain) !important;
 }
 
 

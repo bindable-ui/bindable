@@ -37,6 +37,7 @@ c-file-input{
     --input-border: solid 1px var(--c_black);
     --input-background: var(--c_charcoal);
     --input-color: var(--c_smoke);
+    --input-placeholder-color: #6C6C6C;
     --input-box-shadow: inset 0 -1px 0 var(--c_gray);
     --input-transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
 
@@ -50,7 +51,6 @@ c-file-input{
 
     /* Icon */
     --input-icon-padding: var(--s3);
-    --input-icon-side-spacing: var(--s-2);
     --input-icon-top-spacing: calc(var(--s-3) + 1px);
     --input-icon-size: var(--s0);
     --input-icon-color: var(--c_smoke);
@@ -60,7 +60,10 @@ c-file-input{
     --input-button-border-size: 1px;
     --input-button-border-color: var(--c_black);
     --input-button-border-radius: 0 5px 5px 0;
+    --input-button-hover-background: var(--c_smoke);
+    --input-button-hover-color: inherit;
     --input-button-bin-hover-background: var(--c_primaryLight);
+    --input-button-bin-hover-icon-color: unset;
 
     /* Clearable */
     --input-clearable-spacing-right: var(--s3);
@@ -68,6 +71,7 @@ c-file-input{
     --input-clearable-icon-right: var(--s-1);
     --input-clearable-icon-right-w-button: var(--s4);
     --input-clearable-icon-size: var(--s-2);
+    --input-clearable-icon-color: var(--c_lightGray);
     --input-clearable-icon-hover-color: var(--c_primaryLight);
 }
 
@@ -122,17 +126,17 @@ input[type='text']{
  */
 
 ::-webkit-input-placeholder{
-    color: #6C6C6C;
+    color: var(--input-placeholder-color);
     font-family: var(--ff_primary-normal-italic);
 }
 
 ::-moz-placeholder{
-    color: #6C6C6C;
+    color: var(--input-placeholder-color);
     font-family: var(--ff_primary-normal-italic);
 }
 
 :-ms-input-placeholder{
-    color: #6C6C6C;
+    color: var(--input-placeholder-color);
     font-family: var(--ff_primary-normal-italic);
 }
 
@@ -203,6 +207,16 @@ input[type='text']{
     border-radius: var(--input-button-border-radius);
 }
 
+.button > button:hover{
+    color: var(--input-button-hover-color) !important;
+    fill:  var(--input-button-hover-color) !important;
+    background: var(--input-button-hover-background) !important;
+}
+
+.button > button:before{
+    display: none;
+}
+
 .button-input{
     display: flex;
 }
@@ -224,7 +238,9 @@ input[type='text']{
 
 .bin > button:hover{
     background: var(--input-button-bin-hover-background) !important;
+    color: var(--input-button-bin-hover-icon-color) !important;
 }
+
 
 
 
@@ -258,6 +274,7 @@ input[type='text']{
     width: var(--input-clearable-icon-size);
     height: var(--input-clearable-icon-size);
     transition: fill var(--trans_main);
+    fill: var(--input-clearable-icon-color);
 }
 
 .clearable:hover{

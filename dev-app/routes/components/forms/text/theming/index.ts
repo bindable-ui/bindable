@@ -36,6 +36,10 @@ export class TextThemeProperties {
             name: '--input-color',
         },
         {
+            default: '#6C6C6C',
+            name: '--input-placeholder-color',
+        },
+        {
             default: 'inset 0 -1px 0 var(--c_gray)',
             name: '--input-box-shadow',
         },
@@ -72,10 +76,6 @@ export class TextThemeProperties {
             name: '--input-icon-padding',
         },
         {
-            default: 'var(--s-2)',
-            name: '--input-icon-side-spacing',
-        },
-        {
             default: 'calc(var(--s-3) + 1px)',
             name: '--input-icon-top-spacing',
         },
@@ -104,8 +104,20 @@ export class TextThemeProperties {
             name: '--input-button-border-radius',
         },
         {
+            default: 'var(--c_smoke)',
+            name: '--input-button-hover-background',
+        },
+        {
+            default: 'inherit',
+            name: '--input-button-hover-color',
+        },
+        {
             default: 'var(--c_primaryLight)',
             name: '--input-button-bin-hover-background',
+        },
+        {
+            default: 'unset',
+            name: '--input-button-bin-hover-icon-color',
         },
         {
             default: 'var(--s3)',
@@ -126,6 +138,10 @@ export class TextThemeProperties {
         {
             default: 'var(--s-2)',
             name: '--input-clearable-icon-size',
+        },
+        {
+            default: 'var(--c_lightGray)',
+            name: '--input-clearable-icon-color',
         },
         {
             default: 'var(--c_primaryLight)',
