@@ -3,13 +3,12 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, containerless} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
 
 import {generateRandom} from '../../../helpers/generate-random';
 
 import * as styles from './c-timeline-container.css.json';
 
-@containerless
 export class CTimelineContainer {
     @bindable
     public currentTimeTop = -1;

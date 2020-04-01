@@ -23,6 +23,11 @@ export class CTimeEntry {
     constructor(public element: Element, private vPopoverService: CPopoverService) {}
 
     public openPopover($event) {
+        if ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+        }
+
         if (!this.item) {
             return;
         }

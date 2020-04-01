@@ -13,6 +13,8 @@ import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
 import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
 
+import * as CTimelineWeekContainerStyles from '../c-timeline-week-container/c-timeline-week-container.css.json';
+
 type Moment = moment.Moment;
 
 /**
@@ -45,11 +47,12 @@ export const ZOOM_LEVELS: any = [
     },
 ];
 
+export const BLOCK_HEIGHT = 50;
+
 const DEFAULT_ZOOM = 2;
 const MINUTES_IN_DAY = 1440;
 const HOURS_IN_DAY = 24;
 const TIME_REGEX = /^[0-9]{1,4}$/;
-const BLOCK_HEIGHT = 50;
 const SECONDS_IN_MINUTE = 60;
 
 /**
@@ -158,6 +161,8 @@ export class CTimeline {
     public id = generateRandom();
     public currentScroll: number = 0;
     public preventScrollCheck: boolean = true;
+    public placeholderEntry: any;
+    public newItem: any = null;
 
     /**
      * Build out the timeline. Put in a throttle so it doesn't bind up
@@ -255,6 +260,120 @@ export class CTimeline {
             }, 400);
         });
     }, 100);
+
+    public togglePopover = _.debounce(
+        ($event, day?: ITimeDay) => {
+            if (
+                // @ts-ignore
+                this._state === 'disabled' ||
+                (_.isBoolean(this.preventCreate) && this.preventCreate)
+            ) {
+                return;
+            }
+
+            let isoTime;
+            const dayWeek = day;
+
+            const dayDate = day ? dayWeek.date : null;
+            const [zoomLevelData, pxPerMinute] = this.getZoomLevelData();
+            const [blockStart] = this.getDayStartEndTimes(dayDate);
+
+            const relativeY = $event.pageY - this.parentScrollElem.offset().top;
+            // On week view, get the height of the date names so we can offset
+            const elemDiff = day ? $(`.${CTimelineWeekContainerStyles.dates}`).outerHeight() : 0;
+            const pxDown = relativeY + this.parentScrollElem.scrollTop() - elemDiff;
+            const blockIndex = Math.floor(pxDown / BLOCK_HEIGHT);
+
+            if (dayWeek) {
+                dayWeek.newItem = null;
+                isoTime = dayWeek.blocks[blockIndex].isoTime;
+
+                _.forEach(this.displayDays, weekDay => (weekDay.newItem = null));
+            } else {
+                this.newItem = null;
+                isoTime = this.blocks[blockIndex].isoTime;
+            }
+
+            const minutesFromTop = pxDown / pxPerMinute;
+
+            const clickedTime = moment(blockStart)
+                .add(minutesFromTop, 'minutes')
+                .startOf(this.zoomLevel < 5 ? 'minute' : 'second');
+            const startTime: Moment = moment(clickedTime).subtract(zoomLevelData.minutes / 2, 'minutes');
+            const endTime: Moment = moment(clickedTime).add(zoomLevelData.minutes / 2, 'minutes');
+
+            const matchingEntries: ITimeEntry[] = [];
+
+            const entries = dayWeek ? dayWeek.entries : this.transformedEntries;
+
+            if (this.snapAdd) {
+                (matchingEntries as any[]) = _.filter(entries, entry =>
+                    moment(entry.end).isBetween(startTime, endTime, null, '[)'),
+                );
+            }
+
+            let top = blockIndex * BLOCK_HEIGHT;
+            let startIso = null;
+
+            if (!matchingEntries.length) {
+                const isoTimeMoment = moment(isoTime);
+                const halfBlock = BLOCK_HEIGHT / 2;
+
+                if ($event.layerY >= halfBlock) {
+                    top += halfBlock;
+                    isoTimeMoment.add((halfBlock / pxPerMinute) * SECONDS_IN_MINUTE, 'seconds');
+                }
+
+                startIso = isoTimeMoment.toISOString();
+            } else {
+                const sortedEntries = _.sortBy(matchingEntries, entry =>
+                    Math.abs(moment(entry.end).diff(clickedTime, 'seconds')),
+                );
+                const firstEntry = _.first(sortedEntries);
+                const diff = Math.ceil(moment(isoTime).diff(firstEntry.end, 'seconds')) * -1;
+
+                top += Math.floor((diff / SECONDS_IN_MINUTE) * pxPerMinute);
+                startIso = firstEntry.end;
+            }
+
+            if (_.isFunction(this.preventCreate) && this.preventCreate({isoTime: startIso})) {
+                return;
+            }
+
+            const newItem: any = {
+                top,
+                color: 'secondary',
+                height: 50,
+                isoTime: startIso,
+                placeholder: true,
+                title: `${moment(startIso).format(this.zoomLevel < 5 ? 'HH:mm' : 'HH:mm:ss')} (New Item)`,
+            };
+
+            if (this.newEntryViewModel) {
+                newItem.contentViewModel = this.newEntryViewModel;
+            }
+
+            if (!dayWeek) {
+                this.newItem = _.cloneDeep(newItem);
+
+                _.defer(() => {
+                    if (this.placeholderEntry) {
+                        this.placeholderEntry.openPopover();
+                    }
+                });
+            } else {
+                dayWeek.newItem = _.cloneDeep(newItem);
+
+                _.defer(() => {
+                    if (dayWeek.placeholderEntry) {
+                        dayWeek.placeholderEntry.openPopover();
+                    }
+                });
+            }
+        },
+        500,
+        {leading: true, trailing: false},
+    );
 
     private calculateCurrentTimeLine = _.throttle(
         () => {
@@ -402,81 +521,6 @@ export class CTimeline {
         }
 
         this.scrollToSpot(this.scrollTime);
-    }
-
-    /**
-     * Passed into `c-time-block` elements. Allows you to set spot for placeholder
-     * new time entry while popover is showing.
-     *
-     * @param isoTime ISO Date string
-     * @param mouseOffset How many pixels down the mouse was clicked
-     */
-    public calculatePlaceholder(isoTime: string, mouseOffset: number): [string, number] {
-        const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
-        const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
-        const offsetMinutes = mouseOffset / pxPerMinute;
-
-        // Buffer around clicked time to snap
-        const clickedTime = moment(isoTime)
-            .add(offsetMinutes, 'minutes')
-            .startOf(this.zoomLevel < 5 ? 'minute' : 'second');
-        const startTime = moment(clickedTime).subtract(zoomLevelData.minutes, 'minutes');
-        const endTime = moment(clickedTime).add(zoomLevelData.minutes, 'minutes');
-
-        let matchingEntries: any[] = [];
-
-        if (this.snapAdd) {
-            if (this.timeView === 'day') {
-                matchingEntries = _.filter(this.transformedEntries, entry => {
-                    return moment(entry.end).isBetween(startTime, endTime, null, '[)');
-                });
-            } else {
-                _.forEach(this.displayDays, day => {
-                    const dayMatches = _.filter(day.entries, entry => {
-                        return moment(entry.end).isBetween(startTime, endTime, null, '[)');
-                    });
-
-                    matchingEntries = [...matchingEntries, ...dayMatches];
-                });
-            }
-        }
-
-        let offset = 0;
-
-        if (!matchingEntries.length) {
-            const isoTimeMoment = moment(isoTime);
-            const halfBlock = BLOCK_HEIGHT / 2;
-
-            if (mouseOffset >= halfBlock) {
-                offset = halfBlock;
-                isoTimeMoment.add((halfBlock / pxPerMinute) * SECONDS_IN_MINUTE, 'seconds');
-            }
-
-            return [isoTimeMoment.toISOString(), offset];
-        }
-
-        const sortedEntries = _.sortBy(matchingEntries, entry =>
-            Math.abs(moment(entry.end).diff(clickedTime, 'seconds')),
-        );
-        const firstEntry = _.first(sortedEntries);
-        const diff = Math.ceil(moment(isoTime).diff(firstEntry.end, 'seconds')) * -1;
-        offset = Math.floor((diff / SECONDS_IN_MINUTE) * pxPerMinute);
-
-        return [firstEntry.end, offset];
-    }
-
-    /**
-     * Passed into `c-time-block` elements. Allows you to check if clicking in a block
-     * will allow you to create a new entry.
-     *
-     * @param isoTime ISO Date string
-     */
-    public checkPreventAdd(isoTime) {
-        if (!_.isFunction(this.preventCreate)) {
-            return false;
-        }
-
-        return this.preventCreate({isoTime});
     }
 
     /**
@@ -848,7 +892,7 @@ export class CTimeline {
     /**
      * Calculate the times for when the day starts
      */
-    private getDayStartEndTimes(): [Moment, Moment] {
+    private getDayStartEndTimes(date?): [Moment, Moment] {
         const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
 
         let startTime;
@@ -884,6 +928,10 @@ export class CTimeline {
             }
         }
 
+        if (date) {
+            startTime = moment(date).startOf('day');
+        }
+
         const blockTime = this.blocks[0].time;
         const numOfBlocks = this.blocks.length;
         addHours = moment(blockTime, 'HH:mm').format('H');
@@ -892,7 +940,7 @@ export class CTimeline {
         startTime.add(addHours, 'hours').add(addMinutes, 'minutes');
         endTime = moment(startTime).add(numOfBlocks * zoomLevelData.minutes, 'minutes');
 
-        return [startTime, endTime];
+        return [moment(startTime), moment(endTime)];
     }
 
     private getZoomLevelData() {

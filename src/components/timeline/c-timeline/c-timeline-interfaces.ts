@@ -27,6 +27,8 @@ export interface ITimeEntry extends ITimeEntryBasic {
     contentViewModel?: string;
     endTime: string;
     height: number;
+    isoTime?: string;
+    placeholder?: boolean;
     rightCalc?: number;
     shiftIcons?: boolean;
     startTime: string;
@@ -35,11 +37,9 @@ export interface ITimeEntry extends ITimeEntryBasic {
 }
 
 export interface ITimeBlock {
-    addNewMiddle?: boolean;
-    addNewTop?: boolean;
     isoTime?: string;
-    showTime?: boolean;
     time: string;
+    newItem?: any;
 }
 
 export interface ITimeDay {
@@ -47,6 +47,8 @@ export interface ITimeDay {
     blocks: ITimeBlock[];
     date: string;
     entries: ITimeEntry[];
+    newItem?: any;
     parsedDate?: string;
+    placeholderEntry?: any;
     today?: boolean;
 }
