@@ -6,42 +6,99 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-tile.css"></require>
 
-    <div class="${styles.tile}  ${checkedValue ? styles.checked : ''}  ${hover ? styles.hover : ''}" id="${id}" if.bind="_state !== 'hidden'">
-        <div title="${title}" class="${styles.container}">
-            <c-tip side="left" size="small" icon-tip.bind="true" class="${styles.tip}" if.bind="showTip">
+    <div
+        class="
+            ${styles.tile}
+            ${checkedValue ? styles.checked : ''}
+            ${hover ? styles.hover : ''}
+        "
+        id="${id}"
+        if.bind="_state !== 'hidden'"
+    >
+        <div
+            title="${title}"
+            class="${styles.container}"
+        >
+            <c-tip
+                side="left"
+                size="small"
+                icon-tip.bind="true"
+                class="${styles.tip}"
+                if.bind="showTip"
+            >
                 <div slot="trigger">
-                    <c-icon icon="${tipIcon}" color="lightGray"></c-icon>
+                    <c-icon
+                        icon="${tipIcon}"
+                        color="lightGray"
+                    ></c-icon>
                 </div>
                 <div slot="content">
                     <template part="tip-content" replaceable></template>
                 </div>
             </c-tip>
-            <div class="${styles.image}" css="height: ${imageContainerHeight}px;" click.trigger="tileClick()">
+            <div
+                class="${styles.image}"
+                css="height: ${imageContainerHeight}px;"
+                click.trigger="tileClick()"
+            >
                 <c-drag-handle
                     class="${styles.drag}"
                     if.bind="showDrag"
                     drag-draggable.bind="dragOptions"
+                ></c-drag-handle>
+                <div
+                    class="${styles.status}  ${styles[status]}"
+                    if.bind="status"
+                ></div>
+                <img
+                    if.bind="imageUrl"
+                    src="${imageUrl}"
+                    alt="Image Loading"
+                    title="${id}"
                 >
-                </c-drag-handle>
-                <div class="${styles.status}  ${styles[status]}" if.bind="status"></div>
-                <img if.bind="imageUrl" src="${imageUrl}" alt="Image Loading" title="${id}">
-                <c-h5 color="smoke" if.bind="!imageUrl">${noImageMessage}</c-h5>
+                <c-h5
+                    color="smoke"
+                    if.bind="!imageUrl"
+                >
+                    ${noImageMessage}
+                </c-h5>
             </div>
             <div class="${styles.title}">
                 <l-cluster spacing="var(--s-4)">
                     <div>
-                        <div class="${styles.checkboxContainer}" if.bind="showCheckbox && _state !== 'disabled'">
+                        <div
+                            class="${styles.checkboxContainer}"
+                            if.bind="showCheckbox && _state !== 'disabled'"
+                        >
                             <c-checkbox-input checked-value.bind="checkedValue"></c-checkbox-input>
                         </div>
-                        <c-h4 spacing-bottom="sbNone" truncate.bind="true" click.trigger="showCheckbox && state !== 'disabled' ? checkedValue = !checkedValue : ''">
-                            <c-icon icon="${titleIcon}" size="tiny" if.bind="titleIcon"></c-icon>
+                        <c-h4
+                            truncate.bind="true"
+                            click.trigger="showCheckbox && state !== 'disabled' ? checkedValue = !checkedValue : ''"
+                        >
+                            <c-icon
+                                icon="${titleIcon}"
+                                size="tiny"
+                                if.bind="titleIcon"
+                            ></c-icon>
                             <span if.bind="!searchHighlight">${title}</span>
-                            <span if.bind="searchHighlight" innerhtml.bind="searchHighlight"></span>
+                            <span
+                                if.bind="searchHighlight"
+                                innerhtml.bind="searchHighlight"
+                            ></span>
                         </c-h4>
                     </div>
                 </l-cluster>
             </div>
-            <c-p size="small" truncate.bind="true" spacing-bottom="sbNone" click.trigger="tileClick()" if.bind="message">${message}</c-p>
+            <c-p
+                size="small"
+                truncate.bind="true"
+                spacing-bottom="sbNone"
+                click.trigger="tileClick()"
+                if.bind="message"
+            >
+                ${message}
+            </c-p>
         </div>
     </div>
 </template>

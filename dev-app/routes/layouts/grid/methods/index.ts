@@ -21,24 +21,13 @@ export class GridMethods {
             colHeadName: 'description',
             colHeadValue: 'Description',
         },
-        {
-            _class: 'monospaced',
-            colHeadName: 'default',
-            colHeadValue: 'Default',
-        },
     ];
 
     public gridMethods = [
         {
-            description: 'The function you want to run when the button is clicked.',
-            name: 'action',
-            value: 'function',
-        },
-        {
-            default: '_self',
-            description: 'Set if you want the box link to open in a new window.',
-            name: 'target',
-            value: '_self | _blank',
+            description: 'An object with callback functions. More details coming soon.',
+            name: 'actions',
+            value: 'object',
         },
     ];
 

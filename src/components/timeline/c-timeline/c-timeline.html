@@ -6,7 +6,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
     <c-spinner if.bind="isLoading"></c-spinner>
     <c-spinner if.bind="isRendering && !isLoading"></c-spinner>
-    <div if.bind="!isLoading" id.bind="id">
+    <div
+        if.bind="!isLoading"
+        id.bind="id"
+    >
         <div show.bind="!isRendering">
             <c-timeline-container
                 if.bind="timeView === 'day'"
@@ -18,25 +21,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-timeline-block
                     repeat.for="block of blocks"
                     time.bind="block.time"
-                >
-                </c-timeline-block>
+                ></c-timeline-block>
                 <c-time-entry
                     repeat.for="entry of transformedEntries"
                     item.bind="entry"
                     class="timeline-day"
-                >
-                </c-time-entry>
+                ></c-time-entry>
                 <c-time-entry
                     if.bind="newItem"
                     item.bind="newItem"
                     view-model.ref="placeholderEntry"
-                >
-                </c-time-entry>
+                ></c-time-entry>
             </c-timeline-container>
-            <c-timeline-week-container if.bind="timeView === 'week' || timeView === 'three-day'" days.bind="displayDays" day-click.call="dayClick(date)">
+            <c-timeline-week-container
+                days.bind="displayDays"
+                day-click.call="dayClick(date)"
+                if.bind="timeView === 'week' || timeView === 'three-day'"
+            >
                 <div slot="hours">
                     <c-timeline-container>
-                        <c-timeline-block repeat.for="block of blocks" time.one-time="block.time"></c-timeline-block>
+                        <c-timeline-block
+                            repeat.for="block of blocks"
+                            time.one-time="block.time"
+                        ></c-timeline-block>
                     </c-timeline-container>
                 </div>
                 <c-timeline-container
@@ -52,9 +59,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     >
                     </c-time-entry>
                     <c-time-entry
-                        if.bind="day.newItem"
                         item.bind="day.newItem"
                         view-model.ref="day.placeholderEntry"
+                        if.bind="day.newItem"
                     >
                     </c-time-entry>
                 </c-timeline-container>

@@ -6,5 +6,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-h4.css"></require>
 
-    <h4 class="${styles.base}  ${truncate ? styles.truncate : ''}"><slot></slot></h4>
+    <h4
+        class="
+            ${styles.base}
+            ${truncate ? styles.truncate : ''}
+        "
+    >
+        <slot></slot>
+    </h4>
 </template>

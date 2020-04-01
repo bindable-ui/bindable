@@ -6,7 +6,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-icon.css"></require>
 
-    <svg class="${styles.icon}  ${styles[color]}  ${styles[size]}  ${action ? styles.action : ''}" click.trigger="actionFunction()">
+    <svg
+        class="
+            ${styles.icon}
+            ${styles[color]}
+            ${styles[size]}
+            ${action ? styles.action : ''}
+        "
+        click.trigger="actionFunction()"
+    >
         <use xlink:href="#${icon}"></use>
     </svg>
 </template>

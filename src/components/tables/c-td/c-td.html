@@ -6,7 +6,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-td.css"></require>
 
-    <compose if.bind="col.view" view.bind="col.view" view-model.bind="col.viewModel" model.bind="modelData"></compose>
+    <compose
+        view.bind="col.view"
+        view-model.bind="col.viewModel"
+        model.bind="modelData"
+        if.bind="col.view"
+    ></compose>
     <span if.bind="!col.view">
         ${modelData.value | meta:col.valueConverter:col.valueConverterFormat}
     </span>

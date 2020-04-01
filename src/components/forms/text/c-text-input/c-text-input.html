@@ -6,39 +6,67 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-text-input.css"></require>
 
-    <c-icon if.bind="icon" icon="${icon}"></c-icon>
-    <span class="${button || buttonText ? styles.buttonInput : ''} ${clearable ? styles.container : ''}">
+    <c-icon
+        if.bind="icon"
+        icon="${icon}"
+    ></c-icon>
+    <span
+        class="
+            ${button || buttonText ? styles.buttonInput : ''}
+            ${clearable ? styles.container : ''}
+        "
+    >
         <input
-            if.bind="placeholder"
+            class="
+                ${styles.input}
+                ${styles[iconPosition]}
+                ${state === 'error' ? styles.error : ''}
+                ${state === 'warning' ? styles.warning : ''}
+            "
             keyup.delegate="onKeyUp($event) & debounce"
             type="${type}"
-            class="${styles.input}  ${styles[iconPosition]}  ${state === 'error' ? styles.error : ''}  ${state === 'warning' ? styles.warning : ''}"
             placeholder.bind="placeholder"
             value.bind="textValue"
             focus.bind="hasFocus"
             id="${id}"
             autocomplete="off"
+            if.bind="placeholder"
         >
         <input
-            if.bind="!placeholder"
+            class="
+                ${styles.input}
+                ${styles[iconPosition]}
+                ${state === 'error' ? styles.error : ''}
+                ${state === 'warning' ? styles.warning : ''}
+            "
             keyup.delegate="onKeyUp($event) & debounce"
             type="${type}"
-            class="${styles.input}  ${styles[iconPosition]}  ${state === 'error' ? styles.error : ''}  ${state === 'warning' ? styles.warning : ''}"
             value.bind="textValue"
             focus.bind="hasFocus"
             id="${id}"
             autocomplete="off"
+            if.bind="!placeholder"
         >
-        <a class="${styles.clearable} ${button ? styles.clearButton : ''}" click.delegate="clearText()" if.bind="clearable && textValue">
+        <a
+            class="
+                ${styles.clearable}
+                ${button ? styles.clearButton : ''}
+            "
+            click.delegate="clearText()"
+            if.bind="clearable && textValue"
+        >
             <c-icon icon="x"></c-icon>
         </a>
         <c-button
-            if.bind="button || buttonText"
+            class="
+                ${styles.button}
+                ${button === 'bin' ? styles.bin : ''}
+            "
             color="neutral"
             icon="${button}"
             icon-position="center"
-            class="${styles.button} ${button === 'bin' ? styles.bin : ''}"
             click.delegate="buttonFn()"
+            if.bind="button || buttonText"
         >
             ${buttonText}
         </c-button>

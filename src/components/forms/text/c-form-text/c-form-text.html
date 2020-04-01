@@ -6,14 +6,25 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
     <require from="./c-form-text.css"></require>
 
-    <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
-        <c-label state="${_state}" icon="${labelIcon}" label-icon-color="${labelIconColor}">
+    <div
+        class="${styles.labelWrapper}"
+        show.bind="_state !== 'hidden' && label"
+    >
+        <c-label
+            state="${_state}"
+            icon="${labelIcon}"
+            label-icon-color="${labelIconColor}"
+        >
             ${label}
         </c-label>
         <slot name="tip"></slot>
     </div>
     <c-text-input
-        if.bind="_state !== 'disabled' && _state !== 'hidden'"
+        class="
+            ${icon ? styles.icon : ''}
+            ${styles[iconPosition]}
+            ${alignInput && !label ? styles.alignInput : ''}
+        "
         has-focus.bind="hasFocus"
         placeholder.bind="placeholder"
         icon.bind="icon"
@@ -25,14 +36,24 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         button-action.call="onButtonAction(textValue)"
         clearable.bind="clearable"
         state.bind="_state"
-        class="${icon ? styles.icon : ''}  ${styles[iconPosition]}  ${alignInput && !label ? styles.alignInput : ''}"
         text-value.bind="textValue"
         event-listeners.bind="eventListeners"
+        if.bind="_state !== 'disabled' && _state !== 'hidden'"
     >
     </c-text-input>
     <c-disabled if.bind="_state === 'disabled'">
         ${textValue || 'None'}
     </c-disabled>
-    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
-    <c-form-warning state="${_state}" if.bind="_state !== 'hidden' && warningMsg">${warningMsg}</c-form-warning>
+    <c-form-error
+        state="${_state}"
+        if.bind="_state !== 'hidden' && errorMsg"
+    >
+        ${errorMsg}
+    </c-form-error>
+    <c-form-warning
+        state="${_state}"
+        if.bind="_state !== 'hidden' && warningMsg"
+    >
+        ${warningMsg}
+    </c-form-warning>
 </template>

@@ -6,7 +6,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-list-item.css"></require>
 
-    <li class="${styles.listItem}  ${styles[state]}  ${wrap ? styles.wrap : ''}">
+    <li
+        class="
+            ${styles.listItem}
+            ${styles[state]}
+            ${wrap ? styles.wrap : ''}
+        "
+    >
         <slot></slot>
     </li>
 </template>

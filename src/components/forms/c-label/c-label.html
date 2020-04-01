@@ -6,10 +6,34 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-label.css"></require>
 
-    <label class="${styles.label}  ${styles[state]}">
-        <c-icon icon="${icon}" color="${labelIconColor}" if.bind="icon"></c-icon>
+    <label
+        class="
+            ${styles.label}
+            ${styles[state]}
+        "
+    >
+        <c-icon
+            icon="${icon}"
+            color="${labelIconColor}"
+            if.bind="icon"
+        ></c-icon>
         <slot></slot>
-        <span class="${styles.edit}" click.trigger="editingActionFunction()" if.bind="editable && notEditing">Edit</span>
-        <span class="${styles.edit}  ${styles.done}" click.trigger="doneEditingActionFunction()" if.bind="editable && editing">Done</span>
+        <span
+            class="${styles.edit}"
+            click.trigger="editingActionFunction()"
+            if.bind="editable && notEditing"
+        >
+            Edit
+        </span>
+        <span
+            class="
+                ${styles.edit}
+                ${styles.done}
+            "
+            click.trigger="doneEditingActionFunction()"
+            if.bind="editable && editing"
+        >
+            Done
+        </span>
     </label>
 </template>

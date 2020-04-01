@@ -21,19 +21,13 @@ export class SelectActions {
             colHeadName: 'description',
             colHeadValue: 'Description',
         },
-        {
-            _class: 'monospaced',
-            colClass: 't85',
-            colHeadName: 'default',
-            colHeadValue: 'Default',
-        },
     ];
 
     public formSelectActions = [
         {
-            description: 'Set a function to fire when the select contents changes.',
+            description: 'An object with callback functions. More details coming soon.',
             name: 'actions',
-            value: 'function',
+            value: 'object',
         },
     ];
 

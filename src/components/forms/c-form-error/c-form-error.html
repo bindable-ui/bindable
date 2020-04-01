@@ -6,7 +6,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-form-error.css"></require>
 
-    <span class="${styles.base}  ${styles[state]}">
+    <span
+        class="
+            ${styles.base}
+            ${styles[state]}
+        "
+    >
         <span class="${styles.errorBlock}">
             <slot></slot>
         </span>

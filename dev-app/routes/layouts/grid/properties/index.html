@@ -52,21 +52,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>gap</c-h3>
                 <c-code-sample>
-                    <l-grid gap="var(--s5)">
-                        <l-box>First Item</l-box>
-                        <l-box>Second Item</l-box>
-                        <l-box>Third Item</l-box>
-                        <l-box>Fourth Item</l-box>
-                        <l-box>Fifth Item</l-box>
-                    </l-grid>
-
-                    <l-grid gap="0px">
-                        <l-box>First Item</l-box>
-                        <l-box>Second Item</l-box>
-                        <l-box>Third Item</l-box>
-                        <l-box>Fourth Item</l-box>
-                        <l-box>Fifth Item</l-box>
-                    </l-grid>
+                    <l-stack>
+                        <l-grid gap="var(--s5)">
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                            <l-box>Third Item</l-box>
+                            <l-box>Fourth Item</l-box>
+                            <l-box>Fifth Item</l-box>
+                        </l-grid>
+                        <l-grid gap="0px">
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                            <l-box>Third Item</l-box>
+                            <l-box>Fourth Item</l-box>
+                            <l-box>Fifth Item</l-box>
+                        </l-grid>
+                    </l-stack>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -77,15 +78,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>auto-sizing</c-h3>
                 <c-code-sample>
-                    <l-grid>
-                        <l-box>First Item</l-box>
-                        <l-box>Second Item</l-box>
-                    </l-grid>
-
-                    <l-grid auto-sizing="auto-fill">
-                        <l-box>First Item</l-box>
-                        <l-box>Second Item</l-box>
-                    </l-grid>
+                    <l-stack>
+                        <l-grid>
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                        </l-grid>
+                        <l-grid auto-sizing="auto-fill">
+                            <l-box>First Item</l-box>
+                            <l-box>Second Item</l-box>
+                        </l-grid>
+                    </l-stack>
                 </c-code-sample>
             </l-stack>
         </div>

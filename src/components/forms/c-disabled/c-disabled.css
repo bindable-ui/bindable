@@ -21,7 +21,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .disabled{
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 6px;
     color: var(--c_subOneMain);
     font-style: italic;
     word-break: break-word;
