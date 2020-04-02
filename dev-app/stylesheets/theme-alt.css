@@ -374,7 +374,8 @@ c-label{
 c-text-input,
 c-textarea-input,
 c-copy,
-c-file-input{
+c-file-input,
+c-form-select{
     /* Base */
     --input-padding: var(--s-5) var(--s-3) var(--s-5) 0 !important;
     --input-border: none !important;
@@ -429,6 +430,16 @@ c-disabled{
 
 c-form-error{
     --form-error-color: var(--c_subThreeMain) !important;
+}
+
+
+/**
+ * ^c-form-select
+ */
+
+c-form-select{
+    --select-multiple-checked: var(--c_primaryMain) !important;
+    --select-multiple-load-more-background: var(--c_secondaryMain) !important;
 }
 
 

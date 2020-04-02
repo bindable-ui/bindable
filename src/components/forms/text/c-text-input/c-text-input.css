@@ -32,7 +32,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 c-text-input,
 c-textarea-input,
 c-copy,
-c-file-input{
+c-file-input,
+c-form-select{
     /* Base */
     --input-padding: var(--s-5) var(--s-3);
     --input-border: solid 1px var(--c_black);

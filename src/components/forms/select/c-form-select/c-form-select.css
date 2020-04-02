@@ -8,6 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
+ *  THEMING
  *  BASE
  *      - Setup
  *  STATE
@@ -17,6 +18,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  SEARCH
  *  LOADERS
  */
+
+
+
+
+
+/*------------------------------------*\
+    !THEMING
+\*------------------------------------*/
+
+c-form-select{
+    --select-multiple-checked: var(--c_subOneMain);
+    --select-multiple-load-more-background: var(--c_asphalt);
+}
 
 
 
@@ -40,20 +54,20 @@ c-form-select{
     -moz-appearance: none;
     display: block;
     width: 100%;
-    padding: var(--s-5) var(--s-3);
-    border: solid 1px var(--c_black);
+    padding: var(--input-padding);
+    border: var(--input-border);
     border-radius: 0;
     outline: none;
-    background: var(--c_charcoal);
-    color: var(--c_smoke);
-    box-shadow: inset 0 -1px 0 var(--c_gray);
-    transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+    background: var(--input-background);
+    color: var(--input-color);
+    box-shadow: var(--input-box-shadow);
+    transition: var(--input-transition);
 }
 
 .select:focus,
 .select:active{
-    color: var(--c_lightGray);
-    box-shadow: inset 0 -1px 0 var(--c_secondaryMain);
+    color: var(--input-color-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 @media (-webkit-min-device-pixel-ratio: 0){
@@ -95,7 +109,7 @@ select:-moz-focusring{
 select.error:focus,
 select.error:active,
 select.error{
-    box-shadow: inset 0 -1px 0 var(--c_primaryLight);
+    box-shadow: var(--input-box-shadow-error);
 }
 
 /**
@@ -105,7 +119,7 @@ select.error{
  select.warning:focus,
  select.warning:active,
  select.warning{
-     box-shadow: inset 0 -1px 0 var(--c_subTwoMain);
+    box-shadow: var(--input-box-shadow-warning);
  }
 
 
@@ -144,7 +158,7 @@ select.error{
 }
 
 .multiple option:checked{
-    background: linear-gradient(var(--c_subOneMain), var(--c_subOneMain));
+    background: linear-gradient(var(--select-multiple-checked), var(--select-multiple-checked));
 }
 
 
@@ -168,5 +182,5 @@ select.error{
     bottom: 0;
     width: 100%;
     height: 30px;
-    background: var(--c_asphalt);
+    background: var(--select-multiple-load-more-background);
 }
