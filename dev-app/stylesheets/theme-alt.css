@@ -90,6 +90,16 @@ body{
 
 
 /**
+ * ^Links
+ */
+
+a{
+    --a-color: var(--c_asphalt) !important;
+    --a-color-hover: var(--c_secondaryMain)!important;
+}
+
+
+/**
  * ^Tokens
  */
 
@@ -321,6 +331,25 @@ c-button{
 
 
 /*------------------------------------*\
+    !COPY
+\*------------------------------------*/
+
+c-copy{
+    --copy-button-border: none !important;
+    --copy-button-radius: var(--s5) !important;
+    --copy-button-width: 50px !important;
+    --copy-content-padding: calc(var(--s-3) - 3px) var(--s3) var(--s-5) 0 !important;
+    --copy-content-border: none !important;
+    --copy-content-background: transparent !important;
+    --copy-content-color: var(--c_asphalt) !important;
+    --copy-content-font-size: var(--s0) !important;
+}
+
+
+
+
+
+/*------------------------------------*\
     !FORMS
 \*------------------------------------*/
 
@@ -342,6 +371,7 @@ c-label{
 
 c-text-input,
 c-textarea-input,
+c-copy,
 c-file-input{
     /* Base */
     --input-padding: var(--s-5) var(--s-3) var(--s-5) 0 !important;

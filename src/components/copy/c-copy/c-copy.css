@@ -44,6 +44,16 @@ c-copy{
     border: var(--copy-button-border);
     border-left: none;
     border-radius: var(--copy-button-radius);
+    padding: var(--input-button-padding) !important;
+}
+
+.copy button:hover{
+    color: var(--input-button-hover-color) !important;
+    background: var(--input-button-hover-background) !important;
+}
+
+.copy button:before{
+    display: none;
 }
 
 .container{
@@ -62,6 +72,7 @@ c-copy{
     color: var(--copy-content-color);
     font-size: var(--copy-content-font-size);
     text-overflow: ellipsis;
+    box-shadow: var(--input-box-shadow);
     white-space: nowrap;
     overflow: hidden;
 }
