@@ -349,8 +349,9 @@ c-file-input{
 
     /* Icon */
     --input-icon-padding: var(--s2) !important;
-    --input-icon-side-spacing: var(--s5) !important;
-    --input-icon-color: var(--c_subTwoMain) !important;
+    --input-icon-side-spacing: 0 !important;
+    --input-icon-top-spacing: var(--s-3) !important;
+    --input-icon-color: var(--c_charcoal) !important;
 
     /* Button */
     --input-button-padding: var(--s-5) 0 0 var(--s-5) !important;

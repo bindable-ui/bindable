@@ -51,6 +51,7 @@ c-file-input{
 
     /* Icon */
     --input-icon-padding: var(--s3);
+    --input-icon-side-spacing: var(--s-2);
     --input-icon-top-spacing: calc(var(--s-3) + 1px);
     --input-icon-size: var(--s0);
     --input-icon-color: var(--c_smoke);

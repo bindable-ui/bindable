@@ -76,6 +76,10 @@ export class TextThemeProperties {
             name: '--input-icon-padding',
         },
         {
+            default: 'var(--s-2)',
+            name: '--input-icon-side-spacing',
+        },
+        {
             default: 'calc(var(--s-3) + 1px)',
             name: '--input-icon-top-spacing',
         },

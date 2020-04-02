@@ -28,7 +28,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon svg{
     position: absolute;
-    top: calc(var(--s-3) + 1px);
+    top: var(--input-icon-top-spacing);
     width: var(--input-icon-size);
     height: var(--input-icon-size);
     fill: var(--input-icon-color);
