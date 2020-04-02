@@ -366,7 +366,7 @@ c-label{
 
 
 /**
- * ^c-text-input, c-textarea-input, c-file-input
+ * ^c-text-input, c-textarea-input, c-copy, c-file-input
  */
 
 c-text-input,
@@ -410,6 +410,23 @@ c-file-input{
     --input-clearable-icon-right: var(--s-5) !important;
     --input-clearable-icon-color: var(--c_charcoal) !important;
     --input-clearable-icon-hover-color: var(--c_subThreeMain) !important;
+}
+
+
+/**
+ * ^c-disabled
+ */
+
+c-disabled{
+    --form-disabled-color: var(--c_slate) !important;
+}
+
+/**
+ * ^c-form-error
+ */
+
+c-form-error{
+    --form-error-color: var(--c_subThreeMain) !important;
 }
 
 
