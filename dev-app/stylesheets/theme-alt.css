@@ -307,7 +307,7 @@ c-button{
 
     /* Colors */
     --button-primary-hover-background: var(--c_primaryLight) !important;
-    --button-primary-disabled-background: #A38124!important;
+    --button-primary-disabled-background: #A38124 !important;
 
     --button-secondary-background: var(--c_soot) !important;
     --button-secondary-hover-background: var(--c_ash) !important;
@@ -440,6 +440,33 @@ c-form-error{
 c-form-select{
     --select-multiple-checked: var(--c_primaryMain) !important;
     --select-multiple-load-more-background: var(--c_secondaryMain) !important;
+}
+
+
+/**
+ * ^c-form-checkbox-radio-container, c-tile, c-table
+ */
+
+c-form-checkbox-radio-container,
+c-form-image,
+c-tile,
+c-table{
+    /* checkbox */
+    --checkbox-border: solid 1px var(--c_charcoal) !important;
+    --checkbox-border-radius: 0 !important;
+    --checkbox-background: transparent !important;
+    --checkbox-hover-background: var(--c_lightGray) !important;
+    --checkbox-selected-background: var(--c_secondaryMain) !important;
+    --checkbox-disabled-background: var(--c_secondaryDark) !important;
+
+    /* radio */
+    --radio-border: solid 1px var(--c_charcoal) !important;
+    --radio-background: transparent !important;
+    --radio-hover-background: var(--c_lightGray) !important;
+    --radio-selected-background: var(--c_secondaryMain) !important;
+    --radio-disabled-background: var(--c_secondaryDark) !important;
+    --radio-checkbox-label-color: var(--c_asphalt) !important;
+    --radio-checkbox-label-size: var(--s0) !important;
 }
 
 

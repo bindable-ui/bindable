@@ -28,6 +28,7 @@ c-tile,
 c-table{
     --checkbox-size: var(--s0);
     --checkbox-border: solid 1px var(--c_black);
+    --checkbox-border-radius: 2px;
     --checkbox-background: var(--c_charcoal);
     --checkbox-hover-background: var(--c_gray);
     --checkbox-selected-background: var(--c_secondaryMain);
@@ -51,7 +52,7 @@ c-table{
     width: var(--checkbox-size) !important;
     height: var(--checkbox-size) !important;
     border: var(--checkbox-border);
-    border-radius: 2px;
+    border-radius: var(--checkbox-border-radius);
     outline: none;
     background: var(--checkbox-background);
     box-shadow: none;
@@ -67,7 +68,7 @@ c-table{
     display: block;
     width: 100%;
     height: 100%;
-    border-radius: 2px;
+    border-radius: var(--checkbox-border-radius);
     background-image: url('data:image/svg+xml;utf8,<svg width="32" height="25" viewBox="0 0 32 25" xmlns="http://www.w3.org/2000/svg"><path d="M27 0L12 15 5 8l-5 5 12 12L32 5l-5-5z" fill="\%23FFF" fill-rule="evenodd"/></svg>');
     background-repeat: no-repeat;
     background-position: top 50% left 50%;

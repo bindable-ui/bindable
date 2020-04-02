@@ -28,6 +28,10 @@ export class CheckboxThemeProperties {
             name: '--checkbox-border',
         },
         {
+            default: '2px',
+            name: '--checkbox-border-radius',
+        },
+        {
             default: 'var(--c_charcoal)',
             name: '--checkbox-background',
         },
