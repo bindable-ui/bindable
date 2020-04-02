@@ -26,6 +26,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 c-label{
     --label-color: var(--c_white);
     --label-font-family: var(--ff_primary-bold);
+    --label-text-transform: none;
+    --label-font-size: unset;
     --label-color-error: var(--c_primaryLight);
     --label-color-warning: var(--c_subTwoMain);
     --label-edit-font-size: var(--s-1);
@@ -48,6 +50,8 @@ c-label{
     color: var(--label-color);
     font-family: var(--label-font-family);
     word-break: break-all;
+    text-transform: var(--label-text-transform);
+    font-size: var(--label-font-size);
 }
 
 .label > svg {

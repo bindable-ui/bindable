@@ -14,7 +14,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Tokens
  * BUTTONS
  * FORMS
- *      -c-text-input, c-textarea-input, c-file-input
+ *      - c-label
+ *      - c-text-input, c-textarea-input, c-file-input
  * NAVS
  *      - c-nav-horizontal
  *      - c-nav-vertical
@@ -322,6 +323,18 @@ c-button{
 /*------------------------------------*\
     !FORMS
 \*------------------------------------*/
+
+/**
+ * ^c-label
+ */
+
+c-label{
+    --label-color: var(--c_black) !important;
+    --label-color-error: var(--c_subThreeMain) !important;
+    --label-text-transform: uppercase !important;
+    --label-font-size: var(--s-1) !important;
+}
+
 
 /**
  * ^c-text-input, c-textarea-input, c-file-input
