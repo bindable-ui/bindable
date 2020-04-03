@@ -18,6 +18,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - c-text-input, c-textarea-input, c-file-input
  *      - c-disabled
  *      - c-form-error
+ *      - c-form-date
+ *      - c-form-image
  * NAVS
  *      - c-nav-horizontal
  *      - c-nav-vertical
@@ -448,7 +450,7 @@ c-form-select{
  */
 
 c-form-checkbox-radio-container,
-c-form-image,
+:global(.c-form-image),
 c-tile,
 c-table{
     /* checkbox */
@@ -470,11 +472,8 @@ c-table{
 }
 
 
-
-
-
 /**
- * ^c-text-input
+ * ^c-form-date
  */
 
 c-text-input{
@@ -494,6 +493,30 @@ c-text-input{
     --form-date-next-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E") !important;
     --form-date-up-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E") !important;
     --form-date-down-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E") !important;
+}
+
+
+/**
+ * ^c-form-image
+ */
+
+:global(.c-form-image){
+    --form-image-hover-background: var(--c_marshmellow) !important;
+    --form-image-description-color: var(--c_black) !important;
+    --form-image-active-background: var(--c_lightGray) !important;
+}
+
+
+/**
+ * ^c-slider
+ */
+c-slider{
+    --slider-track-border-disabled: solid 1px var(--c_marshmellow) !important;
+    --slider-track-background-disabled: var(--c_lightGray) !important;
+    --slider-thumb-border: solid 1px var(--c_subSecondaryLight) !important;
+    --slider-thumb-background: var(--c_secondaryMain) !important;
+    --slider-thumb-border-disabled: solid 1px var(--c_smoke) !important;
+    --slider-thumb-background-disabled: var(--c_smoke) !important;
 }
 
 
