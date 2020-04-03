@@ -173,9 +173,10 @@ c-text-input{
     top: -2px;
     left: 105px;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid ;
+    border-bottom: 7px solid;
     border-left: 7px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 :global .bootstrap-datetimepicker-widget.dropdown-menu.bottom::after{
@@ -193,6 +194,7 @@ c-text-input{
     border-right: 7px solid transparent;
     border-left: 7px solid transparent;
     border-top-color: rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 :global .bootstrap-datetimepicker-widget.dropdown-menu.top::after{
@@ -622,7 +624,7 @@ c-text-input{
     width: 8px !important;
     height: 13px;
     margin-left: 5px;
-    background: var(--form-date-prev-icon);
+    background: var(--form-date-next-icon);
     background-repeat: no-repeat;
 }
 

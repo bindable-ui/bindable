@@ -473,6 +473,33 @@ c-table{
 
 
 
+/**
+ * ^c-text-input
+ */
+
+c-text-input{
+    --form-date-calendar-icon-color: var(--c_smoke) !important;
+}
+
+:global(.bootstrap-datetimepicker-widget){
+    --form-date-calendar-background: var(--c_lightGray) !important;
+    --form-date-calendar-day-hover-background: var(--c_smoke) !important;
+    --form-date-calendar-old-new-color: var(--c_gray) !important;
+    --form-date-calendar-today-marker-color: var(--c_primaryMain) !important;
+    --form-date-calendar-day-active-background: var(--c_primaryMain) !important;
+    --form-date-calendar-day-active-color: var(--c_black) !important;
+    --form-date-calendar-day-disabled-color: #777 !important;
+    --form-date-calendar-button-color: var(--c_black) !important;
+    --form-date-prev-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='11' viewBox='0 0 7 11' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M5.5 11L0 5.5 5.5 0l1.29 1.29L2.577 5.5l4.21 4.212L5.5 11z'/%3E%3C/svg%3E") !important;
+    --form-date-next-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E") !important;
+    --form-date-up-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E") !important;
+    --form-date-down-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E") !important;
+}
+
+
+
+
+
 /*------------------------------------*\
     !NAVS
 \*------------------------------------*/
