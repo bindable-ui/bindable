@@ -20,6 +20,10 @@ export class ToggleThemeProperties {
 
     public toggleThemeProperties = [
         {
+            default: 'var(--c_smoke)',
+            name: '--toggle-nub-border',
+        },
+        {
             default: 'var(--c_white)',
             name: '--toggle-nub-border-hover',
         },

@@ -28,6 +28,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 :global(.c-toggle-input){
+    --toggle-nub-border: var(--c_smoke);
     --toggle-nub-border-hover: var(--c_white);
     --toggle-nub-border-checked: var(--c_white);
     --toggle-nub-border-disabled: var(--c_charcoal);
@@ -127,7 +128,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     width: var(--s0) !important;
     height: var(--s0) !important;
     position: absolute;
-    border: solid 1px var(--c_smoke);
+    border: solid 1px var(--toggle-nub-border);
     border-radius: var(--s-3);
     background: var(--toggle-nub-background);
     transition: all 0.1s ease-in-out;

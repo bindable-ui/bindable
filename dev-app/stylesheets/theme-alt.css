@@ -20,6 +20,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - c-form-error
  *      - c-form-date
  *      - c-form-image
+ *      - c-slider
+ *      - c-form-toggle
  * NAVS
  *      - c-nav-horizontal
  *      - c-nav-vertical
@@ -510,6 +512,7 @@ c-text-input{
 /**
  * ^c-slider
  */
+
 c-slider{
     --slider-track-border-disabled: solid 1px var(--c_marshmellow) !important;
     --slider-track-background-disabled: var(--c_lightGray) !important;
@@ -517,6 +520,25 @@ c-slider{
     --slider-thumb-background: var(--c_secondaryMain) !important;
     --slider-thumb-border-disabled: solid 1px var(--c_smoke) !important;
     --slider-thumb-background-disabled: var(--c_smoke) !important;
+}
+
+
+/**
+ * ^c-toggle-input
+ */
+
+:global(.c-toggle-input){
+    --toggle-nub-border: var(--c_slate) !important;
+    --toggle-nub-border-hover: var(--c_slate) !important;
+    --toggle-nub-border-checked: var(--c_secondaryDark) !important;
+    --toggle-nub-border-disabled: var(--c_smoke) !important;
+    --toggle-nub-background: var(--c_gray) !important;
+    --toggle-nub-background-disabled: var(--c_lightGray) !important;
+    --toggle-nub-background-checked: var(--c_secondaryMain) !important;
+    --toggle-nub-background-checked-disabled: var(--c_charcoal) !important;
+    --toggle-nub-hover-background: var(--c_charcoal) !important;
+    --toggle-bar-background-checked: var(--c_secondaryLighter) !important;
+    --toggle-bar-background: var(--c_lightGray) !important;
 }
 
 
