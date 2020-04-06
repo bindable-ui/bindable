@@ -36,6 +36,11 @@ export class TileProperties {
             value: '',
         },
         {
+            description: 'Set the colored bar at the top of the tile. Status will override this.',
+            name: 'color',
+            value: 'CSS Color',
+        },
+        {
             default: 'true',
             description: 'Set if you do not need the hover animation on the tile.',
             name: 'hover',
@@ -95,7 +100,7 @@ export class TileProperties {
         {
             description: 'This adds a colors bar on the tile.',
             name: 'status',
-            value: 'processing | healthy | info | warning | error',
+            value: 'processing',
         },
         {
             default: 'actions',

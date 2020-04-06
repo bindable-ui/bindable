@@ -45,6 +45,8 @@ export class CTile {
     @bindable
     public status;
     @bindable
+    public color;
+    @bindable
     public tipIcon = 'actions';
     @bindable
     public title;

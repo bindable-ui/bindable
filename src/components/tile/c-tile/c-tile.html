@@ -51,10 +51,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ></c-drag-handle>
                 <div
                     class="
-                        ${styles.status}
+                        ${styles.color}
                         ${styles[status]}
                     "
-                    if.bind="status"
+                    css="--tile-color: ${color}"
+                    if.bind="color || status"
                 ></div>
                 <img
                     if.bind="imageUrl"

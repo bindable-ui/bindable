@@ -23,7 +23,7 @@ export class Status {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't190',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
