@@ -137,9 +137,9 @@ export class TableActions {
                 ship: '',
             },
             {
-                _status: 'info',
+                _status: 'neutral-alt',
                 gender: 'Male',
-                name: 'Yoda',
+                name: 'Palpatine',
                 ship: '',
             },
         ];
