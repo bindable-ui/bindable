@@ -8,7 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  DRAGGABLE
+ *  BASE
  */
 
 
@@ -16,17 +16,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !DRAGGABLE
+    !BASE
 \*------------------------------------*/
 
-.draggable{
-    height: 15px;
-    width: 11px;
-    margin-bottom: 0 !important;
-    vertical-align: top;
-}
-
-.draggable span{
-    vertical-align: top;
-    line-height: 0;
+.base{
+    display: flex;
 }

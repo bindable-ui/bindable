@@ -7,8 +7,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-form-slider.css"></require>
 
     <div class="${inline ? styles.inline : ''}">
-        <div class="${styles.labelWrapper}" show.bind="_state !== 'hidden' && label">
-            <c-label state="${_state}" if.bind="label">
+        <div
+            class="${styles.labelWrapper}"
+            show.bind="_state !== 'hidden' && label"
+        >
+            <c-label
+                state="${_state}"
+                if.bind="label"
+            >
                 ${label}
             </c-label>
             <slot name="tip"></slot>
@@ -21,5 +27,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             debounce-time.bind="debounceTime"
         ></c-slider>
     </div>
-    <c-form-error state="${_state}" if.bind="_state !== 'hidden' && errorMsg">${errorMsg}</c-form-error>
+    <c-form-error
+        state="${_state}"
+        if.bind="_state !== 'hidden' && errorMsg"
+    >
+        ${errorMsg}
+    </c-form-error>
 </template>

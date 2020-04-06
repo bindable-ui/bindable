@@ -6,12 +6,37 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-pill.css"></require>
 
-    <span show.bind="!href" class="${styles.pill}  ${styles[color]}">
-        <c-icon icon="${icon}" color="var(--c_white)" size="itzy" action.call="actionFunction()" if.bind="icon"></c-icon>
+    <span
+        show.bind="!href"
+        class="
+            ${styles.pill}
+            ${styles[color]}
+        "
+    >
+        <c-icon
+            icon="${icon}"
+            color="var(--c_white)"
+            size="itzy"
+            action.call="actionFunction()"
+            if.bind="icon"
+        ></c-icon>
         <slot name="pill-content"></slot>
     </span>
-    <a show.bind="href" href.bind="href" class="${styles.pill}  ${styles[color]}">
-        <c-icon icon="${icon}" color="var(--c_white)" size="itzy" action.call="actionFunction()" if.bind="icon"></c-icon>
+    <a
+        href.bind="href"
+        class="
+            ${styles.pill}
+            ${styles[color]}
+        "
+        show.bind="href"
+    >
+        <c-icon
+            icon="${icon}"
+            color="var(--c_white)"
+            size="itzy"
+            action.call="actionFunction()"
+            if.bind="icon"
+        ></c-icon>
 		<slot name="pill-link-content"></slot>
 	</a>
 </template>

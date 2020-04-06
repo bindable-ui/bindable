@@ -18,19 +18,36 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         hide.bind="state === 'hidden'"
         drag-dropzone.bind="dropzoneActions"
     >
-        <span class="${styles.accordionArrow}" if.bind="accordionItem">
+        <span
+            class="${styles.accordionArrow}"
+            if.bind="accordionItem"
+        >
             <svg class="icon">
                 <use xlink:href="#chevron-right"></use>
             </svg>
         </span>
-        <a if.bind="accordionItem && title" click.trigger="toggleAccordion()" class="${styles.accordionLink}">
+        <a
+            click.trigger="toggleAccordion()"
+            class="${styles.accordionLink}"
+            if.bind="accordionItem && title"
+        >
             ${title}
         </a>
-        <a if.bind="!accordionItem && title" click.delegate="clickTrigger()">
+        <a
+            if.bind="!accordionItem && title"
+            click.delegate="clickTrigger()"
+        >
             ${title}
-            <span class="${styles.sub}" if.bind="subText">${subText}</span>
+            <span
+                class="${styles.sub}"
+                if.bind="subText"
+            >${subText}</span>
         </a>
-        <div if.bind="icon && iconAction" click.trigger="actionFunction()" class="${styles.iconContainer}">
+        <div
+            click.trigger="actionFunction()"
+            class="${styles.iconContainer}"
+            if.bind="icon && iconAction"
+        >
             <c-icon icon="${icon}"></c-icon>
         </div>
         <h4 if.bind="sectionTitle">${sectionTitle}</h4>

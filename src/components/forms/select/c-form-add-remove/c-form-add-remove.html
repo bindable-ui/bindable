@@ -6,7 +6,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-form-add-remove.css"></require>
 
-    <div class="${styles.container}" hide.bind="_state === 'hidden'">
+    <div
+        class="${styles.container}"
+        hide.bind="_state === 'hidden'"
+    >
         <c-form-select
             options.two-way="listLeft"
             label="${titleLeft}"
@@ -20,8 +23,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             scroll-to-load.bind="scrollToLoadLeft"
             actions.bind="actionsLeft"
         >
-            <span slot="tip" show.bind="tipLeftContent">
-                <c-tip side="bottom" icon-tip.bind="true" arrow-position="leftEdge" size="medium">
+            <span
+                slot="tip"
+                show.bind="tipLeftContent"
+            >
+                <c-tip
+                    side="bottom"
+                    icon-tip.bind="true"
+                    arrow-position="leftEdge"
+                    size="medium"
+                >
                     <div slot="trigger">
                         <c-icon icon="question"></c-icon>
                     </div>
@@ -63,8 +74,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             scroll-to-load.bind="scrollToLoadRight"
             actions.bind="actionsRight"
         >
-            <span slot="tip" show.bind="tipRightContent">
-                <c-tip side="bottom" icon-tip.bind="true" arrow-position="rightEdge" size="medium">
+            <span
+                slot="tip"
+                show.bind="tipRightContent"
+            >
+                <c-tip
+                    side="bottom"
+                    icon-tip.bind="true"
+                    arrow-position="rightEdge"
+                    size="medium"
+                >
                     <div slot="trigger">
                         <c-icon icon="question"></c-icon>
                     </div>

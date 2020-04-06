@@ -15,22 +15,23 @@ const TIMELINE_BLOCK_MARGIN = 30;
 @inject(Element, CPopoverService)
 export class CTimeEntry {
     @bindable({defaultBindingMode: bindingMode.twoWay})
-    public item;
+    public item = null;
 
     public popoverOpen = false;
     public styles = styles;
 
     constructor(public element: Element, private vPopoverService: CPopoverService) {}
 
-    public attached() {
-        // This will make sure that the top of the line for an
-        // entry lines up with the hour line.
-        if (this.item && this.item.top >= 0) {
-            this.item.top = this.item.top - 2;
-        }
-    }
-
     public openPopover($event) {
+        if ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+        }
+
+        if (!this.item) {
+            return;
+        }
+
         if (!this.item.contentViewModel) {
             // Relative to popover component
             this.item.contentViewModel = PLATFORM.moduleName(

@@ -6,18 +6,31 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-form-image.css"></require>
 
-    <label for="${id}" class="${styles.label}  ${styles[state]}">
+    <label
+        for="${id}"
+        class="
+            ${styles.label}
+            ${styles[state]}
+        "
+    >
         <div class="${styles.container}">
             <div class="${styles.image}">
                 <div class="${styles.center}">
-                    <img src="${imageUrl}" alt="${id}">
+                    <img
+                        src="${imageUrl}"
+                        alt="${id}"
+                    >
                 </div>
             </div>
             <div class="${styles.input}">
                 <div class="${styles.inputCover}"></div>
                 <l-cluster spacing="var(--s-4)">
                     <div>
-                        <c-radio-input name="${name}" id="${id}" checked.bind="checked"></c-radio-input>
+                        <c-radio-input
+                            name="${name}"
+                            id="${id}"
+                            checked.bind="checked"
+                        ></c-radio-input>
                         <span class="${styles.desc}">${description}</span>
                     </div>
                 </l-cluster>

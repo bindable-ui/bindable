@@ -17,8 +17,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     class="${styles.draggable}"
                     drag-options.bind="dragOptions"
                 ></c-drag-handle>
-                <c-checkbox-input id="${id}" checked-value.bind="checkedValue" state="${_state}" on-change.call="valueChanged(val)"></c-checkbox-input>
-                <c-checkbox-label id="${id}" state="${_state}"><slot></slot></c-checkbox-label>
+                <c-checkbox-input
+                    id="${id}"
+                    checked-value.bind="checkedValue"
+                    state="${_state}"
+                    on-change.call="valueChanged(val)"
+                ></c-checkbox-input>
+                <c-checkbox-label
+                    id="${id}"
+                    state="${_state}"
+                >
+                    <slot></slot>
+                </c-checkbox-label>
             </div>
         </l-cluster>
     </div>

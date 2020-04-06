@@ -22,6 +22,7 @@ import {CToastsService} from './components/toasts/c-toasts/c-toasts-service';
 import {dirtyCheckPrompt} from './decorators/dirty-check-prompt/index';
 
 // Value Converters
+import {AsyncBindingBehavior} from './value-converters/async-binding';
 import {BooleanYesNoValueConverter} from './value-converters/boolean-yes-no';
 import {CapitalizeValueConverter} from './value-converters/capitalize';
 import {CountValueConverter} from './value-converters/count';
@@ -75,7 +76,7 @@ import {
     IVNavSliderPageList,
 } from './components/navs/c-nav-vertical-sliding/c-nav-vertical-sliding-interfaces';
 import {CTableActions, CTableCol} from './components/tables/c-table/c-table-interfaces';
-import {CTimeline} from './components/timeline/c-timeline/c-timeline';
+import {CTimeline, ZOOM_LEVELS} from './components/timeline/c-timeline/c-timeline';
 import {ITimeEntryBasic, ITimelineActions} from './components/timeline/c-timeline/c-timeline-interfaces';
 import {CTipActions} from './components/tip/c-tip/c-tip-interfaces';
 import {IDragOptions} from './custom-attributes/drag-draggable';
@@ -122,6 +123,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./value-converters/string-to-number'),
         PLATFORM.moduleName('./value-converters/th-class-for'),
         PLATFORM.moduleName('./value-converters/vsort'),
+        PLATFORM.moduleName('./value-converters/async-binding'),
 
         // Components
         PLATFORM.moduleName('./components/copy/c-copy/c-copy'),
@@ -221,7 +223,7 @@ export function configure(config: FrameworkConfiguration) {
 export {copyToClipboard, generateRandom, lazyLoadCheck, LocalStorageHelper, multiIndexSplicer, sorting, sortDropData};
 
 // Misc
-export {SharedNav, CToastsService, dirtyCheckPrompt, CPopoverService};
+export {SharedNav, CToastsService, dirtyCheckPrompt, CPopoverService, ZOOM_LEVELS};
 
 // Value converters
 export {
@@ -266,6 +268,7 @@ export {
     StringToNumberValueConverter,
     ThClassForValueConverter,
     CsortValueConverter,
+    AsyncBindingBehavior,
 };
 
 // Interfaces

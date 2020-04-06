@@ -23,7 +23,26 @@ export class CPopoverService {
     public color = 'subOne';
     public showing = false;
 
+    private prevModel: ICPopover = null;
+
     public open(model: ICPopover) {
+        // Don't nuke the data if an entry is the same as the current one
+        // BAD & STRANGE THINGS WILL HAPPEN!
+        if (
+            this.prevModel &&
+            this.prevModel.data &&
+            model &&
+            model.data &&
+            model.data.blockIsoTime !== this.prevModel.data.blockIsoTime
+        ) {
+            this.closePrev();
+        }
+
+        if (!model) {
+            return;
+        }
+
+        this.prevModel = model; // Keep track of this to close last one if new one opens too quickly
         this.model = model;
 
         if (this.model && this.model.popoverColor) {
@@ -58,12 +77,19 @@ export class CPopoverService {
 
             setTimeout(() => {
                 const popoverContainer = $('#popover-container');
+
+                // Don't actually open the container if it can't find the elem
+                if (!popoverContainer.length) {
+                    return;
+                }
+
                 const diff = $(window).outerHeight() - (popoverContainer.offset().top + popoverContainer.outerHeight());
 
                 // Popover is overflowing
                 if (diff < 0) {
                     this.model.top += diff - 25;
                 }
+
                 this.showing = true;
             }, 100);
         });
@@ -80,5 +106,23 @@ export class CPopoverService {
             this.model = null;
             this.color = 'subOne';
         }, 320);
+    }
+
+    /**
+     * This fixes a race condition where a user might click like crazy
+     * and open a new popover before the previous one actually opened.
+     */
+    private closePrev() {
+        this.showing = false;
+
+        if (!this.prevModel) {
+            return;
+        }
+
+        if (_.isFunction(this.prevModel.onClose)) {
+            this.prevModel.onClose();
+        }
+
+        this.prevModel = null;
     }
 }

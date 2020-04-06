@@ -6,7 +6,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 import * as moment from 'moment';
 
 export class TimelineExample {
-    public today = moment().startOf('day').startOf('week').add(2, 'days').toISOString();
+    public today = moment().startOf('day').startOf('week').add(4, 'days').toISOString();
     public entries: any = [
         {
             accentColor: '#8E5DB2',
@@ -17,16 +17,16 @@ export class TimelineExample {
         },
         {
             accentColor: '#359AC5',
-            duration: 500,
+            duration: 480,
             icons: ['ad-break'],
-            start: moment(this.today).add(9.67, 'hours').toISOString(),
+            start: moment(this.today).add(9, 'hours').add(40, 'minutes').toISOString(),
             title: 'Ad Break',
         },
         {
             accentColor: '#8E5DB2',
             duration: 6000,
             icons: ['play'],
-            start: moment(this.today).add(9.81, 'hours').toISOString(),
+            start: moment(this.today).add(9, 'hours').add(48, 'minutes').toISOString(),
             title: 'Ace Ventura',
         },
         {
@@ -168,8 +168,8 @@ export class TimelineExample {
         // },
     ];
 
-    public zoomLevel = 2;
-    public displayView = 'week';
+    public zoomLevel = 5;
+    public displayView = 'three-day';
     public loading = false;
     public preventCreate = _isoTime => false;
 

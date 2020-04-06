@@ -15,6 +15,7 @@ export class TimelineProperties {
         },
         {
             _class: 'monospaced',
+            colClass: 't270',
             colHeadName: 'type',
             colHeadValue: 'Type',
         },
@@ -24,6 +25,7 @@ export class TimelineProperties {
         },
         {
             _class: 'monospaced',
+            colClass: 't150',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -62,7 +64,7 @@ export class TimelineProperties {
         },
         {
             default: 'day',
-            description: 'What view to display: "day", "week", "month"',
+            description: 'What view to display: "day", "three-day", "week", "month"',
             name: 'timeView',
             type: 'string',
         },
@@ -109,16 +111,22 @@ export class TimelineProperties {
             type: 'number',
         },
         {
+            default: 'null',
+            description: 'Time you wish to scroll to. Format: "15:15, "01:12", ect.',
+            name: 'scrollTime',
+            type: 'string',
+        },
+        {
             default: 'false',
             description: 'Automatically "snap" to a close time entry to create a new one with no gap.Number of days being displayed from lazy-loading. Only on "day" view.',
             name: 'snapAdd',
             type: 'boolean',
         },
         {
-            default: '() => false',
-            description: 'Callback to determine if a click on the timeline should prevent adding a new entry.',
+            default: 'null',
+            description: 'Callback to determine if a click on the timeline should prevent adding a new entry. Alternatively can just be a boolean.',
             name: 'preventCreate',
-            type: '(isoString: string) => boolean',
+            type: '(isoString: string) => boolean || boolean',
         },
         {
             default: 'null',

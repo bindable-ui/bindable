@@ -65,7 +65,7 @@ function mapEntriesFn(
         );
     };
 
-    const width = timeView === 'week' ? 30 : 60;
+    const width = timeView === 'week' || timeView === 'three-day' ? 30 : 60;
 
     let nestedEntryWidth = 80;
 
@@ -103,7 +103,7 @@ function mapEntriesFn(
                 entry.duration += diffEnd;
             }
 
-            entry.top = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+            entry.top = (diff / SECONDS_IN_MINUTE) * pxPerMinute;
             entry.height = (entry.duration / SECONDS_IN_MINUTE) * pxPerMinute;
 
             if (editEntryViewModel) {

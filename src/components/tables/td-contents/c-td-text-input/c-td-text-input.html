@@ -4,5 +4,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <c-form-text acl-restricted text-value.bind="row[col.colHeadName]" keyup.delegate="changeDetection(row, col)"></c-form-text>
+    <c-form-text
+        acl-restricted
+        text-value.bind="row[col.colHeadName]"
+        keyup.delegate="changeDetection(row, col)"
+    ></c-form-text>
 </template>

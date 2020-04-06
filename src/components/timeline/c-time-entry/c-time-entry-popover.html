@@ -8,11 +8,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
     <div>
         <div class="${styles.container}">
-            <div class="${styles.info}" style="padding: 0;">
-                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone">
+            <div
+                class="${styles.info}"
+                style="padding: 0;"
+            >
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                >
                     ${item.title}
                 </c-p>
-                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone" if.bind="item.startTime && item.endTime">
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                    if.bind="item.startTime && item.endTime"
+                >
                     ${item.startTime} - ${item.endTime}
                 </c-p>
             </div>

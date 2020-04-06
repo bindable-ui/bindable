@@ -1,7 +1,7 @@
 {
   "name": "@bindable-ui/bindable",
   "description": "An Aurelia component library",
-  "version": "1.0.15",
+  "version": "1.0.23",
   "repository": {
     "type": "git",
     "url": "https://github.com/bindable-ui/bindable"
@@ -63,6 +63,26 @@
     "typescript": "^3.1.2",
     "vinyl-fs": "^3.0.3"
   },
+  "peerDependencies": {
+    "aurelia-dialog": "^2.0.0-rc.7",
+    "dompurify": "^2.0.7",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
+    "simple-web-worker": "^1.2.0"
+  },
+  "dependencies": {
+    "aurelia-dialog": "^2.0.0-rc.7",
+    "dompurify": "^2.0.7",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
+    "simple-web-worker": "^1.2.0"
+  },
   "scripts": {
     "build": "au build-plugin",
     "build:pack": "npm run build && npm pack",
@@ -122,16 +142,6 @@
       "text",
       "html"
     ]
-  },
-  "dependencies": {
-    "aurelia-dialog": "1.0.0-rc.2.0.0",
-    "dompurify": "^2.0.7",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
-    "jquery": "^3.4.1",
-    "lodash": "^4.17.15",
-    "moment": "^2.24.0",
-    "moment-timezone": "^0.5.28",
-    "simple-web-worker": "^1.2.0"
   },
   "husky": {
     "hooks": {
