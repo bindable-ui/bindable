@@ -6,11 +6,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-table-fixed-header.css"></require>
 
-    <div class="${styles.fixedTableHeaderBg}" css="${(totalWidth > windowWidth) ? 'width:' + totalWidth + 'px' : ''}"></div>
-    <div class="${styles.fixedTableHeader}" css="${(totalWidth > windowWidth) ? 'width:' + totalWidth + 'px' : ''}" scroll.trigger="onScroll() & throttle">
+    <div
+        class="${styles.fixedTableHeaderBg}"
+        css="${(totalWidth > windowWidth) ? 'width:' + totalWidth + 'px' : ''}"
+    ></div>
+    <div
+        class="${styles.fixedTableHeader}"
+        css="${(totalWidth > windowWidth) ? 'width:' + totalWidth + 'px' : ''}"
+        scroll.trigger="onScroll() & throttle"
+    >
         <slot></slot>
     </div>
-    <div if.bind="isLoading" class="${styles.loader}">
+    <div
+        class="${styles.loader}"
+        if.bind="isLoading"
+    >
         <c-spinner size="small"></c-spinner>
     </div>
 </template>

@@ -3,10 +3,11 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, containerless} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
+import {authState} from '../../decorators/auth-state';
 import * as styles from '../l-box/l-box.css.json';
 
-@containerless
+@authState
 export class LBoxLink {
     @bindable
     public background = 'var(--c_darkGray)';
@@ -16,6 +17,8 @@ export class LBoxLink {
     public borderTop;
     @bindable
     public color = 'unset';
+    @bindable
+    public fillSpace = false;
     @bindable
     public href = '#';
     @bindable
@@ -34,6 +37,10 @@ export class LBoxLink {
     public attached() {
         if (this.target !== '_self' && this.target !== '_blank') {
             this.target = '_self';
+        }
+
+        if (typeof this.fillSpace !== 'boolean') {
+            this.fillSpace = false;
         }
     }
 }

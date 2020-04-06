@@ -34,10 +34,9 @@ export class TipActions {
 
     public tipActions = [
         {
-            default: '',
-            description: 'Callback functions supported: onHide, onShow. See actions section below for examples.',
+            description: 'An object with callback functions. Functions supported: onHide, onShow. See actions section below for examples.',
             name: 'actions',
-            value: 'Object with callback functions.',
+            value: 'object',
         },
     ];
 

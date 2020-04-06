@@ -15,6 +15,7 @@ export class TimelineProperties {
         },
         {
             _class: 'monospaced',
+            colClass: 't270',
             colHeadName: 'type',
             colHeadValue: 'Type',
         },
@@ -24,6 +25,7 @@ export class TimelineProperties {
         },
         {
             _class: 'monospaced',
+            colClass: 't150',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -121,10 +123,10 @@ export class TimelineProperties {
             type: 'boolean',
         },
         {
-            default: '() => false',
-            description: 'Callback to determine if a click on the timeline should prevent adding a new entry.',
+            default: 'null',
+            description: 'Callback to determine if a click on the timeline should prevent adding a new entry. Alternatively can just be a boolean.',
             name: 'preventCreate',
-            type: '(isoString: string) => boolean',
+            type: '(isoString: string) => boolean || boolean',
         },
         {
             default: 'null',

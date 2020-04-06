@@ -7,10 +7,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-toasts.css"></require>
 
     <div class="${styles.wrapper}">
-        <div repeat.for="toast of vToastsService.toasts"
-             class="${styles.toaster}  ${styles[toast.type]}"
-             mouseover.trigger="vToastsService.keepAlive(toast.id)"
-             mouseout.trigger="vToastsService.resetTimeout(toast.id)">
+        <div
+            repeat.for="toast of vToastsService.toasts"
+            class="${styles.toaster}  ${styles[toast.type]}"
+            mouseover.trigger="vToastsService.keepAlive(toast.id)"
+            mouseout.trigger="vToastsService.resetTimeout(toast.id)"
+        >
             <div class="${styles.titleBar}">
                 <div class="${styles.iconContainer}">
                     <c-icon
@@ -21,14 +23,25 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     </c-icon>
                 </div>
                 <c-h4 class="${styles.title}">${toast.title}</c-h4>
-                <a href="#" class="${styles.close}" click.trigger="vToastsService.remove(toast)">
-                    <c-icon icon="x" color="lightGray" size="tiny"></c-icon>
+                <a
+                    href="#"
+                    class="${styles.close}"
+                    click.trigger="vToastsService.remove(toast)"
+                >
+                    <c-icon
+                        icon="x"
+                        color="lightGray"
+                        size="tiny"
+                    ></c-icon>
                 </a>
             </div>
 
             <!-- If there is no extra message this can be false -->
-            <div class="${styles.message}" if.bind="true">
-                <c-p spacing-bottom="sbNone">${toast.message}</c-p>
+            <div
+                class="${styles.message}"
+                if.bind="true"
+            >
+                <c-p>${toast.message}</c-p>
             </div>
         </div>
     </div>

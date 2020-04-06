@@ -15,6 +15,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-code-sample>
                     <c-h1 flush-top.bind="false">Not flush on the top</c-h1>
                     <c-h1>Normal Headline 1</c-h1>
+                    <c-h1 truncate.bind="true">Headline 1 that is really long and will truncate at the end of the line or something. Shrink the width of the browser window if needed.</c-h1>
                     <l-cluster
                         align="flex-start"
                         justify="space-between"
@@ -27,6 +28,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 spacing="var(--s-3)"
                                 spacing-direction="right"
                                 truncated-content.bind="true"
+                                style="width: 100%"
                             >
                                 <div>
                                     <c-icon

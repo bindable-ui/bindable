@@ -22,6 +22,7 @@ import {CToastsService} from './components/toasts/c-toasts/c-toasts-service';
 import {dirtyCheckPrompt} from './decorators/dirty-check-prompt/index';
 
 // Value Converters
+import {AsyncBindingBehavior} from './value-converters/async-binding';
 import {BooleanYesNoValueConverter} from './value-converters/boolean-yes-no';
 import {CapitalizeValueConverter} from './value-converters/capitalize';
 import {CountValueConverter} from './value-converters/count';
@@ -122,6 +123,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./value-converters/string-to-number'),
         PLATFORM.moduleName('./value-converters/th-class-for'),
         PLATFORM.moduleName('./value-converters/vsort'),
+        PLATFORM.moduleName('./value-converters/async-binding'),
 
         // Components
         PLATFORM.moduleName('./components/copy/c-copy/c-copy'),
@@ -266,6 +268,7 @@ export {
     StringToNumberValueConverter,
     ThClassForValueConverter,
     CsortValueConverter,
+    AsyncBindingBehavior,
 };
 
 // Interfaces

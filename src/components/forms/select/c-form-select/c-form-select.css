@@ -54,6 +54,7 @@ c-form-select{
     -moz-appearance: none;
     display: block;
     width: 100%;
+    height: unset;
     padding: var(--input-padding);
     border: var(--input-border);
     border-radius: 0;
@@ -171,7 +172,7 @@ select.error{
 
 .loader{
     position: absolute;
-    top: 60px;
+    top: 25px;
     bottom: 0;
     width: 100%;
     min-height: 109px;

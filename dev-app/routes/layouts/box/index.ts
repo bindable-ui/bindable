@@ -47,6 +47,12 @@ export class BoxProperties {
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
         },
         {
+            default: 'false',
+            description: 'Set to true if you want height: 100% set on the box.',
+            name: 'fill-space',
+            value: 'boolean',
+        },
+        {
             default: '0px',
             description: 'Set the left and right margin of the box.',
             name: 'margin-sides',

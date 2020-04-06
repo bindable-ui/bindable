@@ -6,23 +6,58 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-nav-horizontal-item.css"></require>
 
-    <li class="${styles.navHorizontalItem}  ${styles[state]}  ${styles[position]}" hide.bind="state === 'hidden'">
-        <a if.bind="route" href.bind="generatedLink" click.trigger="toggleMobileNav()">
+    <li
+        class="
+            ${styles.navHorizontalItem}
+            ${styles[state]}
+            ${styles[position]}
+        "
+        hide.bind="state === 'hidden'"
+    >
+        <a
+            href.bind="generatedLink"
+            click.trigger="toggleMobileNav()"
+            if.bind="route"
+        >
             ${title}
-            <div class="${styles.icon}" if.bind="icon">
-                <c-icon icon="${icon}" color="${iconColor}"></c-icon>
+            <div
+                class="${styles.icon}"
+                if.bind="icon"
+            >
+                <c-icon
+                    icon="${icon}"
+                    color="${iconColor}"
+                ></c-icon>
             </div>
         </a>
-        <a if.bind="href" href="${href}">
+        <a
+            href="${href}"
+            if.bind="href"
+        >
             ${title}
-            <div class="${styles.icon}" if.bind="icon">
-                <c-icon icon="${icon}" color="${iconColor}"></c-icon>
+            <div
+                class="${styles.icon}"
+                if.bind="icon"
+            >
+                <c-icon
+                    icon="${icon}"
+                    color="${iconColor}"
+                ></c-icon>
             </div>
         </a>
-        <a if.bind="action" click.trigger="actionFunction()">
+        <a
+            click.trigger="actionFunction()"
+            if.bind="action"
+        >
             ${title}
-            <div class="${styles.icon}" if.bind="icon">
-                <c-icon icon="${icon}" color="${iconColor}"></c-icon>
+            <div
+                class="${styles.icon}"
+                if.bind="icon"
+            >
+                <c-icon
+                    icon="${icon}"
+                    color="${iconColor}"
+                ></c-icon>
             </div>
         </a>
         <slot></slot>
