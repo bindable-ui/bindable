@@ -8,33 +8,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Check
  *  STATE
  *      - Disabled
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-form-checkbox-radio-container,
-c-tile,
-c-table{
-    --checkbox-size: var(--s0);
-    --checkbox-border: solid 1px var(--c_black);
-    --checkbox-border-radius: 2px;
-    --checkbox-background: var(--c_charcoal);
-    --checkbox-hover-background: var(--c_gray);
-    --checkbox-selected-background: var(--c_secondaryMain);
-    --checkbox-selected-check-size: var(--s-2);
-    --checkbox-disabled-background: var(--c_slate);
-}
 
 
 

@@ -8,30 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  STATE
  *      - Disabled
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-slider{
-    --slider-track-border: solid 1px var(--c_smoke);
-    --slider-track-background: var(--c_gray);
-    --slider-track-border-disabled: solid 1px var(--c_charcoal);
-    --slider-track-background-disabled: var(--c_ash);
-    --slider-thumb-border: solid 1px var(--c_subOneLighter);
-    --slider-thumb-background: var(--c_subOneMain);
-    --slider-thumb-border-disabled: solid 1px var(--c_gray);
-    --slider-thumb-background-disabled: var(--c_charcoal);
-}
 
 
 

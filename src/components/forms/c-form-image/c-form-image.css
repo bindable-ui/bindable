@@ -8,26 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Core
  *      - Active
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-:global(.c-form-image){
-    --form-image-hover-background: #3C3C3C;
-    --form-image-description-color: var(--c_marshmellow);
-    --form-image-description-font-family: var(--ff_primary-bold);
-    --form-image-active-background: var(--c_charcoal);
-}
 
 
 

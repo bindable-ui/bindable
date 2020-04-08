@@ -8,31 +8,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Radio
  *  STATE
  *      - Disabled
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-:global(.c-form-image),
-c-form-checkbox-radio-container{
-    --radio-size: var(--s0);
-    --radio-border: solid 1px var(--c_black);
-    --radio-background: var(--c_charcoal);
-    --radio-hover-background: var(--c_gray);
-    --radio-selected-background: var(--c_secondaryMain);
-    --radio-selected-dot-size: calc(var(--s-5) - 1px);
-    --radio-disabled-background: var(--c_slate);
-}
 
 
 

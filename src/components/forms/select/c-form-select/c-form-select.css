@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Setup
  *  STATE
@@ -18,19 +17,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  SEARCH
  *  LOADERS
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-form-select{
-    --select-multiple-checked: var(--c_subOneMain);
-    --select-multiple-load-more-background: var(--c_asphalt);
-}
 
 
 

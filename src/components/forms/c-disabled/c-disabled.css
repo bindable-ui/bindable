@@ -8,22 +8,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-disabled{
-    --form-disabled-color: var(--c_subOneMain);
-    --form-disabled-font-family: var(--ff_primary-normal-italic);
-}
 
 
 

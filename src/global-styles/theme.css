@@ -1,0 +1,346 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BUTTONS
+ *      - Base
+ *      - Colors
+ *      - Sizes
+ *      - Thinking
+ *  COPY
+ *  FORMS
+ *      - c-disabled
+ *      - c-form-error
+ *      - c-form-image
+ *      - c-form-warning
+ *      - c-label
+ *      - c-form-checkbox-radio-container, c-tile, t-table
+ *      - c-form-image, c-form-checkbox-radio-container
+ *      - c-toggle-input
+ *      - c-form-date
+ *      - c-form-select
+ *      - c-slider
+ *      - c-text-input, c-textarea-input, c-copy, c-file-input, c-form-select
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BUTTONS
+\*------------------------------------*/
+
+c-button{
+    /* Base */
+    --button-border-radius: var(--s-5);
+    --button-color: var(--c_white);
+    --button-disabled-color: #939393;
+    --button-font-family: var(--ff_primary-bold);
+    --button-font-size: var(--s-1);
+    --button-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    --button-transition: all var(--trans_main);
+    --button-text-transform: none;
+
+    /* Colors */
+    --button-primary-background: var(--c_primaryMain);
+    --button-primary-hover-background: #F12930;
+    --button-primary-disabled-background: #7A1516;
+    --button-primary-disabled-color: var(--button-disabled-color);
+    --button-primary-color: var(--button-color);
+
+    --button-secondary-background: var(--c_secondaryMain);
+    --button-secondary-hover-background: var(--c_secondaryLight);
+    --button-secondary-disabled-background: #20623F;
+    --button-secondary-disabled-color: var(--button-disabled-color);
+    --button-secondary-color: var(--button-color);
+
+    --button-neutral-background: var(--c_gray);
+    --button-neutral-hover-background: var(--c_smoke);
+    --button-neutral-disabled-background: #454545;
+    --button-neutral-disabled-color: var(--button-disabled-color);
+    --button-neutral-color: var(--button-color);
+    --button-neutral-border-color: transparent;
+    --button-neutral-border-size: 0px;
+
+    --button-danger-background: var(--c_primaryLight);
+    --button-danger-hover-background: var(--c_primaryLighter);
+    --button-danger-disabled-background: #913236;
+    --button-danger-disabled-color: var(--button-disabled-color);
+    --button-danger-color: var(--button-color);
+
+    /* Sizes */
+    --button-medium-padding: var(--s-3) var(--s1);
+    --button-medium-icon-side-padding: var(--s4);
+    --button-medium-icon-center-padding: var(--s-3) var(--s-1);
+    --button-medium-icon-svg-size: var(--s0);
+    --button-medium-icon-svg-spacing: var(--s0);
+    --button-medium-icon-svg-top-spacing: 1px;
+    --button-small-padding: var(--s-5) var(--s-1);
+    --button-small-icon-side-padding: var(--s3);
+    --button-small-icon-center-padding: var(--s-5) var(--s-1);
+    --button-small-icon-svg-size: var(--s-1);
+    --button-small-icon-svg-spacing: var(--s-1);
+    --button-small-icon-svg-top-spacing: calc(var(--s-5) - 3px);
+
+    /* Thinking */
+    --button-thinking-padding-left: var(--s4);
+    --button-thinking-padding-left-with-icon: calc(15px + var(--s5));
+    --button-thinking-spinner-top: calc(50% - var(--s-4));
+    --button-thinking-spinner-left: var(--s0);
+    --button-thinking-spinner-size: var(--s-1);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COPY
+\*------------------------------------*/
+
+c-copy{
+    --copy-button-border: solid 1px var(--c_gray);
+    --copy-button-radius: 0 var(--s-5) var(--s-5) 0;
+    --copy-button-width: 73px;
+    --copy-content-padding: var(--s-3) var(--s-1) calc(var(--s-3) - 2px);
+    --copy-content-border: solid 1px var(--c_charcoal);
+    --copy-content-background: var(--c_darkGray);
+    --copy-content-color: var(--c_gray);
+    --copy-content-font-size: var(--s-1);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !FORMS
+\*------------------------------------*/
+
+/**
+ * ^c-disabled
+ */
+
+c-disabled{
+    --form-disabled-color: var(--c_subOneMain);
+    --form-disabled-font-family: var(--ff_primary-normal-italic);
+}
+
+
+/**
+ * ^c-form-error
+ */
+
+c-form-error{
+    --form-error-color: var(--c_primaryLight);
+    --form-error-font-size: var(--s-1);
+}
+
+
+/**
+ * ^c-form-image
+ */
+
+:global(.c-form-image){
+    --form-image-hover-background: #3C3C3C;
+    --form-image-description-color: var(--c_marshmellow);
+    --form-image-description-font-family: var(--ff_primary-bold);
+    --form-image-active-background: var(--c_charcoal);
+}
+
+
+/**
+ * ^c-form-warning
+ */
+
+c-form-warning{
+    --form-warning-color: var(--c_subTwoMain);
+    --form-warning-font-size: var(--s-1);
+}
+
+
+/**
+ * ^c-label
+ */
+
+c-label{
+    --label-color: var(--c_white);
+    --label-font-family: var(--ff_primary-bold);
+    --label-text-transform: none;
+    --label-font-size: unset;
+    --label-color-error: var(--c_primaryLight);
+    --label-color-warning: var(--c_subTwoMain);
+    --label-edit-font-size: var(--s-1);
+    --label-edit-color: var(--c_subOneMain);
+    --label-edit-hover-color: var(--c_subOneLighter);
+    --label-done-color: var(--c_subTwoMain);
+    --label-done-hover-color: var(--c_subTwoLighter);
+}
+
+
+/**
+ * ^c-form-checkbox-radio-container, c-tile, t-table
+ */
+
+c-form-checkbox-radio-container,
+c-tile,
+c-table{
+    --checkbox-size: var(--s0);
+    --checkbox-border: solid 1px var(--c_black);
+    --checkbox-border-radius: 2px;
+    --checkbox-background: var(--c_charcoal);
+    --checkbox-hover-background: var(--c_gray);
+    --checkbox-selected-background: var(--c_secondaryMain);
+    --checkbox-selected-check-size: var(--s-2);
+    --checkbox-disabled-background: var(--c_slate);
+}
+
+
+/**
+ * ^c-form-image, c-form-checkbox-radio-container
+ */
+
+:global(.c-form-image),
+c-form-checkbox-radio-container{
+    --radio-size: var(--s0);
+    --radio-border: solid 1px var(--c_black);
+    --radio-background: var(--c_charcoal);
+    --radio-hover-background: var(--c_gray);
+    --radio-selected-background: var(--c_secondaryMain);
+    --radio-selected-dot-size: calc(var(--s-5) - 1px);
+    --radio-disabled-background: var(--c_slate);
+    --radio-checkbox-label-color: var(--c_smoke);
+    --radio-checkbox-label-size: var(--s-1);
+}
+
+
+/**
+ * ^c-toggle-input
+ */
+
+:global(.c-toggle-input){
+    --toggle-nub-border: var(--c_smoke);
+    --toggle-nub-border-hover: var(--c_white);
+    --toggle-nub-border-checked: var(--c_white);
+    --toggle-nub-border-disabled: var(--c_charcoal);
+    --toggle-nub-background: var(--c_slate);
+    --toggle-nub-background-disabled: var(--c_slate);
+    --toggle-nub-background-checked: var(--c_primaryMain);
+    --toggle-nub-background-checked-disabled: var(--c_primaryDark);
+    --toggle-nub-hover-background: var(--c_gray);
+    --toggle-bar-background-checked: var(--c_primaryLight);
+    --toggle-bar-background: var(--c_charcoal);
+    --toggle-bar-shadow: inset 0px 0px 2px var(--c_black);
+}
+
+
+/**
+ * ^c-form-date
+ */
+
+c-text-input{
+    --form-date-calendar-icon-color: var(--c_smoke);
+    --form-date-calendar-icon-right-space: var(--s-2);
+}
+
+:global(.bootstrap-datetimepicker-widget){
+    --form-date-calendar-background: var(--c_soot);
+    --form-date-calendar-day-hover-background: var(--c_charcoal);
+    --form-date-calendar-old-new-color: #777;
+    --form-date-calendar-today-marker-color: var(--c_primaryMain);
+    --form-date-calendar-day-active-background: var(--c_primaryMain);
+    --form-date-calendar-day-active-color: var(--c_white);
+    --form-date-calendar-day-disabled-color: #777;
+    --form-date-calendar-button-color: var(--c_lightGray);
+    --form-date-prev-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='11' viewBox='0 0 7 11' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M5.5 11L0 5.5 5.5 0l1.29 1.29L2.577 5.5l4.21 4.212L5.5 11z'/%3E%3C/svg%3E");
+    --form-date-next-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E");
+    --form-date-up-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E");
+    --form-date-down-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E");
+}
+
+
+/**
+ * ^c-form-select
+ */
+
+c-form-select{
+    --select-multiple-checked: var(--c_subOneMain);
+    --select-multiple-load-more-background: var(--c_asphalt);
+}
+
+
+/**
+ * ^c-slider
+ */
+
+c-slider{
+    --slider-track-border: solid 1px var(--c_smoke);
+    --slider-track-background: var(--c_gray);
+    --slider-track-border-disabled: solid 1px var(--c_charcoal);
+    --slider-track-background-disabled: var(--c_ash);
+    --slider-thumb-border: solid 1px var(--c_subOneLighter);
+    --slider-thumb-background: var(--c_subOneMain);
+    --slider-thumb-border-disabled: solid 1px var(--c_gray);
+    --slider-thumb-background-disabled: var(--c_charcoal);
+}
+
+
+/**
+ * ^c-text-input, c-textarea-input, c-copy, c-file-input, c-form-select
+ */
+
+c-text-input,
+c-textarea-input,
+c-copy,
+c-file-input,
+c-form-select{
+    /* Base */
+    --input-padding: var(--s-5) var(--s-3);
+    --input-border: solid 1px var(--c_black);
+    --input-background: var(--c_charcoal);
+    --input-color: var(--c_smoke);
+    --input-placeholder-color: #6C6C6C;
+    --input-box-shadow: inset 0 -1px 0 var(--c_gray);
+    --input-transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+
+    /* State */
+    --input-color-focus: var(--c_lightGray);
+    --input-box-shadow-focus: inset 0 -1px 0 var(--c_secondaryMain);
+    --input-box-shadow-error: inset 0 -1px 0 var(--c_primaryLight);
+    --input-background-error: var(--c_charcoal);
+    --input-box-shadow-warning: inset 0 -1px 0 var(--c_subTwoMain);
+    --input-background-warning: var(--c_charcoal);
+
+    /* Icon */
+    --input-icon-padding: var(--s3);
+    --input-icon-side-spacing: var(--s-2);
+    --input-icon-top-spacing: calc(var(--s-3) + 1px);
+    --input-icon-size: var(--s0);
+    --input-icon-color: var(--c_smoke);
+
+    /* Button */
+    --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
+    --input-button-border-size: 1px;
+    --input-button-border-color: var(--c_black);
+    --input-button-border-radius: 0 5px 5px 0;
+    --input-button-hover-background: var(--c_smoke);
+    --input-button-hover-color: inherit;
+    --input-button-bin-hover-background: var(--c_primaryLight);
+    --input-button-bin-hover-icon-color: unset;
+
+    /* Clearable */
+    --input-clearable-spacing-right: var(--s3);
+    --input-clearable-icon-top: var(--s-5);
+    --input-clearable-icon-right: var(--s-1);
+    --input-clearable-icon-right-w-button: var(--s4);
+    --input-clearable-icon-size: var(--s-2);
+    --input-clearable-icon-color: var(--c_lightGray);
+    --input-clearable-icon-hover-color: var(--c_primaryLight);
+}

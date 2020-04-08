@@ -65,7 +65,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     text-decoration: none;
 }
 
-c-nav-vertical + router-view > div{
+c-nav-vertical + router-view > l-cover > div{
     --cover-padding-top: var(--s-1) !important;
 }
 
@@ -75,6 +75,26 @@ c-nav-vertical + router-view > div{
 
 :global .footer-bar > div{
     background: var(--c_white) !important;
+}
+
+:global .theme-alt-main-nav > nav > l-cluster > div{
+    --cluster-spacing: 0 !important;
+}
+
+:global .logo + l-box > div{
+    --box-background: transparent !important;
+    --box-padding-sides: var(--s0) !important;
+    --box-padding-ends: var(--s-2) !important;
+}
+
+:global .bindable-h1 + l-box > div{
+    --box-background: transparent !important;
+    --box-padding-sides: 0 !important;
+}
+
+router-view[data-value="cover"] > l-cover > div > l-stack > div > l-box > div{
+    --box-background: transparent !important;
+    --box-padding-sides: 0 !important;
 }
 
 
@@ -298,7 +318,7 @@ c-button{
     --button-disabled-color: #313131 !important;
 
     /* Sizes */
-    --button-medium-padding: calc(var(--s-1) - 3px) var(--s3) var(--s-2) !important;
+    --button-medium-padding: calc(var(--s-1) - 2px) var(--s3) var(--s-2) !important;
     --button-medium-icon-side-padding: calc(var(--s5) + 5px) !important;
     --button-medium-icon-svg-spacing: var(--s2) !important;
     --button-medium-icon-svg-top-spacing: 4px !important;
@@ -560,26 +580,6 @@ c-nav-horizontal{
     --nav-item-border-bottom-active: solid 3px var(--c_black) !important;
     --nav-item-border-bottom-hover: solid 3px var(--c_primaryMain) !important;
     --nav-medium-padding: var(--s-5) var(--s0) !important;
-}
-
-:global .theme-alt-main-nav > nav > div{
-    --cluster-spacing: 0 !important;
-}
-
-:global .logo + div{
-    --box-background: transparent !important;
-    --box-padding-sides: var(--s0) !important;
-    --box-padding-ends: var(--s-2) !important;
-}
-
-:global .bindable-h1 + div{
-    --box-background: transparent !important;
-    --box-padding-sides: 0 !important;
-}
-
-router-view[data-value="cover"] > div > div > div{
-    --box-background: transparent !important;
-    --box-padding-sides: 0 !important;
 }
 
 

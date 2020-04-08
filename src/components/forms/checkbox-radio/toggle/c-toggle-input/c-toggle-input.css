@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Bin
  *      - Check
@@ -18,29 +17,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  STATE
  *      - Disabled
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-:global(.c-toggle-input){
-    --toggle-nub-border: var(--c_smoke);
-    --toggle-nub-border-hover: var(--c_white);
-    --toggle-nub-border-checked: var(--c_white);
-    --toggle-nub-border-disabled: var(--c_charcoal);
-    --toggle-nub-background: var(--c_slate);
-    --toggle-nub-background-disabled: var(--c_slate);
-    --toggle-nub-background-checked: var(--c_primaryMain);
-    --toggle-nub-background-checked-disabled: var(--c_primaryDark);
-    --toggle-nub-hover-background: var(--c_gray);
-    --toggle-bar-background-checked: var(--c_primaryLight);
-    --toggle-bar-background: var(--c_charcoal);
-    --toggle-bar-shadow: inset 0px 0px 2px var(--c_black);
-}
 
 
 

@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  COLORS
  *      - Primary
@@ -23,74 +22,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Disabled
  *      - Thinking
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-button{
-    /* Base */
-    --button-border-radius: var(--s-5);
-    --button-color: var(--c_white);
-    --button-disabled-color: #939393;
-    --button-font-family: var(--ff_primary-bold);
-    --button-font-size: var(--s-1);
-    --button-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-    --button-transition: all var(--trans_main);
-    --button-text-transform: none;
-
-    /* Colors */
-    --button-primary-background: var(--c_primaryMain);
-    --button-primary-hover-background: #F12930;
-    --button-primary-disabled-background: #7A1516;
-    --button-primary-disabled-color: var(--button-disabled-color);
-    --button-primary-color: var(--button-color);
-
-    --button-secondary-background: var(--c_secondaryMain);
-    --button-secondary-hover-background: var(--c_secondaryLight);
-    --button-secondary-disabled-background: #20623F;
-    --button-secondary-disabled-color: var(--button-disabled-color);
-    --button-secondary-color: var(--button-color);
-
-    --button-neutral-background: var(--c_gray);
-    --button-neutral-hover-background: var(--c_smoke);
-    --button-neutral-disabled-background: #454545;
-    --button-neutral-disabled-color: var(--button-disabled-color);
-    --button-neutral-color: var(--button-color);
-    --button-neutral-border-color: transparent;
-    --button-neutral-border-size: 0px;
-
-    --button-danger-background: var(--c_primaryLight);
-    --button-danger-hover-background: var(--c_primaryLighter);
-    --button-danger-disabled-background: #913236;
-    --button-danger-disabled-color: var(--button-disabled-color);
-    --button-danger-color: var(--button-color);
-
-    /* Sizes */
-    --button-medium-padding: var(--s-3) var(--s1);
-    --button-medium-icon-side-padding: var(--s4);
-    --button-medium-icon-center-padding: var(--s-3) var(--s-1);
-    --button-medium-icon-svg-size: var(--s0);
-    --button-medium-icon-svg-spacing: var(--s0);
-    --button-medium-icon-svg-top-spacing: 1px;
-    --button-small-padding: var(--s-5) var(--s-1);
-    --button-small-icon-side-padding: var(--s3);
-    --button-small-icon-center-padding: var(--s-5) var(--s-1);
-    --button-small-icon-svg-size: var(--s-1);
-    --button-small-icon-svg-spacing: var(--s-1);
-    --button-small-icon-svg-top-spacing: calc(var(--s-5) - 3px);
-
-    /* Thinking */
-    --button-thinking-padding-left: var(--s4);
-    --button-thinking-padding-left-with-icon: calc(15px + var(--s5));
-    --button-thinking-spinner-top: calc(50% - var(--s-4));
-    --button-thinking-spinner-left: var(--s0);
-    --button-thinking-spinner-size: var(--s-1);
-}
 
 
 

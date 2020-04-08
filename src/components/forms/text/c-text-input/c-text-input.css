@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Setup
  *      - Placeholder
@@ -20,63 +19,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Bin
  *  CLEARABLE
 */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-text-input,
-c-textarea-input,
-c-copy,
-c-file-input,
-c-form-select{
-    /* Base */
-    --input-padding: var(--s-5) var(--s-3);
-    --input-border: solid 1px var(--c_black);
-    --input-background: var(--c_charcoal);
-    --input-color: var(--c_smoke);
-    --input-placeholder-color: #6C6C6C;
-    --input-box-shadow: inset 0 -1px 0 var(--c_gray);
-    --input-transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
-
-    /* State */
-    --input-color-focus: var(--c_lightGray);
-    --input-box-shadow-focus: inset 0 -1px 0 var(--c_secondaryMain);
-    --input-box-shadow-error: inset 0 -1px 0 var(--c_primaryLight);
-    --input-background-error: var(--c_charcoal);
-    --input-box-shadow-warning: inset 0 -1px 0 var(--c_subTwoMain);
-    --input-background-warning: var(--c_charcoal);
-
-    /* Icon */
-    --input-icon-padding: var(--s3);
-    --input-icon-side-spacing: var(--s-2);
-    --input-icon-top-spacing: calc(var(--s-3) + 1px);
-    --input-icon-size: var(--s0);
-    --input-icon-color: var(--c_smoke);
-
-    /* Button */
-    --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
-    --input-button-border-size: 1px;
-    --input-button-border-color: var(--c_black);
-    --input-button-border-radius: 0 5px 5px 0;
-    --input-button-hover-background: var(--c_smoke);
-    --input-button-hover-color: inherit;
-    --input-button-bin-hover-background: var(--c_primaryLight);
-    --input-button-bin-hover-icon-color: unset;
-
-    /* Clearable */
-    --input-clearable-spacing-right: var(--s3);
-    --input-clearable-icon-top: var(--s-5);
-    --input-clearable-icon-right: var(--s-1);
-    --input-clearable-icon-right-w-button: var(--s4);
-    --input-clearable-icon-size: var(--s-2);
-    --input-clearable-icon-color: var(--c_lightGray);
-    --input-clearable-icon-hover-color: var(--c_primaryLight);
-}
 
 
 

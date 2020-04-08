@@ -8,23 +8,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Setup
 */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-form-warning{
-    --form-warning-color: var(--c_subTwoMain);
-    --form-warning-font-size: var(--s-1);
-}
 
 
 
