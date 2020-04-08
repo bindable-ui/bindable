@@ -65,6 +65,13 @@ export interface CTableCol {
 
 export interface CTableActions {
     /**
+     * Sets colored bar of tr.
+     * @param row
+     * @param col
+     */
+    getBarColor?(row: any, col?: CTableCol): void;
+
+    /**
      * Assignes class to a tr.
      * @param row
      */
