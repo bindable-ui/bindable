@@ -57,6 +57,11 @@ export class TableActions {
             }
             return cls;
         },
+
+        getBarColor: (row, col) => {
+            const color = row._barColor || '';
+            return color;
+        },
     };
 
     constructor() {
@@ -107,37 +112,43 @@ export class TableActions {
 
         this.basicData = [
             {
-                _status: 'critical',
+                _barColor: 'var(--c_primaryLight)',
+                _status: 'bar',
                 gender: 'Male',
                 name: 'Luke Skywalker',
                 ship: 'X-Wing',
             },
             {
-                _status: 'warning',
+                _barColor: 'var(--c_subTwoMain)',
+                _status: 'bar',
                 gender: 'Female',
                 name: 'Han Solo',
                 ship: 'M.Falcon',
             },
             {
-                _status: 'healthy',
+                _barColor: 'var(--c_secondaryMain)',
+                _status: 'bar',
                 gender: 'Male',
                 name: 'Fin',
                 ship: 'M. Falcon',
             },
             {
-                _status: 'critical',
+                _barColor: '#0000FF',
+                _status: 'bar',
                 gender: 'Female',
                 name: 'Ray',
                 ship: 'M. Falcon',
             },
             {
-                _status: 'info',
+                _barColor: 'var(--c_subOneMain)',
+                _status: 'bar',
                 gender: 'Male',
                 name: 'Yoda',
                 ship: '',
             },
             {
-                _status: 'neutral-alt',
+                _barColor: 'var(--c_subFourMain)',
+                _status: 'bar',
                 gender: 'Male',
                 name: 'Palpatine',
                 ship: '',
