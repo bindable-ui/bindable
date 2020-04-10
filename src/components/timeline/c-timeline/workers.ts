@@ -32,6 +32,8 @@ function mapEntriesFn(
     timeView: string,
     editEntryViewModel: string,
     date: string,
+    tzOffset: number,
+    zoomLevel: number,
 ) {
     const SECONDS_IN_MINUTE = 60;
 
@@ -44,8 +46,15 @@ function mapEntriesFn(
     };
 
     const formatHHmm = isoString => {
-        const dateObj = new Date(isoString);
+        const dateObj = new Date(new Date(isoString).getTime() + tzOffset * 60 * 1000);
         return `${appendLeadingZeroes(dateObj.getHours())}:${appendLeadingZeroes(dateObj.getMinutes())}`;
+    };
+
+    const formatHHmmss = isoString => {
+        const dateObj = new Date(new Date(isoString).getTime() + tzOffset * 60 * 1000);
+        return `${appendLeadingZeroes(dateObj.getHours())}:${appendLeadingZeroes(
+            dateObj.getMinutes(),
+        )}:${appendLeadingZeroes(dateObj.getSeconds())}`;
     };
 
     const upToMm = isoString => {
@@ -75,13 +84,13 @@ function mapEntriesFn(
                 entry.start = startTime;
             }
 
-            entry.startTime = formatHHmm(entry.start);
+            entry.startTime = zoomLevel === 5 ? formatHHmmss(entry.start) : formatHHmm(entry.start);
 
             if (!entry.end) {
                 entry.end = new Date(new Date(entry.start).getTime() + entry.duration * 1000).toISOString();
             }
 
-            entry.endTime = formatHHmm(entry.end);
+            entry.endTime = zoomLevel === 5 ? formatHHmmss(entry.end) : formatHHmm(entry.end);
 
             const entryStartDate: any = new Date(entry.start);
             const startTimeDate: any = new Date(startTime);
@@ -225,6 +234,8 @@ export const mapEntries = async (
     timeView: string,
     editEntryViewModel: string,
     date: string,
+    tzOffset: number,
+    zoomLevel: number,
 ): Promise<ITimeEntry[]> => {
     if (window.Worker) {
         return await worker.postMessage('mapEntries', [
@@ -235,10 +246,22 @@ export const mapEntries = async (
             timeView,
             editEntryViewModel,
             date,
+            tzOffset,
+            zoomLevel,
         ]);
     }
 
-    return mapEntriesFn(sortedEntries, pxPerMinute, startTime, endTime, timeView, editEntryViewModel, date);
+    return mapEntriesFn(
+        sortedEntries,
+        pxPerMinute,
+        startTime,
+        endTime,
+        timeView,
+        editEntryViewModel,
+        date,
+        tzOffset,
+        zoomLevel,
+    );
 };
 
 export const filterEntriesDay = async (sortedEntries: any[], startTime: string, endTime: string): Promise<any[]> => {

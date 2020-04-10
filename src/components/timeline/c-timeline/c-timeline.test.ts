@@ -4,6 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {TaskQueue} from 'aurelia-framework';
+import * as moment from 'moment';
 import {instance, mock} from 'ts-mockito';
 
 import {CTimeline, ZOOM_LEVELS} from './c-timeline';
@@ -12,6 +13,42 @@ import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
 
 const taskQueue = mock(TaskQueue);
 const toastsService = mock(CToastsService);
+
+// Mock _.debounce
+// @ts-ignore
+jest.spyOn(_, 'debounce').mockImplementation(fn => fn);
+
+const now = moment('12/12/2020', 'MM/DD/YYYY')
+    .startOf('day')
+    .add(12, 'hours');
+const startDay = moment(now)
+    .startOf('day')
+    .toISOString();
+
+const sortedEntries: any[] = [
+    {
+        duration: 240,
+        start: now.toISOString(),
+    },
+    {
+        duration: 120,
+        start: moment(now)
+            .add(1, 'hour')
+            .toISOString(),
+    },
+    {
+        duration: 120,
+        start: moment(now)
+            .add(1, 'hour')
+            .toISOString(),
+    },
+    {
+        duration: 120,
+        start: moment(now)
+            .add(1, 'day')
+            .toISOString(),
+    },
+];
 
 describe('c-timeline-block element', () => {
     let component;
@@ -30,7 +67,26 @@ describe('c-timeline-block element', () => {
 
     describe('Unit', () => {
         beforeEach(() => {
+            jest.useFakeTimers();
             component = new CTimeline(instance(taskQueue), instance(toastsService));
+
+            component.date = startDay;
+            component.entries = sortedEntries;
+            component.placeholderEntry = {
+                openPopover: jest.fn(),
+            };
+
+            component.attached();
+
+            component.parentScrollElem = {
+                offset: () => ({top: 0}),
+                scrollTop: () => 0,
+            };
+        });
+
+        afterEach(() => {
+            jest.runOnlyPendingTimers();
+            jest.useRealTimers();
         });
 
         describe('#mapAllowedTimes', () => {
@@ -70,6 +126,57 @@ describe('c-timeline-block element', () => {
                 component.zoomLevel = 4;
                 component.fixZoomBounds();
                 expect(component.zoomLevel).toBe(4);
+            });
+        });
+
+        describe('#togglePopover', () => {
+            test('regular interval positioning', () => {
+                const ev = {
+                    layerY: 10,
+                    pageY: 10,
+                };
+
+                component.togglePopover(ev);
+                expect(component.newItem.title).toBe('00:00 (New Item)');
+
+                ev.layerY = 30;
+                component.togglePopover(ev);
+                expect(component.newItem.title).toBe('00:15 (New Item)');
+
+                ev.pageY = 60;
+                component.togglePopover(ev);
+                expect(component.newItem.title).toBe('00:45 (New Item)');
+            });
+
+            test('snap add positioning', () => {
+                const ev = {
+                    layerY: 10,
+                    pageY: 1600,
+                };
+
+                component.snapAdd = true;
+
+                // No snapping
+                component.togglePopover(ev);
+                expect(component.newItem.title).toBe('16:00 (New Item)');
+
+                // Snapping
+                ev.pageY = 1200;
+                component.togglePopover(ev);
+                expect(component.newItem.title).toBe('12:04 (New Item)');
+            });
+
+            test('opening popover', () => {
+                const ev = {
+                    layerY: 10,
+                    pageY: 10,
+                };
+
+                component.togglePopover(ev);
+
+                jest.runOnlyPendingTimers();
+
+                expect(component.placeholderEntry.openPopover).toHaveBeenCalled();
             });
         });
 
