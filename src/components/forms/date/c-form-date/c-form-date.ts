@@ -3,23 +3,13 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, bindingMode, computedFrom, containerless} from 'aurelia-framework';
-import * as datetimepicker from 'eonasdan-bootstrap-datetimepicker';
+import {bindable, bindingMode, containerless} from 'aurelia-framework';
 import * as moment from 'moment';
 import {authState} from '../../../../decorators/auth-state';
 
 import * as styles from './c-form-date.css.json';
 
-declare const window: any;
 declare let $: any;
-
-if (window.$) {
-    $ = window.$;
-}
-
-$.fn.extend({
-    datetimepicker,
-});
 
 /**
  * @param id {String} - Element ID.
