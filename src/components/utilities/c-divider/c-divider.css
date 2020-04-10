@@ -8,23 +8,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-divider{
-    --divider-height: 1px;
-    --divider-background: var(--c_gray);
-}
-
 
 
 

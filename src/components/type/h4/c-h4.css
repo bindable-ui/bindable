@@ -8,24 +8,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  TRUNCATE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-:global .bindable-h4{
-    --h4-margin-top: -0.1rem;
-    --h4-font-family: var(--ff_primary-normal);
-    --h4-font-size: initial;
-}
 
 
 

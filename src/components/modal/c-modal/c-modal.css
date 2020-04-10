@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Setup
  *      - Responsiveness
@@ -20,28 +19,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Large
  *  TABLES
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-ux-dialog-overlay{
-    --modal-overlay-background: rgba(0, 0, 0, 0.6);
-}
-
-ux-dialog-container{
-    --modal-background: var(--c_slate);
-    --modal-top-border-color: var(--c_primaryMain);
-    --modal-top-border-size: 5px;
-    --modal-header-padding: var(--s3) var(--s3) var(--s-1);
-    --modal-body-padding: 0 var(--s3);
-    --modal-footer-padding: var(--s1) var(--s3);
-    --modal-footer-border-top: solid 1px var(--c_charcoal);
-}
 
 
 

@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Setup
  *      - Close
@@ -33,36 +32,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  COMPONENT BASED SPACING
  *      - c-nav-horizontal
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-tip,
-c-popover{
-    --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
-    --tip-boarder: solid 1px var(--c_soot);
-    --tip-background: var(--c_charcoal);
-    --tip-color: var(--c_white);
-    --tip-close-padding: 1px 4px 2px 5px;
-    --tip-close-background: var(--c_slate);
-    --tip-close-color: var(--c_white);
-    --tip-close-font-size: 14px;
-    --tip-close-background-hover: var(--c_smoke);
-    --tip-width-small: 150px;
-    --tip-width-medium: 180px;
-    --tip-width-large: 220px;
-    --tip-width-xlarge: 336px;
-    --tip-color-primary: var(--c_primaryLight);
-    --tip-color-secondary: var(--c_secondaryMain);
-    --tip-color-sub-one: var(--c_subOneMain);
-    --tip-color-sub-two: var(--c_subTwoMain);
-    --tip-color-sub-three: var(--c_subThreeMain);
-}
 
 
 

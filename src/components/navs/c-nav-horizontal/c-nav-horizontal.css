@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  SIZE
  *      - Medium
@@ -20,29 +19,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - White Bars
  *      - Animate to X
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-nav-horizontal{
-    --nav-background: var(--c_darkGray);
-    --nav-medium-padding: var(--s0) 0;
-    --nav-small-padding: var(--s-1) 0;
-    --nav-small-font-size: calc(var(--s0) - 0.12rem);
-    --nav-tiny--padding: var(--s-5) 0;
-    --nav-tiny-font-size: var(--s-1);
-    --nav-mobile-background: var(--c_soot);
-    --nav-mobile-font-size: var(--s-1);
-    --nav-mobile-hover: var(--c_slate);
-    --nav-mobile-active: var(--c_primaryMain);
-    --nav-mobile-trigger-background: var(--c_primaryMain);
-    --nav-mobile-trigger-bars-color: var(--c_white);
-}
 
 
 

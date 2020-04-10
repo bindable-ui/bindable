@@ -8,28 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  COLORS
  *  SIZE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-:global(.c-icon){
-    --icon-itzy: var(--s-3);
-    --icon-tiny: var(--s-2);
-    --icon-small: var(--s-1);
-    --icon-medium: var(--s0);
-    --icon-large: var(--s1);
-    --icon-huge: var(--s2);
-}
 
 
 

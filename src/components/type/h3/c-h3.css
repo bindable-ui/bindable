@@ -8,28 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  TRUNCATE
  */
 
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-:global .bindable-h3{
-    --h3-margin-top: -0.4rem;
-    --h3-font-family: var(--ff_secondary-normal);
-    --h3-font-size: var(--s1);
-    --h3-link-color: var(--c_subOneMain);
-    --h3-truncate-min-height: var(--s2);
-    --h3-truncate-hover-background: var(--c_slate);
-    --h3-truncate-dark-hover-background: var(--c_darkGray);
-}
 
 
 

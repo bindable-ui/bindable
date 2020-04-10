@@ -8,31 +8,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  WRAPPER
  *  DATES
  *  DAYS
  *  CONTENT
  *  TODAY
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-timeline-week-container{
-    --timeline-week-dates-background: var(--c_slate);
-    --timeline-week-dates-border-bottom: solid 1px #444;
-    --timeline-week-dates-link-color: var(--c_marshmellow);
-    --timeline-week-dates-link-color-hover: var(--c_smoke);
-    --timeline-week-dates-first-border-right: solid 1px var(--c_gray);
-    --timeline-week-content-border-left: solid 1px var(--c_gray);
-    --timeline-week-dates-today-color: var(--c_primaryMain);
-}
 
 
 

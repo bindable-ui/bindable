@@ -8,33 +8,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  COLORS
  *      - Info
  *      - Neutral
  *  LINKS
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-pill{
-    --pill-padding: 4px 7px 3px;
-    --pill-border-radius: 5px;
-    --pill-color: var(--c_white);
-    --pill-font-size: var(--s-2);
-    --pill-info-background: var(--c_subOneMain);
-    --pill-neutral-background: var(--c_charcoal);
-    --pill-link-color: var(--c_white);
-    --pill-link-info-background-hover: var(--c_subOneLight);
-    --pill-link-neutral-background-hover: var(--c_gray);
-}
 
 
 

@@ -8,23 +8,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-timeline-block{
-    --time-block-border-bottom: solid 1px #444;
-    --time-color: var(--c_smoke);
-    --time-font-size: 12px;
-}
 
 
 

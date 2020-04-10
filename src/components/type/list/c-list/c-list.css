@@ -8,26 +8,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  NO BULLETS
  *  LABEL WRAPPER
  *  LINKS
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-list{
-    --list-color: var(--c_smoke);
-    --list-color-link: var(--c_subOneMain);
-    --list-color-link-hover: var(--c_subOneLight);
-}
 
 
 

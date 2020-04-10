@@ -8,36 +8,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  TITLE BAR
  *  MESSAGE
  *  TYPE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-toasts{
-    --toast-wrapper-top: 20px;
-    --toast-wrapper-right: 20px;
-    --toast-wrapper-width: 260px;
-    --toast-border: solid 1px var(--c_charcoal);
-    --toast-background: var(--c_charcoal);
-    --toast-margin-bottom: var(--s2);
-    --toast-icon-container-size: var(--s3);
-    --toast-message-padding: var(--s0) var(--s-1) var(--s-1);
-    --toast-message-color: var(--c_charcoal);
-    --toast-info-background: var(--c_subOneMain);
-    --toast-success-background: var(--c_secondaryMain);
-    --toast-warning-background: var(--c_subTwoMain);
-    --toast-error-background: var(--c_primaryLight);
-}
 
 
 

@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Tile
  *      - Image
@@ -24,36 +23,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Warning
  *      - Error
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-tile{
-    --tile-padding: var(--s-5);
-    --tile-background: var(--c_darkGray);
-    --tile-background-hover: var(--c_charcoal);
-    --tile-image-background: var(--c_soot);
-    --tile-h4-color: var(--c_marshmellow);
-    --tile-h4-size: var(--s-1);
-    --tile-checked-background: var(--c_gray);
-    --tile-checked-text-color: var(--c_marshmellow);
-    --tile-drag-background: var(--c_black);
-    --tile-tip-top: calc(var(--s-5) * -1);
-    --tile-tip-right: calc(var(--s-5) * -1);
-    --tile-tip-padding: var(--s-5) var(--s-3);
-    --tile-tip-background: var(--c_charcoal);
-    --tile-status-height: var(--s-5);
-    --tile-status-healthy: var(--c_secondaryMain);
-    --tile-status-info: var(--c_subOneMain);
-    --tile-status-warning: var(--c_subTwoMain);
-    --tile-status-critical: var(--c_primaryLight);
-    --tile-status-processing: #CCC url('../../../global-styles/assets/images/td-processing.gif');
-}
 
 
 

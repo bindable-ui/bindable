@@ -8,26 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  NAV BOTTOM
  *  MOBILE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-nav-vertical{
-    --nav-padding: var(--s-2) 0 0;
-    --nav-background: var(--c_darkGray);
-    --nav-last-child-margin-bottom: var(--s-2);
-    --nav-bottom-last-child-margin-bottom: var(--s0);
-}
 
 
 

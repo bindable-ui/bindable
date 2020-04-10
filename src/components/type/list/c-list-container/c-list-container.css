@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  COLOR
  *  SIZES
@@ -16,30 +15,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Small
  *  DIVIDERS
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-list-container{
-    --list-container-dark-color: initial;
-    --list-container-dark-background: var(--c_darkGray);
-    --list-container-dark-a-color-hover: var(--c_white);
-    --list-container-dark-a-background-hover: var(--c_soot);
-    --list-container-light-color: var(--c_smoke);
-    --list-container-light-background: var(--c_charcoal);
-    --list-container-light-a-color-hover: var(--c_white);
-    --list-container-light-a-icon-hover: var(--c_subOneMain);
-    --list-container-medium-a-padding: var(--s-5) var(--s-2);
-    --list-container-medium-h5-padding: var(--s-5) var(--s-2) 0;
-    --list-container-small-a-padding: var(--s-5) var(--s-1);
-    --list-container-small-a-font-size: var(--s-1);
-    --list-container-divider: solid 1px var(--c_gray);
-}
 
 
 

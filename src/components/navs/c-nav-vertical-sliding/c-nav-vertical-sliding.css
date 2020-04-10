@@ -8,28 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  TRIGGER
  *  SEARCH
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-nav-vertical-sliding{
-    --nav-sliding-background: var(--c_darkGray);
-    --nav-sliding-trigger-container-margin: 10px 24px 0;
-    --nav-sliding-trigger-padding-bottom: 10px;
-    --nav-sliding-trigger-font-family: var(--ff_primary-bold);
-    --nav-sliding-trigger-font-size: var(--s-2);
-    --nav-sliding-trigger-hover-color: var(--c_lightGray);
-}
 
 
 

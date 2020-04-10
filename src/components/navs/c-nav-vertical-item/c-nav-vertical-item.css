@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Setup
  *      - Hover
@@ -22,42 +21,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Align Bottom
  *  MOBILE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-nav-vertical{
-    --nav-item-padding: var(--s-3) var(--s0) var(--s-3) var(--s2);
-    --nav-item-color: var(--c_smoke);
-    --nav-item-color-hover: var(--c_white);
-    --nav-item-background-hover: var(--c_ash);
-    --nav-item-color-active: var(--c_white);
-    --nav-item-background-active: var(--c_black);
-    --nav-item-active-bar-size: var(--s-5);
-    --nav-item-active-bar-color-active: var(--c_primaryMain);
-    --nav-item-active-bar-color-hover: var(--nav-background);
-    --nav-item-active-bar-color: var(--nav-background);
-    --nav-item-button-margin: var(--s-1) 0 var(--s-1) var(--s2);
-    --nav-item-h4-top: var(--s-1);
-    --nav-item-h4-left: var(--s2);
-    --nav-item-h4-color: var(--c_white);
-    --nav-item-h4-size: var(--s-1);
-    --nav-item-icon-top: 6px;
-    --nav-item-icon-left: 10px;
-    --nav-item-icon-color: var(--c_gray);
-    --nav-item-sub-size: var(--s-1);
-    --nav-item-sub-color: var(--c_gray);
-    --nav-item-accordion-icon-top: calc(var(--s-1) + 3px);
-    --nav-item-accordion-icon-left: 22px;
-    --nav-item-accordion-icon-size: var(--s-3);
-    --nav-item-accordion-icon-color: var(--c_white);
-}
-
 
 
 

@@ -8,30 +8,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *      - Set Up
  *      - Responsiveness
  *  LOADER
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-table-fixed-header{
-    --table-header-height: calc(var(--s4) + 5px);
-    --table-header-border: solid 1px var(--c_charcoal);
-    --table-header-div-margin-top: calc((var(--s4) * -1) - 3px);
-    --table-header-div-padding-left: var(--s0);
-    --table-header-div-border-left: solid 1px var(--c_charcoal);
-    --table-header-div-line-height: calc(var(--s4) + 3px);
-    --table-header-loader-background: var(--c_asphalt);
-}
 
 
 

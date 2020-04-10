@@ -8,26 +8,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  STATE
  *      - Active
  *  DIVIDERS
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-list-container{
-    --list-item-color: var(--c_lightGray);
-    --list-item-color-active: var(--c_white);
-    --list-item-background-active: var(--c_primaryMain);
-}
 
 
 

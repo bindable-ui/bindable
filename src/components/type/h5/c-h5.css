@@ -8,25 +8,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  COLOR
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-:global .bindable-h5{
-    --h5-margin-top: -0.2rem;
-    --h5-font-family: var(--ff_secondary-normal);
-    --h5-font-size: var(--s0);
-    --h5-color-smoke: var(--c_smoke);
-}
 
 
 

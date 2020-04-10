@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  SIZE
  *      - Large
@@ -17,20 +16,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  BOLD
  *  TRUNCATE
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-p{
-    --p-font-size-large: var(--s0);
-    --p-font-size-medium: var(--s-1);
-    --p-font-size-small: var(--s-2);
-}
 
 
 
