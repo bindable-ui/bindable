@@ -8,7 +8,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  THEMING
  *  BASE
  *  STATUS
  *      - Info
@@ -17,35 +16,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Success
  *  CALLOUT
  */
-
-
-
-
-
-/*------------------------------------*\
-    !THEMING
-\*------------------------------------*/
-
-c-notification{
-    --notification-font-size: var(--s-1);
-    --notification-color: var(--c_white);
-    --notification-padding: var(--s-3) var(--s0) var(--s-3) 0;
-    --notification-info-border: solid 1px var(--c_subOneMain);
-    --notification-info-background: var(--c_subOneDark);
-    --notification-info-color: var(--c_subOneLighter);
-    --notification-warning-border: solid 1px var(--c_subTwoMain);
-    --notification-warning-background: var(--c_subTwoDark);
-    --notification-warning-color: var(--c_subTwoLight);
-    --notification-critical-border: solid 1px var(--c_primaryLighter);
-    --notification-critical-background: var(--c_primaryDark);
-    --notification-critical-color: var(--c_primaryLighter);
-    --notification-success-border: solid 1px var(--c_secondaryLighter);
-    --notification-success-background: var(--c_secondaryDark);
-    --notification-success-color: var(--c_secondaryLighter);
-    --notification-callout-flex: 0 0 calc(var(--s5) + 120px);
-    --notification-callout-padding: var(--s0) var(--s2);
-    --notification-callout-h5-size: var(--s0);
-}
 
 
 
