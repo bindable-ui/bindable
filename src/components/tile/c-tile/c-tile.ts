@@ -33,6 +33,10 @@ export class CTile {
     @bindable
     public noImageMessage = 'No Image';
     @bindable
+    public pillColor = 'info';
+    @bindable
+    public pillText;
+    @bindable
     public searchMatch = null;
     @bindable
     public showCheckbox = true;
