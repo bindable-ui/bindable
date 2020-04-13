@@ -64,6 +64,17 @@ export class TileProperties {
             value: 'string',
         },
         {
+            default: 'info',
+            description: 'Will set the color of the pill.',
+            name: 'pill-color',
+            value: 'string',
+        },
+        {
+            description: 'Will set the text of the pill.',
+            name: 'pill-text',
+            value: 'string',
+        },
+        {
             default: 'true',
             description: 'Set if you do not need the checkbox in the tile.',
             name: 'show-checkbox',
