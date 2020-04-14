@@ -18,6 +18,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  NO VERTICAL BORDER
  *  CELL WIDTHS
  *  BAR
+ *  ROW STATUS (backwards compatibility)
  *  FOOTER ROW
  *  FONTS
  *      - Mono
@@ -212,6 +213,44 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     top: 0;
     left: 0;
     background-color: var(--cell-bar-color);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ROW STATUS (here for backwards compatibility)
+\*------------------------------------*/
+
+/**
+ * ^Bar
+*/
+
+.healthy{
+    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%2337A56C" width="5" height="1"></rect></svg>');
+    background-repeat: repeat-y;
+}
+
+.info{
+    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%233599C5" width="5" height="1"></rect></svg>');
+    background-repeat: repeat-y;
+}
+
+.warning{
+    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23CEA832" width="5" height="1"></rect></svg>');
+    background-repeat: repeat-y;
+}
+
+.critical,
+.error{
+    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23E85358" width="5" height="1"></rect></svg>');
+    background-repeat: repeat-y;
+}
+
+.neutral{
+    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%239B9B9B" width="5" height="1"></rect></svg>');
+    background-repeat: repeat-y;
 }
 
 
