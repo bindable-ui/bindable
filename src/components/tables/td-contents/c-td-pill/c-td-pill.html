@@ -4,8 +4,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    ${value}
-    <c-pill>
+	<require from="./c-td-pill.css"></require>
+
+    <c-pill if.bind="row[col.colHeadName + 'Pill']">
         <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
     </c-pill>
+    <span
+        if.bind="row[col.colHeadName + 'Pill']"
+        class="${styles.text}"
+    >
+        ${value}
+    </span>
+    <span if.bind="!row[col.colHeadName + 'Pill']">
+        ${value}
+    </span>
 </template>
