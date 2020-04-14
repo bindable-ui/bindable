@@ -8,7 +8,7 @@ import * as styles from './c-pill.css.json';
 
 export class CPill {
     @bindable
-    public color = 'info';
+    public color = 'var(--c_subOneMain)';
     @bindable
     public href;
     @bindable
