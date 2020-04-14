@@ -37,6 +37,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             icon="${row[col.colHeadName + 'Icon']}"
             if.bind="row[col.colHeadName + 'Icon']"
         ></c-icon>
+        <c-pill if.bind="row[col.colHeadName + 'Pill']">
+            <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
+        </c-pill>
         <div class="${styles.truncate}">
             <span title="${value}">
                 <span if.bind="!searchHighlight">${value}</span>

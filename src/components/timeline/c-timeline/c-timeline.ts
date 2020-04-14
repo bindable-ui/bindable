@@ -209,6 +209,8 @@ export class CTimeline {
                     this.timeView,
                     this.editEntryViewModel,
                     this.date,
+                    this.getTzOffet(),
+                    this.zoomLevel,
                 );
             }
 
@@ -227,6 +229,8 @@ export class CTimeline {
                         this.timeView,
                         this.editEntryViewModel,
                         this.date,
+                        this.getTzOffet(),
+                        this.zoomLevel,
                     );
 
                     startTime.add(1, 'day');
@@ -438,6 +442,11 @@ export class CTimeline {
     }
 
     public attached() {
+        // Trigger the default TZ stuff
+        if (!this.timezone) {
+            this.setupTimezone();
+        }
+
         this.getParentScrollElem();
         this.buildTimeline();
 
@@ -496,16 +505,7 @@ export class CTimeline {
     }
 
     public timezoneChanged() {
-        const tzNames = moment.tz.names();
-        const tzIndex = tzNames.findIndex(name => name === this.timezone);
-
-        if (tzIndex > -1) {
-            moment.tz.setDefault(this.timezone);
-        } else {
-            moment.tz.setDefault();
-        }
-
-        this.renderTimeline();
+        this.setupTimezone(true);
     }
 
     public scrollTimeChanged(_new, old) {
@@ -534,6 +534,42 @@ export class CTimeline {
     }
 
     // Private methods
+
+    /**
+     * Return the offset in minutes from the selected timezone to the browser timezone
+     */
+    private getTzOffet(): number {
+        const browserOffset = moment.tz.zone(moment.tz.guess()).utcOffset(moment());
+        const offset = moment().utcOffset();
+
+        return browserOffset + offset;
+    }
+
+    /**
+     * Sets up the timezone data
+     *
+     * @param updateDate Boolean value to determine whether or not to update `this.date`
+     */
+    private setupTimezone(updateDate?: boolean) {
+        const tzNames = moment.tz.names();
+        const tzIndex = tzNames.findIndex(name => name === this.timezone);
+
+        if (tzIndex > -1) {
+            moment.tz.setDefault(this.timezone);
+        } else {
+            moment.tz.setDefault();
+        }
+
+        if (updateDate) {
+            // This prevents issues where the date will look in the past and throw off the three-day view
+            const offset = this.getTzOffet();
+            this.date = moment(this.date)
+                .add(offset * -1, 'minutes')
+                .toISOString();
+        }
+
+        this.renderTimeline();
+    }
 
     /**
      * Get the closest parent element that scrolls
