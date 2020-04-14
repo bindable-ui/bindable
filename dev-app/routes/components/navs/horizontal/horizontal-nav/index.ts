@@ -22,13 +22,19 @@ export class Horizontal {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't175',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
     ];
 
     public horizontalProperties = [
+        {
+            default: 'var(--c_darkGray)',
+            description: 'Set the background color of the nav.',
+            name: 'background-color',
+            value: 'CSS Color',
+        },
         {
             default: 'center',
             description: 'Set the vertical alignment.',
