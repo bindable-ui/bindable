@@ -74,7 +74,7 @@ function mapEntriesFn(
         );
     };
 
-    // Sometimes zoomeLevel is passed as a string
+    // Sometimes zoomLevel is passed as a string
     const zoom = parseInt(zoomLevel.toString(), 10);
 
     const width = timeView === 'week' || timeView === 'three-day' ? 30 : 60;
