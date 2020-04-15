@@ -57,6 +57,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     css="--tile-color: ${color}"
                     if.bind="color || status"
                 ></div>
+                <c-pill
+                    class="${styles.pill}"
+                    color="${pillColor}"
+                    if.bind="pillText"
+                >
+                    <span slot="pill-content">
+                        ${pillText}
+                    </span>
+                </c-pill>
                 <img
                     if.bind="imageUrl"
                     src="${imageUrl}"

@@ -55,21 +55,21 @@ describe('Web worker functions', () => {
 
     describe('#mapEntries', () => {
         it('tests formatting', async () => {
-            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString());
+            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
             expect(data[0].startTime).toBe('12:00');
             expect(data[0].endTime).toBe('12:04');
         });
 
         it('tests positioning', async () => {
-            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString());
+            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
             expect(data[0].top).toBe(1440);
             expect(data[0].height).toBe(8);
         });
 
         it('tests same time entries', async () => {
-            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString());
+            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
             expect(data[0].widthCalc).toBeUndefined();
             expect(data[2].widthCalc).toBeDefined();
@@ -77,7 +77,7 @@ describe('Web worker functions', () => {
         });
 
         it('tests nested entries', async () => {
-            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString());
+            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
             expect(data[0].widthCalc).toBeUndefined();
             expect(data[1].widthCalc).toBeDefined();

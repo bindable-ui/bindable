@@ -168,10 +168,10 @@ export class TimelineExample {
         // },
     ];
 
-    public zoomLevel = 5;
+    public zoomLevel = 2;
     public displayView = 'three-day';
     public loading = false;
-    public preventCreate = _isoTime => false;
+    public preventCreate = false;
 
     // constructor() {
     //     const genRandom = (min, max) => Math.random() * (max - min + 1) + min;
