@@ -39,7 +39,7 @@ export class P {
             default: 'var(--c_smoke)',
             description: 'Set the color on a <p> tag.',
             name: 'color',
-            value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
+            value: 'CSS Color',
         },
         {
             default: 'true',

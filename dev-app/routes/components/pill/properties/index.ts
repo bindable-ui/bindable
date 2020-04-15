@@ -24,7 +24,7 @@ export class PillProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't175',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -32,10 +32,10 @@ export class PillProperties {
 
     public pillProperties = [
         {
-            default: 'info',
+            default: 'var(--c_subOneMain)',
             description: 'Set the color',
             name: 'color',
-            value: 'info | neutral',
+            value: 'CSS Color',
         },
         {
             description: 'Optional: Set the URL the pill should link to.',

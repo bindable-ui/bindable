@@ -60,6 +60,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     repeat.for="col of cols"
                     data-th="${col.colHeadValue}"
                     class="${(col._class || actions.getColClass) ? getClasses(getColClass(row, col)) : ''}"
+                    css="--cell-bar-color: ${getBarColor(row, col)}"
                     col.bind="col"
                     row.bind="row"
                     get-col-value.call="getColValue(row, col)"

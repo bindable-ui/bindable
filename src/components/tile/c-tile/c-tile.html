@@ -29,11 +29,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <div slot="trigger">
                     <c-icon
                         icon="${tipIcon}"
-                        color="lightGray"
+                        color="var(--c_lightGray)"
                     ></c-icon>
                 </div>
                 <div slot="content">
-                    <template part="tip-content" replaceable></template>
+                    <template
+                        part="tip-content"
+                        replaceable
+                    ></template>
                 </div>
             </c-tip>
             <div
@@ -47,8 +50,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     drag-draggable.bind="dragOptions"
                 ></c-drag-handle>
                 <div
-                    class="${styles.status}  ${styles[status]}"
-                    if.bind="status"
+                    class="
+                        ${styles.color}
+                        ${styles[status]}
+                    "
+                    css="--tile-color: ${color}"
+                    if.bind="color || status"
                 ></div>
                 <c-pill
                     class="${styles.pill}"

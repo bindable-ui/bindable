@@ -17,7 +17,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  ROW ACTIVE
  *  NO VERTICAL BORDER
  *  CELL WIDTHS
- *  ROW STATUS
+ *  BAR
+ *  ROW STATUS (backwards compatibility)
  *  FOOTER ROW
  *  FONTS
  *      - Mono
@@ -197,7 +198,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !ROW STATUS
+    !BAR
+\*------------------------------------*/
+
+.bar{
+    position: relative;
+}
+
+.bar:before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--cell-bar-color);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ROW STATUS (here for backwards compatibility)
 \*------------------------------------*/
 
 /**

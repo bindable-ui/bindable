@@ -251,7 +251,7 @@ describe('c-tile component', () => {
                 }
             });
 
-            const existingStateClasses = ['processing', 'healthy', 'warning', 'error', 'info'];
+            const existingStateClasses = ['processing'];
             existingStateClasses.forEach(state => {
                 it(`css class: "${state}"`, async done => {
                     component = StageComponent.withResources()

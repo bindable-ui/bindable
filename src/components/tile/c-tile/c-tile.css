@@ -227,48 +227,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Base
  */
 
-.status{
+.color{
     position: absolute;
     top: 0;
     width: 100%;
     height: var(--s-5);
-}
-
-
-/**
- * ^Healthy
- */
-
-.healthy{
-    background: var(--c_secondaryMain);
-}
-
-
-/**
- * ^Info
- */
-
-.info{
-    background: var(--c_subOneMain);
-}
-
-
-/**
- * ^Warning
- */
-
-.warning{
-    background: var(--c_subTwoMain);
-}
-
-
-/**
- * ^Error
- */
-
-.critical,
-.error{
-    background: var(--c_primaryLight);
+    background: var(--tile-color);
 }
 
 
