@@ -74,6 +74,9 @@ function mapEntriesFn(
         );
     };
 
+    // Sometimes zoomeLevel is passed as a string
+    const zoom = parseInt(zoomLevel.toString(), 10);
+
     const width = timeView === 'week' || timeView === 'three-day' ? 30 : 60;
 
     let nestedEntryWidth = 80;
@@ -84,13 +87,13 @@ function mapEntriesFn(
                 entry.start = startTime;
             }
 
-            entry.startTime = zoomLevel === 5 ? formatHHmmss(entry.start) : formatHHmm(entry.start);
+            entry.startTime = zoom === 5 ? formatHHmmss(entry.start) : formatHHmm(entry.start);
 
             if (!entry.end) {
                 entry.end = new Date(new Date(entry.start).getTime() + entry.duration * 1000).toISOString();
             }
 
-            entry.endTime = zoomLevel === 5 ? formatHHmmss(entry.end) : formatHHmm(entry.end);
+            entry.endTime = zoom === 5 ? formatHHmmss(entry.end) : formatHHmm(entry.end);
 
             const entryStartDate: any = new Date(entry.start);
             const startTimeDate: any = new Date(startTime);
