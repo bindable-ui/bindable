@@ -22,7 +22,7 @@ export class IconProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't190',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -30,16 +30,16 @@ export class IconProperties {
 
     public iconProperties = [
         {
-            default: 'lightGray',
+            default: 'var(--c_lightGray)',
             description: 'Set the color of the icon.',
             name: 'color',
-            value: 'white | lightGray | gray | charcoal | primary | primaryLight | secondary | subOne | subTwo',
+            value: 'CSS Color',
         },
         {
             default: '',
             description: 'Set which icon you want to use.',
             name: 'icon',
-            value: '',
+            value: 'Name of your icon',
         },
         {
             default: 'small',

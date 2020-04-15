@@ -69,34 +69,6 @@ describe('c-icon component', () => {
                 }
             });
 
-            const existingColorClasses = [
-                'white',
-                'light-gray',
-                'gray',
-                'primary',
-                'primary-light',
-                'secondary',
-                'sub-one',
-                'sub-two',
-            ];
-            existingColorClasses.forEach(color => {
-                it(`css class ${color}`, async done => {
-                    component = StageComponent.withResources()
-                        .inView('<c-icon color.bind="customColor"></c-icon>')
-                        .boundTo({
-                            customColor: `${color}`,
-                        });
-
-                    try {
-                        await bootStrapEnvironment(component);
-                        expect(component.viewModel.styles[component.viewModel.color]).not.toBe(undefined);
-                        done();
-                    } catch (e) {
-                        done.fail(e);
-                    }
-                });
-            });
-
             const existingSizesClasses = ['tiny', 'small', 'medium', 'large', 'huge'];
             existingSizesClasses.forEach(size => {
                 it(`css class: ${size}`, async done => {

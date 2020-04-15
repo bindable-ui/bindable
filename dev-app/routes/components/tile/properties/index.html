@@ -20,11 +20,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-code-sample>
                     <l-grid>
                         <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" status="processing" title="Processing Tile"></c-tile>
-                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" status="healthy" title="Title here that is really long so we can see the title truncate and all that n stuff."></c-tile>
-                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" status="info" title="Info Tile"></c-tile>
-                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" status="warning" title="Title wraps but no truncate"></c-tile>
-                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" status="error" title="aklsdlauneackakjbcnlakjeuybljahbdkfjahbskjbcakjehsb" title-icon="time" show-tip.bind="true" tip-icon="info">
-                            <template replace-part="tip-content">Content that replaces the default.</template>
+                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" color="var(--c_secondaryMain)" title="Title here that is really long so we can see the title truncate and all that n stuff."></c-tile>
+                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" color="var(--c_subOneMain)" title="Info Tile"></c-tile>
+                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" color="var(--c_subTwoMain)" title="Title wraps but no truncate"></c-tile>
+                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" color="#FF0000" title="aklsdlauneackakjbcnlakjeuybljahbdkfjahbskjbcakjehsb" title-icon="time" show-tip.bind="true" tip-icon="info">
+                            <template replace-part="tip-content"><c-p color="var(--c_white)">Content that replaces the default.</c-p></template>
                         </c-tile>
                         <c-tile image-url="https://placeimg.com/150/200/any" image-container-height.bind="200" title="Drag Icon" message="Hover Me" show-drag.bind="true"></c-tile>
                         <c-tile image-url="https://placeimg.com/150/100/any" image-container-height.bind="100" title="Smaller Image"></c-tile>
@@ -32,6 +32,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" title="Disabled State" state="disabled"></c-tile>
                         <c-tile image-url="" title="No Image URL" image-container-height.bind="100" no-image-message="No Image"></c-tile>
                         <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" title="a test string" search-match="a test"></c-tile>
+                        <c-tile image-url="https://placeimg.com/160/200/any" image-container-height.bind="200" title="Pill Item" pill-text="Pill Text"></c-tile>
                     </l-grid>
                 </c-code-sample>
             </l-stack>

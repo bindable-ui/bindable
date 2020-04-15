@@ -18,11 +18,34 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>example</c-h3>
                 <c-code-sample>
-                    <c-status href="" text="Healthy State" state="healthy"></c-status>
-                    <c-status href="http://google.com" text="Info State" state="info"></c-status>
-                    <c-status href="http://google.com" target-new.bind="true" text="Go to Google in new page and warning" state="warning" max-width="200px"></c-status>
-                    <c-status href="" text="Not a link and ctirical" state="critical"></c-status>
-                    <c-status href="http://google.com" text="No State" state="none"></c-status>
+                    <c-status
+                        href=""
+                        text="Healthy State"
+                    ></c-status>
+                    <c-status
+                        color="var(--c_subOneMain)"
+                        href="http://google.com"
+                        text="Info State"
+                    ></c-status>
+                    <c-status
+                        color="var(--c_subTwoMain)"
+                        href="http://google.com"
+                        max-width="200px"
+                        pulse-speed="medium"
+                        target-new.bind="true"
+                        text="Go to Google in new page and warning"
+                    ></c-status>
+                    <c-status
+                        color="var(--c_primaryLight)"
+                        href=""
+                        pulse-speed="fast"
+                        text="Not a link and ctirical"
+                    ></c-status>
+                    <c-status
+                        color="transparent"
+                        href="http://google.com"
+                        text="No State"
+                    ></c-status>
                 </c-code-sample>
             </l-stack>
         </div>

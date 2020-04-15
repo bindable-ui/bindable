@@ -11,7 +11,7 @@ export class CIcon {
     @bindable
     public action;
     @bindable
-    public color = 'lightGray';
+    public color = 'var(--c_lightGray)';
     @bindable
     public icon;
     @bindable
