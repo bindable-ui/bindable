@@ -814,7 +814,7 @@ c-table{
     --table-color-critical: var(--c_primaryLighter);
     --table-background-info: var(--c_subOneDark);
     --table-color-info: var(--c_subOneLight);
-    --table-background-processing: url('../../../global-styles/assets/images/td-processing.gif');
+    --table-background-processing: url('assets/images/td-processing.gif');
     --table-color-processing: var(--table-td-color);
 
     /* Sort */
@@ -875,7 +875,7 @@ c-tile{
 
     /* status */
     --tile-status-height: var(--s-5);
-    --tile-status-processing: #CCC url('../../../global-styles/assets/images/td-processing.gif');
+    --tile-status-processing: #CCC url('assets/images/td-processing.gif');
 }
 
 
