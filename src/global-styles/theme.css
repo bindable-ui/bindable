@@ -718,7 +718,7 @@ c-notification{
 c-pill{
     --pill-padding: 4px 7px 3px;
     --pill-border-radius: 5px;
-    --pill-color: var(--c_white);
+    --pill-text-color: var(--c_white);
     --pill-font-size: var(--s-2);
     --pill-info-background: var(--c_subOneMain);
     --pill-neutral-background: var(--c_charcoal);

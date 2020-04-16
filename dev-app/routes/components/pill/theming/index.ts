@@ -29,7 +29,7 @@ export class PillThemeProperties {
         },
         {
             default: 'var(--c_white)',
-            name: '--pill-color',
+            name: '--pill-text-color',
         },
         {
             default: 'var(--s-2)',

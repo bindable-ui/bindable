@@ -23,7 +23,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .pill{
     padding: var(--pill-padding);
     border-radius: var(--pill-border-radius);
-    color: var(--pill-color);
+    color: var(--pill-text-color);
     font-size: var(--pill-font-size);
     display: inline-block;
     background-color: var(--pill-color);
