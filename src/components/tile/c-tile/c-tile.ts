@@ -33,7 +33,7 @@ export class CTile {
     @bindable
     public noImageMessage = 'No Image';
     @bindable
-    public pillColor = 'info';
+    public pillColor = 'var(--c_subOneMain)';
     @bindable
     public pillText;
     @bindable
