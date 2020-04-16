@@ -227,7 +227,31 @@ describe('c-tile component', () => {
                 }
             });
 
-            const existingStateClasses = ['processing', 'healthy', 'warning', 'error', 'info'];
+            it('css class: pill', async done => {
+                component = StageComponent.withResources().inView('<c-tile></c-tile>');
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.styles.pill).not.toBe(undefined);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+
+            it('css class: tip', async done => {
+                component = StageComponent.withResources().inView('<c-tile></c-tile>');
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.styles.tip).not.toBe(undefined);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+
+            const existingStateClasses = ['processing'];
             existingStateClasses.forEach(state => {
                 it(`css class: "${state}"`, async done => {
                     component = StageComponent.withResources()

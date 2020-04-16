@@ -34,7 +34,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     height: 100%;
     margin: 0;
     padding: var(--nav-padding);
-    background-color: var(--nav-background);
+    background-color: var(--nav-background-color);
     list-style: none;
 }
 

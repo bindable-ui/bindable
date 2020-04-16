@@ -10,6 +10,8 @@ import {MobileNavOpen} from './mobile-nav-open';
 @inject(MobileNavOpen)
 export class CNavHorizontal {
     @bindable
+    public backgroundColor = 'var(--c_darkGray)';
+    @bindable
     public mobile = false;
     @bindable
     public size = 'medium';

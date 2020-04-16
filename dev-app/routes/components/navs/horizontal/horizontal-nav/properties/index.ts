@@ -30,6 +30,12 @@ export class HorizontalNav {
 
     public horizontalProperties = [
         {
+            default: 'var(--c_darkGray)',
+            description: 'Set the background color of the nav.',
+            name: 'background-color',
+            value: 'CSS Color',
+        },
+        {
             default: 'center',
             description: 'Set the vertical alignment.',
             name: 'align',

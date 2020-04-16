@@ -10,16 +10,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         class="${styles.container}"
         css="max-width: ${maxWidth}"
     >
-        <div
-            class="
-                ${styles.status}
-                ${styles[state]}
-            "
-            show.bind="state"
-        >
+        <div class="${styles[pulseSpeed]}">
             <c-icon
                 icon="circle"
-                color="${state === 'healthy' ? 'secondary' : state === 'warning' ? 'subTwo' : state === 'critical' ? 'primaryLight' : state === 'info' ? 'subOne' : ''}"
+                color="${color}"
             ></c-icon>
         </div>
         <c-p

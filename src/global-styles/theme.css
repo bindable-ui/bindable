@@ -590,9 +590,6 @@ ux-dialog-container{
  */
 
 c-nav-horizontal{
-    /* Base */
-    --nav-background: var(--c_darkGray);
-
     /* Sizing */
     --nav-medium-padding: var(--s0) 0;
     --nav-small-padding: var(--s-1) 0;
@@ -787,6 +784,7 @@ c-table{
     --table-active-background: #5f5f5f;
 
     /* Row Bar */
+    /* Here for backwards compatibility. Use --cell-bar-color as the updated way to set bar color */
     --table-row-bar-healthy: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%2337A56C" width="5" height="1"></rect></svg>');
     --table-row-bar-info: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%233599C5" width="5" height="1"></rect></svg>');
     --table-row-bar-warning: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23CEA832" width="5" height="1"></rect></svg>');
@@ -877,10 +875,6 @@ c-tile{
 
     /* status */
     --tile-status-height: var(--s-5);
-    --tile-status-healthy: var(--c_secondaryMain);
-    --tile-status-info: var(--c_subOneMain);
-    --tile-status-warning: var(--c_subTwoMain);
-    --tile-status-critical: var(--c_primaryLight);
     --tile-status-processing: #CCC url('../../../global-styles/assets/images/td-processing.gif');
 }
 

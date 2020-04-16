@@ -349,6 +349,7 @@ export class TableViews {
             {
                 gender: 'Male',
                 name: 'Han Solo is super cool and all that',
+                namePill: 'Pill',
                 ship: 'M. Falcon',
             },
             {
@@ -612,7 +613,6 @@ export class TableViews {
         this.pillTableData = [
             {
                 description: 'more text here',
-                descriptionPill: 'Desc Pill',
                 name: 'stuff here',
                 namePill: 'Name Pill',
             },

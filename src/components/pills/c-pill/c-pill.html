@@ -12,10 +12,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles.pill}
             ${styles[color]}
         "
+        css="--pill-color: ${color}"
     >
         <c-icon
             icon="${icon}"
-            color="white"
+            color="var(--c_white)"
             size="itzy"
             action.call="actionFunction()"
             if.bind="icon"
@@ -28,11 +29,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles.pill}
             ${styles[color]}
         "
+        css="--pill-color: ${color}"
         show.bind="href"
     >
         <c-icon
             icon="${icon}"
-            color="white"
+            color="var(--c_white)"
             size="itzy"
             action.call="actionFunction()"
             if.bind="icon"

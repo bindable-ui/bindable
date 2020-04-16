@@ -37,7 +37,7 @@ export class CFormText {
     @bindable
     public labelIcon;
     @bindable
-    public labelIconColor = 'lightGray';
+    public labelIconColor = 'var(--c_lightGray)';
     @bindable
     public placeholder;
     @bindable

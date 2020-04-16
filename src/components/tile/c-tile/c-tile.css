@@ -15,13 +15,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Checked
  *  CHECKBOX
  *  DRAG
+ *  PILL
  *  TIP
- *  STATE
- *      - Base
- *      - Healthy
- *      - Info
- *      - Warning
- *      - Error
+ *  COLOR
+ *  STATUS
+ *      - Processing
  */
 
 
@@ -179,6 +177,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !PILL
+\*------------------------------------*/
+
+.pill{
+    position: absolute;
+    top: var(--s-2);
+    left: var(--s-3);
+}
+
+
+
+
+
+/*------------------------------------*\
     !TIP
 \*------------------------------------*/
 
@@ -205,57 +217,24 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !STATE
+    !COLOR
 \*------------------------------------*/
 
-/**
- * ^Base
- */
-
-.status{
+.color{
     position: absolute;
     top: 0;
     width: 100%;
     height: var(--tile-status-height);
+    background: var(--tile-color);
 }
 
 
-/**
- * ^Healthy
- */
-
-.healthy{
-    background: var(--tile-status-healthy);
-}
 
 
-/**
- * ^Info
- */
 
-.info{
-    background: var(--tile-status-info);
-}
-
-
-/**
- * ^Warning
- */
-
-.warning{
-    background: var(--tile-status-warning);
-}
-
-
-/**
- * ^Error
- */
-
-.critical,
-.error{
-    background: var(--tile-status-critical);
-}
-
+/*------------------------------------*\
+    !STATUS
+\*------------------------------------*/
 
 /**
  * ^Processing

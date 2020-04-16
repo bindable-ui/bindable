@@ -8,11 +8,13 @@ import * as styles from './c-status.css.json';
 
 export class CStatus {
     @bindable
+    public color = 'var(--c_secondaryMain)';
+    @bindable
     public href;
     @bindable
-    public maxWidth = 'auto';
+    public pulseSpeed = 'slow';
     @bindable
-    public state = 'healthy';
+    public maxWidth = 'auto';
     @bindable
     public targetNew = false;
     @bindable

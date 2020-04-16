@@ -9,9 +9,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  *  BASE
- *  COLORS
- *      - Info
- *      - Neutral
  *  LINKS
  */
 
@@ -29,35 +26,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     color: var(--pill-color);
     font-size: var(--pill-font-size);
     display: inline-block;
+    background-color: var(--pill-color);
 }
 
 .pill > svg{
     vertical-align: baseline;
-}
-
-
-
-
-
-/*------------------------------------*\
-    !COLORS
-\*------------------------------------*/
-
-/**
- * ^Info
- */
-
-.info{
-    background-color: var(--pill-info-background);
-}
-
-
-/**
- * ^Neutral
- */
-
-.neutral{
-    background-color: var(--pill-neutral-background);
 }
 
 

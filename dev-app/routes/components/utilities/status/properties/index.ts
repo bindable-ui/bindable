@@ -31,9 +31,21 @@ export class StatusProperties {
 
     public statusProperties = [
         {
+            default: 'var(--c_secondaryMain)',
+            description: 'Set the color of the dot',
+            name: 'color',
+            value: 'CSS Color',
+        },
+        {
             description: 'Set to a URL to go to if clicked.',
             name: 'href',
             value: 'string',
+        },
+        {
+            default: 'slow',
+            description: 'Set the speed of the pulse',
+            name: 'pulse-speed',
+            value: 'slow | medium | fast',
         },
         {
             default: 'auto',
@@ -42,12 +54,6 @@ export class StatusProperties {
             ' This will set the size of when the content should truncate. Ex "200px"',
             name: 'max-width',
             value: 'string',
-        },
-        {
-            default: 'healthy',
-            description: 'Set to change the colored dot. None will give you no dot at all.',
-            name: 'state',
-            value: 'healthy | info | warning | crticial | none',
         },
         {
             default: 'false',
