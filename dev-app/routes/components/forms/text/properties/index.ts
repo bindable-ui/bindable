@@ -94,10 +94,10 @@ export class TextInputProperties {
             value: 'Any icon',
         },
         {
-            default: 'lightGray',
+            default: 'var(--c_lightGray)',
             description: 'Set the color of the icon in the label.',
             name: 'label-icon-color',
-            value: 'white | lightGray | gray | primary | primaryLight | secondary | subOne | subTwo',
+            value: 'CSS Color',
         },
         {
             description: 'Leave off if not needed.',
