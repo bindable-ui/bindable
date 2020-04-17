@@ -20,10 +20,6 @@ export class NavHorizontalThemeProperties {
 
     public navHorizontalThemeProperties = [
         {
-            default: 'var(--c_darkGray)',
-            name: '--nav-background',
-        },
-        {
             default: 'var(--s0) 0',
             name: '--nav-medium-padding',
         },

@@ -36,5 +36,11 @@ export class VerticalProperties {
             name: 'nav-bottom',
             value: 'boolean',
         },
+        {
+            default: 'var(--c_darkGray)',
+            description: 'Set the background color of the nav',
+            name: 'background-color',
+            value: 'CSS Color',
+        },
     ];
 }

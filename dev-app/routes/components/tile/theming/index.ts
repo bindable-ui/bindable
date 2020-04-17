@@ -76,22 +76,6 @@ export class TileThemeProperties {
             name: '--tile-status-height',
         },
         {
-            default: 'var(--c_secondaryMain)',
-            name: '--tile-status-healthy',
-        },
-        {
-            default: 'var(--c_subOneMain)',
-            name: '--tile-status-info',
-        },
-        {
-            default: 'var(--c_subTwoMain)',
-            name: '--tile-status-warning',
-        },
-        {
-            default: 'var(--c_primaryLight)',
-            name: '--tile-status-critical',
-        },
-        {
             default: '#CCC url(\'../../../global-styles/assets/images/td-processing.gif\')',
             name: '--tile-status-processing',
         },

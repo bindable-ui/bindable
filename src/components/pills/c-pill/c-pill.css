@@ -46,11 +46,3 @@ a.pill{
     text-decoration: none;
     transition: background var(--trans_main);
 }
-
-a.info:hover{
-    background: var(--pill-link-info-background-hover);
-}
-
-a.neutral:hover{
-    background: var(--pill-link-neutral-background-hover);
-}

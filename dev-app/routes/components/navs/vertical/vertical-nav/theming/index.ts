@@ -24,10 +24,6 @@ export class NavVerticalThemeProperties {
             name: '--nav-padding',
         },
         {
-            default: 'var(--c_darkGray)',
-            name: '--nav-background',
-        },
-        {
             default: 'var(--s-2)',
             name: '--nav-last-child-margin-bottom',
         },

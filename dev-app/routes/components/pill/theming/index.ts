@@ -36,24 +36,8 @@ export class PillThemeProperties {
             name: '--pill-font-size',
         },
         {
-            default: 'var(--c_subOneMain)',
-            name: '--pill-info-background',
-        },
-        {
-            default: 'var(--c_charcoal)',
-            name: '--pill-neutral-background',
-        },
-        {
             default: 'var(--c_white)',
             name: '--pill-link-color',
-        },
-        {
-            default: 'var(--c_subOneLight)',
-            name: '--pill-link-info-background-hover',
-        },
-        {
-            default: 'var(--c_gray)',
-            name: '--pill-link-neutral-background-hover',
         },
     ];
 }

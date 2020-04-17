@@ -91,26 +91,6 @@ export class TableThemeProperties {
             name: '--table-active-background',
         },
         {
-            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%2337A56C" width="5" height="1"></rect></svg>\')',
-            name: '--table-row-bar-healthy',
-        },
-        {
-            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%233599C5" width="5" height="1"></rect></svg>\')',
-            name: '--table-row-bar-info',
-        },
-        {
-            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23CEA832" width="5" height="1"></rect></svg>\')',
-            name: '--table-row-bar-warning',
-        },
-        {
-            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23E85358" width="5" height="1"></rect></svg>\')',
-            name: '--table-row-bar-critical',
-        },
-        {
-            default: 'url(\'data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%239B9B9B" width="5" height="1"></rect></svg>\')',
-            name: '--table-row-bar-neutral',
-        },
-        {
             default: 'var(--s-4)',
             name: '--table-text-input-cell-padding',
         },
