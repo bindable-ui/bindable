@@ -53,6 +53,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  TIP
  *  TOAST
  *  TYPE
+ *      - general
  *      - c-code
  *      - bindable-h1
  *      - bindable-h2
@@ -1086,6 +1087,26 @@ c-toasts a svg{
 \*------------------------------------*/
 
 /**
+ * ^general
+ */
+
+a{
+    --a-color: var(--c_secondaryMain) !important;
+    --a-color-hover: var(--c_secondaryDark) !important;
+}
+
+p{
+    --p-default-color: initial !important;
+}
+
+:root{
+    --selected-text-background: var(--c_primaryMain);
+    --selected-text-color: var(--c_black) !important;
+}
+
+
+
+/**
  * ^c-code
  */
 
@@ -1171,14 +1192,16 @@ c-list-container{
 
     /* dark */
     --list-container-dark-color: initial;
-    --list-container-dark-background: var(--c_darkGray);
-    --list-container-dark-a-color-hover: var(--c_white);
-    --list-container-dark-a-background-hover: var(--c_soot);
+    --list-container-dark-background: var(--c_smoke) !important;
+    --list-container-dark-a-color-hover: var(--c_black);
+    --list-container-dark-a-background-hover: var(--c_smoke) !important;
+    --list-container-dark-a-icon-hover: var(--c_subOneMain);
 
     /* light */
-    --list-container-light-color: var(--c_smoke);
-    --list-container-light-background: var(--c_charcoal);
-    --list-container-light-a-color-hover: var(--c_white);
+    --list-container-light-color: initial !important;
+    --list-container-light-background: var(--c_lightGray) !important;
+    --list-container-light-a-color-hover: var(--c_black) !important;
+    --list-container-light-a-background-hover: var(--c_lightGray) !important;
     --list-container-light-a-icon-hover: var(--c_subOneMain);
 
     /* medium */
@@ -1190,9 +1213,8 @@ c-list-container{
     --list-container-small-a-font-size: var(--s-1);
 
     /* item */
-   --list-item-color: var(--c_lightGray);
-    --list-item-color-active: var(--c_white);
-    --list-item-background-active: var(--c_primaryMain);
+    --list-item-color-active: initial !important;
+    --list-item-background-active: var(--c_gray) !important;
 }
 
 
@@ -1201,9 +1223,9 @@ c-list-container{
  */
 
 c-list{
-    --list-color: var(--c_smoke);
-    --list-color-link: var(--c_subOneMain);
-    --list-color-link-hover: var(--c_subOneLight);
+    --list-color: initial !important;
+    --list-color-link: initial !important;
+    --list-color-link-hover: var(--c_secondaryMain) !important;
 }
 
 

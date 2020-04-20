@@ -37,7 +37,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .list-item a,
 .list-item c-p{
     display: table-cell;
-    color: var(--list-item-color);
 }
 
 .list-item c-h5{
@@ -77,6 +76,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .active a,
 .active a:hover{
-    background: var(--list-item-background-active);
-    color: var(--list-item-color-active);
+    background: var(--list-item-background-active) !important;
+    color: var(--list-item-color-active) !important;
 }

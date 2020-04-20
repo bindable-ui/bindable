@@ -44,7 +44,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !COLOR
 \*------------------------------------*/
 
-.dark{
+.dark,
+.dark a{
     color: var(--list-container-dark-color);
     background: var(--list-container-dark-background);
 }
@@ -54,21 +55,28 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     background: var(--list-container-dark-a-background-hover);
 }
 
-.light{
+.dark li a:hover svg{
+    fill: var(--list-container-dark-a-icon-hover);
+}
+
+.light,
+.light a{
     color: var(--list-container-light-color);
     background: var(--list-container-light-background);
 }
 
 .light li a:hover{
     color: var(--list-container-light-a-color-hover);
-}
-
-.light li a svg{
-    transition: fill var(--trans_main);
+    background: var(--list-container-light-a-background-hover);
 }
 
 .light li a:hover svg{
     fill: var(--list-container-light-a-icon-hover);
+}
+
+.dark li a svg,
+.light li a svg{
+    transition: fill var(--trans_main);
 }
 
 

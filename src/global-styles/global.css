@@ -35,8 +35,8 @@ body{
 \*------------------------------------*/
 
 ::selection{
-    background-color: var(--c_primaryMain);
-    color: var(--c_white);
+    background-color: var(--selected-text-background);
+    color: var(--selected-text-color);
 }
 
 
@@ -86,8 +86,6 @@ select[multiple]::-webkit-scrollbar-thumb{
 \*------------------------------------*/
 
 a{
-    --a-color: var(--c_smoke);
-    --a-color-hover: var(--c_lightGray);
     color: var(--a-color);
     transition: color var(--trans_main);
 }

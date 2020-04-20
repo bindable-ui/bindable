@@ -36,7 +36,7 @@ export class PProperties {
             value: 'boolean',
         },
         {
-            default: 'var(--c_smoke)',
+            default: 'var(--p-default-color)',
             description: 'Set the color on a <p> tag.',
             name: 'color',
             value: 'CSS Color',

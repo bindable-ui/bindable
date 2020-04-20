@@ -10,7 +10,7 @@ export class CP {
     @bindable
     public bold = false;
     @bindable
-    public color = 'var(--c_smoke)';
+    public color = 'var(--p-default-color)';
     @bindable
     public flushTop = true;
     @bindable

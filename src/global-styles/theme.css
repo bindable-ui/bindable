@@ -52,6 +52,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  TIP
  *  TOAST
  *  TYPE
+ *      - general
  *      - c-code
  *      - bindable-h1
  *      - bindable-h2
@@ -998,6 +999,25 @@ c-toasts a svg{
 \*------------------------------------*/
 
 /**
+ * ^general
+ */
+
+a{
+    --a-color: var(--c_smoke);
+    --a-color-hover: var(--c_lightGray);
+}
+
+p{
+    --p-default-color: var(--c_smoke);
+}
+
+:root{
+    --selected-text-background: var(--c_primaryMain);
+    --selected-text-color: var(--c_white);
+}
+
+
+/**
  * ^c-code
  */
 
@@ -1086,11 +1106,13 @@ c-list-container{
     --list-container-dark-background: var(--c_darkGray);
     --list-container-dark-a-color-hover: var(--c_white);
     --list-container-dark-a-background-hover: var(--c_soot);
+    --list-container-dark-a-icon-hover: var(--c_subOneMain);
 
     /* light */
-    --list-container-light-color: var(--c_smoke);
+    --list-container-light-color: initial;
     --list-container-light-background: var(--c_charcoal);
     --list-container-light-a-color-hover: var(--c_white);
+    --list-container-light-a-background-hover: var(--c_ash);
     --list-container-light-a-icon-hover: var(--c_subOneMain);
 
     /* medium */
@@ -1102,7 +1124,6 @@ c-list-container{
     --list-container-small-a-font-size: var(--s-1);
 
     /* item */
-   --list-item-color: var(--c_lightGray);
     --list-item-color-active: var(--c_white);
     --list-item-background-active: var(--c_primaryMain);
 }

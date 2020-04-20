@@ -36,7 +36,11 @@ export class ListContainerThemeProperties {
             name: '--list-container-dark-a-background-hover',
         },
         {
-            default: 'var(--c_smoke)',
+            default: 'var(--c_subOneMain)',
+            name: '--list-container-dark-a-icon-hover',
+        },
+        {
+            default: 'initial',
             name: '--list-container-light-color',
         },
         {
@@ -46,6 +50,10 @@ export class ListContainerThemeProperties {
         {
             default: 'var(--c_white)',
             name: '--list-container-light-a-color-hover',
+        },
+        {
+            default: 'var(--c_ash)',
+            name: '--list-container-light-a-background-hover',
         },
         {
             default: 'var(--c_subOneMain)',
