@@ -20,7 +20,8 @@ import 'ts-polyfill/lib/es2020-string';
 import environment from './environment';
 import './stylesheets/dev-app.css';
 import './stylesheets/fonts.css';
-import './stylesheets/theme-alt.css';
+//import './stylesheets/theme-alt.css';
+import 'resources/global-styles/theme.css';
 
 export function configure(aurelia: Aurelia) {
     aurelia.use

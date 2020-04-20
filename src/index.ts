@@ -93,7 +93,7 @@ import {IDropzoneActions} from './custom-attributes/drag-dropzone';
 // Styles
 import './global-styles/global.css';
 import './global-styles/reset.css';
-import './global-styles/theme.css';
+// import './global-styles/theme.css';
 
 export function configure(config: FrameworkConfiguration) {
     config.globalResources([
