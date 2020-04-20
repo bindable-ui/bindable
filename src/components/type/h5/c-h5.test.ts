@@ -25,18 +25,6 @@ describe('c-h5 component', () => {
                     done.fail(e);
                 }
             });
-
-            it('css class: smoke', async done => {
-                component = StageComponent.withResources().inView('<c-h5></c-h5>');
-
-                try {
-                    await bootStrapEnvironment(component);
-                    expect(component.viewModel.styles.smoke).not.toBe(undefined);
-                    done();
-                } catch (e) {
-                    done.fail(e);
-                }
-            });
         });
     });
 });
