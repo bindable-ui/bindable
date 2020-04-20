@@ -84,7 +84,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .table th input[type='checkbox'],
 .table td input[type='radio'],
 .table th input[type='radio']{
-    margin-top: 1px !important;
+    margin-top: var(--table-checkbox-margin-top) !important;
     margin-right: 0;
     margin-bottom: 0;
 }
@@ -340,7 +340,7 @@ td.button{
 }
 
 .drag-check compose span{
-    top: calc(-100% +2px);
+    top: var(--table-drag-check-top);
     left: -16px;
     height: var(--table-drag-check-height);
     padding-top: var(--table-drag-check-padding-top);

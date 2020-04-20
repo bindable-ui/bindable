@@ -132,6 +132,10 @@ c-nav-vertical > nav{
     --nav-background-color: transparent !important;
 }
 
+c-tip c-p p{
+    --p-color: var(--c_asphalt) !important;
+}
+
 
 /**
  * ^Body
@@ -649,13 +653,13 @@ ux-dialog-overlay{
 }
 
 ux-dialog-container{
-    --modal-background: var(--c_slate);
+    --modal-background: var(--c_white) !important;
     --modal-top-border-color: var(--c_primaryMain);
     --modal-top-border-size: 5px;
     --modal-header-padding: var(--s3) var(--s3) var(--s-1);
     --modal-body-padding: 0 var(--s3);
     --modal-footer-padding: var(--s1) var(--s3);
-    --modal-footer-border-top: solid 1px var(--c_charcoal);
+    --modal-footer-border-top: solid 1px var(--c_black) !important;
 }
 
 
@@ -680,9 +684,9 @@ c-nav-horizontal{
     --nav-tiny-font-size: var(--s-1);
 
     /* Mobile */
-    --nav-mobile-background: var(--c_soot);
-    --nav-mobile-font-size: var(--s-1);
-    --nav-mobile-hover: var(--c_slate);
+    --nav-mobile-background: var(--c_white) !important;
+    --nav-mobile-font-size: var(--s0) !important;
+    --nav-mobile-hover: var(--c_white) !important;
     --nav-mobile-active: var(--c_primaryMain);
     --nav-mobile-trigger-background: var(--c_primaryMain);
     --nav-mobile-trigger-bars-color: var(--c_white);
@@ -731,7 +735,7 @@ c-nav-vertical{
     --nav-item-accordion-icon-top: calc(var(--s-1) + 3px);
     --nav-item-accordion-icon-left: 22px;
     --nav-item-accordion-icon-size: var(--s-3);
-    --nav-item-accordion-icon-color: var(--c_white);
+    --nav-item-accordion-icon-color: var(--c_soot) !important;
 }
 
 
@@ -759,28 +763,28 @@ c-nav-vertical-sliding{
 c-notification{
     /* Base */
     --notification-font-size: var(--s-1);
-    --notification-color: var(--c_white);
+    --notification-color: var(--c_black) !important;
     --notification-padding: var(--s-3) var(--s0) var(--s-3) 0;
 
     /* Info */
-    --notification-info-border: solid 1px var(--c_subOneMain);
-    --notification-info-background: var(--c_subOneDark);
-    --notification-info-color: var(--c_subOneLighter);
+    --notification-info-border: solid 1px var(--c_secondaryMain) !important;
+    --notification-info-background: var(--c_secondaryLighter) !important;
+    --notification-info-color: var(--c_secondaryDark) !important;
 
     /* Warning */
-    --notification-warning-border: solid 1px var(--c_subTwoMain);
-    --notification-warning-background: var(--c_subTwoDark);
-    --notification-warning-color: var(--c_subTwoLight);
+    --notification-warning-border: solid 1px var(--c_subFourMain) !important;
+    --notification-warning-background: var(--c_subFourLighter) !important;
+    --notification-warning-color: var(--c_subFourDark) !important;
 
     /* Critical */
-    --notification-critical-border: solid 1px var(--c_primaryLighter);
-    --notification-critical-background: var(--c_primaryDark);
-    --notification-critical-color: var(--c_primaryLighter);
+    --notification-critical-border: solid 1px var(--c_subThreeMain) !important;
+    --notification-critical-background: var(--c_subThreeLighter) !important;
+    --notification-critical-color: var(--c_subThreeDark) !important;
 
     /* Success */
-    --notification-success-border: solid 1px var(--c_secondaryLighter);
-    --notification-success-background: var(--c_secondaryDark);
-    --notification-success-color: var(--c_secondaryLighter);
+    --notification-success-border: solid 1px var(--c_subOneMain) !important;
+    --notification-success-background: var(--c_subOneLighter) !important;
+    --notification-success-color: var(--c_subOneDark) !important;
 
     /* Callout */
     --notification-callout-flex: 0 0 calc(var(--s5) + 120px);
@@ -861,8 +865,8 @@ c-table{
     --table-td-color: var(--c_slate) !important;
     --table-th-padding: calc(var(--s-3) - 1px) var(--s0) calc(var(--s-3) - 4px) !important;
     --table-striped-background: var(--c_marshmellow) !important;
-    --table-hover-background: #444;
-    --table-active-background: #5f5f5f;
+    --table-hover-background: var(--c_lightGray) !important;
+    --table-active-background: var(--c_smoke) !important;
 
     /* Row Bar */
     /* Here for backwards compatibility. Use --cell-bar-color as the updated way to set bar color */
@@ -877,34 +881,38 @@ c-table{
     --table-text-input-height: var(--s2);
     --table-text-input-padding: var(--s-5) var(--s-4);
 
+    /* Checkbox */
+    --table-checkbox-margin-top: 3px !important;
+
     /* Drag */
-    --table-drag-background-hover: var(--c_darkGray);
+    --table-drag-background-hover: var(--c_lightGray) !important;
     --table-drag-height: var(--s4);
     --table-drag-padding-top: calc(var(--s-1) + 1px);
     --table-drag-padding-right: var(--s-2);
     --table-drag-padding-left: var(--s-3);
     --table-drag-check-height: calc(var(--s4) + 3%);
     --table-drag-check-padding-top: var(--s-2);
+    --table-drag-check-top: calc(-100% + 7px) !important;
 
     /* Colored Cell */
-    --table-background-healthy: var(--c_secondaryDark);
-    --table-color-healthy: var(--c_secondaryLight);
-    --table-background-warning: var(--c_subTwoDark);
-    --table-color-warning: var(--c_subTwoLight);
-    --table-background-critical: var(--c_primaryDark);
-    --table-color-critical: var(--c_primaryLighter);
-    --table-background-info: var(--c_subOneDark);
-    --table-color-info: var(--c_subOneLight);
+    --table-background-healthy: var(--c_subOneLight) !important;
+    --table-color-healthy: var(--c_subOneDark) !important;
+    --table-background-warning: var(--c_subFourLight) !important;
+    --table-color-warning: var(--c_subFourDark) !important;
+    --table-background-critical: var(--c_subThreeLight) !important;
+    --table-color-critical: var(--c_subThreeDark) !important;
+    --table-background-info: var(--c_secondaryLight) !important;
+    --table-color-info: var(--c_secondaryDark) !important;
     --table-background-processing: url('assets/images/td-processing.gif');
-    --table-color-processing: var(--table-td-color);
+    --table-color-processing: var(--c_white) !important;
 
     /* Sort */
     --table-sort-padding-right: 15px;
     --table-sort-icon-position: right 0 top calc(var(--s-5) - 2px);
     --table-fixed-header-sort-icon-position: right 0 top calc(var(--s0) - 1px);
-    --table-sort-icon-none: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="\%23FFFFFF" fill-rule="evenodd"><path d="M3.5 0L7 5H0zM0 8h7l-3.5 5z"/></g></svg>');
-    --table-sort-icon-desc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23FFF" d="M3.5 0L7 5H0z"/><path fill="\%23E85358" d="M0 8h7l-3.5 5z"/></g></svg>');
-    --table-sort-icon-asc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23E85358" d="M3.5 0L7 5H0z"/><path fill="\%23FFF" d="M0 8h7l-3.5 5z"/></g></svg>');
+    --table-sort-icon-none: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="\%23000000" fill-rule="evenodd"><path d="M3.5 0L7 5H0zM0 8h7l-3.5 5z"/></g></svg>') !important;
+    --table-sort-icon-desc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23000" d="M3.5 0L7 5H0z"/><path fill="\%237D7D7D" d="M0 8h7l-3.5 5z"/></g></svg>') !important;
+    --table-sort-icon-asc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%237D7D7D" d="M3.5 0L7 5H0z"/><path fill="\%23000" d="M0 8h7l-3.5 5z"/></g></svg>') !important;
 
     /* Responsive */
     --table-mobile-label-color: var(--c_marshmellow);
@@ -918,10 +926,10 @@ c-table{
 
 td compose{
     /* c-td-action */
-    --table-action-color: var(--c_marshmellow);
-    --table-action-color-hover: var(--c_white);
-    --table-action-icon-color: var(--c_lightGray);
-    --table-action-icon-color-hover: var(--c_white);
+    --table-action-color: var(--c_asphalt) !important;
+    --table-action-color-hover: var(--c_ash) !important;
+    --table-action-icon-color: var(--c_asphalt) !important;
+    --table-action-icon-color-hover: var(--c_ash) !important;
 
     /* c-td-truncate */
     --table-truncate-margin-right: var(--s-2);
@@ -938,21 +946,21 @@ td compose{
 
 c-tile{
     /* base */
-    --tile-padding: var(--s-5);
-    --tile-background: var(--c_darkGray);
-    --tile-background-hover: var(--c_charcoal);
-    --tile-image-background: var(--c_soot);
-    --tile-h4-color: var(--c_marshmellow);
-    --tile-h4-size: var(--s-1);
-    --tile-checked-background: var(--c_gray);
-    --tile-checked-text-color: var(--c_marshmellow);
-    --tile-drag-background: var(--c_black);
+    --tile-padding: var(--s-2) !important;
+    --tile-background: var(--c_lightGray) !important ;
+    --tile-background-hover: #D0D0D0 !important;
+    --tile-image-background: var(--c_gray) !important;
+    --tile-h4-color: var(--c_asphalt) !important;
+    --tile-h4-size: var(--s0) !important;
+    --tile-checked-background: #D0D0D0 !important;
+    --tile-checked-text-color: var(--c_asphalt) !important;
+    --tile-drag-background: var(--c_darkGray) !important;
 
     /* tip */
-    --tile-tip-top: calc(var(--s-5) * -1);
-    --tile-tip-right: calc(var(--s-5) * -1);
-    --tile-tip-padding: var(--s-5) var(--s-3);
-    --tile-tip-background: var(--c_charcoal);
+    --tile-tip-top: calc(var(--s-5) * -1) !important;
+    --tile-tip-right: calc(var(--s-5) * -1) !important;
+    --tile-tip-padding: var(--s-5) var(--s-3) !important;
+    --tile-tip-background: var(--c_lightGray) !important;
 
     /* status */
     --tile-status-height: var(--s-5);
@@ -972,8 +980,8 @@ c-tile{
  */
 
 c-timeline-block{
-    --time-block-border-bottom: solid 1px #444;
-    --time-color: var(--c_smoke);
+    --time-block-border-bottom: solid 1px var(--c_lightGray) !important;
+    --time-color: var(--c_asphalt) !important;
     --time-font-size: 12px;
 }
 
@@ -983,8 +991,8 @@ c-timeline-block{
  */
 
 :global .timeline-container{
-    --current-time-line-color: #00AC3E;
-    --loading-spinner-background: rgba(0, 0, 0, 0.5);
+    --current-time-line-color: var(--c_subOneMain) !important;
+    --loading-spinner-background: rgba(0, 0, 0, 0.3) !important;
 }
 
 
@@ -993,10 +1001,10 @@ c-timeline-block{
  */
 
 c-timeline-week-container{
-    --timeline-week-dates-background: var(--c_slate);
-    --timeline-week-dates-border-bottom: solid 1px #444;
-    --timeline-week-dates-link-color: var(--c_marshmellow);
-    --timeline-week-dates-link-color-hover: var(--c_smoke);
+    --timeline-week-dates-background: var(--c_white) !important;
+    --timeline-week-dates-border-bottom: solid 1px var(--c_lightGray) !important;
+    --timeline-week-dates-link-color: var(--c_asphalt) !important;
+    --timeline-week-dates-link-color-hover: var(--c_black) !important;
     --timeline-week-dates-first-border-right: solid 1px var(--c_gray);
     --timeline-week-content-border-left: solid 1px var(--c_gray);
     --timeline-week-dates-today-color: var(--c_primaryMain);
@@ -1013,30 +1021,23 @@ c-timeline-week-container{
 c-tip,
 c-popover{
     /* base */
-    --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
-    --tip-boarder: solid 1px var(--c_soot);
-    --tip-background: var(--c_charcoal);
-    --tip-color: var(--c_white);
+    --tip-padding: var(--s0) var(--s5) var(--s0) var(--s0) !important;
+    --tip-boarder: solid 1px var(--c_black) !important;
+    --tip-background: var(--c_white) !important;
+    --tip-color: var(--c_asphalt) !important;
 
     /* close */
     --tip-close-padding: 1px 4px 2px 5px;
-    --tip-close-background: var(--c_slate);
-    --tip-close-color: var(--c_white);
+    --tip-close-background: var(--c_lightGray) !important;
+    --tip-close-color: var(--c_asphalt) !important;
     --tip-close-font-size: 14px;
-    --tip-close-background-hover: var(--c_smoke);
+    --tip-close-background-hover: var(--c_smoke) !important;
 
     /* width */
     --tip-width-small: 150px;
     --tip-width-medium: 180px;
     --tip-width-large: 220px;
     --tip-width-xlarge: 336px;
-
-    /* color */
-    --tip-color-primary: var(--c_primaryLight);
-    --tip-color-secondary: var(--c_secondaryMain);
-    --tip-color-sub-one: var(--c_subOneMain);
-    --tip-color-sub-two: var(--c_subTwoMain);
-    --tip-color-sub-three: var(--c_subThreeMain);
 }
 
 
@@ -1054,18 +1055,26 @@ c-toasts{
     --toast-wrapper-width: 260px;
 
     /* base */
-    --toast-border: solid 1px var(--c_charcoal);
-    --toast-background: var(--c_charcoal);
+    --toast-border: 0 !important;
+    --toast-background: var(--c_lightGray) !important;
     --toast-margin-bottom: var(--s2);
     --toast-icon-container-size: var(--s3);
     --toast-message-padding: var(--s0) var(--s-1) var(--s-1);
-    --toast-message-color: var(--c_charcoal);
+    --toast-message-color: var(--asphalt) !important;
 
     /* types */
-    --toast-info-background: var(--c_subOneMain);
-    --toast-success-background: var(--c_secondaryMain);
-    --toast-warning-background: var(--c_subTwoMain);
-    --toast-error-background: var(--c_primaryLight);
+    --toast-info-background: var(--c_secondaryMain) !important;
+    --toast-success-background: var(--c_subOneMain) !important;
+    --toast-warning-background: var(--c_subFourMain) !important;
+    --toast-error-background: var(--c_subThreeMain) !important;
+}
+
+c-toasts p{
+    --p-color: var(--c_asphalt) !important;
+}
+
+c-toasts a svg{
+    --icon-color: var(--c_smoke) !important;
 }
 
 
@@ -1097,7 +1106,7 @@ c-code{
     --h1-font-size: var(--s3);
     --h1-truncate-min-height: var(--s4);
     --h1-truncate-padding-right: var(--s-1);
-    --h1-truncate-hover-background: var(--c_slate);
+    --h1-truncate-hover-background: var(--c_white) !important;
 }
 
 
@@ -1111,7 +1120,7 @@ c-code{
     --h2-font-size: var(--s2);
     --h2-truncate-min-height: var(--s3);
     --h2-truncate-padding-right: var(--s-1);
-    --h2-truncate-hover-background: var(--c_slate);
+    --h2-truncate-hover-background: var(--c_white) !important;
 }
 
 
@@ -1125,7 +1134,7 @@ c-code{
     --h3-font-size: var(--s1);
     --h3-link-color: var(--c_subOneMain);
     --h3-truncate-min-height: var(--s2);
-    --h3-truncate-hover-background: var(--c_slate);
+    --h3-truncate-hover-background: var(--c_white) !important;
     --h3-truncate-dark-hover-background: var(--c_darkGray);
 }
 
