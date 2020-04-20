@@ -330,10 +330,10 @@ export class Headlines {
 
     public h5Properties = [
         {
-            default: '',
+            default: 'inherit',
             description: 'Set if you need the h5 to be a different color.',
             name: 'color',
-            value: 'smoke',
+            value: 'CSS Color',
         },
     ];
 

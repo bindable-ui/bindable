@@ -9,7 +9,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  *  BASE
- *  COLOR
  */
 
 
@@ -25,16 +24,5 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     font-family: var(--h5-font-family);
     font-weight: normal;
     font-size: var(--h5-font-size);
-}
-
-
-
-
-
-/*------------------------------------*\
-    !COLOR
-\*------------------------------------*/
-
-.smoke{
-    color: var(--h5-color-smoke);
+    color: var(--h5-color);
 }
