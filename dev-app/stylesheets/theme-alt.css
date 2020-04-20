@@ -1261,7 +1261,7 @@ c-divider{
 \*------------------------------------*/
 
 :global .c-spinner{
-    --spinner-color: var(--c_white);
+    --spinner-color: var(--c_black) !important;
 }
 
 
@@ -1273,7 +1273,7 @@ c-divider{
 \*------------------------------------*/
 
 c-status{
-    --status-color: var(--c_smoke);
+    --status-color: var(--c_asphalt) !important;
     --status-font-size: var(--s-1);
     --status-margin-left: var(--s-5);
 }
