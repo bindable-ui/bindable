@@ -8,7 +8,7 @@ import * as styles from './c-h5.css.json';
 
 export class CH5 {
     @bindable
-    public color;
+    public color = 'inherit';
 
     public styles = styles;
 }
