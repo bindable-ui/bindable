@@ -17,11 +17,12 @@ import 'ts-polyfill/lib/es2019-object';
 import 'ts-polyfill/lib/es2019-string';
 import 'ts-polyfill/lib/es2020-string';
 
+// import 'resources/global-styles/themes/theme-alt.css';
+import 'resources/global-styles/themes/theme.css';
+
 import environment from './environment';
 import './stylesheets/dev-app.css';
 import './stylesheets/fonts.css';
-//import './stylesheets/theme-alt.css';
-import 'resources/global-styles/theme.css';
 
 export function configure(aurelia: Aurelia) {
     aurelia.use

@@ -3,8 +3,8 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-export class GeneralThemeProperties {
-    public generalThemeCols = [
+export class GlobalProperties {
+    public globalCols = [
         {
             _class: 'monospaced',
             colHeadName: 'name',
@@ -18,7 +18,19 @@ export class GeneralThemeProperties {
         },
     ];
 
-    public generalThemeProperties = [
+    public globalProperties = [
+        {
+            default: 'var(--ff_primary-normal)',
+            name: '--body-font-family',
+        },
+        {
+            default: 'var(--c_slate)',
+            name: '--body-background',
+        },
+        {
+            default: 'var(--c_white)',
+            name: '--body-color',
+        },
         {
             default: 'var(--c_smoke)',
             name: '--a-color',

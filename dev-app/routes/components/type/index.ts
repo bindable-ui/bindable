@@ -57,13 +57,6 @@ export class Types {
             route: 'paragraphs',
             title: 'Paragraphs',
         },
-        {
-            moduleId: PLATFORM.moduleName('./general-type-theming/index'),
-            name: 'general-type-theming',
-            nav: true,
-            route: 'general-type-theming',
-            title: 'General Type Theming',
-        },
     ];
 
     constructor(public router: Router) {}

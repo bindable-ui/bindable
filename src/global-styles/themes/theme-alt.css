@@ -16,6 +16,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Popover
  *      - Z-Index
  *      - Scrollbars
+ *  GLOBAL
  *  BUTTON
  *  COPY
  *  FORM
@@ -52,7 +53,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  TIP
  *  TOAST
  *  TYPE
- *      - general
  *      - c-code
  *      - bindable-h1
  *      - bindable-h2
@@ -107,53 +107,53 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
      */
 
     /* primary */
-    --c_primaryMain: #CD040B;
-    --c_primaryLight: #E85358;
-    --c_primaryLighter: #FF878B;
-    --c_primaryDark: #301919;
+    --c_primaryMain: #DFB233;
+    --c_primaryLight: #F1CD68;
+    --c_primaryLighter: #F2DB9C;
+    --c_primaryDark: #AF8611;
 
     /* secondary */
-    --c_secondaryMain: #37A56C;
-    --c_secondaryLight: #5DC691;
-    --c_secondaryLighter: #8BCDAB;
-    --c_secondaryDark: #0E2B1C;
+    --c_secondaryMain: #4DA1FF;
+    --c_secondaryLight: #6EB1FD;
+    --c_secondaryLighter: #96C7FF;
+    --c_secondaryDark: #1C65B6;
 
     /* sub one */
-    --c_subOneMain: #3599C5;
-    --c_subOneLight: #51AFDB;
-    --c_subOneLighter: #8AD6F7;
-    --c_subOneDark: #14263F;
+    --c_subOneMain: #00AC3E;
+    --c_subOneLight: #27C961;
+    --c_subOneLighter: #6DE99A;
+    --c_subOneDark: #007329;
 
     /* sub two */
-    --c_subTwoMain: #CEA832;
-    --c_subTwoLight: #E9C558;
-    --c_subTwoLighter: #F7D362;
-    --c_subTwoDark: #312810;
+    --c_subTwoMain: #916DC9;
+    --c_subTwoLight: #BA93F7;
+    --c_subTwoLighter: #D2BAF7;
+    --c_subTwoDark: #623F99;
 
     /* sub three */
-    --c_subThreeMain: #C35E37;
-    --c_subThreeLight: #D47452;
-    --c_subThreeLighter: #F69671;
-    --c_subThreeDark: #4B2E0C;
+    --c_subThreeMain: #F83D3D;
+    --c_subThreeLight: #F06F6F;
+    --c_subThreeLighter: #EC9090;
+    --c_subThreeDark: #CC1212;
 
     /* sub four */
-    --c_subFourMain: #8E5CB1;
-    --c_subFourLight: #B491CE;
-    --c_subFourLighter: #C5ABD8;
-    --c_subFourDark: #331C44;
+    --c_subFourMain: #F9A02D;
+    --c_subFourLight: #EFB569;
+    --c_subFourLighter: #EFC998;
+    --c_subFourDark: #D57E0E;
 
     /* grays */
     --c_black: #000;
-    --c_soot: #161616;
-    --c_darkGray: #282828;
-    --c_asphalt: #242424;
-    --c_slate: #313131;
-    --c_ash: #3D3C3C;
-    --c_charcoal: #4D4D4D;
-    --c_gray: #7D7D7D;
-    --c_smoke: #9B9B9B;
-    --c_lightGray: #C6C6C6;
-    --c_marshmellow: #D7D7D7;
+    --c_soot: #272727;
+    --c_darkGray: #343434;
+    --c_asphalt: #3D3D3D;
+    --c_slate: #5A5A5A;
+    --c_ash: #707070;
+    --c_charcoal: #808080;
+    --c_gray: #9E9E9E;
+    --c_smoke: #BCBCBC;
+    --c_lightGray: #E6E6E6;
+    --c_marshmellow: #F5F5F5;
     --c_white: #FFF;
 
 
@@ -162,10 +162,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
      */
 
     /* font family primary */
-    --ff_primary-normal: 'HGD_55', Helvetica, sans-serif;
-    --ff_primary-normal-italic: 'HGD_56', Helvetica, sans-serif;
-    --ff_primary-bold: 'HGD_75', Helvetica, sans-serif;
-    --ff_primary-bold-italic: 'HGD_76', Helvetica, sans-serif;
+    --ff_primary-normal: 'Proxima_Nova_Reg', Helvetica, sans-serif;
+    --ff_primary-normal-italic: 'Proxima_Nova_Reg_Italic', Helvetica, sans-serif;
+    --ff_primary-semi-bold: 'Proxima_Nova_Semi_Bold', Helvetica, sans-serif;
+    --ff_primary-bold: 'Proxima_Nova_Bold', Helvetica, sans-serif;
 
     /* font family secondary */
     --ff_secondary-normal: 'HN_57_Cond', Helvetica, sans-serif;
@@ -219,7 +219,35 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
      */
     --scrollbar_width: 7px;
     --scrollbar_color: #7B7B7B;
-    --scrollbar_track_color: #222;
+    --scrollbar_track_color: var(--c_white);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !GLOBAL
+\*------------------------------------*/
+
+body{
+    --body-font-family: var(--ff_primary-normal);
+    --body-background: var(--c_white);
+    --body-color: var(--c_asphalt);
+}
+
+a{
+    --a-color: var(--c_secondaryMain);
+    --a-color-hover: var(--c_secondaryDark);
+}
+
+p{
+    --p-default-color: initial;
+}
+
+:root{
+    --selected-text-background: var(--c_primaryMain);
+    --selected-text-color: var(--c_black);
 }
 
 
@@ -232,55 +260,56 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 c-button{
     /* Base */
-    --button-border-radius: var(--s-5);
-    --button-color: var(--c_white);
-    --button-disabled-color: #939393;
-    --button-font-family: var(--ff_primary-bold);
-    --button-font-size: var(--s-1);
-    --button-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    --button-border-radius: var(--s5);
+    --button-color: var(--c_black);
+    --button-disabled-color: #313131;
+    --button-font-family: var(--ff_primary-normal);
+    --button-font-size: var(--s0);
+    --button-text-shadow: none;
     --button-transition: all var(--trans_main);
-    --button-text-transform: none;
+    --button-text-transform: uppercase;
 
     /* Colors */
     --button-primary-background: var(--c_primaryMain);
-    --button-primary-hover-background: #F12930;
-    --button-primary-disabled-background: #7A1516;
+    --button-primary-hover-background: var(--c_primaryLight);
+    --button-primary-disabled-background: #A38124;
     --button-primary-disabled-color: var(--button-disabled-color);
     --button-primary-color: var(--button-color);
 
-    --button-secondary-background: var(--c_secondaryMain);
-    --button-secondary-hover-background: var(--c_secondaryLight);
-    --button-secondary-disabled-background: #20623F;
-    --button-secondary-disabled-color: var(--button-disabled-color);
-    --button-secondary-color: var(--button-color);
+    --button-secondary-background: var(--c_soot)t;
+    --button-secondary-hover-background: var(--c_ash);
+    --button-secondary-disabled-background: #0F0F0F;
+    --button-secondary-disabled-color: #9E9E9E;
+    --button-secondary-color: var(--c_white);
 
-    --button-neutral-background: var(--c_gray);
-    --button-neutral-hover-background: var(--c_smoke);
-    --button-neutral-disabled-background: #454545;
+    --button-neutral-background: var(--c_white);
+    --button-neutral-hover-background: var(--c_lightGray);
+    --button-neutral-disabled-background: var(--c_smoke);
     --button-neutral-disabled-color: var(--button-disabled-color);
     --button-neutral-color: var(--button-color);
-    --button-neutral-border-color: transparent;
-    --button-neutral-border-size: 0px;
+    --button-neutral-border-color: var(--c_black);
+    --button-neutral-border-size: 3px;
 
-    --button-danger-background: var(--c_primaryLight);
-    --button-danger-hover-background: var(--c_primaryLighter);
-    --button-danger-disabled-background: #913236;
-    --button-danger-disabled-color: var(--button-disabled-color);
-    --button-danger-color: var(--button-color);
+    --button-danger-background: var(--c_subThreeMain);
+    --button-danger-hover-background: var(--c_subThreeLight);
+    --button-danger-disabled-background: #892222;
+    --button-danger-disabled-color: #CDCDCD;
+    --button-danger-color: var(--c_white);
 
     /* Sizes */
-    --button-medium-padding: var(--s-3) var(--s1);
-    --button-medium-icon-side-padding: var(--s4);
+    --button-medium-padding: calc(var(--s-1) - 2px) var(--s3) var(--s-2);
+    --button-medium-icon-side-padding: calc(var(--s5) + 5px);
     --button-medium-icon-center-padding: var(--s-3) var(--s-1);
     --button-medium-icon-svg-size: var(--s0);
-    --button-medium-icon-svg-spacing: var(--s0);
-    --button-medium-icon-svg-top-spacing: 1px;
-    --button-small-padding: var(--s-5) var(--s-1);
-    --button-small-icon-side-padding: var(--s3);
-    --button-small-icon-center-padding: var(--s-5) var(--s-1);
+    --button-medium-icon-svg-spacing: var(--s2);
+    --button-medium-icon-svg-top-spacing: 4px;
+
+    --button-small-padding: calc(var(--s-4) - 1px) var(--s2) var(--s-5);
+    --button-small-icon-side-padding: calc(var(--s4) + 3px);
+    --button-small-icon-center-padding: calc(var(--s-5) - 2px) var(--s-1) var(--s-5);
     --button-small-icon-svg-size: var(--s-1);
-    --button-small-icon-svg-spacing: var(--s-1);
-    --button-small-icon-svg-top-spacing: calc(var(--s-5) - 3px);
+    --button-small-icon-svg-spacing: var(--s1);
+    --button-small-icon-svg-top-spacing: var(--s-5);
 
     /* Thinking */
     --button-thinking-padding-left: var(--s4);
@@ -299,14 +328,14 @@ c-button{
 \*------------------------------------*/
 
 c-copy{
-    --copy-button-border: solid 1px var(--c_gray);
-    --copy-button-radius: 0 var(--s-5) var(--s-5) 0;
-    --copy-button-width: 73px;
-    --copy-content-padding: var(--s-3) var(--s-1) calc(var(--s-3) - 2px);
-    --copy-content-border: solid 1px var(--c_charcoal);
-    --copy-content-background: var(--c_darkGray);
-    --copy-content-color: var(--c_gray);
-    --copy-content-font-size: var(--s-1);
+    --copy-button-border: none;
+    --copy-button-radius: var(--s5);
+    --copy-button-width: 50px;
+    --copy-content-padding: calc(var(--s-3) - 3px) var(--s3) var(--s-5) 0;
+    --copy-content-border: none;
+    --copy-content-background: transparent;
+    --copy-content-color: var(--c_asphalt);
+    --copy-content-font-size: var(--s0);
 }
 
 
@@ -322,7 +351,7 @@ c-copy{
  */
 
 c-disabled{
-    --form-disabled-color: var(--c_subOneMain);
+    --form-disabled-color: var(--c_slate);
     --form-disabled-font-family: var(--ff_primary-normal-italic);
 }
 
@@ -332,7 +361,7 @@ c-disabled{
  */
 
 c-form-error{
-    --form-error-color: var(--c_primaryLight);
+    --form-error-color: var(--c_subThreeMain);
     --form-error-font-size: var(--s-1);
 }
 
@@ -342,10 +371,10 @@ c-form-error{
  */
 
 :global(.c-form-image){
-    --form-image-hover-background: #3C3C3C;
-    --form-image-description-color: var(--c_marshmellow);
+    --form-image-hover-background: var(--c_marshmellow);
+    --form-image-description-color: var(--c_black);
     --form-image-description-font-family: var(--ff_primary-bold);
-    --form-image-active-background: var(--c_charcoal);
+    --form-image-active-background: var(--c_lightGray);
 }
 
 
@@ -364,11 +393,11 @@ c-form-warning{
  */
 
 c-label{
-    --label-color: var(--c_white);
+    --label-color: var(--c_black);
     --label-font-family: var(--ff_primary-bold);
-    --label-text-transform: none;
-    --label-font-size: unset;
-    --label-color-error: var(--c_primaryLight);
+    --label-text-transform: uppercase;
+    --label-font-size: var(--s-1);
+    --label-color-error: var(--c_subThreeMain);
     --label-color-warning: var(--c_subTwoMain);
     --label-edit-font-size: var(--s-1);
     --label-edit-color: var(--c_subOneMain);
@@ -388,24 +417,24 @@ c-tile,
 c-table{
     /* checkbox */
     --checkbox-size: var(--s0);
-    --checkbox-border: solid 1px var(--c_black);
-    --checkbox-border-radius: 2px;
-    --checkbox-background: var(--c_charcoal);
-    --checkbox-hover-background: var(--c_gray);
+    --checkbox-border: solid 1px var(--c_charcoal);
+    --checkbox-border-radius: 0;
+    --checkbox-background: transparent;
+    --checkbox-hover-background: var(--c_lightGray);
     --checkbox-selected-background: var(--c_secondaryMain);
     --checkbox-selected-check-size: var(--s-2);
-    --checkbox-disabled-background: var(--c_slate);
+    --checkbox-disabled-background: var(--c_secondaryDark);
 
     /* radio */
     --radio-size: var(--s0);
-    --radio-border: solid 1px var(--c_black);
-    --radio-background: var(--c_charcoal);
-    --radio-hover-background: var(--c_gray);
+    --radio-border: solid 1px var(--c_charcoal);
+    --radio-background: transparent;
+    --radio-hover-background: var(--c_lightGray);
     --radio-selected-background: var(--c_secondaryMain);
     --radio-selected-dot-size: calc(var(--s-5) - 1px);
-    --radio-disabled-background: var(--c_slate);
-    --radio-checkbox-label-color: var(--c_smoke);
-    --radio-checkbox-label-size: var(--s-1);
+    --radio-disabled-background: var(--c_secondaryDark);
+    --radio-checkbox-label-color: var(--c_asphalt);
+    --radio-checkbox-label-size: var(--s0);
 }
 
 
@@ -414,17 +443,17 @@ c-table{
  */
 
 :global(.c-toggle-input){
-    --toggle-nub-border: var(--c_smoke);
-    --toggle-nub-border-hover: var(--c_white);
-    --toggle-nub-border-checked: var(--c_white);
-    --toggle-nub-border-disabled: var(--c_charcoal);
-    --toggle-nub-background: var(--c_slate);
-    --toggle-nub-background-disabled: var(--c_slate);
-    --toggle-nub-background-checked: var(--c_primaryMain);
-    --toggle-nub-background-checked-disabled: var(--c_primaryDark);
-    --toggle-nub-hover-background: var(--c_gray);
-    --toggle-bar-background-checked: var(--c_primaryLight);
-    --toggle-bar-background: var(--c_charcoal);
+    --toggle-nub-border: var(--c_slate);
+    --toggle-nub-border-hover: var(--c_slate);
+    --toggle-nub-border-checked: var(--c_secondaryDark);
+    --toggle-nub-border-disabled: var(--c_smoke);
+    --toggle-nub-background: var(--c_gray);
+    --toggle-nub-background-disabled: var(--c_lightGray);
+    --toggle-nub-background-checked: var(--c_secondaryMain);
+    --toggle-nub-background-checked-disabled: var(--c_charcoal);
+    --toggle-nub-hover-background: var(--c_charcoal);
+    --toggle-bar-background-checked: var(--c_secondaryLighter);
+    --toggle-bar-background: var(--c_lightGray);
     --toggle-bar-shadow: inset 0px 0px 2px var(--c_black);
 }
 
@@ -439,18 +468,18 @@ c-text-input{
 }
 
 :global(.bootstrap-datetimepicker-widget){
-    --form-date-calendar-background: var(--c_soot);
-    --form-date-calendar-day-hover-background: var(--c_charcoal);
-    --form-date-calendar-old-new-color: #777;
+    --form-date-calendar-background: var(--c_lightGray);
+    --form-date-calendar-day-hover-background: var(--c_smoke);
+    --form-date-calendar-old-new-color: var(--c_gray);
     --form-date-calendar-today-marker-color: var(--c_primaryMain);
     --form-date-calendar-day-active-background: var(--c_primaryMain);
-    --form-date-calendar-day-active-color: var(--c_white);
+    --form-date-calendar-day-active-color: var(--c_black);
     --form-date-calendar-day-disabled-color: #777;
-    --form-date-calendar-button-color: var(--c_lightGray);
-    --form-date-prev-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='11' viewBox='0 0 7 11' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M5.5 11L0 5.5 5.5 0l1.29 1.29L2.577 5.5l4.21 4.212L5.5 11z'/%3E%3C/svg%3E");
-    --form-date-next-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E");
-    --form-date-up-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E");
-    --form-date-down-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E");
+    --form-date-calendar-button-color: var(--c_black);
+    --form-date-prev-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='11' viewBox='0 0 7 11' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M5.5 11L0 5.5 5.5 0l1.29 1.29L2.577 5.5l4.21 4.212L5.5 11z'/%3E%3C/svg%3E");
+    --form-date-next-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E");
+    --form-date-up-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E");
+    --form-date-down-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23000'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E");
 }
 
 
@@ -459,8 +488,8 @@ c-text-input{
  */
 
 c-form-select{
-    --select-multiple-checked: var(--c_subOneMain);
-    --select-multiple-load-more-background: var(--c_asphalt);
+    --select-multiple-checked: var(--c_primaryMain);
+    --select-multiple-load-more-background: var(--c_secondaryMain);
 }
 
 
@@ -471,12 +500,12 @@ c-form-select{
 c-slider{
     --slider-track-border: solid 1px var(--c_smoke);
     --slider-track-background: var(--c_gray);
-    --slider-track-border-disabled: solid 1px var(--c_charcoal);
-    --slider-track-background-disabled: var(--c_ash);
-    --slider-thumb-border: solid 1px var(--c_subOneLighter);
-    --slider-thumb-background: var(--c_subOneMain);
-    --slider-thumb-border-disabled: solid 1px var(--c_gray);
-    --slider-thumb-background-disabled: var(--c_charcoal);
+    --slider-track-border-disabled: solid 1px var(--c_marshmellow);
+    --slider-track-background-disabled: var(--c_lightGray);
+    --slider-thumb-border: solid 1px var(--c_subSecondaryLight);
+    --slider-thumb-background: var(--c_secondaryMain);
+    --slider-thumb-border-disabled: solid 1px var(--c_smoke);
+    --slider-thumb-background-disabled: var(--c_smoke);
 }
 
 
@@ -490,47 +519,46 @@ c-copy,
 c-file-input,
 c-form-select{
     /* Base */
-    --input-padding: var(--s-5) var(--s-3);
-    --input-border: solid 1px var(--c_black);
-    --input-background: var(--c_charcoal);
-    --input-color: var(--c_smoke);
-    --input-placeholder-color: #6C6C6C;
-    --input-box-shadow: inset 0 -1px 0 var(--c_gray);
-    --input-transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+    --input-padding: var(--s-5) var(--s-3) var(--s-5) 0;
+    --input-border: none;
+    --input-color: var(--c_asphalt);
+    --input-placeholder-color: var(--c_charcoal);
+    --input-box-shadow: inset 0 -1px 0 var(--c_black);
+    --input-transition: box-shadow var(--trans_main);
 
     /* State */
-    --input-color-focus: var(--c_lightGray);
-    --input-box-shadow-focus: inset 0 -1px 0 var(--c_secondaryMain);
-    --input-box-shadow-error: inset 0 -1px 0 var(--c_primaryLight);
-    --input-background-error: var(--c_charcoal);
-    --input-box-shadow-warning: inset 0 -1px 0 var(--c_subTwoMain);
-    --input-background-warning: var(--c_charcoal);
+    --input-color-focus: var(--c_black);
+    --input-box-shadow-focus: inset 0 -2px 0 var(--c_primaryMain);
+    --input-box-shadow-error: inset 0 -2px 0 var(--c_subThreeMain);
+    --input-background-error: transparent;
+    --input-box-shadow-warning: inset 0 -2px 0 var(--c_subTwoMain);
+    --input-background-warning: transparent;
 
     /* Icon */
-    --input-icon-padding: var(--s3);
-    --input-icon-side-spacing: var(--s-2);
-    --input-icon-top-spacing: calc(var(--s-3) + 1px);
+    --input-icon-padding: var(--s2);
+    --input-icon-side-spacing: 0;
+    --input-icon-top-spacing: var(--s-3);
     --input-icon-size: var(--s0);
-    --input-icon-color: var(--c_smoke);
+    --input-icon-color: var(--c_charcoal);
 
     /* Button */
-    --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
+    --input-button-padding: var(--s-5) 0 0 var(--s-5);
     --input-button-border-size: 1px;
-    --input-button-border-color: var(--c_black);
-    --input-button-border-radius: 0 5px 5px 0;
-    --input-button-hover-background: var(--c_smoke);
-    --input-button-hover-color: inherit;
-    --input-button-bin-hover-background: var(--c_primaryLight);
-    --input-button-bin-hover-icon-color: unset;
+    --input-button-border-color: none;
+    --input-button-border-radius: var(--s5);
+    --input-button-hover-background: transparent;
+    --input-button-hover-color: var(--c_primaryMain);
+    --input-button-bin-hover-background: transparent;
+    --input-button-bin-hover-icon-color: var(--c_subThreeMain);
 
     /* Clearable */
-    --input-clearable-spacing-right: var(--s3);
+    --input-clearable-spacing-right: var(--s1);
     --input-clearable-icon-top: var(--s-5);
-    --input-clearable-icon-right: var(--s-1);
+    --input-clearable-icon-right: var(--s-5);
     --input-clearable-icon-right-w-button: var(--s4);
     --input-clearable-icon-size: var(--s-2);
-    --input-clearable-icon-color: var(--c_lightGray);
-    --input-clearable-icon-hover-color: var(--c_primaryLight);
+    --input-clearable-icon-color: var(--c_charcoal);
+    --input-clearable-icon-hover-color: var(--c_subThreeMain);
 }
 
 
@@ -563,13 +591,13 @@ ux-dialog-overlay{
 }
 
 ux-dialog-container{
-    --modal-background: var(--c_slate);
+    --modal-background: var(--c_white);
     --modal-top-border-color: var(--c_primaryMain);
     --modal-top-border-size: 5px;
     --modal-header-padding: var(--s3) var(--s3) var(--s-1);
     --modal-body-padding: 0 var(--s3);
     --modal-footer-padding: var(--s1) var(--s3);
-    --modal-footer-border-top: solid 1px var(--c_charcoal);
+    --modal-footer-border-top: solid 1px var(--c_black);
 }
 
 
@@ -587,25 +615,25 @@ ux-dialog-container{
 
 c-nav-horizontal{
     /* Sizing */
-    --nav-medium-padding: var(--s0) 0;
+    --nav-medium-padding: var(--s-5) var(--s0);
     --nav-small-padding: var(--s-1) 0;
     --nav-small-font-size: calc(var(--s0) - 0.12rem);
     --nav-tiny--padding: var(--s-5) 0;
     --nav-tiny-font-size: var(--s-1);
 
     /* Mobile */
-    --nav-mobile-background: var(--c_soot);
-    --nav-mobile-font-size: var(--s-1);
-    --nav-mobile-hover: var(--c_slate);
+    --nav-mobile-background: var(--c_white);
+    --nav-mobile-font-size: var(--s0);
+    --nav-mobile-hover: var(--c_white);
     --nav-mobile-active: var(--c_primaryMain);
     --nav-mobile-trigger-background: var(--c_primaryMain);
     --nav-mobile-trigger-bars-color: var(--c_white);
 
     /* Item */
-    --nav-item-border-bottom-active: solid 3px var(--c_primaryMain);
-    --nav-item-border-bottom-hover: 0;
-    --nav-item-color: var(--c_lightGray);
-    --nav-item-hover-active-color: var(--c_white);
+    --nav-item-border-bottom-active: solid 3px var(--c_black);
+    --nav-item-border-bottom-hover: solid 3px var(--c_primaryMain);
+    --nav-item-color: var(--c_black);
+    --nav-item-hover-active-color: var(--c_black);
 }
 
 
@@ -621,15 +649,15 @@ c-nav-vertical{
 
     /* Item */
     --nav-item-padding: var(--s-3) var(--s0) var(--s-3) var(--s2);
-    --nav-item-color: var(--c_smoke);
-    --nav-item-color-hover: var(--c_white);
-    --nav-item-background-hover: var(--c_ash);
-    --nav-item-color-active: var(--c_white);
-    --nav-item-background-active: var(--c_black);
+    --nav-item-color: var(--c_ash);
+    --nav-item-color-hover: var(--c_ash);
+    --nav-item-background-hover: var(--c_marshmellow);
+    --nav-item-color-active: var(--c_darkGray);
+    --nav-item-background-active: var(--c_marshmellow);
     --nav-item-active-bar-size: var(--s-5);
-    --nav-item-active-bar-color-active: var(--c_primaryMain);
-    --nav-item-active-bar-color-hover: var(--nav-background);
-    --nav-item-active-bar-color: var(--nav-background-color);
+    --nav-item-active-bar-color-active: var(--c_black);
+    --nav-item-active-bar-color-hover: var(--c_primaryMain);
+    --nav-item-active-bar-color: var(--nav-background);
     --nav-item-button-margin: var(--s-1) 0 var(--s-1) var(--s2);
     --nav-item-h4-top: var(--s-1);
     --nav-item-h4-left: var(--s2);
@@ -645,7 +673,7 @@ c-nav-vertical{
     --nav-item-accordion-icon-top: calc(var(--s-1) + 3px);
     --nav-item-accordion-icon-left: 22px;
     --nav-item-accordion-icon-size: var(--s-3);
-    --nav-item-accordion-icon-color: var(--c_white);
+    --nav-item-accordion-icon-color: var(--c_soot);
 }
 
 
@@ -673,28 +701,28 @@ c-nav-vertical-sliding{
 c-notification{
     /* Base */
     --notification-font-size: var(--s-1);
-    --notification-color: var(--c_white);
+    --notification-color: var(--c_black);
     --notification-padding: var(--s-3) var(--s0) var(--s-3) 0;
 
     /* Info */
-    --notification-info-border: solid 1px var(--c_subOneMain);
-    --notification-info-background: var(--c_subOneDark);
-    --notification-info-color: var(--c_subOneLighter);
+    --notification-info-border: solid 1px var(--c_secondaryMain);
+    --notification-info-background: var(--c_secondaryLighter);
+    --notification-info-color: var(--c_secondaryDark);
 
     /* Warning */
-    --notification-warning-border: solid 1px var(--c_subTwoMain);
-    --notification-warning-background: var(--c_subTwoDark);
-    --notification-warning-color: var(--c_subTwoLight);
+    --notification-warning-border: solid 1px var(--c_subFourMain);
+    --notification-warning-background: var(--c_subFourLighter);
+    --notification-warning-color: var(--c_subFourDark);
 
     /* Critical */
-    --notification-critical-border: solid 1px var(--c_primaryLighter);
-    --notification-critical-background: var(--c_primaryDark);
-    --notification-critical-color: var(--c_primaryLighter);
+    --notification-critical-border: solid 1px var(--c_subThreeMain);
+    --notification-critical-background: var(--c_subThreeLighter);
+    --notification-critical-color: var(--c_subThreeDark);
 
     /* Success */
-    --notification-success-border: solid 1px var(--c_secondaryLighter);
-    --notification-success-background: var(--c_secondaryDark);
-    --notification-success-color: var(--c_secondaryLighter);
+    --notification-success-border: solid 1px var(--c_subOneMain);
+    --notification-success-background: var(--c_subOneLighter);
+    --notification-success-color: var(--c_subOneDark);
 
     /* Callout */
     --notification-callout-flex: 0 0 calc(var(--s5) + 120px);
@@ -747,9 +775,9 @@ c-table-fixed-header{
 
 c-table,
 c-table-fixed-header{
-    --table-th-background: var(--c_soot);
-    --table-th-color: var(--c_white);
-    --table-th-font-family: inherit;
+    --table-th-background: var(--c_lightGray);
+    --table-th-color: var(--c_darkGray);
+    --table-th-font-family: var(--ff_primary-bold);
 }
 
 
@@ -759,24 +787,24 @@ c-table-fixed-header{
 
 c-table{
     /* Base */
-    --table-border: 1px solid var(--c_charcoal);
+    --table-border: 0;
     --table-border-top: var(--table-border);
     --table-border-right: var(--table-border);
     --table-border-bottom: var(--table-border);
     --table-border-left: var(--table-border);
-    --table-font-size: var(--s-1);
-    --table-th-font-size: var(--table-font-size);
-    --table-td-padding: calc(var(--s-1) - 2px) var(--s0);
+    --table-font-size: var(--s0);
+    --table-th-font-size: var(--s-1);
+    --table-td-padding: calc(var(--s-2) - 1px) var(--s0) calc(var(--s-2) - 3px);
     --table-td-border: var(--table-border);
     --table-td-border-top: var(--table-td-border);
     --table-td-border-right: var(--table-td-border);
-    --table-td-border-bottom: var(--table-td-tdorder);
+    --table-td-border-bottom: solid 1px var(--c_smoke);
     --table-td-border-left: --table-td-border;
-    --table-td-color: var(--c_marshmellow);
-    --table-th-padding: var(--table-td-padding);
-    --table-striped-background: #3A3A3A;
-    --table-hover-background: #444;
-    --table-active-background: #5f5f5f;
+    --table-td-color: var(--c_slate);
+    --table-th-padding: calc(var(--s-3) - 1px) var(--s0) calc(var(--s-3) - 4px);
+    --table-striped-background: var(--c_marshmellow);
+    --table-hover-background: var(--c_lightGray);
+    --table-active-background: var(--c_smoke);
 
     /* Row Bar */
     /* Here for backwards compatibility. Use --cell-bar-color as the updated way to set bar color */
@@ -792,37 +820,37 @@ c-table{
     --table-text-input-padding: var(--s-5) var(--s-4);
 
     /* Checkbox */
-    --table-checkbox-margin-top: 1px;
+    --table-checkbox-margin-top: 3px;
 
     /* Drag */
-    --table-drag-background-hover: var(--c_darkGray);
+    --table-drag-background-hover: var(--c_lightGray);
     --table-drag-height: var(--s4);
     --table-drag-padding-top: calc(var(--s-1) + 1px);
     --table-drag-padding-right: var(--s-2);
     --table-drag-padding-left: var(--s-3);
     --table-drag-check-height: calc(var(--s4) + 3%);
     --table-drag-check-padding-top: var(--s-2);
-    --table-drag-check-top: calc(-100% + 2px);
+    --table-drag-check-top: calc(-100% + 7px);
 
     /* Colored Cell */
-    --table-background-healthy: var(--c_secondaryDark);
-    --table-color-healthy: var(--c_secondaryLight);
-    --table-background-warning: var(--c_subTwoDark);
-    --table-color-warning: var(--c_subTwoLight);
-    --table-background-critical: var(--c_primaryDark);
-    --table-color-critical: var(--c_primaryLighter);
-    --table-background-info: var(--c_subOneDark);
-    --table-color-info: var(--c_subOneLight);
-    --table-background-processing: url('assets/images/td-processing.gif');
-    --table-color-processing: var(--table-td-color);
+    --table-background-healthy: var(--c_subOneLight);
+    --table-color-healthy: var(--c_subOneDark);
+    --table-background-warning: var(--c_subFourLight);
+    --table-color-warning: var(--c_subFourDark);
+    --table-background-critical: var(--c_subThreeLight);
+    --table-color-critical: var(--c_subThreeDark);
+    --table-background-info: var(--c_secondaryLight);
+    --table-color-info: var(--c_secondaryDark);
+    --table-background-processing: url('../assets/images/td-processing.gif');
+    --table-color-processing: var(--c_white);
 
     /* Sort */
     --table-sort-padding-right: 15px;
     --table-sort-icon-position: right 0 top calc(var(--s-5) - 2px);
     --table-fixed-header-sort-icon-position: right 0 top calc(var(--s0) - 1px);
-    --table-sort-icon-none: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="\%23FFFFFF" fill-rule="evenodd"><path d="M3.5 0L7 5H0zM0 8h7l-3.5 5z"/></g></svg>');
-    --table-sort-icon-desc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23FFF" d="M3.5 0L7 5H0z"/><path fill="\%23E85358" d="M0 8h7l-3.5 5z"/></g></svg>');
-    --table-sort-icon-asc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23E85358" d="M3.5 0L7 5H0z"/><path fill="\%23FFF" d="M0 8h7l-3.5 5z"/></g></svg>');
+    --table-sort-icon-none: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="\%23000000" fill-rule="evenodd"><path d="M3.5 0L7 5H0zM0 8h7l-3.5 5z"/></g></svg>');
+    --table-sort-icon-desc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23000" d="M3.5 0L7 5H0z"/><path fill="\%237D7D7D" d="M0 8h7l-3.5 5z"/></g></svg>');
+    --table-sort-icon-asc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%237D7D7D" d="M3.5 0L7 5H0z"/><path fill="\%23000" d="M0 8h7l-3.5 5z"/></g></svg>');
 
     /* Responsive */
     --table-mobile-label-color: var(--c_marshmellow);
@@ -836,10 +864,10 @@ c-table{
 
 td compose{
     /* c-td-action */
-    --table-action-color: var(--c_marshmellow);
-    --table-action-color-hover: var(--c_white);
-    --table-action-icon-color: var(--c_lightGray);
-    --table-action-icon-color-hover: var(--c_white);
+    --table-action-color: var(--c_asphalt);
+    --table-action-color-hover: var(--c_ash);
+    --table-action-icon-color: var(--c_asphalt);
+    --table-action-icon-color-hover: var(--c_ash);
 
     /* c-td-truncate */
     --table-truncate-margin-right: var(--s-2);
@@ -856,25 +884,25 @@ td compose{
 
 c-tile{
     /* base */
-    --tile-padding: var(--s-5);
-    --tile-background: var(--c_darkGray);
-    --tile-background-hover: var(--c_charcoal);
-    --tile-image-background: var(--c_soot);
-    --tile-h4-color: var(--c_marshmellow);
-    --tile-h4-size: var(--s-1);
-    --tile-checked-background: var(--c_gray);
-    --tile-checked-text-color: var(--c_marshmellow);
-    --tile-drag-background: var(--c_black);
+    --tile-padding: var(--s-2);
+    --tile-background: var(--c_lightGray);
+    --tile-background-hover: #D0D0D0;
+    --tile-image-background: var(--c_gray);
+    --tile-h4-color: var(--c_asphalt);
+    --tile-h4-size: var(--s0);
+    --tile-checked-background: #D0D0D0;
+    --tile-checked-text-color: var(--c_asphalt);
+    --tile-drag-background: var(--c_darkGray);
 
     /* tip */
     --tile-tip-top: calc(var(--s-5) * -1);
     --tile-tip-right: calc(var(--s-5) * -1);
     --tile-tip-padding: var(--s-5) var(--s-3);
-    --tile-tip-background: var(--c_charcoal);
+    --tile-tip-background: var(--c_lightGray);
 
     /* status */
     --tile-status-height: var(--s-5);
-    --tile-status-processing: #CCC url('assets/images/td-processing.gif');
+    --tile-status-processing: #CCC url('../assets/images/td-processing.gif');
 }
 
 
@@ -890,8 +918,8 @@ c-tile{
  */
 
 c-timeline-block{
-    --time-block-border-bottom: solid 1px #444;
-    --time-color: var(--c_smoke);
+    --time-block-border-bottom: solid 1px var(--c_lightGray);
+    --time-color: var(--c_asphalt);
     --time-font-size: 12px;
 }
 
@@ -901,8 +929,8 @@ c-timeline-block{
  */
 
 :global .timeline-container{
-    --current-time-line-color: #00AC3E;
-    --loading-spinner-background: rgba(0, 0, 0, 0.5);
+    --current-time-line-color: var(--c_subOneMain);
+    --loading-spinner-background: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -911,10 +939,10 @@ c-timeline-block{
  */
 
 c-timeline-week-container{
-    --timeline-week-dates-background: var(--c_slate);
-    --timeline-week-dates-border-bottom: solid 1px #444;
-    --timeline-week-dates-link-color: var(--c_marshmellow);
-    --timeline-week-dates-link-color-hover: var(--c_smoke);
+    --timeline-week-dates-background: var(--c_white);
+    --timeline-week-dates-border-bottom: solid 1px var(--c_lightGray);
+    --timeline-week-dates-link-color: var(--c_asphalt);
+    --timeline-week-dates-link-color-hover: var(--c_black);
     --timeline-week-dates-first-border-right: solid 1px var(--c_gray);
     --timeline-week-content-border-left: solid 1px var(--c_gray);
     --timeline-week-dates-today-color: var(--c_primaryMain);
@@ -931,15 +959,15 @@ c-timeline-week-container{
 c-tip,
 c-popover{
     /* base */
-    --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
-    --tip-boarder: solid 1px var(--c_soot);
-    --tip-background: var(--c_charcoal);
-    --tip-color: var(--c_white);
+    --tip-padding: var(--s0) var(--s5) var(--s0) var(--s0);
+    --tip-boarder: solid 1px var(--c_black);
+    --tip-background: var(--c_white);
+    --tip-color: var(--c_asphalt);
 
     /* close */
     --tip-close-padding: 1px 4px 2px 5px;
-    --tip-close-background: var(--c_slate);
-    --tip-close-color: var(--c_white);
+    --tip-close-background: var(--c_lightGray);
+    --tip-close-color: var(--c_asphalt);
     --tip-close-font-size: 14px;
     --tip-close-background-hover: var(--c_smoke);
 
@@ -965,30 +993,27 @@ c-toasts{
     --toast-wrapper-width: 260px;
 
     /* base */
-    --toast-border: solid 1px var(--c_charcoal);
-    --toast-background: var(--c_charcoal);
+    --toast-border: 0;
+    --toast-background: var(--c_lightGray);
     --toast-margin-bottom: var(--s2);
     --toast-icon-container-size: var(--s3);
     --toast-message-padding: var(--s0) var(--s-1) var(--s-1);
-    --toast-message-color: var(--c_charcoal);
+    --toast-message-color: var(--asphalt);
 
     /* types */
-    --toast-info-background: var(--c_subOneMain);
-    --toast-success-background: var(--c_secondaryMain);
-    --toast-warning-background: var(--c_subTwoMain);
-    --toast-error-background: var(--c_primaryLight);
+    --toast-info-background: var(--c_secondaryMain);
+    --toast-success-background: var(--c_subOneMain);
+    --toast-warning-background: var(--c_subFourMain);
+    --toast-error-background: var(--c_subThreeMain);
 }
 
-/* Use these if the default colors are not good for you */
-/*
 c-toasts p{
-    --p-color: var(--c_asphalt) !important;
+    --p-color: var(--c_asphalt);
 }
 
 c-toasts a svg{
-    --icon-color: var(--c_smoke) !important;
+    --icon-color: var(--c_smoke);
 }
-*/
 
 
 
@@ -999,33 +1024,14 @@ c-toasts a svg{
 \*------------------------------------*/
 
 /**
- * ^general
- */
-
-a{
-    --a-color: var(--c_smoke);
-    --a-color-hover: var(--c_lightGray);
-}
-
-p{
-    --p-default-color: var(--c_smoke);
-}
-
-:root{
-    --selected-text-background: var(--c_primaryMain);
-    --selected-text-color: var(--c_white);
-}
-
-
-/**
  * ^c-code
  */
 
 c-code{
-    --code-padding: var(--s-2) var(--s0);
-    --code-border: solid 1px var(--c_charcoal);
-    --code-background: var(--c_asphalt);
-    --code-color: var(--c_marshmellow);
+    --code-padding: calc(var(--s-2) - 1px) var(--s0) calc(var(--s-2) - 3px);
+    --code-border: solid 1px var(--c_smoke);
+    --code-background: var(--c_marshmellow);
+    --code-color: var(--c_subTwoMain);
 }
 
 /**
@@ -1034,11 +1040,11 @@ c-code{
 
 :global .bindable-h1{
     --h1-margin-top: -0.55rem;
-    --h1-font-family: var(--ff_primary-bold);
+    --h1-font-family: var(--ff_primary-normal);
     --h1-font-size: var(--s3);
     --h1-truncate-min-height: var(--s4);
     --h1-truncate-padding-right: var(--s-1);
-    --h1-truncate-hover-background: var(--c_slate);
+    --h1-truncate-hover-background: var(--c_white);
 }
 
 
@@ -1048,11 +1054,11 @@ c-code{
 
 :global .bindable-h2{
     --h2-margin-top: -0.55rem;
-    --h2-font-family: var(--ff_secondary-normal);
+    --h2-font-family: var(--ff_primary-normal);
     --h2-font-size: var(--s2);
     --h2-truncate-min-height: var(--s3);
     --h2-truncate-padding-right: var(--s-1);
-    --h2-truncate-hover-background: var(--c_slate);
+    --h2-truncate-hover-background: var(--c_white);
 }
 
 
@@ -1062,11 +1068,11 @@ c-code{
 
 :global .bindable-h3{
     --h3-margin-top: -0.4rem;
-    --h3-font-family: var(--ff_secondary-normal);
+    --h3-font-family: var(--ff_primary-bold);
     --h3-font-size: var(--s1);
     --h3-link-color: var(--c_subOneMain);
     --h3-truncate-min-height: var(--s2);
-    --h3-truncate-hover-background: var(--c_slate);
+    --h3-truncate-hover-background: var(--c_white);
     --h3-truncate-dark-hover-background: var(--c_darkGray);
 }
 
@@ -1077,7 +1083,7 @@ c-code{
 
 :global .bindable-h4{
     --h4-margin-top: -0.1rem;
-    --h4-font-family: var(--ff_primary-normal);
+    --h4-font-family: var(--ff_primary-bold);
     --h4-font-size: initial;
 }
 
@@ -1088,7 +1094,7 @@ c-code{
 
 :global .bindable-h5{
     --h5-margin-top: -0.2rem;
-    --h5-font-family: var(--ff_secondary-normal);
+    --h5-font-family: var(--ff_primary-bold);
     --h5-font-size: var(--s0);
     --h5-color-smoke: var(--c_smoke);
 }
@@ -1103,16 +1109,16 @@ c-list-container{
 
     /* dark */
     --list-container-dark-color: initial;
-    --list-container-dark-background: var(--c_darkGray);
-    --list-container-dark-a-color-hover: var(--c_white);
-    --list-container-dark-a-background-hover: var(--c_soot);
+    --list-container-dark-background: var(--c_smoke);
+    --list-container-dark-a-color-hover: var(--c_black);
+    --list-container-dark-a-background-hover: var(--c_smoke);
     --list-container-dark-a-icon-hover: var(--c_subOneMain);
 
     /* light */
     --list-container-light-color: initial;
-    --list-container-light-background: var(--c_charcoal);
-    --list-container-light-a-color-hover: var(--c_white);
-    --list-container-light-a-background-hover: var(--c_ash);
+    --list-container-light-background: var(--c_lightGray);
+    --list-container-light-a-color-hover: var(--c_black);
+    --list-container-light-a-background-hover: var(--c_lightGray);
     --list-container-light-a-icon-hover: var(--c_subOneMain);
 
     /* medium */
@@ -1124,8 +1130,8 @@ c-list-container{
     --list-container-small-a-font-size: var(--s-1);
 
     /* item */
-    --list-item-color-active: var(--c_white);
-    --list-item-background-active: var(--c_primaryMain);
+    --list-item-color-active: initial;
+    --list-item-background-active: var(--c_gray);
 }
 
 
@@ -1134,9 +1140,9 @@ c-list-container{
  */
 
 c-list{
-    --list-color: var(--c_smoke);
-    --list-color-link: var(--c_subOneMain);
-    --list-color-link-hover: var(--c_subOneLight);
+    --list-color: initial;
+    --list-color-link: initial;
+    --list-color-link-hover: var(--c_secondaryMain);
 }
 
 
@@ -1159,8 +1165,8 @@ c-p{
 \*------------------------------------*/
 
 c-divider{
-    --divider-height: 1px;
-    --divider-background: var(--c_gray);
+    --divider-height: 2px;
+    --divider-background: var(--c_primaryMain);
 }
 
 
@@ -1172,7 +1178,7 @@ c-divider{
 \*------------------------------------*/
 
 :global .c-spinner{
-    --spinner-color: var(--c_white);
+    --spinner-color: var(--c_black);
 }
 
 
@@ -1184,7 +1190,7 @@ c-divider{
 \*------------------------------------*/
 
 c-status{
-    --status-color: var(--c_smoke);
+    --status-color: var(--c_asphalt);
     --status-font-size: var(--s-1);
     --status-margin-left: var(--s-5);
 }

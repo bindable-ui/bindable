@@ -8,7 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  DEFAULT FONT
+ *  BODY
  *  SELECTED TEXT
  *  SCROLLBARS
  *  LINKS
@@ -19,11 +19,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !DEFAULT FONT
+    !BODY
 \*------------------------------------*/
 
 body{
-    font-family: var(--ff_primary-normal);
+    font-family: var(--body-font-family);
+    background: var(--body-background);
+    color: var(--body-color);
 }
 
 
