@@ -17,8 +17,7 @@ import 'ts-polyfill/lib/es2019-object';
 import 'ts-polyfill/lib/es2019-string';
 import 'ts-polyfill/lib/es2020-string';
 
-// import 'resources/global-styles/themes/theme-alt.css';
-import 'resources/global-styles/themes/theme.css';
+import 'resources/global-styles/themes/main.css';
 
 import environment from './environment';
 import './stylesheets/dev-app.css';
