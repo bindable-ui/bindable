@@ -161,13 +161,13 @@ td .trigger > div > svg{
 .arrow::before,
 .arrow::after{
     position: absolute;
-    border: 11px solid transparent;
+    border: 11px solid var(--tip-border);
     border-collapse: separate;
     content: '';
 }
 
 .arrow::after{
-    border: 10px solid transparent;
+    border: 10px solid var(--tip-border);
 }
 
 
@@ -309,12 +309,12 @@ td .left{
 
 .right::before,
 .left::before{
-    border: 10px solid transparent;
+    border: 10px solid var(--tip-border);
 }
 
 .right::after,
 .left::after{
-    border: 9px solid transparent;
+    border: 9px solid var(--tip-border);
 }
 
 
