@@ -64,7 +64,9 @@ c-tip{
     display: inline-block;
     position: absolute;
     padding: var(--tip-padding);
-    border: var(--tip-boarder);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--tip-border-color);
     background: var(--tip-background);
     color: var(--tip-color);
     text-align: left;
@@ -161,13 +163,13 @@ td .trigger > div > svg{
 .arrow::before,
 .arrow::after{
     position: absolute;
-    border: 11px solid var(--tip-border);
+    border: 11px solid transparent;
     border-collapse: separate;
     content: '';
 }
 
 .arrow::after{
-    border: 10px solid var(--tip-border);
+    border: 10px solid transparent;
 }
 
 
@@ -232,7 +234,7 @@ td .trigger > div > svg{
 
 .top::before{
     top: 100%;
-    border-top-color: var(--tip-border);
+    border-top-color: var(--tip-border-color);
 }
 
 .top::after{
@@ -265,7 +267,7 @@ td .trigger > div > svg{
 
 .bottom::before{
     bottom: 100%;
-    border-bottom-color: var(--tip-border);
+    border-bottom-color: var(--tip-border-color);
 }
 
 .bottom::after{
@@ -309,12 +311,12 @@ td .left{
 
 .right::before,
 .left::before{
-    border: 10px solid var(--tip-border);
+    border: 10px solid transparent;
 }
 
 .right::after,
 .left::after{
-    border: 9px solid var(--tip-border);
+    border: 9px solid transparent;
 }
 
 
@@ -329,7 +331,7 @@ td .left{
 
 .right::before{
     right: 100%;
-    border-right-color: var(--tip-border);
+    border-right-color: var(--tip-border-color);
 }
 
 .right::after{
@@ -352,7 +354,7 @@ td .left{
 
 .left::before{
     left: 100%;
-    border-left-color: var(--tip-border);
+    border-left-color: var(--tip-border-color);
 }
 
 .left::after{

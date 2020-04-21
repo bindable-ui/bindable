@@ -24,8 +24,8 @@ export class TipThemeProperties {
             name: '--tip-padding',
         },
         {
-            default: 'solid 1px var(--c_soot)',
-            name: '--tip-boarder',
+            default: 'var(--c_soot)',
+            name: '--tip-border-color',
         },
         {
             default: 'var(--c_charcoal)',
