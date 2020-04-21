@@ -30,7 +30,7 @@ export class BoxLinkProperties {
 
     public boxLinkProperties = [
         {
-            default: 'var(--c_darkGray)',
+            default: 'unset',
             description: 'Set the background color of the box.',
             name: 'background',
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',

@@ -8,7 +8,7 @@ import * as styles from './l-box.css.json';
 
 export class LBox {
     @bindable
-    public background = 'var(--c_darkGray)';
+    public background = 'unset';
     @bindable
     public borderTop;
     @bindable
