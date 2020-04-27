@@ -74,7 +74,9 @@ table .container{
 }
 
 .base:not(:required)::before{
-    border-top: 2px solid var(--spinner-color);
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: var(--spinner-color);
     border-right: 2px solid transparent;
     border-radius: 50%;
     content: '';

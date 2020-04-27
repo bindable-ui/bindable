@@ -12,9 +12,14 @@ export class Code {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,18 +27,22 @@ export class Code {
         {
             default: 'var(--s-2) var(--s0)',
             name: '--code-padding',
+            property: 'padding',
         },
         {
             default: 'solid 1px var(--c_charcoal)',
             name: '--code-border',
+            property: 'border',
         },
         {
             default: 'var(--c_asphalt)',
             name: '--code-background',
+            property: 'background',
         },
         {
             default: 'var(--c_marshmellow)',
             name: '--code-color',
+            property: 'color',
         },
     ];
 }

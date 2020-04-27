@@ -12,9 +12,14 @@ export class PillThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,22 +27,27 @@ export class PillThemeProperties {
         {
             default: '4px 7px 3px',
             name: '--pill-padding',
+            property: 'padding',
         },
         {
             default: '5px',
             name: '--pill-border-radius',
+            property: 'border-radius',
         },
         {
             default: 'var(--c_white)',
             name: '--pill-text-color',
+            property: 'color',
         },
         {
             default: 'var(--s-2)',
             name: '--pill-font-size',
+            property: 'font-size',
         },
         {
             default: 'var(--c_white)',
             name: '--pill-link-color',
+            property: 'color',
         },
     ];
 }

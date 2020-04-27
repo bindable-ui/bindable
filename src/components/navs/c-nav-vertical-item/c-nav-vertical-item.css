@@ -72,9 +72,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     margin-top: var(--nav-item-h4-top);
     margin-bottom: 0;
     padding-bottom: 0;
-    padding-left: var(var(--s2));
-    color: var(var(--c_white));
-    font-size: var(var(--s-1));
+    padding-left: var(--nav-item-h4-left);
+    color: var(--nav-item-h4-color);
+    font-size: var(--nav-item-h4-size);
 }
 
 .nav-vertical-item c-tip{
@@ -84,7 +84,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .icon-container{
     position: absolute;
     top:  var(--nav-item-icon-top);
-    right: var(--nav-item-icon-left);
+    right: var(--nav-item-icon-right);
     padding: 0 0 5px 5px;
     opacity: 0;
     transition: opacity var(--trans_main);

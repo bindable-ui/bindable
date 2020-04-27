@@ -12,9 +12,14 @@ export class ListItemThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,14 +27,17 @@ export class ListItemThemeProperties {
         {
             default: 'var(--c_lightGray)',
             name: '--list-item-color',
+            property: 'color',
         },
         {
             default: 'var(--c_white)',
             name: '--list-item-color-active',
+            property: 'color',
         },
         {
             default: 'var(--c_primaryMain)',
             name: '--list-item-background-active',
+            property: 'background',
         },
     ];
 }

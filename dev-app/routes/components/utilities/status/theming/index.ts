@@ -12,9 +12,14 @@ export class StatusThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,14 +27,17 @@ export class StatusThemeProperties {
         {
             default: 'var(--c_smoke)',
             name: '--status-color',
+            property: 'color',
         },
         {
             default: 'var(--s-1)',
             name: '--status-font-size',
+            property: 'font-size',
         },
         {
             default: 'var(--s-5)',
             name: '--status-margin-left',
+            property: 'margin-left',
         },
     ];
 }

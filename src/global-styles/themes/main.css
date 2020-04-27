@@ -543,6 +543,7 @@ c-form-select{
 
     /* Button */
     --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
+    --input-button-padding: var(--s-3) var(--s1);
     --input-button-border-size: 1px;
     --input-button-border-color: var(--c_black);
     --input-button-border-radius: 0 5px 5px 0;
@@ -664,7 +665,7 @@ c-nav-vertical{
     --nav-item-h4-color: var(--c_white);
     --nav-item-h4-size: var(--s-1);
     --nav-item-icon-top: 6px;
-    --nav-item-icon-left: 10px;
+    --nav-item-icon-right: 10px;
     --nav-item-icon-color: var(--c_gray);
     --nav-item-sub-size: var(--s-1);
     --nav-item-sub-color: var(--c_gray);
@@ -1124,7 +1125,6 @@ c-code{
     --h5-margin-top: -0.2rem;
     --h5-font-family: var(--ff_secondary-normal);
     --h5-font-size: var(--s0);
-    --h5-color-smoke: var(--c_smoke);
 }
 
 /**

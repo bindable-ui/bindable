@@ -12,9 +12,14 @@ export class Dividers {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,10 +27,12 @@ export class Dividers {
         {
             default: '1px',
             name: '--divider-height',
+            property: 'height',
         },
         {
             default: 'var(--c_gray)',
             name: '--divider-background',
+            property: 'background-color',
         },
     ];
 }

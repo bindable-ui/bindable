@@ -12,9 +12,14 @@ export class TableFixedHeaderThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,30 +27,37 @@ export class TableFixedHeaderThemeProperties {
         {
             default: 'calc(var(--s4) + 5px)',
             name: '--table-header-height',
+            property: 'height',
         },
         {
             default: 'solid 1px var(--c_charcoal)',
             name: '--table-header-border',
+            property: 'border',
         },
         {
             default: 'calc((var(--s4) * -1) - 3px)',
             name: '--table-header-div-margin-top',
+            property: 'margin-top',
         },
         {
             default: 'var(--s0)',
             name: '--table-header-div-padding-left',
+            property: 'padding-left',
         },
         {
             default: 'solid 1px var(--c_charcoal)',
             name: '--table-header-div-border-left',
+            property: 'border-left',
         },
         {
             default: 'calc(var(--s4) + 3px)',
             name: '--table-header-div-line-height',
+            property: 'line-height',
         },
         {
             default: 'var(--c_asphalt)',
             name: '--table-header-loader-background',
+            property: 'background',
         },
     ];
 }

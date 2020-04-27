@@ -178,7 +178,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .medium.center{
-    padding: var(--button-medium-icon-center-padding);
+    padding: var(--button-medium-icon-center-padding) !important;
 }
 
 .medium svg{

@@ -12,9 +12,14 @@ export class IconThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,26 +27,32 @@ export class IconThemeProperties {
         {
             default: 'var(--s-3)',
             name: '--icon-itzy',
+            property: 'width, height',
         },
         {
             default: 'var(--s-2)',
             name: '--icon-tiny',
+            property: 'width, height',
         },
         {
             default: 'var(--s-1)',
             name: '--icon-small',
+            property: 'width, height',
         },
         {
             default: 'var(--s0)',
             name: '--icon-medium',
+            property: 'width, height',
         },
         {
             default: 'var(--s1)',
             name: '--icon-large',
+            property: 'width, height',
         },
         {
             default: 'var(--s2)',
             name: '--icon-huge',
+            property: 'width, height',
         },
     ];
 }

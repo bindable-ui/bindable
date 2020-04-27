@@ -12,9 +12,14 @@ export class SelectThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't350',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,10 +27,12 @@ export class SelectThemeProperties {
         {
             default: 'var(--c_subOneMain)',
             name: '--select-multiple-checked',
+            property: 'background',
         },
         {
             default: 'var(--c_asphalt)',
             name: '--select-multiple-load-more-background',
+            property: 'background',
         },
     ];
 }

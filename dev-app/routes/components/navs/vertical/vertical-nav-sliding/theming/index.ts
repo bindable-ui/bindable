@@ -12,9 +12,14 @@ export class NavVerticalSlidingThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,26 +27,27 @@ export class NavVerticalSlidingThemeProperties {
         {
             default: 'var(--c_darkGray)',
             name: '--nav-sliding-background',
+            property: 'background-color',
         },
         {
             default: '10px 24px 0',
             name: '--nav-sliding-trigger-container-margin',
-        },
-        {
-            default: '10px',
-            name: '--nav-sliding-trigger-container-margin',
+            property: 'margin',
         },
         {
             default: 'var(--ff_primary-bold)',
             name: '--nav-sliding-trigger-font-family',
+            property: 'font-family',
         },
         {
             default: 'var(--s-2)',
             name: '--nav-sliding-trigger-font-size',
+            property: 'font-size',
         },
         {
             default: 'var(--c_lightGray)',
             name: '--nav-sliding-trigger-hover-color',
+            property: 'color',
         },
     ];
 }

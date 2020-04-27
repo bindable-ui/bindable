@@ -146,9 +146,10 @@ input[type='text']{
 .button > button{
     margin-top: 0 !important;
     padding: var(--input-button-padding) !important;
-    border: solid var(--input-button-border-size) var(--input-button-border-color);
+    border-style: solid;
+	border-color: var(--input-button-border-color);
+	border-width: var(--input-button-border-size) !important;
     border-left: 0;
-    border-width: var(--input-button-border-size) !important;
     border-radius: var(--input-button-border-radius);
 }
 

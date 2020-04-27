@@ -14,7 +14,7 @@ export class GlobalProperties {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default Theme Value',
+            colHeadValue: 'Main Theme',
         },
     ];
 

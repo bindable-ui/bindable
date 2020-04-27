@@ -12,9 +12,14 @@ export class PThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,14 +27,17 @@ export class PThemeProperties {
         {
             default: 'var(--s0)',
             name: '--p-font-size-large',
+            property: 'font-size',
         },
         {
             default: 'var(--s-1)',
             name: '--p-font-size-medium',
+            property: 'font-size',
         },
         {
             default: 'var(--s-2)',
             name: '--p-font-size-small',
+            property: 'font-size',
         },
     ];
 }

@@ -12,9 +12,14 @@ export class SpinnerThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,6 +27,7 @@ export class SpinnerThemeProperties {
         {
             default: 'var(--c_white)',
             name: '--spinner-color',
+            property: 'border-top-color',
         },
     ];
 }

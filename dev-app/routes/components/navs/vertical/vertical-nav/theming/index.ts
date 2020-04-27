@@ -12,9 +12,14 @@ export class NavVerticalThemeProperties {
         },
         {
             _class: 'monospaced',
+            colHeadName: 'property',
+            colHeadValue: 'CSS Property',
+        },
+        {
+            _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Default',
+            colHeadValue: 'Main Theme',
         },
     ];
 
@@ -22,14 +27,17 @@ export class NavVerticalThemeProperties {
         {
             default: 'var(--s-2) 0 0',
             name: '--nav-padding',
+            property: 'padding',
         },
         {
             default: 'var(--s-2)',
             name: '--nav-last-child-margin-bottom',
+            property: 'margin-bottom',
         },
         {
             default: 'var(--s0)',
             name: '--nav-bottom-last-child-margin-bottom',
+            property: 'margin-bottom',
         },
     ];
 }
