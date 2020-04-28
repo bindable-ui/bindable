@@ -112,7 +112,7 @@ ux-dialog-container > div{
     outline: none !important;
 }
 
-.close-button button{
+.close-button button[class]{
     margin-top: 0 !important;
     padding: 3px 8px !important;
     border-radius: 0;
