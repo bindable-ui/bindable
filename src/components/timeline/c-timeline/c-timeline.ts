@@ -351,6 +351,7 @@ export class CTimeline {
                 isoTime: startIso,
                 placeholder: true,
                 title: `${moment(startIso).format(this.zoomLevel < 5 ? 'HH:mm' : 'HH:mm:ss')} (New Item)`,
+                zoomLevel: this.zoomLevel,
             };
 
             if (this.newEntryViewModel) {
