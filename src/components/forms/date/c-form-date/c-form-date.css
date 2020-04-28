@@ -432,7 +432,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 :global .bootstrap-datetimepicker-widget table th,
 :global .bootstrap-datetimepicker-widget table td.day{
     width: 7px;
-    max-width: 7px;
+    max-width: unset;
     height: 7px;
     padding: 7px;
     font-size: 12px;
