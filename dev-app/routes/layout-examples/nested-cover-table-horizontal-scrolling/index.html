@@ -8,7 +8,16 @@
         <l-cover scrolling.bind="true">
             <div>I'm at the top</div>
             <div data-value="cover">
-                <l-stack spacing="var(--s0)">
+                <c-nav-vertical nav-bottom.bind="true" background-color="var(--c_darkGray)">
+                    <c-nav-vertical-item title="Link 1"></c-nav-vertical-item>
+                    <c-nav-vertical-item title="Link 2"></c-nav-vertical-item>
+                    <c-nav-vertical-item title="Link 3"></c-nav-vertical-item>
+                </c-nav-vertical>
+
+
+
+
+                <l-stack spacing="var(--s0)" if.bind="false">
                     <div>Sidebar Item</div>
                     <div>Sidebar Item</div>
                     <div>Sidebar Item</div>
