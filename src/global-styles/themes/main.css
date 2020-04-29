@@ -556,7 +556,7 @@ c-form-select{
     --input-clearable-spacing-right: var(--s3);
     --input-clearable-icon-top: var(--s-5);
     --input-clearable-icon-right: var(--s-1);
-    --input-clearable-icon-right-w-button: var(--s4);
+    --input-clearable-icon-right-w-button: var(--s5);
     --input-clearable-icon-size: var(--s-2);
     --input-clearable-icon-color: var(--c_lightGray);
     --input-clearable-icon-hover-color: var(--c_primaryLight);
