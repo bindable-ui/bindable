@@ -65,6 +65,18 @@ describe('c-list component', () => {
                     done.fail(e);
                 }
             });
+
+            it('css class: small', async done => {
+                component = StageComponent.withResources().inView('<c-list></c-list>');
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.styles.small).not.toBe(undefined);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
         });
     });
 });

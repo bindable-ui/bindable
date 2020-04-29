@@ -11,6 +11,8 @@ export class CList {
     public label;
     @bindable
     public noBullets = false;
+    @bindable
+    public size;
 
     public styles = styles;
 

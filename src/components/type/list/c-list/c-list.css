@@ -11,6 +11,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  BASE
  *  NO BULLETS
  *  LABEL WRAPPER
+ *  SIZE
  *  LINKS
  */
 
@@ -59,6 +60,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .label-wrapper > c-label{
     margin-right: var(--s-4);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIZE
+\*------------------------------------*/
+
+.small > li{
+    font-size: var(--list-small-font-size);
 }
 
 
