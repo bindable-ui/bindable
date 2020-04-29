@@ -1172,6 +1172,7 @@ c-list{
     --list-color-link: var(--c_subOneMain);
     --list-color-link-hover: var(--c_subOneLight);
     --list-small-font-size: var(--s-1);
+    --list-padding-left: var(--s1);
 }
 
 

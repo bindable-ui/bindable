@@ -39,5 +39,15 @@ export class ListThemeProperties {
             name: '--list-color-link-hover',
             property: 'color',
         },
+        {
+            default: 'var(--s1)',
+            name: '--list-padding-left',
+            property: 'padding-left',
+        },
+        {
+            default: 'var(--s-1)',
+            name: '--list-small-font-size',
+            property: 'font-size',
+        },
     ];
 }

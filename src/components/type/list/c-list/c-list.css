@@ -25,6 +25,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .base{
     color: var(--list-color);
+    list-style: disc !important;
+    padding-left: var(--list-padding-left) !important;
 }
 
 .base li{
@@ -40,8 +42,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .no-bullets{
-    list-style-type: none;
-    padding-left: 0;
+    list-style-type: none !important;
+    padding-left: 0 !important;
 }
 
 
