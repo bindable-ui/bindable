@@ -35,14 +35,41 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             </l-box>
         </l-sidebar>
         <router-view data-value="cover"></router-view>
-        <l-sidebar side-width="19rem" content-min="180px" spacing="0px">
-            <l-box padding-sides="var(--s2)" padding-ends="var(--s-3)" background="var(--c_soot)" class="footer-logo">
-                <a class="logo-vdms" href="http://verizondigitalmediaservices.com" target="_blank">Verizon Media</a>
+        <l-sidebar
+            side-width="19rem"
+            content-min="180px"
+            spacing="0px"
+        >
+            <l-box
+                padding-sides="var(--s2)"
+                padding-ends="var(--s-3)"
+                background="var(--c_soot)"
+                class="footer-logo"
+            >
+                <a
+                    class="logo-vdms"
+                    href="http://verizondigitalmediaservices.com"
+                    target="_blank"
+                >
+                    Verizon Media
+                </a>
             </l-box>
-            <l-box padding-sides="var(--s3)" padding-ends="var(--s-3)" background="var(--c_soot)" class="footer-bar">
+            <l-box
+                class="footer-bar"
+                fill-space.bind="true"
+                padding-sides="var(--s3)"
+                padding-ends="var(--s-2)"
+                background="var(--c_soot)"
+            >
                 <l-cluster justify="flex-end">
                     <div>
-                        <a class="footer-links" href="https://github.com/bindable-ui/bindable/issues" target="_blank">Report An Issue</a>
+                            <a
+                                class="footer-links"
+                                href="https://github.com/bindable-ui/bindable/issues"
+                                target="_blank"
+                            >
+                                Report An Issue
+                            </a>
                     </div>
                 </l-cluster>
             </l-box>
