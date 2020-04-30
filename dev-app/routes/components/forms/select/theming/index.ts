@@ -25,6 +25,11 @@ export class SelectThemeProperties {
 
     public selectThemeProperties = [
         {
+            default: 'var(--s3)',
+            name: '--select-padding-right',
+            property: 'padding-right',
+        },
+        {
             default: 'var(--c_subOneMain)',
             name: '--select-multiple-checked',
             property: 'background',
@@ -33,6 +38,16 @@ export class SelectThemeProperties {
             default: 'var(--c_asphalt)',
             name: '--select-multiple-load-more-background',
             property: 'background',
+        },
+        {
+            default: 'url(\'data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>\')',
+            name: '--select-arrow-svg',
+            property: 'background-image',
+        },
+        {
+            default: 'right 10px center',
+            name: '--select-arrow-position',
+            property: 'background-position',
         },
     ];
 }

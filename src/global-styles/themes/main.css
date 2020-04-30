@@ -351,6 +351,7 @@ c-copy{
 
 c-disabled{
     --form-disabled-color: var(--c_subOneMain);
+    --form-disabled-margin-top: var(--s-5);
     --form-disabled-font-family: var(--ff_primary-normal-italic);
 }
 
@@ -487,8 +488,11 @@ c-text-input{
  */
 
 c-form-select{
+    --select-padding-right: var(--s3);
     --select-multiple-checked: var(--c_subOneMain);
     --select-multiple-load-more-background: var(--c_asphalt);
+    --select-arrow-svg: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>');
+    --select-arrow-position: right var(--s-2) center;
 }
 
 

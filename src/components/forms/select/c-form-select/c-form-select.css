@@ -59,19 +59,20 @@ c-form-select{
 
 @media (-webkit-min-device-pixel-ratio: 0){
     select{
-        padding-right: 30px !important;
-        background-image: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>') !important;
+        padding-right: var(--select-padding-right) !important;
+        background-image: var(--select-arrow-svg) !important;
         background-repeat: no-repeat !important;
-        background-position: right 10px center !important;
+        background-position: var(--select-arrow-position) !important;
     }
 }
 
 @-moz-document url-prefix(){
     select{
-        padding-right: 30px !important;
+        padding-right: var(--select-padding-right) !important;
+        background-image: var(--select-arrow-svg) !important;
         background-image: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>') !important;
         background-repeat: no-repeat !important;
-        background-position: right 10px center !important;
+        background-position: var(--select-arrow-position) !important;
         transition: box-shadow var(--trans_main), border var(--trans_main), background var(--trans_main), color 0ms !important;
     }
 }
