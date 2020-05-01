@@ -35,7 +35,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     border-bottom: var(--nav-item-border-bottom-hover);
     content: '';
     opacity: 0;
-    transition: opacity var(--trans_main), border-bottom var(--trans_main);
+    transition: opacity var(--trans_main);
 }
 
 .nav-horizontal-item a{

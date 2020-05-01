@@ -33,7 +33,7 @@ export class ListContainerProperties {
             default: 'dark',
             description: 'Set the colors of the list.',
             name: 'color',
-            value: 'dark | light',
+            value: 'dark | light | transparent',
         },
         {
             default: 'false',

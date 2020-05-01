@@ -414,6 +414,7 @@ c-label{
 c-form-checkbox-radio-container,
 c-tile,
 :global(.c-form-image),
+:global(.c-toggle-input),
 c-table{
     /* checkbox */
     --checkbox-size: var(--s0);
@@ -442,7 +443,8 @@ c-table{
  * ^c-toggle-input
  */
 
-:global(.c-toggle-input){
+:global(.c-toggle-input),
+c-table{
     --toggle-nub-border: var(--c_smoke);
     --toggle-nub-border-hover: var(--c_white);
     --toggle-nub-border-checked: var(--c_white);

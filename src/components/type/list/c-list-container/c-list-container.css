@@ -10,6 +10,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /**
  *  BASE
  *  COLOR
+ *      - Dark
+ *      - Light
+ *      - Transparent
  *  SIZES
  *      - Medium
  *      - Small
@@ -44,6 +47,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !COLOR
 \*------------------------------------*/
 
+/**
+ * ^Dark
+ */
+
 .dark,
 .dark a{
     color: var(--list-container-dark-color);
@@ -58,6 +65,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .dark li a:hover svg{
     fill: var(--list-container-dark-a-icon-hover);
 }
+
+
+/**
+ * ^Light
+ */
 
 .light,
 .light a{
@@ -74,6 +86,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     fill: var(--list-container-light-a-icon-hover);
 }
 
+
+/**
+ * ^Transparent
+ */
+
+.transparent,
+.transparent a{
+    color: var(--list-container-light-color);
+}
+
+.transparent li a:hover{
+    color: var(--list-container-light-a-color-hover);
+}
+
+.transparent li a:hover svg{
+    fill: var(--list-container-light-a-icon-hover);
+}
+
+
+/**
+ * ^All
+ */
+
+.transparent li a svg,
 .dark li a svg,
 .light li a svg{
     transition: fill var(--trans_main);
