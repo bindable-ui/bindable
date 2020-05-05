@@ -11,10 +11,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  BASE
  *  PULSE SPEED
  *      - Set Up
- *      - Healthy
- *      - Warning
- *      - Critical
- *      - Info
+ *      - Slow
+ *      - Medium
+ *      - Fast
  */
 
 
@@ -33,9 +32,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .link,
 .container c-p{
     flex: 1;
-    margin-left: var(--s-5);
-    color: var(--c_smoke);
-    font-size: var(--s-1);
+    margin-left: var(--status-margin-left);
+    color: var(--status-color);
+    font-size: var(--status-font-size);
 }
 
 .link,

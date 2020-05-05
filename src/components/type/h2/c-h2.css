@@ -21,9 +21,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .base{
-    margin-top: -0.55rem;
-    font-family: var(--ff_secondary-normal);
-    font-size: var(--s2);
+    margin-top: var(--h2-margin-top);
+    font-family: var(--h2-font-family);
+    font-size: var(--h2-font-size);
     font-weight: normal;
 }
 
@@ -40,12 +40,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: relative;
     grid-template-columns: 1fr;
     width: 100%;
-    min-height: var(--s3);
+    min-height: var(--h2-truncate-min-height);
 }
 
 .truncate h2{
     min-width: 0;
-    padding-right: var(--s-1);
+    padding-right: var(--h2-truncate-padding-right);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -54,7 +54,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .truncate h2:hover{
     position: absolute;
     width: 100%;
-    background: var(--c_slate);
+    background: var(--h2-truncate-hover-background);
     text-overflow: initial;
     white-space: normal;
     word-break: break-word;

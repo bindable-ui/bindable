@@ -4,50 +4,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <l-stack spacing="var(--s5)">
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h2>Properties</c-h2>
-                <c-table cols.bind="statusCols" rows.bind="statusProperties"></c-table>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>example</c-h3>
-                <c-code-sample>
-                    <c-status
-                        href=""
-                        text="Healthy State"
-                    ></c-status>
-                    <c-status
-                        color="var(--c_subOneMain)"
-                        href="http://google.com"
-                        text="Info State"
-                    ></c-status>
-                    <c-status
-                        color="var(--c_subTwoMain)"
-                        href="http://google.com"
-                        max-width="200px"
-                        pulse-speed="medium"
-                        target-new.bind="true"
-                        text="Go to Google in new page and warning"
-                    ></c-status>
-                    <c-status
-                        color="var(--c_primaryLight)"
-                        href=""
-                        pulse-speed="fast"
-                        text="Not a link and ctirical"
-                    ></c-status>
-                    <c-status
-                        color="transparent"
-                        href="http://google.com"
-                        text="No State"
-                    ></c-status>
-                </c-code-sample>
-            </l-stack>
-        </div>
-    </l-stack>
+    <l-cover
+        scrolling.bind="true"
+        top-gutter="var(--s2)"
+    >
+        <l-stack spacing="var(--s-3)">
+            <l-box padding-sides="var(--s2)" padding-ends="0px" background="var(--c_darkGray)">
+                <c-nav-horizontal size="small" spacing="var(--s2)">
+                    <c-nav-horizontal-item
+                        repeat.for="row of router.navigation"
+                        title.bind="row.title"
+                        href.bind="row.href"
+                        state="${row.isActive ? 'active' : ''}">
+                    </c-nav-horizontal-item>
+                </c-nav-horizontal>
+            </l-box>
+        </l-stack>
+        <router-view data-value="cover"></router-view>
+    </l-cover>
 </template>

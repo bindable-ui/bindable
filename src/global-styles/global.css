@@ -8,7 +8,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 /**
- *  DEFAULT FONT
+ *  BODY
  *  SELECTED TEXT
  *  SCROLLBARS
  *  LINKS
@@ -19,11 +19,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !DEFAULT FONT
+    !BODY
 \*------------------------------------*/
 
 body{
-    font-family: var(--ff_primary-normal);
+    font-family: var(--body-font-family);
+    background: var(--body-background);
+    color: var(--body-color);
 }
 
 
@@ -35,8 +37,8 @@ body{
 \*------------------------------------*/
 
 ::selection{
-    background-color: var(--c_primaryMain);
-    color: var(--c_white);
+    background-color: var(--selected-text-background);
+    color: var(--selected-text-color);
 }
 
 
@@ -86,8 +88,6 @@ select[multiple]::-webkit-scrollbar-thumb{
 \*------------------------------------*/
 
 a{
-    --a-color: var(--c_smoke);
-    --a-color-hover: var(--c_lightGray);
     color: var(--a-color);
     transition: color var(--trans_main);
 }

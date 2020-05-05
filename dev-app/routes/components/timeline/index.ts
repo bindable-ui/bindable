@@ -29,6 +29,13 @@ export class TimelineWrapper {
             title: 'Actions',
         },
         {
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
+        },
+        {
             moduleId: PLATFORM.moduleName('./demo/index'),
             name: 'demo',
             nav: true,

@@ -24,9 +24,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .wrapper{
     position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 260px;
+    top: var(--toast-wrapper-top);
+    right: var(--toast-wrapper-right);
+    width: var(--toast-wrapper-width);
     z-index: var(--z_toasts);
 }
 
@@ -37,9 +37,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .toaster{
-    margin-bottom: var(--s2);
-    border: solid 1px var(--c_charcoal);
-    background-color: var(--c_charcoal);
+    margin-bottom: var(--toast-margin-bottom);
+    border: var(--toast-border);
+    background-color: var(--toast-background);
     overflow: hidden;
     transition: all var(--trans_main);
 }
@@ -76,8 +76,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: flex;
     justify-content: center;
     align-items: center;
-    width: var(--s3);
-    height: var(--s3);
+    width: var(--toast-icon-container-size);
+    height: var(--toast-icon-container-size);
 }
 
 
@@ -89,8 +89,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .message{
-    padding: var(--s0) var(--s-1) var(--s-1);
-    color: var(--c_charcoal);
+    padding: var(--toast-message-padding);
+    color: var(--toast-message-color);
 }
 
 
@@ -102,17 +102,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .info .icon-container{
-    background: var(--c_subOneMain);
+    background: var(--toast-info-background);
 }
 
 .success .icon-container{
-    background: var(--c_secondaryMain);
+    background: var(--toast-success-background);
 }
 
 .warning .icon-container{
-    background: var(--c_subTwoMain);
+    background: var(--toast-warning-background);
 }
 
 .error .icon-container{
-    background: var(--c_primaryLight);
+    background: var(--toast-error-background);
 }

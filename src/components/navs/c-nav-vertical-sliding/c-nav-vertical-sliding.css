@@ -26,7 +26,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     height: 100%;
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
-    background-color: var(--c_darkGray);
+    background-color: var(--nav-sliding-background);
 }
 
 .hidden{
@@ -76,7 +76,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .trigger-container{
     max-height: 100px;
-    margin: 10px 24px 0;
+    margin: var(--nav-sliding-trigger-container-margin);
     opacity: 1;
     transition: max-height 0.6s ease-in-out 0.2s, opacity 0.4s ease-out 0s;
 }
@@ -94,9 +94,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .trigger{
     display: inline-block;
     position: relative;
-    padding-bottom: 10px;
-    font-family: var(--ff_primary-bold);
-    font-size: var(--s-2);
+    padding-bottom: var(--nav-sliding-trigger-padding-bottom);
+    font-family: var(--nav-sliding-trigger-font-family);
+    font-size: var(--nav-sliding-trigger-font-size);
 }
 
 .trigger span{
@@ -104,7 +104,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .trigger:hover{
-    color: var(--c_lightGray);
+    color: var(--nav-sliding-trigger-hover-color);
     cursor: pointer;
 }
 

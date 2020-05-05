@@ -10,15 +10,15 @@ import * as styles from '../l-box/l-box.css.json';
 @authState
 export class LBoxLink {
     @bindable
-    public background = 'var(--c_darkGray)';
+    public background = 'unset';
     @bindable
     public backgroundHover = 'var(--c_soot)';
     @bindable
     public borderTop;
     @bindable
-    public fillSpace = false;
+    public color = 'unset';
     @bindable
-    public color = 'var(--c_white)';
+    public fillSpace = false;
     @bindable
     public href = '#';
     @bindable

@@ -21,8 +21,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .base{
-    margin-top: -0.1rem;
-    font-family: var(--ff_primary-normal);
+    margin-top: var(--h4-margin-top);
+    font-family: var(--h4-font-family);
+    font-size: var(--h4-font-size);
     font-weight: normal;
 }
 

@@ -572,26 +572,26 @@ export class TableViews {
             {
                 dragCheck: false,
                 gender: 'Male',
-                ship: 'X-Wing',
                 order: 1,
+                ship: 'X-Wing',
             },
             {
                 dragCheck: false,
                 gender: 'Male',
-                ship: 'M. Falcon',
                 order: 2,
+                ship: 'M. Falcon',
             },
             {
                 dragCheck: false,
                 gender: 'Male',
-                ship: 'Tie Fighter',
                 order: 3,
+                ship: 'Tie Fighter',
             },
             {
                 dragCheck: true,
                 gender: 'Female',
-                ship: 'M. Falcon',
                 order: 4,
+                ship: 'M. Falcon',
             },
         ];
 

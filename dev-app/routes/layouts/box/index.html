@@ -24,7 +24,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <l-stack spacing="var(--s-3)">
                     <c-h3>Default</c-h3>
                     <c-code-sample>
-                        <l-box>
+                        <l-box background="var(--c_darkGray)">
                             <span>I am in a box</span>
                         </l-box>
                     </c-code-sample>
@@ -41,11 +41,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                             <l-box background="white" color="black">
                                 <span>I am in a white box with black text.</span>
                             </l-box>
-                            <l-box background="transparent">
+                            <l-box>
                                 <span>I am in a transparent box</span>
                             </l-box>
 
-                            <l-box border-top="var(--c_primaryMain)">
+                            <l-box background="var(--c_darkGray)" border-top="var(--c_primaryMain)">
                                 <span>I am in a top border box</span>
                             </l-box>
                         </l-stack>
@@ -60,15 +60,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <c-h3>fill-space</c-h3>
                     <c-code-sample>
                         <l-grid>
-                            <l-box fill-space.bind="true">
+                            <l-box background="var(--c_darkGray)" fill-space.bind="true">
                                 <c-p>I am a tall box with muiltiple lines.</c-p>
                                 <c-p>I am a tall box with muiltiple lines.</c-p>
                                 <c-p>I am a tall box with muiltiple lines.</c-p>
                             </l-box>
-                            <l-box fill-space.bind="true">
+                            <l-box background="var(--c_darkGray)" fill-space.bind="true">
                                 <c-p>Single line yet the same height.</c-p>
                             </l-box>
-                            <l-box fill-space.bind="false">
+                            <l-box background="var(--c_darkGray)" fill-space.bind="false">
                                 <c-p>fill-space set to false</c-p>
                             </l-box>
                         </l-grid>
@@ -83,13 +83,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <c-h3>margin-sides &amp; margin-ends</c-h3>
                     <c-code-sample>
                         <l-stack>
-                            <l-box margin-sides="var(--s4)" margin-ends="var(--s3)">
+                            <l-box background="var(--c_darkGray)" margin-sides="var(--s4)" margin-ends="var(--s3)">
                                 <span>I am in a box</span>
                             </l-box>
-                            <l-box margin-sides="var(--s3)" margin-ends="var(--s2)">
+                            <l-box background="var(--c_darkGray)" margin-sides="var(--s3)" margin-ends="var(--s2)">
                                 <span>I am in a box</span>
                             </l-box>
-                            <l-box margin-sides="var(--s0)" margin-ends="var(--s-1)">
+                            <l-box background="var(--c_darkGray)" margin-sides="var(--s0)" margin-ends="var(--s-1)">
                                 <span>I am in a box</span>
                             </l-box>
                         </l-stack>
@@ -104,13 +104,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <c-h3>padding-sides &amp; padding-ends</c-h3>
                     <c-code-sample>
                         <l-stack>
-                            <l-box padding-sides="var(--s4)" padding-ends="var(--s3)">
+                            <l-box background="var(--c_darkGray)" padding-sides="var(--s4)" padding-ends="var(--s3)">
                                 <span>I am in a box</span>
                             </l-box>
-                            <l-box padding-sides="var(--s3)" padding-ends="var(--s2)">
+                            <l-box background="var(--c_darkGray)" padding-sides="var(--s3)" padding-ends="var(--s2)">
                                 <span>I am in a box</span>
                             </l-box>
-                            <l-box padding-sides="var(--s0)" padding-ends="var(--s-1)">
+                            <l-box background="var(--c_darkGray)" padding-sides="var(--s0)" padding-ends="var(--s-1)">
                                 <span>I am in a box</span>
                             </l-box>
                         </l-stack>

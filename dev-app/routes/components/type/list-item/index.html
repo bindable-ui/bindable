@@ -4,44 +4,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <l-stack spacing="var(--s5)">
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h2>Properties</c-h2>
-                <c-notification type="info">NOTE: This component is used inside the &lt;c-list-container&gt; component.</c-notification>
-                <c-table cols.bind="listItemCols" rows.bind="listItemProperties"></c-table>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>state</c-h3>
-                <c-code-sample>
-                    <c-list-container>
-                        <c-list-item><a href="#">One</a></c-list-item>
-                        <c-list-item state="active"><a href="#">Two</a></c-list-item>
-                        <c-list-item><a href="#">Three</a></c-list-item>
-                        <c-list-item><c-p size="large">This is a paragraph and not a link.</c-p></c-list-item>
-                    </c-list-container>
-                </c-code-sample>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>wrap</c-h3>
-                <c-code-sample>
-                    <c-list-container>
-                        <c-list-item><a href="#">This is a link with long text and will not wrap because we did not get the component to wrap. Hope this helps because I have to put a lot of text here to make sure it truncates.</a></c-list-item>
-                        <c-list-item wrap.bind="true"><a href="#">This is a link with long text and will wrap because we told it to wrap. Hope this helps. Ice cream is my favorite food. It is really yummy. I hope to eat some more later today.</a></c-list-item>
-                        <c-list-item wrap.bind="true"><c-p size="large">This is a paragraph and not a link but also has really long text so thay we can see that the text will indeed wrap when we tell it to.</c-p></c-list-item>
-                    </c-list-container>
-                </c-code-sample>
-            </l-stack>
-        </div>
-    </l-stack>
+    <l-cover
+        scrolling.bind="true"
+        top-gutter="var(--s2)"
+    >
+        <l-stack spacing="var(--s-3)">
+            <l-box padding-sides="var(--s2)" padding-ends="0px" background="var(--c_darkGray)">
+                <c-nav-horizontal size="small" spacing="var(--s2)">
+                    <c-nav-horizontal-item
+                        repeat.for="row of router.navigation"
+                        title.bind="row.title"
+                        href.bind="row.href"
+                        state="${row.isActive ? 'active' : ''}">
+                    </c-nav-horizontal-item>
+                </c-nav-horizontal>
+            </l-box>
+        </l-stack>
+        <router-view data-value="cover"></router-view>
+    </l-cover>
 </template>

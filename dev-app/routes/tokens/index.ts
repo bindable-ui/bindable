@@ -23,6 +23,13 @@ export class Core {
             title: 'Overview',
         },
         {
+            moduleId: PLATFORM.moduleName('./global-properties/index'),
+            name: 'global-properties',
+            nav: true,
+            route: 'global-properties',
+            title: 'Global Properties',
+        },
+        {
             moduleId: PLATFORM.moduleName('./color/index'),
             name: 'color',
             nav: true,

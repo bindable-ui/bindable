@@ -19,7 +19,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  CELL WIDTHS
  *  BAR
  *  ROW STATUS (backwards compatibility)
- *  FOOTER ROW
  *  FONTS
  *      - Mono
  *  TEXT INPUT
@@ -28,7 +27,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  ALIGN RIGHT
  *  SORT
  *  RESPONSIVE
-*/
+ */
 
 
 
@@ -44,15 +43,26 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .table{
     width: 100%;
-    border: 1px solid var(--c_charcoal);
-    font-size: var(--s-1);
+    border-top: var(--table-border-top);
+    border-right: var(--table-border-right);
+    border-bottom: var(--table-border-bottom);
+    border-left: var(--table-border-left);
+    font-size: var(--table-font-size);
+}
+
+.table th{
+    font-family: var(--table-th-font-family);
+    font-size: var(--table-th-font-size);
 }
 
 .table th,
 .table td{
-    padding: calc(var(--s-1) - 2px) var(--s0);
-    border: 1px solid var(--c_charcoal);
-    color: var(--c_marshmellow);
+    padding: var(--table-td-padding);
+    border-top: var(--table-td-border-top);
+    border-right: var(--table-td-border-right);
+    border-bottom: var(--table-td-border-bottom);
+    border-left: var(--table-td-border-left);
+    color: var(--table-td-color);
     text-align: left;
     vertical-align: top;
 }
@@ -74,7 +84,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .table th input[type='checkbox'],
 .table td input[type='radio'],
 .table th input[type='radio']{
-    margin-top: 1px !important;
+    margin-top: var(--table-checkbox-margin-top) !important;
     margin-right: 0;
     margin-bottom: 0;
 }
@@ -85,8 +95,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .table thead th{
-    background-color: var(--c_soot);
-    color: var(--c_white);
+    padding: var(--table-th-padding);
+    background-color: var(--table-th-background);
+    color: var(--table-th-color);
 }
 
 
@@ -98,7 +109,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .striped tbody tr:nth-of-type(odd){
-    background-color: #3A3A3A;
+    background-color: var(--table-striped-background);
 }
 
 
@@ -114,7 +125,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .hover tbody tr:hover{
-    background-color: #444;
+    background-color: var(--table-hover-background);
     cursor: pointer;
 }
 
@@ -139,7 +150,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .active{
-    background-color: #5f5f5f !important;
+    background-color: var(--table-active-background) !important;
 }
 
 
@@ -158,12 +169,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .no-vertical-borders th:last-child,
 .no-vert td:last-child{
-    border-right: 1px solid var(--c_charcoal);
+    border-right: var(--table-td-border);
 }
 
 .no-vertical-borders th:first-child,
 .no-vertical-bordres td:first-child{
-    border-left: 1px solid var(--c_charcoal);
+    border-left: var(--table-td-border);
 }
 
 
@@ -228,45 +239,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .healthy{
-    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%2337A56C" width="5" height="1"></rect></svg>');
+    background-image: var(--table-row-bar-healthy);
     background-repeat: repeat-y;
 }
 
 .info{
-    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%233599C5" width="5" height="1"></rect></svg>');
+    background-image: var(--table-row-bar-info);
     background-repeat: repeat-y;
 }
 
 .warning{
-    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23CEA832" width="5" height="1"></rect></svg>');
+    background-image: var(--table-row-bar-warning);
     background-repeat: repeat-y;
 }
 
 .critical,
 .error{
-    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23E85358" width="5" height="1"></rect></svg>');
+    background-image: var(--table-row-bar-critical);
     background-repeat: repeat-y;
 }
 
 .neutral{
-    background-image: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%239B9B9B" width="5" height="1"></rect></svg>');
+    background-image: var(--table-row-bar-neutral);
     background-repeat: repeat-y;
-}
-
-
-
-
-
-/*------------------------------------*\
-    !FOOTER ROW
-\*------------------------------------*/
-
-.table .footer{
-    background-color: var(--c_darkGray);
-}
-
-.table .footer span{
-    color: var(--c_subOneMain);
 }
 
 
@@ -298,8 +293,8 @@ th.monospaced{
 \*------------------------------------*/
 
 td.text-input{
-    padding-top: var(--s-4) !important;
-    padding-bottom: var(--s-4)!important;
+    padding-top: var(--table-text-input-cell-padding) !important;
+    padding-bottom: var(--table-text-input-cell-padding)!important;
 }
 
 
@@ -338,24 +333,29 @@ td.button{
     top: 0px;
     left: 0px;
     line-height: 0;
-    height: var(--s4);
-    padding-top: calc(var(--s-1) + 1px);
-    padding-right: var(--s-2);
-    padding-left: var(--s-3);
+    height: var(--table-drag-height);
+    padding-top: var(--table-drag-padding-top);
+    padding-right: var(--table-drag-padding-right);
+    padding-left: var(--table-drag-padding-left);
 }
 
 .drag-check compose span{
-    top: calc(-100% +2px);
+    top: var(--table-drag-check-top);
     left: -16px;
-    height: calc(var(--s4) + 3%);
-    padding-top: var(--s-2);
+    height: var(--table-drag-check-height);
+    padding-top: var(--table-drag-check-padding-top);
+
+    /* master */
+    /* height: calc(var(--s4) + 3%); */
+    /* padding-top: var(--s-2); */
+
     padding-right: 0;
     padding-left: 0;
 }
 
 .drag compose span:hover,
 .drag-check compose span:hover{
-    background: var(--c_darkGray);
+    background: var(--table-drag-background-hover);
 }
 
 .drag input[type=checkbox],
@@ -381,31 +381,32 @@ td.button{
 
 .bg-healthy td,
 td.bg-healthy{
-    background-color: var(--c_secondaryDark) !important;
-    color: var(--c_secondaryLight) !important;
+    background-color: var(--table-background-healthy) !important;
+    color: var(--table-color-healthy) !important;
 }
 
 .bg-warning td,
 td.bg-warning{
-    background-color: var(--c_subTwoDark) !important;
-    color: var(--c_subTwoLight) !important;
+    background-color: var(--table-background-warning) !important;
+    color: var(--table-color-warning) !important;
 }
 
 .bg-critical td,
 td.bg-critical{
-    background-color: var(--c_primaryDark) !important;
-    color: var(--c_primaryLighter) !important;
+    background-color: var(--table-background-critical) !important;
+    color: var(--table-color-critical) !important;
 }
 
 .bg-info td,
 td.bg-info{
-    background-color: var(--c_subOneDark) !important;
-    color: var(--c_subOneLight) !important;
+    background-color: var(--table-background-info) !important;
+    color: var(--table-color-info) !important;
 }
 
 .bg-processing td,
 td.bg-processing{
-    background-image: url('../../../global-styles/assets/images/td-processing.gif');
+    background-image: var(--table-background-processing) !important;
+    color: var(--table-color-processing) !important;
 }
 
 
@@ -429,29 +430,29 @@ td.bg-processing{
 \*------------------------------------*/
 
 .sort{
-    padding-right: 15px;
+    padding-right: var(--table-sort-padding-right);
     background-repeat: no-repeat;
-    background-position: right 0 top calc(var(--s-5) - 2px);
+    background-position: var(--table-sort-icon-position);
     cursor: pointer;
 }
 
 c-table-fixed-header .sort{
-    background-position: right 0 top calc(var(--s0) - 1px);
+    background-position: var(--table-fixed-header-sort-icon-position);
 }
 
 .sort-none{
     composes: sort;
-    background-image: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="\%23FFFFFF" fill-rule="evenodd"><path d="M3.5 0L7 5H0zM0 8h7l-3.5 5z"/></g></svg>');
+    background-image: var(--table-sort-icon-none);
 }
 
 .sort-desc{
     composes: sort;
-    background-image: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23FFF" d="M3.5 0L7 5H0z"/><path fill="\%23E85358" d="M0 8h7l-3.5 5z"/></g></svg>');
+    background-image: var(--table-sort-icon-desc);
 }
 
 .sort-asc{
     composes: sort;
-    background-image: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23E85358" d="M3.5 0L7 5H0z"/><path fill="\%23FFF" d="M0 8h7l-3.5 5z"/></g></svg>');
+    background-image: var(--table-sort-icon-asc);
 }
 
 
@@ -462,12 +463,6 @@ c-table-fixed-header .sort{
     !RESPONSIVE
 \*------------------------------------*/
 
-/* This is here to get the test to pass.
- * It can't read styles in a media query. */
-.responsive{
-    font-size: var(--s-1);
-}
-
 @media only screen and (max-width: 780px){
     .responsive{
         border-right: 0;
@@ -477,8 +472,8 @@ c-table-fixed-header .sort{
     .responsive td::before{
         display: inline-block;
         margin-right: 15px;
-        color: var(--c_marshmellow);
-        font-family: var(--ff_primary-bold);
+        color: var(--table-mobile-label-color);
+        font-family: var(--table-mobile-label-font-family);
         content: attr(data-th) ': ';
     }
 

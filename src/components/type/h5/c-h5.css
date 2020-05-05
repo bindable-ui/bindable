@@ -20,9 +20,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .base{
-    margin-top: -0.2rem;
-    font-family: var(--ff_secondary-normal);
+    margin-top: var(--h5-margin-top);
+    font-family: var(--h5-font-family);
     font-weight: normal;
-    font-size: var(--s0);
+    font-size: var(--h5-font-size);
     color: var(--h5-color);
 }

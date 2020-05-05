@@ -30,7 +30,7 @@ export class BoxProperties {
 
     public boxProperties = [
         {
-            default: 'var(--c_darkGray)',
+            default: 'unset',
             description: 'Set the background background of the box.',
             name: 'background',
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
@@ -41,7 +41,7 @@ export class BoxProperties {
             value: 'Any color',
         },
         {
-            default: 'var(--c_white)',
+            default: 'unset',
             description: 'Set the text color of the box.',
             name: 'color',
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',

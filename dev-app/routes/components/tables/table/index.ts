@@ -42,6 +42,13 @@ export class Tables {
             route: 'views',
             title: 'Views & View Models',
         },
+        {
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
+        },
     ];
 
     constructor(public router: Router) {}

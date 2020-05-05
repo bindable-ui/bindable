@@ -41,37 +41,38 @@ c-form-select{
     display: block;
     width: 100%;
     height: unset;
-    padding: var(--s-5) var(--s-3);
-    border: solid 1px var(--c_black);
+    padding: var(--input-padding);
+    border: var(--input-border);
     border-radius: 0;
     outline: none;
-    background: var(--c_charcoal);
-    color: var(--c_smoke);
-    box-shadow: inset 0 -1px 0 var(--c_gray);
-    transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+    background: var(--input-background);
+    color: var(--input-color);
+    box-shadow: var(--input-box-shadow);
+    transition: var(--input-transition);
 }
 
 .select:focus,
 .select:active{
-    color: var(--c_lightGray);
-    box-shadow: inset 0 -1px 0 var(--c_secondaryMain);
+    color: var(--input-color-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 @media (-webkit-min-device-pixel-ratio: 0){
     select{
-        padding-right: 30px !important;
-        background-image: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>') !important;
+        padding-right: var(--select-padding-right) !important;
+        background-image: var(--select-arrow-svg) !important;
         background-repeat: no-repeat !important;
-        background-position: right 10px center !important;
+        background-position: var(--select-arrow-position) !important;
     }
 }
 
 @-moz-document url-prefix(){
     select{
-        padding-right: 30px !important;
+        padding-right: var(--select-padding-right) !important;
+        background-image: var(--select-arrow-svg) !important;
         background-image: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>') !important;
         background-repeat: no-repeat !important;
-        background-position: right 10px center !important;
+        background-position: var(--select-arrow-position) !important;
         transition: box-shadow var(--trans_main), border var(--trans_main), background var(--trans_main), color 0ms !important;
     }
 }
@@ -96,7 +97,7 @@ select:-moz-focusring{
 select.error:focus,
 select.error:active,
 select.error{
-    box-shadow: inset 0 -1px 0 var(--c_primaryLight);
+    box-shadow: var(--input-box-shadow-error);
 }
 
 /**
@@ -106,7 +107,7 @@ select.error{
  select.warning:focus,
  select.warning:active,
  select.warning{
-     box-shadow: inset 0 -1px 0 var(--c_subTwoMain);
+    box-shadow: var(--input-box-shadow-warning);
  }
 
 
@@ -145,7 +146,7 @@ select.error{
 }
 
 .multiple option:checked{
-    background: linear-gradient(var(--c_subOneMain), var(--c_subOneMain));
+    background: linear-gradient(var(--select-multiple-checked), var(--select-multiple-checked));
 }
 
 
@@ -169,5 +170,5 @@ select.error{
     bottom: 0;
     width: 100%;
     height: 30px;
-    background: var(--c_asphalt);
+    background: var(--select-multiple-load-more-background);
 }

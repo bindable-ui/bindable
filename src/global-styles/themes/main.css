@@ -1,0 +1,1232 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  TOKENS
+ *      - Modular Scale
+ *      - Colors
+ *      - Fonts
+ *      - Transitions
+ *      - Popover
+ *      - Z-Index
+ *      - Scrollbars
+ *  GLOBAL
+ *  BUTTON
+ *  COPY
+ *  FORM
+ *      - c-disabled
+ *      - c-form-error
+ *      - c-form-image
+ *      - c-form-warning
+ *      - c-label
+ *      - c-form-checkbox-radio-container, c-tile, t-table
+ *      - c-form-image, c-form-checkbox-radio-container
+ *      - c-toggle-input
+ *      - c-form-date
+ *      - c-form-select
+ *      - c-slider
+ *      - c-text-input, c-textarea-input, c-copy, c-file-input, c-form-select
+ *  ICON
+ *  MODAL
+ *  NAV
+ *      - c-nav-horizontal
+ *      - c-nav-vertical
+ *      - c-nav-vertical-sliding
+ *  NOTIFICATION
+ *  PILL
+ *  TABLE
+ *      - c-table-fixed-header
+ *      - c-table, c-table-fixed-header
+ *      - c-table
+ *      - td comnpose
+ *  TILE
+ *  TIMELINE
+ *      - c-timeline-block
+ *      - timeline-container
+ *      - c-timeline-week-container
+ *  TIP
+ *  TOAST
+ *  TYPE
+ *      - c-code
+ *      - bindable-h1
+ *      - bindable-h2
+ *      - bindable-h3
+ *      - bindable-h4
+ *      - bindable-h5
+ *      - c-list-conatiner
+ *      - c-list
+ *      - c-p
+ *  DIVIDER
+ *  SPINNER
+ *  STATUS
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !TOKENS
+\*------------------------------------*/
+
+:root{
+
+    /**
+     * ^Modular Scale
+     */
+
+    /* ratio */
+    --ratio: 1.25;
+
+    /* smaller */
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+
+    /* base */
+    --s0: 1rem;
+
+    /* larger */
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+
+
+    /**
+     * ^Colors
+     */
+
+    /* primary */
+    --c_primaryMain: #CD040B;
+    --c_primaryLight: #E85358;
+    --c_primaryLighter: #FF878B;
+    --c_primaryDark: #301919;
+
+    /* secondary */
+    --c_secondaryMain: #37A56C;
+    --c_secondaryLight: #5DC691;
+    --c_secondaryLighter: #8BCDAB;
+    --c_secondaryDark: #0E2B1C;
+
+    /* sub one */
+    --c_subOneMain: #3599C5;
+    --c_subOneLight: #51AFDB;
+    --c_subOneLighter: #8AD6F7;
+    --c_subOneDark: #14263F;
+
+    /* sub two */
+    --c_subTwoMain: #CEA832;
+    --c_subTwoLight: #E9C558;
+    --c_subTwoLighter: #F7D362;
+    --c_subTwoDark: #312810;
+
+    /* sub three */
+    --c_subThreeMain: #C35E37;
+    --c_subThreeLight: #D47452;
+    --c_subThreeLighter: #F69671;
+    --c_subThreeDark: #4B2E0C;
+
+    /* sub four */
+    --c_subFourMain: #8E5CB1;
+    --c_subFourLight: #B491CE;
+    --c_subFourLighter: #C5ABD8;
+    --c_subFourDark: #331C44;
+
+    /* grays */
+    --c_black: #000;
+    --c_soot: #161616;
+    --c_darkGray: #282828;
+    --c_asphalt: #242424;
+    --c_slate: #313131;
+    --c_ash: #3D3C3C;
+    --c_charcoal: #4D4D4D;
+    --c_gray: #7D7D7D;
+    --c_smoke: #9B9B9B;
+    --c_lightGray: #C6C6C6;
+    --c_marshmellow: #D7D7D7;
+    --c_white: #FFF;
+
+
+    /**
+     * ^Fonts
+     */
+
+    /* font family primary */
+    --ff_primary-normal: 'HGD_55', Helvetica, sans-serif;
+    --ff_primary-normal-italic: 'HGD_56', Helvetica, sans-serif;
+    --ff_primary-bold: 'HGD_75', Helvetica, sans-serif;
+    --ff_primary-bold-italic: 'HGD_76', Helvetica, sans-serif;
+
+    /* font family secondary */
+    --ff_secondary-normal: 'HN_57_Cond', Helvetica, sans-serif;
+    --ff_secondary-normal-italic: 'HN_57_Cond_It', Helvetica, sans-serif;
+    --ff_secondary-bold: 'HN_67_Cond', Helvetica, sans-serif;
+    --ff_secondary-bold-italic: 'HN_67_Cond_It', Helvetica, sans-serif;
+
+    /* font family mono */
+    --ff_mono: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+
+    /**
+     * ^Transitions
+     */
+    --trans_main: 0.3s ease-in-out;
+
+
+    /**
+     * ^ Popover
+     */
+    --w_popover: 215px;
+
+
+    /**
+     * ^Z-Index
+     */
+    --z_actionBar: -1;
+    --z_base: 1;
+    --z_tileTip: 9;
+    --z_weekTimelineDays: 2;
+    --z_timeLineEntry: 3;
+    --z_timeLineEntryHover: 4;
+    --z_timeEntrySmall: 5;
+    --z_currentTimeMarker: 6;
+    --z_timeEntryActive: 8;
+    --z_timelineContainer: 9;
+    --z_weekTimelineHours: 10;
+    --z_weekTimelineDates: 11;
+    --z_tileCheckbox: 12;
+    --z_tipFullScreenClose: 17;
+    --z_copy: 20;
+    --z_tip: 21;
+    --z_mainNav: 23;
+    --z_mobileNavTrigger: 24;
+    --z_gridLoadMore: 25;
+    --z_toasts: 1001;
+
+
+    /**
+     * ^Scrollbars
+     */
+    --scrollbar_width: 7px;
+    --scrollbar_color: #7B7B7B;
+    --scrollbar_track_color: #222;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !GLOBAL
+\*------------------------------------*/
+
+body{
+    --body-font-family: var(--ff_primary-normal);
+    --body-background: var(--c_white);
+    --body-color: var(--c_asphalt);
+}
+
+a{
+    --a-color: var(--c_secondaryMain);
+    --a-color-hover: var(--c_secondaryDark);
+}
+
+p{
+    --p-default-color: initial;
+}
+
+:root{
+    --selected-text-background: var(--c_primaryMain);
+    --selected-text-color: var(--c_black);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !BUTTON
+\*------------------------------------*/
+
+c-button{
+    /* Base */
+    --button-border-radius: var(--s-5);
+    --button-color: var(--c_white);
+    --button-disabled-color: #939393;
+    --button-font-family: var(--ff_primary-bold);
+    --button-font-size: var(--s-1);
+    --button-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    --button-transition: all var(--trans_main);
+    --button-text-transform: none;
+
+    /* Colors */
+    --button-primary-background: var(--c_primaryMain);
+    --button-primary-hover-background: #F12930;
+    --button-primary-disabled-background: #7A1516;
+    --button-primary-disabled-color: var(--button-disabled-color);
+    --button-primary-color: var(--button-color);
+
+    --button-secondary-background: var(--c_secondaryMain);
+    --button-secondary-hover-background: var(--c_secondaryLight);
+    --button-secondary-disabled-background: #20623F;
+    --button-secondary-disabled-color: var(--button-disabled-color);
+    --button-secondary-color: var(--button-color);
+
+    --button-neutral-background: var(--c_gray);
+    --button-neutral-hover-background: var(--c_smoke);
+    --button-neutral-disabled-background: #454545;
+    --button-neutral-disabled-color: var(--button-disabled-color);
+    --button-neutral-color: var(--button-color);
+    --button-neutral-border-color: transparent;
+    --button-neutral-border-size: 0px;
+
+    --button-danger-background: var(--c_primaryLight);
+    --button-danger-hover-background: var(--c_primaryLighter);
+    --button-danger-disabled-background: #913236;
+    --button-danger-disabled-color: var(--button-disabled-color);
+    --button-danger-color: var(--button-color);
+
+    /* Sizes */
+    --button-medium-padding: var(--s-3) var(--s1);
+    --button-medium-icon-side-padding: var(--s4);
+    --button-medium-icon-center-padding: var(--s-3) var(--s-1);
+    --button-medium-icon-svg-size: var(--s0);
+    --button-medium-icon-svg-spacing: var(--s0);
+    --button-medium-icon-svg-top-spacing: 1px;
+    --button-small-padding: var(--s-5) var(--s-1);
+    --button-small-icon-side-padding: var(--s3);
+    --button-small-icon-center-padding: var(--s-5) var(--s-1);
+    --button-small-icon-svg-size: var(--s-1);
+    --button-small-icon-svg-spacing: var(--s-1);
+    --button-small-icon-svg-top-spacing: calc(var(--s-5) - 3px);
+
+    /* Thinking */
+    --button-thinking-padding-left: var(--s4);
+    --button-thinking-padding-left-with-icon: calc(15px + var(--s5));
+    --button-thinking-spinner-top: calc(50% - var(--s-4));
+    --button-thinking-spinner-left: var(--s0);
+    --button-thinking-spinner-size: var(--s-1);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !COPY
+\*------------------------------------*/
+
+c-copy{
+    --copy-button-border: solid 1px var(--c_gray);
+    --copy-button-radius: 0 var(--s-5) var(--s-5) 0;
+    --copy-button-width: 73px;
+    --copy-content-padding: var(--s-3) var(--s-1) calc(var(--s-3) - 2px);
+    --copy-content-border: solid 1px var(--c_charcoal);
+    --copy-content-background: var(--c_darkGray);
+    --copy-content-color: var(--c_gray);
+    --copy-content-font-size: var(--s-1);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !FORM
+\*------------------------------------*/
+
+/**
+ * ^c-disabled
+ */
+
+c-disabled{
+    --form-disabled-color: var(--c_subOneMain);
+    --form-disabled-margin-top: var(--s-5);
+    --form-disabled-font-family: var(--ff_primary-normal-italic);
+}
+
+
+/**
+ * ^c-form-error
+ */
+
+c-form-error{
+    --form-error-color: var(--c_primaryLight);
+    --form-error-font-size: var(--s-1);
+}
+
+
+/**
+ * ^c-form-image
+ */
+
+:global(.c-form-image){
+    --form-image-hover-background: #3C3C3C;
+    --form-image-description-color: var(--c_marshmellow);
+    --form-image-description-font-family: var(--ff_primary-bold);
+    --form-image-active-background: var(--c_charcoal);
+}
+
+
+/**
+ * ^c-form-warning
+ */
+
+c-form-warning{
+    --form-warning-color: var(--c_subTwoMain);
+    --form-warning-font-size: var(--s-1);
+}
+
+
+/**
+ * ^c-label
+ */
+
+c-label{
+    --label-color: var(--c_white);
+    --label-font-family: var(--ff_primary-bold);
+    --label-text-transform: none;
+    --label-font-size: unset;
+    --label-color-error: var(--c_primaryLight);
+    --label-color-warning: var(--c_subTwoMain);
+    --label-edit-font-size: var(--s-1);
+    --label-edit-color: var(--c_subOneMain);
+    --label-edit-hover-color: var(--c_subOneLighter);
+    --label-done-color: var(--c_subTwoMain);
+    --label-done-hover-color: var(--c_subTwoLighter);
+}
+
+
+/**
+ * ^c-form-checkbox-radio-container, c-form-image, c-tile, t-table
+ */
+
+c-form-checkbox-radio-container,
+c-tile,
+:global(.c-form-image),
+:global(.c-toggle-input),
+c-table{
+    /* checkbox */
+    --checkbox-size: var(--s0);
+    --checkbox-border: solid 1px var(--c_black);
+    --checkbox-border-radius: 2px;
+    --checkbox-background: var(--c_charcoal);
+    --checkbox-hover-background: var(--c_gray);
+    --checkbox-selected-background: var(--c_secondaryMain);
+    --checkbox-selected-check-size: var(--s-2);
+    --checkbox-disabled-background: var(--c_slate);
+
+    /* radio */
+    --radio-size: var(--s0);
+    --radio-border: solid 1px var(--c_black);
+    --radio-background: var(--c_charcoal);
+    --radio-hover-background: var(--c_gray);
+    --radio-selected-background: var(--c_secondaryMain);
+    --radio-selected-dot-size: calc(var(--s-5) - 1px);
+    --radio-disabled-background: var(--c_slate);
+    --radio-checkbox-label-color: var(--c_smoke);
+    --radio-checkbox-label-size: var(--s-1);
+}
+
+
+/**
+ * ^c-toggle-input
+ */
+
+:global(.c-toggle-input),
+c-table{
+    --toggle-nub-border: var(--c_smoke);
+    --toggle-nub-border-hover: var(--c_white);
+    --toggle-nub-border-checked: var(--c_white);
+    --toggle-nub-border-disabled: var(--c_charcoal);
+    --toggle-nub-background: var(--c_slate);
+    --toggle-nub-background-disabled: var(--c_slate);
+    --toggle-nub-background-checked: var(--c_primaryMain);
+    --toggle-nub-background-checked-disabled: var(--c_primaryDark);
+    --toggle-nub-hover-background: var(--c_gray);
+    --toggle-bar-background-checked: var(--c_primaryLight);
+    --toggle-bar-background: var(--c_charcoal);
+    --toggle-bar-shadow: inset 0px 0px 2px var(--c_black);
+}
+
+
+/**
+ * ^c-form-date
+ */
+
+c-text-input{
+    --form-date-calendar-icon-color: var(--c_smoke);
+    --form-date-calendar-icon-right-space: var(--s-2);
+}
+
+:global(.bootstrap-datetimepicker-widget){
+    --form-date-calendar-background: var(--c_soot);
+    --form-date-calendar-day-hover-background: var(--c_charcoal);
+    --form-date-calendar-old-new-color: #777;
+    --form-date-calendar-today-marker-color: var(--c_primaryMain);
+    --form-date-calendar-day-active-background: var(--c_primaryMain);
+    --form-date-calendar-day-active-color: var(--c_white);
+    --form-date-calendar-day-disabled-color: #777;
+    --form-date-calendar-button-color: var(--c_lightGray);
+    --form-date-prev-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='11' viewBox='0 0 7 11' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M5.5 11L0 5.5 5.5 0l1.29 1.29L2.577 5.5l4.21 4.212L5.5 11z'/%3E%3C/svg%3E");
+    --form-date-next-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='12' viewBox='0 0 9 12' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M2.29 1l5.5 5.5-5.5 5.5L1 10.71 5.21 6.5 1 2.288 2.29 1z'/%3E%3C/svg%3E");
+    --form-date-up-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='11' height='7' viewBox='0 0 11 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M0 5.5L5.5 0 11 5.5 9.71 6.79 5.5 2.577l-4.212 4.21L0 5.5z'/%3E%3C/svg%3E");
+    --form-date-down-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='7' viewBox='0 0 13 7' xmlns='http://www.w3.org/2000/svg' fill='%23FFF'%3E%3Cpath d='M12 1.29l-5.5 5.5L1 1.29 2.29 0 6.5 4.21 10.712 0 12 1.29z'/%3E%3C/svg%3E");
+}
+
+
+/**
+ * ^c-form-select
+ */
+
+c-form-select{
+    --select-padding-right: var(--s3);
+    --select-multiple-checked: var(--c_subOneMain);
+    --select-multiple-load-more-background: var(--c_asphalt);
+    --select-arrow-svg: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>');
+    --select-arrow-position: right var(--s-2) center;
+}
+
+
+/**
+ * ^c-slider
+ */
+
+c-slider{
+    --slider-track-border: solid 1px var(--c_smoke);
+    --slider-track-background: var(--c_gray);
+    --slider-track-border-disabled: solid 1px var(--c_charcoal);
+    --slider-track-background-disabled: var(--c_ash);
+    --slider-thumb-border: solid 1px var(--c_subOneLighter);
+    --slider-thumb-background: var(--c_subOneMain);
+    --slider-thumb-border-disabled: solid 1px var(--c_gray);
+    --slider-thumb-background-disabled: var(--c_charcoal);
+}
+
+
+/**
+ * ^c-text-input, c-textarea-input, c-copy, c-file-input, c-form-select
+ */
+
+c-text-input,
+c-textarea-input,
+c-copy,
+c-file-input,
+c-form-select{
+    /* Base */
+    --input-padding: var(--s-5) var(--s-3);
+    --input-border: solid 1px var(--c_black);
+    --input-background: var(--c_charcoal);
+    --input-color: var(--c_smoke);
+    --input-placeholder-color: #6C6C6C;
+    --input-box-shadow: inset 0 -1px 0 var(--c_gray);
+    --input-transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+
+    /* State */
+    --input-color-focus: var(--c_lightGray);
+    --input-box-shadow-focus: inset 0 -1px 0 var(--c_secondaryMain);
+    --input-box-shadow-error: inset 0 -1px 0 var(--c_primaryLight);
+    --input-background-error: var(--c_charcoal);
+    --input-box-shadow-warning: inset 0 -1px 0 var(--c_subTwoMain);
+    --input-background-warning: var(--c_charcoal);
+
+    /* Icon */
+    --input-icon-padding: var(--s3);
+    --input-icon-side-spacing: var(--s-2);
+    --input-icon-top-spacing: calc(var(--s-3) + 1px);
+    --input-icon-size: var(--s0);
+    --input-icon-color: var(--c_smoke);
+
+    /* Button */
+    --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
+    --input-button-padding: var(--s-3) var(--s1);
+    --input-button-border-size: 1px;
+    --input-button-border-color: var(--c_black);
+    --input-button-border-radius: 0 5px 5px 0;
+    --input-button-hover-background: var(--c_smoke);
+    --input-button-hover-color: inherit;
+    --input-button-bin-hover-background: var(--c_primaryLight);
+    --input-button-bin-hover-icon-color: unset;
+
+    /* Clearable */
+    --input-clearable-spacing-right: var(--s3);
+    --input-clearable-icon-top: var(--s-5);
+    --input-clearable-icon-right: var(--s-1);
+    --input-clearable-icon-right-w-button: var(--s5);
+    --input-clearable-icon-size: var(--s-2);
+    --input-clearable-icon-color: var(--c_lightGray);
+    --input-clearable-icon-hover-color: var(--c_primaryLight);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ICON
+\*------------------------------------*/
+
+:global(.c-icon){
+    --icon-itzy: var(--s-3);
+    --icon-tiny: var(--s-2);
+    --icon-small: var(--s-1);
+    --icon-medium: var(--s0);
+    --icon-large: var(--s1);
+    --icon-huge: var(--s2);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !MODAL
+\*------------------------------------*/
+
+ux-dialog-overlay{
+    --modal-overlay-background: rgba(0, 0, 0, 0.6);
+}
+
+ux-dialog-container{
+    --modal-background: var(--c_slate);
+    --modal-top-border-color: var(--c_primaryMain);
+    --modal-top-border-size: 5px;
+    --modal-header-padding: var(--s3) var(--s3) var(--s-1);
+    --modal-body-padding: 0 var(--s3);
+    --modal-footer-padding: var(--s1) var(--s3);
+    --modal-footer-border-top: solid 1px var(--c_charcoal);
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    !NAV
+\*------------------------------------*/
+
+/**
+ * ^c-nav-horizontal
+ */
+
+c-nav-horizontal{
+    /* Sizing */
+    --nav-medium-padding: var(--s0) 0;
+    --nav-small-padding: var(--s-1) 0;
+    --nav-small-font-size: calc(var(--s0) - 0.12rem);
+    --nav-tiny--padding: var(--s-5) 0;
+    --nav-tiny-font-size: var(--s-1);
+
+    /* Mobile */
+    --nav-mobile-background: var(--c_soot);
+    --nav-mobile-font-size: var(--s-1);
+    --nav-mobile-hover: var(--c_slate);
+    --nav-mobile-active: var(--c_primaryMain);
+    --nav-mobile-trigger-background: var(--c_primaryMain);
+    --nav-mobile-trigger-bars-color: var(--c_white);
+
+    /* Item */
+    --nav-item-border-bottom-active: solid 3px var(--c_primaryMain);
+    --nav-item-border-bottom-hover: 0;
+    --nav-item-color: var(--c_lightGray);
+    --nav-item-hover-active-color: var(--c_white);
+}
+
+
+/**
+ * ^c-nav-vertical
+ */
+
+c-nav-vertical{
+    /* Base */
+    --nav-padding: var(--s-2) 0 0;
+    --nav-last-child-margin-bottom: var(--s-2);
+    --nav-bottom-last-child-margin-bottom: var(--s0);
+
+    /* Item */
+    --nav-item-padding: var(--s-3) var(--s0) var(--s-3) var(--s2);
+    --nav-item-color: var(--c_smoke);
+    --nav-item-color-hover: var(--c_white);
+    --nav-item-background-hover: var(--c_ash);
+    --nav-item-color-active: var(--c_white);
+    --nav-item-background-active: var(--c_black);
+    --nav-item-active-bar-size: var(--s-5);
+    --nav-item-active-bar-color-active: var(--c_primaryMain);
+    --nav-item-active-bar-color-hover: var(--nav-background);
+    --nav-item-active-bar-color: var(--nav-background-color);
+    --nav-item-button-margin: var(--s-1) 0 var(--s-1) var(--s2);
+    --nav-item-h4-top: var(--s-1);
+    --nav-item-h4-left: var(--s2);
+    --nav-item-h4-color: var(--c_white);
+    --nav-item-h4-size: var(--s-1);
+    --nav-item-icon-top: 6px;
+    --nav-item-icon-right: 10px;
+    --nav-item-icon-color: var(--c_gray);
+    --nav-item-sub-size: var(--s-1);
+    --nav-item-sub-color: var(--c_gray);
+
+    /* Accordion */
+    --nav-item-accordion-icon-top: calc(var(--s-1) + 3px);
+    --nav-item-accordion-icon-left: 22px;
+    --nav-item-accordion-icon-size: var(--s-3);
+    --nav-item-accordion-icon-color: var(--c_white);
+}
+
+
+/**
+ * ^c-nav-vertical-sliding
+ */
+
+c-nav-vertical-sliding{
+    --nav-sliding-background: var(--c_darkGray);
+    --nav-sliding-trigger-container-margin: 10px 24px 0;
+    --nav-sliding-trigger-padding-bottom: 10px;
+    --nav-sliding-trigger-font-family: var(--ff_primary-bold);
+    --nav-sliding-trigger-font-size: var(--s-2);
+    --nav-sliding-trigger-hover-color: var(--c_lightGray);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !NOTIFICATION
+\*------------------------------------*/
+
+c-notification{
+    /* Base */
+    --notification-font-size: var(--s-1);
+    --notification-color: var(--c_white);
+    --notification-padding: var(--s-3) var(--s0) var(--s-3) 0;
+
+    /* Info */
+    --notification-info-border: solid 1px var(--c_subOneMain);
+    --notification-info-background: var(--c_subOneDark);
+    --notification-info-color: var(--c_subOneLighter);
+
+    /* Warning */
+    --notification-warning-border: solid 1px var(--c_subTwoMain);
+    --notification-warning-background: var(--c_subTwoDark);
+    --notification-warning-color: var(--c_subTwoLight);
+
+    /* Critical */
+    --notification-critical-border: solid 1px var(--c_primaryLighter);
+    --notification-critical-background: var(--c_primaryDark);
+    --notification-critical-color: var(--c_primaryLighter);
+
+    /* Success */
+    --notification-success-border: solid 1px var(--c_secondaryLighter);
+    --notification-success-background: var(--c_secondaryDark);
+    --notification-success-color: var(--c_secondaryLighter);
+
+    /* Callout */
+    --notification-callout-flex: 0 0 calc(var(--s5) + 120px);
+    --notification-callout-padding: var(--s0) var(--s2);
+    --notification-callout-h5-size: var(--s0);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !PILL
+\*------------------------------------*/
+
+c-pill{
+    --pill-padding: 4px 7px 3px;
+    --pill-border-radius: 5px;
+    --pill-text-color: var(--c_white);
+    --pill-font-size: var(--s-2);
+    --pill-link-color: var(--c_white);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TABLE
+\*------------------------------------*/
+
+/**
+ * ^c-table-fixed-header
+ */
+
+c-table-fixed-header{
+    --table-header-height: calc(var(--s4) + 5px);
+    --table-header-border: solid 1px var(--c_charcoal);
+    --table-header-div-margin-top: calc((var(--s4) * -1) - 3px);
+    --table-header-div-padding-left: var(--s0);
+    --table-header-div-border-left: solid 1px var(--c_charcoal);
+    --table-header-div-line-height: calc(var(--s4) + 3px);
+    --table-header-loader-background: var(--c_asphalt);
+}
+
+
+/**
+ * ^c-table, c-table-fixed-header
+ */
+
+c-table,
+c-table-fixed-header{
+    --table-th-background: var(--c_soot);
+    --table-th-color: var(--c_white);
+    --table-th-font-family: inherit;
+}
+
+
+/**
+ * ^c-table
+ */
+
+c-table{
+    /* Base */
+    --table-border: 1px solid var(--c_charcoal);
+    --table-border-top: var(--table-border);
+    --table-border-right: var(--table-border);
+    --table-border-bottom: var(--table-border);
+    --table-border-left: var(--table-border);
+    --table-font-size: var(--s-1);
+    --table-th-font-size: var(--table-font-size);
+    --table-td-padding: calc(var(--s-1) - 2px) var(--s0);
+    --table-td-border: var(--table-border);
+    --table-td-border-top: var(--table-td-border);
+    --table-td-border-right: var(--table-td-border);
+    --table-td-border-bottom: var(--table-td-tdorder);
+    --table-td-border-left: --table-td-border;
+    --table-td-color: var(--c_marshmellow);
+    --table-th-padding: var(--table-td-padding);
+    --table-striped-background: #3A3A3A;
+    --table-hover-background: #444;
+    --table-active-background: #5f5f5f;
+
+    /* Row Bar */
+    /* Here for backwards compatibility. Use --cell-bar-color as the updated way to set bar color */
+    --table-row-bar-healthy: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%2337A56C" width="5" height="1"></rect></svg>');
+    --table-row-bar-info: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%233599C5" width="5" height="1"></rect></svg>');
+    --table-row-bar-warning: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23CEA832" width="5" height="1"></rect></svg>');
+    --table-row-bar-critical: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%23E85358" width="5" height="1"></rect></svg>');
+    --table-row-bar-neutral: url('data:image/svg+xml;utf8,<svg width="5px" height="1px" viewBox="0 0 5 1" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle-1" stroke="none" fill="\%239B9B9B" width="5" height="1"></rect></svg>');
+
+    /* Text Input */
+    --table-text-input-cell-padding: var(--s-4);
+    --table-text-input-height: var(--s2);
+    --table-text-input-padding: var(--s-5) var(--s-4);
+
+    /* Checkbox */
+    --table-checkbox-margin-top: 1px;
+
+    /* Drag */
+    --table-drag-background-hover: var(--c_darkGray);
+    --table-drag-height: var(--s4);
+    --table-drag-padding-top: calc(var(--s-1) + 1px);
+    --table-drag-padding-right: var(--s-2);
+    --table-drag-padding-left: var(--s-3);
+    --table-drag-check-height: calc(var(--s4) + 3%);
+    --table-drag-check-padding-top: var(--s-2);
+    --table-drag-check-top: calc(-100% + 2px);
+
+    /* Colored Cell */
+    --table-background-healthy: var(--c_secondaryDark);
+    --table-color-healthy: var(--c_secondaryLight);
+    --table-background-warning: var(--c_subTwoDark);
+    --table-color-warning: var(--c_subTwoLight);
+    --table-background-critical: var(--c_primaryDark);
+    --table-color-critical: var(--c_primaryLighter);
+    --table-background-info: var(--c_subOneDark);
+    --table-color-info: var(--c_subOneLight);
+    --table-background-processing: url('../assets/images/td-processing.gif');
+    --table-color-processing: var(--table-td-color);
+
+    /* Sort */
+    --table-sort-padding-right: 15px;
+    --table-sort-icon-position: right 0 top calc(var(--s-5) - 2px);
+    --table-fixed-header-sort-icon-position: right 0 top calc(var(--s0) - 1px);
+    --table-sort-icon-none: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="\%23FFFFFF" fill-rule="evenodd"><path d="M3.5 0L7 5H0zM0 8h7l-3.5 5z"/></g></svg>');
+    --table-sort-icon-desc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23FFF" d="M3.5 0L7 5H0z"/><path fill="\%23E85358" d="M0 8h7l-3.5 5z"/></g></svg>');
+    --table-sort-icon-asc: url('data:image/svg+xml;utf8,<svg width="7" height="13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="\%23E85358" d="M3.5 0L7 5H0z"/><path fill="\%23FFF" d="M0 8h7l-3.5 5z"/></g></svg>');
+
+    /* Responsive */
+    --table-mobile-label-color: var(--c_marshmellow);
+    --table-mobile-label-font-family: var(--ff_primary-bold);
+}
+
+
+/**
+ * ^td comnpose
+ */
+
+td compose{
+    /* c-td-action */
+    --table-action-color: var(--c_marshmellow);
+    --table-action-color-hover: var(--c_white);
+    --table-action-icon-color: var(--c_lightGray);
+    --table-action-icon-color-hover: var(--c_white);
+
+    /* c-td-truncate */
+    --table-truncate-margin-right: var(--s-2);
+    --table-truncate-height: var(--s0);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TILE
+\*------------------------------------*/
+
+c-tile{
+    /* base */
+    --tile-padding: var(--s-5);
+    --tile-background: var(--c_darkGray);
+    --tile-background-hover: var(--c_charcoal);
+    --tile-image-background: var(--c_soot);
+    --tile-h4-color: var(--c_marshmellow);
+    --tile-h4-size: var(--s-1);
+    --tile-checked-background: var(--c_gray);
+    --tile-checked-text-color: var(--c_marshmellow);
+    --tile-drag-background: var(--c_black);
+
+    /* tip */
+    --tile-tip-top: calc(var(--s-5) * -1);
+    --tile-tip-right: calc(var(--s-5) * -1);
+    --tile-tip-padding: var(--s-5) var(--s-3);
+    --tile-tip-background: var(--c_charcoal);
+
+    /* status */
+    --tile-status-height: var(--s-5);
+    --tile-status-processing: #CCC url('../assets/images/td-processing.gif');
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TIMELINE
+\*------------------------------------*/
+
+/**
+ * ^c-timeline-block
+ */
+
+c-timeline-block{
+    --time-block-border-bottom: solid 1px #444;
+    --time-color: var(--c_smoke);
+    --time-font-size: 12px;
+}
+
+
+/**
+ * ^timeline-container
+ */
+
+:global .timeline-container{
+    --current-time-line-color: #00AC3E;
+    --loading-spinner-background: rgba(0, 0, 0, 0.5);
+}
+
+
+/**
+ * ^c-timeline-week-container
+ */
+
+c-timeline-week-container{
+    --timeline-week-dates-background: var(--c_slate);
+    --timeline-week-dates-border-bottom: solid 1px #444;
+    --timeline-week-dates-link-color: var(--c_marshmellow);
+    --timeline-week-dates-link-color-hover: var(--c_smoke);
+    --timeline-week-dates-first-border-right: solid 1px var(--c_gray);
+    --timeline-week-content-border-left: solid 1px var(--c_gray);
+    --timeline-week-dates-today-color: var(--c_primaryMain);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TIP
+\*------------------------------------*/
+
+c-tip,
+c-popover{
+    /* base */
+    --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
+    --tip-border-color: var(--c_soot);
+    --tip-background: var(--c_charcoal);
+    --tip-color: var(--c_white);
+
+    /* close */
+    --tip-close-padding: 1px 4px 2px 5px;
+    --tip-close-background: var(--c_slate);
+    --tip-close-color: var(--c_white);
+    --tip-close-font-size: 14px;
+    --tip-close-background-hover: var(--c_smoke);
+
+    /* width */
+    --tip-width-small: 150px;
+    --tip-width-medium: 180px;
+    --tip-width-large: 220px;
+    --tip-width-xlarge: 336px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TOAST
+\*------------------------------------*/
+
+c-toasts{
+    /* wrapper */
+    --toast-wrapper-top: 20px;
+    --toast-wrapper-right: 20px;
+    --toast-wrapper-width: 260px;
+
+    /* base */
+    --toast-border: solid 1px var(--c_charcoal);
+    --toast-background: var(--c_charcoal);
+    --toast-margin-bottom: var(--s2);
+    --toast-icon-container-size: var(--s3);
+    --toast-message-padding: var(--s0) var(--s-1) var(--s-1);
+    --toast-message-color: var(--c_charcoal);
+
+    /* types */
+    --toast-info-background: var(--c_subOneMain);
+    --toast-success-background: var(--c_secondaryMain);
+    --toast-warning-background: var(--c_subTwoMain);
+    --toast-error-background: var(--c_primaryLight);
+}
+
+/* Use these if the default colors are not good for you */
+/*
+c-toasts p{
+    --p-color: var(--c_asphalt) !important;
+}
+
+c-toasts a svg{
+    --icon-color: var(--c_smoke) !important;
+}
+*/
+
+
+
+
+
+/*------------------------------------*\
+    !TYPE
+\*------------------------------------*/
+
+/**
+ * ^general
+ */
+
+body{
+    --body-font-family: var(--ff_primary-normal);
+    --body-background: var(--c_slate);
+    --body-color: var(--c_white);
+}
+
+a{
+    --a-color: var(--c_smoke);
+    --a-color-hover: var(--c_lightGray);
+}
+
+p{
+    --p-default-color: var(--c_smoke);
+}
+
+:root{
+    --selected-text-background: var(--c_primaryMain);
+    --selected-text-color: var(--c_white);
+}
+
+
+/**
+ * ^c-code
+ */
+
+c-code{
+    --code-padding: var(--s-2) var(--s0);
+    --code-border: solid 1px var(--c_charcoal);
+    --code-background: var(--c_asphalt);
+    --code-color: var(--c_marshmellow);
+}
+
+/**
+ * ^bindable-h1
+ */
+
+:global .bindable-h1{
+    --h1-margin-top: -0.55rem;
+    --h1-font-family: var(--ff_primary-bold);
+    --h1-font-size: var(--s3);
+    --h1-truncate-min-height: var(--s4);
+    --h1-truncate-padding-right: var(--s-1);
+    --h1-truncate-hover-background: var(--c_slate);
+}
+
+
+/**
+ * ^bindable-h2
+ */
+
+:global .bindable-h2{
+    --h2-margin-top: -0.55rem;
+    --h2-font-family: var(--ff_secondary-normal);
+    --h2-font-size: var(--s2);
+    --h2-truncate-min-height: var(--s3);
+    --h2-truncate-padding-right: var(--s-1);
+    --h2-truncate-hover-background: var(--c_slate);
+}
+
+
+/**
+ * ^bindble-h3
+ */
+
+:global .bindable-h3{
+    --h3-margin-top: -0.4rem;
+    --h3-font-family: var(--ff_secondary-normal);
+    --h3-font-size: var(--s1);
+    --h3-link-color: var(--c_subOneMain);
+    --h3-truncate-min-height: var(--s2);
+    --h3-truncate-hover-background: var(--c_slate);
+    --h3-truncate-dark-hover-background: var(--c_darkGray);
+}
+
+
+/**
+ * ^bindable-h4
+ */
+
+:global .bindable-h4{
+    --h4-margin-top: -0.1rem;
+    --h4-font-family: var(--ff_primary-normal);
+    --h4-font-size: initial;
+}
+
+
+/**
+ * ^bindable-h5
+ */
+
+:global .bindable-h5{
+    --h5-margin-top: -0.2rem;
+    --h5-font-family: var(--ff_secondary-normal);
+    --h5-font-size: var(--s0);
+}
+
+/**
+ * ^c-list-container
+ */
+
+c-list-container{
+    /* base */
+    --list-container-divider: solid 1px var(--c_gray);
+
+    /* dark */
+    --list-container-dark-color: initial;
+    --list-container-dark-background: var(--c_darkGray);
+    --list-container-dark-a-color-hover: var(--c_white);
+    --list-container-dark-a-background-hover: var(--c_soot);
+    --list-container-dark-a-icon-hover: var(--c_subOneMain);
+
+    /* light */
+    --list-container-light-color: initial;
+    --list-container-light-background: var(--c_charcoal);
+    --list-container-light-a-color-hover: var(--c_white);
+    --list-container-light-a-background-hover: var(--c_ash);
+    --list-container-light-a-icon-hover: var(--c_subOneMain);
+
+    /* medium */
+    --list-container-medium-a-padding: var(--s-5) var(--s-2);
+    --list-container-medium-h5-padding: var(--s-5) var(--s-2) 0;
+
+    /* small */
+    --list-container-small-a-padding: var(--s-5) var(--s-1);
+    --list-container-small-a-font-size: var(--s-1);
+
+    /* item */
+    --list-item-color-active: var(--c_white);
+    --list-item-background-active: var(--c_primaryMain);
+}
+
+
+/**
+ * ^c-list
+ */
+
+c-list{
+    --list-color: var(--c_smoke);
+    --list-color-link: var(--c_subOneMain);
+    --list-color-link-hover: var(--c_subOneLight);
+    --list-small-font-size: var(--s-1);
+    --list-padding-left: var(--s1);
+}
+
+
+/**
+ * ^c-p
+ */
+
+c-p{
+    --p-font-size-large: var(--s0);
+    --p-font-size-medium: var(--s-1);
+    --p-font-size-small: var(--s-2);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !DIVIDER
+\*------------------------------------*/
+
+c-divider{
+    --divider-height: 1px;
+    --divider-background: var(--c_gray);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SPINNER
+\*------------------------------------*/
+
+:global .c-spinner{
+    --spinner-color: var(--c_white);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !STATUS
+\*------------------------------------*/
+
+c-status{
+    --status-color: var(--c_smoke);
+    --status-font-size: var(--s-1);
+    --status-margin-left: var(--s-5);
+}

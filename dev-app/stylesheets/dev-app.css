@@ -26,12 +26,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 :global .logo{
-    background: var(--c_primaryMain);
+    background: var(--c_black);
     padding: .5rem 1.5rem 0;
 }
 
 :global .logo > svg{
     height: 39px;
+    fill: var(--c_white);
 }
 
 :global .logo-vdms{
@@ -41,7 +42,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 :global .footer-links{
-    font-size: 14px;
+    font-size: var(--s-1);
     text-decoration: none;
 }
 

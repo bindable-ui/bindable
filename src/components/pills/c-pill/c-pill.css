@@ -9,9 +9,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  *  BASE
- *  COLORS
- *      - Info
- *      - Neutral
  *  LINKS
  */
 
@@ -24,10 +21,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .pill{
-    padding: 4px 7px 3px;
-    border-radius: 5px;
-    color: var(--c_white);
-    font-size: var(--s-2);
+    padding: var(--pill-padding);
+    border-radius: var(--pill-border-radius);
+    color: var(--pill-text-color);
+    font-size: var(--pill-font-size);
     display: inline-block;
     background-color: var(--pill-color);
 }
@@ -45,15 +42,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 a.pill{
-    color: var(--c_white) !important;
+    color: var(--pill-link-color) !important;
     text-decoration: none;
     transition: background var(--trans_main);
-}
-
-a.info:hover{
-    background: var(--c_subOneLight);
-}
-
-a.neutral:hover{
-    background: var(--c_gray);
 }

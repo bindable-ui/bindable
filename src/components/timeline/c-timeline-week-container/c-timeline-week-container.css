@@ -42,7 +42,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .dates{
     display: flex;
-    background: var(--c_slate);
+    background: var(--timeline-week-dates-background);
     position: sticky;
     top: 0;
     z-index: var(--z_weekTimelineDates);
@@ -57,18 +57,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     flex: 1 0 250px;
     text-align: center;
     padding-bottom: 10px;
-    border-bottom: solid 1px #444;
-    background: var(--c_slate);
+    border-bottom: var(--timeline-week-dates-border-bottom);
+    background: var(--timeline-week-dates-background);
 }
 
 .dates a{
     text-decoration: none;
-    color: var(--c_marshmellow);
+    color: var(--timeline-week-dates-link-color);
     transition: color var(--trans_main);
 }
 
 .dates a:hover{
-    color: var(--c_smoke);
+    color: var(--timeline-week-dates-link-color-hover);
 }
 
 
@@ -87,12 +87,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     width: 50px;
     position: sticky;
     left: 0;
-    background: var(--c_slate);
+    background: var(--timeline-week-dates-background);
     z-index: var(--z_weekTimelineHours);
 }
 
 .days > :first-child c-timeline-block > div{
-    border-right: solid 1px var(--c_gray);
+    border-right: var(--timeline-week-dates-first-border-right);
 }
 
 .days > :nth-child(2) > :first-child {
@@ -118,7 +118,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .content > *{
     flex: 1 0 250px;
-    border-left: solid 1px var(--c_gray);
+    border-left: var(--timeline-week-content-border-left);
     transform: unset;
 }
 
@@ -146,5 +146,5 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: absolute;
     bottom: -3px;
     left: 0;
-    background: var(--c_primaryMain);
+    background: var(--timeline-week-dates-today-color);
 }

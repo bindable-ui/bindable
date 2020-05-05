@@ -10,6 +10,8 @@ import * as styles from './c-nav-vertical.css.json';
 
 export class CNavVertical {
     @bindable
+    public backgroundColor = 'var(--c_darkGray)';
+    @bindable
     public loadMore;
     @bindable
     public navBottom = false;

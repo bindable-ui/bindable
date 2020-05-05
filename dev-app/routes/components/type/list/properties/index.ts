@@ -41,5 +41,10 @@ export class ListProperties {
             name: 'no-bullets',
             value: 'boolean',
         },
+        {
+            description: 'Set the size of the <li> tags.',
+            name: 'size',
+            value: 'small',
+        },
     ];
 }

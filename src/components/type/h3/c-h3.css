@@ -21,14 +21,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .base{
-    margin-top: -0.4rem;
-    font-family: var(--ff_secondary-normal);
-    font-size: var(--s1);
+    margin-top: var(--h3-margin-top);
+    font-family: var(--h3-font-family);
+    font-size: var(--h3-font-size);
     font-weight: normal;
 }
 
 .base a{
-    color: var(--c_subOneMain);
+    color: var(--h3-link-color);
 }
 
 .not-flush-top{
@@ -48,8 +48,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: relative;
     grid-template-columns: 1fr;
     width: 100%;
-    min-height: 23px;
-    min-height: var(--s2);
+    min-height: var(--h3-truncate-min-height);
 }
 
 .truncate h3{
@@ -62,7 +61,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .truncate h3:hover{
     position: absolute;
     width: 100%;
-    background: var(--c_slate);
+    background: var(--h3-truncate-hover-background);
     text-overflow: initial;
     white-space: normal;
     word-break: break-word;
@@ -70,7 +69,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .truncate.dark-back h3:hover{
-    background: var(--c_darkGray);
+    background: var(--h3-truncate-dark-hover-background);
 }
 
 @media screen and (max-width: 780px){

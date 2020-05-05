@@ -10,6 +10,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /**
  *  BASE
  *  COLOR
+ *      - Dark
+ *      - Light
+ *      - Transparent
  *  SIZES
  *      - Medium
  *      - Small
@@ -32,6 +35,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     overflow: auto;
 }
 
+.list > li{
+    margin-top: 1px;
+}
+
 
 
 
@@ -40,30 +47,72 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !COLOR
 \*------------------------------------*/
 
-.dark{
-    background: var(--c_darkGray);
+/**
+ * ^Dark
+ */
+
+.dark,
+.dark a{
+    color: var(--list-container-dark-color);
+    background: var(--list-container-dark-background);
 }
 
 .dark li a:hover{
-    color: var(--c_white);
-    background: var(--c_soot);
+    color: var(--list-container-dark-a-color-hover);
+    background: var(--list-container-dark-a-background-hover);
 }
 
-.light{
-    color: var(--c_smoke);
-    background: var(--c_charcoal);
+.dark li a:hover svg{
+    fill: var(--list-container-dark-a-icon-hover);
+}
+
+
+/**
+ * ^Light
+ */
+
+.light,
+.light a{
+    color: var(--list-container-light-color);
+    background: var(--list-container-light-background);
 }
 
 .light li a:hover{
-    color: var(--c_white);
-}
-
-.light li a svg{
-    transition: fill var(--trans_main);
+    color: var(--list-container-light-a-color-hover);
+    background: var(--list-container-light-a-background-hover);
 }
 
 .light li a:hover svg{
-    fill: var(--c_subOneMain);
+    fill: var(--list-container-light-a-icon-hover);
+}
+
+
+/**
+ * ^Transparent
+ */
+
+.transparent,
+.transparent a{
+    color: var(--list-container-light-color);
+}
+
+.transparent li a:hover{
+    color: var(--list-container-light-a-color-hover);
+}
+
+.transparent li a:hover svg{
+    fill: var(--list-container-light-a-icon-hover);
+}
+
+
+/**
+ * ^All
+ */
+
+.transparent li a svg,
+.dark li a svg,
+.light li a svg{
+    transition: fill var(--trans_main);
 }
 
 
@@ -80,11 +129,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .medium li a,
 .medium li c-p{
-    padding: var(--s-5) var(--s-2);
+    padding: var(--list-container-medium-a-padding);
 }
 
 .medium li c-h5{
-    padding: var(--s-5) var(--s-2) 0;
+    padding: var(--list-container-medium-h5-padding);
 }
 
 
@@ -94,8 +143,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .small li a,
 .small li p{
-    padding: var(--s-5) var(--s-1);
-    font-size: var(--s-1);
+    padding: var(--list-container-small-a-padding);
+    font-size: var(--list-container-small-a-font-size);
 }
 
 
@@ -106,10 +155,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !DIVIDERS
 \*------------------------------------*/
 
-.dividers li{
-    border-bottom: solid 1px var(--c_gray);
+.dividers li a{
+    border-bottom: var(--list-container-divider);
 }
 
-.dividers li:last-child{
+.dividers li:last-child a{
     border-bottom: none;
 }

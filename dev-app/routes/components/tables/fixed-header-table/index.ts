@@ -28,6 +28,13 @@ export class FixedHeaderTable {
             route: 'actions',
             title: 'Actions',
         },
+        {
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
+        },
     ];
 
     constructor(public router: Router) {}

@@ -9,7 +9,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  *  BASE
-*/
+ */
 
 
 
@@ -21,6 +21,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .base{
     width: 100%;
-    height: 1px;
-    background-color: var(--c_gray);
+    height: var(--divider-height);
+    background-color: var(--divider-background);
 }

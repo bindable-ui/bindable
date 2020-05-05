@@ -29,8 +29,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    font-size: var(--s-1);
-    color: var(--c_white);
+    font-size: var(--notification-font-size);
+    color: var(--notification-color);
 }
 
 .notification svg{
@@ -38,7 +38,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .content{
-    padding: var(--s-3) var(--s0) var(--s-3) 0;
+    padding: var(--notification-padding);
 }
 
 
@@ -54,12 +54,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .info{
-    border: solid 1px var(--c_subOneMain);
-    background: var(--c_subOneDark);
+    border: var(--notification-info-border);
+    background: var(--notification-info-background);
 }
 
 .info svg{
-    fill: var(--c_subOneLighter);
+    fill: var(--notification-info-color);
 }
 
 
@@ -68,12 +68,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .warning{
-    border: solid 1px var(--c_subTwoMain);
-    background: var(--c_subTwoDark);
+    border: var(--notification-warning-border);
+    background: var(--notification-warning-background);
 }
 
 .warning svg{
-    fill: var(--c_subTwoLight);
+    fill: var(--notification-warning-color);
 }
 
 
@@ -82,12 +82,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .critical{
-    border: solid 1px var(--c_primaryLighter);
-    background: var(--c_primaryDark);
+    border: var(--notification-critical-border);
+    background: var(--notification-critical-background);
 }
 
 .critical svg{
-    fill: var(--c_primaryLighter);
+    fill: var(--notification-critical-color);
 }
 
 
@@ -96,12 +96,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 .success{
-    border: solid 1px var(--c_secondaryLighter);
-    background: var(--c_secondaryDark);
+    border: var(--notification-success-border);
+    background: var(--notification-success-background);
 }
 
 .success svg{
-    fill: var(--c_secondaryLighter);
+    fill: var(--notification-success-color);
 }
 
 
@@ -113,28 +113,28 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .callout{
-    flex: 0 0 calc(var(--s5) + 120px);
-    padding: var(--s0) var(--s2);
+    flex: var(--notification-callout-flex);
+    padding: var(--notification-callout-padding);
 }
 
 .callout h5{
-    font-size: var(--s0);
+    font-size: var(--notification-callout-h5-size);
 }
 
 .info .callout h5{
-    color: var(--c_subOneLight);
+    color: var(--notification-info-color);
 }
 
 .warning .callout h5{
-    color: var(--c_subTwoMain);
+    color: var(--notification-warning-color);
 }
 
 .critical .callout h5{
-    color: var(--c_primaryLighter);
+    color: var(--notification-critical-color);
 }
 
 .success .callout h5{
-    color: var(--c_secondaryLighter);
+    color: var(--notification-success-color);
 }
 
 .callout h2{

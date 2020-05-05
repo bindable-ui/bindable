@@ -35,14 +35,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .input{
     display: block;
     width: 100%;
-    padding: var(--s-5) var(--s-3);
-    border: solid 1px var(--c_black);
+    padding: var(--input-padding);
+    border: var(--input-border);
     border-radius: 0;
     outline: none;
-    background: var(--c_charcoal);
-    color: var(--c_smoke);
-    box-shadow: inset 0 -1px 0 var(--c_gray);
-    transition: box-shadow var(--trans_main), color var(--trans_main), border var(--trans_main), background var(--trans_main);
+    background: var(--input-background);
+    color: var(--input-color);
+    box-shadow: var(--input-box-shadow);
+    transition: var(--input-transition);
 }
 
 /* Show the number button all the time */
@@ -52,8 +52,8 @@ input::-webkit-inner-spin-button{
 
 .input:focus,
 .input:active{
-    color: var(--c_lightGray);
-    box-shadow: inset 0 -1px 0 var(--c_secondaryMain);
+    color: var(--input-color-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 input[type='email'],
@@ -71,17 +71,17 @@ input[type='text']{
  */
 
 ::-webkit-input-placeholder{
-    color: #6C6C6C;
+    color: var(--input-placeholder-color);
     font-family: var(--ff_primary-normal-italic);
 }
 
 ::-moz-placeholder{
-    color: #6C6C6C;
+    color: var(--input-placeholder-color);
     font-family: var(--ff_primary-normal-italic);
 }
 
 :-ms-input-placeholder{
-    color: #6C6C6C;
+    color: var(--input-placeholder-color);
     font-family: var(--ff_primary-normal-italic);
 }
 
@@ -100,18 +100,20 @@ input[type='text']{
 .error:focus,
 .error:active,
 .error{
-    box-shadow: inset 0 -1px 0 var(--c_primaryLight);
+    background: var(--input-background-error);
+    box-shadow: var(--input-box-shadow-error);
 }
 
 /**
  * ^Warning
  */
 
- .warning:focus,
- .warning:active,
- .warning{
-     box-shadow: inset 0 -1px 0 var(--c_subTwoMain);
- }
+.warning:focus,
+.warning:active,
+.warning{
+    background: var(--input-background-warning);
+    box-shadow: var(--input-box-shadow-warning);
+}
 
 
 
@@ -122,11 +124,11 @@ input[type='text']{
 \*------------------------------------*/
 
 .left{
-    padding-left: var(--s3);
+    padding-left: var(--input-icon-padding);
 }
 
 .right{
-    padding-right: var(--s3);
+    padding-right: var(--input-icon-padding);
 }
 
 
@@ -143,11 +145,22 @@ input[type='text']{
 
 .button > button{
     margin-top: 0 !important;
-    padding: calc(var(--s-4) + 1px) var(--s-3) !important;
-    border: solid 1px var(--c_black);
+    padding: var(--input-button-padding) !important;
+    border-style: solid;
+	border-color: var(--input-button-border-color);
+	border-width: var(--input-button-border-size) !important;
     border-left: 0;
-    border-width: 1px !important;
-    border-radius: 0 5px 5px 0;
+    border-radius: var(--input-button-border-radius);
+}
+
+.button > button:hover{
+    color: var(--input-button-hover-color) !important;
+    fill:  var(--input-button-hover-color) !important;
+    background: var(--input-button-hover-background) !important;
+}
+
+.button > button:before{
+    display: none;
 }
 
 .button-input{
@@ -170,8 +183,10 @@ input[type='text']{
 }
 
 .bin > button:hover{
-    background: var(--c_primaryLight);
+    background: var(--input-button-bin-hover-background) !important;
+    color: var(--input-button-bin-hover-icon-color) !important;
 }
+
 
 
 
@@ -188,23 +203,24 @@ input[type='text']{
 }
 
 .container > input{
-    padding-right: var(--s3);
+    padding-right: var(--input-clearable-spacing-right);
 }
 
 .clearable{
     position: absolute;
-    top: var(--s-5);
-    right: var(--s-1);
+    top: var(--input-clearable-icon-top);
+    right: var(--input-clearable-icon-right);
 }
 
 .clear-button{
-    right: var(--s4);
+    right: var(--input-clearable-icon-right-w-button);
 }
 
 .clearable svg{
-    width: var(--s-2);
-    height: var(--s-2);
+    width: var(--input-clearable-icon-size);
+    height: var(--input-clearable-icon-size);
     transition: fill var(--trans_main);
+    fill: var(--input-clearable-icon-color);
 }
 
 .clearable:hover{
@@ -212,5 +228,5 @@ input[type='text']{
 }
 
 .clearable:hover svg{
-    fill: var(--c_primaryLight);
+    fill: var(--input-clearable-icon-hover-color);
 }

@@ -4,94 +4,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <l-stack spacing="var(--s5)">
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h2>Properties</c-h2>
-                <c-table cols.bind="pCols" rows.bind="pProperties"></c-table>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>bold</c-h3>
-                <c-code-sample>
-                    <l-stack spacing="var(--s0)">
-                        <c-p>Regular Paragraph</c-p>
-                        <c-p bold.bind="true">Bold Paragraph</c-p>
-                    </l-stack>
-                </c-code-sample>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>color</c-h3>
-                <c-code-sample>
-                    <l-stack spacing="var(--s0)">
-                        <c-p color="var(--c_subOneMain)">This text is the sub-one color.</c-p>
-                        <c-p color="var(--c_subTwoMain)">This text is the sub-two color.</c-p>
-                        <c-p>This text is the default color.</c-p>
-                    </l-stack>
-                </c-code-sample>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>flush-top</c-h3>
-                <c-code-sample>
-                    <l-stack spacing="var(--s0)">
-                        <c-p flush-top.bind="false">This paragraph is not aligned to the top of its container.</c-p>
-                    </l-stack>
-                </c-code-sample>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>max-width</c-h3>
-                <c-code-sample>
-                    <l-stack spacing="var(--s0)">
-                        <c-p max-width="100px">This paragraph has a max width of 100px. A rem value would be better than a px value.</c-p>
-                        <c-p max-width="20rem">This paragraph has a max width of 20rem. Dolor ea voluptate expedita neque tenetur excepturi. Quas hic voluptate accusamus at sint provident Provident voluptate obcaecati aliquam mollitia aperiam. Doloribus unde amet repellendus perspiciatis nulla. Atque esse voluptas reprehenderit.</c-p>
-                    </l-stack>
-                </c-code-sample>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>size</c-h3>
-                <c-code-sample>
-                    <l-stack spacing="var(--s0)">
-                        <c-p size="large">This is large text.</c-p>
-                        <c-p>This is regular text.</c-p>
-                        <c-p size="small">This is small text.</c-p>
-                    </l-stack>
-                </c-code-sample>
-            </l-stack>
-        </div>
-
-        <c-divider></c-divider>
-
-        <div>
-            <l-stack spacing="var(--s-3)">
-                <c-h3>truncate</c-h3>
-                <c-code-sample>
-                    <c-p truncate.bind="true">This is truncated text. It does this because the text is really long. This is truncated text. It does this because the text is really long. This is truncated text. It does this because the text is really long. This is truncated text. It does this because the text is really long.</c-p>
-                </c-code-sample>
-            </l-stack>
-        </div>
+    <l-cover scrolling.bind="true" top-gutter="var(--s2)">
+        <l-stack spacing="var(--s-3)">
+            <l-box padding-sides="var(--s2)" padding-ends="0px" background="var(--c_darkGray)">
+                <c-nav-horizontal size="small" spacing="var(--s2)">
+                    <c-nav-horizontal-item
+                        repeat.for="row of router.navigation"
+                        title.bind="row.title"
+                        href.bind="row.href"
+                        state="${row.isActive ? 'active' : ''}">
+                    </c-nav-horizontal-item>
+                </c-nav-horizontal>
+            </l-box>
+        </l-stack>
+        <router-view data-value="cover"></router-view>
+    </l-cover>
 </template>

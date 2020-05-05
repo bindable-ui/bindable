@@ -27,8 +27,6 @@ body{
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--c_slate);
-    color: var(--c_white);
     font-weight: 400;
 }
 
