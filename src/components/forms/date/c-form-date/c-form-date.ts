@@ -42,6 +42,8 @@ export class CFormDate {
     @bindable
     public labelIcon;
     @bindable
+    public labelIconColor = 'var(--c_lightGray)';
+    @bindable
     public placeholder;
     @bindable
     public startOf: moment.unitOfTime.StartOf = 'minute';

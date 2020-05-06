@@ -23,7 +23,7 @@ export class TextInputProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't150',
+            colClass: 't190',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },

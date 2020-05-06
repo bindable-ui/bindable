@@ -23,7 +23,7 @@ export class DateInputProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't150',
+            colClass: 't190',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -72,6 +72,19 @@ export class DateInputProperties {
             description: 'Set the label text. If left off no label will be placed.',
             name: 'label',
             value: 'string',
+        },
+        {
+            description:
+            'Place an icon in front of the label. See icon component for a list of icons.',
+            name: 'label-icon',
+            value: 'Any icon',
+        },
+        {
+            default: 'var(--c_lightGray)',
+            description:
+            'Set the color of the icon in the label.',
+            name: 'label-icon-color',
+            value: 'CSS Color',
         },
         {
             description: 'Leave off if not needed.',
