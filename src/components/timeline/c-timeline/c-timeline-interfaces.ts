@@ -24,16 +24,18 @@ export interface ITimeEntryBasic {
 }
 
 export interface ITimeEntry extends ITimeEntryBasic {
+    column?: number;
     contentViewModel?: string;
     endTime: string;
     height: number;
     isoTime?: string;
     placeholder?: boolean;
-    rightCalc?: number;
+    rightCalc?: number | string;
     shiftIcons?: boolean;
     startTime: string;
     top: number;
-    widthCalc?: string;
+    virtualColumn?: number;
+    widthCalc?: number | string;
 }
 
 export interface ITimeBlock {

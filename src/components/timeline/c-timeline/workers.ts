@@ -57,14 +57,6 @@ function mapEntriesFn(
         )}:${appendLeadingZeroes(dateObj.getSeconds())}`;
     };
 
-    const upToMm = isoString => {
-        const dateObj = new Date(isoString);
-        const year = dateObj.getFullYear();
-        const month = appendLeadingZeroes(dateObj.getMonth());
-        const day = appendLeadingZeroes(dateObj.getDate());
-        return `${year}-${month}-${day} ${formatHHmm(isoString)}`;
-    };
-
     const checkSmallEntry = timeEntry => {
         return (
             timeEntry.sizeWeek === 'expandable' ||
@@ -79,10 +71,11 @@ function mapEntriesFn(
 
     const width = timeView === 'week' || timeView === 'three-day' ? 30 : 60;
 
-    let nestedEntryWidth = 80;
+    const columns = Array(sortedEntries.length).fill(0); // The max number of columns you can have
+    const pseudoColumns = Array(sortedEntries.length).fill(0); // The max number of columns you can have
 
-    return sortedEntries.map(
-        (entry: ITimeEntry, index: number): ITimeEntry => {
+    const entries = sortedEntries.map(
+        (entry: ITimeEntry): ITimeEntry => {
             if (!date) {
                 entry.start = startTime;
             }
@@ -103,14 +96,14 @@ function mapEntriesFn(
             let diff = (entryStartDate - startTimeDate) / 1000;
             const diffEnd = (endTimeDate - entryEndDate) / 1000;
 
-            // If entry starts before the day make sure it only displays what it needs
+            // If entry starts before the day, make sure it only displays what it needs
             if (diff < 0) {
                 entry.start = startTime;
                 entry.duration += diff;
                 diff = 0;
             }
 
-            // If entry ends after the day make sure it only displays what it needs
+            // If entry ends after the day, make sure it only displays what it needs
             if (diffEnd < 0) {
                 entry.duration += diffEnd;
             }
@@ -122,97 +115,79 @@ function mapEntriesFn(
                 entry.contentViewModel = editEntryViewModel;
             }
 
-            let sameTimeEntries = [];
-            let nestedEntries = [];
-
+            // Check for columns on normal entries
             if (!checkSmallEntry(entry)) {
-                const nextEntries = sortedEntries.slice(index + 1);
+                let foundRealColumn = false;
+                let foundPseudoColumn = false;
 
-                sameTimeEntries = nextEntries.filter(filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = new Date(
-                            new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
-                        ).toISOString();
+                const buffer = pxPerMinute * (10 / 60); // 10 second buffer
+                const entryBottom = entry.top + entry.height - buffer;
+
+                for (let idx = 0; idx < columns.length; idx += 1) {
+                    if (columns[idx] <= entry.top && !foundRealColumn) {
+                        entry.column = idx;
+                        columns[idx] = entryBottom;
+
+                        foundRealColumn = true;
                     }
 
-                    // Not the same time if it's just a really short entry
-                    return (
-                        upToMm(entry.start) === upToMm(filterEntry.start) &&
-                        new Date(filterEntry.start).getTime() < new Date(entry.end).getTime()
-                    );
-                });
+                    if (pseudoColumns[idx] <= entry.top && !foundPseudoColumn) {
+                        entry.virtualColumn = idx;
 
-                nestedEntries = nextEntries.filter(filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = new Date(
-                            new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
-                        ).toISOString();
-                    }
-
-                    const filterEntryStart = new Date(filterEntry.start);
-
-                    // 10 second buffer
-                    return (
-                        filterEntryStart.getTime() > new Date(entry.start).getTime() &&
-                        filterEntryStart.getTime() < new Date(new Date(entry.end).getTime() - 10 * 1000).getTime()
-                    );
-                });
-
-                // Check if we need to shift icons over
-                if (entry.icons && entry.icons.length) {
-                    const iconHeight = entry.icons.length > 1 ? 42 : 26;
-                    const diffWindow = iconHeight / pxPerMinute;
-
-                    if (sameTimeEntries.length) {
-                        entry.shiftIcons = true;
-                    }
-
-                    if (!entry.shiftIcons) {
-                        nestedEntries.forEach(filterEntry => {
-                            const startDiff =
-                                (new Date(filterEntry.start).getTime() - entryStartDate.getTime()) /
-                                1000 /
-                                SECONDS_IN_MINUTE;
-                            if (startDiff <= diffWindow) {
-                                entry.shiftIcons = true;
-                                return false;
+                        if (pseudoColumns[0] < entryBottom) {
+                            for (let a = 0; a <= idx; a += 1) {
+                                pseudoColumns[a] = entryBottom;
                             }
-                        });
+                        }
+
+                        foundPseudoColumn = true;
                     }
-                }
 
-                // Filter out items that would be considered 'small'
-                sameTimeEntries = sameTimeEntries.filter(filterEntry => !checkSmallEntry(filterEntry));
-                nestedEntries = nestedEntries.filter(filterEntry => !checkSmallEntry(filterEntry));
-            }
-
-            const nestedEntry = nestedEntries[0]; // We only care about the first one
-
-            if (!entry.widthCalc && sameTimeEntries.length) {
-                const totalSameTime = sameTimeEntries.length + 1;
-                const entryWidth = 100 / totalSameTime;
-
-                entry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-
-                sameTimeEntries.reverse().forEach((sameTimeEntry, sameTimeIndex) => {
-                    const offsetIndex = sameTimeIndex + 1;
-
-                    sameTimeEntry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-                    sameTimeEntry.rightCalc = `calc(${offsetIndex * entryWidth}% - ${(width / totalSameTime) *
-                        offsetIndex}px)`;
-                });
-            } else if (nestedEntry) {
-                if (nestedEntryWidth >= 40) {
-                    nestedEntry.widthCalc = `calc(${nestedEntryWidth}% - ${width}px)`;
-                    nestedEntryWidth -= 20;
-                } else {
-                    nestedEntryWidth = 80; // Reset
+                    if (foundRealColumn && foundPseudoColumn) {
+                        break;
+                    }
                 }
             }
 
             return entry;
         },
     );
+
+    let entriesIndex = 1;
+    const normalEntries = entries.filter(entry => !checkSmallEntry(entry));
+
+    while (entriesIndex < normalEntries.length) {
+        if (normalEntries[entriesIndex].column > 0) {
+            // This loop will shortcut to the highest column in a group
+            let numOfEntries = 1;
+            while (entriesIndex < normalEntries.length - 1) {
+                if (normalEntries[entriesIndex + 1].virtualColumn === 0) {
+                    break;
+                }
+
+                entriesIndex += 1;
+                numOfEntries += 1;
+            }
+
+            const slicedEntries = normalEntries.slice(entriesIndex - numOfEntries, entriesIndex + 1);
+            slicedEntries.sort((a, b) => b.column - a.column);
+            const numOfColumns = slicedEntries[0].column + 1;
+
+            for (let nestedIdx = 0; nestedIdx <= numOfEntries; nestedIdx += 1) {
+                const columnIndex = numOfColumns - 1 - normalEntries[entriesIndex - nestedIdx].column;
+
+                normalEntries[entriesIndex - nestedIdx].widthCalc = `calc(${100 / numOfColumns}% - ${width /
+                    numOfColumns}px)`;
+                normalEntries[entriesIndex - nestedIdx].rightCalc = `calc(
+                    ${columnIndex * (100 / numOfColumns)}% -
+                    ${columnIndex === 0 ? 0 : (width / numOfColumns) * columnIndex - 1}px)`;
+            }
+        }
+
+        entriesIndex += 1;
+    }
+
+    return entries;
 }
 
 function filterEntriesDayFn(sortedEntries: any[], startTime: string, endTime: string) {

@@ -169,19 +169,21 @@ export class TimelineExample {
     ];
 
     public zoomLevel = 2;
-    public displayView = 'three-day';
+    public displayView = 'day';
     public loading = false;
     public preventCreate = false;
 
-    // constructor() {
+    // public attached() {
     //     const genRandom = (min, max) => Math.random() * (max - min + 1) + min;
 
-    //     this.entries = _.map(_.times(1000, () => {
-    //         return {
-    //             duration: genRandom(60, 5000),
-    //             title: 'something dumb',
-    //             start: moment(this.today).add(genRandom(-50, 167), 'hours').toISOString(),
-    //         };
-    //     }));
+    //     setInterval(() => {
+    //         this.entries = _.map(_.times(500, () => {
+    //             return {
+    //                 duration: genRandom(60, 5000),
+    //                 title: 'something dumb',
+    //                 start: moment(this.today).add(genRandom(-5, 23), 'hours').toISOString(),
+    //             };
+    //         }));
+    //     }, 15000);
     // }
 }
