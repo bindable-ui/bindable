@@ -7,7 +7,7 @@ import {autoinject, bindable, bindingMode, containerless, TaskQueue} from 'aurel
 import * as moment from 'moment-timezone';
 
 import {ITimeBlock, ITimeDay, ITimeEntry, ITimeEntryBasic, ITimelineActions} from './c-timeline-interfaces';
-import {filterEntriesDay, mapEntries} from './workers';
+import {filterEntriesDay} from './workers';
 
 import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
@@ -129,9 +129,6 @@ export class CTimeline {
     public offsetTime: string = null;
 
     @bindable
-    public scrollDays: number = 1;
-
-    @bindable
     public snapAdd: boolean = false;
 
     @bindable
@@ -149,12 +146,10 @@ export class CTimeline {
     @bindable
     public scrollTime: string = null;
 
-    public transformedEntries: ITimeEntry[] = [];
     public blocks: ITimeBlock[] = [];
     public displayDays: ITimeDay[] = [];
     public currentTimeLine: number = -1;
     public currentTimeLineTracker = null;
-    public isRendering: boolean = false;
     public scrollCurrentTime: boolean = true;
     public scrollLastSpot: boolean = false;
     public parentScrollElem: JQuery<HTMLElement> = null;
@@ -162,7 +157,8 @@ export class CTimeline {
     public currentScroll: number = 0;
     public preventScrollCheck: boolean = true;
     public placeholderEntry: any;
-    public newItem: any = null;
+    public pxPerMinute: number;
+    public tzOffset: number;
 
     /**
      * Build out the timeline. Put in a throttle so it doesn't bind up
@@ -172,6 +168,21 @@ export class CTimeline {
             this.buildBlocks();
             this.calculateCurrentTimeLine();
             this.transformEntries();
+
+            this.taskQueue.queueMicroTask(() => {
+                this.trackPosistion.cancel();
+                this.preventScrollCheck = true;
+
+                // Could potentially be 350ms behind with the combined throttles
+                _.delay(() => {
+                    this.trackPosistion.cancel();
+
+                    if (!this.scrollLastSpot) {
+                        this.scrollCurrentTime = true;
+                    }
+                    this.scrollToSpot();
+                }, 400);
+            });
         },
         200,
         {trailing: false, leading: true},
@@ -180,58 +191,17 @@ export class CTimeline {
     /**
      * Take entries that are input and transform them into entries the calendar can use
      */
-    // tslint:disable-next-line:ter-arrow-parens
-    public transformEntries = _.throttle(async (noAutoScroll?) => {
-        const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
-        const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
+    public transformEntries = _.throttle(async () => {
+        if (this.actions.getEntries || !this.entries.length) {
+            return;
+        }
+
         const [startTime, endTime] = this.getDayStartEndTimes();
 
-        const sortedEntries = _.sortBy(this.entries, entry => {
-            if (this.date) {
-                return entry.start;
-            }
-
-            return moment(entry.start, 'hmm').toISOString();
-        });
-
         try {
-            if (this.timeView === 'day') {
-                const dayEntries = await filterEntriesDay(
-                    sortedEntries,
-                    startTime.toISOString(),
-                    endTime.toISOString(),
-                );
-                this.transformedEntries = await mapEntries(
-                    dayEntries,
-                    pxPerMinute,
-                    startTime.toISOString(),
-                    endTime.toISOString(),
-                    this.timeView,
-                    this.editEntryViewModel,
-                    this.date,
-                    this.getTzOffet(),
-                    this.zoomLevel,
-                );
-            }
-
-            if (this.timeView === 'week' || this.timeView === 'three-day') {
+            if (this.timeView !== 'month') {
                 for (const day of this.displayDays) {
-                    const dayEntries = await filterEntriesDay(
-                        sortedEntries,
-                        startTime.toISOString(),
-                        endTime.toISOString(),
-                    );
-                    day.entries = await mapEntries(
-                        dayEntries,
-                        pxPerMinute,
-                        startTime.toISOString(),
-                        endTime.toISOString(),
-                        this.timeView,
-                        this.editEntryViewModel,
-                        this.date,
-                        this.getTzOffet(),
-                        this.zoomLevel,
-                    );
+                    day.entries = await filterEntriesDay(this.entries, startTime.toISOString(), endTime.toISOString());
 
                     startTime.add(1, 'day');
                     endTime.add(1, 'day');
@@ -240,29 +210,6 @@ export class CTimeline {
         } catch (e) {
             this.notification.error('There was an error parsing the entries. Please try again.');
         }
-
-        this.taskQueue.queueMicroTask(() => {
-            this.isRendering = false;
-
-            this.trackPosistion.cancel();
-            this.preventScrollCheck = true;
-
-            // Don't break unless we have actually transformed the entries
-            // at least once (so that it can scroll to the current time)
-            if (noAutoScroll) {
-                return;
-            }
-
-            // Could potentially be 350ms behind with the combined throttles
-            _.delay(() => {
-                this.trackPosistion.cancel();
-
-                if (!this.scrollLastSpot) {
-                    this.scrollCurrentTime = true;
-                }
-                this.scrollToSpot();
-            }, 400);
-        });
     }, 100);
 
     public togglePopover = _.debounce(
@@ -276,9 +223,9 @@ export class CTimeline {
             }
 
             let isoTime;
-            const dayWeek = day;
 
-            const dayDate = day ? dayWeek.date : null;
+            const dayWeek = day;
+            const dayDate = dayWeek.date;
             const [zoomLevelData, pxPerMinute] = this.getZoomLevelData();
             const [blockStart] = this.getDayStartEndTimes(dayDate);
 
@@ -288,15 +235,10 @@ export class CTimeline {
             const pxDown = relativeY + this.parentScrollElem.scrollTop() - elemDiff;
             const blockIndex = Math.floor(pxDown / BLOCK_HEIGHT);
 
-            if (dayWeek) {
-                dayWeek.newItem = null;
-                isoTime = dayWeek.blocks[blockIndex].isoTime;
+            dayWeek.newItem = null;
+            isoTime = dayWeek.blocks[blockIndex].isoTime;
 
-                _.forEach(this.displayDays, weekDay => (weekDay.newItem = null));
-            } else {
-                this.newItem = null;
-                isoTime = this.blocks[blockIndex].isoTime;
-            }
+            _.forEach(this.displayDays, weekDay => (weekDay.newItem = null));
 
             const minutesFromTop = pxDown / pxPerMinute;
 
@@ -308,7 +250,7 @@ export class CTimeline {
 
             const matchingEntries: ITimeEntry[] = [];
 
-            const entries = dayWeek ? dayWeek.entries : this.transformedEntries;
+            const entries = dayWeek.entries;
 
             if (this.snapAdd) {
                 (matchingEntries as any[]) = _.filter(entries, entry =>
@@ -358,23 +300,13 @@ export class CTimeline {
                 newItem.contentViewModel = this.newEntryViewModel;
             }
 
-            if (!dayWeek) {
-                this.newItem = _.cloneDeep(newItem);
+            dayWeek.newItem = _.cloneDeep(newItem);
 
-                _.defer(() => {
-                    if (this.placeholderEntry) {
-                        this.placeholderEntry.openPopover();
-                    }
-                });
-            } else {
-                dayWeek.newItem = _.cloneDeep(newItem);
-
-                _.defer(() => {
-                    if (dayWeek.placeholderEntry) {
-                        dayWeek.placeholderEntry.openPopover();
-                    }
-                });
-            }
+            _.defer(() => {
+                if (dayWeek.placeholderEntry) {
+                    dayWeek.placeholderEntry.openPopover();
+                }
+            });
         },
         500,
         {leading: true, trailing: false},
@@ -392,26 +324,17 @@ export class CTimeline {
             const [startTime, endTime] = this.getDayStartEndTimes();
             const now = moment();
 
-            if (this.timeView === 'day') {
+            _.forEach(this.displayDays, day => {
                 if (now.isBetween(startTime, endTime, null, '()')) {
                     const diff = now.diff(startTime, 'seconds');
-                    this.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                    day.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
                 } else {
-                    this.currentTimeLine = -1;
+                    day.currentTimeLine = -1;
                 }
-            } else {
-                _.forEach(this.displayDays, day => {
-                    if (now.isBetween(startTime, endTime, null, '()')) {
-                        const diff = now.diff(startTime, 'seconds');
-                        day.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
-                    } else {
-                        day.currentTimeLine = -1;
-                    }
 
-                    startTime.add(1, 'day');
-                    endTime.add(1, 'day');
-                });
-            }
+                startTime.add(1, 'day');
+                endTime.add(1, 'day');
+            });
         },
         250,
         {trailing: true, leading: false},
@@ -419,7 +342,7 @@ export class CTimeline {
 
     private trackPosistion = _.debounce(
         () => {
-            if (this.isRendering || this.isLoading || this.preventScrollCheck) {
+            if (this.isLoading || this.preventScrollCheck) {
                 return;
             }
 
@@ -471,6 +394,8 @@ export class CTimeline {
     // Observable properties
     // Listen to rebuild data
     public zoomLevelChanged(_new, old) {
+        [, this.pxPerMinute] = this.getZoomLevelData();
+
         // Doesn't need to run on init
         if (_.isUndefined(old)) {
             return;
@@ -490,14 +415,10 @@ export class CTimeline {
         }
     }
 
-    public scrollDaysChanged() {
-        this.buildTimeline();
-    }
-
     public entriesChanged() {
         // Don't update unless there are blocks displaying
         if (this.blocks.length) {
-            this.transformEntries(true);
+            this.transformEntries();
         }
     }
 
@@ -517,7 +438,7 @@ export class CTimeline {
 
         const scrollTime = moment(this.scrollTime, 'HH:mm');
 
-        if (this.scrollTime && (!scrollTime.isValid() || this.isRendering || this.isLoading)) {
+        if (this.scrollTime && (!scrollTime.isValid() || this.isLoading)) {
             return;
         }
 
@@ -534,12 +455,18 @@ export class CTimeline {
         this.timeView = 'day';
     }
 
+    public dayLoading(day) {
+        this.taskQueue.queueMicroTask(() => {
+            day.isRendering = false;
+        });
+    }
+
     // Private methods
 
     /**
      * Return the offset in minutes from the selected timezone to the browser timezone
      */
-    private getTzOffet(): number {
+    private getTzOffset(): number {
         const browserOffset = moment.tz.zone(moment.tz.guess()).utcOffset(moment());
         const offset = moment().utcOffset();
 
@@ -554,6 +481,7 @@ export class CTimeline {
     private setupTimezone(updateDate?: boolean) {
         const tzNames = moment.tz.names();
         const tzIndex = tzNames.findIndex(name => name === this.timezone);
+        this.tzOffset = this.getTzOffset();
 
         if (tzIndex > -1) {
             moment.tz.setDefault(this.timezone);
@@ -563,9 +491,8 @@ export class CTimeline {
 
         if (updateDate) {
             // This prevents issues where the date will look in the past and throw off the three-day view
-            const offset = this.getTzOffet();
             this.date = moment(this.date)
-                .add(offset * -1, 'minutes')
+                .add(this.tzOffset * -1, 'minutes')
                 .toISOString();
         }
 
@@ -587,7 +514,7 @@ export class CTimeline {
      * If zoom goes out of bounds, fix it here
      */
     private fixZoomBounds() {
-        if (this.timeView !== 'day' && this.timeView !== 'week' && this.timeView !== 'three-day') {
+        if (this.timeView === 'month') {
             return;
         }
 
@@ -599,8 +526,6 @@ export class CTimeline {
     }
 
     private renderTimeline() {
-        this.isRendering = true;
-
         // If there is no delay, the browser chokes up and doesn't
         // display the loading indicator until the very end
         // 50ms wait seems to be a good middle ground
@@ -622,23 +547,16 @@ export class CTimeline {
 
                 let timeToScroll = -1;
 
-                if (this.timeView === 'day') {
+                _.forEach(this.displayDays, () => {
                     if (now.isBetween(startTime, endTime, null, '()')) {
                         const diff = now.diff(startTime, 'seconds');
                         timeToScroll = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                        return false;
                     }
-                } else {
-                    _.forEach(this.displayDays, () => {
-                        if (now.isBetween(startTime, endTime, null, '()')) {
-                            const diff = now.diff(startTime, 'seconds');
-                            timeToScroll = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
-                            return false;
-                        }
 
-                        startTime.add(1, 'day');
-                        endTime.add(1, 'day');
-                    });
-                }
+                    startTime.add(1, 'day');
+                    endTime.add(1, 'day');
+                });
 
                 if (timeToScroll > -1) {
                     scrollTop = timeToScroll - this.parentScrollElem.outerHeight() / 2;
@@ -650,16 +568,12 @@ export class CTimeline {
 
                 let currentTimeTop = -1;
 
-                if (this.timeView === 'day') {
-                    currentTimeTop = this.currentTimeLine;
-                } else {
-                    _.forEach(this.displayDays, day => {
-                        if (day.currentTimeLine > -1) {
-                            currentTimeTop = day.currentTimeLine;
-                            return false;
-                        }
-                    });
-                }
+                _.forEach(this.displayDays, day => {
+                    if (day.currentTimeLine > -1) {
+                        currentTimeTop = day.currentTimeLine;
+                        return false;
+                    }
+                });
 
                 if (currentTimeTop > -1) {
                     scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
@@ -689,30 +603,61 @@ export class CTimeline {
         let date: any = this.date ? moment(this.date) : moment();
         date = date.startOf('day').toISOString();
 
+        let startTime;
+        let endTime;
+        let dayOfWeek: ITimeDay;
+
         const [displayBlocksDay, startIndexes] = this.calculateBlocksNumStart();
+
+        // if (!this.displayDays.length) {
+        //     this.displayDays = [];
+        // }
+
+        if (this.displayDays.length) {
+            return;
+        }
 
         switch (this.timeView) {
             case 'day':
-                this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date, this.scrollDays);
+                this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
+                [startTime, endTime] = this.getDayStartEndTimes();
+
+                dayOfWeek = {
+                    date,
+                    blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                    endTime: endTime.toISOString(),
+                    entries: [],
+                    hidden: false,
+                    startTime: startTime.toISOString(),
+                    today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
+                };
+
+                this.displayDays.push(dayOfWeek);
                 break;
             case 'week':
                 date = moment(date)
                     .startOf('week')
                     .toISOString();
 
-                this.displayDays = [];
-
                 this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
+                [startTime, endTime] = this.getDayStartEndTimes();
 
                 _.times(this.days, () => {
-                    const dayOfWeek: ITimeDay = {
+                    dayOfWeek = {
                         date,
                         blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                        endTime: endTime.toISOString(),
                         entries: [],
+                        hidden: false,
+                        startTime: startTime.toISOString(),
                         today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
                     };
 
                     this.displayDays.push(dayOfWeek);
+
+                    startTime.add(1, 'day');
+                    endTime.add(1, 'day');
+
                     date = moment(date)
                         .add(1, 'days')
                         .toISOString();
@@ -724,19 +669,25 @@ export class CTimeline {
                     .startOf('day')
                     .toISOString();
 
-                this.displayDays = [];
-
                 this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
+                [startTime, endTime] = this.getDayStartEndTimes();
 
                 _.times(3, () => {
-                    const dayOfWeek: ITimeDay = {
+                    dayOfWeek = {
                         date,
                         blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                        endTime: endTime.toISOString(),
                         entries: [],
+                        hidden: false,
+                        startTime: startTime.toISOString(),
                         today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
                     };
 
                     this.displayDays.push(dayOfWeek);
+
+                    startTime.add(1, 'day');
+                    endTime.add(1, 'day');
+
                     date = moment(date)
                         .add(1, 'days')
                         .toISOString();
@@ -749,6 +700,19 @@ export class CTimeline {
             default:
                 break;
         }
+
+        _.forEach(this.displayDays, async day => {
+            if (day.hidden) {
+                return;
+            }
+
+            if (this.actions.getEntries) {
+                day.isLoading = true;
+                day.isRendering = true;
+                day.entries = await this.actions.getEntries(day.startTime, day.endTime);
+                day.isLoading = false;
+            }
+        });
     }
 
     /**

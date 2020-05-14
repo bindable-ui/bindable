@@ -5,38 +5,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 <template>
     <c-spinner if.bind="isLoading"></c-spinner>
-    <c-spinner if.bind="isRendering && !isLoading"></c-spinner>
     <div
         if.bind="!isLoading"
         id.bind="id"
     >
-        <div show.bind="!isRendering">
-            <c-timeline-container
-                if.bind="timeView === 'day'"
-                current-time-top.bind="currentTimeLine"
-                loading-top.bind="isLoadingTop"
-                loading-bottom.bind="isLoadingBottom"
-                click.trigger="togglePopover($event)"
-            >
-                <c-timeline-block
-                    repeat.for="block of blocks"
-                    time.bind="block.time"
-                ></c-timeline-block>
-                <c-time-entry
-                    repeat.for="entry of transformedEntries"
-                    item.bind="entry"
-                    class="timeline-day"
-                ></c-time-entry>
-                <c-time-entry
-                    if.bind="newItem"
-                    item.bind="newItem"
-                    view-model.ref="placeholderEntry"
-                ></c-time-entry>
-            </c-timeline-container>
+        <div>
             <c-timeline-week-container
                 days.bind="displayDays"
                 day-click.call="dayClick(date)"
-                if.bind="timeView === 'week' || timeView === 'three-day'"
+                time-view.bind="timeView"
+                if.bind="timeView !== 'month'"
             >
                 <div slot="hours">
                     <c-timeline-container>
@@ -50,10 +28,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     repeat.for="day of displayDays"
                     current-time-top.bind="day.currentTimeLine"
                     click.delegate="togglePopover($event, day)"
+                    if.bind="!day.hidden"
+                    loading.bind="day.isLoading || day.isRendering"
                 >
-                    <c-timeline-block repeat.for="block of day.blocks & oneTime"></c-timeline-block>
+                    <c-timeline-block repeat.for="block of day.blocks"></c-timeline-block>
                     <c-time-entry
-                        repeat.for="entry of day.entries"
+                        repeat.for="entry of day.entries | transformEntries:day:pxPerMinute:timeView:tzOffset:zoomLevel & async:dayLoading(day)"
                         item.bind="entry"
                         class="timeline-week"
                     >

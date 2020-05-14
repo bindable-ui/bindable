@@ -16,7 +16,7 @@ describe('c-timeline-container element', () => {
 
         test('it initializes', () => {
             expect(component.currentTimeTop).toBe(-1);
-            expect(component.halfHourSize).toBe('medium');
+            expect(component.blockSize).toBe('medium');
             expect(component.loadingTop).toBeFalsy();
             expect(component.loadingBottom).toBeFalsy();
             expect(component.attached).toBeDefined();
@@ -84,17 +84,17 @@ describe('c-timeline-container element', () => {
 
         // Size Test
         const existingSizeClasses = ['medium'];
-        existingSizeClasses.forEach(halfHourSize => {
-            it(`testing ${halfHourSize}`, async done => {
+        existingSizeClasses.forEach(blockSize => {
+            it(`testing ${blockSize}`, async done => {
                 component = StageComponent.withResources()
-                    .inView('<c-timeline-container halfHourSize.bind="customSize"></c-timeline-container>')
+                    .inView('<c-timeline-container blockSize.bind="customSize"></c-timeline-container>')
                     .boundTo({
-                        customSize: `${halfHourSize}`,
+                        customSize: `${blockSize}`,
                     });
 
                 try {
                     await bootStrapEnvironment(component);
-                    expect(component.viewModel.styles[component.viewModel.halfHourSize]).not.toBe(undefined);
+                    expect(component.viewModel.styles[component.viewModel.blockSize]).not.toBe(undefined);
                     done();
                 } catch (e) {
                     done.fail(e);

@@ -6,7 +6,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
     <c-timeline
         start-time="8"
-        entries.bind="entries"
         time-view.bind="displayView"
         days="7"
         date.bind="today"
@@ -15,5 +14,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         is-loading.bind="loading"
         prevent-create.bind="preventCreate"
         snap-add.bind="true"
+        actions.bind="actions"
     ></c-timeline>
 </template>

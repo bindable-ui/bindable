@@ -16,6 +16,10 @@ const actions = [
         func: mapEntriesFn,
         message: 'mapEntries',
     },
+    {
+        func: sortEntriesFn,
+        message: 'sortEntries',
+    },
 ];
 
 let worker: any = null;
@@ -190,8 +194,8 @@ function mapEntriesFn(
     return entries;
 }
 
-function filterEntriesDayFn(sortedEntries: any[], startTime: string, endTime: string) {
-    return sortedEntries.filter(entry => {
+function filterEntriesDayFn(entries: any[], startTime: string, endTime: string) {
+    return entries.filter(entry => {
         const entryStart = new Date(entry.start);
         const entryEnd = new Date(new Date(entryStart).getTime() + entry.duration * 1000);
         const startDate = new Date(startTime);
@@ -202,6 +206,12 @@ function filterEntriesDayFn(sortedEntries: any[], startTime: string, endTime: st
 
         return startIn || endIn;
     });
+}
+
+function sortEntriesFn(entries: any[]) {
+    return entries.sort(
+        (entryA: any, entryB: any) => new Date(entryA.start).valueOf() - new Date(entryB.start).valueOf(),
+    );
 }
 
 export const mapEntries = async (
@@ -242,10 +252,18 @@ export const mapEntries = async (
     );
 };
 
-export const filterEntriesDay = async (sortedEntries: any[], startTime: string, endTime: string): Promise<any[]> => {
+export const filterEntriesDay = async (entries: any[], startTime: string, endTime: string): Promise<any[]> => {
     if (window.Worker) {
-        return await worker.postMessage('filterEntriesDay', [sortedEntries, startTime, endTime]);
+        return await worker.postMessage('filterEntriesDay', [entries, startTime, endTime]);
     }
 
-    return filterEntriesDayFn(sortedEntries, startTime, endTime);
+    return filterEntriesDayFn(entries, startTime, endTime);
+};
+
+export const sortEntries = async (entries: any[]): Promise<any[]> => {
+    if (window.Worker) {
+        return await worker.postMessage('sortEntries', [entries]);
+    }
+
+    return sortEntriesFn(entries);
 };

@@ -4,8 +4,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 export interface ITimelineActions {
-    scrollTop?(): void;
-    scrollBottom?(): void;
+    getEntries?(start, end): Promise<any[]>;
+    pollEntries?(start, end): Promise<any[]>;
 }
 
 export interface ITimeEntryBasic {
@@ -48,9 +48,14 @@ export interface ITimeDay {
     currentTimeLine?: number;
     blocks: ITimeBlock[];
     date: string;
+    endTime?: string;
     entries: ITimeEntry[];
+    hidden?: boolean;
+    isLoading?: boolean;
+    isRendering?: boolean;
     newItem?: any;
     parsedDate?: string;
     placeholderEntry?: any;
+    startTime?: string;
     today?: boolean;
 }

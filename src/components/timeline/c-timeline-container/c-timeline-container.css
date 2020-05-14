@@ -9,9 +9,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  *  BASE
- *  HALF HOUR SIZE
+ *  BLOCK SIZE
  *  CURRENT TIME
- *  LOADING SPINNERS
  */
 
 
@@ -73,7 +72,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !HALF HOUR SIZE
+    !BLOCK SIZE
 \*------------------------------------*/
 
 .medium > div > div > c-timeline-block{
@@ -96,24 +95,4 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     height: 2px;
     background: var(--current-time-line-color);
     z-index: var(--z_currentTimeMarker);
-}
-
-
-
-
-
-/*------------------------------------*\
-    !LOADING SPINNERS
-\*------------------------------------*/
-
-.spinner{
-    position: absolute;
-    width: 100%;
-    height: 35px;
-    background: var(--loading-spinner-background);
-    z-index: var(--z_currentTimeMarker);
-}
-
-.spinner-loading-bottom{
-    bottom: 0;
 }

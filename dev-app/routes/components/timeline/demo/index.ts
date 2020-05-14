@@ -78,94 +78,6 @@ export class TimelineExample {
             start: moment(this.today).add(15, 'hours').add(15, 'minutes').toISOString(),
             title: 'Match Signal 2',
         },
-        // {
-        //     background: 'var(--c_subOneDark)',
-        //     color: 'var(--c_white)',
-        //     duration: 5500,
-        //     start: moment(this.today).add(8, 'hours').toISOString(),
-        //     title: 'Overlap 1',
-        // },
-        // {
-        //     duration: 1000,
-        //     start: moment(this.today).add(8, 'hours').add(2, 'minutes').toISOString(),
-        //     title: 'Overlap 2',
-        // },
-        // {
-        //     duration: 1000,
-        //     start: moment(this.today).add(8, 'hours').add(4, 'minutes').toISOString(),
-        //     title: 'Overlap 3',
-        // },
-        // {
-        //     duration: 1000,
-        //     start: moment(this.today).add(8, 'hours').add(8, 'minutes').toISOString(),
-        //     title: 'Overlap 4',
-        // },
-        // {
-        //     duration: 1000,
-        //     start: moment(this.today).add(8, 'hours').add(16, 'minutes').toISOString(),
-        //     title: 'Overlap 5',
-        // },
-        // {
-        //     duration: 1000,
-        //     start: moment(this.today).add(8, 'hours').add(20, 'minutes').toISOString(),
-        //     title: 'Overlap 6',
-        // },
-        // {
-        //     duration: 1700,
-        //     start: moment(this.today).add(12, 'hours').toISOString(),
-        // },
-        // {
-        //     duration: 2200,
-        //     start: moment(this.today).add(15, 'hours').toISOString(),
-        //     title: 'Click me',
-        // },
-        // {
-        //     background: 'var(--c_secondaryDark)',
-        //     duration: 1700,
-        //     start: moment(this.today).add(12, 'hours').toISOString(),
-        //     title: 'Same Time Entry',
-        // },
-        // {
-        //     duration: 1700,
-        //     start: moment(this.today).add(12, 'hours').toISOString(),
-        //     title: 'Same Time Entry',
-        // },
-        // {
-        //     duration: 1700,
-        //     expandable: true,
-        //     start: moment(this.today).add(12, 'hours').toISOString(),
-        //     title: 'Same Time Entry',
-        // },
-        // {
-        //     duration: 2500,
-        //     icons: ['time', 'rules'],
-        //     sizeDay: 'small',
-        //     sizeWeek: 'expandable',
-        //     start: moment(this.today).add(10, 'hours').add(15, 'minutes').toISOString(),
-        //     title: 'Small/Expandable Entry',
-        // },
-        // {
-        //     duration: 1930,
-        //     icons: ['signal', 'play'],
-        //     sizeDay: 'small',
-        //     sizeWeek: 'small',
-        //     start: moment(this.today).add(11, 'hours').add(20, 'minutes').toISOString(),
-        //     title: 'Small Entry',
-        // },
-        // {
-        //     duration: 1930,
-        //     icons: ['signal', 'play'],
-        //     sizeDay: 'expandable',
-        //     sizeWeek: 'expandable',
-        //     start: moment(this.today).add(17, 'hours').add(20, 'minutes').toISOString(),
-        //     title: 'Expandable Entry',
-        // },
-        // {
-        //     duration: 60000,
-        //     icons: ['signal', 'play'],
-        //     start: moment(this.today).add(22, 'hours').add(45, 'minutes').toISOString(),
-        //     title: 'Bottom Entry',
-        // },
     ];
 
     public zoomLevel = 2;
@@ -173,17 +85,31 @@ export class TimelineExample {
     public loading = false;
     public preventCreate = false;
 
-    // public attached() {
-    //     const genRandom = (min, max) => Math.random() * (max - min + 1) + min;
+    public actions = {
+        getEntries: (start, _end) =>
+            _.map(_.times(this.genRandom(5000, 5000), () => {
+                const color = this.genHex();
 
-    //     setInterval(() => {
-    //         this.entries = _.map(_.times(500, () => {
-    //             return {
-    //                 duration: genRandom(60, 5000),
-    //                 title: 'something dumb',
-    //                 start: moment(this.today).add(genRandom(-5, 23), 'hours').toISOString(),
-    //             };
-    //         }));
-    //     }, 15000);
-    // }
+                return {
+                    accentColor: color,
+                    altTime: ' ',
+                    background: color,
+                    duration: this.genRandom(600, 5000),
+                    title: '',
+                    start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
+                };
+            })),
+    };
+
+    private genRandom = (min, max) => Math.random() * (max - min + 1) + min;
+    private hexVals = '0123456789ABCDEF';
+    private genHex = () => {
+        let color = '';
+
+        for (let i = 0; i < 6; i++) {
+            color += this.hexVals[(Math.floor(Math.random() * 16))];
+        }
+
+        return `#${color}`;
+    }
 }

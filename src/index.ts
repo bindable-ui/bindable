@@ -30,6 +30,7 @@ import {CToastsService} from './components/toasts/c-toasts/c-toasts-service';
 import {dirtyCheckPrompt} from './decorators/dirty-check-prompt/index';
 
 // Value Converters
+import {TransformEntriesValueConverter} from './components/timeline/c-timeline/c-time-entries-value-converter';
 import {AsyncBindingBehavior} from './value-converters/async-binding';
 import {BooleanYesNoValueConverter} from './value-converters/boolean-yes-no';
 import {CapitalizeValueConverter} from './value-converters/capitalize';
@@ -131,6 +132,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./value-converters/th-class-for'),
         PLATFORM.moduleName('./value-converters/vsort'),
         PLATFORM.moduleName('./value-converters/async-binding'),
+        PLATFORM.moduleName('./components/timeline/c-timeline/c-time-entries-value-converter'),
 
         // Components
         PLATFORM.moduleName('./components/copy/c-copy/c-copy'),
@@ -276,6 +278,7 @@ export {
     ThClassForValueConverter,
     CsortValueConverter,
     AsyncBindingBehavior,
+    TransformEntriesValueConverter,
 };
 
 // Interfaces
