@@ -213,7 +213,7 @@ export class CTimeline {
     }, 100);
 
     public togglePopover = _.debounce(
-        ($event, day?: ITimeDay) => {
+        ($event, day: ITimeDay) => {
             if (
                 // @ts-ignore
                 this._state === 'disabled' ||
@@ -231,7 +231,7 @@ export class CTimeline {
 
             const relativeY = $event.pageY - this.parentScrollElem.offset().top;
             // On week view, get the height of the date names so we can offset
-            const elemDiff = day ? $(`.${CTimelineWeekContainerStyles.dates}`).outerHeight() : 0;
+            const elemDiff = $(`.${CTimelineWeekContainerStyles.dates}`).outerHeight();
             const pxDown = relativeY + this.parentScrollElem.scrollTop() - elemDiff;
             const blockIndex = Math.floor(pxDown / BLOCK_HEIGHT);
 
@@ -254,7 +254,9 @@ export class CTimeline {
 
             if (this.snapAdd) {
                 (matchingEntries as any[]) = _.filter(entries, entry =>
-                    moment(entry.end).isBetween(startTime, endTime, null, '[)'),
+                    moment(entry.start)
+                        .add(entry.duration, 'seconds')
+                        .isBetween(startTime, endTime, null, '[)'),
                 );
             }
 
@@ -273,13 +275,22 @@ export class CTimeline {
                 startIso = isoTimeMoment.toISOString();
             } else {
                 const sortedEntries = _.sortBy(matchingEntries, entry =>
-                    Math.abs(moment(entry.end).diff(clickedTime, 'seconds')),
+                    Math.abs(
+                        moment(entry.start)
+                            .add(entry.duration, 'seconds')
+                            .diff(clickedTime, 'seconds'),
+                    ),
                 );
                 const firstEntry = _.first(sortedEntries);
-                const diff = Math.ceil(moment(isoTime).diff(firstEntry.end, 'seconds')) * -1;
+                const diff =
+                    Math.ceil(
+                        moment(isoTime).diff(moment(firstEntry.start).add(firstEntry.duration, 'seconds'), 'seconds'),
+                    ) * -1;
 
                 top += Math.floor((diff / SECONDS_IN_MINUTE) * pxPerMinute);
-                startIso = firstEntry.end;
+                startIso = moment(firstEntry.start)
+                    .add(firstEntry.duration, 'seconds')
+                    .toISOString();
             }
 
             if (_.isFunction(this.preventCreate) && this.preventCreate({isoTime: startIso})) {

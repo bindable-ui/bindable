@@ -71,16 +71,14 @@ describe('Web worker functions', () => {
         it('tests same time entries', async () => {
             const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
-            expect(data[0].widthCalc).toBeUndefined();
-            expect(data[2].widthCalc).toBeDefined();
-            expect(data[3].widthCalc).toBeDefined();
+            expect(data[0].widthCalc).toBeDefined();
+            expect(data[2].widthCalc).toBe(data[3].widthCalc);
         });
 
         it('tests nested entries', async () => {
             const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
-            expect(data[0].widthCalc).toBeUndefined();
-            expect(data[1].widthCalc).toBeDefined();
+            expect(data[0].widthCalc).toBe(data[1].widthCalc);
         });
     });
 });
