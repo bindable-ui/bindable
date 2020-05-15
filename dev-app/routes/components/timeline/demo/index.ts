@@ -87,18 +87,12 @@ export class TimelineExample {
 
     public actions = {
         getEntries: (start, _end) =>
-            _.map(_.times(this.genRandom(5000, 5000), () => {
-                const color = this.genHex();
-
-                return {
-                    accentColor: color,
-                    altTime: ' ',
-                    background: color,
-                    duration: this.genRandom(600, 5000),
-                    title: '',
-                    start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
-                };
-            })),
+            _.map(_.times(this.genRandom(2500, 5000), () => ({
+                accentColor: this.genHex(),
+                duration: this.genRandom(60, 5000),
+                title: 'Something Clever',
+                start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
+            }))),
     };
 
     private genRandom = (min, max) => Math.random() * (max - min + 1) + min;
