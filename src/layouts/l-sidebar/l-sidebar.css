@@ -10,6 +10,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /**
  *  BASE
  *  SCROLLING
+ *  CONTENT
  *  SIDE
  */
 
@@ -18,7 +19,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
- *
     !BASE
 \*------------------------------------*/
 
@@ -62,7 +62,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !SIDE
+    !CONTENT
 \*------------------------------------*/
 
 .left > * > :last-child,
@@ -79,4 +79,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         min-width: unset;
         width: 100%;
     }
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SIDE
+\*------------------------------------*/
+
+.left > * > :first-child,
+.right > * > :last-child{
+    background: var(--sidebar-background);
 }

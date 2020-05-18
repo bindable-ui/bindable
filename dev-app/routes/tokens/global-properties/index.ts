@@ -14,7 +14,7 @@ export class GlobalProperties {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 
@@ -50,6 +50,22 @@ export class GlobalProperties {
         {
             default: 'var(--c_white)',
             name: '--selected-text-color',
+        },
+        {
+            default: '7px',
+            name: '--scrollbar_width',
+        },
+        {
+            default: '#7B7B7B',
+            name: '--scrollbar_color',
+        },
+        {
+            default: '#222',
+            name: '--scrollbar_track_color',
+        },
+        {
+            default: '215px',
+            name: '--w_popover',
         },
     ];
 }

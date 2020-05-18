@@ -4,16 +4,448 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
+    <style>
+        .lsi-main{
+            height: 30px;
+            width: 100%;
+        }
+
+        .lsi-cluster{
+            height: 30px;
+        }
+
+        .lsi-cover{
+            height: 150px;
+        }
+
+        .lsi-box{
+            height: 125px;
+        }
+
+        .scrolling-vertical > div{
+            border-right: solid 5px var(--c_marshmellow)
+        }
+
+        .scrolling-horizontal > div{
+            border-bottom: solid 5px var(--c_marshmellow);
+            padding-right: 0px;
+        }
+
+
+        .lsi-wrapper a{
+            text-decoration: none;
+        }
+
+        .lsi-wrapper l-box > div{
+            height: 100%;
+        }
+
+        .basic-centered,
+        .basic-centered > div,
+        .basic-centered l-box > div{
+            height: 100%;
+        }
+
+        .table-row{
+            height: 5px;
+            width: 100%;
+            background: var(--c_charcoal);
+            display: block;
+        }
+    </style>
+
     <l-box
         padding-sides="var(--s3)"
         padding-ends="var(--s3)"
         background="transparent"
-        >
+    >
         <l-stack spacing="var(--s5)">
             <div>
                 <l-stack spacing="var(--s-3)">
                     <c-h1>Example Layouts</c-h1>
-                    <l-grid gap="var(--s4)" min-size="30ch">
+
+
+
+
+                    <div class="lsi-wrapper">
+                        <l-grid min-size="300px">
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/basic"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-box data-value="cover" background="#888">
+                                                    <div class="lsi-box"></div>
+                                                </l-box>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Basic</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/basic-centered"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover" style="height: 100%;">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-center data-value="cover" max-width="100px" class="basic-centered">
+                                                    <l-box background="#888"></l-box>
+                                                </l-center>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Basic Centered</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/sidebar"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-sidebar
+                                                    data-value="cover"
+                                                    spacing="var(--s-3)"
+                                                >
+                                                    <l-box background="#888">
+                                                        <div class="lsi-main  lsi-box"></div>
+                                                    </l-box>
+                                                    <l-box background="#888">
+                                                        <div class="lsi-main  lsi-box"></div>
+                                                    </l-box>
+                                                </l-sidebar>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Sidebar</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/sidebar-scrolling"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-sidebar
+                                                    data-value="cover"
+                                                    spacing="var(--s-3)"
+                                                >
+                                                    <l-box background="#888" class="scrolling-vertical">
+                                                        <div class="lsi-main  lsi-box"></div>
+                                                    </l-box>
+                                                    <l-box background="#888" class="scrolling-vertical">
+                                                        <div class="lsi-main  lsi-box"></div>
+                                                    </l-box>
+                                                </l-sidebar>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Sidebar Scrolling</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/nested-cover-scrolling"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-sidebar
+                                                    data-value="cover"
+                                                    spacing="var(--s-3)"
+                                                >
+                                                    <l-cover
+                                                        top-gutter="var(--s-3)"
+                                                        bottom-gutter="var(--s-3)"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-box
+                                                            background="#888"
+                                                            class="scrolling-vertical"
+                                                            data-value="cover"
+                                                        >
+                                                            <div class="lsi-main  lsi-box"></div>
+                                                        </l-box>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                    </l-cover>
+                                                    <l-cover
+                                                        top-gutter="var(--s-3)"
+                                                        bottom-gutter="var(--s-3)"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-box
+                                                            background="#888"
+                                                            class="scrolling-vertical"
+                                                            data-value="cover"
+                                                        >
+                                                            <div class="lsi-main  lsi-box"></div>
+                                                        </l-box>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                </l-sidebar>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Nested Cover Scrolling</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/nested-sidebar-scrolling"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-sidebar
+                                                    data-value="cover"
+                                                    spacing="var(--s-3)"
+                                                >
+                                                    <l-cover
+                                                        top-gutter="var(--s-3)"
+                                                        bottom-gutter="var(--s-3)"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-box
+                                                            background="#888"
+                                                            class="scrolling-vertical"
+                                                            data-value="cover"
+                                                        >
+                                                            <div class="lsi-main  lsi-box"></div>
+                                                        </l-box>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                    </l-cover>
+                                                    <l-cover
+                                                        top-gutter="0.25rem"
+                                                        bottom-gutter="0.3rem"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-sidebar
+                                                            side="right"
+                                                            spacing="var(--s-1)"
+                                                        >
+                                                            <l-box
+                                                                background="#888"
+                                                                class="scrolling-vertical"
+                                                                data-value="cover"
+                                                                >
+                                                                <div class="lsi-main  lsi-box"></div>
+                                                            </l-box>
+                                                            <l-box
+                                                                background="#888"
+                                                                class="scrolling-vertical"
+                                                            >
+                                                                <div class="lsi-main  lsi-box"></div>
+                                                            </l-box>
+                                                        </l-sidebar>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                </l-sidebar>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Nested Sidebar Scrolling</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/nested-cover-table-scrolling"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-sidebar
+                                                    data-value="cover"
+                                                    spacing="var(--s-3)"
+                                                >
+                                                    <l-cover
+                                                        top-gutter="var(--s-3)"
+                                                        bottom-gutter="var(--s-3)"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-box
+                                                            background="#888"
+                                                            class="scrolling-vertical"
+                                                            data-value="cover"
+                                                        >
+                                                            <div class="lsi-main  lsi-box"></div>
+                                                        </l-box>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                    </l-cover>
+                                                    <l-cover
+                                                        top-gutter="var(--s-3)"
+                                                        bottom-gutter="var(--s-3)"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-box
+                                                            background="#888"
+                                                            class="scrolling-vertical"
+                                                            data-value="cover"
+                                                        >
+                                                            <div class="lsi-main  lsi-box">
+                                                                <l-stack spacing="var(--s-1)">
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                </l-stack>
+                                                            </div>
+                                                        </l-box>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                </l-sidebar>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Table Scrolling</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                            <l-box background="var(--c_darkGray)">
+                                <a
+                                    href="#/layout-examples/nested-cover-table-horizontal-scrolling"
+                                    target="_blank"
+                                >
+                                    <l-cover bottom-gutter="var(--s1)">
+                                        <div data-value="cover">
+                                            <l-cover
+                                                top-gutter="var(--s-3)"
+                                                bottom-gutter="var(--s-3)"
+                                            >
+                                                <l-box background="#888"></l-box>
+                                                <l-sidebar
+                                                    data-value="cover"
+                                                    spacing="var(--s-3)"
+                                                >
+                                                    <l-cover
+                                                        top-gutter="var(--s-3)"
+                                                        bottom-gutter="var(--s-3)"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-box
+                                                            background="#888"
+                                                            class="scrolling-vertical"
+                                                            data-value="cover"
+                                                        >
+                                                            <div class="lsi-main  lsi-box"></div>
+                                                        </l-box>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                    </l-cover>
+                                                    <l-cover
+                                                        top-gutter="var(--s-3)"
+                                                        bottom-gutter="var(--s-3)"
+                                                    >
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                        <l-box
+                                                            background="#888"
+                                                            class="scrolling-vertical  scrolling-horizontal"
+                                                            data-value="cover"
+                                                        >
+                                                            <div class="lsi-main  lsi-box">
+                                                                <l-stack spacing="var(--s-1)">
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                    <div class="table-row"></div>
+                                                                </l-stack>
+                                                            </div>
+                                                        </l-box>
+                                                        <l-box background="#888" padding-ends="5px"></l-box>
+                                                </l-sidebar>
+                                                <l-box background="#888"></l-box>
+                                            </l-cover>
+                                        </div>
+                                        <l-center text-center.bind="true">
+                                            <c-h3>Table Horizontal Scrolling</c-h3>
+                                        </l-center>
+                                    </l-cover>
+                                </a>
+                            </l-box>
+                        </l-grid>
+                    </div>
+
+
+
+
+
+
+                </l-stack>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <l-grid gap="var(--s4)" min-size="30ch" if.bind="false">
                         <c-tile
                             image-url="https://placeimg.com/160/250/any"
                             image-container-height.bind="250"

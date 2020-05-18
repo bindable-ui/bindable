@@ -15,6 +15,8 @@ export class LSidebar {
     @bindable
     public side = 'left';
     @bindable
+    public sideBackground = 'unset';
+    @bindable
     public sideWidth = 'initial';
     @bindable
     public spacing = 'var(--s3)';

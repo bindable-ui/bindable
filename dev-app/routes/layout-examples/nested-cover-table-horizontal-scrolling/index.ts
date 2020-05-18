@@ -29,8 +29,44 @@ export class NestedCoverTableHorizontalScrolling {
     public testData = [
         {
             _status: 'healthy',
-            name: 'Luke Skywalker',
             gender: 'Male',
+            name: 'Luke Skywalker',
+            ship: 'X-Wing',
+        },
+        {
+            _status: 'healthy',
+            gender: 'Male',
+            name: 'Luke Skywalker',
+            ship: 'X-Wing',
+        },
+        {
+            _status: 'healthy',
+            gender: 'Male',
+            name: 'Luke Skywalker',
+            ship: 'X-Wing',
+        },
+        {
+            _status: 'healthy',
+            gender: 'Male',
+            name: 'Luke Skywalker',
+            ship: 'X-Wing',
+        },
+        {
+            _status: 'healthy',
+            gender: 'Male',
+            name: 'Luke Skywalker',
+            ship: 'X-Wing',
+        },
+        {
+            _status: 'healthy',
+            gender: 'Male',
+            name: 'Luke Skywalker',
+            ship: 'X-Wing',
+        },
+        {
+            _status: 'healthy',
+            gender: 'Male',
+            name: 'Luke Skywalker',
             ship: 'X-Wing',
         },
         {

@@ -19,7 +19,7 @@ export class ListItemThemeProperties {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 
