@@ -220,6 +220,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./layouts/l-cluster/l-cluster'),
         PLATFORM.moduleName('./layouts/l-cover/l-cover'),
         PLATFORM.moduleName('./layouts/l-grid/l-grid'),
+        PLATFORM.moduleName('./layouts/l-icon/l-icon'),
         PLATFORM.moduleName('./layouts/l-sidebar/l-sidebar'),
         PLATFORM.moduleName('./layouts/l-stack/l-stack'),
         PLATFORM.moduleName('./layouts/l-switcher/l-switcher'),

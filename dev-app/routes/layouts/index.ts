@@ -65,6 +65,13 @@ export class Layouts {
             title: 'Grid',
         },
         {
+            moduleId: PLATFORM.moduleName('./icon/index'),
+            name: 'icon',
+            nav: true,
+            route: 'icon',
+            title: 'Icon',
+        },
+        {
             moduleId: PLATFORM.moduleName('./sidebar/index'),
             name: 'sidebar',
             nav: true,
