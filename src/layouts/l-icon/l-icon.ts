@@ -12,7 +12,7 @@ export class LIcon {
     @bindable
     public color = 'unset';
     @bindable
-    public icon = 'chevron-right';
+    public icon;
     @bindable
     public iconOnly = false;
     @bindable

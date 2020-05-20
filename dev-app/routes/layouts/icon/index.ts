@@ -3,8 +3,8 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-export class IconLayoutProperties {
-    public iconLayoutCols = [
+export class IconProperties {
+    public iconCols = [
         {
             _class: 'monospaced',
             colClass: 't215',
@@ -28,12 +28,41 @@ export class IconLayoutProperties {
         },
     ];
 
-    public iconLayoutProperties = [
+    public iconProperties = [
         {
             default: 'unset',
-            description: 'Set the background background of the box.',
-            name: 'background',
-            value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
+            description: 'Set the alignment of the icon.',
+            name: 'align',
+            value: 'This should be a positive or negative em value but can be a different unit type.',
+        },
+        {
+            default: 'unset',
+            description: 'Set the color of the icon. If not set the icon will inherit the color from its parent.',
+            name: 'color',
+            value: 'CSS Color',
+        },
+        {
+            description: 'Set the icon to use.',
+            name: 'icon',
+            value: 'Name of the icon from your svg sprite.',
+        },
+        {
+            default: 'false',
+            description: 'Set to true if you do not need text with your icon.',
+            name: 'icon-only',
+            value: 'Boolean',
+        },
+        {
+            default: '0.75em',
+            description: 'Set the size of the icon.',
+            name: 'size',
+            value: 'Any CSS size value. 0.75em highly recommended and will scale for you.',
+        },
+        {
+            default: 'var(--s-2)',
+            description: 'Set the spacing between the text and icon. This is ignored if icon-only is true.',
+            name: 'spacing',
+            value: 'Any CSS size value. It is highly recommended a modular scale value be used.',
         },
     ];
 }
