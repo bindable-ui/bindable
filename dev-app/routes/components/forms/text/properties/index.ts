@@ -47,6 +47,11 @@ export class TextInputProperties {
             value: 'string',
         },
         {
+            description: 'This will set the color of the button',
+            name: 'button-color',
+            value: 'primary | secondary | subOne | neutral | danger',
+        },
+        {
             default: 'false',
             description: 'This will add a x link to the right side of the input field.',
             name: 'clearable',

@@ -282,6 +282,12 @@ c-button{
     --button-secondary-disabled-color: var(--button-disabled-color);
     --button-secondary-color: var(--button-color);
 
+    --button-subOne-background: var(--c_subOneMain);
+    --button-subOne-hover-background: var(--c_subOneLight);
+    --button-subOne-disabled-background: #1F5A76;
+    --button-subOne-disabled-color: var(--button-disabled-color);
+    --button-subOne-color: var(--button-color);
+
     --button-neutral-background: var(--c_gray);
     --button-neutral-hover-background: var(--c_smoke);
     --button-neutral-disabled-background: #454545;
@@ -385,6 +391,16 @@ c-form-error{
 c-form-warning{
     --form-warning-color: var(--c_subTwoMain);
     --form-warning-font-size: var(--s-1);
+}
+
+
+/**
+ * ^c-form-info
+ */
+
+c-form-info{
+    --form-info-color: var(--c_subOneMain);
+    --form-info-font-size: var(--s-1);
 }
 
 
@@ -539,6 +555,8 @@ c-form-select{
     --input-background-error: var(--c_charcoal);
     --input-box-shadow-warning: inset 0 -1px 0 var(--c_subTwoMain);
     --input-background-warning: var(--c_charcoal);
+    --input-box-shadow-info: inset 0 -1px 0 var(--c_subOneMain);
+    --input-background-info: var(--c_charcoal);
 
     /* Icon */
     --input-icon-padding: var(--s3);
@@ -553,8 +571,6 @@ c-form-select{
     --input-button-border-size: 1px;
     --input-button-border-color: var(--c_black);
     --input-button-border-radius: 0 5px 5px 0;
-    --input-button-hover-background: var(--c_smoke);
-    --input-button-hover-color: inherit;
     --input-button-bin-hover-background: var(--c_primaryLight);
     --input-button-bin-hover-icon-color: unset;
 

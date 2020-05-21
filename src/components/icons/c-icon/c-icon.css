@@ -23,7 +23,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon{
     vertical-align: middle;
-    fill: var(--icon-color);
+    color: var(--icon-color);
 }
 
 

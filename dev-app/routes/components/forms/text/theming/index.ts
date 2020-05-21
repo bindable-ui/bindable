@@ -90,6 +90,16 @@ export class TextThemeProperties {
             property: 'background',
         },
         {
+            default: 'inset 0 -1px 0 var(--c_subOneMain)',
+            name: '--input-box-shadow-info',
+            property: 'box-shadow',
+        },
+        {
+            default: 'var(--c_charcoal)',
+            name: '--input-background-info',
+            property: 'background',
+        },
+        {
             default: 'var(--s-2)',
             name: '--input-icon-padding',
             property: 'padding-left, padding-right',
@@ -133,16 +143,6 @@ export class TextThemeProperties {
             default: '0 5px 5px 0',
             name: '--input-button-border-radius',
             property: 'border-radius',
-        },
-        {
-            default: 'var(--c_smoke)',
-            name: '--input-button-hover-background',
-            property: 'background',
-        },
-        {
-            default: 'inherit',
-            name: '--input-button-hover-color',
-            property: 'color, fill',
         },
         {
             default: 'var(--c_primaryLight)',
@@ -219,13 +219,26 @@ export class TextThemeProperties {
 
     public textThemeProperties4 = [
         {
-            default: 'var(--c_subtwoMain)',
+            default: 'var(--c_subTwoMain)',
             name: '--form-warning-color',
             property: 'color',
         },
         {
             default: 'var(--s-1)',
             name: '--form-warning-font-size',
+            property: 'font-size',
+        },
+    ];
+
+    public textThemeProperties5 = [
+        {
+            default: 'var(--c_subOneMain)',
+            name: '--form-info-color',
+            property: 'color',
+        },
+        {
+            default: 'var(--s-1)',
+            name: '--form-info-font-size',
             property: 'font-size',
         },
     ];

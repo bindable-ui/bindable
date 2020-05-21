@@ -16,6 +16,8 @@ export class CTextInput {
     @bindable
     public buttonText;
     @bindable
+    public buttonColor;
+    @bindable
     public buttonAction;
     @bindable
     public clearable = false;

@@ -19,15 +19,21 @@ export class CFormText {
     @bindable
     public buttonText;
     @bindable
+    public buttonColor = 'neutral';
+    @bindable
     public clearable;
     @bindable
     public errorMsg;
     @bindable
     public warningMsg;
     @bindable
+    public infoMsg;
+    @bindable
     public hasFocus = false;
     @bindable
     public icon;
+    @bindable
+    public iconColor;
     @bindable
     public iconPosition;
     @bindable

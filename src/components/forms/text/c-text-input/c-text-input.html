@@ -22,6 +22,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${styles[iconPosition]}
                 ${state === 'error' ? styles.error : ''}
                 ${state === 'warning' ? styles.warning : ''}
+                ${state === 'info' ? styles.info : ''}
             "
             keyup.delegate="onKeyUp($event) & debounce"
             type="${type}"
@@ -30,6 +31,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             focus.bind="hasFocus"
             id="${id}"
             autocomplete="off"
+            readonly.bind="state === 'info' ? true : false"
             if.bind="placeholder"
         >
         <input
@@ -38,6 +40,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${styles[iconPosition]}
                 ${state === 'error' ? styles.error : ''}
                 ${state === 'warning' ? styles.warning : ''}
+                ${state === 'info' ? styles.info : ''}
             "
             keyup.delegate="onKeyUp($event) & debounce"
             type="${type}"
@@ -62,7 +65,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${styles.button}
                 ${button === 'bin' ? styles.bin : ''}
             "
-            color="neutral"
+            color="${buttonColor}"
             icon="${button}"
             icon-position="center"
             click.delegate="buttonFn()"

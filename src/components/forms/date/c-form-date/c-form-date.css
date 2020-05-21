@@ -81,7 +81,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     top: calc(var(--s-3) + 1px);
     width: var(--s0);
     height: var(--s0);
-    fill: var(--form-date-calendar-icon-color);
+    color: var(--form-date-calendar-icon-color);
     z-index: var(--z_base);
 }
 
