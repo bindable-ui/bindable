@@ -81,16 +81,23 @@ export class TimelineExample {
     ];
 
     public zoomLevel = 2;
-    public displayView = 'day';
+    public displayView = 'three-day';
     public loading = false;
     public preventCreate = false;
 
     public actions = {
         getEntries: (start, _end) =>
-            _.map(_.times(this.genRandom(2500, 5000), () => ({
+            _.map(_.times(this.genRandom(100, 200), () => ({
                 accentColor: this.genHex(),
                 duration: this.genRandom(60, 5000),
                 title: 'Something Clever',
+                start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
+            }))),
+        pollEntries: (start, _end) =>
+            _.map(_.times(this.genRandom(10, 500), () => ({
+                accentColor: this.genHex(),
+                duration: this.genRandom(60, 5000),
+                title: 'Updated Something Clever',
                 start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
             }))),
     };

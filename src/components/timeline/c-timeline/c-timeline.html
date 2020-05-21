@@ -26,18 +26,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 </div>
                 <c-timeline-container
                     repeat.for="day of displayDays"
+                    if.bind="!day.hidden"
                     current-time-top.bind="day.currentTimeLine"
                     click.delegate="togglePopover($event, day)"
-                    if.bind="!day.hidden"
-                    loading.bind="day.isLoading || day.isRendering"
+                    loading.bind="day.isLoading"
                 >
                     <c-timeline-block repeat.for="block of day.blocks"></c-timeline-block>
-                    <c-time-entry
-                        repeat.for="entry of day.entries | transformEntries:day:pxPerMinute:timeView:tzOffset:zoomLevel & async:dayLoading(day)"
-                        item.bind="entry"
-                        class="timeline-week"
-                    >
-                    </c-time-entry>
+                    <div slot="entries">
+                        <c-time-entry
+                            repeat.for="entry of day.entries"
+                            item.bind="entry"
+                            class="timeline-week"
+                        >
+                        </c-time-entry>
+                    </div>
                     <c-time-entry
                         item.bind="day.newItem"
                         view-model.ref="day.placeholderEntry"

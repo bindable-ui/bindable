@@ -52,10 +52,10 @@ export interface ITimeDay {
     entries: ITimeEntry[];
     hidden?: boolean;
     isLoading?: boolean;
-    isRendering?: boolean;
     newItem?: any;
     parsedDate?: string;
     placeholderEntry?: any;
+    pollingTracker?: any;
     startTime?: string;
     today?: boolean;
 }

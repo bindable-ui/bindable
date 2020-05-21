@@ -267,3 +267,29 @@ export const sortEntries = async (entries: any[]): Promise<any[]> => {
 
     return sortEntriesFn(entries);
 };
+
+export const filterMapEntries = async (
+    entries: any[],
+    pxPerMinute: number,
+    startTime: string,
+    endTime: string,
+    timeView: string,
+    editEntryViewModel: string,
+    date: string,
+    tzOffset: number,
+    zoomLevel: number,
+): Promise<ITimeEntry[]> => {
+    const filteredEntries = await filterEntriesDay(entries, startTime, endTime);
+    const sortedEntries = await sortEntries(filteredEntries);
+    return await mapEntries(
+        sortedEntries,
+        pxPerMinute,
+        startTime,
+        endTime,
+        timeView,
+        editEntryViewModel,
+        date,
+        tzOffset,
+        zoomLevel,
+    );
+};

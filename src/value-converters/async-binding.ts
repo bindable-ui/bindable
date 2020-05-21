@@ -12,7 +12,7 @@ export class AsyncBindingBehavior {
             binding.originalupdateTarget(d);
 
             if (_.isFunction(callbackFn)) {
-                callbackFn();
+                _.defer(() => callbackFn());
             }
         };
     }

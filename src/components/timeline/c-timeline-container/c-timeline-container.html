@@ -17,14 +17,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-spinner if.bind="loading"></c-spinner>
             <div class="${styles.wrapper}">
                 <div
-                    show.bind="!loading"
                     class="${styles.currentTime}"
                     css="top: ${currentTimeTop}px;"
                     if.bind="currentTimeTop >= 0"
                 >
                 </div>
-                <div show.bind="!loading">
+                <div>
                     <slot></slot>
+                    <div show.bind="!loading">
+                        <slot name="entries"></slot>
+                    </div>
                 </div>
             </div>
         </div>
