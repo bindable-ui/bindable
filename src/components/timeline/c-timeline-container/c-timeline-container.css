@@ -34,16 +34,24 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: relative;
 }
 
+.container c-spinner {
+    position: absolute;
+    top: 50%;
+    margin-left: calc(var(--s-1) * -1);
+    z-index: var(--z_timelineContainer);
+}
+
 @media screen and (max-width: 780px){
     .timeline{
         margin-bottom: 0;
+        position: relative;
+    }
+
+    .container c-spinner {
+        top: 30px;
+        margin-left: calc(var(--s2) * -1);
     }
 }
-
-.container c-spinner {
-    position: absolute;
-}
-
 
 /* Safari only hack */
 /* Without this the timeline scroll bar

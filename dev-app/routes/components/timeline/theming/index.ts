@@ -47,11 +47,6 @@ export class TimelineBlockThemeProperties {
             name: '--current-time-line-color',
             property: 'background',
         },
-        {
-            default: 'rgba(0, 0, 0, 0.5)',
-            name: '--loading-spinner-background',
-            property: 'background',
-        },
     ];
 
     public timelineBlockThemeProperties3 = [

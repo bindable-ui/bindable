@@ -937,7 +937,6 @@ c-timeline-block{
 
 :global .timeline-container{
     --current-time-line-color: #00AC3E;
-    --loading-spinner-background: rgba(0, 0, 0, 0.5);
 }
 
 
@@ -1213,8 +1212,11 @@ c-divider{
     !SPINNER
 \*------------------------------------*/
 
-:global .c-spinner{
+c-spinner{
     --spinner-color: var(--c_white);
+    --spinner-border: unset;
+    --spinner-border-radius: var(--s-5);
+    --spinner-background: var(--c_asphalt);
 }
 
 

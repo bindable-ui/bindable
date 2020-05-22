@@ -14,7 +14,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${styles.medium}
             "
         >
-            <c-spinner if.bind="loading"></c-spinner>
+            <l-center
+                max-width="var(--s1)"
+                text-center.bind="true"
+                if.bind="loading"
+            >
+                <c-spinner size="small"></c-spinner>
+            </l-center>
             <div class="${styles.wrapper}">
                 <div
                     class="${styles.currentTime}"

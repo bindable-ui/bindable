@@ -29,5 +29,20 @@ export class SpinnerThemeProperties {
             name: '--spinner-color',
             property: 'border-top-color',
         },
+        {
+            default: 'unset',
+            name: '--spinner-border',
+            property: 'border',
+        },
+        {
+            default: 'var(--s-5)',
+            name: '--spinner-border-radius',
+            property: 'border-radius',
+        },
+        {
+            default: 'var(--c_asphalt)',
+            name: '--spinner-background',
+            property: 'background',
+        },
     ];
 }
