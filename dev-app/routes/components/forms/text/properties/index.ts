@@ -112,7 +112,7 @@ export class TextInputProperties {
         {
             description: 'Set a state for the text input.',
             name: 'state',
-            value: 'error | warning | disabled | hidden',
+            value: 'error | warning | info | disabled | hidden',
         },
         {
             description: 'Sets the value of the text input',
