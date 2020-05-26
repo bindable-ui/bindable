@@ -39,8 +39,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         text-value.bind="textValue"
         event-listeners.bind="eventListeners"
         if.bind="_state !== 'disabled' && _state !== 'hidden'"
-    >
-    </c-text-input>
+    ></c-text-input>
     <c-disabled if.bind="_state === 'disabled'">
         ${textValue || 'None'}
     </c-disabled>

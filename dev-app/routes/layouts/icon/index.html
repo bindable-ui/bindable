@@ -22,6 +22,119 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
             <div>
                 <l-stack spacing="var(--s-3)">
+                    <c-h3>align</c-h3>
+                    <c-code-sample>
+                        <l-stack>
+                            <l-icon
+                                icon="warning"
+                                size="1.25em"
+                                align="-0.325em"
+                            >
+                                Warning
+                            </l-icon>
+                            <c-button>
+                                <l-icon
+                                    icon="warning"
+                                    size="1.25em"
+                                    align="-0.25em"
+                                >
+                                    Warning
+                                </l-icon>
+                            </c-button>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>color</c-h3>
+                    <c-code-sample>
+                        <l-stack>
+                            <l-icon
+                                icon="info"
+                                color="var(--c_subOneMain)"
+                            >
+                                Info
+                            </l-icon>
+                            <c-button>
+                                <l-icon
+                                    icon="warning"
+                                    size="1.25em"
+                                    align="-0.25em"
+                                    color="var(--c_primaryLighter)"
+                                >
+                                    Warning
+                                </l-icon>
+                            </c-button>
+                        </l-stack>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>icon &amp; icon-only</c-h3>
+                    <c-code-sample>
+                        <l-grid>
+                            <l-stack>
+                                <l-icon icon="info">
+                                    info
+                                </l-icon>
+                                <l-icon icon="lock">
+                                    lock
+                                </l-icon>
+                                <l-icon icon="chevron-left">
+                                    chevron-left
+                                </l-icon>
+                                <l-icon icon="chevron-right">
+                                    chevron-right
+                                </l-icon>
+                                <c-button>
+                                    <l-icon icon="chevron-left">
+                                        Prev
+                                    </l-icon>
+                                </c-button>
+                                <c-button>
+                                    <l-icon
+                                        dir="rtl"
+                                        icon="chevron-right"
+                                        >
+                                        Next
+                                    </l-icon>
+                                </c-button>
+                            </l-stack>
+                            <l-stack>
+                                <l-icon
+                                    icon="calendar"
+                                    icon-only.bind="true"
+                                ></l-icon>
+                                <l-icon
+                                    icon="lock"
+                                    icon-only.bind="true"
+                                ></l-icon>
+                                <c-button>
+                                    <l-icon
+                                        icon="lock"
+                                        size="1.25em"
+                                        align="-0.25em"
+                                        icon-only.bind="true"
+                                    ></l-icon>
+                                </c-button>
+                            </l-stack>
+                        </l-grid>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
                     <c-h3>Default</c-h3>
                     <c-code-sample>
                         <l-stack>

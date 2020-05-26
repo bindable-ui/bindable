@@ -33,7 +33,7 @@ export class IconProperties {
             default: 'unset',
             description: 'Set the alignment of the icon.',
             name: 'align',
-            value: 'This should be a positive or negative em value but can be a different unit type.',
+            value: 'This should be a positive or negative em value but can be a different unit type. Normally not used unless you want a larger icon next to your text.',
         },
         {
             default: 'unset',
