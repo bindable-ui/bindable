@@ -202,6 +202,16 @@ export class TextThemeProperties {
             name: '--form-disabled-font-family',
             property: 'font-family',
         },
+        {
+            default: 'var(--s-5) 0',
+            name: '--form-disabled-padding',
+            property: 'padding',
+        },
+        {
+            default: 'solid 1px transparent',
+            name: '--form-disabled-border',
+            property: 'border',
+        },
     ];
 
     public textThemeProperties3 = [
