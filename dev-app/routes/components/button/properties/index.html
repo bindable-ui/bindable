@@ -42,13 +42,103 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>icon / icon-position</c-h3>
+                <c-h3>icon-only</c-h3>
                 <c-code-sample>
-                    <c-button icon="warning" icon-position="right">Right Icon</c-button>
-                    <c-button icon="warning" icon-position="left">Left Icon</c-button>
-                    <c-button icon="warning" icon-position="center"></c-button>
-                    <c-button size="small" icon="warning" icon-position="left">Left Icon</c-button>
-                    <c-button size="small" icon="warning" icon-position="center"></c-button>
+                    <c-button icon-only.bind="true">
+                        <l-icon
+                            icon="bin"
+                            size="1.25em"
+                            align="-0.25em"
+                            icon-only.bind="true"
+                        ></l-icon>
+                    </c-button>
+                    <c-button
+                        icon-only.bind="true"
+                        size="small"
+                    >
+                        <l-icon
+                            icon="bin"
+                            size="1.25em"
+                            align="-0.25em"
+                            icon-only.bind="true"
+                        ></l-icon>
+                    </c-button>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Other Icon Examples</c-h3>
+
+                <c-notification
+                    type="info"
+                    callout-title="More Info"
+                    callout-content="l-icon"
+                >
+                    Using the l-icon layout inside a button allows for a lot of customization on the icon placed in the c-button component. <a href="/#/layouts/icon">Learn more about the l-icon layout</a>
+                </c-notification>
+
+                <c-code-sample>
+                    <c-button color="danger">
+                        <l-icon
+                            icon="bin"
+                            size="1.25em"
+                            align="-0.25em"
+                        >
+                            Delete
+                        </l-icon>
+                    </c-button>
+                    <c-button color="neutral">
+                        <l-icon
+                            icon="chevron-left"
+                        >
+                            Next
+                        </l-icon>
+                    </c-button>
+                    <c-button color="neutral">
+                        <l-icon
+                            dir="rtl"
+                            icon="chevron-right"
+                        >
+                            Prev
+                        </l-icon>
+                    </c-button>
+                    <c-button
+                        color="danger"
+                        size="small"
+                    >
+                        <l-icon
+                            icon="bin"
+                            size="1.25em"
+                            align="-0.25em"
+                        >
+                            Delete
+                        </l-icon>
+                    </c-button>
+                    <c-button
+                        color="neutral"
+                        size="small"
+                    >
+                        <l-icon
+                            icon="chevron-left"
+                        >
+                            Next
+                        </l-icon>
+                    </c-button>
+                    <c-button
+                        color="neutral"
+                        size="small"
+                    >
+                        <l-icon
+                            dir="rtl"
+                            icon="chevron-right"
+                        >
+                            Prev
+                        </l-icon>
+                    </c-button>
                 </c-code-sample>
             </l-stack>
         </div>

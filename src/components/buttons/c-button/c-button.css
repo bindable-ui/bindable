@@ -14,8 +14,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Secondary
  *      - SubOne
  *      - Neutral
- *  ICON
- *      - Base
  *  SIZE
  *      - Medium
  *      - Small
@@ -152,27 +150,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !ICON
-\*------------------------------------*/
-
-/**
- * ^Base
- */
-
-.icon{
-    position: relative;
-}
-
-.icon svg{
-    position: absolute;
-    color: currentColor;
-}
-
-
-
-
-
-/*------------------------------------*\
     !SIZE
 \*------------------------------------*/
 
@@ -184,35 +161,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     padding:var(--button-medium-padding);
 }
 
-.medium.left{
-    padding-left: var(--button-medium-icon-side-padding);
-}
-
-.medium.right{
-    padding-right: var(--button-medium-icon-side-padding);
-}
-
-.medium.center{
-    padding: var(--button-medium-icon-center-padding) !important;
-}
-
-.medium svg{
-    width: var(--button-medium-icon-svg-size);
-    height: var(--button-medium-icon-svg-size);
-    margin-top: var(--button-medium-icon-svg-top-spacing);
-}
-
-.medium.left svg{
-    left: var(--button-medium-icon-svg-spacing);
-}
-
-.medium.right svg{
-    right: var(--button-medium-icon-svg-spacing);
-}
-
-.medium.center svg{
-    position: relative;
-    margin-top: -3px;
+.medium.icon-only{
+    padding: var(--button-medium-icon-only-padding);
 }
 
 
@@ -224,36 +174,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     padding: var(--button-small-padding);
 }
 
-.small.left{
-    padding-left: var(--button-small-icon-side-padding);
-}
-
-.small.right{
-    padding-right: var(--button-small-icon-side-padding);
-}
-
-.small.center{
-    padding: var(--button-small-icon-center-padding);
-}
-
-.small svg{
-    width: var(--button-small-icon-svg-size);
-    height: var(--button-small-icon-svg-size);
-    margin-top: var(--button-small-icon-svg-top-spacing);
-}
-
-.small.left svg{
-    left: var(--button-small-icon-svg-spacing);
-}
-
-.small.right svg{
-    right: var(--button-small-icon-svg-spacing);
-}
-
-.small.center svg{
-    position: relative;
-    top: 0;
-    margin-top: -2px;
+.small.icon-only{
+    padding: var(--button-small-icon-only-padding);
 }
 
 

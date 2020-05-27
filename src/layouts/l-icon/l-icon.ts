@@ -18,7 +18,7 @@ export class LIcon {
     @bindable
     public size = '0.75em';
     @bindable
-    public spacing = 'var(--s-1)';
+    public spacing = 'var(--s-5)';
 
     public styles = styles;
 

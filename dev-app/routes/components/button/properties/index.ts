@@ -41,14 +41,10 @@ export class ButtonProperties {
             name: 'href',
         },
         {
-            description: 'Place an icon in the button.',
-            name: 'icon',
-            value: 'See Icon Component for values',
-        },
-        {
-            description: "User 'center' when you have no text in your button.",
-            name: 'icon-position',
-            value: 'right | left | center',
+            default: 'false',
+            description: 'Set if the button will only contain an icon.',
+            name: 'icon-only',
+            value: 'boolean',
         },
         {
             default: 'medium',

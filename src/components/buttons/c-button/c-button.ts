@@ -16,9 +16,7 @@ export class CButton {
     @bindable
     public href;
     @bindable
-    public icon;
-    @bindable
-    public iconPosition;
+    public iconOnly = false;
     @bindable
     public size = 'medium';
     @bindable
@@ -33,25 +31,13 @@ export class CButton {
     public styles = styles;
 
     public attached() {
+        if (typeof this.iconOnly !== 'boolean') {
+            this.iconOnly = false;
+        }
+
         if (typeof this.targetNew !== 'boolean') {
             this.targetNew = false;
         }
-
-        // we can do acl-restricted acl-disable="false" to hide in case of read only entitlement.
-    }
-
-    public showLeftIcon() {
-        if (this.icon && this.iconPosition === 'left') {
-            return true;
-        }
-        return false;
-    }
-
-    public showRightOrCenterIcon() {
-        if (this.icon && (this.iconPosition === 'right' || this.iconPosition === 'center')) {
-            return true;
-        }
-        return false;
     }
 
     public actionFunction() {

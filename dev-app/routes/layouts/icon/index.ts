@@ -42,6 +42,12 @@ export class IconProperties {
             value: 'CSS Color',
         },
         {
+            default: 'ltr',
+            description: 'Set the direction of the contents.',
+            name: 'dir',
+            value: 'rtl | ltr (right to left | left to right)',
+        },
+        {
             description: 'Set the icon to use.',
             name: 'icon',
             value: 'Name of the icon from your svg sprite.',
@@ -59,7 +65,7 @@ export class IconProperties {
             value: 'Any CSS size value. 0.75em highly recommended and will scale for you.',
         },
         {
-            default: 'var(--s-2)',
+            default: 'var(--s-5)',
             description: 'Set the spacing between the text and icon. This is ignored if icon-only is true.',
             name: 'spacing',
             value: 'Any CSS size value. It is highly recommended a modular scale value be used.',
