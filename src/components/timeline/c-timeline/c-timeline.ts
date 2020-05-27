@@ -184,7 +184,7 @@ export class CTimeline {
                     if (!this.scrollLastSpot) {
                         this.scrollCurrentTime = true;
                     }
-                    // this.scrollToSpot();
+                    this.scrollToSpot();
                 }, 400);
             });
         },
@@ -195,14 +195,16 @@ export class CTimeline {
     /**
      * Take entries that are input and transform them into entries the calendar can use
      */
-    public transformEntries = _.throttle(async () => {
+    public transformEntries = _.throttle(() => {
         if (this.actions.getEntries || !this.entries.length) {
             return;
         }
 
         try {
             if (this.timeView !== 'month') {
-                for (const day of this.displayDays) {
+                _.forEach(this.displayDays, async day => {
+                    day.isLoading = true;
+
                     day.entries = await filterMapEntries(
                         this.entries,
                         this.pxPerMinute,
@@ -214,7 +216,11 @@ export class CTimeline {
                         this.tzOffset,
                         this.zoomLevel,
                     );
-                }
+
+                    this.taskQueue.queueMicroTask(() => {
+                        day.isLoading = false;
+                    });
+                });
             }
         } catch (e) {
             this.notification.error('There was an error parsing the entries. Please try again.');
