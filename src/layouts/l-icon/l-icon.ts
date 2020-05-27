@@ -21,4 +21,10 @@ export class LIcon {
     public spacing = 'var(--s-1)';
 
     public styles = styles;
+
+    public attached() {
+        if (typeof this.iconOnly !== 'boolean') {
+            this.iconOnly = false;
+        }
+    }
 }
