@@ -18,7 +18,7 @@ describe('l-icon component', () => {
         describe('Enable Booleans', () => {
             it('testing iconOnly enabled', async done => {
                 component = StageComponent.withResources()
-                    .inView('<l-icon icon-only.bind="customIconLoading"></l-grid>')
+                    .inView('<l-icon icon-only.bind="customIconOnly"></l-icon>')
                     .boundTo({
                         customIconOnly: 1,
                     });
