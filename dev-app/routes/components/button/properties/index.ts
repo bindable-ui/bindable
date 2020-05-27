@@ -34,7 +34,7 @@ export class ButtonProperties {
             default: 'primary',
             description: 'Set the color',
             name: 'color',
-            value: 'primary | secondary | neutral | danger',
+            value: 'primary | secondary | subOne | neutral | danger',
         },
         {
             description: 'If you need an <a> this will set the URL.',

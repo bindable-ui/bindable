@@ -13,10 +13,31 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <div>
                 <l-stack spacing="var(--s-3)">
                     <c-h1>Overview</c-h1>
-                    <c-h2>What are tokens</c-h2>
-                    <c-p size="large" max-width="65rem">Tokens are CSS custom properties (aka css variables) that set various things in your application. By changing these you customize the way Bindable looks.</c-p>
+                    <l-stack spacing="var(--s5)">
+                        <div>
+                            <l-stack spacing="var(--s-3)">
+                                <c-h2>What are tokens?</c-h2>
+                                <l-stack>
+                                    <c-p
+                                        size="large"
+                                        max-width="40rem"
+                                    >
+                                        Tokens are things that global styles, layouts, components, or elements will use. They are CSS custom properites but differ from the CSS custom properites used for theming. These properties can be used by any other part of Bindable while the theming custom properites are specific to their layout/component/element. Tokens are set up in the legacy.css theme file under the :root so they are available everywhere. We have divided them up into four different parts.
+                                    </c-p>
+                                    <c-list>
+                                        <li>Global Properties</li>
+                                        <li>Color</li>
+                                        <li>Fonts</li>
+                                        <li>Transitions</li>
+                                    </c-list>
+                                    <c-button color="neutral" title="View legacy theme" target-new.bind="true" href="https://github.com/bindable-ui/bindable/blob/master/src/global-styles/themes/main.css"></c-button>
+                                </l-stack>
+                            </l-stack>
+                        </div>
+                    </l-stack>
                 </l-stack>
             </div>
+            <c-button title="Next: Global Properties" href="#/tokens/global-properties"></c-button>
         </l-stack>
     </l-box>
 </template>

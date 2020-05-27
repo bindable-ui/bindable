@@ -19,7 +19,7 @@ export class RadioThemeProperties {
             _class: 'monospaced',
             colClass: 't350',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 

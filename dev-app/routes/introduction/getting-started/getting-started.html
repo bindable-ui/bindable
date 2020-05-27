@@ -1,0 +1,114 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s-3)">
+            <c-h1>Getting Started</c-h1>
+
+            <l-stack spacing="var(--s5)">
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>Background</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            We are a team of designers and engineers building online tools to help customers manage their video content. As our team expanded and the features we needed to build grew, we needed something to help us stay on the same page. This started with a pattern library and it worked great for a while. Over time though we noticed different teams using the pattern library differently. We started to build Bindable to help with that. Instead of just a list of CSS classes, Bindable provides a more structured way of building user interfaces. We have found this keeps us from rebuilding the wheel over and over. We are far from done but Bindable is now in a state where others might enjoying using it.
+                        </c-p>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>Install</c-h2>
+                        <c-code>npm install @bindable-ui/bindable</c-code>
+                        <c-h5>Optional Bindable Icons</c-h5>
+                        <c-code>npm install @bindable-ui/bindable-icons</c-code>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>Project Setup</c-h2>
+                        <l-stack>
+                            <l-stack spacing="var(--s-4)">
+                                <c-p size="large">Add Bindable as a plugin into your Aurelia project</c-p>
+                                <c-code>aurelia.use
+    .standardConfiguration()
+    .plugin(PLATFORM.moduleName('@bindable-ui/bindable'));</c-code>
+                                <c-notification type="info">Depending on your Webpack config, you may be required to handle CSS imports from Bindable manually.</c-notification>
+                            </l-stack>
+                            <l-stack spacing="var(--s-4)">
+                                <c-p size="large">(Optional) Add Bindable Icons as a plugin into your Aurelia project</c-p>
+                                <c-code>aurelia.use
+    ...
+  .plugin(PLATFORM.moduleName('@bindable-ui/bindable-icons'))</c-code>
+                                <c-p size="large">Place this where you would like the svg sprite map to be placed in your code.</c-p>
+                                <c-code>&lt;bindable-icons&gt;&lt;/bindable-icons&gt;</c-code>
+                            </l-stack>
+                        </l-stack>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>Optional Configuration</c-h2>
+                        <l-stack>
+                            <l-stack spacing="var(--s-4)">
+                                <c-h3>Using Helper classes</c-h3>
+                                <c-code>import {LocalStorageHelper} from '@bindable-ui/bindable';
+...
+LocalStorageHelper.loadOrDefault('exampleKey', null);</c-code>
+                            </l-stack>
+                            <l-stack spacing="var(--s-4)">
+                                <c-h3>Using TS Interfaces</c-h3>
+                                <c-code>import {CTableCol} from '@bindable-ui/bindable';
+...
+public listCols: CTableCol[] = [];</c-code>
+                            </l-stack>
+                            <l-stack spacing="var(--s-4)">
+                                <c-h3>Import CSS Modules classes</c-h3>
+                                <c-p size="large">If you need access to a specific class in a component, you can import the json file for it to get all of the style class names.</c-p>
+                                <c-code>import cTileCssJson from '@bindable-ui/bindable/dist/native-modules/components/tile/c-tile/c-tile.css.json';
+...
+console.log(cTileCssJson.tile);</c-code>
+                            </l-stack>
+                            <l-stack spacing="var(--s-4)">
+                                <c-h3>Use Bindable ViewModels and Views</c-h3>
+                                <c-p size="large">If you need to use a custom view and ViewModel (in a table for instance).</c-p>
+                                <c-code>import {CTableCol} from '@bindable-ui/bindable';
+...
+public listCols: CTableCol[] = [
+    {
+        checkChanged: row => console.log(row),
+        colClass: 't30',
+        colHeadName: 'selected',
+        colHeadSelectedChanged: isChecked => console.log(isChecked),
+        colHeadSelectedVal: false,
+        colHeadValue: 'Select',
+        colWidth: 30,
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check'),
+    }
+];</c-code>
+                        </l-stack>
+                    </l-stack>
+                </div>
+                <c-button title="Next: Modular Scale" href="#/introduction/modular-scale"></c-button>
+            </l-stack>
+        </l-stack>
+    </l-box>
+</template>

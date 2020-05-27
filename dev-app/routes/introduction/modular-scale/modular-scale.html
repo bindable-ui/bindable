@@ -1,0 +1,197 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <style>
+        .h{
+            display: block;
+            width: 100px;
+            background: var(--c_subOneMain);
+        }
+
+        .ms-info{
+            display: block;
+            width: 100px;
+        }
+
+        .h-5{
+            height: var(--s-5);
+        }
+
+        .h-4{
+            height: var(--s-4);
+        }
+
+        .h-3{
+
+            height: var(--s-3);
+        }
+
+        .h-2{
+
+            height: var(--s-2);
+        }
+
+        .h-1{
+
+            height: var(--s-1);
+        }
+
+        .h0{
+            height: var(--s0);
+        }
+
+        .h1{
+            height: var(--s1);
+        }
+
+        .h2{
+            height: var(--s2);
+        }
+
+        .h3{
+            height: var(--s3);
+        }
+
+        .h4{
+            height: var(--s4);
+        }
+
+        .h5{
+            height: var(--s5);
+        }
+    </style>
+
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s-3)">
+            <c-h1>Modular Scale</c-h1>
+
+            <l-stack spacing="var(--s5)">
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>What is Modular Scale?</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            In Bindable modular scale is a set CSS Custom properties that can be used to set many different things in CSS. The size goes up or down in increments by multiplying or dividing each level by a ratio. These levels are then used throughout Bindable to set the size of just about eveything. From font-sizes to margin and padding. This means that all the spacing and sizing in your app are not any ol number but part of a scale. The result is that things look uniform across the board. When making your own Bindable theme it is recommnded to set your scale and then use the scale to make your theme. If you need to break out of the scale you can set things to straight px, em rem, or other values as needed. Below is the scale used in the legacy Bindable theme.
+                        </c-p>
+                        <c-code>/**
+* ^Modular Scale
+*/
+
+/* ratio */
+--ratio: 1.25;
+
+/* smaller */
+--s-5: calc(var(--s-4) / var(--ratio));
+--s-4: calc(var(--s-3) / var(--ratio));
+--s-3: calc(var(--s-2) / var(--ratio));
+--s-2: calc(var(--s-1) / var(--ratio));
+--s-1: calc(var(--s0) / var(--ratio));
+
+/* base */
+--s0: 1rem;
+
+/* larger */
+--s1: calc(var(--s0) * var(--ratio));
+--s2: calc(var(--s1) * var(--ratio));
+--s3: calc(var(--s2) * var(--ratio));
+--s4: calc(var(--s3) * var(--ratio));
+--s5: calc(var(--s4) * var(--ratio));</c-code>
+
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            --s0 stands for 'size 0'. It is the base level of your scale. Everything else stems from this value. --s1 is one level larger while --s-1 is one level smaller. For directions and how to change these in your Bindable theme see the next section on theming.
+                        </c-p>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>Example</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            This is the scale that comes with the legacy.css theme.
+                        </c-p>
+                        <l-cluster align="flex-start">
+                            <div>
+                                <l-stack>
+                                    <div class="h h-5"></div>
+                                    <div class="ms-info"><c-code>--s-5</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h-4"></div>
+                                    <div class="ms-info"><c-code>--s-4</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h-3"></div>
+                                    <div class="ms-info"><c-code>--s-3</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h-2"></div>
+                                    <div class="ms-info"><c-code>--s-2</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h-1"></div>
+                                    <div class="ms-info"><c-code>--s-1</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h0"></div>
+                                    <div class="ms-info"><c-code>--s0</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h1"></div>
+                                    <div class="ms-info"><c-code>--s1</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h2"></div>
+                                    <div class="ms-info"><c-code>--s2</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h3"></div>
+                                    <div class="ms-info"><c-code>--s3</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h4"></div>
+                                    <div class="ms-info"><c-code>--s4</c-code></div>
+                                </l-stack>
+                                <l-stack>
+                                    <div class="h h5"></div>
+                                    <div class="ms-info"><c-code>--s5</c-code></div>
+                                </l-stack>
+                            </div>
+                        </l-cluster>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>How to set your scale in Bindable</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            The only two values you should need to set in your Bindable theme is --s0 and --ratio. You can change the othres if you'd like to use different math to calculate the scale.
+                        </c-p>
+                    </l-stack>
+                </div>
+                <c-button title="Next: Theming" href="#/introduction/theming"></c-button>
+            </l-stack>
+        </l-stack>
+    </l-box>
+</template>

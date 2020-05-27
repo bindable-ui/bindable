@@ -1,0 +1,27 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./l-icon.css"></require>
+
+    <span
+        css="
+            --icon-spacing: ${spacing};
+            --icon-size: ${size};
+            --icon-align: ${align};
+        "
+    >
+        <svg
+            class="
+                ${styles.icon}
+                ${iconOnly ? '' : styles.spacing}
+            "
+            css="--icon-color: ${color}"
+        >
+            <use xlink:href="#${icon}"></use>
+        </svg>
+        <slot></slot>
+    </span>
+</template>

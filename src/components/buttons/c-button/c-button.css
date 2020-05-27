@@ -12,6 +12,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  COLORS
  *      - Primary
  *      - Secondary
+ *      - SubOne
  *      - Neutral
  *  ICON
  *      - Base
@@ -91,8 +92,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /**
-* ^Neutral
-*/
+ * ^SubOne
+ */
+
+.sub-one{
+    background-color: var(--button-subOne-background);
+    color: var(--button-subOne-color) !important;
+}
+
+.sub-one:hover{
+    background-color: var(--button-subOne-hover-background) !important;
+}
+
+
+/**
+ * ^Neutral
+ */
 
 .neutral{
     background-color: var(--button-neutral-background);
@@ -150,7 +165,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon svg{
     position: absolute;
-    fill: currentColor;
+    color: currentColor;
 }
 
 
@@ -275,6 +290,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .secondary.disabled:hover{
     background-color: var(--button-secondary-disabled-background) !important;
     color: var(--button-secondary-disabled-color) !important;
+}
+
+.sub-one.disabled,
+.sub-one.disabled:hover{
+    background-color: var(--button-subOne-disabled-background) !important;
+    color: var(--button-subOne-disabled-color) !important;
 }
 
 .neutral.disabled,

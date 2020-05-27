@@ -49,6 +49,12 @@ export class SidebarProperties {
             value: 'left | right',
         },
         {
+            default: 'unset',
+            description: 'Set the background of the sidebar.',
+            name: 'side-background',
+            value: 'CSS Color or Background Image',
+        },
+        {
             default: 'initial',
             description: 'Set the size of the sidebar. Leave blank for no set size.',
             name: 'side-width',

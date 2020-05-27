@@ -59,7 +59,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .info svg{
-    fill: var(--notification-info-color);
+    color: var(--notification-info-color);
 }
 
 
@@ -73,7 +73,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .warning svg{
-    fill: var(--notification-warning-color);
+    color: var(--notification-warning-color);
 }
 
 
@@ -87,7 +87,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .critical svg{
-    fill: var(--notification-critical-color);
+    color: var(--notification-critical-color);
 }
 
 
@@ -101,7 +101,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .success svg{
-    fill: var(--notification-success-color);
+    color: var(--notification-success-color);
 }
 
 

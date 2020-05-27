@@ -13,6 +13,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Placeholder
  *  STATE
  *      - Error
+ *      - Warning
+ *      - Info
  *  ICON
  *  BUTTON
  *      - Base
@@ -104,6 +106,7 @@ input[type='text']{
     box-shadow: var(--input-box-shadow-error);
 }
 
+
 /**
  * ^Warning
  */
@@ -113,6 +116,18 @@ input[type='text']{
 .warning{
     background: var(--input-background-warning);
     box-shadow: var(--input-box-shadow-warning);
+}
+
+
+/**
+ * ^Info
+ */
+
+.info:focus,
+.info:active,
+.info{
+    background: var(--input-background-info);
+    box-shadow: var(--input-box-shadow-info);
 }
 
 
@@ -151,12 +166,6 @@ input[type='text']{
 	border-width: var(--input-button-border-size) !important;
     border-left: 0;
     border-radius: var(--input-button-border-radius);
-}
-
-.button > button:hover{
-    color: var(--input-button-hover-color) !important;
-    fill:  var(--input-button-hover-color) !important;
-    background: var(--input-button-hover-background) !important;
 }
 
 .button > button:before{

@@ -12,15 +12,29 @@ export class Intro {
     public router: Router;
     public routes = [
         {
-            redirect: 'install',
+            redirect: 'getting-started',
             route: '',
         },
         {
-            moduleId: PLATFORM.moduleName('./install/install'),
-            name: 'install',
+            moduleId: PLATFORM.moduleName('./getting-started/getting-started'),
+            name: 'getting-started',
             nav: true,
-            route: 'install',
-            title: 'Install',
+            route: 'getting-started',
+            title: 'Getting Started',
+        },
+        {
+            moduleId: PLATFORM.moduleName('./modular-scale/modular-scale'),
+            name: 'modular-scale',
+            nav: true,
+            route: 'modular-scale',
+            title: 'Modular Scale',
+        },
+        {
+            moduleId: PLATFORM.moduleName('./theming/theming'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
         },
         {
             moduleId: PLATFORM.moduleName('./contribute/contribute'),

@@ -19,7 +19,7 @@ export class ButtonThemeProperties {
             _class: 'monospaced',
             colClass: 't350',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 
@@ -112,6 +112,31 @@ export class ButtonThemeProperties {
         {
             default: 'var(--button-color)',
             name: '--button-secondary-color',
+            property: 'background-color',
+        },
+        {
+            default: 'var(--c_subOneMain)',
+            name: '--button-subOne-background',
+            property: 'background-color',
+        },
+        {
+            default: 'var(--c_subOneLight)',
+            name: '--button-subOne-hover-background',
+            property: 'background-color',
+        },
+        {
+            default: '#20623F',
+            name: '--button-subOne-disabled-background',
+            property: 'background-color',
+        },
+        {
+            default: 'var(--button-disabled-color)',
+            name: '--button-subOne-disabled-color',
+            property: 'background-color',
+        },
+        {
+            default: 'var(--button-color)',
+            name: '--button-subOne-color',
             property: 'background-color',
         },
         {
