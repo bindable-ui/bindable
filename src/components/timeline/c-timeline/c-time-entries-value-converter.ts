@@ -28,3 +28,9 @@ export class TransformEntriesValueConverter {
         return mappedEntries;
     }
 }
+
+export class VisibleDaysValueConverter {
+    public toView(days) {
+        return _.filter(days, day => !day.hidden);
+    }
+}

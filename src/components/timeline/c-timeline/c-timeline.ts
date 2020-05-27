@@ -620,7 +620,6 @@ export class CTimeline {
         let startTime;
         let endTime;
         let dayOfWeek: ITimeDay;
-        let existingDate;
 
         const [displayBlocksDay, startIndexes] = this.calculateBlocksNumStart();
 
@@ -641,20 +640,7 @@ export class CTimeline {
                     today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
                 };
 
-                existingDate = _.find(this.displayDays, day => day.date === dayOfWeek.date);
-
-                if (existingDate) {
-                    _.forEach(this.displayDays, day => {
-                        if (day.date !== dayOfWeek.date) {
-                            day.hidden = true;
-                        }
-                    });
-                    existingDate.hidden = false;
-                    existingDate.blocks = dayOfWeek.blocks;
-                } else {
-                    _.forEach(this.displayDays, day => (day.hidden = true));
-                    this.insertDayIntoWeek(dayOfWeek);
-                }
+                this.updateDisplayDays(dayOfWeek);
 
                 break;
             case 'week':
@@ -676,27 +662,12 @@ export class CTimeline {
                         today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
                     };
 
-                    existingDate = _.find(this.displayDays, day => day.date === dayOfWeek.date);
-
-                    if (existingDate) {
-                        existingDate.hidden = false;
-                        existingDate.blocks = dayOfWeek.blocks;
-                    } else {
-                        this.insertDayIntoWeek(dayOfWeek);
-                    }
-
                     if (index === 0) {
-                        const filteredDays = _.filter(
-                            this.displayDays,
-                            day => new Date(day.date).valueOf() < new Date(dayOfWeek.date).valueOf(),
-                        );
-                        _.forEach(filteredDays, day => (day.hidden = true));
+                        this.updateDisplayDays(dayOfWeek, true, true);
                     } else if (index === this.days - 1) {
-                        const filteredDays = _.filter(
-                            this.displayDays,
-                            day => new Date(day.date).valueOf() > new Date(dayOfWeek.date).valueOf(),
-                        );
-                        _.forEach(filteredDays, day => (day.hidden = true));
+                        this.updateDisplayDays(dayOfWeek, true, false, true);
+                    } else {
+                        this.updateDisplayDays(dayOfWeek, true);
                     }
 
                     startTime.add(1, 'day');
@@ -727,28 +698,12 @@ export class CTimeline {
                         today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
                     };
 
-                    existingDate = _.find(this.displayDays, day => day.date === dayOfWeek.date);
-
-                    if (existingDate) {
-                        existingDate.hidden = false;
-                        existingDate.blocks = dayOfWeek.blocks;
-                    } else {
-                        this.insertDayIntoWeek(dayOfWeek);
-                    }
-
                     if (index === 0) {
-                        const filteredDays = _.filter(
-                            this.displayDays,
-                            day => new Date(day.date).valueOf() < new Date(dayOfWeek.date).valueOf(),
-                        );
-                        // console.log(filteredDays);
-                        _.forEach(filteredDays, day => (day.hidden = true));
+                        this.updateDisplayDays(dayOfWeek, true, true);
                     } else if (index === 2) {
-                        const filteredDays = _.filter(
-                            this.displayDays,
-                            day => new Date(day.date).valueOf() > new Date(dayOfWeek.date).valueOf(),
-                        );
-                        _.forEach(filteredDays, day => (day.hidden = true));
+                        this.updateDisplayDays(dayOfWeek, true, false, true);
+                    } else {
+                        this.updateDisplayDays(dayOfWeek, true);
                     }
 
                     startTime.add(1, 'day');
@@ -796,7 +751,7 @@ export class CTimeline {
                     day.isLoading = false;
                 });
             } else if (day.entries.length) {
-                // Update data
+                // Update existing data
                 day.isLoading = true;
 
                 day.entries = await mapEntries(
@@ -836,6 +791,11 @@ export class CTimeline {
         });
     }
 
+    /**
+     * Inserts a day into the proper chronilogical order in the displayDays array
+     *
+     * @param dayOfWeek Current ITimeDay object
+     */
     private insertDayIntoWeek(dayOfWeek: ITimeDay) {
         if (!this.displayDays.length) {
             this.displayDays.push(dayOfWeek);
@@ -844,13 +804,66 @@ export class CTimeline {
 
         let a;
 
-        for (a = 0; a <= this.displayDays.length - 1; a += 1) {
+        for (a = 0; a < this.displayDays.length; a += 1) {
             if (new Date(dayOfWeek.date).valueOf() < new Date(this.displayDays[a].date).valueOf()) {
                 break;
             }
         }
 
         this.displayDays.splice(a, 0, dayOfWeek);
+    }
+
+    /**
+     * Send in a ITimeDay and it will update the existing displayDays array to properly add it or update other items
+     * in the array to hide them.
+     *
+     * @param dayOfWeek Current ITimeDay object
+     * @param weekDay Is part of 3-Day or Week view
+     * @param beforeDay Update days before the start of the 3-Day/Week view
+     * @param afterDay Update days after the end of the 3-Day/Week view
+     */
+    private updateDisplayDays(dayOfWeek: ITimeDay, weekDay?: boolean, beforeDay?: boolean, afterDay?: boolean) {
+        const existingDate = _.findIndex(this.displayDays, day => day.date === dayOfWeek.date);
+
+        if (!weekDay) {
+            // Single day view
+            for (let a = 0; a < this.displayDays.length; a += 1) {
+                if (dayOfWeek.date !== this.displayDays[a].date) {
+                    this.displayDays[a].hidden = true;
+                } else {
+                    this.displayDays[a].hidden = false;
+                    this.displayDays[a].blocks = dayOfWeek.blocks;
+                }
+
+                this.displayDays.splice(a, 1, this.displayDays[a]);
+            }
+
+            if (existingDate === -1) {
+                this.insertDayIntoWeek(dayOfWeek);
+            }
+        } else {
+            // 3-Day or Week view
+            if (existingDate > -1) {
+                this.displayDays[existingDate].hidden = false;
+                this.displayDays[existingDate].blocks = dayOfWeek.blocks;
+                this.displayDays.splice(existingDate, 1, this.displayDays[existingDate]);
+            } else {
+                this.insertDayIntoWeek(dayOfWeek);
+            }
+        }
+
+        // Start or End of week or 3-day view
+        if (beforeDay || afterDay) {
+            for (let a = 0; a < this.displayDays.length; a += 1) {
+                if (
+                    (beforeDay && new Date(this.displayDays[a].date).valueOf() < new Date(dayOfWeek.date).valueOf()) ||
+                    (afterDay && new Date(this.displayDays[a].date).valueOf() > new Date(dayOfWeek.date).valueOf())
+                ) {
+                    this.displayDays[a].hidden = true;
+                    this.displayDays.splice(a, 1, this.displayDays[a]);
+                }
+            }
+        }
     }
 
     /**
@@ -1082,6 +1095,9 @@ export class CTimeline {
         return [moment(startTime), moment(endTime)];
     }
 
+    /**
+     * Returns the data for the current zoom level
+     */
     private getZoomLevelData() {
         const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
         const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
