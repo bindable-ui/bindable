@@ -27,11 +27,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     padding: var(--input-button-padding) !important;
 }
 
-.copy button:hover{
-    color: var(--input-button-hover-color) !important;
-    background: var(--input-button-hover-background) !important;
-}
-
 .copy button:before{
     display: none;
 }
@@ -48,6 +43,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     width: calc(100% - var(--copy-button-width));
     padding: var(--copy-content-padding);
     border: var(--copy-content-border);
+    border-right: none;
     background: var(--copy-content-background);
     color: var(--copy-content-color);
     font-size: var(--copy-content-font-size);

@@ -31,7 +31,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     top: var(--input-icon-top-spacing);
     width: var(--input-icon-size);
     height: var(--input-icon-size);
-    fill: var(--input-icon-color);
+    color: var(--input-icon-color);
     z-index: var(--z_base);
 }
 
@@ -70,5 +70,5 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .align-input{
     display: block;
-    margin-top: var(--s2);
+    margin-top: calc(var(--s2) - 1px);
 }

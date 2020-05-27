@@ -12,6 +12,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  COLORS
  *      - Primary
  *      - Secondary
+ *      - SubOne
  *      - Neutral
  *  ICON
  *      - Base
@@ -91,8 +92,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /**
-* ^Neutral
-*/
+ * ^SubOne
+ */
+
+.sub-one{
+    background-color: var(--button-subOne-background);
+    color: var(--button-subOne-color) !important;
+}
+
+.sub-one:hover{
+    background-color: var(--button-subOne-hover-background) !important;
+}
+
+
+/**
+ * ^Neutral
+ */
 
 .neutral{
     background-color: var(--button-neutral-background);
@@ -144,14 +159,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Base
  */
 
-/* .icon{ */
-/*     position: relative; */
-/* } */
-/*  */
-/* .icon svg{ */
-/*     position: absolute; */
-/*     fill: currentColor; */
-/* } */
+.icon{
+    position: relative;
+}
+
+.icon svg{
+    position: absolute;
+    color: currentColor;
+}
 
 
 
@@ -181,24 +196,24 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     padding: var(--button-medium-icon-center-padding) !important;
 }
 
-/* .medium svg{ */
-/*     width: var(--button-medium-icon-svg-size); */
-/*     height: var(--button-medium-icon-svg-size); */
-/*     margin-top: var(--button-medium-icon-svg-top-spacing); */
-/* } */
-/*  */
-/* .medium.left svg{ */
-/*     left: var(--button-medium-icon-svg-spacing); */
-/* } */
-/*  */
-/* .medium.right svg{ */
-/*     right: var(--button-medium-icon-svg-spacing); */
-/* } */
-/*  */
-/* .medium.center svg{ */
-/*     position: relative; */
-/*     margin-top: -3px; */
-/* } */
+.medium svg{
+    width: var(--button-medium-icon-svg-size);
+    height: var(--button-medium-icon-svg-size);
+    margin-top: var(--button-medium-icon-svg-top-spacing);
+}
+
+.medium.left svg{
+    left: var(--button-medium-icon-svg-spacing);
+}
+
+.medium.right svg{
+    right: var(--button-medium-icon-svg-spacing);
+}
+
+.medium.center svg{
+    position: relative;
+    margin-top: -3px;
+}
 
 
 /**
@@ -221,25 +236,25 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     padding: var(--button-small-icon-center-padding);
 }
 
-/* .small svg{ */
-/*     width: var(--button-small-icon-svg-size); */
-/*     height: var(--button-small-icon-svg-size); */
-/*     margin-top: var(--button-small-icon-svg-top-spacing); */
-/* } */
-/*  */
-/* .small.left svg{ */
-/*     left: var(--button-small-icon-svg-spacing); */
-/* } */
-/*  */
-/* .small.right svg{ */
-/*     right: var(--button-small-icon-svg-spacing); */
-/* } */
-/*  */
-/* .small.center svg{ */
-/*     position: relative; */
-/*     top: 0; */
-/*     margin-top: -2px; */
-/* } */
+.small svg{
+    width: var(--button-small-icon-svg-size);
+    height: var(--button-small-icon-svg-size);
+    margin-top: var(--button-small-icon-svg-top-spacing);
+}
+
+.small.left svg{
+    left: var(--button-small-icon-svg-spacing);
+}
+
+.small.right svg{
+    right: var(--button-small-icon-svg-spacing);
+}
+
+.small.center svg{
+    position: relative;
+    top: 0;
+    margin-top: -2px;
+}
 
 
 
@@ -275,6 +290,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .secondary.disabled:hover{
     background-color: var(--button-secondary-disabled-background) !important;
     color: var(--button-secondary-disabled-color) !important;
+}
+
+.sub-one.disabled,
+.sub-one.disabled:hover{
+    background-color: var(--button-subOne-disabled-background) !important;
+    color: var(--button-subOne-disabled-color) !important;
 }
 
 .neutral.disabled,

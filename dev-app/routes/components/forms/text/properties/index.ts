@@ -47,6 +47,11 @@ export class TextInputProperties {
             value: 'string',
         },
         {
+            description: 'This will set the color of the button',
+            name: 'button-color',
+            value: 'primary | secondary | subOne | neutral | danger',
+        },
+        {
             default: 'false',
             description: 'This will add a x link to the right side of the input field.',
             name: 'clearable',
@@ -107,7 +112,7 @@ export class TextInputProperties {
         {
             description: 'Set a state for the text input.',
             name: 'state',
-            value: 'error | warning | disabled | hidden',
+            value: 'error | warning | info | disabled | hidden',
         },
         {
             description: 'Sets the value of the text input',

@@ -31,11 +31,13 @@
             <l-stack spacing="var(--s-3)">
                 <c-h3>type</c-h3>
                 <c-code-sample>
-                    <c-notification type="info">Info Notification</c-notification>
-                    <c-notification type="warning">Warning Notification</c-notification>
-                    <c-notification type="critical">Critical Notification</c-notification>
-                    <c-notification type="success">Success Notification</c-notification>
-                    <c-notification type="success" state="hidden">Will not show</c-notification>
+                    <l-stack spacing="var(--s-3)">
+                        <c-notification type="info">Info Notification</c-notification>
+                        <c-notification type="warning">Warning Notification</c-notification>
+                        <c-notification type="critical">Critical Notification</c-notification>
+                        <c-notification type="success">Success Notification</c-notification>
+                        <c-notification type="success" state="hidden">Will not show</c-notification>
+                    </l-stack>
                 </c-code-sample>
             </l-stack>
         </div>

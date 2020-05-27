@@ -67,7 +67,7 @@ export class Layouts {
         {
             moduleId: PLATFORM.moduleName('./icon/index'),
             name: 'icon',
-            nav: true,
+            nav: false,
             route: 'icon',
             title: 'Icon',
         },

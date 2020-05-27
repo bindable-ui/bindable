@@ -28,11 +28,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         has-focus.bind="hasFocus"
         placeholder.bind="placeholder"
         icon.bind="icon"
+        icon-color.bind="iconColor"
         type.bind="type"
         icon-position.bind="iconPosition"
         id="${id}"
         button.bind="button"
         button-text.bind="buttonText"
+        button-color.bind="buttonColor"
         button-action.call="onButtonAction(textValue)"
         clearable.bind="clearable"
         state.bind="_state"
@@ -54,5 +56,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         if.bind="_state !== 'hidden' && warningMsg"
     >
         ${warningMsg}
+    </c-form-warning>
+    <c-form-info
+        state="${_state}"
+        if.bind="_state !== 'hidden' && infoMsg"
+    >
+        ${infoMsg}
     </c-form-warning>
 </template>
