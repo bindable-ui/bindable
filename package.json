@@ -1,14 +1,14 @@
 {
   "name": "@bindable-ui/bindable",
   "description": "An Aurelia component library",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/bindable-ui/bindable"
   },
   "license": "MIT",
   "devDependencies": {
-    "@bindable-ui/bindable-icons": "^0.1.6",
+    "@bindable-ui/bindable-icons": "^0.1.10",
     "@types/jest": "^24.0.9",
     "@types/jquery": "^3.3.29",
     "@types/lodash": "^4.14.133",

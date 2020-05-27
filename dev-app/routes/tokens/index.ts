@@ -44,13 +44,6 @@ export class Core {
             title: 'Fonts',
         },
         {
-            moduleId: PLATFORM.moduleName('./modular-scale/index'),
-            name: 'modularScale',
-            nav: true,
-            route: 'modular-scale',
-            title: 'Modular Scale',
-        },
-        {
             moduleId: PLATFORM.moduleName('./transitions/index'),
             name: 'transitions',
             nav: true,

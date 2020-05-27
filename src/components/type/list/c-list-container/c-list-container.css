@@ -63,7 +63,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .dark li a:hover svg{
-    fill: var(--list-container-dark-a-icon-hover);
+    color: var(--list-container-dark-a-icon-hover);
 }
 
 
@@ -83,7 +83,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .light li a:hover svg{
-    fill: var(--list-container-light-a-icon-hover);
+    color: var(--list-container-light-a-icon-hover);
 }
 
 
@@ -101,7 +101,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .transparent li a:hover svg{
-    fill: var(--list-container-light-a-icon-hover);
+    color: var(--list-container-light-a-icon-hover);
 }
 
 
@@ -112,7 +112,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .transparent li a svg,
 .dark li a svg,
 .light li a svg{
-    transition: fill var(--trans_main);
+    transition: color var(--trans_main);
 }
 
 

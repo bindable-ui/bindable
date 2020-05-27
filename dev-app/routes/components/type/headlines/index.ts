@@ -59,7 +59,7 @@ export class Headlines {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 
@@ -144,7 +144,7 @@ export class Headlines {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 
@@ -235,7 +235,7 @@ export class Headlines {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 
@@ -324,7 +324,7 @@ export class Headlines {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 
@@ -394,7 +394,7 @@ export class Headlines {
             _class: 'monospaced',
             colClass: 't450',
             colHeadName: 'default',
-            colHeadValue: 'Main Theme',
+            colHeadValue: 'Bindable Theme',
         },
     ];
 

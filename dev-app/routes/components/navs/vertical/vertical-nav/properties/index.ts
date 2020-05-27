@@ -23,7 +23,7 @@ export class VerticalProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't175',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },

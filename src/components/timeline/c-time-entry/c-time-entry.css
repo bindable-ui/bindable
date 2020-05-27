@@ -72,7 +72,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .clickable:hover:before{
-    opacity: 1;
+    opacity: 0.8;
 }
 
 
@@ -160,7 +160,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icons > *{
     margin-bottom: 6px;
-    fill: var(--time-entry-accent-color);
+    color: var(--time-entry-accent-color);
 }
 
 :global .timeline-week :local .icons-shift{
@@ -185,7 +185,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 :global .timeline-day :local .small-day .icons > *,
 :global .timeline-week :local .small-week .icons > *{
-    fill: #C6C6C6;
+    color: #C6C6C6;
 }
 
 :global .small-day:before,
@@ -203,7 +203,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 :global .timeline-day :local .expandable-day .icons > *,
 :global .timeline-week :local .expandable-week .icons > *{
-    fill: #C6C6C6;
+    color: #C6C6C6;
 }
 
 :global .expandable-day:before,

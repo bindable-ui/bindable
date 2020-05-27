@@ -4,7 +4,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <l-sidebar side-width="19rem" content-min="40rem" spacing="0px" scrolling.bind="true">
+    <l-sidebar
+        side-width="19rem"
+        content-min="40rem"
+        spacing="0px"
+        scrolling.bind="true"
+        side-background="var(--c_darkGray)"
+    >
         <c-nav-vertical>
             <c-nav-vertical-item
                 repeat.for="row of router.navigation"

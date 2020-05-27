@@ -1,0 +1,115 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s-3)">
+            <c-h1>Theming</c-h1>
+
+            <l-stack spacing="var(--s5)">
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                        <c-h2>What is theming?</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            Theming allows for you to set the design style of your app. Design systems that don't allow theming force you to use their design style. The only way around this is to dig in to the CSS and painfully start to make edits. Bindable does support theming so you can use your own design style.
+                        </c-p>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                    	<c-h2>Included themes</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                    		Bindable comes with a default theme. This theme is used here in the docs and you are welcome to use it. You just need to include the theme CSS file in your main.js file.
+                        </c-p>
+                        <c-code>import '@bindable-ui/bindable/dist/native-modules/global-styles/themes/legacy.css';</c-code>
+                        <c-button color="neutral" title="View legacy theme" target-new.bind="true" href="https://github.com/bindable-ui/bindable/blob/master/src/global-styles/themes/main.css"></c-button>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                    	<c-h2>Making your own theme</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            To make your own theme it is easiest to download a copy of the <a href="https://github.com/bindable-ui/bindable/blob/master/src/global-styles/themes/main.css" target="_blank">legacy theme</a> and then make edits to it. Doing this will let you see all the available configurations and allow you set your own values. There is a legend at the top of the legacy.css file that you could use to search for section titles to jump to difference sections of the file.
+                        </c-p>
+                        <c-code>...
+ *  BUTTON
+ *  COPY
+ *  FORM
+ *      - c-disabled
+ *      - c-form-error
+ *      - c-form-image
+ *      - c-form-warning
+...</c-code>
+                        <c-code>/*------------------------------------*\
+    !BUTTON
+\*------------------------------------*/
+
+c-button{
+    /* Base */
+    --button-border-radius: var(--s-5);
+    --button-color: var(--c_white);
+    --button-disabled-color: #939393;
+    --button-font-family: var(--ff_primary-bold);
+...</c-code>
+
+                        <l-stack>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                            On a specific component page you will also find a theming tab. There you will find all the theming properies available that pertain to that component. <a href="#/components/button/theming">Here is the button theming page</a>.
+                        </c-p>
+
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                    		Keep in mind when changing the values it would be best to keep values that are set to a modular scale value (ex. var(--s2)) to a modular scale value. For example if you wanted the border-radius of buttons to be more rounded change the value to larger part of the scale.
+                        </c-p>
+                        </l-stack>
+                        <c-code>--button-border-radius: var(--s-5);</c-code>
+                        <c-code>--button-border-radius: var(--s-1);</c-code>
+                        <c-button color="neutral" title="View legacy theme" target-new.bind="true" href="https://github.com/bindable-ui/bindable/blob/master/src/global-styles/themes/main.css"></c-button>
+                    </l-stack>
+                </div>
+
+                <c-divider></c-divider>
+
+                <div>
+                    <l-stack spacing="var(--s-3)">
+                    	<c-h2>Using your theme</c-h2>
+                        <c-p
+                            size="large"
+                            max-width="40rem"
+                        >
+                    		Once you have completed your theme simply import it from your main.js file or load it in a manner of your choice. You don't need to use the legacy theme included with Bindable.
+                        </c-p>
+                        <c-code>import 'path-to-your-css-file.css';</c-code>
+                    </l-stack>
+                </div>
+                <c-button title="Next: Contribute" href="#/introduction/contribute"></c-button>
+            </l-stack>
+        </l-stack>
+    </l-box>
+</template>
