@@ -8,6 +8,8 @@ import * as styles from './l-icon.css.json';
 
 export class LIcon {
     @bindable
+    public action;
+    @bindable
     public align = 'unset';
     @bindable
     public color = 'unset';
@@ -21,6 +23,12 @@ export class LIcon {
     public spacing = 'var(--s-5)';
 
     public styles = styles;
+
+    public actionFunction() {
+        if (this.action && _.isFunction(this.action)) {
+            this.action();
+        }
+    }
 
     public attached() {
         if (typeof this.iconOnly !== 'boolean') {

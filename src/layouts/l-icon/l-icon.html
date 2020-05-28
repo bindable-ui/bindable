@@ -16,8 +16,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <svg
             class="
                 ${styles.icon}
+                ${action ? styles.action : ''}
                 ${iconOnly ? '' : styles.spacing}
             "
+            click.trigger="actionFunction()"
             css="--icon-color: ${color}"
         >
             <use xlink:href="#${icon}"></use>
