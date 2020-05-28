@@ -45,19 +45,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <l-stack spacing="var(--s-3)">
             <c-button
                 size="small"
-                icon="chevron-right"
-                icon-position="center"
+                icon-only.bind="true"
                 click.trigger="moveRight()"
                 state="${_state === 'disabled' ? 'hidden' : ''}"
             >
+                <l-icon
+                    align="-0.15em"
+                    icon="chevron-right"
+                    icon-only.bind="true"
+                    size="1em"
+                ></l-icon>
             </c-button>
             <c-button
                 size="small"
-                icon="chevron-left"
-                icon-position="center"
+                icon-only.bind="true"
                 click.trigger="moveLeft()"
                 state="${_state === 'disabled' ? 'hidden' : ''}"
             >
+                <l-icon
+                    align="-0.15em"
+                    icon="chevron-left"
+                    icon-only.bind="true"
+                    size="1em"
+                ></l-icon>
             </c-button>
         </l-stack>
         <c-form-select

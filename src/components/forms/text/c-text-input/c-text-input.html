@@ -6,10 +6,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-text-input.css"></require>
 
-    <c-icon
-        if.bind="icon"
+    <l-icon
         icon="${icon}"
-    ></c-icon>
+        icon-only.bind="true"
+        if.bind="icon"
+    ></l-icon>
     <span
         class="
             ${button || buttonText ? styles.buttonInput : ''}
@@ -58,7 +59,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             click.delegate="clearText()"
             if.bind="clearable && textValue"
         >
-            <c-icon icon="x"></c-icon>
+            <l-icon
+                icon="x"
+                icon-only.bind="true"
+            ></l-icon>
         </a>
         <c-button
             class="
