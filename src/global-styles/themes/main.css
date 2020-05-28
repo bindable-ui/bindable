@@ -559,8 +559,7 @@ c-form-select{
     --input-icon-color: var(--c_smoke);
 
     /* Button */
-    --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
-    --input-button-padding: var(--s-3) var(--s1);
+    --input-button-padding: var(--s-3) var(--s-1);
     --input-button-border-size: 1px;
     --input-button-border-color: var(--c_black);
     --input-button-border-radius: 0 5px 5px 0;

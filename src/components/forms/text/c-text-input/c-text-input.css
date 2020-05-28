@@ -160,7 +160,7 @@ input[type='text']{
 
 .button > button{
     margin-top: 0 !important;
-    padding: var(--input-button-padding) !important;
+    padding: var(--input-button-padding);
     border-style: solid;
 	border-color: var(--input-button-border-color);
 	border-width: var(--input-button-border-size) !important;

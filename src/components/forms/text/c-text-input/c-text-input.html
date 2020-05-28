@@ -66,12 +66,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${button === 'bin' ? styles.bin : ''}
             "
             color="${buttonColor}"
-            icon="${button}"
-            icon-position="center"
+            icon-only.bind="button"
             click.delegate="buttonFn()"
             if.bind="button || buttonText"
         >
             ${buttonText}
+            <l-icon
+                icon="${button}"
+                size="1.25em"
+                align="-0.25em"
+                icon-only.bind="true"
+                if.bind="button"
+            ></l-icon>
         </c-button>
     </span>
 </template>
