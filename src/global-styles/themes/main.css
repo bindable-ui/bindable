@@ -717,7 +717,7 @@ c-notification{
     /* Base */
     --notification-font-size: var(--s-1);
     --notification-color: var(--c_white);
-    --notification-padding: var(--s-3) var(--s0) var(--s-3) 0;
+    --notification-padding: var(--s-3) var(--s-2);
 
     /* Info */
     --notification-info-border: solid 1px var(--c_subOneMain);
