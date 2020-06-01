@@ -60,11 +60,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 class="${styles.icons} ${item.shiftIcons ? styles.iconsShift : ''}"
                 if.bind="item.icons"
             >
-                <c-icon
+                <l-icon
                     repeat.for="icon of item.icons"
                     icon="${icon}"
+                    icon-only.bind="true"
+                    size="1.1em"
                     if.bind="$index < 2"
-                ></c-icon>
+                ></l-icon>
             </div>
         </div>
     </div>
