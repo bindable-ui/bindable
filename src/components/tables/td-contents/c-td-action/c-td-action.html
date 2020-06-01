@@ -11,7 +11,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         if.bind="row[col.colHeadName + 'Icon'] && col.colAction"
         click.delegate="col.colAction(row)"
     >
-        <c-icon icon="${row[col.colHeadName + 'Icon']}"></c-icon>
+        <l-icon
+            align="${row[col.colHeadName + 'IconAlign']}"
+            icon="${row[col.colHeadName + 'Icon']}"
+            size="${row[col.colHeadName + 'IconSize']}"
+            spacing="0"
+        ></l-icon>
     </span>
     <a
         class="${styles.base}"

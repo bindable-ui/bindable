@@ -344,6 +344,7 @@ export class TableViews {
                 gender: 'Male',
                 name: 'Luke Skywalker with a lot of text',
                 nameIcon: 'info',
+                nameIconSize: '1em',
                 ship: 'X-Wing',
             },
             {
@@ -645,6 +646,8 @@ export class TableViews {
             {
                 delete: 'Link Here',
                 deleteIcon: 'bin',
+                deleteIconAlign: '-0.3em',
+                deleteIconSize: '1.3em',
                 link: 'Go go Google',
                 linkURL: 'http://google.com',
                 modal: 'Launch a Modal',
@@ -678,6 +681,8 @@ export class TableViews {
                 tipTwoTipSide: 'top',
                 tipTwoTipSize: 'small',
                 tipTwoTipTriggerIcon: 'actions',
+                tipTwoTipTriggerIconAlign: '-0.3em',
+                tipTwoTipTriggerIconSize: '1.3em',
                 tipTwoTipViewModel: PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/' +
                     'tip-actions'),
             },

@@ -44,11 +44,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .base svg{
     transition: fill var(--trans_main);
     margin-right: var(--s-3);
-    fill: var(--table-action-icon-color);
+    color: var(--table-action-icon-color);
 }
 
 .base:hover svg{
-    fill: var(--table-action-icon-color-hover);
+    color: var(--table-action-icon-color-hover);
 }
 
 

@@ -213,9 +213,23 @@ export class TableColsRows {
             },
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Icon". ' +
-                'Set the icon to be placed in a cell. See the icons page for the available icons. ' +
+                'Set the icon to be placed in a cell. ' +
                 'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
                 key: '*Icon',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word "IconSize". ' +
+                'Set the size of the icon to be placed in a cell. ' +
+                'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
+                key: '*IconSize',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word "IconAlign". ' +
+                'Set the alignment of the icon to be placed in a cell. ' +
+                'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
+                key: '*IconAlign',
                 value: 'string',
             },
             {
@@ -247,6 +261,22 @@ export class TableColsRows {
                 'Only available for use with the c-td-tip view and viewModel.',
                 key: '*TipTriggerIcon',
                 value: 'Any Icon Name',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word ' +
+                '"TipTriggerIconAlign". ' +
+                'Set the icon alignment that will trigger the tip. ' +
+                'Only available for use with the c-td-tip view and viewModel.',
+                key: '*TipTriggerIconAlign',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word ' +
+                '"TipTriggerIconSize". ' +
+                'Set the icon size that will trigger the tip. ' +
+                'Only available for use with the c-td-tip view and viewModel.',
+                key: '*TipTriggerIconSize',
+                value: 'string',
             },
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word ' +
