@@ -27,10 +27,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 if.bind="showTip"
             >
                 <div slot="trigger">
-                    <c-icon
+                    <l-icon
                         icon="${tipIcon}"
-                        color="var(--c_lightGray)"
-                    ></c-icon>
+                    ></l-icon>
                 </div>
                 <div slot="content">
                     <template
@@ -95,13 +94,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                             <c-icon
                                 icon="${titleIcon}"
                                 size="tiny"
-                                if.bind="titleIcon"
+                                if.bind="false"
                             ></c-icon>
-                            <span if.bind="!searchHighlight">${title}</span>
-                            <span
-                                if.bind="searchHighlight"
-                                innerhtml.bind="searchHighlight"
-                            ></span>
+                            <l-icon
+                                icon="${titleIcon}"
+                            >
+                                <span if.bind="!searchHighlight">${title}</span>
+                                <span
+                                    if.bind="searchHighlight"
+                                    innerhtml.bind="searchHighlight"
+                                ></span>
+                            </l-icon>
                         </c-h4>
                     </div>
                 </l-cluster>
