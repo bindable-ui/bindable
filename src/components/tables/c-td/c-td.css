@@ -34,7 +34,7 @@ td input[type='text']{
 \*------------------------------------*/
 
 td c-tip span > svg{
-    vertical-align: inherit !important;
+    /* vertical-align: inherit !important; */
 }
 
 td c-tip ul li a{
