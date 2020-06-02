@@ -8,6 +8,8 @@ import {authState} from '../../../../../decorators/auth-state';
 @authState
 @containerless
 export class CFormRadio {
+    @bindable
+    public actions;
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public checked;
     @bindable
@@ -16,4 +18,10 @@ export class CFormRadio {
     public name;
     @bindable
     public state;
+
+    public checkedChanged() {
+        if (this.actions && this.actions.onChange) {
+            this.actions.onChange();
+        }
+    }
 }
