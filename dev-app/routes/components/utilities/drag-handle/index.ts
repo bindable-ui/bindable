@@ -30,10 +30,10 @@ export class DragHandle {
 
     public dragHandleProperties = [
         {
-            default: 'small',
+            default: '0.75em',
             description: 'Set the size of the drag handle.',
             name: 'size',
-            value: 'tiny | small | medium | large | huge',
+            value: 'string',
         },
     ];
 }
