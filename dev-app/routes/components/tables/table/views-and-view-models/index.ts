@@ -210,11 +210,6 @@ export class TableViews {
                 sort: true,
             },
             {
-                colClass: 't50',
-                colHeadName: 'gender',
-                colHeadValue: 'Gender',
-            },
-            {
                 _class: 'button',
                 colAction: () => window.alert('Clicked'),
                 colHeadName: 'action',
@@ -227,14 +222,22 @@ export class TableViews {
         this.buttonData = [
             {
                 action: 'Retry',
-                gender: 'Male',
                 ship: 'X-Wing',
             },
             {
                 actionButtonColor: 'secondary',
                 actionButtonIcon: 'checkmark',
+                actionButtonIconAlign: '-0.1em',
+                actionButtonIconOnly: true,
+                actionButtonIconSize: '1.0em',
                 actionButtonState: 'disabled',
-                gender: 'Female',
+                ship: 'Y-Wing',
+            },
+            {
+                action: 'Next',
+                actionButtonColor: 'neutral',
+                actionButtonIcon: 'chevron-right',
+                actionButtonIconDir: 'rtl',
                 ship: 'Y-Wing',
             },
         ];

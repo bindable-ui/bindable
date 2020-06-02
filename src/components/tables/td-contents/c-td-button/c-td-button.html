@@ -8,10 +8,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         size="small"
         color="${row[col.colHeadName + 'ButtonColor'] ? row[col.colHeadName + 'ButtonColor'] : 'primary'}"
         state="${row[col.colHeadName + 'ButtonState']}"
-        icon="${row[col.colHeadName + 'ButtonIcon']}"
-        icon-position="center"
+        icon-only.bind="row[col.colHeadName + 'ButtonIconOnly']"
         action.call="col.colAction(row)"
     >
-        ${value}
+        <l-icon
+            icon="${row[col.colHeadName + 'ButtonIcon']}"
+            icon-only.bind="row[col.colHeadName + 'ButtonIconOnly']"
+            size.bind="row[col.colHeadName + 'ButtonIconSize'] ? row[col.colHeadName + 'ButtonIconSize'] : '0.75em'"
+            align.bind="row[col.colHeadName + 'ButtonIconAlign'] ? row[col.colHeadName + 'ButtonIconAlign'] : 'unset'"
+            dir.bind="row[col.colHeadName + 'ButtonIconDir'] ? row[col.colHeadName + 'ButtonIconDir'] : 'ltr'"
+        >
+            ${value}
+        </l-icon>
     </c-button>
 </template>
