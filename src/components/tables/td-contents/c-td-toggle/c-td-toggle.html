@@ -4,6 +4,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <c-toggle-input checked-value.bind="row[col.colHeadName]"></c-toggle-input>
-    <c-toggle-label>${value ? 'Enabled' : 'Disabled'}</c-toggle-label>
+    <c-form-toggle
+        checked-value.bind="row[col.colHeadName]"
+        on-change.call="col.colOnChange(row)"
+        id.bind="generateRandom()"
+    >
+        ${value ? 'Enabled' : 'Disabled'}
+    </c-form-toggle>
+    <c-toggle-input
+        checked-value.bind="row[col.colHeadName]"
+        on-change.call="col.colOnChange(row)"
+        if.bind="false"
+    ></c-toggle-input>
+    <c-toggle-label if.bind="false">${value ? 'Enabled' : 'Disabled'}</c-toggle-label>
 </template>

@@ -26,4 +26,11 @@ export class CTdToggle {
             this.col.checkChanged(this.row);
         }
     }
+
+    public generateRandom() {
+        const random = Math.random()
+            .toString(36)
+            .substring(7);
+        return random;
+    }
 }
