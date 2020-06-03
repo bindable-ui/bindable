@@ -255,6 +255,7 @@ export class TableViews {
                 colClass: 't240',
                 colHeadName: 'status',
                 colHeadValue: 'Status',
+                colOnChange: () => window.alert('Changed'),
                 view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
                 viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
             },
