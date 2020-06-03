@@ -3,18 +3,20 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {IFormEventListener} from 'interfaces/event-listeners';
+
 export function eventListeners<T extends new (...args: any[]) => any>(constructor: T) {
     return class EventListeners extends constructor {
         public element;
         public eventElement;
-        public eventListeners = {};
+        public eventListeners: IFormEventListener;
 
         public attached() {
             if (typeof super.attached === 'function') {
                 super.attached();
             }
 
-            if (!this.element) {
+            if (!this.element || !this.eventListeners) {
                 return;
             }
 
