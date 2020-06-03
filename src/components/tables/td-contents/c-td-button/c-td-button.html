@@ -13,7 +13,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     >
         <l-icon
             icon="${row[col.colHeadName + 'ButtonIcon']}"
-            icon-only.bind="row[col.colHeadName + 'ButtonIconOnly']"
+            spacing.bind="row[col.colHeadName + 'ButtonIconSpacing'] ? row[col.colHeadName + 'ButtonIconSpacing'] : 'var(--s-5)'"
             size.bind="row[col.colHeadName + 'ButtonIconSize'] ? row[col.colHeadName + 'ButtonIconSize'] : '0.75em'"
             align.bind="row[col.colHeadName + 'ButtonIconAlign'] ? row[col.colHeadName + 'ButtonIconAlign'] : 'unset'"
             dir.bind="row[col.colHeadName + 'ButtonIconDir'] ? row[col.colHeadName + 'ButtonIconDir'] : 'ltr'"

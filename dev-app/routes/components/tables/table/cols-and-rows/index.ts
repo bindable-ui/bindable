@@ -248,6 +248,15 @@ export class TableColsRows {
             },
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word' +
+                '"ButtonIconSpacing". ' +
+                'Set this to a length value to set the space between the icon and the text. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonIconSpacing',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word' +
                 '"ButtonIconSize". ' +
                 'It will set the icon size of the icon in the button. ' +
                 'See "view and viewModels for more info on c-td-button". ' +

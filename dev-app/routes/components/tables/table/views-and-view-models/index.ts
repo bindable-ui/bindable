@@ -230,6 +230,7 @@ export class TableViews {
                 actionButtonIconAlign: '-0.1em',
                 actionButtonIconOnly: true,
                 actionButtonIconSize: '1.0em',
+                actionButtonIconSpacing: '0',
                 actionButtonState: 'disabled',
                 ship: 'Y-Wing',
             },

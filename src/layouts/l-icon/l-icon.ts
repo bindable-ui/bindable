@@ -16,8 +16,6 @@ export class LIcon {
     @bindable
     public icon;
     @bindable
-    public iconOnly = false;
-    @bindable
     public size = '0.75em';
     @bindable
     public spacing = 'var(--s-5)';
@@ -27,12 +25,6 @@ export class LIcon {
     public actionFunction() {
         if (this.action && _.isFunction(this.action)) {
             this.action();
-        }
-    }
-
-    public attached() {
-        if (typeof this.iconOnly !== 'boolean') {
-            this.iconOnly = false;
         }
     }
 }

@@ -46,24 +46,6 @@ describe('l-icon component', () => {
             component.dispose();
         });
 
-        describe('Enable Booleans', () => {
-            it('testing iconOnly enabled', async done => {
-                component = StageComponent.withResources()
-                    .inView('<l-icon icon-only.bind="customIconOnly"></l-icon>')
-                    .boundTo({
-                        customIconOnly: 1,
-                    });
-
-                try {
-                    await bootStrapEnvironment(component);
-                    expect(component.viewModel.iconOnly).toBe(false);
-                    done();
-                } catch (e) {
-                    done.fail(e);
-                }
-            });
-        });
-
         describe('CSS Classes', () => {
             it('css class: icon', async done => {
                 component = StageComponent.withResources().inView('<l-icon></l-icon>');

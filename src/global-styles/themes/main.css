@@ -32,7 +32,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - c-form-select
  *      - c-slider
  *      - c-text-input, c-textarea-input, c-copy, c-file-input, c-form-select
- *  ICON
  *  MODAL
  *  NAV
  *      - c-nav-horizontal
@@ -574,23 +573,6 @@ c-form-select{
     --input-clearable-icon-size: var(--s-2);
     --input-clearable-icon-color: var(--c_lightGray);
     --input-clearable-icon-hover-color: var(--c_primaryLight);
-}
-
-
-
-
-
-/*------------------------------------*\
-    !ICON
-\*------------------------------------*/
-
-:global(.c-icon){
-    --icon-itzy: var(--s-3);
-    --icon-tiny: var(--s-2);
-    --icon-small: var(--s-1);
-    --icon-medium: var(--s0);
-    --icon-large: var(--s1);
-    --icon-huge: var(--s2);
 }
 
 

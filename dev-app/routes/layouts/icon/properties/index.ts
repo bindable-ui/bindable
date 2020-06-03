@@ -53,12 +53,6 @@ export class IconProperties {
             value: 'Name of the icon from your svg sprite.',
         },
         {
-            default: 'false',
-            description: 'Set to true if you do not need text with your icon.',
-            name: 'icon-only',
-            value: 'Boolean',
-        },
-        {
             default: '0.75em',
             description: 'Set the size of the icon.',
             name: 'size',
@@ -66,7 +60,7 @@ export class IconProperties {
         },
         {
             default: 'var(--s-5)',
-            description: 'Set the spacing between the text and icon. This is ignored if icon-only is true.',
+            description: 'Set the spacing between the text and icon.',
             name: 'spacing',
             value: 'Any CSS size value. It is highly recommended a modular scale value be used.',
         },

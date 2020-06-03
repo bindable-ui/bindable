@@ -28,8 +28,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             >
                 <div slot="trigger">
                     <l-icon
-                        icon-only.bind="true"
                         icon="${tipIcon}"
+                        spacing="0"
                     ></l-icon>
                 </div>
                 <div slot="content">
@@ -92,11 +92,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                             truncate.bind="true"
                             click.trigger="showCheckbox && state !== 'disabled' ? checkedValue = !checkedValue : ''"
                         >
-                            <c-icon
-                                icon="${titleIcon}"
-                                size="tiny"
-                                if.bind="false"
-                            ></c-icon>
                             <l-icon
                                 icon="${titleIcon}"
                             >
