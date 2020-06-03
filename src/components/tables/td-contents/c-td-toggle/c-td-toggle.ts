@@ -4,12 +4,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {observable} from 'aurelia-framework';
+import {generateRandom} from '../../../../helpers/generate-random';
 
 export class CTdToggle {
     @observable
     public value;
     public row;
     public col;
+    public id = generateRandom();
 
     public activate(model) {
         this.value = model.value;
@@ -25,12 +27,5 @@ export class CTdToggle {
         if (this.col && this.col.checkChanged) {
             this.col.checkChanged(this.row);
         }
-    }
-
-    public generateRandom() {
-        const random = Math.random()
-            .toString(36)
-            .substring(7);
-        return random;
     }
 }

@@ -7,7 +7,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     <c-form-toggle
         checked-value.bind="row[col.colHeadName]"
         on-change.call="col.colOnChange(row)"
-        id.bind="generateRandom()"
+        id="${id}"
     >
         ${value ? 'Enabled' : 'Disabled'}
     </c-form-toggle>
