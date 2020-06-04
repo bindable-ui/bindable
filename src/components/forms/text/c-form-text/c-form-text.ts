@@ -4,6 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {bindable, bindingMode} from 'aurelia-framework';
+import {IFormEventListener} from 'interfaces/event-listeners';
 import {authState} from '../../../../decorators/auth-state';
 import {generateRandom} from '../../../../helpers/generate-random';
 import * as styles from './c-form-text.css.json';
@@ -53,7 +54,7 @@ export class CFormText {
     @bindable
     public type = 'text';
     @bindable
-    public eventListeners = {};
+    public eventListeners: IFormEventListener;
 
     public styles = styles;
 

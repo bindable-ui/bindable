@@ -9,6 +9,7 @@
     "elements": "../src/elements",
     "components": "../src/components",
     "helpers": "../src/helpers",
+    "interfaces": "../src/interfaces",
     "decorators": "../src/decorators",
     "value-converters": "../src/value-converters",
     "custom-attributes": "../src/custom-attributes"
