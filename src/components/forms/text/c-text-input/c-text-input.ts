@@ -4,8 +4,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {bindable, bindingMode, inject} from 'aurelia-framework';
+
 import {eventListeners} from '../../../../decorators/event-listeners';
 import {generateRandom} from '../../../../helpers/generate-random';
+import {IFormEventListener} from '../../../../interfaces/event-listeners';
+
 import * as styles from './c-text-input.css.json';
 
 @eventListeners
@@ -38,9 +41,18 @@ export class CTextInput {
     @bindable
     public type = 'text';
     @bindable
-    public eventListeners = {};
+    public eventListeners: IFormEventListener = {};
 
     public styles = styles;
+
+    private defaultEvents: IFormEventListener = {
+        keyup: event => {
+            if (event.which === 13) {
+                this.buttonFn();
+            }
+            event.preventDefault();
+        },
+    };
 
     constructor(public element) {}
 
@@ -52,6 +64,8 @@ export class CTextInput {
         if (this.type !== 'text' && this.type !== 'number') {
             this.type = 'text';
         }
+
+        this.eventListeners = Object.assign({}, this.defaultEvents, this.eventListeners);
     }
 
     public clearText() {
@@ -63,12 +77,5 @@ export class CTextInput {
         if (_.isFunction(this.buttonAction)) {
             this.buttonAction({textValue: this.textValue});
         }
-    }
-
-    public onKeyUp(event) {
-        if (event.which === 13) {
-            this.buttonFn();
-        }
-        event.preventDefault();
     }
 }
