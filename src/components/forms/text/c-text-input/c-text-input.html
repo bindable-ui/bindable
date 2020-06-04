@@ -71,17 +71,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             "
             color="${buttonColor}"
             icon-only.bind="button"
+            icon="${button}"
+            icon-size="1.25em"
+            icon-align="-0.25em"
+            icon-spacing="0"
             click.delegate="buttonFn()"
             if.bind="button || buttonText"
         >
             ${buttonText}
-            <l-icon
-                icon="${button}"
-                size="1.25em"
-                align="-0.25em"
-                spacing="0"
-                if.bind="button"
-            ></l-icon>
         </c-button>
     </span>
 </template>

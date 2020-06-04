@@ -41,10 +41,39 @@ export class ButtonProperties {
             name: 'href',
         },
         {
-            default: 'false',
-            description: 'Set if the button will only contain an icon.',
-            name: 'icon-only',
-            value: 'boolean',
+            default: 'unset',
+            description: 'Set the alignment of the icon.',
+            name: 'icon-align',
+            value: 'string',
+        },
+        {
+            default: 'unset',
+            description: 'Set the color of the icon.',
+            name: 'icon-color',
+            value: 'CSS color',
+        },
+        {
+            default: 'ltr',
+            description: 'Set the direction of the icon.',
+            name: 'icon-dir',
+            value: 'ltr | rtl',
+        },
+        {
+            description: 'Set an icon in the button.',
+            name: 'icon',
+            value: 'string',
+        },
+        {
+            default: '0.75em',
+            description: 'Set the size of the icon.',
+            name: 'icon-size',
+            value: 'string',
+        },
+        {
+            default: 'var(--s-5)',
+            description: 'Set the spacing of the icon.',
+            name: 'icon-spacing',
+            value: 'string',
         },
         {
             default: 'medium',

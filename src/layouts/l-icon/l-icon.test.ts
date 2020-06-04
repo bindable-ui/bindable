@@ -47,6 +47,18 @@ describe('l-icon component', () => {
         });
 
         describe('CSS Classes', () => {
+            it('css class: container', async done => {
+                component = StageComponent.withResources().inView('<l-icon></l-icon>');
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.styles.container).not.toBe(undefined);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+
             it('css class: icon', async done => {
                 component = StageComponent.withResources().inView('<l-icon></l-icon>');
 

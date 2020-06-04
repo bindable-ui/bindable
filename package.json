@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@bindable-ui/bindable-icons": "^0.1.10",
+    "@bindable-ui/bindable-icons": "^0.1.12",
     "@types/jest": "^24.0.9",
     "@types/jquery": "^3.3.29",
     "@types/lodash": "^4.14.133",

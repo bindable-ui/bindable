@@ -16,6 +16,18 @@ export class CButton {
     @bindable
     public href;
     @bindable
+    public iconAlign = 'unset';
+    @bindable
+    public iconColor = 'unset';
+    @bindable
+    public iconDir = 'ltr';
+    @bindable
+    public icon;
+    @bindable
+    public iconSize = '0.75em';
+    @bindable
+    public iconSpacing = 'var(--s-5)';
+    @bindable
     public iconOnly = false;
     @bindable
     public size = 'medium';

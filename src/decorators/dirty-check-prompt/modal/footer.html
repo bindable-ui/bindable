@@ -6,14 +6,31 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
     <l-cluster justify="space-between">
         <div>
-            <c-button color="primary" click.trigger="save()" show.bind="model.canSave" state="${model.isLoading ? 'thinking' : ''}">Save Changes</c-button>
+            <c-button
+                color="primary"
+                click.trigger="save()"
+                show.bind="model.canSave"
+                state="${model.isLoading ? 'thinking' : ''}"
+            >
+                Save Changes
+            </c-button>
             <div>
-            <l-cluster spacing="var(--s-2)">
-                <div>
-                    <c-button color="neutral" click.trigger="controller.ok(false)">Discard Changes</c-button>
-                    <c-button color="neutral" click.trigger="controller.cancel()">Review Changes</c-button>
-                </div>
-            </l-cluster>
+                <l-cluster spacing="var(--s-2)">
+                    <div>
+                        <c-button
+                            color="neutral"
+                            click.trigger="controller.ok(false)"
+                        >
+                            Discard Changes
+                        </c-button>
+                        <c-button
+                            color="neutral"
+                            click.trigger="controller.cancel()"
+                        >
+                            Review Changes
+                        </c-button>
+                    </div>
+                </l-cluster>
             </div>
         </div>
     </l-cluster>

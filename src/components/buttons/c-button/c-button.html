@@ -17,9 +17,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         "
         click.trigger="actionFunction()"
         type="${type}"
-        hide.bind="title || _state === 'hidden'"
+        hide.bind="href || _state === 'hidden'"
     >
-        <slot></slot>
+        <l-icon
+            align="${iconAlign}"
+            color="${iconColor}"
+            dir="${iconDir}"
+            icon="${icon}"
+            size="${iconSize}"
+            spacing="${iconSpacing}"
+        >
+            <slot></slot>
+        </l-icon>
     </button>
     <a
         href.bind="href"
@@ -33,6 +42,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         "
         if.bind="title && _state !== 'hidden'"
     >
-        ${title}
+        <l-icon
+            align="${iconAlign}"
+            color="${iconColor}"
+            dir="${iconDir}"
+            icon="${icon}"
+            size="${iconSize}"
+            spacing="${iconSpacing}"
+        >
+            ${title}
+        </l-icon>
     </a>
 </template>
