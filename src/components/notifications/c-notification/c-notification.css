@@ -26,9 +26,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .notification{
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
     font-size: var(--notification-font-size);
     color: var(--notification-color);
 }
@@ -44,6 +41,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .content{
     padding: var(--notification-padding);
     width: 100%;
+}
+
+.content l-icon span{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 
