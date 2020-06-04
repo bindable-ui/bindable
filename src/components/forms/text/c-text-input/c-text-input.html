@@ -70,11 +70,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${button === 'bin' ? styles.bin : ''}
             "
             color="${buttonColor}"
-            icon-only.bind="button"
+            icon-only.bind="true"
             icon="${button}"
             icon-size="1.25em"
             icon-align="-0.25em"
-            icon-spacing="0"
             click.delegate="buttonFn()"
             if.bind="button || buttonText"
         >

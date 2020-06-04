@@ -37,7 +37,7 @@ export class TextInputProperties {
             value: 'boolean',
         },
         {
-            description: 'This will add an icon button to the input. See icon component for the list of icons.',
+            description: 'This will add an icon button to the input.',
             name: 'button',
             value: 'Icon name',
         },
@@ -74,7 +74,7 @@ export class TextInputProperties {
             value: 'boolean',
         },
         {
-            description: 'See icon component for a list of all the icons.',
+            description: 'Add an icon to the input.',
             name: 'icon',
             value: 'Any icon',
         },

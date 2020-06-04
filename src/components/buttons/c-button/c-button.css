@@ -53,6 +53,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     cursor: pointer;
 }
 
+.icon-only svg{
+    margin-inline-end: 0;
+}
+
 
 
 
@@ -158,7 +162,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .medium{
-    padding:var(--button-medium-padding);
+    padding: var(--button-medium-padding);
 }
 
 .medium.icon-only{
