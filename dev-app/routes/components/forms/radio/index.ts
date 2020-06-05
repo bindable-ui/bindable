@@ -22,6 +22,13 @@ export class Radio {
             title: 'Properties',
         },
         {
+            moduleId: PLATFORM.moduleName('./actions/index'),
+            name: 'actions',
+            nav: true,
+            route: 'actions',
+            title: 'Actions',
+        },
+        {
             moduleId: PLATFORM.moduleName('./theming/index'),
             name: 'theming',
             nav: true,
