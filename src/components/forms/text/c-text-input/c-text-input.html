@@ -43,7 +43,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${state === 'info' ? styles.info : ''}
             "
             keyup.delegate="onKeyUp($event) & debounce"
-            type="${type}"
+            type.bind="type"
+            pattern.bind="pattern"
             value.bind="textValue"
             focus.bind="hasFocus"
             id="${id}"

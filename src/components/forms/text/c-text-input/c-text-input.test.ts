@@ -47,6 +47,22 @@ describe('c-text-input component', () => {
             }
         });
 
+        it('should allow url type', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'url',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('url');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
         it('clears the text', async done => {
             component = StageComponent.withResources().inView('<c-text-input></c-text-input>');
             try {
