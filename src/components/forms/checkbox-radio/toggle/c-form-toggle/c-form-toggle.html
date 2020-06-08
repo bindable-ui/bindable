@@ -4,8 +4,26 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <div show.bind="_state !== 'hidden'">
-        <c-toggle-input id="${id}" checked-value.bind="checkedValue" state="${_state}" on-change.call="valueChanged(val)"></c-toggle-input>
-        <c-toggle-label id="${id}" state="${_state}"><slot></slot></c-toggle-label>
+	<require from="./c-form-toggle.css"></require>
+
+    <div
+        show.bind="_state !== 'hidden'"
+        class="
+            ${styles.base}
+            c-toggle-input
+        "
+    >
+        <c-toggle-input
+            id="${id}"
+            checked-value.bind="checkedValue"
+            state="${_state}"
+            on-change.call="valueChanged(val)"
+        ></c-toggle-input>
+        <c-toggle-label
+            id="${id}"
+            state="${_state}"
+        >
+            <slot></slot>
+        </c-toggle-label>
     </div>
 </template>

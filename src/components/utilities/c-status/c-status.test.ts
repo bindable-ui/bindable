@@ -41,25 +41,6 @@ describe('c-status component', () => {
                     done.fail(e);
                 }
             });
-
-            const existingColorClasses = ['healthy', 'warning', 'critical', 'info'];
-            existingColorClasses.forEach(state => {
-                it(`css class: ${state}`, async done => {
-                    component = StageComponent.withResources()
-                        .inView('<c-status state.bind="customState"></c-status>')
-                        .boundTo({
-                            customState: `${state}`,
-                        });
-
-                    try {
-                        await bootStrapEnvironment(component);
-                        expect(component.viewModel.styles[component.viewModel.state]).not.toBe(undefined);
-                        done();
-                    } catch (e) {
-                        done.fail(e);
-                    }
-                });
-            });
         });
     });
 });

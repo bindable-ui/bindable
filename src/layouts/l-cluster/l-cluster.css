@@ -75,6 +75,28 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     margin-right: 0;
 }
 
+@media screen and (max-width: 780px){
+    .left,
+    .right{
+        margin-top: calc(var(--cluster-spacing) * -1);
+    }
+
+    .right{
+        margin-right: calc(var(--cluster-spacing) * -1);
+    }
+
+    .left{
+        margin-left: calc(var(--cluster-spacing) * -1);
+    }
+
+    .left > * > *,
+    .right > * > * {
+        margin-top: var(--cluster-spacing);
+    }
+}
+
+
+
 
 
 

@@ -6,11 +6,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-file-input.css"></require>
 
-    <div class="${styles.image}" if.bind="imagePicker">
+    <div
+        class="${styles.image}"
+        if.bind="imagePicker"
+    >
         <span>
             <a href="#">Upload</a>
         </span>
-        <input type="file" class="${styles.file}  ${state === 'error' ? styles.error : ''}" change.delegate="filesUploaded($event)" accept="image/*">
+        <input
+            class="
+                ${styles.file}
+                ${state === 'error' ? styles.error : ''}
+            "
+            type="file"
+            change.delegate="filesUploaded($event)"
+            accept="image/*"
+        >
     </div>
-    <input type="file" class="${styles.file}  ${state === 'error' ? styles.error : ''}" if.bind="!imagePicker" change.delegate="filesUploaded($event)">
+    <input
+        class="
+            ${styles.file}
+            ${state === 'error' ? styles.error : ''}
+        "
+        type="file"
+        if.bind="!imagePicker"
+        change.delegate="filesUploaded($event)"
+    >
 </template>

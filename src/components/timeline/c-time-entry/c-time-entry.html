@@ -11,6 +11,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles.entry}
             ${styles.clickable}
             ${popoverOpen ? 'popover-open' : ''}
+            ${item.active ? styles.active : ''}
             ${item.sizeDay === 'small' ? styles.smallDay : ''}
             ${item.sizeDay === 'expandable' ? styles.expandableDay : ''}
             ${item.sizeDay === 'expandable' ? 'expandable-day' : ''}
@@ -25,19 +26,45 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             width: ${item.widthCalc ? item.widthCalc : ''};
             right: ${item.rightCalc ? item.rightCalc : ''};
             --time-entry-background: ${item.background ? item.background : '#252525'};
+            --time-entry-accent-color: ${item.accentColor ? item.accentColor : 'var(--c_gray)'};
             --time-entry-color: ${item.color ? item.color : 'inherit'};
         "
     >
-        <div click.trigger="openPopover($event)" class="${styles.container}">
+        <div
+            click.trigger="openPopover($event)"
+            class="${styles.container}"
+        >
             <div class="${styles.info}  ${item.icons ? styles.infoWithIcons : ''}">
-                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone">
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                >
                     ${item.title}
                 </c-p>
-                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone" if.bind="item.startTime && item.endTime && !item.altTime">${item.startTime} - ${item.endTime}</c-p>
-                <c-p truncate.bind="true" size="small" spacing-bottom="sbNone" if.bind="item.altTime">${item.altTime}</c-p>
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                    if.bind="item.startTime && item.endTime && !item.altTime"
+                >
+                    ${item.startTime} - ${item.endTime}
+                </c-p>
+                <c-p
+                    truncate.bind="true"
+                    size="small"
+                    if.bind="item.altTime"
+                >
+                    ${item.altTime}
+                </c-p>
             </div>
-            <div class="${styles.icons}" if.bind="item.icons">
-                <c-icon repeat.for="icon of item.icons" icon="${icon}" if.bind="$index < 2"></c-icon>
+            <div
+                class="${styles.icons} ${item.shiftIcons ? styles.iconsShift : ''}"
+                if.bind="item.icons"
+            >
+                <c-icon
+                    repeat.for="icon of item.icons"
+                    icon="${icon}"
+                    if.bind="$index < 2"
+                ></c-icon>
             </div>
         </div>
     </div>

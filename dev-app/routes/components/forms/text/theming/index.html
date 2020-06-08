@@ -1,0 +1,42 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Theming</c-h2>
+                <div>
+                	<l-stack>
+                		<div>
+                            <c-h3>c-text-input,<br>
+                                c-textarea-input,<br>
+                                c-copy,<br>
+                                c-file-input,<br>
+                                c-form-select
+                            </c-h3>
+                            <c-table cols.bind="textThemeCols" rows.bind="textThemeProperties"></c-table>
+                        </div>
+                        <div>
+                            <c-h3>c-disabled</c-h3>
+                            <c-table cols.bind="textThemeCols" rows.bind="textThemeProperties2"></c-table>
+                        </div>
+                        <div>
+                            <c-h3>c-form-error</c-h3>
+                            <c-table cols.bind="textThemeCols" rows.bind="textThemeProperties3"></c-table>
+                        </div>
+                        <div>
+                            <c-h3>c-form-warning</c-h3>
+                            <c-table cols.bind="textThemeCols" rows.bind="textThemeProperties4"></c-table>
+                        </div>
+                        <div>
+                            <c-h3>c-form-info</c-h3>
+                            <c-table cols.bind="textThemeCols" rows.bind="textThemeProperties5"></c-table>
+                        </div>
+                	</l-stack>
+                </div>
+            </l-stack>
+        </div>
+</template>

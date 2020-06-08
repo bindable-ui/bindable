@@ -28,6 +28,13 @@ export class Vertical {
             route: 'slots',
             title: 'Slots',
         },
+        {
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
+        },
     ];
 
     constructor(public router: Router) {}

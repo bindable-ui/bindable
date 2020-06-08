@@ -29,6 +29,22 @@ describe('l-box component', () => {
             }
         });
 
+        it('is fill-space endabled', async done => {
+            component = StageComponent.withResources()
+                .inView('<l-box fill-space.bind="isFillSpace"></l-box>')
+                .boundTo({
+                    isFillSpace: 1,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.fillSpace).toBe(false);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
         describe('CSS Classes', () => {
             it('css class: box', async done => {
                 component = StageComponent.withResources().inView('<l-box></l-box>');

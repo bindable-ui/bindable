@@ -6,7 +6,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-h3.css"></require>
 
-    <span class="${truncate ? styles.truncate : ''} ${truncate && darkBack ? styles.darkBack : ''}">
-        <h3 class="${styles.base} ${flushTop ? '' : styles.notFlushTop}"><slot></slot></h3>
+    <span
+        class="
+            ${truncate ? styles.truncate : ''}
+            ${truncate && darkBack ? styles.darkBack : ''}
+            bindable-h3
+        "
+    >
+        <h3
+            class="
+                ${styles.base}
+                ${flushTop ? '' : styles.notFlushTop}
+            "
+        >
+            <slot></slot>
+        </h3>
     </span>
 </template>

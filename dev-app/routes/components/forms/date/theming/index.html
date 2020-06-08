@@ -1,0 +1,25 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Theming</c-h2>
+                <div>
+                    <l-stack>
+                        <div>
+                            <c-h3>c-text-input</c-h3>
+                            <c-table cols.bind="formDateThemeCols" rows.bind="formDateThemeProperties"></c-table>
+                        </div>
+                        <div>
+                            <c-h3>.bootstrap-datetimepicker-widget</c-h3>
+                            <c-table cols.bind="formDateThemeCols" rows.bind="formDateThemeProperties2"></c-table>
+                        </div>
+                    </l-stack>
+                </div>
+            </l-stack>
+        </div>
+</template>

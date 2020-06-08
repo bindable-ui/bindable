@@ -14,11 +14,32 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <slot name="tip"></slot>
         </div>
         <div class="${styles.container}">
-            <div class="${styles.content}  ${wrap ? styles.wrap : ''}  ${!link ? '' : styles.hide}">
+            <div
+                class="
+                    ${styles.content}
+                    ${wrap ? styles.wrap : ''}
+                    ${!link ? '' : styles.hide}
+                "
+            >
                 ${content}
             </div>
-            <a class="${styles.content}  ${wrap ? styles.wrap : ''}  ${link ? '' : styles.hide}" href="${content}" target="_blank">${content}</a>
-            <c-button color="neutral" click.delegate="copy(content)">Copy</c-button>
+            <a
+                class="
+                    ${styles.content}
+                    ${wrap ? styles.wrap : ''}
+                    ${link ? '' : styles.hide}
+                "
+                href="${content}"
+                target="_blank"
+            >
+                ${content}
+            </a>
+            <c-button
+                color="neutral"
+                click.delegate="copy(content)"
+            >
+                Copy
+            </c-button>
         </div>
     </div>
 </template>

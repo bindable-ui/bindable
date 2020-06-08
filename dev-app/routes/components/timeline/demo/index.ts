@@ -6,65 +6,63 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 import * as moment from 'moment';
 
 export class TimelineExample {
-    public today = moment().startOf('day').startOf('week').add(2, 'days').toISOString();
-    public entries = [
+    public today = moment().startOf('day').startOf('week').add(4, 'days').toISOString();
+    public entries: any = [
         {
-            background: '#240e33',
+            accentColor: '#8E5DB2',
             duration: 6000,
-            icons: ['assets', 'rules'],
+            icons: ['play', 'rules'],
             start: moment(this.today).add(8, 'hours').toISOString(),
             title: 'Dumb and Dumber',
         },
         {
-            background: 'var(--c_subOneDark)',
-            duration: 500,
+            accentColor: '#359AC5',
+            duration: 480,
             icons: ['ad-break'],
-            start: moment(this.today).add(9.67, 'hours').toISOString(),
+            start: moment(this.today).add(9, 'hours').add(40, 'minutes').toISOString(),
             title: 'Ad Break',
         },
         {
-            // background: '#240e33',
-            background: '#5f307d', // playing
-            color: '#fff', // playing
+            accentColor: '#8E5DB2',
+            background: '#252525 url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23161616\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E")',
             duration: 6000,
-            icons: ['assets'],
-            start: moment(this.today).add(9.81, 'hours').toISOString(),
+            icons: ['play'],
+            start: moment(this.today).add(9, 'hours').add(48, 'minutes').toISOString(),
             title: 'Ace Ventura',
         },
         {
+            background: '#111',
             duration: 2500,
             icons: ['time', 'rules'],
             sizeDay: 'small',
             sizeWeek: 'expandable',
-            start: moment(this.today).add(10, 'hours').add(15, 'minutes').toISOString(),
+            start: moment(this.today).add(8, 'hours').add(15, 'minutes').toISOString(),
             title: 'Match Time',
         },
         {
-            background: 'var(--c_secondaryDark)',
-            // background: '#175634', // playing
-            // color: '#fff', // playing
+            accentColor: '#38A56C',
+            active: true,
             duration: 6500,
             icons: ['slicer', 'rules'],
             start: moment(this.today).add(11, 'hours').add(15, 'minutes').toISOString(),
             title: 'Ace Ventura 2',
         },
         {
-            background: 'var(--c_subOneDark)',
-            // background: '#294b79', // playing
-            // color: '#fff', // playing
+            accentColor: '#359AC5',
             duration: 700,
             icons: ['ad-break'],
-            start: moment(this.today).add(13, 'hours').add(4, 'minutes').toISOString(),
+            start: moment(this.today).add(11, 'hours').add(15, 'minutes').add(6500, 'seconds').toISOString(),
             title: 'Ad Break',
         },
         {
-            background: 'var(--c_secondaryDark)',
+            accentColor: '#38A56C',
             duration: 6500,
             icons: ['slicer', 'rules'],
-            start: moment(this.today).add(13, 'hours').add(16, 'minutes').toISOString(),
+            start: moment(this.today).add(11, 'hours').add(15, 'minutes').add(7200, 'seconds').toISOString(),
             title: 'The Mask',
         },
         {
+            background: '#111',
             duration: 2500,
             icons: ['signal', 'rules'],
             sizeDay: 'small',
@@ -73,6 +71,7 @@ export class TimelineExample {
             title: 'Match Signal',
         },
         {
+            background: '#111',
             duration: 2500,
             icons: ['signal', 'rules'],
             sizeDay: 'small',
@@ -171,7 +170,19 @@ export class TimelineExample {
     ];
 
     public zoomLevel = 2;
-    public displayView = 'week';
+    public displayView = 'three-day';
     public loading = false;
-    public preventCreate = _isoTime => false;
+    public preventCreate = false;
+
+    // constructor() {
+    //     const genRandom = (min, max) => Math.random() * (max - min + 1) + min;
+
+    //     this.entries = _.map(_.times(1000, () => {
+    //         return {
+    //             duration: genRandom(60, 5000),
+    //             title: 'something dumb',
+    //             start: moment(this.today).add(genRandom(-50, 167), 'hours').toISOString(),
+    //         };
+    //     }));
+    // }
 }

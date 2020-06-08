@@ -22,6 +22,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .grid {
     display: grid;
+    /* autoprefixer: ignore next */
     grid-gap: var(--grid-gap);
     grid-template-columns: repeat(var(--grid-auto-sizing), minmax(var(--grid-min-size), 1fr));
     position: relative;

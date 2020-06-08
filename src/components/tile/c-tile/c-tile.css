@@ -15,13 +15,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Checked
  *  CHECKBOX
  *  DRAG
+ *  PILL
  *  TIP
- *  STATE
- *      - Base
- *      - Healthy
- *      - Info
- *      - Warning
- *      - Error
+ *  COLOR
+ *  STATUS
+ *      - Processing
  */
 
 
@@ -40,8 +38,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: var(--s-5);
-    background: var(--c_darkGray);
+    padding: var(--tile-padding);
+    background: var(--tile-background);
 }
 
 .container{
@@ -53,7 +51,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .hover:hover{
-    background: var(--c_charcoal);
+    background: var(--tile-background-hover);
     cursor: pointer;
 }
 
@@ -75,7 +73,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     justify-content: center;
     align-items: center;
     position: relative;
-    background: var(--c_soot);
+    background: var(--tile-image-background);
     text-align: center;
     overflow: hidden;
 }
@@ -98,8 +96,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .title h4{
-    color: var(--c_marshmellow);
-    font-size: var(--s-1);
+    color: var(--tile-h4-color);
+    font-size: var(--tile-h4-size);
     margin-top: 0;
 }
 
@@ -114,11 +112,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 .checked{
-    background: var(--c_gray) !important;
+    background: var(--tile-checked-background) !important;
 }
 
 .checked p{
-    color: var(--c_marshmellow);
+    color: var(--tile-checked-text-color);
 }
 
 
@@ -152,7 +150,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     left: 0;
     width: var(--s0);
     height: 100%;
-    background: var(--c_black);
+    background: var(--tile-drag-background);
     opacity: 0;
     transition: opacity var(--trans_main);
 }
@@ -179,16 +177,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
+    !PILL
+\*------------------------------------*/
+
+.pill{
+    position: absolute;
+    top: var(--s-2);
+    left: var(--s-3);
+}
+
+
+
+
+
+/*------------------------------------*\
     !TIP
 \*------------------------------------*/
 
 .tip{
     position: absolute;
-    top: calc(var(--s-5) * -1);
-    right: calc(var(--s-5) * -1);
-    padding: var(--s-5) var(--s-3);
+    top: var(--tile-tip-top);
+    right: var(--tile-tip-right);
+    padding: var(--tile-tip-padding);
     z-index: var(--z_tileTip);
-    background: var(--c_charcoal);
+    background: var(--tile-tip-background);
     opacity: 0;
     transition: var(--trans_main) background, var(--trans_main) opacity;
 }
@@ -205,63 +217,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 /*------------------------------------*\
-    !STATE
+    !COLOR
 \*------------------------------------*/
 
-/**
- * ^Base
- */
-
-.status{
+.color{
     position: absolute;
     top: 0;
     width: 100%;
-    height: var(--s-5);
+    height: var(--tile-status-height);
+    background: var(--tile-color);
 }
 
 
-/**
- * ^Healthy
- */
-
-.healthy{
-    background: var(--c_secondaryMain);
-}
 
 
-/**
- * ^Info
- */
 
-.info{
-    background: var(--c_subOneMain);
-}
-
-
-/**
- * ^Warning
- */
-
-.warning{
-    background: var(--c_subTwoMain);
-}
-
-
-/**
- * ^Error
- */
-
-.critical,
-.error{
-    background: var(--c_primaryLight);
-}
-
+/*------------------------------------*\
+    !STATUS
+\*------------------------------------*/
 
 /**
  * ^Processing
  */
 
 .processing{
-    background: #CCC url('../../../global-styles/assets/images/td-processing.gif');
+    background: var(--tile-status-processing);
     background-blend-mode: hard-light;
 }

@@ -42,6 +42,12 @@ export class SliderProperties {
             value: 'number',
         },
         {
+            default: 'false',
+            description: 'Set the label and slider to be side by side.',
+            name: 'inline',
+            value: 'boolean',
+        },
+        {
             description: 'Set the text for the label. If left off no label will be placed.',
             name: 'label',
             value: '',

@@ -5,13 +5,20 @@ import {globalize} from 'aurelia-pal-nodejs';
 import * as path from 'path';
 import * as _ from 'lodash';
 
-Options.relativeToDir = path.join(__dirname, '../src');
+Options.relativeToDir = path.join(__dirname, '../');
 globalize();
+
+jest.mock('simple-web-worker', () =>
+    ({
+        create: jest.fn(),
+        postMessage: jest.fn(),
+    })
+);
 
 declare const global: any;
 
 global.bootStrapEnvironment = async component => {
-    component.bootstrap(au => au.use.standardConfiguration().feature('index'));
+    component.bootstrap(au => au.use.standardConfiguration().feature('src'));
     await component.create(bootstrap);
 };
 

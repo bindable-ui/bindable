@@ -60,11 +60,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     }];
 }</c-code>
                 <c-code-sample>
-                    <l-grid min-size="25ch">
-                        <c-form-select select-value.bind="vSelectOutput" options.bind="testOptions" label="Select Label" error-msg="This is an error"></c-form-select>
-                        <c-form-select options.bind="testOptions" error-msg="This is an error"></c-form-select>
-                    </l-grid>
-                    <c-p>select: ${vSelectOutput}</c-p>
+                    <l-stack spacing="var(--s0)">
+                        <l-grid min-size="25ch">
+                            <c-form-select select-value.bind="vSelectOutput" options.bind="testOptions" label="Select Label" error-msg="This is an error"></c-form-select>
+                            <c-form-select options.bind="testOptions" error-msg="This is an error"></c-form-select>
+                        </l-grid>
+                        <c-p>select: ${vSelectOutput}</c-p>
+                    </l-stack>
                 </c-code-sample>
             </l-stack>
         </div>

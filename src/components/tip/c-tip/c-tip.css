@@ -63,10 +63,12 @@ c-tip{
 .tip{
     display: inline-block;
     position: absolute;
-    padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
-    border: solid 1px var(--c_soot);
-    background: var(--c_charcoal);
-    color: var(--c_white);
+    padding: var(--tip-padding);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--tip-border-color);
+    background: var(--tip-background);
+    color: var(--tip-color);
     text-align: left;
     opacity: 0;
     white-space: nowrap;
@@ -115,14 +117,6 @@ td .trigger > div > svg{
     cursor: pointer;
 }
 
-.color{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-}
-
 
 /**
  * ^Close
@@ -132,21 +126,17 @@ td .trigger > div > svg{
     position: absolute;
     right: 0;
     height: unset;
-    padding: 1px 4px 2px 5px;
-    background-color: var(--c_slate);
-    color: var(--c_white);
-    font-size: 14px;
+    padding: var(--tip-close-padding);
+    background-color: var(--tip-close-background);
+    color: var(--tip-close-color);
+    font-size: var(--tip-close-font-size);
     line-height: 15px;
     cursor: pointer;
     transition: background-color var(--trans_main);
 }
 
 .close:hover{
-    background-color: var(--c_soot);
-}
-
-.close:hover{
-    background-color: var(--c_smoke);
+    background-color: var(--tip-close-background-hover);
 }
 
 
@@ -244,12 +234,12 @@ td .trigger > div > svg{
 
 .top::before{
     top: 100%;
-    border-top-color: var(--c_soot);
+    border-top-color: var(--tip-border-color);
 }
 
 .top::after{
     top: 100%;
-    border-top-color: var(--c_charcoal);
+    border-top-color: var(--tip-background);
 }
 
 
@@ -277,12 +267,12 @@ td .trigger > div > svg{
 
 .bottom::before{
     bottom: 100%;
-    border-bottom-color: var(--c_soot);
+    border-bottom-color: var(--tip-border-color);
 }
 
 .bottom::after{
     bottom: 100%;
-    border-bottom-color: var(--c_charcoal);
+    border-bottom-color: var(--tip-background);
 }
 
 /**
@@ -341,12 +331,12 @@ td .left{
 
 .right::before{
     right: 100%;
-    border-right-color: var(--c_soot);
+    border-right-color: var(--tip-border-color);
 }
 
 .right::after{
     right: 100%;
-    border-right-color: var(--c_charcoal);
+    border-right-color: var(--tip-background);
 }
 
 /**
@@ -364,12 +354,12 @@ td .left{
 
 .left::before{
     left: 100%;
-    border-left-color: var(--c_soot);
+    border-left-color: var(--tip-border-color);
 }
 
 .left::after{
     left: 100%;
-    border-left-color: var(--c_charcoal);
+    border-left-color: var(--tip-background);
 }
 
 
@@ -448,11 +438,11 @@ td .left{
  */
 
 .small{
-    width: 150px;
+    width: var(--tip-width-small);
 }
 
 .small.center{
-    margin-left: -75px;
+    margin-left: calc((var(--tip-width-small) / 2) * -1);
 }
 
 
@@ -461,37 +451,37 @@ td .left{
  */
 
 .medium{
-    width: 180px;
+    width: var(--tip-width-medium);
 }
 
 .medium.center{
-    margin-left: -90px;
+    margin-left: calc((var(--tip-width-medium) / 2) * -1);
 }
 
 
 /**
-* ^Large
-*/
+ * ^Large
+ */
 
 .large{
-    width: 220px;
+    width: var(--tip-width-large);
 }
 
 .large.center{
-    margin-left: -110px;
+    margin-left: calc((var(--tip-width-large) / 2) * -1);
 }
 
 
 /**
-* ^XLarge
-*/
+ * ^XLarge
+ */
 
 .xlarge{
-    width: 300px;
+    width: var(--tip-width-xlarge);
 }
 
 .xlarge.center{
-    margin-left: -150px;
+    margin-left: calc((var(--tip-width-xlarge) / 2) * -1);
 }
 
 
@@ -511,24 +501,13 @@ td .left{
     !COLOR
 \*------------------------------------*/
 
-.primary-light{
-    background-color: var(--c_primaryLight);
-}
-
-.secondary{
-    background-color: var(--c_secondaryMain);
-}
-
-.sub-one{
-    background-color: var(--c_subOneMain);
-}
-
-.sub-two{
-    background-color: var(--c_subTwoMain);
-}
-
-.sub-three{
-    background-color: var(--c_subThreeMain);
+.color{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--tip-bar-color);
 }
 
 

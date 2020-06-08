@@ -31,8 +31,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${styles[size]}
                 ${iconTip ? styles.iconTip : ''}
                 ${contentVisible ? styles.visible : ''}
-                ${styles.altColor}
-                ${styles[altColor]}
             "
             show.bind="contentDisplay"
             class.bind="contentVisible"
@@ -43,7 +41,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 class="${styles.close}"
                 click.trigger="toggleVisible($event)"
             >×</span>
-            <span class="${styles.color}  ${styles[color]}"></span>
+            <span
+                class="${styles.color}"
+                css="--tip-bar-color: ${color};"
+            ></span>
         </span>
     </div>
     <div

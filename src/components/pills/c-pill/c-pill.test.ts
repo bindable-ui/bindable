@@ -56,25 +56,6 @@ describe('c-pill component', () => {
                     done.fail(e);
                 }
             });
-
-            const existingColorClasses = ['info', 'neutral'];
-            existingColorClasses.forEach(color => {
-                it(`css class: ${color}`, async done => {
-                    component = StageComponent.withResources()
-                        .inView('<c-pill color.bind="customColor"></c-pill>')
-                        .boundTo({
-                            customColor: `${color}`,
-                        });
-
-                    try {
-                        await bootStrapEnvironment(component);
-                        expect(component.viewModel.styles[component.viewModel.color]).not.toBe(undefined);
-                        done();
-                    } catch (e) {
-                        done.fail(e);
-                    }
-                });
-            });
         });
     });
 });

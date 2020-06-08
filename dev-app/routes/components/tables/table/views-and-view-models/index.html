@@ -77,6 +77,7 @@ this.buttonData = [
         colClass: 't240',
         colHeadName: 'status',
         colHeadValue: 'Status',
+        colOnChange: () => window.alert('Changed'),
         view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
         viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
     },
@@ -95,11 +96,11 @@ this.toggleData = [
             </l-stack>
         </div>
 
-        <divider></divider>
+        <c-divider></c-divider>
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>c-text-input</c-h3>
+                <c-h3>c-td-text-input</c-h3>
                 <c-code>this.textInputCols = [
     {
         colClass: 't240',
@@ -184,6 +185,7 @@ this.tdTruncateData = [
     },
     {
         name: 'Han Solo is super cool and all that',
+        namePill: 'Pill',
         ship: 'M. Falcon',
         gender: 'Male',
     },

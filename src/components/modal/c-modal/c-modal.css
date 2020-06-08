@@ -18,7 +18,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Medium
  *      - Large
  *  TABLES
-*/
+ */
 
 
 
@@ -33,7 +33,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  */
 
 ux-dialog-overlay{
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--modal-overlay-background);
 }
 
 .dialog{
@@ -43,8 +43,9 @@ ux-dialog-overlay{
     width: 100%;
     height: 100%;
     padding: 0;
+    border: 0px !important;
     border-radius: 0 !important;
-    background: var(--c_slate) !important;
+    background: var(--modal-background) !important;
 }
 
 .dialog::before{
@@ -55,8 +56,8 @@ ux-dialog-overlay{
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 5px;
-    background-color: var(--c_primaryMain);
+    height: var(--modal-top-border-size);
+    background-color: var(--modal-top-border-color);
     content: ' ';
     transition: background-color 0.3s ease-in-out;
 }
@@ -98,7 +99,7 @@ ux-dialog-container > div{
 
 .header{
     position: relative;
-    padding: var(--s3) var(--s3) var(--s-1) !important;
+    padding: var(--modal-header-padding) !important;
     border-bottom: none !important;
 }
 
@@ -111,7 +112,7 @@ ux-dialog-container > div{
     outline: none !important;
 }
 
-.close-button button{
+.close-button button[class]{
     margin-top: 0 !important;
     padding: 3px 8px !important;
     border-radius: 0;
@@ -132,7 +133,7 @@ ux-dialog-container > div{
  */
 
 .dialog > ux-dialog-body{
-    padding: 0 var(--s3) !important;
+    padding: var(--modal-body-padding) !important;
 }
 
 .dialog > ux-dialog-body c-form-add-remove select{
@@ -145,8 +146,8 @@ ux-dialog-container > div{
  */
 
 .dialog > ux-dialog-footer{
-    padding: var(--s1) var(--s3) !important;
-    border-top: solid 1px var(--c_charcoal);
+    padding: var(--modal-footer-padding) !important;
+    border-top: var(--modal-footer-border-top);
     text-align: left !important;
 }
 

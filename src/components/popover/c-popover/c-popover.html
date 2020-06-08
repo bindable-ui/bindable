@@ -10,7 +10,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         class="${styles.overlay}"
         if.bind="vPopoverService.model"
     >
-        <div class="${styles.closeTrigger}" click.trigger="vPopoverService.close()"></div>
+        <div
+            class="${styles.closeTrigger}"
+            click.trigger="vPopoverService.close()"
+        ></div>
         <div
             class="
                 ${styles.popover}
@@ -26,13 +29,31 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     margin-top: ${vPopoverService.model.top ? vPopoverService.model.top + 'px' : ''};
                 "
             >
-                <div class="${tipStyles.tip}  ${styles.container}" id="popover-container">
+                <div
+                    class="
+                        ${tipStyles.tip}
+                        ${styles.container}
+                    "
+                    id="popover-container"
+                >
                     <div class="${styles.containerInner}">
-                        <compose if.bind="vPopoverService.model.contentViewModel && vPopoverService.model.data" view-model.bind="vPopoverService.model.contentViewModel" model.bind="{data: vPopoverService.model.data}"></compose>
+                        <compose
+                            view-model.bind="vPopoverService.model.contentViewModel"
+                            model.bind="{data: vPopoverService.model.data}"
+                            if.bind="vPopoverService.model.contentViewModel && vPopoverService.model.data"
+                        ></compose>
                         <p else>Empty</p>
                     </div>
-                    <span class="${tipStyles.close}  ${styles.close}" click.trigger="vPopoverService.close()">×</span>
-                    <span class="${tipStyles.color}  ${tipStyles[vPopoverService.color]}"></span>
+                    <span
+                        class="${tipStyles.close}  ${styles.close}"
+                        click.trigger="vPopoverService.close()"
+                    >
+                        ×
+                    </span>
+                    <span
+                        class="${tipStyles.color}"
+                        css="--tip-bar-color: ${vPopoverService.color};"
+                    ></span>
                 </div>
             </div>
         </div>

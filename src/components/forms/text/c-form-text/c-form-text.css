@@ -28,19 +28,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon svg{
     position: absolute;
-    top: calc(var(--s-3) + 1px);
-    width: var(--s0);
-    height: var(--s0);
-    fill: var(--c_smoke);
+    top: var(--input-icon-top-spacing);
+    width: var(--input-icon-size);
+    height: var(--input-icon-size);
+    color: var(--input-icon-color);
     z-index: var(--z_base);
 }
 
 .left svg{
-    left: var(--s-2);
+    left: var(--input-icon-side-spacing);
 }
 
 .right svg{
-    right: var(--s-2);
+    right: var(--input-icon-side-spacing);
 }
 
 
@@ -70,5 +70,5 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .align-input{
     display: block;
-    margin-top: var(--s2);
+    margin-top: calc(var(--s2) - 1px);
 }

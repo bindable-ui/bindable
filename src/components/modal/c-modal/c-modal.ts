@@ -40,7 +40,6 @@ export class CModal {
             .parent()
             .parent()
             .css('width', '100%');
-
         $('ux-dialog.js-large')
             .parent()
             .css('height', '100%');

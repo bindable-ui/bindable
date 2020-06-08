@@ -7,7 +7,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     <l-stack spacing="var(--s5)">
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h2>Properties</c-h2>
+                <c-h2>Actions</c-h2>
                 <c-table cols.bind="formSelectCols" rows.bind="formSelectActions"></c-table>
             </l-stack>
         </div>
@@ -22,9 +22,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 };</c-code>
                 <c-code-sample>
                     <l-grid min-size="25ch">
+                        <l-stack>
                         <c-form-select select-value.bind="vSelectOutput" options.bind="testOptions" label="Select Label" error-msg="This is an error" actions.bind="testActions"></c-form-select>
+                        <c-p>select: ${vSelectOutput}</c-p>
+                        </l-stack>
                     </l-grid>
-                    <c-p>select: ${vSelectOutput}</c-p>
                 </c-code-sample>
             </l-stack>
         </div>

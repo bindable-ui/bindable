@@ -4,6 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {bindable, bindingMode} from 'aurelia-framework';
+import {IFormEventListener} from 'interfaces/event-listeners';
 import {authState} from '../../../../decorators/auth-state';
 import {generateRandom} from '../../../../helpers/generate-random';
 import * as styles from './c-form-text.css.json';
@@ -17,15 +18,23 @@ export class CFormText {
     @bindable
     public button;
     @bindable
+    public buttonText;
+    @bindable
+    public buttonColor = 'neutral';
+    @bindable
     public clearable;
     @bindable
     public errorMsg;
     @bindable
     public warningMsg;
     @bindable
+    public infoMsg;
+    @bindable
     public hasFocus = false;
     @bindable
     public icon;
+    @bindable
+    public iconColor;
     @bindable
     public iconPosition;
     @bindable
@@ -35,7 +44,7 @@ export class CFormText {
     @bindable
     public labelIcon;
     @bindable
-    public labelIconColor = 'lightGray';
+    public labelIconColor = 'var(--c_lightGray)';
     @bindable
     public placeholder;
     @bindable
@@ -45,7 +54,7 @@ export class CFormText {
     @bindable
     public type = 'text';
     @bindable
-    public eventListeners = {};
+    public eventListeners: IFormEventListener;
 
     public styles = styles;
 

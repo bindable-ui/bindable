@@ -32,6 +32,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     padding-left:  var(--box-padding-sides);
     background: var(--box-background);
     color: var(--box-color);
+    display: block;
+}
+
+.fill-space{
+    height: 100%;
 }
 
 .border-top{

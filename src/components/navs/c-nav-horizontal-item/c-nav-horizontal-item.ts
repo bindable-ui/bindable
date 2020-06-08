@@ -18,7 +18,7 @@ export class CNavHorizontalItem {
     @bindable
     public icon = false;
     @bindable
-    public iconColor = 'primaryLight';
+    public iconColor = 'var(--c_primaryLight)';
     @bindable
     public position;
     @bindable

@@ -36,6 +36,11 @@ export class TileProperties {
             value: '',
         },
         {
+            description: 'Set the colored bar at the top of the tile. Status will override this.',
+            name: 'color',
+            value: 'CSS Color',
+        },
+        {
             default: 'true',
             description: 'Set if you do not need the hover animation on the tile.',
             name: 'hover',
@@ -61,6 +66,17 @@ export class TileProperties {
             default: 'No Image',
             description: 'Will show when there is now image-url in place of the image.',
             name: 'no-image-message',
+            value: 'string',
+        },
+        {
+            default: 'info',
+            description: 'Will set the color of the pill.',
+            name: 'pill-color',
+            value: 'string',
+        },
+        {
+            description: 'Will set the text of the pill.',
+            name: 'pill-text',
             value: 'string',
         },
         {
@@ -95,7 +111,7 @@ export class TileProperties {
         {
             description: 'This adds a colors bar on the tile.',
             name: 'status',
-            value: 'processing | healthy | info | warning | error',
+            value: 'processing',
         },
         {
             default: 'actions',

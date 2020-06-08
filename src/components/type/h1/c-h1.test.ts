@@ -12,6 +12,7 @@ describe('c-h1 component', () => {
         afterEach(() => {
             component.dispose();
         });
+
         it('testing truncate', async done => {
             component = StageComponent.withResources()
                 .inView('<c-h1 truncate.bind="customTruncateNew"></c-h1>')

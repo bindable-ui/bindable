@@ -23,7 +23,7 @@ export class TextInputProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't150',
+            colClass: 't190',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -40,6 +40,16 @@ export class TextInputProperties {
             description: 'This will add an icon button to the input. See icon component for the list of icons.',
             name: 'button',
             value: 'Icon name',
+        },
+        {
+            description: 'This will add a button with text attached to the input',
+            name: 'button-text',
+            value: 'string',
+        },
+        {
+            description: 'This will set the color of the button',
+            name: 'button-color',
+            value: 'primary | secondary | subOne | neutral | danger',
         },
         {
             default: 'false',
@@ -89,10 +99,10 @@ export class TextInputProperties {
             value: 'Any icon',
         },
         {
-            default: 'lightGray',
+            default: 'var(--c_lightGray)',
             description: 'Set the color of the icon in the label.',
             name: 'label-icon-color',
-            value: 'white | lightGray | gray | primary | primaryLight | secondary | subOne | subTwo',
+            value: 'CSS Color',
         },
         {
             description: 'Leave off if not needed.',
@@ -102,7 +112,7 @@ export class TextInputProperties {
         {
             description: 'Set a state for the text input.',
             name: 'state',
-            value: 'error | warning | disabled | hidden',
+            value: 'error | warning | info | disabled | hidden',
         },
         {
             description: 'Sets the value of the text input',

@@ -6,13 +6,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-list.css"></require>
 
-    <div class="${styles.labelWrapper}" show.bind="label">
+    <div
+        class="${styles.labelWrapper}"
+        show.bind="label"
+    >
         <c-label state="${state}">
             ${label}
         </c-label>
         <slot name="tip"></slot>
     </div>
-    <ul class="${styles.base}  ${noBullets ? styles.noBullets : ''}">
+    <ul
+        class="
+            ${styles.base}
+            ${noBullets ? styles.noBullets : ''}
+            ${styles[size]}
+        "
+    >
         <slot></slot>
     </ul>
 </template>

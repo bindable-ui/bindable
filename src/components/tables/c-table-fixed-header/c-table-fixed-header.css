@@ -12,7 +12,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - Set Up
  *      - Responsiveness
  *  LOADER
-*/
+ */
 
 
 
@@ -40,9 +40,9 @@ c-table-fixed-header{
     right: 0;
     left: 0;
     width: auto;
-    height: calc(var(--s4) + 5px);
-    border: solid 1px var(--c_charcoal);
-    background-color: var(--c_soot);
+    height: var(--table-header-height);
+    border: var(--table-header-border);
+    background-color: var(--table-th-background);
 }
 
 .fixed-table-header{
@@ -53,7 +53,6 @@ c-table-fixed-header{
     display: inherit;
     flex: 1 0 auto;
     width: 100%;
-    /* overflow: auto; */
 }
 
 .fixed-table-header table{
@@ -62,12 +61,12 @@ c-table-fixed-header{
 
 .fixed-table-header th > div{
     position: absolute;
-    margin-top: calc((var(--s4) * -1) - 3px);
+    margin-top: var(--table-header-div-margin-top);
     margin-left: -1px;
-    padding-left: var(--s0);
-    border-left: solid 1px var(--c_charcoal);
-    color: var(--c_white);
-    line-height: calc(var(--s4) + 3px);
+    padding-left: var(--table-header-div-padding-left);
+    border-left: var(--table-header-div-border-left);
+    color: var(--table-th-color);
+    line-height: var(--table-header-div-line-height);
     text-align: left;
     white-space: nowrap;
 }
@@ -130,5 +129,5 @@ c-table-fixed-header{
     bottom: 0;
     width: 100%;
     height: 30px;
-    background: var(--c_asphalt);
+    background: var(--table-header-loader-background);
 }

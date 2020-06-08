@@ -33,7 +33,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .label:hover{
-    background-color: #3C3C3C;
+    background-color: var(--form-image-hover-background);
     cursor: pointer;
 }
 
@@ -74,8 +74,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .desc{
-    color: var(--c_marshmellow);
-    font-family: var(--ff_primary-bold);
+    color: var(--form-image-description-color);
+    font-family: var(--form-image-description-font-family);
 }
 
 
@@ -85,6 +85,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .active,
 .active:hover{
-    background-color: var(--c_charcoal);
+    background-color: var(--form-image-active-background);
     cursor: default;
 }

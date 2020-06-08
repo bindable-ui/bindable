@@ -3,17 +3,18 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, containerless} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
 import * as styles from './l-box.css.json';
 
-@containerless
 export class LBox {
     @bindable
-    public background = 'var(--c_darkGray)';
+    public background = 'unset';
     @bindable
     public borderTop;
     @bindable
-    public color = 'var(--c_white)';
+    public color = 'unset';
+    @bindable
+    public fillSpace = false;
     @bindable
     public marginSides = '0px';
     @bindable
@@ -30,6 +31,10 @@ export class LBox {
     public attached() {
         if (typeof this.scrolling !== 'boolean') {
             this.scrolling = false;
+        }
+
+        if (typeof this.fillSpace !== 'boolean') {
+            this.fillSpace = false;
         }
     }
 }

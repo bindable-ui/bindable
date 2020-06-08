@@ -448,7 +448,7 @@ describe('c-table component', () => {
             });
 
             // Background Tests
-            const existingBackgroundClasses = ['bgHealthy', 'bgWarning', 'bgCritical', 'bgInfo'];
+            const existingBackgroundClasses = ['bgHealthy', 'bgWarning', 'bgCritical', 'bgInfo', 'notAllowed'];
             existingBackgroundClasses.forEach(background => {
                 it(`css class: ${background}`, async done => {
                     component = StageComponent.withResources().inView('<c-table></c-table>');
@@ -490,19 +490,6 @@ describe('c-table component', () => {
                         done.fail(e);
                     }
                 });
-            });
-
-            // Responsive Test
-            it('css class: responsive', async done => {
-                component = StageComponent.withResources().inView('<c-table></c-table>');
-
-                try {
-                    await bootStrapEnvironment(component);
-                    expect(component.viewModel.styles.responsive).not.toBe(undefined);
-                    done();
-                } catch (e) {
-                    done.fail(e);
-                }
             });
 
             // Drag Tests

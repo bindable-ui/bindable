@@ -3,23 +3,13 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, bindingMode, computedFrom, containerless} from 'aurelia-framework';
-import * as datetimepicker from 'eonasdan-bootstrap-datetimepicker';
+import {bindable, bindingMode, containerless} from 'aurelia-framework';
 import * as moment from 'moment';
 import {authState} from '../../../../decorators/auth-state';
 
 import * as styles from './c-form-date.css.json';
 
-declare const window: any;
 declare let $: any;
-
-if (window.$) {
-    $ = window.$;
-}
-
-$.fn.extend({
-    datetimepicker,
-});
 
 /**
  * @param id {String} - Element ID.
@@ -52,7 +42,11 @@ export class CFormDate {
     @bindable
     public labelIcon;
     @bindable
+    public labelIconColor = 'var(--c_lightGray)';
+    @bindable
     public placeholder;
+    @bindable
+    public startOf: moment.unitOfTime.StartOf = 'minute';
     @bindable
     public state;
     @bindable
@@ -82,7 +76,7 @@ export class CFormDate {
 
         if (newValue) {
             this.timestamp = moment(newValue)
-                .startOf('minute')
+                .startOf(this.startOf)
                 .format('x');
             this.setTimestamp(this.timestamp);
         } else {
@@ -116,7 +110,7 @@ export class CFormDate {
     public updateDate() {
         // UP-10723 : Timestamps should be at the beginning of a minute to avoid issues with relative time
         let newTimestamp = moment(this.datetimepicker.data('DateTimePicker').date())
-            .startOf('minute')
+            .startOf(this.startOf)
             .format('x');
         if (newTimestamp === 'Invalid date') {
             newTimestamp = '';

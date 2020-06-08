@@ -3,11 +3,10 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, containerless} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
 import {generateRandom} from '../../helpers/generate-random';
 import * as styles from './l-sidebar.css.json';
 
-@containerless
 export class LSidebar {
     @bindable
     public contentMin = '65%';
@@ -15,6 +14,8 @@ export class LSidebar {
     public scrolling = false;
     @bindable
     public side = 'left';
+    @bindable
+    public sideBackground = 'unset';
     @bindable
     public sideWidth = 'initial';
     @bindable

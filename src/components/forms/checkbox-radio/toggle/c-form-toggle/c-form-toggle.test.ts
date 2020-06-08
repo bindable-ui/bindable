@@ -55,12 +55,12 @@ describe('c-form-toggle component', () => {
         });
 
         describe('CSS Classes', () => {
-            it('css class: should not have any styles', async done => {
-                component = StageComponent.withResources().inView('<c-form-toggle></c-form-toggle>');
+            it('css class: check', async done => {
+                component = await StageComponent.withResources().inView('<c-form-toggle></c-form-toggle>');
 
                 try {
                     await bootStrapEnvironment(component);
-                    expect(component.viewModel.styles).toBe(undefined);
+                    expect(component.viewModel.styles.base).not.toBe(undefined);
                     done();
                 } catch (e) {
                     done.fail(e);

@@ -35,6 +35,13 @@ export class Tile {
             route: 'replaceable-parts',
             title: 'Replaceable Parts',
         },
+        {
+            moduleId: PLATFORM.moduleName('./theming/index'),
+            name: 'theming',
+            nav: true,
+            route: 'theming',
+            title: 'Theming',
+        },
     ];
 
     constructor(public router: Router) {}

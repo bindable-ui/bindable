@@ -25,7 +25,7 @@ export class DateInputActions {
 
     public formDateOptionsActions = [
         {
-            description: 'An object of callbacks.',
+            description: 'An object with callback functions. More details coming soon.',
             name: 'callbacks',
             value: 'object',
         },

@@ -50,7 +50,7 @@ export class Components {
             title: 'Icon',
         },
         {
-            moduleId: PLATFORM.moduleName('./modal/modal'),
+            moduleId: PLATFORM.moduleName('./modal/index'),
             name: 'modal',
             nav: true,
             route: 'modal',
@@ -106,7 +106,7 @@ export class Components {
             title: 'Tip',
         },
         {
-            moduleId: PLATFORM.moduleName('./toasts/toasts'),
+            moduleId: PLATFORM.moduleName('./toasts/index'),
             name: 'toasts',
             nav: true,
             route: 'toasts',

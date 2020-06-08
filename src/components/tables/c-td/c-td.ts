@@ -13,6 +13,8 @@ export class CTd {
     public getColValue;
     @bindable
     public row;
+    @bindable
+    public state;
 
     public styles = styles;
 
@@ -21,6 +23,7 @@ export class CTd {
         return {
             col: this.col,
             row: this.row,
+            state: this.state,
             value: this.col.colHeadName ? this.row[this.col.colHeadName] : this.getColValue(this.row, this.col),
         };
     }

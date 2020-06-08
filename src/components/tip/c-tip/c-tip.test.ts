@@ -139,26 +139,6 @@ describe('c-tip component', () => {
         });
     });
 
-    // Color Test
-    const existingColorClasses = ['primary-light', 'secondary', 'sub-one', 'sub-three'];
-    existingColorClasses.forEach(color => {
-        it(`testing ${color}`, async done => {
-            component = StageComponent.withResources()
-                .inView('<c-tip color.bind="customColor"></c-tip>')
-                .boundTo({
-                    customColor: `${color}`,
-                });
-
-            try {
-                await bootStrapEnvironment(component);
-                expect(component.viewModel.styles[component.viewModel.color]).not.toBe(undefined);
-                done();
-            } catch (e) {
-                done.fail(e);
-            }
-        });
-    });
-
     // Force Close Test
     it('testing full screen close', async done => {
         component = StageComponent.withResources().inView('<c-tip></c-tip>');

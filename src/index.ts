@@ -3,6 +3,14 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+// Setup jQuery
+import * as datetimepicker from 'eonasdan-bootstrap-datetimepicker';
+import * as $ from 'jquery';
+
+$.fn.extend({
+    datetimepicker,
+});
+
 import {FrameworkConfiguration} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 
@@ -22,6 +30,7 @@ import {CToastsService} from './components/toasts/c-toasts/c-toasts-service';
 import {dirtyCheckPrompt} from './decorators/dirty-check-prompt/index';
 
 // Value Converters
+import {AsyncBindingBehavior} from './value-converters/async-binding';
 import {BooleanYesNoValueConverter} from './value-converters/boolean-yes-no';
 import {CapitalizeValueConverter} from './value-converters/capitalize';
 import {CountValueConverter} from './value-converters/count';
@@ -75,7 +84,7 @@ import {
     IVNavSliderPageList,
 } from './components/navs/c-nav-vertical-sliding/c-nav-vertical-sliding-interfaces';
 import {CTableActions, CTableCol} from './components/tables/c-table/c-table-interfaces';
-import {CTimeline} from './components/timeline/c-timeline/c-timeline';
+import {CTimeline, ZOOM_LEVELS} from './components/timeline/c-timeline/c-timeline';
 import {ITimeEntryBasic, ITimelineActions} from './components/timeline/c-timeline/c-timeline-interfaces';
 import {CTipActions} from './components/tip/c-tip/c-tip-interfaces';
 import {IDragOptions} from './custom-attributes/drag-draggable';
@@ -84,7 +93,6 @@ import {IDropzoneActions} from './custom-attributes/drag-dropzone';
 // Styles
 import './global-styles/global.css';
 import './global-styles/reset.css';
-import './global-styles/tokens.css';
 
 export function configure(config: FrameworkConfiguration) {
     config.globalResources([
@@ -122,6 +130,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./value-converters/string-to-number'),
         PLATFORM.moduleName('./value-converters/th-class-for'),
         PLATFORM.moduleName('./value-converters/vsort'),
+        PLATFORM.moduleName('./value-converters/async-binding'),
 
         // Components
         PLATFORM.moduleName('./components/copy/c-copy/c-copy'),
@@ -152,6 +161,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./components/forms/c-disabled/c-disabled'),
         PLATFORM.moduleName('./components/forms/c-form-error/c-form-error'),
         PLATFORM.moduleName('./components/forms/c-form-warning/c-form-warning'),
+        PLATFORM.moduleName('./components/forms/c-form-info/c-form-info'),
         PLATFORM.moduleName('./components/forms/c-form-image/c-form-image'),
         PLATFORM.moduleName('./components/forms/c-label/c-label'),
         PLATFORM.moduleName('./components/icons/c-icon/c-icon'),
@@ -211,6 +221,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./layouts/l-cluster/l-cluster'),
         PLATFORM.moduleName('./layouts/l-cover/l-cover'),
         PLATFORM.moduleName('./layouts/l-grid/l-grid'),
+        PLATFORM.moduleName('./layouts/l-icon/l-icon'),
         PLATFORM.moduleName('./layouts/l-sidebar/l-sidebar'),
         PLATFORM.moduleName('./layouts/l-stack/l-stack'),
         PLATFORM.moduleName('./layouts/l-switcher/l-switcher'),
@@ -221,7 +232,7 @@ export function configure(config: FrameworkConfiguration) {
 export {copyToClipboard, generateRandom, lazyLoadCheck, LocalStorageHelper, multiIndexSplicer, sorting, sortDropData};
 
 // Misc
-export {SharedNav, CToastsService, dirtyCheckPrompt, CPopoverService};
+export {SharedNav, CToastsService, dirtyCheckPrompt, CPopoverService, ZOOM_LEVELS};
 
 // Value converters
 export {
@@ -266,6 +277,7 @@ export {
     StringToNumberValueConverter,
     ThClassForValueConverter,
     CsortValueConverter,
+    AsyncBindingBehavior,
 };
 
 // Interfaces

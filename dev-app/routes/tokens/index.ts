@@ -23,6 +23,13 @@ export class Core {
             title: 'Overview',
         },
         {
+            moduleId: PLATFORM.moduleName('./global-properties/index'),
+            name: 'global-properties',
+            nav: true,
+            route: 'global-properties',
+            title: 'Global Properties',
+        },
+        {
             moduleId: PLATFORM.moduleName('./color/index'),
             name: 'color',
             nav: true,
@@ -35,13 +42,6 @@ export class Core {
             nav: true,
             route: 'fonts',
             title: 'Fonts',
-        },
-        {
-            moduleId: PLATFORM.moduleName('./modular-scale/index'),
-            name: 'modularScale',
-            nav: true,
-            route: 'modular-scale',
-            title: 'Modular Scale',
         },
         {
             moduleId: PLATFORM.moduleName('./transitions/index'),

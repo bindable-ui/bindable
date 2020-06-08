@@ -1,0 +1,40 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ *      - Setup
+*/
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.base{
+    display: block;
+    position: relative;
+    opacity: 0;
+    transition: opacity var(--trans_main);
+}
+
+.info-block{
+    display: inline-block;
+    position: absolute;
+    margin-top: 2px;
+    color: var(--form-info-color);
+    font-size: var(--form-info-font-size);
+}
+
+.info{
+    opacity: 1;
+}

@@ -21,26 +21,32 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .copy button{
-    border: solid 1px var(--c_gray);
+    border: var(--copy-button-border);
     border-left: none;
-    border-radius: 0 var(--s-5) var(--s-5) 0;
+    border-radius: var(--copy-button-radius);
+    padding: var(--input-button-padding) !important;
+}
+
+.copy button:before{
+    display: none;
 }
 
 .container{
     display: grid;
     position: relative;
-    grid-template-columns: 1fr 74px;
+    grid-template-columns: 1fr calc(var(--copy-button-width) + 1);
 }
 
 .content{
     position: absolute;
     min-width: 0;
-    width: calc(100% - 73px);
-    padding: var(--s-3) var(--s-1) calc(var(--s-3) - 2px);
-    border: solid 1px var(--c_charcoal);
-    background: var(--c_darkGray);
-    color: var(--c_gray);
-    font-size: var(--s-1);
+    width: calc(100% - var(--copy-button-width));
+    padding: var(--copy-content-padding);
+    border: var(--copy-content-border);
+    border-right: none;
+    background: var(--copy-content-background);
+    color: var(--copy-content-color);
+    font-size: var(--copy-content-font-size);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

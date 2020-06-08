@@ -115,6 +115,13 @@ export class CTable {
         return col._class;
     }
 
+    public getBarColor(row, col) {
+        if (this.actions && this.actions.getBarColor) {
+            return this.actions.getBarColor(row, col);
+        }
+        return '';
+    }
+
     // getColValue will only be called if colHeadName property is missing.
     // This will apply to runtime generated fields such as item count.
     public getColValue(row, col) {

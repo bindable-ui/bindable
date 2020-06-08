@@ -23,7 +23,7 @@ export class VerticalProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't175',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
@@ -35,6 +35,12 @@ export class VerticalProperties {
             description: 'Set if you need to have a second nav stuck to the bottom of the col.',
             name: 'nav-bottom',
             value: 'boolean',
+        },
+        {
+            default: 'var(--c_darkGray)',
+            description: 'Set the background color of the nav',
+            name: 'background-color',
+            value: 'CSS Color',
         },
     ];
 }

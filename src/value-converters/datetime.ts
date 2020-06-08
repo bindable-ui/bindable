@@ -62,7 +62,8 @@ export class SecondsToHmsValueConverter {
             return '00:00:00';
         }
 
-        const time = parseInt(timeInSeconds, 10);
+        const isNegativeTime = timeInSeconds < 0;
+        const time = Math.abs(parseInt(timeInSeconds, 10));
 
         const hours = Math.floor(time / SECONDS_IN_HOUR);
         const minutes = Math.floor((time % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
@@ -86,7 +87,7 @@ export class SecondsToHmsValueConverter {
             secondsDisplay = `0${seconds}`;
         }
 
-        return `${hoursDisplay}:${minutesDisplay}:${secondsDisplay}`;
+        return `${isNegativeTime ? '-' : ''}${hoursDisplay}:${minutesDisplay}:${secondsDisplay}`;
     }
 
     public toView(value) {

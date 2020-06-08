@@ -6,7 +6,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-timeline-container.css"></require>
 
-    <div class="${styles.container}">
+    <div class="${styles.container}  timeline-container">
         <div
             id="${id}"
             class="
@@ -18,7 +18,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-spinner if.bind="loading"></c-spinner>
             <div class="${styles.wrapper}">
                 <div
-                    class="${styles.spinner}  ${loadingBottom ? styles.spinnerLoadingBottom : ''}"
+                    class="
+                        ${styles.spinner}
+                        ${loadingBottom ? styles.spinnerLoadingBottom : ''}
+                    "
                     if.bind="loadingTop || loadingBottom"
                 >
                     <c-spinner size="small"></c-spinner>

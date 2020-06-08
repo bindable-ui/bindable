@@ -215,9 +215,10 @@ export class TableViews {
                 colHeadValue: 'Gender',
             },
             {
+                _class: 'button',
+                colAction: () => window.alert('Clicked'),
                 colHeadName: 'action',
                 colHeadValue: 'Action',
-                colAction: () => window.alert('Clicked'),
                 view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button.html'),
                 viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button'),
             },
@@ -225,16 +226,16 @@ export class TableViews {
 
         this.buttonData = [
             {
+                action: 'Retry',
                 gender: 'Male',
                 ship: 'X-Wing',
-                action: 'Retry',
             },
             {
-                gender: 'Female',
-                ship: 'Y-Wing',
                 actionButtonColor: 'secondary',
                 actionButtonIcon: 'checkmark',
                 actionButtonState: 'disabled',
+                gender: 'Female',
+                ship: 'Y-Wing',
             },
         ];
 
@@ -254,6 +255,7 @@ export class TableViews {
                 colClass: 't240',
                 colHeadName: 'status',
                 colHeadValue: 'Status',
+                colOnChange: () => window.alert('Changed'),
                 view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
                 viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
             },
@@ -348,6 +350,7 @@ export class TableViews {
             {
                 gender: 'Male',
                 name: 'Han Solo is super cool and all that',
+                namePill: 'Pill',
                 ship: 'M. Falcon',
             },
             {
@@ -570,26 +573,26 @@ export class TableViews {
             {
                 dragCheck: false,
                 gender: 'Male',
-                ship: 'X-Wing',
                 order: 1,
+                ship: 'X-Wing',
             },
             {
                 dragCheck: false,
                 gender: 'Male',
-                ship: 'M. Falcon',
                 order: 2,
+                ship: 'M. Falcon',
             },
             {
                 dragCheck: false,
                 gender: 'Male',
-                ship: 'Tie Fighter',
                 order: 3,
+                ship: 'Tie Fighter',
             },
             {
                 dragCheck: true,
                 gender: 'Female',
-                ship: 'M. Falcon',
                 order: 4,
+                ship: 'M. Falcon',
             },
         ];
 
@@ -611,7 +614,6 @@ export class TableViews {
         this.pillTableData = [
             {
                 description: 'more text here',
-                descriptionPill: 'Desc Pill',
                 name: 'stuff here',
                 namePill: 'Name Pill',
             },

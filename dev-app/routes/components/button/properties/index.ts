@@ -34,7 +34,7 @@ export class ButtonProperties {
             default: 'primary',
             description: 'Set the color',
             name: 'color',
-            value: 'primary | secondary | neutral | danger',
+            value: 'primary | secondary | subOne | neutral | danger',
         },
         {
             description: 'If you need an <a> this will set the URL.',
@@ -72,6 +72,12 @@ export class ButtonProperties {
         {
             description: 'If you need an <a> this will set the text.',
             name: 'title',
+        },
+        {
+            default: 'button',
+            description: 'Set the type of the button.',
+            name: 'type',
+            value: 'button | submit | reset',
         },
     ];
 }

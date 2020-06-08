@@ -32,7 +32,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     bottom: 0;
     left: 0;
     width: 100%;
-    border-bottom: solid 3px var(--c_primaryMain);
+    border-bottom: var(--nav-item-border-bottom-hover);
     content: '';
     opacity: 0;
     transition: opacity var(--trans_main);
@@ -40,17 +40,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .nav-horizontal-item a{
     display: inline-block;
-    color: var(--c_lightGray);
+    color: var(--nav-item-color);
     text-decoration: none;
     transition: color var(--trans_main);
 }
 
 .nav-horizontal-item a:hover,
 .nav-horizontal-item li.active a{
-    /* stylelint-disable */
-    color: #FFF;
-    color: var(--c_white);
-    /* stylelint-enable */
+    color: var(--nav-item-hover-active-color);
 }
 
 .nav-horizontal-item a:hover{
@@ -77,11 +74,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .active a,
 .active a:hover{
-    color: var(--c_white);
+    color: var(--nav-item-hover-active-color);
     cursor: default;
 }
 
 .active::after{
+    opacity: 1;
+    border-bottom: var(--nav-item-border-bottom-active);
+}
+
+.nav-horizontal-item:hover::after{
     opacity: 1;
 }
 

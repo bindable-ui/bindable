@@ -3,12 +3,17 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, bindingMode, containerless} from 'aurelia-framework';
-import * as moment from 'moment';
+import {autoinject, bindable, bindingMode, containerless, TaskQueue} from 'aurelia-framework';
+import * as moment from 'moment-timezone';
 
 import {ITimeBlock, ITimeDay, ITimeEntry, ITimeEntryBasic, ITimelineActions} from './c-timeline-interfaces';
+import {filterEntriesDay, mapEntries} from './workers';
 
 import {authState} from '../../../decorators/auth-state';
+import {generateRandom} from '../../../helpers/generate-random';
+import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
+
+import * as CTimelineWeekContainerStyles from '../c-timeline-week-container/c-timeline-week-container.css.json';
 
 type Moment = moment.Moment;
 
@@ -42,11 +47,12 @@ export const ZOOM_LEVELS: any = [
     },
 ];
 
+export const BLOCK_HEIGHT = 50;
+
 const DEFAULT_ZOOM = 2;
 const MINUTES_IN_DAY = 1440;
 const HOURS_IN_DAY = 24;
 const TIME_REGEX = /^[0-9]{1,4}$/;
-const BLOCK_HEIGHT = 50;
 const SECONDS_IN_MINUTE = 60;
 
 /**
@@ -84,6 +90,7 @@ const mapAllowedTimes = () => {
 
 @containerless
 @authState
+@autoinject
 export class CTimeline {
     @bindable
     public isLoading: boolean = false;
@@ -136,12 +143,26 @@ export class CTimeline {
     @bindable
     public newEntryViewModel: string = null;
 
+    @bindable
+    public timezone: string = null;
+
+    @bindable
+    public scrollTime: string = null;
+
     public transformedEntries: ITimeEntry[] = [];
     public blocks: ITimeBlock[] = [];
     public displayDays: ITimeDay[] = [];
-    public today = moment();
     public currentTimeLine: number = -1;
     public currentTimeLineTracker = null;
+    public isRendering: boolean = false;
+    public scrollCurrentTime: boolean = true;
+    public scrollLastSpot: boolean = false;
+    public parentScrollElem: JQuery<HTMLElement> = null;
+    public id = generateRandom();
+    public currentScroll: number = 0;
+    public preventScrollCheck: boolean = true;
+    public placeholderEntry: any;
+    public newItem: any = null;
 
     /**
      * Build out the timeline. Put in a throttle so it doesn't bind up
@@ -149,8 +170,8 @@ export class CTimeline {
     public buildTimeline = _.debounce(
         () => {
             this.buildBlocks();
-            this.transformEntries();
             this.calculateCurrentTimeLine();
+            this.transformEntries();
         },
         200,
         {trailing: false, leading: true},
@@ -159,7 +180,8 @@ export class CTimeline {
     /**
      * Take entries that are input and transform them into entries the calendar can use
      */
-    public transformEntries = _.throttle(() => {
+    // tslint:disable-next-line:ter-arrow-parens
+    public transformEntries = _.throttle(async (noAutoScroll?) => {
         const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
         const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
         const [startTime, endTime] = this.getDayStartEndTimes();
@@ -172,36 +194,191 @@ export class CTimeline {
             return moment(entry.start, 'hmm').toISOString();
         });
 
-        if (this.timeView === 'day') {
-            this.transformedEntries = this.mapEntries(sortedEntries, pxPerMinute, startTime, endTime);
-            return;
+        try {
+            if (this.timeView === 'day') {
+                const dayEntries = await filterEntriesDay(
+                    sortedEntries,
+                    startTime.toISOString(),
+                    endTime.toISOString(),
+                );
+                this.transformedEntries = await mapEntries(
+                    dayEntries,
+                    pxPerMinute,
+                    startTime.toISOString(),
+                    endTime.toISOString(),
+                    this.timeView,
+                    this.editEntryViewModel,
+                    this.date,
+                    this.getTzOffet(),
+                    this.zoomLevel,
+                );
+            }
+
+            if (this.timeView === 'week' || this.timeView === 'three-day') {
+                for (const day of this.displayDays) {
+                    const dayEntries = await filterEntriesDay(
+                        sortedEntries,
+                        startTime.toISOString(),
+                        endTime.toISOString(),
+                    );
+                    day.entries = await mapEntries(
+                        dayEntries,
+                        pxPerMinute,
+                        startTime.toISOString(),
+                        endTime.toISOString(),
+                        this.timeView,
+                        this.editEntryViewModel,
+                        this.date,
+                        this.getTzOffet(),
+                        this.zoomLevel,
+                    );
+
+                    startTime.add(1, 'day');
+                    endTime.add(1, 'day');
+                }
+            }
+        } catch (e) {
+            this.notification.error('There was an error parsing the entries. Please try again.');
         }
 
-        if (this.timeView === 'week') {
-            _.forEach(this.displayDays, day => {
-                const clonedSort = _.cloneDeep(sortedEntries);
+        this.taskQueue.queueMicroTask(() => {
+            this.isRendering = false;
 
-                const dayEntries = _.filter(clonedSort, entry => {
-                    const entryStart = this.date ? entry.start : moment(entry.start, 'hmm').toISOString();
-                    const entryEnd = moment(entryStart)
-                        .add(entry.duration, 'seconds')
-                        .toISOString();
+            this.trackPosistion.cancel();
+            this.preventScrollCheck = true;
 
-                    const startIn = moment(entryStart).isBetween(startTime, endTime, null, '[]');
-                    const endIn = moment(entryEnd).isBetween(startTime, endTime, null, '[]');
+            // Don't break unless we have actually transformed the entries
+            // at least once (so that it can scroll to the current time)
+            if (noAutoScroll) {
+                return;
+            }
 
-                    return startIn || endIn;
-                });
+            // Could potentially be 350ms behind with the combined throttles
+            _.delay(() => {
+                this.trackPosistion.cancel();
 
-                day.entries = this.mapEntries(dayEntries, pxPerMinute, startTime, endTime);
-
-                startTime.add(1, 'day');
-                endTime.add(1, 'day');
-            });
-
-            return;
-        }
+                if (!this.scrollLastSpot) {
+                    this.scrollCurrentTime = true;
+                }
+                this.scrollToSpot();
+            }, 400);
+        });
     }, 100);
+
+    public togglePopover = _.debounce(
+        ($event, day?: ITimeDay) => {
+            if (
+                // @ts-ignore
+                this._state === 'disabled' ||
+                (_.isBoolean(this.preventCreate) && this.preventCreate)
+            ) {
+                return;
+            }
+
+            let isoTime;
+            const dayWeek = day;
+
+            const dayDate = day ? dayWeek.date : null;
+            const [zoomLevelData, pxPerMinute] = this.getZoomLevelData();
+            const [blockStart] = this.getDayStartEndTimes(dayDate);
+
+            const relativeY = $event.pageY - this.parentScrollElem.offset().top;
+            // On week view, get the height of the date names so we can offset
+            const elemDiff = day ? $(`.${CTimelineWeekContainerStyles.dates}`).outerHeight() : 0;
+            const pxDown = relativeY + this.parentScrollElem.scrollTop() - elemDiff;
+            const blockIndex = Math.floor(pxDown / BLOCK_HEIGHT);
+
+            if (dayWeek) {
+                dayWeek.newItem = null;
+                isoTime = dayWeek.blocks[blockIndex].isoTime;
+
+                _.forEach(this.displayDays, weekDay => (weekDay.newItem = null));
+            } else {
+                this.newItem = null;
+                isoTime = this.blocks[blockIndex].isoTime;
+            }
+
+            const minutesFromTop = pxDown / pxPerMinute;
+
+            const clickedTime = moment(blockStart)
+                .add(minutesFromTop, 'minutes')
+                .startOf(this.zoomLevel < 5 ? 'minute' : 'second');
+            const startTime: Moment = moment(clickedTime).subtract(zoomLevelData.minutes / 2, 'minutes');
+            const endTime: Moment = moment(clickedTime).add(zoomLevelData.minutes / 2, 'minutes');
+
+            const matchingEntries: ITimeEntry[] = [];
+
+            const entries = dayWeek ? dayWeek.entries : this.transformedEntries;
+
+            if (this.snapAdd) {
+                (matchingEntries as any[]) = _.filter(entries, entry =>
+                    moment(entry.end).isBetween(startTime, endTime, null, '[)'),
+                );
+            }
+
+            let top = blockIndex * BLOCK_HEIGHT;
+            let startIso = null;
+
+            if (!matchingEntries.length) {
+                const isoTimeMoment = moment(isoTime);
+                const halfBlock = BLOCK_HEIGHT / 2;
+
+                if ($event.layerY >= halfBlock) {
+                    top += halfBlock;
+                    isoTimeMoment.add((halfBlock / pxPerMinute) * SECONDS_IN_MINUTE, 'seconds');
+                }
+
+                startIso = isoTimeMoment.toISOString();
+            } else {
+                const sortedEntries = _.sortBy(matchingEntries, entry =>
+                    Math.abs(moment(entry.end).diff(clickedTime, 'seconds')),
+                );
+                const firstEntry = _.first(sortedEntries);
+                const diff = Math.ceil(moment(isoTime).diff(firstEntry.end, 'seconds')) * -1;
+
+                top += Math.floor((diff / SECONDS_IN_MINUTE) * pxPerMinute);
+                startIso = firstEntry.end;
+            }
+
+            if (_.isFunction(this.preventCreate) && this.preventCreate({isoTime: startIso})) {
+                return;
+            }
+
+            const newItem: any = {
+                top,
+                color: 'secondary',
+                height: 50,
+                isoTime: startIso,
+                placeholder: true,
+                title: `${moment(startIso).format(this.zoomLevel < 5 ? 'HH:mm' : 'HH:mm:ss')} (New Item)`,
+                zoomLevel: this.zoomLevel,
+            };
+
+            if (this.newEntryViewModel) {
+                newItem.contentViewModel = this.newEntryViewModel;
+            }
+
+            if (!dayWeek) {
+                this.newItem = _.cloneDeep(newItem);
+
+                _.defer(() => {
+                    if (this.placeholderEntry) {
+                        this.placeholderEntry.openPopover();
+                    }
+                });
+            } else {
+                dayWeek.newItem = _.cloneDeep(newItem);
+
+                _.defer(() => {
+                    if (dayWeek.placeholderEntry) {
+                        dayWeek.placeholderEntry.openPopover();
+                    }
+                });
+            }
+        },
+        500,
+        {leading: true, trailing: false},
+    );
 
     private calculateCurrentTimeLine = _.throttle(
         () => {
@@ -240,39 +417,77 @@ export class CTimeline {
         {trailing: true, leading: false},
     );
 
-    constructor() {
+    private trackPosistion = _.debounce(
+        () => {
+            if (this.isRendering || this.isLoading || this.preventScrollCheck) {
+                return;
+            }
+
+            const [, pxPerMinute] = this.getZoomLevelData();
+            const parentHeight = this.parentScrollElem.outerHeight();
+            const currentPos = this.parentScrollElem.scrollTop() + parentHeight / 2;
+
+            if (parentHeight >= $(`#${this.id}`).outerHeight()) {
+                return;
+            }
+
+            this.currentScroll = currentPos / pxPerMinute; // Minutes from the middle of the timeline view
+        },
+        1000,
+        {trailing: true, leading: false},
+    );
+
+    constructor(private taskQueue: TaskQueue, private notification: CToastsService) {
         // Generate allowed times at each level
         mapAllowedTimes();
     }
 
     public attached() {
+        // Trigger the default TZ stuff
+        if (!this.timezone) {
+            this.setupTimezone();
+        }
+
+        this.getParentScrollElem();
         this.buildTimeline();
 
         this.currentTimeLineTracker = setInterval(() => {
             this.calculateCurrentTimeLine();
         }, SECONDS_IN_MINUTE * 1000);
+
+        $(this.parentScrollElem).on('scroll', this.trackPosistion);
     }
 
     public detatched() {
         if (this.currentTimeLineTracker) {
             clearInterval(this.currentTimeLineTracker);
         }
+
+        if (this.parentScrollElem) {
+            $(this.parentScrollElem).off('scroll', this.trackPosistion);
+        }
     }
 
     // Observable properties
     // Listen to rebuild data
-    public zoomLevelChanged() {
-        this.buildTimeline();
-    }
-
-    public daysChanged() {
-        if (this.timeView !== 'day') {
-            this.buildTimeline();
+    public zoomLevelChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
         }
+
+        this.scrollLastSpot = true;
+        this.renderTimeline();
     }
 
     public timeViewChanged() {
-        this.buildTimeline();
+        this.renderTimeline();
+    }
+
+    public daysChanged() {
+        if (this.timeView === 'week') {
+            this.renderTimeline();
+        }
     }
 
     public scrollDaysChanged() {
@@ -282,87 +497,31 @@ export class CTimeline {
     public entriesChanged() {
         // Don't update unless there are blocks displaying
         if (this.blocks.length) {
-            this.transformEntries();
+            this.transformEntries(true);
         }
     }
 
     public dateChanged() {
-        _.defer(() => this.buildTimeline());
+        this.renderTimeline();
     }
 
-    /**
-     * Passed into `c-time-block` elements. Allows you to set spot for placeholder
-     * new time entry while popover is showing.
-     *
-     * @param isoTime ISO Date string
-     * @param mouseOffset How many pixels down the mouse was clicked
-     */
-    public calculatePlaceholder(isoTime: string, mouseOffset: number): [string, number] {
-        const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
-        const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
-        const offsetMinutes = Math.floor(mouseOffset / pxPerMinute);
-
-        // Buffer around clicked time to snap
-        const clickedTime = moment(isoTime)
-            .add(offsetMinutes, 'minutes')
-            .startOf('minute');
-        const startTime = moment(clickedTime).subtract(zoomLevelData.minutes, 'minutes');
-        const endTime = moment(clickedTime).add(zoomLevelData.minutes, 'minutes');
-
-        let matchingEntries: ITimeEntry[] = [];
-
-        if (this.snapAdd) {
-            if (this.timeView === 'day') {
-                matchingEntries = _.filter(this.transformedEntries, entry => {
-                    return moment(entry.end).isBetween(startTime, endTime, null, '[)');
-                });
-            } else {
-                _.forEach(this.displayDays, day => {
-                    const dayMatches = _.filter(day.entries, entry => {
-                        return moment(entry.end).isBetween(startTime, endTime, null, '[)');
-                    });
-
-                    matchingEntries = [...matchingEntries, ...dayMatches];
-                });
-            }
-        }
-
-        let offset = 0;
-
-        if (!matchingEntries.length) {
-            const isoTimeMoment = moment(isoTime);
-            const halfBlock = Math.floor(BLOCK_HEIGHT / 2);
-
-            if (mouseOffset >= halfBlock) {
-                offset = halfBlock;
-                isoTimeMoment.add(Math.floor(halfBlock / pxPerMinute), 'minutes');
-            }
-
-            return [isoTimeMoment.toISOString(), offset];
-        }
-
-        const sortedEntries = _.sortBy(matchingEntries, entry =>
-            Math.abs(moment(entry.end).diff(clickedTime, 'minutes')),
-        );
-        const firstEntry = _.first(sortedEntries);
-        const diff = Math.ceil(moment(isoTime).diff(firstEntry.end, 'minutes')) * -1;
-        offset = Math.floor(diff * pxPerMinute) - 1;
-
-        return [firstEntry.end, offset];
+    public timezoneChanged() {
+        this.setupTimezone(true);
     }
 
-    /**
-     * Passed into `c-time-block` elements. Allows you to check if clicking in a block
-     * will allow you to create a new entry.
-     *
-     * @param isoTime ISO Date string
-     */
-    public checkPreventAdd(isoTime) {
-        if (!_.isFunction(this.preventCreate)) {
-            return false;
+    public scrollTimeChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
         }
 
-        return this.preventCreate({isoTime});
+        const scrollTime = moment(this.scrollTime, 'HH:mm');
+
+        if (this.scrollTime && (!scrollTime.isValid() || this.isRendering || this.isLoading)) {
+            return;
+        }
+
+        this.scrollToSpot(this.scrollTime);
     }
 
     /**
@@ -378,10 +537,57 @@ export class CTimeline {
     // Private methods
 
     /**
+     * Return the offset in minutes from the selected timezone to the browser timezone
+     */
+    private getTzOffet(): number {
+        const browserOffset = moment.tz.zone(moment.tz.guess()).utcOffset(moment());
+        const offset = moment().utcOffset();
+
+        return browserOffset + offset;
+    }
+
+    /**
+     * Sets up the timezone data
+     *
+     * @param updateDate Boolean value to determine whether or not to update `this.date`
+     */
+    private setupTimezone(updateDate?: boolean) {
+        const tzNames = moment.tz.names();
+        const tzIndex = tzNames.findIndex(name => name === this.timezone);
+
+        if (tzIndex > -1) {
+            moment.tz.setDefault(this.timezone);
+        } else {
+            moment.tz.setDefault();
+        }
+
+        if (updateDate) {
+            // This prevents issues where the date will look in the past and throw off the three-day view
+            const offset = this.getTzOffet();
+            this.date = moment(this.date)
+                .add(offset * -1, 'minutes')
+                .toISOString();
+        }
+
+        this.renderTimeline();
+    }
+
+    /**
+     * Get the closest parent element that scrolls
+     */
+    private getParentScrollElem() {
+        this.parentScrollElem = $(`#${this.id}`).closest(
+            $(`#${this.id}`)
+                .parents()
+                .filter((_i, e) => $(e).css('overflow-y') === 'auto'),
+        );
+    }
+
+    /**
      * If zoom goes out of bounds, fix it here
      */
     private fixZoomBounds() {
-        if (this.timeView !== 'day' && this.timeView !== 'week') {
+        if (this.timeView !== 'day' && this.timeView !== 'week' && this.timeView !== 'three-day') {
             return;
         }
 
@@ -390,6 +596,88 @@ export class CTimeline {
         } else if (this.zoomLevel < 0) {
             this.zoomLevel = 0;
         }
+    }
+
+    private renderTimeline() {
+        this.isRendering = true;
+
+        // If there is no delay, the browser chokes up and doesn't
+        // display the loading indicator until the very end
+        // 50ms wait seems to be a good middle ground
+        _.delay(() => this.buildTimeline(), 50);
+    }
+
+    /**
+     * Scroll to a designated spot on the timeline
+     */
+    private scrollToSpot(time?) {
+        _.defer(() => {
+            const [, pxPerMinute] = this.getZoomLevelData();
+
+            let scrollTop = 0;
+
+            if (time) {
+                const [startTime, endTime] = this.getDayStartEndTimes();
+                const now = moment(time, 'HH:mm');
+
+                let timeToScroll = -1;
+
+                if (this.timeView === 'day') {
+                    if (now.isBetween(startTime, endTime, null, '()')) {
+                        const diff = now.diff(startTime, 'seconds');
+                        timeToScroll = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                    }
+                } else {
+                    _.forEach(this.displayDays, () => {
+                        if (now.isBetween(startTime, endTime, null, '()')) {
+                            const diff = now.diff(startTime, 'seconds');
+                            timeToScroll = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+                            return false;
+                        }
+
+                        startTime.add(1, 'day');
+                        endTime.add(1, 'day');
+                    });
+                }
+
+                if (timeToScroll > -1) {
+                    scrollTop = timeToScroll - this.parentScrollElem.outerHeight() / 2;
+                    this.currentScroll = timeToScroll / pxPerMinute;
+                    this.parentScrollElem.animate({scrollTop}, 500);
+                }
+            } else if (this.scrollCurrentTime) {
+                this.scrollCurrentTime = false;
+
+                let currentTimeTop = -1;
+
+                if (this.timeView === 'day') {
+                    currentTimeTop = this.currentTimeLine;
+                } else {
+                    _.forEach(this.displayDays, day => {
+                        if (day.currentTimeLine > -1) {
+                            currentTimeTop = day.currentTimeLine;
+                            return false;
+                        }
+                    });
+                }
+
+                if (currentTimeTop > -1) {
+                    scrollTop = currentTimeTop - this.parentScrollElem.outerHeight() / 2;
+                    this.currentScroll = currentTimeTop / pxPerMinute;
+                    this.parentScrollElem.animate({scrollTop}, 500);
+                }
+            } else if (this.scrollLastSpot) {
+                this.scrollLastSpot = false;
+                scrollTop = this.currentScroll * pxPerMinute - this.parentScrollElem.outerHeight() / 2;
+                this.parentScrollElem.animate({scrollTop}, 500);
+            }
+
+            // To be after the scroll animation
+            _.delay(() => {
+                this.preventScrollCheck = false;
+                this.trackPosistion.cancel();
+            }, 501);
+        });
     }
 
     /**
@@ -411,11 +699,36 @@ export class CTimeline {
                 date = moment(date)
                     .startOf('week')
                     .toISOString();
+
                 this.displayDays = [];
 
                 this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
 
                 _.times(this.days, () => {
+                    const dayOfWeek: ITimeDay = {
+                        date,
+                        blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                        entries: [],
+                        today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
+                    };
+
+                    this.displayDays.push(dayOfWeek);
+                    date = moment(date)
+                        .add(1, 'days')
+                        .toISOString();
+                });
+                break;
+            case 'three-day':
+                date = moment(date)
+                    .subtract(1, 'day')
+                    .startOf('day')
+                    .toISOString();
+
+                this.displayDays = [];
+
+                this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
+
+                _.times(3, () => {
                     const dayOfWeek: ITimeDay = {
                         date,
                         blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
@@ -616,7 +929,7 @@ export class CTimeline {
     /**
      * Calculate the times for when the day starts
      */
-    private getDayStartEndTimes(): [Moment, Moment] {
+    private getDayStartEndTimes(date?): [Moment, Moment] {
         const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
 
         let startTime;
@@ -640,6 +953,22 @@ export class CTimeline {
             }
         }
 
+        if (this.timeView === 'three-day') {
+            if (this.date) {
+                startTime = moment(this.date)
+                    .subtract(1, 'day')
+                    .startOf('day');
+            } else {
+                startTime = moment()
+                    .subtract(1, 'day')
+                    .startOf('day');
+            }
+        }
+
+        if (date) {
+            startTime = moment(date).startOf('day');
+        }
+
         const blockTime = this.blocks[0].time;
         const numOfBlocks = this.blocks.length;
         addHours = moment(blockTime, 'HH:mm').format('H');
@@ -648,126 +977,13 @@ export class CTimeline {
         startTime.add(addHours, 'hours').add(addMinutes, 'minutes');
         endTime = moment(startTime).add(numOfBlocks * zoomLevelData.minutes, 'minutes');
 
-        return [startTime, endTime];
+        return [moment(startTime), moment(endTime)];
     }
 
-    /**
-     * Map a day of sorted entries to the ITimeEntry type
-     *
-     * @param sortedEntries any[]: Array of entries sorted by start time
-     * @param pxPerMinute number: The number of pixels it takes to display a minute
-     * @param startTime Moment: start time of the day
-     * @param endTime Moment: end time of the day
-     */
-    private mapEntries(sortedEntries: any[], pxPerMinute: number, startTime, endTime): ITimeEntry[] {
-        let nestedEntryWidth = 80;
+    private getZoomLevelData() {
+        const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
+        const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
 
-        return _.map(
-            sortedEntries,
-            (entry: ITimeEntry, index: number): ITimeEntry => {
-                if (!this.date) {
-                    entry.start = moment(entry.start, 'hmm').toISOString();
-                }
-
-                entry.startTime = moment(entry.start).format('HH:mm');
-
-                if (!entry.end) {
-                    entry.end = moment(entry.start)
-                        .add(entry.duration, 'seconds')
-                        .toISOString();
-                }
-
-                entry.endTime = moment(entry.end).format('HH:mm');
-
-                let diff = moment(entry.start).diff(startTime, 'seconds');
-                const diffEnd = moment(endTime).diff(entry.end, 'seconds');
-
-                // If entry starts before the day make sure it only displays what it needs
-                if (diff < 0) {
-                    entry.start = moment(startTime).toISOString();
-                    entry.duration += diff;
-                    diff = 0;
-                }
-
-                // If entry ends after the day make sure it only displays what it needs
-                if (diffEnd < 0) {
-                    entry.duration += diffEnd;
-                }
-
-                entry.top = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
-                entry.height = (entry.duration / SECONDS_IN_MINUTE) * pxPerMinute;
-
-                if (this.editEntryViewModel) {
-                    entry.contentViewModel = this.editEntryViewModel;
-                }
-
-                const width = this.timeView === 'week' ? 30 : 60;
-                const nextEntries = sortedEntries.slice(index + 1);
-
-                const sameTimeEntries = _.filter(nextEntries, filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = moment(filterEntry.start)
-                            .add(filterEntry.duration, 'seconds')
-                            .toISOString();
-                    }
-
-                    // Not the same time if it's later in the minute. Gives a buffer
-                    return (
-                        moment(entry.start).isSame(filterEntry.start, 'minute') &&
-                        !moment(filterEntry.start).isAfter(entry.end, 'second')
-                    );
-                });
-
-                const nestedEntries = _.filter(nextEntries, filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = moment(filterEntry.start)
-                            .add(filterEntry.duration, 'seconds')
-                            .toISOString();
-                    }
-
-                    // 10 second buffer
-                    return moment(filterEntry.start).isBetween(
-                        entry.start,
-                        moment(entry.end).subtract(10, 'seconds'),
-                        null,
-                        '()',
-                    );
-                });
-
-                const nestedEntry = _.first(nestedEntries); // We only care about the first one
-
-                if (!entry.widthCalc && sameTimeEntries.length) {
-                    const totalSameTime = sameTimeEntries.length + 1;
-                    const entryWidth = 100 / totalSameTime;
-
-                    // We don't want to use these props if we are showing multiple things at the same time
-                    entry.sizeDay = null;
-                    entry.sizeWeek = null;
-
-                    entry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-
-                    _.forEachRight(sameTimeEntries, (sameTimeEntry, sameTimeIndex) => {
-                        const offsetIndex = sameTimeIndex + 1;
-
-                        // We don't want to use these props if we are showing multiple things at the same time
-                        sameTimeEntry.small = null;
-                        sameTimeEntry.expandable = null;
-
-                        sameTimeEntry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-                        sameTimeEntry.rightCalc = `calc(${offsetIndex * entryWidth}% - ${(width / totalSameTime) *
-                            offsetIndex}px)`;
-                    });
-                } else if (nestedEntry) {
-                    if (nestedEntryWidth >= 40) {
-                        nestedEntry.widthCalc = `calc(${nestedEntryWidth}% - ${width}px)`;
-                        nestedEntryWidth -= 20;
-                    } else {
-                        nestedEntryWidth = 80; // Reset
-                    }
-                }
-
-                return entry;
-            },
-        );
+        return [zoomLevelData, pxPerMinute];
     }
 }

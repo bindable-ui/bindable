@@ -3,12 +3,11 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {bindable, containerless} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
 import {generateRandom} from '../../helpers/generate-random';
 import {lazyLoadCheck} from '../../helpers/lazy-load-check';
 import * as styles from './l-grid.css.json';
 
-@containerless
 export class LGrid {
     @bindable
     public actions;
