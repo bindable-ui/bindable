@@ -54,6 +54,8 @@ export class CFormText {
     @bindable
     public type = 'text';
     @bindable
+    public pattern = '';
+    @bindable
     public eventListeners: IFormEventListener;
 
     public styles = styles;

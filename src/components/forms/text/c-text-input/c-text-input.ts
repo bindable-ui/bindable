@@ -41,9 +41,13 @@ export class CTextInput {
     @bindable
     public type = 'text';
     @bindable
+    public pattern = '';
+    @bindable
     public eventListeners: IFormEventListener = {};
 
     public styles = styles;
+
+    private valid_types = ['email', 'number', 'tel', 'text', 'url'];
 
     private defaultEvents: IFormEventListener = {
         keyup: event => {
@@ -61,7 +65,7 @@ export class CTextInput {
             this.clearable = false;
         }
 
-        if (this.type !== 'text' && this.type !== 'number') {
+        if (!this.valid_types.includes(this.type)) {
             this.type = 'text';
         }
 
