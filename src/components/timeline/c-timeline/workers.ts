@@ -73,7 +73,7 @@ function mapEntriesFn(
     // Sometimes zoomLevel is passed as a string
     const zoom = parseInt(zoomLevel.toString(), 10);
 
-    const width = timeView === 'week' || timeView === 'three-day' ? 30 : 60;
+    const width = 30;
 
     const columns = Array(sortedEntries.length).fill(0); // The max number of columns you can have
     const pseudoColumns = Array(sortedEntries.length).fill(0); // The max number of columns you can have
