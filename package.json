@@ -157,11 +157,7 @@
         "node_modules/tslint/bin/tslint --project tsconfig.json --config tslint.json --fix --format codeFrame",
         "git add"
       ],
-      "src/**/*.html": [
-        "js-beautify -r -q",
-        "git add"
-      ],
-      "dev-app/**/*.html": [
+      "{src,dev-app}/**/*.html": [
         "js-beautify -r -q",
         "git add"
       ]
