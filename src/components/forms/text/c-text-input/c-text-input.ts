@@ -47,7 +47,7 @@ export class CTextInput {
 
     public styles = styles;
 
-    private valid_types = ['email', 'number', 'tel', 'text', 'url'];
+    private valid_types = ['email', 'number', 'tel', 'text', 'url', 'password'];
 
     private defaultEvents: IFormEventListener = {
         keyup: event => {
