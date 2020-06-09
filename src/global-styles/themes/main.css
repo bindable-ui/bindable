@@ -796,7 +796,7 @@ c-table{
     --table-td-border-top: var(--table-td-border);
     --table-td-border-right: var(--table-td-border);
     --table-td-border-bottom: var(--table-td-tdorder);
-    --table-td-border-left: --table-td-border;
+    --table-td-border-left: var(--table-td-border);
     --table-td-color: var(--c_marshmellow);
     --table-th-padding: var(--table-td-padding);
     --table-striped-background: #3A3A3A;
@@ -1177,6 +1177,7 @@ c-list{
  */
 
 c-p{
+    --p-font-size-xlarge: var(--s1);
     --p-font-size-large: var(--s0);
     --p-font-size-medium: var(--s-1);
     --p-font-size-small: var(--s-2);

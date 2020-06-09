@@ -35,7 +35,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .notification svg{
-    flex: 0 0 var(--s3);
+    flex: 0 0 var(--s0);
 }
 
 .content{

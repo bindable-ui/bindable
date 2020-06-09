@@ -31,9 +31,9 @@ export class GridProperties {
     public gridProperties = [
         {
             default: '20rem',
-            description: 'Set the min size each grid item can be.',
+            description: 'Set the min value of the min() function. It might help to see the full CSS line where this will be used: grid-template-columns: repeat(var(--grid-auto-sizing), minmax(min(var(--grid-min-size), 100%), 1fr))',
             name: 'min-size',
-            value: 'Any length value. (80ch, 5rem, 50%, 200px)',
+            value: 'Any length value. (80ch, 5rem, 250px)',
         },
         {
             default: 'var(--s3)',
