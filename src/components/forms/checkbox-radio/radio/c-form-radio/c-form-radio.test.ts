@@ -26,5 +26,30 @@ describe('c-form-radio component', () => {
                 }
             });
         });
+
+        it('calls checkedChanged with action handler', async done => {
+            const mockFn = jest.fn();
+            const template = `
+            <c-form-radio
+                actions.bind="radioActions">
+            </c-form-radio>
+        `;
+            component = StageComponent.withResources()
+                .inView(template)
+                .boundTo({
+                    radioActions: {
+                        onChange: mockFn,
+                    },
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                component.viewModel.checkedChanged();
+                expect(mockFn).toHaveBeenCalled();
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
     });
 });

@@ -4,19 +4,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-	<require from="./c-text-input.css"></require>
+    <require from="./c-text-input.css"></require>
 
     <l-icon
         icon="${icon}"
         spacing="0"
         if.bind="icon"
     ></l-icon>
-    <span
-        class="
+    <span class="
             ${button || buttonText ? styles.buttonInput : ''}
             ${clearable ? styles.container : ''}
-        "
-    >
+        ">
         <input
             class="
                 ${styles.input}
@@ -44,7 +42,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${state === 'info' ? styles.info : ''}
             "
             keyup.delegate="onKeyUp($event) & debounce"
-            type="${type}"
+            type.bind="type"
+            pattern.bind="pattern"
             value.bind="textValue"
             focus.bind="hasFocus"
             id="${id}"

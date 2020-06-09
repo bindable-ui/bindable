@@ -11,12 +11,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             side-background="var(--c_black)"
         >
             <span>
-            <a
-                href="#/home"
-                class="logo"
-            >
-                <svg width="28" height="46" viewBox="0 0 28 46" xmlns="http://www.w3.org/2000/svg"><path d="M4.667 41.628a13.904 13.904 0 004.656-10.95h.01V18.061c1.46-.514 3.03-.794 4.667-.794 7.732 0 14 6.249 14 13.957 0 7.708-6.268 13.957-14 13.957a13.972 13.972 0 01-9.333-3.554v.001zM0 31.3v-.623h.01c-.006.16-.01.319-.01.48V13.162C0 7.086 3.896 1.916 9.333 0v18.062L0 31.3z" fill-rule="nonzero"/></svg>
-            </a>
+                <a
+                    href="#/home"
+                    class="logo"
+                >
+                    <svg
+                        width="28"
+                        height="46"
+                        viewBox="0 0 28 46"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M4.667 41.628a13.904 13.904 0 004.656-10.95h.01V18.061c1.46-.514 3.03-.794 4.667-.794 7.732 0 14 6.249 14 13.957 0 7.708-6.268 13.957-14 13.957a13.972 13.972 0 01-9.333-3.554v.001zM0 31.3v-.623h.01c-.006.16-.01.319-.01.48V13.162C0 7.086 3.896 1.916 9.333 0v18.062L0 31.3z"
+                            fill-rule="nonzero"
+                        /></svg>
+                </a>
             </span>
             <l-box
                 padding-sides="var(--s3)"
@@ -39,7 +48,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         state="${link.isActive ? 'active' : ''}"
                     >
                     </c-nav-horizontal-item>
-                    <c-nav-horizontal-item position="right" href="https://github.com/bindable-ui/bindable" title="v1.1.3"></c-nav-horizontal-item>
+                    <c-nav-horizontal-item
+                        position="right"
+                        href="https://github.com/bindable-ui/bindable"
+                        title="v1.2.0"
+                    ></c-nav-horizontal-item>
                 </c-nav-horizontal>
             </l-box>
         </l-sidebar>
@@ -52,21 +65,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         >
             <l-cluster justify="space-between">
                 <div>
-                
-<a
-                    class="logo-vdms"
-                    href="http://verizondigitalmedia.com"
-                    target="_blank"
-                >
-                    Verizon Media
-                </a>
-<a
-                            class="footer-links"
-                            href="https://github.com/bindable-ui/bindable/issues"
-                            target="_blank"
-                        >
-                            Report An Issue
-                        </a>
+
+                    <a
+                        class="logo-vdms"
+                        href="http://verizondigitalmedia.com"
+                        target="_blank"
+                    >
+                        Verizon Media
+                    </a>
+                    <a
+                        class="footer-links"
+                        href="https://github.com/bindable-ui/bindable/issues"
+                        target="_blank"
+                    >
+                        Report An Issue
+                    </a>
                 </div>
             </l-cluster>
         </l-box>
@@ -75,72 +88,358 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     <c-toasts></c-toasts>
     <c-popover width="140px"></c-popover>
     <bindable-icons></bindable-icons>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
-        <symbol id="bindable-icons" viewBox="0 0 39 42">
-            <path d="M1 42.35V41.786h.01c-.006.144-.01.289-.01.434V25.922A12.644 12.644 0 019.4 14v16.36C9.133 33.453 8.333 35.667 7 37c-1.115 1.115-3.115 2.898-6 5.35zM1 12.922C1 5 3 3 9.4 1 9.38 5.037 8.913 7.704 8 9c-.953 1.353-3.287 2.66-7 3.922z" fill="currentColor"/>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        style="display:none"
+    >
+        <symbol
+            id="bindable-icons"
+            viewBox="0 0 39 42"
+        >
+            <path
+                d="M1 42.35V41.786h.01c-.006.144-.01.289-.01.434V25.922A12.644 12.644 0 019.4 14v16.36C9.133 33.453 8.333 35.667 7 37c-1.115 1.115-3.115 2.898-6 5.35zM1 12.922C1 5 3 3 9.4 1 9.38 5.037 8.913 7.704 8 9c-.953 1.353-3.287 2.66-7 3.922z"
+                fill="currentColor"
+            />
         </symbol>
-        <symbol id="bindable" viewBox="0 0 26 42">
-            <path d="M4.2 38.658c2.578-2.403 4.2-5.896 4.2-9.783 0-.172-.003-.344-.01-.515h.01V16.497a12.127 12.127 0 014.2-.747c6.959 0 12.6 5.876 12.6 13.125S19.559 42 12.6 42c-3.227 0-6.17-1.264-8.4-3.342zM0 28.35V27.786h.01c-.006.144-.01.289-.01.434V11.922A12.644 12.644 0 018.4 0v16.36L0 28.35z" fill="currentColor" fill-rule="nonzero"/>
+        <symbol
+            id="bindable"
+            viewBox="0 0 26 42"
+        >
+            <path
+                d="M4.2 38.658c2.578-2.403 4.2-5.896 4.2-9.783 0-.172-.003-.344-.01-.515h.01V16.497a12.127 12.127 0 014.2-.747c6.959 0 12.6 5.876 12.6 13.125S19.559 42 12.6 42c-3.227 0-6.17-1.264-8.4-3.342zM0 28.35V27.786h.01c-.006.144-.01.289-.01.434V11.922A12.644 12.644 0 018.4 0v16.36L0 28.35z"
+                fill="currentColor"
+                fill-rule="nonzero"
+            />
         </symbol>
-        <symbol id="box" viewBox="0 0 42 43">
-            <rect width="40" height="40" rx="2" transform="translate(1 1.918)" stroke="#37A56C" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/>
+        <symbol
+            id="box"
+            viewBox="0 0 42 43"
+        >
+            <rect
+                width="40"
+                height="40"
+                rx="2"
+                transform="translate(1 1.918)"
+                stroke="#37A56C"
+                stroke-width="2"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="currentColor"
+            />
         </symbol>
-        <symbol id="call_merge" viewBox="0 0 18 14">
-            <path d="M12.984 2.5l4.5 4.5-4.5 4.5V7.984H6.609l-6-6L2.015.578l5.391 5.438h5.578V2.5zM.609 12.016l3.375-3.422L5.39 10l-3.375 3.422-1.406-1.406z" fill="currentColor" fill-rule="nonzero"/>
+        <symbol
+            id="call_merge"
+            viewBox="0 0 18 14"
+        >
+            <path
+                d="M12.984 2.5l4.5 4.5-4.5 4.5V7.984H6.609l-6-6L2.015.578l5.391 5.438h5.578V2.5zM.609 12.016l3.375-3.422L5.39 10l-3.375 3.422-1.406-1.406z"
+                fill="currentColor"
+                fill-rule="nonzero"
+            />
         </symbol>
-        <symbol id="center" viewBox="0 0 42 43">
-        	<g transform="translate(1 1.918)" stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><rect width="40" height="40" rx="2"/><path d="M13.778 13.778h12.444v12.444H13.778z" fill="currentColor"/></g>
-        </symbol>
-        <symbol id="cluster" viewBox="0 0 42 43">
-        	<g transform="translate(1 1.918)" stroke="currentColor" fill="transparent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="40" height="40" rx="2"/><path fill="currentColor" d="M6.667 17.778h4.444v4.444H6.667zM17.778 17.778h4.444v4.444h-4.444zM28.889 17.778h4.444v4.444h-4.444z"/></g>
-        </symbol>
-        <symbol id="color" viewBox="0 0 43 40">
-            <path d="M37.574 26.997c3.16 3.453 4.74 6.208 4.74 8.266 0 1.25-.478 2.35-1.432 3.305-.955.955-2.057 1.432-3.306 1.432s-2.333-.477-3.251-1.432c-.918-.954-1.378-2.056-1.378-3.305 0-.882.386-2.021 1.157-3.416s1.524-2.533 2.26-3.416l1.21-1.434zM2.51 23.471H30.433L16.416 9.565 2.51 23.47zm29.335-2.424c.735.735 1.102 1.58 1.102 2.535 0 .954-.367 1.762-1.102 2.423L18.953 38.897c-.735.735-1.58 1.103-2.535 1.103-.882 0-1.69-.368-2.423-1.103L.992 26.005C.331 25.344 0 24.5 0 23.471c0-.954.33-1.762.992-2.424L14.446 7.593l-5.62-5.621L10.908 0l20.937 21.047z" fill="currentColor" fill-rule="nonzero"/>
-        </symbol>
-        <symbol id="cover" viewBox="0 0 42 42">
-        	<g transform="translate(1 1)" fill="none" stroke="currentColor" stroke-width="2" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><rect width="40" height="40" rx="2"/><path d="M0 13.333h40"/></g>
-        </symbol>
-        <symbol id="github" viewBox="0 0 24 24">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </symbol>
-        <symbol id="globe" viewBox="0 0 24 24">
-        	<circle fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  cx="12" cy="12" r="10"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" fill="none"/>
-        </symbol>
-        <symbol id="grid" viewBox="0 0 42 42">
-        	<g transform="translate(1 1)" stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><rect width="40" height="40" rx="2"/><path fill="currentColor" stroke="currentColor" d="M6.667 11.111h4.444v4.444H6.667zM17.778 11.111h4.444v4.444h-4.444zM28.889 11.111h4.444v4.444h-4.444zM6.667 24.444h4.444v4.444H6.667zM17.778 24.444h4.444v4.444h-4.444zM28.889 24.444h4.444v4.444h-4.444z"/></g>
-        </symbol>
-        <symbol id="hash" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-hash" d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/>
-        </symbol>
-        <symbol id="layers" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="currentColor"/>
-        </symbol>
-        <symbol id="layout" viewBox="0 0 24 24">
-            <g width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        	    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/>
+        <symbol
+            id="center"
+            viewBox="0 0 42 43"
+        >
+            <g
+                transform="translate(1 1.918)"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <rect
+                    width="40"
+                    height="40"
+                    rx="2"
+                />
+                <path
+                    d="M13.778 13.778h12.444v12.444H13.778z"
+                    fill="currentColor"
+                />
             </g>
         </symbol>
-        <symbol id="lock2" viewBox="0 0 24 24">
-        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
-        </g>
-        </symbol>
-        <symbol id="package" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        	<path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+        <symbol
+            id="cluster"
+            viewBox="0 0 42 43"
+        >
+            <g
+                transform="translate(1 1.918)"
+                stroke="currentColor"
+                fill="transparent"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <rect
+                    width="40"
+                    height="40"
+                    rx="2"
+                />
+                <path
+                    fill="currentColor"
+                    d="M6.667 17.778h4.444v4.444H6.667zM17.778 17.778h4.444v4.444h-4.444zM28.889 17.778h4.444v4.444h-4.444z"
+                />
             </g>
         </symbol>
-        <symbol id="sidebar" viewBox="0 0 42 42">
-            <g width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="38" height="38" rx="2" ry="2"/><path d="M14 3v38"/></g>
+        <symbol
+            id="color"
+            viewBox="0 0 43 40"
+        >
+            <path
+                d="M37.574 26.997c3.16 3.453 4.74 6.208 4.74 8.266 0 1.25-.478 2.35-1.432 3.305-.955.955-2.057 1.432-3.306 1.432s-2.333-.477-3.251-1.432c-.918-.954-1.378-2.056-1.378-3.305 0-.882.386-2.021 1.157-3.416s1.524-2.533 2.26-3.416l1.21-1.434zM2.51 23.471H30.433L16.416 9.565 2.51 23.47zm29.335-2.424c.735.735 1.102 1.58 1.102 2.535 0 .954-.367 1.762-1.102 2.423L18.953 38.897c-.735.735-1.58 1.103-2.535 1.103-.882 0-1.69-.368-2.423-1.103L.992 26.005C.331 25.344 0 24.5 0 23.471c0-.954.33-1.762.992-2.424L14.446 7.593l-5.62-5.621L10.908 0l20.937 21.047z"
+                fill="currentColor"
+                fill-rule="nonzero"
+            />
         </symbol>
-        <symbol id="tech" viewBox="0 0 25 19">
-        	<g fill-rule="nonzero" fill="currentColor"><path d="M9.5 15L4 9.5 9.5 4l1.29 1.29L6.577 9.5l4.21 4.212zM15.29 4l5.5 5.5-5.5 5.5L14 13.71l4.21-4.21L14 5.288z" fill="currentColor"/><path d="M25 0v19H0V0h25zm-2 2H2v15h21V2z" fill="currentColor"/></g>
+        <symbol
+            id="cover"
+            viewBox="0 0 42 42"
+        >
+            <g
+                transform="translate(1 1)"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <rect
+                    width="40"
+                    height="40"
+                    rx="2"
+                />
+                <path d="M0 13.333h40" />
+            </g>
         </symbol>
-        <symbol id="type" viewBox="0 0 24 24">
-            <path width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 7V4h16v3M9 20h6M12 4v16"/>
+        <symbol
+            id="github"
+            viewBox="0 0 24 24"
+        >
+            <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
         </symbol>
-        <symbol id="zap" viewBox="0 0 24 24">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <symbol
+            id="globe"
+            viewBox="0 0 24 24"
+        >
+            <circle
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                cx="12"
+                cy="12"
+                r="10"
+            />
+            <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                fill="none"
+            />
+        </symbol>
+        <symbol
+            id="grid"
+            viewBox="0 0 42 42"
+        >
+            <g
+                transform="translate(1 1)"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <rect
+                    width="40"
+                    height="40"
+                    rx="2"
+                />
+                <path
+                    fill="currentColor"
+                    stroke="currentColor"
+                    d="M6.667 11.111h4.444v4.444H6.667zM17.778 11.111h4.444v4.444h-4.444zM28.889 11.111h4.444v4.444h-4.444zM6.667 24.444h4.444v4.444H6.667zM17.778 24.444h4.444v4.444h-4.444zM28.889 24.444h4.444v4.444h-4.444z"
+                />
+            </g>
+        </symbol>
+        <symbol
+            id="hash"
+            viewBox="0 0 24 24"
+        >
+            <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-hash"
+                d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"
+            />
+        </symbol>
+        <symbol
+            id="layers"
+            viewBox="0 0 24 24"
+        >
+            <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                fill="currentColor"
+            />
+        </symbol>
+        <symbol
+            id="layout"
+            viewBox="0 0 24 24"
+        >
+            <g
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="2"
+                    ry="2"
+                />
+                <path d="M3 9h18M9 21V9" />
+            </g>
+        </symbol>
+        <symbol
+            id="lock2"
+            viewBox="0 0 24 24"
+        >
+            <g
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <rect
+                    x="3"
+                    y="11"
+                    width="18"
+                    height="11"
+                    rx="2"
+                    ry="2"
+                />
+                <path d="M7 11V7a5 5 0 0110 0v4" />
+            </g>
+        </symbol>
+        <symbol
+            id="package"
+            viewBox="0 0 24 24"
+        >
+            <g
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path
+                    d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                />
+                <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
+            </g>
+        </symbol>
+        <symbol
+            id="sidebar"
+            viewBox="0 0 42 42"
+        >
+            <g
+                width="42"
+                height="42"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <rect
+                    x="3"
+                    y="3"
+                    width="38"
+                    height="38"
+                    rx="2"
+                    ry="2"
+                />
+                <path d="M14 3v38" />
+            </g>
+        </symbol>
+        <symbol
+            id="tech"
+            viewBox="0 0 25 19"
+        >
+            <g
+                fill-rule="nonzero"
+                fill="currentColor"
+            >
+                <path
+                    d="M9.5 15L4 9.5 9.5 4l1.29 1.29L6.577 9.5l4.21 4.212zM15.29 4l5.5 5.5-5.5 5.5L14 13.71l4.21-4.21L14 5.288z"
+                    fill="currentColor"
+                />
+                <path
+                    d="M25 0v19H0V0h25zm-2 2H2v15h21V2z"
+                    fill="currentColor"
+                />
+            </g>
+        </symbol>
+        <symbol
+            id="type"
+            viewBox="0 0 24 24"
+        >
+            <path
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 7V4h16v3M9 20h6M12 4v16"
+            />
+        </symbol>
+        <symbol
+            id="zap"
+            viewBox="0 0 24 24"
+        >
+            <path
+                d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
         </symbol>
     </svg>
 </template>

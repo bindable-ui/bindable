@@ -47,6 +47,22 @@ describe('c-text-input component', () => {
             }
         });
 
+        it('should allow url type', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'url',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('url');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
         it('clears the text', async done => {
             component = StageComponent.withResources().inView('<c-text-input></c-text-input>');
             try {
@@ -68,7 +84,9 @@ describe('c-text-input component', () => {
             try {
                 await bootStrapEnvironment(component);
                 const spy = jest.spyOn(component.viewModel, 'buttonFn');
-                component.viewModel.onKeyUp({which: 13, preventDefault: mockFn});
+                const {keyup} = component.viewModel.eventListeners;
+
+                keyup({which: 13, preventDefault: mockFn});
                 expect(spy).toHaveBeenCalled();
                 expect(mockFn).toHaveBeenCalled();
                 done();
@@ -82,7 +100,10 @@ describe('c-text-input component', () => {
             component = StageComponent.withResources().inView('<c-text-input></c-text-input>');
             try {
                 await bootStrapEnvironment(component);
-                component.viewModel.onKeyUp({which: 101, preventDefault: mockFn});
+                const {keyup} = component.viewModel.eventListeners;
+
+                keyup({which: 101, preventDefault: mockFn});
+
                 expect(mockFn).toHaveBeenCalled();
                 done();
             } catch (e) {
