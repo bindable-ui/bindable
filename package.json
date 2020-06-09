@@ -42,6 +42,7 @@
     "jest-cli": "^24.1.0",
     "jest-localstorage-mock": "^2.4.0",
     "jest-transform-stub": "^2.0.0",
+    "js-beautify": "^1.11.0",
     "lint-staged": "^8.2.1",
     "merge2": "^1.2.3",
     "mime-types": "^2.1.24",
@@ -154,6 +155,10 @@
       "src/**/*.ts": [
         "prettier --write",
         "node_modules/tslint/bin/tslint --project tsconfig.json --config tslint.json --fix --format codeFrame",
+        "git add"
+      ],
+      "{src,dev-app}/**/*.html": [
+        "js-beautify -r -q",
         "git add"
       ]
     }
