@@ -35,7 +35,7 @@ describe('c-text-input component', () => {
             component = StageComponent.withResources()
                 .inView('<c-text-input type.bind="customType"></c-text-input>')
                 .boundTo({
-                    customType: 'password',
+                    customType: 'blah',
                 });
 
             try {
