@@ -39,9 +39,11 @@ export class CTextInput {
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public textValue;
     @bindable
+    public title = '';
+    @bindable
     public type = 'text';
     @bindable
-    public pattern = '';
+    public pattern;
     @bindable
     public eventListeners: IFormEventListener = {};
 
@@ -70,6 +72,9 @@ export class CTextInput {
         }
 
         this.eventListeners = Object.assign({}, this.defaultEvents, this.eventListeners);
+
+        this.updatePattern();
+        this.updatePlaceholder();
     }
 
     public clearText() {
@@ -81,5 +86,29 @@ export class CTextInput {
         if (_.isFunction(this.buttonAction)) {
             this.buttonAction({textValue: this.textValue});
         }
+    }
+
+    public patternChanged() {
+        this.updatePattern();
+    }
+
+    public placeholderChanged() {
+        this.updatePlaceholder();
+    }
+
+    private updatePattern() {
+        if (this.pattern && this.pattern.length) {
+            $(`#${this.id}`).attr('pattern', this.pattern);
+            return;
+        }
+        $(`#${this.id}`).removeAttr('pattern');
+    }
+
+    private updatePlaceholder() {
+        if (this.placeholder && this.placeholder.length) {
+            $(`#${this.id}`).attr('placeholder', this.placeholder);
+            return;
+        }
+        $(`#${this.id}`).removeAttr('placeholder');
     }
 }
