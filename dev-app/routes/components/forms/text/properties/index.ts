@@ -128,7 +128,7 @@ export class TextInputProperties {
             default: 'text',
             description: 'Set if you need the input to have a type of "number".',
             name: 'type',
-            value: 'text | number | email | tel, url, password',
+            value: 'text | number | email | tel | url | password',
         },
     ];
 
