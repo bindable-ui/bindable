@@ -210,11 +210,6 @@ export class TableViews {
                 sort: true,
             },
             {
-                colClass: 't50',
-                colHeadName: 'gender',
-                colHeadValue: 'Gender',
-            },
-            {
                 _class: 'button',
                 colAction: () => window.alert('Clicked'),
                 colHeadName: 'action',
@@ -227,14 +222,23 @@ export class TableViews {
         this.buttonData = [
             {
                 action: 'Retry',
-                gender: 'Male',
                 ship: 'X-Wing',
             },
             {
                 actionButtonColor: 'secondary',
                 actionButtonIcon: 'checkmark',
+                actionButtonIconAlign: '-0.1em',
+                actionButtonIconOnly: true,
+                actionButtonIconSize: '1.0em',
+                actionButtonIconSpacing: '0',
                 actionButtonState: 'disabled',
-                gender: 'Female',
+                ship: 'Y-Wing',
+            },
+            {
+                action: 'Next',
+                actionButtonColor: 'neutral',
+                actionButtonIcon: 'chevron-right',
+                actionButtonIconDir: 'rtl',
                 ship: 'Y-Wing',
             },
         ];
@@ -345,6 +349,7 @@ export class TableViews {
                 gender: 'Male',
                 name: 'Luke Skywalker with a lot of text',
                 nameIcon: 'info',
+                nameIconSize: '1em',
                 ship: 'X-Wing',
             },
             {
@@ -646,6 +651,8 @@ export class TableViews {
             {
                 delete: 'Link Here',
                 deleteIcon: 'bin',
+                deleteIconAlign: '-0.3em',
+                deleteIconSize: '1.3em',
                 link: 'Go go Google',
                 linkURL: 'http://google.com',
                 modal: 'Launch a Modal',
@@ -679,6 +686,8 @@ export class TableViews {
                 tipTwoTipSide: 'top',
                 tipTwoTipSize: 'small',
                 tipTwoTipTriggerIcon: 'actions',
+                tipTwoTipTriggerIconAlign: '-0.3em',
+                tipTwoTipTriggerIconSize: '1.3em',
                 tipTwoTipViewModel: PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/' +
                     'tip-actions'),
             },

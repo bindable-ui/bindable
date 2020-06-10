@@ -21,25 +21,49 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <l-grid>
                         <c-tile image-url="https://placeimg.com/250/190/any" image-container-height.bind="190" title="Regular Tile" show-tip.bind="true">
                             <template replace-part="tip-content">
-                                <c-list-container color="light" size="small">
+                                <c-list-container color="transparent" size="small">
                                     <c-list-item>
                                         <a href="#">
-                                            <c-icon icon="copy"></c-icon>Copy VOD
+                                            <l-icon
+                                                icon="copy"
+                                                size="1em"
+                                                align="-0.1em"
+                                            >
+                                                Copy VOD
+                                            </l-icon>
                                         </a>
                                     </c-list-item>
                                     <c-list-item>
                                         <a href="#">
-                                            <c-icon icon="clip"></c-icon>Clip Asset
+                                            <l-icon
+                                                icon="clip"
+                                                size="1em"
+                                                align="-0.1em"
+                                            >
+                                                Clip Asset
+                                            </l-icon>
                                         </a>
                                     </c-list-item>
                                     <c-list-item>
                                         <a href="#">
-                                            <c-icon icon="save"></c-icon>Save To Library
+                                            <l-icon
+                                                icon="save"
+                                                size="1em"
+                                                align="-0.1em"
+                                            >
+                                                Save To Library
+                                            </l-icon>
                                         </a>
                                     </c-list-item>
                                     <c-list-item>
                                         <a href="#">
-                                            <c-icon icon="play"></c-icon>Launch Player
+                                            <l-icon
+                                                icon="play"
+                                                size="1em"
+                                                align="-0.1em"
+                                            >
+                                                Launch Player
+                                            </l-icon>
                                         </a>
                                     </c-list-item>
                                 </c-list-container>

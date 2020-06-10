@@ -12,7 +12,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     >
         <div slot="trigger">
             <span if.bind="row[col.colHeadName + 'TipTriggerIcon']">
-                <c-icon icon="${row[col.colHeadName + 'TipTriggerIcon']}"></c-icon>
+                <l-icon
+                    align="${row[col.colHeadName + 'TipTriggerIconAlign']}"
+                    icon="${row[col.colHeadName + 'TipTriggerIcon']}"
+                    size="${row[col.colHeadName + 'TipTriggerIconSize']}"
+                    spacing="0"
+                ></l-icon>
             </span>
             <span if.bind="row[col.colHeadName + 'TipTriggerText']">${row[col.colHeadName + 'TipTriggerText']}</span>
         </div>

@@ -9,7 +9,7 @@ import * as styles from './c-drag-handle.css.json';
 
 export class CDragHandle {
     @bindable
-    public size = 'small';
+    public size = '0.75em';
     @bindable
     public dragOptions: IDragOptions;
 

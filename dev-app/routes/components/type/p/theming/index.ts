@@ -25,6 +25,11 @@ export class PThemeProperties {
 
     public pThemeProperties = [
         {
+            default: 'var(--s1)',
+            name: '--p-font-size-xlarge',
+            property: 'font-size',
+        },
+        {
             default: 'var(--s0)',
             name: '--p-font-size-large',
             property: 'font-size',

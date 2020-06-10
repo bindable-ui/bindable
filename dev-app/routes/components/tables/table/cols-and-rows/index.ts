@@ -191,14 +191,14 @@ export class TableColsRows {
             },
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Action". ' +
-                'It will take a custom function to trigger some action (Launch modal, Go to link).' +
+                'It will take a custom function to trigger some action (Launch modal, Go to link). ' +
                 'Only available for use with the c-td-action view and viewModel.',
                 key: '*Action',
                 value: 'function',
             },
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Alt". ' +
-                'When using the c-td-image view and viewModel this will allow you to add alt text to the image.' +
+                'When using the c-td-image view and viewModel this will allow you to add alt text to the image. ' +
                 'Only available for use with the c-td-image view and viewModel.',
                 key: '*Alt',
                 value: 'string',
@@ -206,21 +206,106 @@ export class TableColsRows {
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Changed". ' +
                 'It is a listener for keyup events on the c-td-text-input component. ' +
-                'See "view and viewModels for more info on c-td-text-input".' +
+                'See "view and viewModels for more info on c-td-text-input". ' +
                 'Only available for use with the c-td-text-input view and viewModel.',
                 key: '*Changed',
                 value: 'function',
             },
+
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word "ButtonColor". ' +
+                'It will set the color of the button. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonColor',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word "ButtonIcon". ' +
+                'It will set the icon of the button. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonIcon',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word' +
+                '"ButtonIconAlign". ' +
+                'It will set the icon alignment of the icon in the button. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonIconAlign',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word' +
+                '"ButtonIconOnly". ' +
+                'Set this to true if you have an icon button with not text. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonIconOnly',
+                value: 'boolean',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word' +
+                '"ButtonIconSpacing". ' +
+                'Set this to a length value to set the space between the icon and the text. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonIconSpacing',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word' +
+                '"ButtonIconSize". ' +
+                'It will set the icon size of the icon in the button. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonIconSize',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word' +
+                '"ButtonIconDir". ' +
+                'It will set the icon direction of the icon in the button. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonIconDir',
+                value: 'ltr | rtl',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word' +
+                '"ButtonState". ' +
+                'It will set the state of the button. ' +
+                'See "view and viewModels for more info on c-td-button". ' +
+                'Only available for use with the c-td-button view and viewModel.',
+                key: '*ButtonState',
+                value: 'string',
+            },
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Icon". ' +
-                'Set the icon to be placed in a cell. See the icons page for the available icons. ' +
+                'Set the icon to be placed in a cell. ' +
                 'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
                 key: '*Icon',
                 value: 'string',
             },
             {
+                description: 'This key will match the value of the "colHeadName" key plus the word "IconSize". ' +
+                'Set the size of the icon to be placed in a cell. ' +
+                'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
+                key: '*IconSize',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word "IconAlign". ' +
+                'Set the alignment of the icon to be placed in a cell. ' +
+                'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
+                key: '*IconAlign',
+                value: 'string',
+            },
+            {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Pill". ' +
-                'Set the text of the pill in a cell. You must use the matching c-td-pill view and viewModel.' +
+                'Set the text of the pill in a cell. You must use the matching c-td-pill view and viewModel. ' +
                 'Only available for use with the c-td-pill view and viewModel.',
                 key: '*Pill',
                 value: 'string',
@@ -247,6 +332,22 @@ export class TableColsRows {
                 'Only available for use with the c-td-tip view and viewModel.',
                 key: '*TipTriggerIcon',
                 value: 'Any Icon Name',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word ' +
+                '"TipTriggerIconAlign". ' +
+                'Set the icon alignment that will trigger the tip. ' +
+                'Only available for use with the c-td-tip view and viewModel.',
+                key: '*TipTriggerIconAlign',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word ' +
+                '"TipTriggerIconSize". ' +
+                'Set the icon size that will trigger the tip. ' +
+                'Only available for use with the c-td-tip view and viewModel.',
+                key: '*TipTriggerIconSize',
+                value: 'string',
             },
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word ' +
@@ -283,7 +384,7 @@ export class TableColsRows {
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word "URL". Use this ' +
                 'on a cell to place a link in the cell. ' +
-                'This will set the URL of where the link will go.' +
+                'This will set the URL of where the link will go. ' +
                 'Only available for use with the c-td-action view and viewModel.',
                 key: '*URL',
                 value: 'number',

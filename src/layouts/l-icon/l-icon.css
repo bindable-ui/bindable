@@ -9,6 +9,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  *  BASE
+ *  ACTION
  */
 
 
@@ -19,6 +20,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !BASE
 \*------------------------------------*/
 
+.container c-p,
+.container c-p p,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6{
+    display: inline;
+}
+
 .icon {
     width: var(--icon-size);
     height: var(--icon-size);
@@ -28,4 +39,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .spacing {
     margin-inline-end: var(--icon-spacing);
+}
+
+
+
+
+
+
+
+/*------------------------------------*\
+    !ACTION
+\*------------------------------------*/
+
+.action:hover{
+    cursor: pointer;
 }

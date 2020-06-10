@@ -11,6 +11,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  DEV APP STYLES
  *      - Logo
  *      - Mobile Nav Trigger
+ *  TEXT
  */
 
 
@@ -27,7 +28,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 :global .logo{
     background: var(--c_black);
-    padding: .5rem 1.5rem 0;
+    margin: .5rem 1.5rem 0;
+    display: inline-block;
 }
 
 :global .logo > svg{
@@ -48,4 +50,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 :global .footer-links:hover{
     text-decoration: underline;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !TEXT
+\*------------------------------------*/
+
+:global .small-italic{
+    font-size: var(--s0);
+    font-family: var(--ff_primary-normal-italic);
+    color: var(--c_gray);
 }

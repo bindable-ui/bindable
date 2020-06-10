@@ -24,33 +24,37 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !BASE
 \*------------------------------------*/
 
-.container{
+.container l-icon > span{
     display: flex;
     align-items: center;
 }
 
 .link,
-.container c-p{
-    flex: 1;
-    margin-left: var(--status-margin-left);
+.container .text{
+    /* flex: 1; */
+    /* margin-left: var(--status-margin-left); */
     color: var(--status-color);
     font-size: var(--status-font-size);
 }
 
+.text{
+    flex: 1 1 auto;
+}
+
 .link,
-.container c-p,
-.container p{
+.container .text{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 
 .container p{
-    margin-top: auto;
+    /* margin-top: auto; */
 }
 
-.container svg{
-    vertical-align: initial;
+.container l-icon svg{
+    /* vertical-align: initial; */
+    flex: 0 0 auto;
 }
 
 
@@ -77,7 +81,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Slow
  */
 
-.slow{
+.slow svg{
     animation: fading 4.5s infinite;
 }
 
@@ -86,7 +90,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Medium
  */
 
-.medium{
+.medium svg{
     animation: fading 3s infinite;
 }
 
@@ -95,6 +99,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Fast
  */
 
-.fast{
+.fast svg{
     animation: fading 1.5s infinite;
 }

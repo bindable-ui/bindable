@@ -37,41 +37,45 @@ describe('c-button component', () => {
                 expect(component.action).toHaveBeenCalled();
             });
         });
-
-        describe('#showRightOrCenterIcon', () => {
-            test('without icon', () => {
-                expect(component.showRightOrCenterIcon()).toBeFalsy();
-            });
-
-            describe('with icon', () => {
-                beforeEach(() => {
-                    component.icon = 'icon--test';
-                });
-
-                test('when iconPosition is right', () => {
-                    component.iconPosition = 'right';
-
-                    expect(component.showRightOrCenterIcon()).toBeTruthy();
-                });
-
-                test('when iconPosition is center', () => {
-                    component.iconPosition = 'center';
-
-                    expect(component.showRightOrCenterIcon()).toBeTruthy();
-                });
-
-                test('when iconPosition is left', () => {
-                    component.iconPosition = 'left';
-
-                    expect(component.showRightOrCenterIcon()).toBeFalsy();
-                });
-            });
-        });
     });
 
     describe('Integration', () => {
         afterEach(() => {
             component.dispose();
+        });
+
+        describe('Enable Booleans', () => {
+            it('testing iconOnly enabled', async done => {
+                component = StageComponent.withResources()
+                    .inView('<c-button icon-only.bind="customIconLoading"></l-icon>')
+                    .boundTo({
+                        customIconOnly: 1,
+                    });
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.iconOnly).toBe(false);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+
+            it('testing targetnew enabled', async done => {
+                component = StageComponent.withResources()
+                    .inView('<c-button target-new.bind="customTargetNew"></l-icon>')
+                    .boundTo({
+                        customTargetNew: 1,
+                    });
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.targetNew).toBe(false);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
         });
 
         describe('CSS Classes', () => {
@@ -87,7 +91,7 @@ describe('c-button component', () => {
                 }
             });
 
-            const existingColorClasses = ['primary', 'secondary', 'neutral', 'danger'];
+            const existingColorClasses = ['primary', 'secondary', 'subOne', 'neutral', 'danger'];
             existingColorClasses.forEach(color => {
                 it(`css class: ${color}`, async done => {
                     component = StageComponent.withResources()
@@ -137,44 +141,6 @@ describe('c-button component', () => {
                     try {
                         await bootStrapEnvironment(component);
                         expect(component.viewModel.styles[component.viewModel.state]).not.toBe(undefined);
-                        done();
-                    } catch (e) {
-                        done.fail(e);
-                    }
-                });
-            });
-
-            const existingIconPositionClasses = ['right', 'left', 'center'];
-            existingIconPositionClasses.forEach(iconPosition => {
-                it(`css class: ${iconPosition}`, async done => {
-                    component = StageComponent.withResources()
-                        .inView('<c-button icon-position.bind="customIconPosition"></c-button>')
-                        .boundTo({
-                            customIconPosition: `${iconPosition}`,
-                        });
-
-                    try {
-                        await bootStrapEnvironment(component);
-                        expect(component.viewModel.styles[component.viewModel.iconPosition]).not.toBe(undefined);
-                        done();
-                    } catch (e) {
-                        done.fail(e);
-                    }
-                });
-            });
-
-            existingIconPositionClasses.forEach(iconPosition => {
-                it(`css class: ${iconPosition}`, async done => {
-                    component = StageComponent.withResources()
-                        .inView('<c-button icon.bind="icon" icon-position.bind="left"></c-button>')
-                        .boundTo({
-                            icon: 'bin',
-                            left: 'left',
-                        });
-
-                    try {
-                        await bootStrapEnvironment(component);
-                        expect(component.viewModel.styles[component.viewModel.iconPosition]).not.toBe(undefined);
                         done();
                     } catch (e) {
                         done.fail(e);

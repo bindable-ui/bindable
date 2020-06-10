@@ -11,25 +11,26 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         css="max-width: ${maxWidth}"
     >
         <div class="${styles[pulseSpeed]}">
-            <c-icon
+            <l-icon
                 icon="circle"
                 color="${color}"
-            ></c-icon>
+                spacing="var(--s-3)"
+            >
+            <span class="${styles.text}">
+                <span if.bind="!href">
+                    ${text}
+                </span>
+                <a
+                    href="${href}"
+                    class="${styles.link}"
+                    target="${targetNew ? '_blank' : '_self'}"
+                    title="${text}"
+                    if.bind="href"
+                >
+                    ${text}
+                </a>
+            </span>
+            </l-icon>
         </div>
-        <c-p
-            title="${text}"
-            if.bind="!href"
-        >
-            ${text}
-        </c-p>
-        <a
-            href="${href}"
-            class="${styles.link}"
-            target="${targetNew ? '_blank' : '_self'}"
-            title="${text}"
-            if.bind="href"
-        >
-            ${text}
-        </a>
     </div>
 </template>

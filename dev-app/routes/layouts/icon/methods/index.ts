@@ -21,12 +21,6 @@ export class IconMethods {
             colHeadName: 'description',
             colHeadValue: 'Description',
         },
-        {
-            _class: 'monospaced',
-            colClass: 't120',
-            colHeadName: 'default',
-            colHeadValue: 'Default',
-        },
     ];
 
     public iconMethods = [

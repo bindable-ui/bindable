@@ -1,14 +1,14 @@
 {
   "name": "@bindable-ui/bindable",
   "description": "An Aurelia component library",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/bindable-ui/bindable"
   },
   "license": "MIT",
   "devDependencies": {
-    "@bindable-ui/bindable-icons": "^0.1.10",
+    "@bindable-ui/bindable-icons": "^0.1.13",
     "@types/jest": "^24.0.9",
     "@types/jquery": "^3.3.29",
     "@types/lodash": "^4.14.133",
@@ -42,6 +42,7 @@
     "jest-cli": "^24.1.0",
     "jest-localstorage-mock": "^2.4.0",
     "jest-transform-stub": "^2.0.0",
+    "js-beautify": "^1.11.0",
     "lint-staged": "^8.2.1",
     "merge2": "^1.2.3",
     "mime-types": "^2.1.24",

@@ -35,7 +35,7 @@ export class CopyThemeProperties {
             property: 'border-radius',
         },
         {
-            default: '73px',
+            default: '58px',
             name: '--copy-button-width',
             property: 'grid-template-columns (second col width size)',
         },

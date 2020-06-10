@@ -4,7 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-	<require from="./c-button.css"></require>
+    <require from="./c-button.css"></require>
 
     <button
         disabled.bind="_state === 'thinking' || _state === 'disabled'"
@@ -13,22 +13,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles[color]}
             ${styles[size]}
             ${styles[_state]}
-            ${icon ? styles.icon : ''}
-            ${styles[iconPosition]}
+            ${iconOnly ? styles.iconOnly : ''}
         "
         click.trigger="actionFunction()"
         type="${type}"
-        hide.bind="title || _state === 'hidden'"
+        hide.bind="href || _state === 'hidden'"
     >
-        <c-icon
+        <l-icon
+            align="${iconAlign}"
+            color="${iconColor}"
+            dir="${iconDir}"
             icon="${icon}"
-            if.bind="showLeftIcon()"
-        ></c-icon>
-        <slot></slot>
-        <c-icon
-            if.bind="showRightOrCenterIcon()"
-            icon="${icon}"
-        ></c-icon>
+            size="${iconSize}"
+            spacing="${iconSpacing}"
+        >
+            <slot></slot>
+        </l-icon>
     </button>
     <a
         href.bind="href"
@@ -38,19 +38,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles[color]}
             ${styles[size]}
             ${styles[_state]}
-            ${icon ? styles.icon : ''}
-            ${styles[iconPosition]}
+            ${iconOnly ? styles.iconOnly : ''}
         "
         if.bind="title && _state !== 'hidden'"
     >
-        <c-icon
-            if.bind="showLeftIcon()"
+        <l-icon
+            align="${iconAlign}"
+            color="${iconColor}"
+            dir="${iconDir}"
             icon="${icon}"
-        ></c-icon>
-        ${title}
-        <c-icon
-            if.bind="showRightOrCenterIcon()"
-            icon="${icon}"
-        ></c-icon>
+            size="${iconSize}"
+            spacing="${iconSpacing}"
+        >
+            ${title}
+        </l-icon>
     </a>
 </template>

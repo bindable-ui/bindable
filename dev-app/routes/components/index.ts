@@ -43,13 +43,6 @@ export class Components {
             title: 'Forms',
         },
         {
-            moduleId: PLATFORM.moduleName('./icon/index'),
-            name: 'icon',
-            nav: true,
-            route: 'icon',
-            title: 'Icon',
-        },
-        {
             moduleId: PLATFORM.moduleName('./modal/index'),
             name: 'modal',
             nav: true,

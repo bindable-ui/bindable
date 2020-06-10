@@ -37,7 +37,7 @@ export class TextInputProperties {
             value: 'boolean',
         },
         {
-            description: 'This will add an icon button to the input. See icon component for the list of icons.',
+            description: 'This will add an icon button to the input.',
             name: 'button',
             value: 'Icon name',
         },
@@ -74,7 +74,7 @@ export class TextInputProperties {
             value: 'boolean',
         },
         {
-            description: 'See icon component for a list of all the icons.',
+            description: 'Add an icon to the input.',
             name: 'icon',
             value: 'Any icon',
         },
@@ -105,6 +105,11 @@ export class TextInputProperties {
             value: 'CSS Color',
         },
         {
+            description: 'Use to place a pattern on the input.',
+            name: 'pattern',
+            value: 'string',
+        },
+        {
             description: 'Leave off if not needed.',
             name: 'placeholder',
             value: '',
@@ -123,7 +128,7 @@ export class TextInputProperties {
             default: 'text',
             description: 'Set if you need the input to have a type of "number".',
             name: 'type',
-            value: 'text | number',
+            value: 'text | number | email | tel, url, password',
         },
     ];
 

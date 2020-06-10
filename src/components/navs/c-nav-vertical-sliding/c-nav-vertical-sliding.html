@@ -30,22 +30,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         click.trigger="toggleNav()"
                         show.bind="page.prevText && (showTrigger || $index > 0)"
                     >
-                        <c-icon
-                            icon="chevron-left"
-                            size="itzy"
-                        ></c-icon>
-                        <span>${page.prevText}</span>
+                        <l-icon icon="chevron-left">
+                            <span>${page.prevText}</span>
+                        </l-icon>
                     </div>
                     <div
                         class="${styles.trigger}"
                         click.trigger="toggleNav()"
                         show.bind="page.nextText && (showTrigger || $index > 0)"
                     >
-                        <span>${page.nextText}</span>
-                        <c-icon
+                        <l-icon
+                            dir="rtl"
                             icon="chevron-right"
-                            size="itzy"
-                        ></c-icon>
+                        >
+                            <span>${page.nextText}</span>
+                        </l-icon>
                     </div>
                 </div>
                 <c-h3

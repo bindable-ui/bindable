@@ -8,23 +8,32 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h2>Actions</c-h2>
-                <c-table cols.bind="formSelectCols" rows.bind="formSelectActions"></c-table>
+                <c-table
+                    cols.bind="formSelectCols"
+                    rows.bind="formSelectActions"
+                ></c-table>
             </l-stack>
         </div>
 
         <c-divider></c-divider>
 
         <div>
-        	<l-stack spacing="var(--s-3)">
+            <l-stack spacing="var(--s-3)">
                 <c-h2>actions</c-h2>
                 <c-code>public testActions = {
-    onChange: () => alert('Select Value Changed'),
-};</c-code>
+                    onChange: () => alert('Select Value Changed'),
+                    };</c-code>
                 <c-code-sample>
                     <l-grid min-size="25ch">
                         <l-stack>
-                        <c-form-select select-value.bind="vSelectOutput" options.bind="testOptions" label="Select Label" error-msg="This is an error" actions.bind="testActions"></c-form-select>
-                        <c-p>select: ${vSelectOutput}</c-p>
+                            <c-form-select
+                                select-value.bind="vSelectOutput"
+                                options.bind="testOptions"
+                                label="Select Label"
+                                error-msg="This is an error"
+                                actions.bind="testActions"
+                            ></c-form-select>
+                            <c-p>select: ${vSelectOutput}</c-p>
                         </l-stack>
                     </l-grid>
                 </c-code-sample>

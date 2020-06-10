@@ -125,7 +125,7 @@ export class TextThemeProperties {
             property: 'fill',
         },
         {
-            default: 'var(--s-3) var(--s1)',
+            default: 'var(--s-3) var(--s-1)',
             name: '--input-button-padding',
             property: 'padding',
         },

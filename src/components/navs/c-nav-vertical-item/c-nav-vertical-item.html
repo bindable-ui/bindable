@@ -48,7 +48,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             class="${styles.iconContainer}"
             if.bind="icon && iconAction"
         >
-            <c-icon icon="${icon}"></c-icon>
+            <l-icon
+                align="-0.15em"
+                icon="${icon}"
+                spacing="0"
+                size="0.85em"
+            ></l-icon>
         </div>
         <h4 if.bind="sectionTitle">${sectionTitle}</h4>
         <slot></slot>

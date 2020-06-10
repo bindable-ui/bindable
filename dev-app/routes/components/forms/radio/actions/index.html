@@ -8,7 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h2>Actions</c-h2>
-                <c-table cols.bind="formRadioCols" rows.bind="formRadioActions"></c-table>
+                <c-table
+                    cols.bind="formRadioCols"
+                    rows.bind="formRadioActions"
+                ></c-table>
             </l-stack>
         </div>
 
@@ -18,12 +21,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h2>actions</c-h2>
                 <c-code>public testActions = {
-    onChange: () => alert('Radio Value Changed'),
-};</c-code>
+                    onChange: () => alert('Radio Value Changed'),
+                    };</c-code>
                 <c-code-sample>
                     <c-form-checkbox-radio-container label="Radio Group">
-                        <c-form-radio id="first" name="group1" checked.bind="radioChecked" actions.bind="testActions">First</c-form-radio>
-                        <c-form-radio id="second" name="group1" checked.bind="radioChecked">Second</c-form-radio>
+                        <c-form-radio
+                            id="first"
+                            name="group1"
+                            checked.bind="radioChecked"
+                            actions.bind="testActions"
+                        >First</c-form-radio>
+                        <c-form-radio
+                            id="second"
+                            name="group1"
+                            checked.bind="radioChecked"
+                        >Second</c-form-radio>
                     </c-form-checkbox-radio-container>
                 </c-code-sample>
                 <br>

@@ -62,16 +62,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-button
                     size="small"
                     color="neutral"
+                    icon-only.bind="true"
+                    icon-align="-0.15em"
                     icon="chevron-up"
-                    icon-position="center"
+                    icon-size="1em"
                     click.trigger="moveItems(-1)"
                     state="${selectValue.length ? '': 'disabled'}"
                 ></c-button>
                 <c-button
                     size="small"
                     color="neutral"
+                    icon-only.bind="true"
+                    icon-align="-0.15em"
                     icon="chevron-down"
-                    icon-position="center"
+                    icon-size="1em"
                     click.trigger="moveItems(1)"
                     state="${selectValue.length ? '': 'disabled'}"
                 ></c-button>
