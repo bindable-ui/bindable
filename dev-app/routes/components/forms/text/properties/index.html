@@ -37,7 +37,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>button</c-h3>
                 <c-code-sample>
                     <l-grid min-size="25ch">
-                        <c-form-text label="Button Text Input" placeholder="Name Here" button="info" button-action.call="testFunction()"></c-form-text>
+                        <c-form-text label="Button Text Input" button="info" button-action.call="testFunction()"></c-form-text>
                     </l-grid>
                 </c-code-sample>
             </l-stack>
@@ -50,7 +50,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>clearable</c-h3>
                 <c-code-sample>
                     <l-grid min-size="25ch">
-                        <c-form-text label="Label Text" placeholder="Placeholder Text" clearable.bind="true"></c-form-text>
+                        <c-form-text label="Label Text" clearable.bind="true"></c-form-text>
                         <c-form-text label="Button Icon Input" placeholder="Name Here" button="bin" clearable.bind="true"></c-form-text>
                         <c-form-text label="Button Text Input" placeholder="Name Here" button-text="Button" clearable.bind="true"></c-form-text>
                         <c-form-text label="Colored Button" placeholder="Placeholder Text" button="lock" button-color="subOne"></c-form-text>
@@ -121,7 +121,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>type / pattern</c-h3>
+                <c-h3>type / pattern / title</c-h3>
                 <c-code-sample>
                     <l-grid min-size="25ch">
                         <c-form-text type="number" label="Number" placeholder="23"></c-form-text>
@@ -129,6 +129,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         <c-form-text
                             type="tel"
                             label="Tel"
+                            title="Example tel format: 888-888-8888"
                             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                         ></c-form-text>
                         <c-form-text type="password" label="Password"></c-form-text>

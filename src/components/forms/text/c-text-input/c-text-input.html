@@ -24,31 +24,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${state === 'info' ? styles.info : ''}
             "
             keyup.delegate="onKeyUp($event) & debounce"
-            type="${type}"
-            placeholder.bind="placeholder"
+            title.bind="title"
+            type.bind="type"
             value.bind="textValue"
             focus.bind="hasFocus"
             id="${id}"
             autocomplete="off"
             readonly.bind="state === 'info' ? true : false"
-            if.bind="placeholder"
-        >
-        <input
-            class="
-                ${styles.input}
-                ${styles[iconPosition]}
-                ${state === 'error' ? styles.error : ''}
-                ${state === 'warning' ? styles.warning : ''}
-                ${state === 'info' ? styles.info : ''}
-            "
-            keyup.delegate="onKeyUp($event) & debounce"
-            type.bind="type"
-            pattern.bind="pattern"
-            value.bind="textValue"
-            focus.bind="hasFocus"
-            id="${id}"
-            autocomplete="off"
-            if.bind="!placeholder"
         >
         <a
             class="

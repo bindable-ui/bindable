@@ -52,6 +52,8 @@ export class CFormText {
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public textValue = '';
     @bindable
+    public title = '';
+    @bindable
     public type = 'text';
     @bindable
     public pattern = '';

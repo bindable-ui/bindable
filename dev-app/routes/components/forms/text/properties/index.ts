@@ -60,12 +60,12 @@ export class TextInputProperties {
         {
             description: 'Will not show until state is set to error.',
             name: 'error-msg',
-            value: '',
+            value: 'string',
         },
         {
             description: 'Will not show until state is set to warning.',
             name: 'warning-msg',
-            value: '',
+            value: 'string',
         },
         {
             default: 'false',
@@ -91,7 +91,7 @@ export class TextInputProperties {
         {
             description: 'Set the label text. If left off no label will be placed.',
             name: 'label',
-            value: '',
+            value: 'string',
         },
         {
             description: 'Place an icon in front of the label. See icon component for a list of icons.',
@@ -110,9 +110,9 @@ export class TextInputProperties {
             value: 'string',
         },
         {
-            description: 'Leave off if not needed.',
+            description: 'Set the placehodler text. Leave off if not needed.',
             name: 'placeholder',
-            value: '',
+            value: 'string',
         },
         {
             description: 'Set a state for the text input.',
@@ -122,7 +122,12 @@ export class TextInputProperties {
         {
             description: 'Sets the value of the text input',
             name: 'text-value',
-            value: '',
+            value: 'string',
+        },
+        {
+            description: 'Set the title of the input. Useful for setting the message if your "pattern" prop is not matched by the user.',
+            name: 'title',
+            value: 'string',
         },
         {
             default: 'text',

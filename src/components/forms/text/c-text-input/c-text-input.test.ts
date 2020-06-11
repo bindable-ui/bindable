@@ -31,6 +31,86 @@ describe('c-text-input component', () => {
             }
         });
 
+        it('testing type is number', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'number',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('number');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is email', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'email',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('email');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is tel', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'tel',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('tel');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is url', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'url',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('url');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is password', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'password',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('password');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
         it('tests invalid type', async done => {
             component = StageComponent.withResources()
                 .inView('<c-text-input type.bind="customType"></c-text-input>')
@@ -41,22 +121,6 @@ describe('c-text-input component', () => {
             try {
                 await bootStrapEnvironment(component);
                 expect(component.viewModel.type).toBe('text');
-                done();
-            } catch (e) {
-                done.fail(e);
-            }
-        });
-
-        it('should allow url type', async done => {
-            component = StageComponent.withResources()
-                .inView('<c-text-input type.bind="customType"></c-text-input>')
-                .boundTo({
-                    customType: 'url',
-                });
-
-            try {
-                await bootStrapEnvironment(component);
-                expect(component.viewModel.type).toBe('url');
                 done();
             } catch (e) {
                 done.fail(e);
