@@ -36,6 +36,38 @@ export class TableViews {
     public toggleCols;
     public toggleData;
 
+    public tableActionsSample = {
+        getColClass: (row, col) => {
+            let cls = col._class || '';
+            /* istanbul ignore else */
+            if (col.colHeadName === 'drag') {
+                cls += ` ${row._status}`;
+            }
+            return cls;
+        },
+
+        getBarColor: (row, col) => {
+            const color = row._barColor || '';
+            return color;
+        },
+    };
+
+    public tableActionsSample2 = {
+        getColClass: (row, col) => {
+            let cls = col._class || '';
+            /* istanbul ignore else */
+            if (col.colHeadName === 'dragCheck') {
+                cls += ` ${row._status}`;
+            }
+            return cls;
+        },
+
+        getBarColor: (row, col) => {
+            const color = row._barColor || '';
+            return color;
+        },
+    };
+
     constructor(public dialogService: DialogService) {
         this.tableCols = [
             {
@@ -519,6 +551,8 @@ export class TableViews {
                 ship: 'M. Falcon',
             },
             {
+                _barColor: 'var(--c_subFourMain)',
+                _status: 'bar',
                 gender: 'Male',
                 ship: 'Tie Fighter',
             },
@@ -588,6 +622,8 @@ export class TableViews {
                 ship: 'M. Falcon',
             },
             {
+                _barColor: 'var(--c_subFourMain)',
+                _status: 'bar',
                 dragCheck: false,
                 gender: 'Male',
                 order: 3,
@@ -712,7 +748,7 @@ export class TableViews {
 
                 self.dragCheckData = sortDropData(data, row, self.dragCheckData, 'order');
             },
-        }
+        };
     }
 
     public testModal() {

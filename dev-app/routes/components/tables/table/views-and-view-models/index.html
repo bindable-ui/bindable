@@ -397,6 +397,8 @@ this.dragHandleData = [
         gender: 'Male',
     },
     {
+        _barColor: 'var(--c_subFourMain)',
+        _status: 'bar',
         ship: 'M. Falcon',
         gender: 'Male',
     },
@@ -414,6 +416,7 @@ this.dragHandleData = [
                     <c-table
                         cols.bind="dragHandleCols"
                         rows.bind="dragHandleData"
+                        actions.bind="tableActionsSample"
                         hover.bind="true"
                     ></c-table>
                 </c-code-sample>
@@ -460,6 +463,8 @@ this.dragCheckData = [
         order: 2,
     },
     {
+        _barColor: 'var(--c_subFourMain)',
+        _status: 'bar',
         dragCheck: false,
         gender: 'Male',
         ship: 'Tie Fighter',
@@ -479,8 +484,7 @@ this.dragCheckData = [
                         rows.bind="dragCheckData"
                         row-dropzone-actions.bind="dropzoneActions"
                         hover.bind="true"
-                    >
-                    </c-table>
+                    ></c-table>
                 </c-code-sample>
                 <c-p>text-input output: ${dragCheckData[3].dragCheck}</c-p>
             </l-stack>
