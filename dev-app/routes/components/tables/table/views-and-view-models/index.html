@@ -21,41 +21,39 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-button</c-h3>
                 <c-code>this.buttonCols = [
-                    {
-                    colHeadName: 'ship',
-                    colHeadValue: 'Ship',
-                    sort: true,
-                    },
-                    {
-                    colClass: 't50',
-                    colHeadName: 'gender',
-                    colHeadValue: 'Gender',
-                    },
-                    {
-                    colHeadName: 'action',
-                    colHeadValue: 'Action',
-                    colAction: () => window.alert('Clicked'),
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button'),
-                    },
-                    ];
+    {
+        colHeadName: 'ship',
+        colHeadValue: 'Ship',
+        sort: true,
+    },
+    {
+        colClass: 't50',
+        colHeadName: 'gender',
+        colHeadValue: 'Gender',
+    },
+    {
+        colHeadName: 'action',
+        colHeadValue: 'Action',
+        colAction: () => window.alert('Clicked'),
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-button/c-td-button'),
+    },
+];
 
-                    this.buttonData = [
-                    {
-                    gender: 'Male',
-                    ship: 'X-Wing',
-                    action: 'Retry',
-                    },
-                    {
-                    gender: 'Female',
-                    ship: 'Y-Wing',
-                    actionButtonColor: 'secondary',
-                    actionButtonIcon: 'checkmark',
-                    actionButtonState: 'disabled',
-                    },
-                    ];</c-code>
+this.buttonData = [
+    {
+        gender: 'Male',
+        ship: 'X-Wing',
+        action: 'Retry',
+    },
+    {
+        gender: 'Female',
+        ship: 'Y-Wing',
+        actionButtonColor: 'secondary',
+        actionButtonIcon: 'checkmark',
+        actionButtonState: 'disabled',
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="buttonCols"
@@ -71,35 +69,33 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-toggle</c-h3>
                 <c-code>this.toggleCols = [
-                    {
-                    colHeadName: 'ship',
-                    colHeadValue: 'Ship',
-                    sort: true,
-                    },
-                    {
-                    colClass: 't50',
-                    colHeadName: 'gender',
-                    colHeadValue: 'Gender',
-                    },
-                    {
-                    colClass: 't240',
-                    colHeadName: 'status',
-                    colHeadValue: 'Status',
-                    colOnChange: () => window.alert('Changed'),
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
-                    },
-                    ];
+    {
+        colHeadName: 'ship',
+        colHeadValue: 'Ship',
+        sort: true,
+    },
+    {
+        colClass: 't50',
+        colHeadName: 'gender',
+        colHeadValue: 'Gender',
+    },
+    {
+        colClass: 't240',
+        colHeadName: 'status',
+        colHeadValue: 'Status',
+        colOnChange: () => window.alert('Changed'),
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
+    },
+];
 
-                    this.toggleData = [
-                    {
-                    gender: 'Male',
-                    ship: 'X-Wing',
-                    status: true,
-                    },
-                    ];</c-code>
+this.toggleData = [
+    {
+        gender: 'Male',
+        ship: 'X-Wing',
+        status: true,
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="toggleCols"
@@ -115,50 +111,48 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-text-input</c-h3>
                 <c-code>this.textInputCols = [
-                    {
-                    colClass: 't240',
-                    colHeadValue: 'Text Input',
-                    colHeadName: 'textInput',
-                    _class: 'textInput',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input'),
-                    },
-                    {
-                    colHeadValue: 'Ship',
-                    colHeadName: 'ship',
-                    sort: true,
-                    },
-                    {
-                    colClass: 't50',
-                    colHeadValue: 'Gender',
-                    colHeadName: 'gender',
-                    },
-                    ];
+    {
+        colClass: 't240',
+        colHeadValue: 'Text Input',
+        colHeadName: 'textInput',
+        _class: 'textInput',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-text-input/c-td-text-input'),
+    },
+    {
+        colHeadValue: 'Ship',
+        colHeadName: 'ship',
+        sort: true,
+    },
+    {
+        colClass: 't50',
+        colHeadValue: 'Gender',
+        colHeadName: 'gender',
+    },
+];
 
-                    this.textInputData = [
-                    {
-                    textInput: '',
-                    ship: 'X-Wing',
-                    gender: 'Male',
-                    },
-                    {
-                    textInput: '',
-                    ship: 'M. Falcon',
-                    gender: 'Male',
-                    },
-                    {
-                    textInput: '',
-                    ship: 'Tie Fighter',
-                    gender: 'Male',
-                    },
-                    {
-                    textInput: 'Rey',
-                    ship: 'M. Falcon',
-                    gender: 'Female',
-                    },
-                    ];</c-code>
+this.textInputData = [
+    {
+        textInput: '',
+        ship: 'X-Wing',
+        gender: 'Male',
+    },
+    {
+        textInput: '',
+        ship: 'M. Falcon',
+        gender: 'Male',
+    },
+    {
+        textInput: '',
+        ship: 'Tie Fighter',
+        gender: 'Male',
+    },
+    {
+        textInput: 'Rey',
+        ship: 'M. Falcon',
+        gender: 'Female',
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.two-way="textInputCols"
@@ -175,86 +169,84 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-truncate</c-h3>
                 <c-code>this.tdTruncateCols = [
-                    {
-                    colClass: 't175',
-                    colHeadValue: 'Name',
-                    colHeadName: 'name',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate'),
-                    },
-                    {
-                    colHeadValue: 'Ship',
-                    colHeadName: 'ship',
-                    sort: true,
-                    },
-                    {
-                    colClass: 't50',
-                    colHeadValue: 'Gender',
-                    colHeadName: 'gender',
-                    },
-                    ];
+    {
+        colClass: 't175',
+        colHeadValue: 'Name',
+        colHeadName: 'name',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate/c-td-truncate'),
+    },
+    {
+        colHeadValue: 'Ship',
+        colHeadName: 'ship',
+        sort: true,
+    },
+    {
+        colClass: 't50',
+        colHeadValue: 'Gender',
+        colHeadName: 'gender',
+    },
+];
 
-                    this.tdTruncateData = [
-                    {
-                    name: 'Luke Skywalker with a lot of text',
-                    nameIcon: 'info',
-                    nameIconSize: '1em',
-                    ship: 'X-Wing',
-                    gender: 'Male',
-                    },
-                    {
-                    name: 'Han Solo is super cool and all that',
-                    namePill: 'Pill',
-                    ship: 'M. Falcon',
-                    gender: 'Male',
-                    },
-                    {
-                    gender: 'Droid',
-                    name: JSON.stringify({
-                    "Click for full content.": "n/a",
-                    "name": "C-3PO",
-                    "height": "167",
-                    "mass": "75",
-                    "hair_color": "n/a",
-                    "skin_color": "gold",
-                    "eye_color": "yellow",
-                    "birth_year": "112BBY",
-                    "gender": "n/a",
-                    "homeworld": "https://swapi.co/api/planets/1/",
-                    "films": [
-                    "https://swapi.co/api/films/2/",
-                    "https://swapi.co/api/films/5/",
-                    "https://swapi.co/api/films/4/",
-                    "https://swapi.co/api/films/6/",
-                    "https://swapi.co/api/films/3/",
-                    "https://swapi.co/api/films/1/"
-                    ],
-                    "species": [
-                    "https://swapi.co/api/species/2/"
-                    ],
-                    "vehicles": [],
-                    "starships": [],
-                    "created": "2014-12-10T15:10:51.357000Z",
-                    "edited": "2014-12-20T21:17:50.309000Z",
-                    "url": "https://swapi.co/api/people/2/"
-                    }),
-                    nameTip: true,
-                    nameTipSize: 'large',
-                    ship: 'M. Falcon',
-                    },
-                    {
-                    name: 'Fin',
-                    ship: 'Tie Fighter',
-                    gender: 'Male',
-                    },
-                    {
-                    name: 'Rey',
-                    ship: 'M. Falcon',
-                    gender: 'Female',
-                    },
-                    ];</c-code>
+this.tdTruncateData = [
+    {
+        name: 'Luke Skywalker with a lot of text',
+        nameIcon: 'info',
+        nameIconSize: '1em',
+        ship: 'X-Wing',
+        gender: 'Male',
+    },
+    {
+        name: 'Han Solo is super cool and all that',
+        namePill: 'Pill',
+        ship: 'M. Falcon',
+        gender: 'Male',
+    },
+    {
+        gender: 'Droid',
+        name: JSON.stringify({
+            "Click for full content.": "n/a",
+            "name": "C-3PO",
+            "height": "167",
+            "mass": "75",
+            "hair_color": "n/a",
+            "skin_color": "gold",
+            "eye_color": "yellow",
+            "birth_year": "112BBY",
+            "gender": "n/a",
+            "homeworld": "https://swapi.co/api/planets/1/",
+            "films": [
+                "https://swapi.co/api/films/2/",
+                "https://swapi.co/api/films/5/",
+                "https://swapi.co/api/films/4/",
+                "https://swapi.co/api/films/6/",
+                "https://swapi.co/api/films/3/",
+                "https://swapi.co/api/films/1/"
+            ],
+            "species": [
+                "https://swapi.co/api/species/2/"
+            ],
+            "vehicles": [],
+            "starships": [],
+            "created": "2014-12-10T15:10:51.357000Z",
+            "edited": "2014-12-20T21:17:50.309000Z",
+            "url": "https://swapi.co/api/people/2/"
+        }),
+        nameTip: true,
+        nameTipSize: 'large',
+        ship: 'M. Falcon',
+    },
+    {
+        name: 'Fin',
+        ship: 'Tie Fighter',
+        gender: 'Male',
+    },
+    {
+        name: 'Rey',
+        ship: 'M. Falcon',
+        gender: 'Female',
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         actions.bind="tableActions"
@@ -271,44 +263,42 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-image</c-h3>
                 <c-code>this.tdImageCols = [
-                    {
-                    colClass: 't150',
-                    colHeadName: 'image',
-                    colHeadValue: 'Image',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image'),
-                    },
-                    {
-                    colHeadName: 'description',
-                    colHeadValue: 'Description',
-                    sort: true,
-                    },
-                    ];
+    {
+        colClass: 't150',
+        colHeadName: 'image',
+        colHeadValue: 'Image',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-image/c-td-image'),
+    },
+    {
+        colHeadName: 'description',
+        colHeadValue: 'Description',
+        sort: true,
+    },
+];
 
-                    this.tdImageData = [
-                    {
-                    image: 'https://picsum.photos/160/90/?random',
-                    imageAlt: 'Image Alt',
-                    description: 'This is a description.',
-                    },
-                    {
-                    image: 'https://picsum.photos/160/90/?random',
-                    imageAlt: 'Image Alt Here',
-                    description: 'This is a description.',
-                    },
-                    {
-                    image: 'https://picsum.photos/160/90/?random',
-                    imageAlt: 'Alt Text',
-                    description: 'This is a description.',
-                    },
-                    {
-                    image: 'https://picsum.photos/160/90/?random',
-                    imageAlt: 'Image Alt Here',
-                    description: 'This is a description.',
-                    },
-                    ];</c-code>
+this.tdImageData = [
+    {
+        image: 'https://picsum.photos/160/90/?random',
+        imageAlt: 'Image Alt',
+        description: 'This is a description.',
+    },
+    {
+        image: 'https://picsum.photos/160/90/?random',
+        imageAlt: 'Image Alt Here',
+        description: 'This is a description.',
+    },
+    {
+        image: 'https://picsum.photos/160/90/?random',
+        imageAlt: 'Alt Text',
+        description: 'This is a description.',
+    },
+    {
+        image: 'https://picsum.photos/160/90/?random',
+        imageAlt: 'Image Alt Here',
+        description: 'This is a description.',
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="tdImageCols"
@@ -324,49 +314,47 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-checkbox-input</c-h3>
                 <c-code>this.checkboxCols = [
-                    {
-                    colClass: 't30',
-                    colHeadValue: '',
-                    colHeadName: 'checkbox',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check'),
-                    },
-                    {
-                    colHeadValue: 'Ship',
-                    colHeadName: 'ship',
-                    sort: true,
-                    },
-                    {
-                    colClass: 't50',
-                    colHeadValue: 'Gender',
-                    colHeadName: 'gender',
-                    },
-                    ];
+    {
+        colClass: 't30',
+        colHeadValue: '',
+        colHeadName: 'checkbox',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check'),
+    },
+    {
+        colHeadValue: 'Ship',
+        colHeadName: 'ship',
+        sort: true,
+    },
+    {
+        colClass: 't50',
+        colHeadValue: 'Gender',
+        colHeadName: 'gender',
+    },
+];
 
-                    this.checkboxData = [
-                    {
-                    checkbox: false,
-                    ship: 'X-Wing',
-                    gender: 'Male',
-                    },
-                    {
-                    checkbox: false,
-                    ship: 'M. Falcon',
-                    gender: 'Male',
-                    },
-                    {
-                    checkbox: false,
-                    ship: 'Tie Fighter',
-                    gender: 'Male',
-                    },
-                    {
-                    checkbox: true,
-                    ship: 'M. Falcon',
-                    gender: 'Female',
-                    },
-                    ];</c-code>
+this.checkboxData = [
+    {
+        checkbox: false,
+        ship: 'X-Wing',
+        gender: 'Male',
+    },
+    {
+        checkbox: false,
+        ship: 'M. Falcon',
+        gender: 'Male',
+    },
+    {
+        checkbox: false,
+        ship: 'Tie Fighter',
+        gender: 'Male',
+    },
+    {
+        checkbox: true,
+        ship: 'M. Falcon',
+        gender: 'Female',
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="checkboxCols"
@@ -383,51 +371,52 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-drag-handle</c-h3>
                 <c-code>this.dragHandleCols = [
-                    {
-                    colClass: 't30',
-                    colHeadValue: '',
-                    colHeadName: 'drag',
-                    _class: 'drag',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle'),
-                    },
-                    {
-                    colHeadValue: 'Ship',
-                    colHeadName: 'ship',
-                    sort: true,
-                    },
-                    {
-                    colClass: 't50',
-                    colHeadValue: 'Gender',
-                    colHeadName: 'gender',
-                    },
-                    ];
+    {
+        colClass: 't30',
+        colHeadValue: '',
+        colHeadName: 'drag',
+        _class: 'drag',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle'),
+    },
+    {
+        colHeadValue: 'Ship',
+        colHeadName: 'ship',
+        sort: true,
+    },
+    {
+        colClass: 't50',
+        colHeadValue: 'Gender',
+        colHeadName: 'gender',
+    },
+];
 
-                    this.dragHandleData = [
-                    {
-                    ship: 'X-Wing',
-                    gender: 'Male',
-                    },
-                    {
-                    ship: 'M. Falcon',
-                    gender: 'Male',
-                    },
-                    {
-                    ship: 'Tie Fighter',
-                    gender: 'Male',
-                    },
-                    {
-                    name: 'Rey',
-                    ship: 'M. Falcon',
-                    gender: 'Female',
-                    },
-                    ];</c-code>
+this.dragHandleData = [
+    {
+        ship: 'X-Wing',
+        gender: 'Male',
+    },
+    {
+        _barColor: 'var(--c_subFourMain)',
+        _status: 'bar',
+        ship: 'M. Falcon',
+        gender: 'Male',
+    },
+    {
+        ship: 'Tie Fighter',
+        gender: 'Male',
+    },
+    {
+        name: 'Rey',
+        ship: 'M. Falcon',
+        gender: 'Female',
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="dragHandleCols"
                         rows.bind="dragHandleData"
+                        actions.bind="tableActionsSample"
                         hover.bind="true"
                     ></c-table>
                 </c-code-sample>
@@ -440,54 +429,54 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-drag-check</c-h3>
                 <c-code>this.dragCheckCols = [
-                    {
-                    colClass: 't30',
-                    colHeadValue: '',
-                    colHeadName: 'dragCheck',
-                    _class: 'dragCheck',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check'),
-                    },
-                    {
-                    colHeadValue: 'Ship',
-                    colHeadName: 'ship',
-                    sort: true,
-                    },
-                    {
-                    colClass: 't50',
-                    colHeadValue: 'Gender',
-                    colHeadName: 'gender',
-                    },
-                    ];
+    {
+        colClass: 't30',
+        colHeadValue: '',
+        colHeadName: 'dragCheck',
+        _class: 'dragCheck',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check'),
+    },
+    {
+        colHeadValue: 'Ship',
+        colHeadName: 'ship',
+        sort: true,
+    },
+    {
+        colClass: 't50',
+        colHeadValue: 'Gender',
+        colHeadName: 'gender',
+    },
+];
 
-                    this.dragCheckData = [
-                    {
-                    dragCheck: false,
-                    gender: 'Male',
-                    ship: 'X-Wing',
-                    order: 1,
-                    },
-                    {
-                    dragCheck: false,
-                    gender: 'Male',
-                    ship: 'M. Falcon',
-                    order: 2,
-                    },
-                    {
-                    dragCheck: false,
-                    gender: 'Male',
-                    ship: 'Tie Fighter',
-                    order: 3,
-                    },
-                    {
-                    dragCheck: true,
-                    gender: 'Female',
-                    ship: 'M. Falcon',
-                    order: 4,
-                    },
-                    ];</c-code>
+this.dragCheckData = [
+    {
+        dragCheck: false,
+        gender: 'Male',
+        ship: 'X-Wing',
+        order: 1,
+    },
+    {
+        dragCheck: false,
+        gender: 'Male',
+        ship: 'M. Falcon',
+        order: 2,
+    },
+    {
+        _barColor: 'var(--c_subFourMain)',
+        _status: 'bar',
+        dragCheck: false,
+        gender: 'Male',
+        ship: 'Tie Fighter',
+        order: 3,
+    },
+    {
+        dragCheck: true,
+        gender: 'Female',
+        ship: 'M. Falcon',
+        order: 4,
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         actions.bind="tableActionsSample2"
@@ -495,8 +484,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         rows.bind="dragCheckData"
                         row-dropzone-actions.bind="dropzoneActions"
                         hover.bind="true"
-                    >
-                    </c-table>
+                    ></c-table>
                 </c-code-sample>
                 <c-p>text-input output: ${dragCheckData[3].dragCheck}</c-p>
             </l-stack>
@@ -508,32 +496,28 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-pill</c-h3>
                 <c-code>this.pillTableCols = [
-                    {
-                    colHeadValue: 'Name',
-                    colHeadName: 'name',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
-                    },
-                    {
-                    colHeadValue: 'Description',
-                    colHeadName: 'description',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
-                    },
-                    ];
+    {
+        colHeadValue: 'Name',
+        colHeadName: 'name',
+        view:PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
+    },
+    {
+        colHeadValue: 'Description',
+        colHeadName: 'description',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
+    },
+];
 
-                    this.pillTableData = [
-                    {
-                    name: 'stuff here',
-                    namePill: 'Name Pill',
-                    description: 'more text here',
-                    descriptionPill: 'Desc Pill',
-                    },
-                    ];</c-code>
+this.pillTableData = [
+    {
+        name: 'stuff here',
+        namePill: 'Name Pill',
+        description: 'more text here',
+        descriptionPill: 'Desc Pill',
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="pillTableCols"
@@ -549,64 +533,58 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-action</c-h3>
                 <c-code>this.actionTableCols = [
-                    {
-                    colAction: () => this.testModal(),
-                    colHeadValue: 'Delete',
-                    colHeadName: 'delete',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
-                    },
-                    {
-                    colHeadValue: 'Link',
-                    colHeadName: 'link',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
-                    },
-                    {
-                    colAction: () => this.testModal(),
-                    colHeadValue: 'Modal',
-                    colHeadName: 'modal',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
-                    },
-                    ];
+    {
+        colAction: () => this.testModal(),
+        colHeadValue: 'Delete',
+        colHeadName: 'delete',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
+    },
+    {
+        colHeadValue: 'Link',
+        colHeadName: 'link',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
+    },
+    {
+        colAction: () => this.testModal(),
+        colHeadValue: 'Modal',
+        colHeadName: 'modal',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-action/c-td-action'),
+    },
+];
 
-                    this.actionTableData = [
-                    {
-                    delete: 'Link Here',
-                    deleteIcon: 'bin',
-                    link: 'Go go Google',
-                    linkURL: 'http://google.com',
-                    modal: 'Launch a Modal',
-                    },
-                    ];
+this.actionTableData = [
+    {
+        delete: 'Link Here',
+        deleteIcon: 'bin',
+        link: 'Go go Google',
+        linkURL: 'http://google.com',
+        modal: 'Launch a Modal',
+    },
+];
 
-                    testModal() {
-                    this.dialogService
-                    .open({
-                    viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/modal/c-modal/c-modal'),
-                    model: {
-                    title: 'Hi',
-                    size: 'large',
-                    bodyViewModel: PLATFORM.moduleName('/routes/components/modal/body'),
-                    bodyModel: {
-                    stuff: 'here',
-                    },
-                    footerEnable: true,
-                    footerText: 'footer',
-                    footerViewModel: PLATFORM.moduleName('/routes/components/modal/footer'),
-                    footerModel: {
-                    stuff: 'here',
-                    },
-                    },
-                    });
-                    }</c-code>
+testModal() {
+    this.dialogService
+    .open({
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/modal/c-modal/c-modal'),
+        model: {
+            title: 'Hi',
+            size: 'large',
+            bodyViewModel: PLATFORM.moduleName('/routes/components/modal/body'),
+            bodyModel: {
+                stuff: 'here',
+            },
+            footerEnable: true,
+            footerText: 'footer',
+            footerViewModel: PLATFORM.moduleName('/routes/components/modal/footer'),
+            footerModel: {
+                stuff: 'here',
+            },
+        },
+    });
+}</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="actionTableCols"
@@ -622,39 +600,35 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-tip</c-h3>
                 <c-code>this.tipTableCols = [
-                    {
-                    colHeadName: 'tipOne',
-                    colHeadValue: 'Tip One',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
-                    },
-                    {
-                    colHeadName: 'tipTwo',
-                    colHeadValue: 'Tip Two',
-                    view:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
-                    viewModel:
-                    PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
-                    },
-                    ];
+    {
+        colHeadName: 'tipOne',
+        colHeadValue: 'Tip One',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
+    },
+    {
+        colHeadName: 'tipTwo',
+        colHeadValue: 'Tip Two',
+        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip.html'),
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip'),
+    },
+];
 
-                    this.tipTableData = [
-                    {
-                    tipOneTipArrowPosition: 'leftEdge',
-                    tipOneTipSide: 'top',
-                    tipOneTipSize: 'small',
-                    tipOneTipTriggerText: 'Text here',
-                    tipOneTipViewModel:
-                    PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-text'),
-                    tipTwoTipSide: 'top',
-                    tipTwoTipSize: 'large',
-                    tipTwoTipTriggerIcon: 'actions',
-                    tipTwoTipViewModel:
-                    PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-actions'),
-                    },
-                    ];</c-code>
+this.tipTableData = [
+    {
+        tipOneTipArrowPosition: 'leftEdge',
+        tipOneTipSide: 'top',
+        tipOneTipSize: 'small',
+        tipOneTipTriggerText: 'Text here',
+        tipOneTipViewModel:
+        PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-text'),
+        tipTwoTipSide: 'top',
+        tipTwoTipSize: 'large',
+        tipTwoTipTriggerIcon: 'actions',
+        tipTwoTipViewModel:
+        PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-actions'),
+    },
+];</c-code>
                 <c-code-sample>
                     <c-table
                         cols.bind="tipTableCols"
