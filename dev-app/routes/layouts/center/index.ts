@@ -36,6 +36,12 @@ export class CenterProperties {
             value: 'boolean',
         },
         {
+            default: 'false',
+            description: 'Set to true if you want height: 100% set on the main center div.',
+            name: 'fill-space',
+            value: 'boolean',
+        },
+        {
             default: 'none',
             description: 'Set the max width size of the centered item.',
             name: 'max-width',

@@ -36,6 +36,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     list-style: none;
 }
 
+.nav-horizontal ul li{
+    text-transform: var(--nav-text-transform);
+}
+
 
 
 

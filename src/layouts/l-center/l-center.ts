@@ -10,6 +10,8 @@ export class LCenter {
     @bindable
     public intrinsic = false;
     @bindable
+    public fillSpace = false;
+    @bindable
     public maxWidth = 'none';
     @bindable
     public spacing = '0';
@@ -25,6 +27,10 @@ export class LCenter {
 
         if (typeof this.textCenter !== 'boolean') {
             this.textCenter = false;
+        }
+
+        if (typeof this.fillSpace !== 'boolean') {
+            this.fillSpace = false;
         }
     }
 }

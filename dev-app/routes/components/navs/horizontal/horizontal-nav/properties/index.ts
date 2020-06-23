@@ -71,5 +71,11 @@ export class HorizontalNav {
             name: 'state',
             value: 'hidden',
         },
+        {
+            default: 'unset',
+            description: 'Set the text transform for the nav.',
+            name: 'text-transform',
+            value: 'capitalize | uppercase | lowercase | inital | inherit | unset',
+        },
     ];
 }
