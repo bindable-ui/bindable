@@ -66,6 +66,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-divider></c-divider>
 
             <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>fill-space</c-h3>
+                    <c-code-sample>
+                        <!-- You will to set the container height with other layout components or in your own way. -->
+                        <div style="height: 300px">
+    <l-center
+        max-width="60ch"
+        text-center.bind="true"
+        fill-space.bind="true"
+    >
+        <l-box
+            background="var(--c_darkGray)"
+            fill-space.bind="true"
+        >
+            I fill all the space that I am put in.
+        </l-box>
+    </l-center>
+</div></c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
             	<l-stack spacing="var(--s-3)">
                     <c-h3>max-width</c-h3>
                     <c-code-sample>
