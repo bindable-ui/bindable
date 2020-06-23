@@ -36,6 +36,38 @@ export class TableViews {
     public toggleCols;
     public toggleData;
 
+    public tableActionsSample = {
+        getColClass: (row, col) => {
+            let cls = col._class || '';
+            /* istanbul ignore else */
+            if (col.colHeadName === 'drag') {
+                cls += ` ${row._status}`;
+            }
+            return cls;
+        },
+
+        getBarColor: (row, col) => {
+            const color = row._barColor || '';
+            return color;
+        },
+    };
+
+    public tableActionsSample2 = {
+        getColClass: (row, col) => {
+            let cls = col._class || '';
+            /* istanbul ignore else */
+            if (col.colHeadName === 'dragCheck') {
+                cls += ` ${row._status}`;
+            }
+            return cls;
+        },
+
+        getBarColor: (row, col) => {
+            const color = row._barColor || '';
+            return color;
+        },
+    };
+
     constructor(public dialogService: DialogService) {
         this.tableCols = [
             {
@@ -210,11 +242,6 @@ export class TableViews {
                 sort: true,
             },
             {
-                colClass: 't50',
-                colHeadName: 'gender',
-                colHeadValue: 'Gender',
-            },
-            {
                 _class: 'button',
                 colAction: () => window.alert('Clicked'),
                 colHeadName: 'action',
@@ -227,14 +254,23 @@ export class TableViews {
         this.buttonData = [
             {
                 action: 'Retry',
-                gender: 'Male',
                 ship: 'X-Wing',
             },
             {
                 actionButtonColor: 'secondary',
                 actionButtonIcon: 'checkmark',
+                actionButtonIconAlign: '-0.1em',
+                actionButtonIconOnly: true,
+                actionButtonIconSize: '1.0em',
+                actionButtonIconSpacing: '0',
                 actionButtonState: 'disabled',
-                gender: 'Female',
+                ship: 'Y-Wing',
+            },
+            {
+                action: 'Next',
+                actionButtonColor: 'neutral',
+                actionButtonIcon: 'chevron-right',
+                actionButtonIconDir: 'rtl',
                 ship: 'Y-Wing',
             },
         ];
@@ -255,6 +291,7 @@ export class TableViews {
                 colClass: 't240',
                 colHeadName: 'status',
                 colHeadValue: 'Status',
+                colOnChange: () => window.alert('Changed'),
                 view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
                 viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
             },
@@ -344,6 +381,7 @@ export class TableViews {
                 gender: 'Male',
                 name: 'Luke Skywalker with a lot of text',
                 nameIcon: 'info',
+                nameIconSize: '1em',
                 ship: 'X-Wing',
             },
             {
@@ -513,6 +551,8 @@ export class TableViews {
                 ship: 'M. Falcon',
             },
             {
+                _barColor: 'var(--c_subFourMain)',
+                _status: 'bar',
                 gender: 'Male',
                 ship: 'Tie Fighter',
             },
@@ -582,6 +622,8 @@ export class TableViews {
                 ship: 'M. Falcon',
             },
             {
+                _barColor: 'var(--c_subFourMain)',
+                _status: 'bar',
                 dragCheck: false,
                 gender: 'Male',
                 order: 3,
@@ -645,6 +687,8 @@ export class TableViews {
             {
                 delete: 'Link Here',
                 deleteIcon: 'bin',
+                deleteIconAlign: '-0.3em',
+                deleteIconSize: '1.3em',
                 link: 'Go go Google',
                 linkURL: 'http://google.com',
                 modal: 'Launch a Modal',
@@ -678,6 +722,8 @@ export class TableViews {
                 tipTwoTipSide: 'top',
                 tipTwoTipSize: 'small',
                 tipTwoTipTriggerIcon: 'actions',
+                tipTwoTipTriggerIconAlign: '-0.3em',
+                tipTwoTipTriggerIconSize: '1.3em',
                 tipTwoTipViewModel: PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/' +
                     'tip-actions'),
             },
@@ -702,7 +748,7 @@ export class TableViews {
 
                 self.dragCheckData = sortDropData(data, row, self.dragCheckData, 'order');
             },
-        }
+        };
     }
 
     public testModal() {

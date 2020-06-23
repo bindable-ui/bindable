@@ -4,8 +4,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {bindable, bindingMode, inject} from 'aurelia-framework';
+
 import {eventListeners} from '../../../../decorators/event-listeners';
 import {generateRandom} from '../../../../helpers/generate-random';
+import {IFormEventListener} from '../../../../interfaces/event-listeners';
+
 import * as styles from './c-text-input.css.json';
 
 @eventListeners
@@ -36,11 +39,26 @@ export class CTextInput {
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public textValue;
     @bindable
+    public title = '';
+    @bindable
     public type = 'text';
     @bindable
-    public eventListeners = {};
+    public pattern;
+    @bindable
+    public eventListeners: IFormEventListener = {};
 
     public styles = styles;
+
+    private valid_types = ['email', 'number', 'tel', 'text', 'url', 'password'];
+
+    private defaultEvents: IFormEventListener = {
+        keyup: event => {
+            if (event.which === 13) {
+                this.buttonFn();
+            }
+            event.preventDefault();
+        },
+    };
 
     constructor(public element) {}
 
@@ -49,9 +67,14 @@ export class CTextInput {
             this.clearable = false;
         }
 
-        if (this.type !== 'text' && this.type !== 'number') {
+        if (!this.valid_types.includes(this.type)) {
             this.type = 'text';
         }
+
+        this.eventListeners = Object.assign({}, this.defaultEvents, this.eventListeners);
+
+        this.updatePattern();
+        this.updatePlaceholder();
     }
 
     public clearText() {
@@ -65,10 +88,27 @@ export class CTextInput {
         }
     }
 
-    public onKeyUp(event) {
-        if (event.which === 13) {
-            this.buttonFn();
+    public patternChanged() {
+        this.updatePattern();
+    }
+
+    public placeholderChanged() {
+        this.updatePlaceholder();
+    }
+
+    private updatePattern() {
+        if (this.pattern && this.pattern.length) {
+            $(`#${this.id}`).attr('pattern', this.pattern);
+            return;
         }
-        event.preventDefault();
+        $(`#${this.id}`).removeAttr('pattern');
+    }
+
+    private updatePlaceholder() {
+        if (this.placeholder && this.placeholder.length) {
+            $(`#${this.id}`).attr('placeholder', this.placeholder);
+            return;
+        }
+        $(`#${this.id}`).removeAttr('placeholder');
     }
 }

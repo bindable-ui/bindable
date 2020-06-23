@@ -1,0 +1,158 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+   <l-stack spacing="var(--s5)">
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>Properties</c-h2>
+                <c-table cols.bind="iconCols" rows.bind="iconProperties"></c-table>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+             <c-h3>align &amp; size</c-h3>
+                <c-code-sample>
+                    <l-stack>
+                        <l-icon
+                            icon="warning"
+                            size="1.25em"
+                            align="-0.325em"
+                        >
+                            Warning
+                        </l-icon>
+                        <c-button
+                            icon="warning"
+                            icon-size="1.25em"
+                            icon-align="-0.25em"
+                        >
+                            Warning
+                        </c-button>
+                    </l-stack>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>color</c-h3>
+                <c-code-sample>
+                    <l-stack>
+                        <l-icon
+                            icon="info"
+                            color="var(--c_subOneMain)"
+                        >
+                            Info
+                        </l-icon>
+                        <c-button
+                            icon="warning"
+                            icon-size="1.25em"
+                            icon-align="-0.25em"
+                            icon-color="var(--c_primaryLighter)"
+                        >
+                            Warning
+                        </c-button>
+                    </l-stack>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+             <c-h3>dir</c-h3>
+                <c-code-sample>
+                    <l-stack>
+                        <c-button icon="chevron-left">
+                            Left To Right
+                        </c-button>
+                        <c-button
+                            icon="chevron-right"
+                            icon-dir="rtl"
+                        >
+                            Right To Left
+                        </c-button>
+                    </l-stack>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>icon</c-h3>
+                <c-code-sample>
+                    <l-grid>
+                        <l-stack>
+                            <l-icon icon="info">
+                                info
+                            </l-icon>
+                            <l-icon icon="lock">
+                                lock
+                            </l-icon>
+                            <l-icon icon="chevron-left">
+                                chevron-left
+                            </l-icon>
+                            <l-icon icon="chevron-right">
+                                chevron-right
+                            </l-icon>
+                            <l-icon icon="">
+                                no icon
+                            </l-icon>
+                        </l-stack>
+                        <l-stack>
+                            <l-icon
+                                icon="calendar"
+                                spacing="0"
+                                ></l-icon>
+                            <l-icon
+                                icon="lock"
+                                spacing="0"
+                            ></l-icon>
+                            <c-button
+                                icon="lock"
+                                icon-size="1.25em"
+                                icon-align="-0.25em"
+                                icon-only.bind="true"
+                            ></c-button>
+                        </l-stack>
+                    </l-grid>
+                </c-code-sample>
+           </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+             <c-h3>spacing</c-h3>
+                <c-code-sample>
+                    <l-stack>
+                        <c-button
+                            icon="chevron-left"
+                            icon-spacing="var(--s5)"
+                        >
+                            Left To Right
+                        </c-button>
+                        <c-button
+                            icon-dir="rtl"
+                            icon-spacing="var(--s2)"
+                            icon="chevron-right"
+                        >
+                            Right To Left
+                        </c-button>
+                    </l-stack>
+                </c-code-sample>
+            </l-stack>
+        </div>
+    </l-stack>
+</template>

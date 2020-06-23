@@ -26,19 +26,27 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .notification{
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
     font-size: var(--notification-font-size);
     color: var(--notification-color);
 }
 
+.notification a{
+    color: var(--notification-color);
+}
+
 .notification svg{
-    flex: 0 0 var(--s3);
+    flex: 0 0 var(--s0);
 }
 
 .content{
     padding: var(--notification-padding);
+    width: 100%;
+}
+
+.content l-icon span{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 
@@ -51,7 +59,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  * ^Info
-*/
+ */
 
 .info{
     border: var(--notification-info-border);
@@ -65,7 +73,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  * ^Warning
-*/
+ */
 
 .warning{
     border: var(--notification-warning-border);
@@ -79,7 +87,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  * ^Critical
-*/
+ */
 
 .critical{
     border: var(--notification-critical-border);
@@ -93,7 +101,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 /**
  * ^Success
-*/
+ */
 
 .success{
     border: var(--notification-success-border);
@@ -111,6 +119,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /*------------------------------------*\
     !CALLOUT
 \*------------------------------------*/
+
+.callout-container > l-icon > span{
+    display: flex;
+    align-items: center;
+}
+
+.callout-container > l-icon > span > svg{
+    flex: 0 0 auto;
+}
 
 .callout{
     flex: var(--notification-callout-flex);

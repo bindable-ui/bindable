@@ -4,80 +4,26 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <l-box
-        padding-sides="var(--s3)"
-        padding-ends="var(--s3)"
-        background="transparent"
+    <l-cover
+        scrolling.bind="true"
+        padding-top="var(--s3)"
+        padding-left="var(--s3)"
+        padding-right="var(--s3)"
+        top-gutter="var(--s2)"
     >
-        <l-stack spacing="var(--s5)">
-            <div>
-                <l-stack spacing="var(--s-3)">
-                    <c-h1>Box</c-h1>
-                    <c-h2>Properties</c-h2>
-                    <c-table cols.bind="boxCols" rows.bind="boxProperties"></c-table>
-                </l-stack>
-            </div>
-
-            <c-divider></c-divider>
-
-            <div>
-                <l-stack spacing="var(--s-3)">
-                    <c-h3>Default</c-h3>
-                    <c-code-sample>
-                        <l-stack>
-                            <l-icon
-                                icon-only.bind="true"
-                                icon="question"
-                                color="red"
-                            ></l-icon>
-
-                            <l-icon>Prev</l-icon>
-
-                            <c-button>
-                                <l-icon
-                                    dir="rtl"
-                                    icon="chevron-right"
-                                    spacing="var(--s-3)"
-                                >
-                                    Next
-                                </l-icon>
-                            </c-button>
-
-                            <c-button>
-                                <l-icon
-                                    dir="rtl"
-                                    icon="chevron-left"
-                                    spacing="var(--s-3)"
-                                >
-                                    Next
-                                </l-icon>
-                            </c-button>
-
-                            <c-button>
-                                <l-icon
-                                    icon="warning"
-                                    size="1.25em"
-                                    align="-0.325em"
-                                >
-                                    Warning
-                                </l-icon>
-                            </c-button>
-
-                            <c-button size="small">
-                                <l-icon
-                                    icon="chevron-left"
-                                    color="purple"
-                                >Next</l-icon>
-                            </c-button>
-
-                            <c-p size="large" color="var(--c_secondaryMain)">
-                                <l-icon icon="chevron-left">Blah Blah yoohoo</l-icon>
-                            </c-p>
-                        </l-stack>
-                    </c-code-sample>
-                </l-stack>
-            </div>
-
+        <l-stack spacing="var(--s-3)">
+            <c-h1>Icon</c-h1>
+            <l-box padding-sides="var(--s2)" padding-ends="0px" background="var(--c_darkGray)">
+                <c-nav-horizontal size="small" spacing="var(--s2)">
+                    <c-nav-horizontal-item
+                        repeat.for="row of router.navigation"
+                        title.bind="row.title"
+                        href.bind="row.href"
+                        state="${row.isActive ? 'active' : ''}">
+                    </c-nav-horizontal-item>
+                </c-nav-horizontal>
+            </l-box>
         </l-stack>
-    </l-box>
+        <router-view data-value="cover"></router-view>
+    </l-cover>
 </template>

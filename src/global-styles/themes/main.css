@@ -32,7 +32,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - c-form-select
  *      - c-slider
  *      - c-text-input, c-textarea-input, c-copy, c-file-input, c-form-select
- *  ICON
  *  MODAL
  *  NAV
  *      - c-nav-horizontal
@@ -304,17 +303,9 @@ c-button{
 
     /* Sizes */
     --button-medium-padding: var(--s-3) var(--s1);
-    --button-medium-icon-side-padding: var(--s4);
-    --button-medium-icon-center-padding: calc(var(--s-3) - 1px) var(--s-1) var(--s-3);
-    --button-medium-icon-svg-size: var(--s0);
-    --button-medium-icon-svg-spacing: var(--s0);
-    --button-medium-icon-svg-top-spacing: 1px;
+    --button-medium-icon-only-padding: calc(var(--s-3) - 1px) var(--s-1) var(--s-3);
     --button-small-padding: var(--s-5) var(--s-1);
-    --button-small-icon-side-padding: var(--s3);
-    --button-small-icon-center-padding: var(--s-5) var(--s-1);
-    --button-small-icon-svg-size: var(--s-1);
-    --button-small-icon-svg-spacing: var(--s-1);
-    --button-small-icon-svg-top-spacing: calc(var(--s-5) - 3px);
+    --button-small-icon-only-padding: var(--s-5) var(--s-3);
 
     /* Thinking */
     --button-thinking-padding-left: var(--s4);
@@ -335,7 +326,7 @@ c-button{
 c-copy{
     --copy-button-border: solid 1px var(--c_gray);
     --copy-button-radius: 0 var(--s-5) var(--s-5) 0;
-    --copy-button-width: 73px;
+    --copy-button-width: 58px;
     --copy-content-padding: var(--s-3) var(--s-1) calc(var(--s-3) - 2px);
     --copy-content-border: solid 1px var(--c_charcoal);
     --copy-content-background: var(--c_darkGray);
@@ -567,8 +558,7 @@ c-form-select{
     --input-icon-color: var(--c_smoke);
 
     /* Button */
-    --input-button-padding: calc(var(--s-4) + 1px) var(--s-3);
-    --input-button-padding: var(--s-3) var(--s1);
+    --input-button-padding: var(--s-3) var(--s-1);
     --input-button-border-size: 1px;
     --input-button-border-color: var(--c_black);
     --input-button-border-radius: 0 5px 5px 0;
@@ -583,23 +573,6 @@ c-form-select{
     --input-clearable-icon-size: var(--s-2);
     --input-clearable-icon-color: var(--c_lightGray);
     --input-clearable-icon-hover-color: var(--c_primaryLight);
-}
-
-
-
-
-
-/*------------------------------------*\
-    !ICON
-\*------------------------------------*/
-
-:global(.c-icon){
-    --icon-itzy: var(--s-3);
-    --icon-tiny: var(--s-2);
-    --icon-small: var(--s-1);
-    --icon-medium: var(--s0);
-    --icon-large: var(--s1);
-    --icon-huge: var(--s2);
 }
 
 
@@ -726,7 +699,7 @@ c-notification{
     /* Base */
     --notification-font-size: var(--s-1);
     --notification-color: var(--c_white);
-    --notification-padding: var(--s-3) var(--s0) var(--s-3) 0;
+    --notification-padding: var(--s-3) var(--s-2);
 
     /* Info */
     --notification-info-border: solid 1px var(--c_subOneMain);
@@ -823,7 +796,7 @@ c-table{
     --table-td-border-top: var(--table-td-border);
     --table-td-border-right: var(--table-td-border);
     --table-td-border-bottom: var(--table-td-tdorder);
-    --table-td-border-left: --table-td-border;
+    --table-td-border-left: var(--table-td-border);
     --table-td-color: var(--c_marshmellow);
     --table-th-padding: var(--table-td-padding);
     --table-striped-background: #3A3A3A;
@@ -850,11 +823,11 @@ c-table{
     --table-drag-background-hover: var(--c_darkGray);
     --table-drag-height: var(--s4);
     --table-drag-padding-top: calc(var(--s-1) + 1px);
-    --table-drag-padding-right: var(--s-2);
-    --table-drag-padding-left: var(--s-3);
-    --table-drag-check-height: calc(var(--s4) + 3%);
+    --table-drag-padding-right: calc(var(--s-5) + 1px);
+    --table-drag-padding-left: calc(var(--s-3) + 3px);
+    --table-drag-check-height: var(--s4);
     --table-drag-check-padding-top: var(--s-2);
-    --table-drag-check-top: calc(-100% + 2px);
+    --table-drag-check-top: calc((var(--s-4) + 0.5px) * -1);
 
     /* Colored Cell */
     --table-background-healthy: var(--c_secondaryDark);
@@ -1203,6 +1176,7 @@ c-list{
  */
 
 c-p{
+    --p-font-size-xlarge: var(--s1);
     --p-font-size-large: var(--s0);
     --p-font-size-medium: var(--s-1);
     --p-font-size-small: var(--s-2);

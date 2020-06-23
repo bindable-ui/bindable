@@ -21,11 +21,6 @@ export class DeleteConfirmMethods {
             colHeadName: 'description',
             colHeadValue: 'Description',
         },
-        {
-            colClass: 't105',
-            colHeadName: 'default',
-            colHeadValue: 'Default',
-        },
     ];
 
     public deleteConfirmMethods = [

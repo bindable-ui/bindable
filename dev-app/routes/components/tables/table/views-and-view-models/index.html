@@ -8,7 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h2>Views &amp; View Models</c-h2>
-                <c-table cols.bind="tableCols" rows.bind="tableViews"></c-table>
+                <c-table
+                    cols.bind="tableCols"
+                    rows.bind="tableViews"
+                ></c-table>
             </l-stack>
         </div>
 
@@ -52,7 +55,10 @@ this.buttonData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="buttonCols" rows.bind="buttonData"></c-table>
+                    <c-table
+                        cols.bind="buttonCols"
+                        rows.bind="buttonData"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -77,6 +83,7 @@ this.buttonData = [
         colClass: 't240',
         colHeadName: 'status',
         colHeadValue: 'Status',
+        colOnChange: () => window.alert('Changed'),
         view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle.html'),
         viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-toggle/c-td-toggle'),
     },
@@ -90,7 +97,10 @@ this.toggleData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="toggleCols" rows.bind="toggleData"></c-table>
+                    <c-table
+                        cols.bind="toggleCols"
+                        rows.bind="toggleData"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -144,7 +154,10 @@ this.textInputData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.two-way="textInputCols" rows.two-way="textInputData"></c-table>
+                    <c-table
+                        cols.two-way="textInputCols"
+                        rows.two-way="textInputData"
+                    ></c-table>
                 </c-code-sample>
                 <c-p>text-input output: ${textInputData[3].textInput}</c-p>
             </l-stack>
@@ -179,6 +192,7 @@ this.tdTruncateData = [
     {
         name: 'Luke Skywalker with a lot of text',
         nameIcon: 'info',
+        nameIconSize: '1em',
         ship: 'X-Wing',
         gender: 'Male',
     },
@@ -234,7 +248,11 @@ this.tdTruncateData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table actions.bind="tableActions" cols.bind="tdTruncateCols" rows.bind="tdTruncateData"></c-table>
+                    <c-table
+                        actions.bind="tableActions"
+                        cols.bind="tdTruncateCols"
+                        rows.bind="tdTruncateData"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -271,9 +289,9 @@ this.tdImageData = [
         description: 'This is a description.',
     },
     {
-         image: 'https://picsum.photos/160/90/?random',
-         imageAlt: 'Alt Text',
-         description: 'This is a description.',
+        image: 'https://picsum.photos/160/90/?random',
+        imageAlt: 'Alt Text',
+        description: 'This is a description.',
     },
     {
         image: 'https://picsum.photos/160/90/?random',
@@ -282,7 +300,10 @@ this.tdImageData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="tdImageCols" rows.bind="tdImageData"></c-table>
+                    <c-table
+                        cols.bind="tdImageCols"
+                        rows.bind="tdImageData"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -335,7 +356,10 @@ this.checkboxData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="checkboxCols" rows.bind="checkboxData"></c-table>
+                    <c-table
+                        cols.bind="checkboxCols"
+                        rows.bind="checkboxData"
+                    ></c-table>
                 </c-code-sample>
                 <c-p>checkbox-input output: ${checkboxData[3].checkbox}</c-p>
             </l-stack>
@@ -373,6 +397,8 @@ this.dragHandleData = [
         gender: 'Male',
     },
     {
+        _barColor: 'var(--c_subFourMain)',
+        _status: 'bar',
         ship: 'M. Falcon',
         gender: 'Male',
     },
@@ -387,7 +413,12 @@ this.dragHandleData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="dragHandleCols" rows.bind="dragHandleData" hover.bind="true"></c-table>
+                    <c-table
+                        cols.bind="dragHandleCols"
+                        rows.bind="dragHandleData"
+                        actions.bind="tableActionsSample"
+                        hover.bind="true"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -432,6 +463,8 @@ this.dragCheckData = [
         order: 2,
     },
     {
+        _barColor: 'var(--c_subFourMain)',
+        _status: 'bar',
         dragCheck: false,
         gender: 'Male',
         ship: 'Tie Fighter',
@@ -451,8 +484,7 @@ this.dragCheckData = [
                         rows.bind="dragCheckData"
                         row-dropzone-actions.bind="dropzoneActions"
                         hover.bind="true"
-                    >
-                    </c-table>
+                    ></c-table>
                 </c-code-sample>
                 <c-p>text-input output: ${dragCheckData[3].dragCheck}</c-p>
             </l-stack>
@@ -467,7 +499,7 @@ this.dragCheckData = [
     {
         colHeadValue: 'Name',
         colHeadName: 'name',
-        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
+        view:PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill.html'),
         viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-pill/c-td-pill'),
     },
     {
@@ -487,7 +519,10 @@ this.pillTableData = [
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="pillTableCols" rows.bind="pillTableData"></c-table>
+                    <c-table
+                        cols.bind="pillTableCols"
+                        rows.bind="pillTableData"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -532,26 +567,29 @@ this.actionTableData = [
 
 testModal() {
     this.dialogService
-        .open({
-            viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/modal/c-modal/c-modal'),
-            model: {
-                title: 'Hi',
-                size: 'large',
-                bodyViewModel: PLATFORM.moduleName('/routes/components/modal/body'),
-                bodyModel: {
-                    stuff: 'here',
-                },
-                footerEnable: true,
-                footerText: 'footer',
-                footerViewModel: PLATFORM.moduleName('/routes/components/modal/footer'),
-                footerModel: {
-                    stuff: 'here',
-                },
+    .open({
+        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/modal/c-modal/c-modal'),
+        model: {
+            title: 'Hi',
+            size: 'large',
+            bodyViewModel: PLATFORM.moduleName('/routes/components/modal/body'),
+            bodyModel: {
+                stuff: 'here',
             },
-        });
+            footerEnable: true,
+            footerText: 'footer',
+            footerViewModel: PLATFORM.moduleName('/routes/components/modal/footer'),
+            footerModel: {
+                stuff: 'here',
+            },
+        },
+    });
 }</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="actionTableCols" rows.bind="actionTableData"></c-table>
+                    <c-table
+                        cols.bind="actionTableCols"
+                        rows.bind="actionTableData"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -582,15 +620,20 @@ this.tipTableData = [
         tipOneTipSide: 'top',
         tipOneTipSize: 'small',
         tipOneTipTriggerText: 'Text here',
-        tipOneTipViewModel: PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-text'),
+        tipOneTipViewModel:
+        PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-text'),
         tipTwoTipSide: 'top',
         tipTwoTipSize: 'large',
         tipTwoTipTriggerIcon: 'actions',
-        tipTwoTipViewModel: PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-actions'),
+        tipTwoTipViewModel:
+        PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-actions'),
     },
 ];</c-code>
                 <c-code-sample>
-                    <c-table cols.bind="tipTableCols" rows.bind="tipTableData"></c-table>
+                    <c-table
+                        cols.bind="tipTableCols"
+                        rows.bind="tipTableData"
+                    ></c-table>
                 </c-code-sample>
             </l-stack>
         </div>

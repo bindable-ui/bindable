@@ -15,7 +15,7 @@ describe('c-list-container component', () => {
 
         it('testing dividers', async done => {
             component = StageComponent.withResources()
-                .inView('<c-list-container dividers.bind="customDividers"></c-button>')
+                .inView('<c-list-container dividers.bind="customDividers"></c-list-container>')
                 .boundTo({
                     customDividers: 1,
                 });

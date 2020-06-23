@@ -166,7 +166,6 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./components/forms/c-form-info/c-form-info'),
         PLATFORM.moduleName('./components/forms/c-form-image/c-form-image'),
         PLATFORM.moduleName('./components/forms/c-label/c-label'),
-        PLATFORM.moduleName('./components/icons/c-icon/c-icon'),
         PLATFORM.moduleName('./components/modal/c-modal/c-modal'),
         PLATFORM.moduleName('./components/navs/c-nav-horizontal-item/c-nav-horizontal-item'),
         PLATFORM.moduleName('./components/navs/c-nav-horizontal/c-nav-horizontal'),

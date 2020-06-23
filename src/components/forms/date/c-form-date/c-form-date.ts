@@ -6,6 +6,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 import {bindable, bindingMode, containerless} from 'aurelia-framework';
 import * as moment from 'moment';
 import {authState} from '../../../../decorators/auth-state';
+import {generateRandom} from '../../../../helpers/generate-random';
 
 import * as styles from './c-form-date.css.json';
 
@@ -32,7 +33,7 @@ export class CFormDate {
     @bindable
     public warningMsg;
     @bindable
-    public id;
+    public id = generateRandom();
     @bindable
     public inline = false;
     @bindable

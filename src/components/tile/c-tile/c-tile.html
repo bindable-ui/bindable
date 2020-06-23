@@ -27,10 +27,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 if.bind="showTip"
             >
                 <div slot="trigger">
-                    <c-icon
+                    <l-icon
                         icon="${tipIcon}"
-                        color="var(--c_lightGray)"
-                    ></c-icon>
+                        spacing="0"
+                    ></l-icon>
                 </div>
                 <div slot="content">
                     <template
@@ -92,16 +92,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                             truncate.bind="true"
                             click.trigger="showCheckbox && state !== 'disabled' ? checkedValue = !checkedValue : ''"
                         >
-                            <c-icon
+                            <l-icon
                                 icon="${titleIcon}"
-                                size="tiny"
-                                if.bind="titleIcon"
-                            ></c-icon>
-                            <span if.bind="!searchHighlight">${title}</span>
-                            <span
-                                if.bind="searchHighlight"
-                                innerhtml.bind="searchHighlight"
-                            ></span>
+                            >
+                                <span if.bind="!searchHighlight">${title}</span>
+                                <span
+                                    if.bind="searchHighlight"
+                                    innerhtml.bind="searchHighlight"
+                                ></span>
+                            </l-icon>
                         </c-h4>
                     </div>
                 </l-cluster>

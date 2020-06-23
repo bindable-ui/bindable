@@ -29,7 +29,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         if.bind="model.titleHelp"
                     >
                         <div slot="trigger">
-                            <c-icon icon="question"></c-icon>
+                            <l-icon
+                                icon="question"
+                                spacing="0"
+                                color="var(--c_lightGray)"
+                            ></l-icon>
                         </div>
                         <div slot="content">
                             <c-p color="var(--c_white)">${model.titleHelp}</c-p>
@@ -40,8 +44,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-button
                 class="${styles.closeButton}"
                 click.delegate="controller.cancel()"
+                icon-only.bind="true"
                 icon="x"
-                icon-position="center"
             ></c-button>
         </ux-dialog-header>
         <ux-dialog-body

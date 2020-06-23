@@ -1,10 +1,10 @@
 /*
-Copyright 2020, Verizon Media
+Copyright 2019, Verizon
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-export class IconMethods {
-    public iconCols = [
+export class RadioActions {
+    public formRadioCols = [
         {
             _class: 'monospaced',
             colClass: 't150',
@@ -13,7 +13,7 @@ export class IconMethods {
         },
         {
             _class: 'monospaced',
-            colClass: 't270',
+            colClass: 't240',
             colHeadName: 'value',
             colHeadValue: 'Value',
         },
@@ -23,22 +23,22 @@ export class IconMethods {
         },
         {
             _class: 'monospaced',
-            colClass: 't120',
+            colClass: 't85',
             colHeadName: 'default',
             colHeadValue: 'Default',
         },
     ];
 
-    public iconMethods = [
+    public formRadioActions = [
         {
-            description: 'The function you want to run when the icon is clicked.',
-            name: 'action',
+            description: 'Set a function to fire when the radio changes.',
+            name: 'actions',
             value: 'function',
         },
     ];
 
-    public testFunction() {
-        // eslint-disable-next-line no-alert
-        window.alert('Clicked');
-    }
+    public testActions = {
+        // eslint-disable-next-line
+        onChange: () => alert('Radio Value Changed'),
+    };
 }

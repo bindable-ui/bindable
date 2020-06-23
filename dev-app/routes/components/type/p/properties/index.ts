@@ -57,7 +57,7 @@ export class PProperties {
             default: 'medium',
             description: 'Sets the size of the text in the paragraph.',
             name: 'size',
-            value: 'small | medium | large',
+            value: 'small | medium | large | xlarge',
         },
         {
             default: 'false',

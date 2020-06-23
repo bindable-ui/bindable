@@ -31,11 +31,91 @@ describe('c-text-input component', () => {
             }
         });
 
-        it('tests invalid type', async done => {
+        it('testing type is number', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'number',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('number');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is email', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'email',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('email');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is tel', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'tel',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('tel');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is url', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'url',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('url');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('testing type is password', async done => {
             component = StageComponent.withResources()
                 .inView('<c-text-input type.bind="customType"></c-text-input>')
                 .boundTo({
                     customType: 'password',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.type).toBe('password');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('tests invalid type', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-text-input type.bind="customType"></c-text-input>')
+                .boundTo({
+                    customType: 'blah',
                 });
 
             try {
@@ -68,7 +148,9 @@ describe('c-text-input component', () => {
             try {
                 await bootStrapEnvironment(component);
                 const spy = jest.spyOn(component.viewModel, 'buttonFn');
-                component.viewModel.onKeyUp({which: 13, preventDefault: mockFn});
+                const {keyup} = component.viewModel.eventListeners;
+
+                keyup({which: 13, preventDefault: mockFn});
                 expect(spy).toHaveBeenCalled();
                 expect(mockFn).toHaveBeenCalled();
                 done();
@@ -82,7 +164,10 @@ describe('c-text-input component', () => {
             component = StageComponent.withResources().inView('<c-text-input></c-text-input>');
             try {
                 await bootStrapEnvironment(component);
-                component.viewModel.onKeyUp({which: 101, preventDefault: mockFn});
+                const {keyup} = component.viewModel.eventListeners;
+
+                keyup({which: 101, preventDefault: mockFn});
+
                 expect(mockFn).toHaveBeenCalled();
                 done();
             } catch (e) {

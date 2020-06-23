@@ -4,6 +4,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 export class TextInputMethods {
+    public eventListeners = {
+        blur: () => {
+            // eslint-disable-next-line no-alert
+            alert('focus lost');
+        },
+    };
+
     public formTextCols = [
         {
             _class: 'monospaced',
@@ -45,12 +52,5 @@ export class TextInputMethods {
     public testFunction() {
         // eslint-disable-next-line no-alert
         alert('Clicked');
-    }
-
-    public eventListeners = {
-        blur: () => {
-            // eslint-disable-next-line no-alert
-            alert('focus lost');
-        }
     }
 }

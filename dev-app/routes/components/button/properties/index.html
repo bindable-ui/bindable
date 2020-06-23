@@ -34,6 +34,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>href</c-h3>
                 <c-code-sample>
                     <c-button title="I am an anchor tag" href="http://google.com"></c-button>
+                    <c-button
+                        title="I am an anchor tag with an icon"
+                        href="http://google.com"
+                        icon="print"
+                        icon-size="1.25em"
+                        icon-align="-0.2em"
+                    ></c-button>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -42,13 +49,87 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>icon / icon-position</c-h3>
+                <c-h3>icon-only</c-h3>
                 <c-code-sample>
-                    <c-button icon="warning" icon-position="right">Right Icon</c-button>
-                    <c-button icon="warning" icon-position="left">Left Icon</c-button>
-                    <c-button icon="warning" icon-position="center"></c-button>
-                    <c-button size="small" icon="warning" icon-position="left">Left Icon</c-button>
-                    <c-button size="small" icon="warning" icon-position="center"></c-button>
+                    <c-button
+                        icon="bin"
+                        icon-size="1.25em"
+                        icon-align="-0.25em"
+                        icon-only.bind="true"
+                    ></c-button>
+                    <c-button
+                        icon="bin"
+                        icon-size="1.25em"
+                        icon-align="-0.25em"
+                        icon-only.bind="true"
+                        size="small"
+                    ></c-button>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>Other Icon Examples</c-h3>
+
+                <c-notification
+                    type="info"
+                    callout-title="More Info"
+                    callout-content="l-icon"
+                >
+                    <span>
+                        Using the l-icon layout inside a button allows for a lot of customization on the icon placed in the c-button component.<br><a href="/#/layouts/icon">Learn more about the l-icon layout</a>
+                    </span>
+                </c-notification>
+
+                <c-code-sample>
+                    <c-button
+                        color="danger"
+                        icon="bin"
+                        icon-size="1.25em"
+                        icon-align="-0.25em"
+                    >
+                        Delete
+                    </c-button>
+                    <c-button
+                        icon="chevron-left"
+                        color="neutral"
+                    >
+                        Next
+                    </c-button>
+                    <c-button
+                        icon-dir="rtl"
+                        icon="chevron-right"
+                        color="neutral"
+                    >
+                        Prev
+                    </c-button>
+                    <c-button
+                        color="danger"
+                        size="small"
+                        icon="bin"
+                        icon-size="1.25em"
+                        icon-align="-0.25em"
+                    >
+                        Delete
+                    </c-button>
+                    <c-button
+                        color="neutral"
+                        size="small"
+                        icon="chevron-left"
+                    >
+                        Next
+                    </c-button>
+                    <c-button
+                        color="neutral"
+                        size="small"
+                        icon="chevron-right"
+                        icon-dir="rtl"
+                    >
+                        Prev
+                    </c-button>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -72,12 +153,39 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>state</c-h3>
                 <c-code-sample>
                     <c-button state="disabled">Disabled Button</c-button>
-                    <c-button color="subOne" state="disabled">Disabled Button</c-button>
+                    <c-button
+                        color="subOne"
+                        state="disabled"
+                    >
+                        Disabled Button
+                    </c-button>
                     <c-button state="thinking">Thinking Button</c-button>
-                    <c-button color="secondary" state="thinking">Thinking Button</c-button>
-                    <c-button color="neutral" state="thinking">Thinking Button</c-button>
-                    <c-button color="danger" state="thinking">Thinking Button</c-button>
-                    <c-button icon="bin" icon-position="left" state="thinking">Thinking Icon Button</c-button>
+                    <c-button
+                        color="secondary"
+                        state="thinking"
+                    >
+                        Thinking Button
+                    </c-button>
+                    <c-button
+                        color="neutral"
+                        state="thinking"
+                    >
+                        Thinking Button
+                    </c-button>
+                    <c-button
+                        color="danger"
+                        state="thinking"
+                    >
+                        Thinking Button
+                    </c-button>
+                    <c-button
+                        icon="bin"
+                        icon-size="1.25em"
+                        icon-align="-0.25em"
+                        state="thinking"
+                    >
+                        Thinking Icon Button
+                    </c-button>
                     <c-button state="hidden">Hidden Button</c-button>
                 </c-code-sample>
             </l-stack>

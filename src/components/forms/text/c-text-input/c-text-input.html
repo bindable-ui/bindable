@@ -4,18 +4,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-	<require from="./c-text-input.css"></require>
+    <require from="./c-text-input.css"></require>
 
-    <c-icon
-        if.bind="icon"
+    <l-icon
         icon="${icon}"
-    ></c-icon>
-    <span
-        class="
+        spacing="0"
+        if.bind="icon"
+    ></l-icon>
+    <span class="
             ${button || buttonText ? styles.buttonInput : ''}
             ${clearable ? styles.container : ''}
-        "
-    >
+        ">
         <input
             class="
                 ${styles.input}
@@ -25,30 +24,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${state === 'info' ? styles.info : ''}
             "
             keyup.delegate="onKeyUp($event) & debounce"
-            type="${type}"
-            placeholder.bind="placeholder"
+            title.bind="title"
+            type.bind="type"
             value.bind="textValue"
             focus.bind="hasFocus"
             id="${id}"
             autocomplete="off"
             readonly.bind="state === 'info' ? true : false"
-            if.bind="placeholder"
-        >
-        <input
-            class="
-                ${styles.input}
-                ${styles[iconPosition]}
-                ${state === 'error' ? styles.error : ''}
-                ${state === 'warning' ? styles.warning : ''}
-                ${state === 'info' ? styles.info : ''}
-            "
-            keyup.delegate="onKeyUp($event) & debounce"
-            type="${type}"
-            value.bind="textValue"
-            focus.bind="hasFocus"
-            id="${id}"
-            autocomplete="off"
-            if.bind="!placeholder"
         >
         <a
             class="
@@ -58,7 +40,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             click.delegate="clearText()"
             if.bind="clearable && textValue"
         >
-            <c-icon icon="x"></c-icon>
+            <l-icon
+                icon="x"
+                spacing="0"
+            ></l-icon>
         </a>
         <c-button
             class="
@@ -66,8 +51,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${button === 'bin' ? styles.bin : ''}
             "
             color="${buttonColor}"
+            icon-only.bind="true"
             icon="${button}"
-            icon-position="center"
+            icon-size="1.25em"
+            icon-align="-0.25em"
             click.delegate="buttonFn()"
             if.bind="button || buttonText"
         >

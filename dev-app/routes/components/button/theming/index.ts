@@ -195,29 +195,9 @@ export class ButtonThemeProperties {
             property: 'padding',
         },
         {
-            default: 'var(--s4)',
-            name: '--button-medium-icon-side-padding',
-            property: 'padding-left, padding-right',
-        },
-        {
             default: 'var(--s-3) var(--s-1)',
-            name: '--button-medium-icon-center-padding',
+            name: '--button-medium-icon-only-padding',
             property: 'padding',
-        },
-        {
-            default: 'var(--s0)',
-            name: '--button-medium-icon-svg-size',
-            property: 'width, height',
-        },
-        {
-            default: 'var(--s0)',
-            name: '--button-medium-icon-svg-spacing',
-            property: 'left, right',
-        },
-        {
-            default: '1px',
-            name: '--button-medium-icon-svg-top-spacing',
-            property: 'margin-top',
         },
         {
             default: 'var(--s-5) var(--s-1)',
@@ -225,29 +205,9 @@ export class ButtonThemeProperties {
             property: 'padding',
         },
         {
-            default: 'var(--s3)',
-            name: '--button-small-icon-side-padding',
-            property: 'padding-left, padding-right',
-        },
-        {
             default: 'var(--s-5) var(--s-1)',
-            name: '--button-small-icon-center-padding',
+            name: '--button-small-icon-only-padding',
             property: 'padding',
-        },
-        {
-            default: 'var(--s-1)',
-            name: '--button-small-icon-svg-size',
-            property: 'width, height',
-        },
-        {
-            default: 'var(--s-1)',
-            name: '--button-small-icon-svg-spacing',
-            property: 'left, right',
-        },
-        {
-            default: 'calc(var(--s-5) - 3px)',
-            name: '--button-small-icon-svg-top-spacing',
-            property: 'margin-top',
         },
         {
             default: 'var(--s4)',

@@ -159,7 +159,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 .icons > *{
-    margin-bottom: 6px;
     color: var(--time-entry-accent-color);
 }
 

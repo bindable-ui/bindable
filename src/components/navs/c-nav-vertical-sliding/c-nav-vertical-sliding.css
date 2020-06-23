@@ -108,30 +108,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     cursor: pointer;
 }
 
-.trigger > svg{
+.trigger svg{
     position: absolute;
     top: 3px;
 }
 
-.container > div:first-child .trigger > span{
+.container > div:first-child .trigger > l-icon > span > span{
     margin-right: 10px;
 }
 
-.container > div:first-child .trigger > svg{
+.container > div:first-child .trigger svg{
     right: 0;
     transition: right 0.4s ease-in-out;
 }
 
-.container > div:first-child .trigger:hover > svg{
+.container > div:first-child .trigger:hover svg{
     right: -5px;
 }
 
-.container > div:nth-child(2) .trigger > svg{
+.container > div:nth-child(2) .trigger svg{
     left: -10px;
     transition: left 0.4s ease-in-out;
 }
 
-.container > div:nth-child(2) .trigger:hover > svg{
+.container > div:nth-child(2) .trigger:hover svg{
     left: -15px;
 }
 

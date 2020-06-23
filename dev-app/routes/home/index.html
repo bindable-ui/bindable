@@ -5,7 +5,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 <template>
     <style>
-        .grid-content-area{
+        .grid-content-area {
             grid-template-columns: 1fr;
             grid-template-areas: "content";
         }
@@ -14,21 +14,53 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             background: url('resources/img/bindable-home-header.jpg') no-repeat center center;
             background-size: cover;
             height: 645px;
+            margin-bottom: calc(var(--s5) + 10ch);
+            padding-left: 3ch;
+            padding-right: 3ch;
         }
 
-        .home-header svg.b{
+        .home-header svg.b {
             margin: 80px auto 0;
+            width: clamp(4rem, 5.0vw, 6em);
         }
 
-        .home-header h1{
-            font-size: 72px;
+        .home-header h1 {
+            font-size: clamp(3rem, 4.0vw, 5rem);
             font-family: var(--ff_primary-bold);
         }
 
-        .home-header p{
+        .home-header p {
             font-size: 36px;
+            font-size: clamp(1.5rem, 2.0vw, 2rem);
             font-family: var(--ff_primary-normal);
         }
+
+        c-divider {
+            padding-left: 10ch;
+            padding-right: 10ch;
+        }
+
+        .css-modules {
+            width: 245px !important;
+        }
+
+        .home-body>div {
+            padding-left: 3ch;
+            padding-right: 3ch;
+        }
+
+        .home-body .bindable-h2 h2 {
+            --h2-margin-top: -0.55rem;
+            --h2-font-family: var(--ff_primary-normal);
+            --h2-font-size: var(--s3);
+        }
+
+        .home-body .bindable-h3 h3 {
+            --h3-margin-top: -0.55rem;
+            --h3-font-family: var(--ff_secondary-normal);
+            --h3-font-size: var(--s2);
+        }
+
     </style>
 
     <div class="home-header">
@@ -37,14 +69,1166 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             text-center.bind="true"
         >
             <l-stack spacing="var(--s0)">
-                <svg class="b" width="88" height="142" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="15.456%" x2="50%" y2="100%" id="a"><stop stop-color="#CD040B" offset="0%"/><stop stop-color="#E85358" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#C5C5C5" offset="0%"/><stop stop-color="#F6F6F6" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M44 142c24.3 0 44-19.7 44-44S68.3 54.5 44 54.5 0 73.7 0 98s19.7 44 44 44z" fill="url(#a)"/><path d="M14.667 130.83c9.001-8.031 14.666-19.704 14.666-32.695 0-.576-.01-1.15-.033-1.72h.033V56.766A44.05 44.05 0 0 1 44 54.27c24.3 0 44 19.64 44 43.865C88 122.361 68.3 142 44 142a43.913 43.913 0 0 1-29.333-11.17zM0 98.37L0 98.136v-1.72h.033c-.02.5-.03 1-.032 1.505L0 96.415V41.369C0 22.269 12.244 6.022 29.333 0v56.766z" fill="url(#b)"/></g></svg>
+                <svg
+                    class="b"
+                    width="88"
+                    height="142"
+                    viewBox="0 0 88 142"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <defs>
+                        <linearGradient
+                            x1="50%"
+                            y1="15.456%"
+                            x2="50%"
+                            y2="100%"
+                            id="a"
+                        >
+                            <stop
+                                stop-color="#CD040B"
+                                offset="0%"
+                            />
+                            <stop
+                                stop-color="#E85358"
+                                offset="100%"
+                            />
+                        </linearGradient>
+                        <linearGradient
+                            x1="50%"
+                            y1="0%"
+                            x2="50%"
+                            y2="100%"
+                            id="b"
+                        >
+                            <stop
+                                stop-color="#C5C5C5"
+                                offset="0%"
+                            />
+                            <stop
+                                stop-color="#F6F6F6"
+                                offset="100%"
+                            />
+                        </linearGradient>
+                    </defs>
+                    <g
+                        fill="none"
+                        fill-rule="evenodd"
+                    >
+                        <path
+                            d="M44 142c24.3 0 44-19.7 44-44S68.3 54.5 44 54.5 0 73.7 0 98s19.7 44 44 44z"
+                            fill="url(#a)"
+                        />
+                        <path
+                            d="M14.667 130.83c9.001-8.031 14.666-19.704 14.666-32.695 0-.576-.01-1.15-.033-1.72h.033V56.766A44.05 44.05 0 0 1 44 54.27c24.3 0 44 19.64 44 43.865C88 122.361 68.3 142 44 142a43.913 43.913 0 0 1-29.333-11.17zM0 98.37L0 98.136v-1.72h.033c-.02.5-.03 1-.032 1.505L0 96.415V41.369C0 22.269 12.244 6.022 29.333 0v56.766z"
+                            fill="url(#b)"
+                        />
+                    </g>
+                </svg>
                 <h1>bindable</h1>
-                <p>A themeable design system built in Aurelia JS that alllows for faster and easier web development.</p>
+                <p>A themeable design system built in Aurelia JS that allows for faster and easier web development</p>
                 <c-button
                     href="/#/introduction/getting-started"
                     title="Get Started"
+                    icon="chevron-right"
+                    icon-dir="rtl"
                 ></c-button>
             </l-stack>
         </l-center>
     </div>
+
+    <l-stack
+        spacing="30ch"
+        class="home-body"
+    >
+        <l-stack spacing="var(--s5)">
+            <l-center
+                max-width="80ch"
+                text-center.bind="true"
+            >
+                <l-icon
+                    icon="tech"
+                    color="var(--c_gray)"
+                    size="1.35em"
+                    align="-0.3em"
+                >
+                    <span class="small-italic">Technology</span>
+                </l-icon>
+            </l-center>
+            <l-center max-width="80ch">
+                <l-stack spacing="12ch">
+                    <l-sidebar side="right">
+                        <l-stack spacing="var(--s-2)">
+                            <c-h2>Themeable</c-h2>
+                            <l-stack spacing="var(--s2)">
+                                <c-p
+                                    size="xlarge"
+                                    color="var(--c_lightGray)"
+                                >
+                                The primary downside of a design system is that it forces you to use a default visual style. That isn’t the case with Bindable. You can theme Bindable to a customized visual style. This is accomplished through CSS custom properties (or variables). However, you can stick with the default Bindable visual style if that works for you.
+                                </c-p>
+                                <c-button
+                                    color="neutral"
+                                    icon="chevron-right"
+                                    icon-dir="rtl"
+                                    href="/#/introduction/theming"
+                                    title="Learn More About Theming"
+                                ></c-button>
+                            </l-stack>
+                        </l-stack>
+                        <l-stack
+                            spacing="var(--s0)"
+                            style="text-align: center;"
+                        >
+                            <c-button style="
+                                    --button-font-size: var(--s2);
+                                    --button-medium-padding: var(--s-1) var(--s3);
+                                ">
+                                I'm a button
+                            </c-button>
+                            <l-center
+                                max-width="100%"
+                                text-center.bind="true"
+                            >
+                                <l-icon
+                                    icon="chevron-down"
+                                    color="var(--c_gray)"
+                                    size="1.5em"
+                                    align="-0.4em"
+                                    spacing="0"
+                                ></l-icon>
+                            </l-center>
+                            <c-button style="
+                                    --button-border-radius: 3ch;
+                                    --button-text-shadow: none;
+                                    --button-medium-padding: var(--s-1) var(--s4);
+                                    --button-primary-hover-background: var(--c_marshmellow);
+                                    --button-font-size: var(--s2);
+                                    --button-font-family: Helvetica;
+                                    --button-color: black;
+                                    --button-primary-background: white;
+                                ">
+                                I'm a button
+                            </c-button>
+                        </l-stack>
+                    </l-sidebar>
+
+                    <c-divider></c-divider>
+
+                    <l-sidebar
+                        spacing="var(--s5)"
+                        content-min="55%"
+                    >
+                        <div>
+                            <svg
+                                width="277"
+                                height="230"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                >
+                                    <path
+                                        fill="#38A56C"
+                                        d="M1 199h23v30H1zM52 184h23v45H52zM103 161h22v67.5h-22zM153 128h22v101.25h-22zM203 77h23v151.875h-23zM254 1h23v227.82h-23z"
+                                    />
+                                    <path
+                                        d="M1 199c113.333-25.333 198-91.333 254-198"
+                                        stroke="#8BCEAB"
+                                        stroke-width="3"
+                                    />
+                                </g>
+                            </svg>
+                        </div>
+                        <l-stack spacing="var(--s-2)">
+                            <c-h2>Modular Scale</c-h2>
+                            <l-stack spacing="var(--s2)">
+                                <c-p
+                                    size="xlarge"
+                                    color="var(--c_lightGray)"
+                                >
+                                    Having a modular scale in Bindable allows visual harmony in your app. Everything from font size, button padding, and spacing between grid items can be set with the modular scale increments. You can set the scale to whatever you wish and easily break out of it to have a custom size when needed.
+                                </c-p>
+                                <c-button
+                                    color="neutral"
+                                    icon="chevron-right"
+                                    icon-dir="rtl"
+                                    href="/#/introduction/modular-scale"
+                                    title="Learn More About Modular Scale"
+                                ></c-button>
+                            </l-stack>
+                        </l-stack>
+                    </l-sidebar>
+
+                    <c-divider></c-divider>
+
+                    <l-sidebar
+                        side="right"
+                        content-min="55%"
+                    >
+                        <l-stack spacing="var(--s-2)">
+                            <c-h2>Aurelia &amp; TypeScript</c-h2>
+                            <l-stack spacing="var(--s2)">
+                                <c-p
+                                    size="xlarge"
+                                    color="var(--c_lightGray)"
+                                >
+                                    Aurelia is a simple, powerful, and unobtrusive javascript framework. We love its clean syntax and high performance. Many of the components have added features, thanks to Aurelia. Typescript is a superset of javascript that makes working with javascript a lot better. Bindable uses both of these.
+                                </c-p>
+                            </l-stack>
+                        </l-stack>
+                        <l-stack spacing="var(--s0)">
+                            <a
+                                href="https://aurelia.io"
+                                target="_blank"
+                            >
+                                <svg
+                                    width="347"
+                                    height="114"
+                                    style="width: 90%"
+                                    viewBox="0 0 347 114"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <defs>
+                                        <linearGradient
+                                            x1="-388.148%"
+                                            y1="-144.177%"
+                                            x2="237.684%"
+                                            y2="430.406%"
+                                            id="a"
+                                        >
+                                            <stop
+                                                stop-color="#C06FBB"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                        <linearGradient
+                                            x1="72.945%"
+                                            y1="84.424%"
+                                            x2="-97.052%"
+                                            y2="-147.697%"
+                                            id="b"
+                                        >
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#77327A"
+                                                offset="14%"
+                                            />
+                                            <stop
+                                                stop-color="#B31777"
+                                                offset="29%"
+                                            />
+                                            <stop
+                                                stop-color="#CD0F7E"
+                                                offset="84%"
+                                            />
+                                            <stop
+                                                stop-color="#ED2C89"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                        <linearGradient
+                                            x1="-283.884%"
+                                            y1="-693.6%"
+                                            x2="287.537%"
+                                            y2="101.71%"
+                                            id="c"
+                                        >
+                                            <stop
+                                                stop-color="#C06FBB"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                        <linearGradient
+                                            x1="-821.186%"
+                                            y1="-469.048%"
+                                            x2="101.985%"
+                                            y2="288.236%"
+                                            id="d"
+                                        >
+                                            <stop
+                                                stop-color="#C06FBB"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                        <linearGradient
+                                            x1="-140.359%"
+                                            y1="-230.926%"
+                                            x2="419.012%"
+                                            y2="261.977%"
+                                            id="e"
+                                        >
+                                            <stop
+                                                stop-color="#C06FBB"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                        <linearGradient
+                                            x1="191.084%"
+                                            y1="253.953%"
+                                            x2="20.358%"
+                                            y2="20.403%"
+                                            id="f"
+                                        >
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#77327A"
+                                                offset="14%"
+                                            />
+                                            <stop
+                                                stop-color="#B31777"
+                                                offset="29%"
+                                            />
+                                            <stop
+                                                stop-color="#CD0F7E"
+                                                offset="84%"
+                                            />
+                                            <stop
+                                                stop-color="#ED2C89"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                        <linearGradient
+                                            x1="-388.094%"
+                                            y1="-173.85%"
+                                            x2="237.675%"
+                                            y2="518.99%"
+                                            id="g"
+                                        >
+                                            <stop
+                                                stop-color="#C06FBB"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                        <linearGradient
+                                            x1="11.188%"
+                                            y1="89.653%"
+                                            x2="90.145%"
+                                            y2="11.577%"
+                                            id="h"
+                                        >
+                                            <stop
+                                                stop-color="#6E4D9B"
+                                                offset="0%"
+                                            />
+                                            <stop
+                                                stop-color="#77327A"
+                                                offset="14%"
+                                            />
+                                            <stop
+                                                stop-color="#B31777"
+                                                offset="53%"
+                                            />
+                                            <stop
+                                                stop-color="#CD0F7E"
+                                                offset="79%"
+                                            />
+                                            <stop
+                                                stop-color="#ED2C89"
+                                                offset="100%"
+                                            />
+                                        </linearGradient>
+                                    </defs>
+                                    <g
+                                        fill-rule="nonzero"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M138.731 85.226a18.268 18.268 0 002.528-.175 18.004 18.004 0 004.806-1.374 18.16 18.16 0 005.134-3.434 18.009 18.009 0 005.212-9.314c.418-1.983.5-4.037.244-6.047a17.955 17.955 0 00-1.543-5.325 18.09 18.09 0 00-3.68-5.21 18.163 18.163 0 00-5.567-3.749 17.965 17.965 0 00-6.9-1.459 18.02 18.02 0 00-12.545 4.832 18.181 18.181 0 00-3.884 5.192 18.062 18.062 0 00-1.67 5.27 18.158 18.158 0 00.12 6.166 17.911 17.911 0 001.65 4.796 18.083 18.083 0 003.472 4.698 17.994 17.994 0 0012.623 5.133zm18.831-10.129a20.418 20.418 0 01-4.738 6.85 20.383 20.383 0 01-15.014 5.613 20.373 20.373 0 01-13.086-5.528 20.548 20.548 0 01-4.187-5.563 20.262 20.262 0 01-1.847-5.302 20.617 20.617 0 01-.207-6.71 20.264 20.264 0 011.728-5.896 20.446 20.446 0 014.25-5.975 20.347 20.347 0 0110.154-5.388 20.618 20.618 0 017.981-.05 20.39 20.39 0 013.857 1.143 20.49 20.49 0 0111.11 10.975V46.852h2.313v40.66h-2.314V75.097z"
+                                            fill="#ED2C88"
+                                        />
+                                        <path
+                                            d="M204.204 76.542a20.702 20.702 0 01-3.19 4.533 20.27 20.27 0 01-8.244 5.392 20.182 20.182 0 01-5.609 1.087 22.25 22.25 0 01-1.047.026 20.536 20.536 0 01-17.076-9.094 19.86 19.86 0 01-2.458-5.125 19.678 19.678 0 01-.896-6.186V46.852h2.358V67.664c.004.231.007.462.022.692a17.234 17.234 0 001.377 5.952 17.844 17.844 0 003.528 5.32 18.22 18.22 0 0016.117 5.354 17.847 17.847 0 009.673-4.963 18.427 18.427 0 003.583-5.017 18.384 18.384 0 001.562-4.857 17.857 17.857 0 00.278-2.862v-.11l.022-20.321h2.314v40.66h-2.314v-10.97z"
+                                            fill="#CD0F7E"
+                                        />
+                                        <path
+                                            d="M214.691 66.268l-.051 21.244h-2.314v-40.66h2.314V57.26c.288-.526.603-1.04.936-1.537a20.022 20.022 0 013.202-3.68 20.497 20.497 0 016.03-3.763 20.954 20.954 0 016.878-1.5 23.42 23.42 0 011.044-.025l.007 2.411a47.636 47.636 0 00-.47.006 18.922 18.922 0 00-2.51.226 18.542 18.542 0 00-4.345 1.243 18.075 18.075 0 00-5.25 3.406 17.448 17.448 0 00-2.809 3.372 16.97 16.97 0 00-1.903 4.08 16.8 16.8 0 00-.655 3.137 17.181 17.181 0 00-.104 1.632z"
+                                            fill="#B31776"
+                                        />
+                                        <path
+                                            d="M252.99 87.584l-1.307-.004-.263-.004a20.5 20.5 0 01-2.458-.194 20.36 20.36 0 01-11.06-5.267 20.465 20.465 0 01-4.498-6.09 20.232 20.232 0 01-1.718-5.36 20.544 20.544 0 01-.044-6.715 20.39 20.39 0 012.332-6.708 20.527 20.527 0 018.54-8.226 20.282 20.282 0 013.59-1.424 20.552 20.552 0 0111.546.035c2.218.66 4.32 1.7 6.193 3.064a20.622 20.622 0 015.05 5.29 20.248 20.248 0 013.246 9.117c.052.518.085 1.037.1 1.558 0 .131.004.263.004.394.003.085.003.175-.004.26a1.19 1.19 0 01-.785.983c-.081.029-.17.049-.255.059-.045.004-.09.004-.134.007h-18.76v-2.355h17.543a17.38 17.38 0 00-.226-1.907 17.719 17.719 0 00-1.03-3.633 18.006 18.006 0 00-2.765-4.676 18.188 18.188 0 00-4.642-4.039 18.01 18.01 0 00-4.638-1.986 18.208 18.208 0 00-8.921-.138 18.047 18.047 0 00-3.047 1.017 18.14 18.14 0 00-9.458 9.618 18.079 18.079 0 00-1.132 3.949 18.495 18.495 0 00-.241 3.323 18.3 18.3 0 00.46 3.726 18.037 18.037 0 004.086 7.894 18.148 18.148 0 006.286 4.569 18.035 18.035 0 007.118 1.504l1.3.004c0 .785-.005 1.57-.008 2.355z"
+                                            fill="#9B2073"
+                                        />
+                                        <path
+                                            d="M290.13 87.58a17.566 17.566 0 01-1.133-.038 14.898 14.898 0 01-2.37-.347 12.668 12.668 0 01-2.272-.756c-.903-.4-1.759-.915-2.517-1.544-.4-.326-.77-.683-1.11-1.067a9.702 9.702 0 01-2.085-3.781 10.63 10.63 0 01-.352-1.767 11.87 11.87 0 01-.074-1.495V27.369h2.358v49.676c.004.324.022.647.06.969.059.517.162 1.03.318 1.527.185.585.437 1.15.759 1.673.244.402.53.78.847 1.126.252.277.526.535.819.772.244.2.503.384.77.554.229.146.466.281.707.405 1.15.587 2.417.923 3.698 1.068.525.06 1.055.085 1.58.087l-.003 2.354z"
+                                            fill="#8F2475"
+                                        />
+                                        <path
+                                            d="M295.841 87.512v-40.66h2.314v40.66h-2.314zm.011-54.706v-5.437h2.296v5.437h-2.296z"
+                                            fill="#78327A"
+                                        />
+                                        <path
+                                            d="M324.56 85.226a18.268 18.268 0 002.528-.175 18.004 18.004 0 009.54-4.44 18.014 18.014 0 005.612-9.682c.425-2.02.503-4.114.229-6.16a17.893 17.893 0 00-1.574-5.31 18.19 18.19 0 00-3.712-5.189 18.178 18.178 0 00-5.59-3.715 18.02 18.02 0 00-6.919-1.417c-1.184-.007-2.372.1-3.539.323-1.166.223-2.31.562-3.405 1.01a18.096 18.096 0 00-5.638 3.65 18.092 18.092 0 00-3.776 5.14 17.893 17.893 0 00-1.636 5.283 18.168 18.168 0 00.133 6.055 17.964 17.964 0 001.751 4.99 18.142 18.142 0 008.459 7.998 17.996 17.996 0 007.537 1.639zm18.83-10.129a20.472 20.472 0 01-10.539 10.731 20.373 20.373 0 01-8.291 1.752 20.766 20.766 0 01-2.858-.198 20.373 20.373 0 01-11.239-5.435 20.574 20.574 0 01-4.098-5.478 20.289 20.289 0 01-1.869-5.427 20.58 20.58 0 01-.185-6.584c.278-2.08.881-4.113 1.78-6.009a20.5 20.5 0 0110.628-10.11 20.413 20.413 0 017.84-1.556 20.413 20.413 0 017.837 1.555 20.505 20.505 0 0110.576 10c.148.306.285.615.418.928V46.852h2.314v40.66c-.004.045-2.314 0-2.314 0V75.097z"
+                                            fill="#6E4D9B"
+                                        />
+                                        <g>
+                                            <path
+                                                d="M18.724 14.342l-9.09 6.066L.27 6.376 9.36.309z"
+                                                transform="translate(54.645 12.048)"
+                                                fill="url(#a)"
+                                            />
+                                            <path
+                                                d="M21.476 4.415l15.53 23.273-18.5 12.345-15.53-23.272-2.71-4.06L18.766.357z"
+                                                transform="translate(59.283 64.132)"
+                                                fill="#8C1B69"
+                                            />
+                                            <path
+                                                d="M17.078 4.397l3.419 5.124-14.082 9.397L.287 9.735l3.076-2.053L14.369.337z"
+                                                transform="translate(40.38 79.7)"
+                                                fill="url(#c)"
+                                            />
+                                            <path
+                                                d="M5.447 2.683L9.397.048l6.128 9.183-9.09 6.067-3.42-5.124 5.14-3.43-2.708-4.06zm-2.432 7.49L.306 6.115l5.14-3.43 2.71 4.06-5.141 3.43z"
+                                                transform="translate(83.005 54.862)"
+                                                fill="url(#d)"
+                                            />
+                                            <path
+                                                d="M12.505 21.426L9.43 23.479.065 9.446 14.146.05l6.564 9.836L9.705 17.23 20.71 9.885l2.8 4.197z"
+                                                transform="translate(12.206 37.436)"
+                                                fill="url(#e)"
+                                            />
+                                            <path
+                                                d="M34.008 23.247l2.8 4.196-18.5 12.346-2.8-4.197L.122 12.538 18.623.192z"
+                                                transform="translate(22.21 8.525)"
+                                                fill="url(#f)"
+                                            />
+                                            <path
+                                                d="M14.589 16.793l-5.14 3.43-2.802-4.196L.084 6.191 9.174.124l9.365 14.033z"
+                                                transform="translate(54.832 12.234)"
+                                                fill="url(#g)"
+                                            />
+                                            <path
+                                                d="M46.452 91.44l-2.71-4.06 11.006-7.343 2.71 4.06z"
+                                                fill="#714896"
+                                            />
+                                            <path
+                                                d="M86.02 65.036l-2.709-4.06 5.141-3.43 2.71 4.059z"
+                                                fill="#6F4795"
+                                            />
+                                            <path
+                                                d="M24.711 58.862l-2.8-4.196 11.005-7.345 2.8 4.197z"
+                                                fill="#88519F"
+                                            />
+                                            <path
+                                                d="M64.28 32.457l-2.8-4.196 5.14-3.431 2.8 4.197z"
+                                                fill="#85509E"
+                                            />
+                                            <path
+                                                d="M80.759 68.547l-18.5 12.346-2.71-4.06 18.5-12.346z"
+                                                fill="#8D166A"
+                                            />
+                                            <path
+                                                d="M56.218 31.772l2.8 4.196-18.5 12.346-2.8-4.196z"
+                                                fill="#A70D6F"
+                                            />
+                                            <path
+                                                d="M19.464 28.418l3.492 5.233-5.233 3.492-3.492-5.233z"
+                                                fill="#9E61AD"
+                                            />
+                                            <path
+                                                d="M38.321 91.149l3.492 5.233-5.232 3.492-3.492-5.233z"
+                                                fill="#8053A3"
+                                            />
+                                            <path
+                                                d="M19.591 89.608L.04 69.909 69.612.189l20.21 19.19z"
+                                                transform="rotate(11.284 -12.4 118.141)"
+                                                fill="url(#h)"
+                                            />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                            <a
+                                href="https://www.typescriptlang.org/"
+                                target="_blank"
+                            >
+                                <svg
+                                    width="329"
+                                    height="97"
+                                    style="margin-left: 10px; width: 87%"
+                                    viewBox="0 0 329 97"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                >
+                                    <g
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                    >
+                                        <g
+                                            fill="#FFF"
+                                            fill-rule="nonzero"
+                                        >
+                                            <path d="M138.8 49.7h-11.1V84h-4.5V49.7h-11.1v-4.1h26.6v4.1z" />
+                                            <path
+                                                d="M160.1 56.6l-12.6 31.8c-2.3 5.7-5.4 8.5-9.5 8.5-1.1 0-2.1-.1-2.9-.3v-3.9c.9.3 1.8.5 2.6.5 2.2 0 3.9-1.3 5-4l2.2-5.2-10.7-27.4h4.9l7.4 21.1c.1.3.3 1 .6 2.1h.2c.1-.4.3-1.1.5-2l7.8-21.2h4.5zm7.4 23.5h-.1v16.6H163v-40h4.4v4.8h.1c2.2-3.6 5.3-5.5 9.5-5.5 3.5 0 6.3 1.2 8.3 3.7 2 2.5 3 5.7 3 9.9 0 4.6-1.1 8.3-3.3 11-2.2 2.7-5.3 4.1-9.2 4.1-3.6 0-6.3-1.5-8.3-4.6zm-.1-11.1v3.8c0 2.3.7 4.2 2.2 5.8 1.5 1.6 3.3 2.4 5.6 2.4 2.7 0 4.7-1 6.3-3.1 1.6-2.1 2.3-4.9 2.3-8.5 0-3.1-.7-5.4-2.1-7.2-1.4-1.7-3.3-2.6-5.7-2.6-2.6 0-4.6.9-6.2 2.7-1.6 1.8-2.4 4-2.4 6.7zm48 2.4H196c.1 3.1.9 5.4 2.5 7.1 1.6 1.7 3.7 2.5 6.5 2.5 3.1 0 5.9-1 8.5-3.1V82c-2.4 1.8-5.6 2.6-9.6 2.6-3.9 0-6.9-1.2-9.1-3.7-2.2-2.5-3.3-6-3.3-10.5 0-4.3 1.2-7.7 3.6-10.4 2.4-2.7 5.4-4 9-4 3.6 0 6.4 1.2 8.3 3.5 2 2.3 2.9 5.5 2.9 9.7v2.2h.1zm-4.5-3.7c0-2.5-.6-4.5-1.8-5.9-1.2-1.4-2.9-2.1-5-2.1s-3.8.7-5.3 2.2c-1.4 1.5-2.3 3.4-2.7 5.8h14.8zm6.9 15v-3c2.8 1.8 5.5 2.6 8.4 2.6 3 0 5.3-.6 6.8-1.9 1.6-1.2 2.3-3 2.3-5.2 0-2-.5-3.5-1.6-4.7-1-1.2-3.3-2.8-6.8-4.8-3.9-2.3-6.4-4.2-7.4-5.7s-1.6-3.3-1.6-5.3c0-2.7 1.1-5 3.2-6.9 2.1-1.9 4.9-2.8 8.4-2.8 2.3 0 4.6.4 6.9 1.2V49c-2.3-1-4.7-1.5-7.2-1.5-2.6 0-4.7.7-6.2 2s-2.3 3-2.3 5 .5 3.5 1.6 4.7c1 1.2 3.3 2.7 6.8 4.7 3.6 2 6 3.8 7.2 5.4 1.2 1.6 1.8 3.4 1.8 5.5 0 2.9-1 5.3-3.1 7.2-2 1.9-4.9 2.8-8.7 2.8-1.3 0-2.8-.2-4.6-.6-1.6-.5-2.9-1-3.9-1.5zm43.5.1c-2 1.2-4.5 1.9-7.3 1.9-3.7 0-6.7-1.3-9-3.8-2.3-2.6-3.4-5.9-3.4-10.1 0-4.4 1.3-7.9 3.9-10.7 2.6-2.8 5.9-4.2 9.9-4.2 2.1 0 4.1.4 6.1 1.3V60c-2-1.2-4.1-1.8-6.5-1.8-3.2 0-5.8 1.2-7.8 3.5s-3 5.3-3 9c0 3.6.9 6.4 2.7 8.6 1.8 2.2 4.2 3.2 7.2 3.2 2.7 0 5.1-.7 7.2-2.2v2.5zm16.6-23.6c-.8-.6-1.8-.9-2.9-.9-2.2 0-4 1.1-5.4 3.3-1.5 2.2-2.2 5.4-2.2 9.5V84H265V56.6h2.4v6.1h.1c.6-2.1 1.6-3.7 3-4.9 1.4-1.2 2.9-1.7 4.7-1.7 1 0 1.9.2 2.7.5v2.6zm4.2-9.5c-.5 0-1-.2-1.4-.6-.4-.4-.6-.9-.6-1.5s.2-1.1.6-1.4c.4-.4.9-.5 1.4-.5.6 0 1 .2 1.5.5.4.4.6.8.6 1.4 0 .6-.2 1.1-.6 1.5-.5.4-.9.6-1.5.6zm-1.2 34.4V56.7h2.5v27.4h-2.5zm11.1-4.9h-.1v17.5h-2.5v-40h2.5v5.7h.1c1-2 2.4-3.6 4.2-4.7 1.8-1.1 3.8-1.6 6-1.6 3.5 0 6.2 1.2 8.2 3.6 2 2.4 2.9 5.7 2.9 9.8 0 4.6-1.1 8.3-3.4 11.1-2.2 2.8-5.2 4.2-8.9 4.2-4-.1-7-1.9-9-5.6zm-.1-10.2v3.5c0 2.8.9 5.1 2.6 7.1 1.7 2 4 3 6.8 3s5.1-1.2 6.8-3.6c1.7-2.4 2.6-5.6 2.6-9.5 0-3.4-.8-6.2-2.4-8.2-1.6-2-3.8-3-6.4-3-3.2 0-5.7 1.1-7.4 3.2-1.7 2.1-2.6 4.6-2.6 7.5zm36.7 14.7c-1.3.6-2.5.9-3.6.9-4.1 0-6.1-2.4-6.1-7.3V58.9H314v-2.3h4.9v-7.1c.4-.1.8-.3 1.2-.4.4-.1.8-.3 1.2-.4v8h7.2V59h-7.2v18.1c0 1.9.3 3.3.9 4.1.6.8 1.6 1.3 3 1.3 1 0 2.1-.3 3.3-1v2.2h.1z"
+                                            />
+                                        </g>
+                                        <image
+                                            width="97"
+                                            height="97"
+                                            xlink:href="data:image/png;base64,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"
+                                        />
+                                    </g>
+                                </svg>
+                            </a>
+                        </l-stack>
+                    </l-sidebar>
+
+                    <c-divider></c-divider>
+
+                    <l-sidebar
+                        spacing="var(--s5)"
+                        content-min="55%"
+                    >
+                        <a
+                            href="https://github.com/css-modules/css-modules"
+                            target="_blank"
+                        ><img
+                                class="css-modules"
+                                src="resources/img/css-modules-logo.png"
+                                alt="CSS Modules"
+                            ></a>
+                        <l-stack spacing="var(--s-2)">
+                            <c-h2>CSS Modules</c-h2>
+                            <l-stack spacing="var(--s2)">
+                                <c-p
+                                    size="xlarge"
+                                    color="var(--c_lightGray)"
+                                >
+                                    By default, everything in CSS is global. This might be a problem. You don’t want any of your CSS to conflict with CSS in Bindable. The CSS Modules allow the CSS in Bindable to be scoped locally by default. No more CSS conflicts with the design system.<Paste>
+                                </c-p>
+                            </l-stack>
+                        </l-stack>
+                    </l-sidebar>
+                </l-stack>
+            </l-center>
+        </l-stack>
+        <l-stack spacing="var(--s5)">
+            <l-center
+                max-width="80ch"
+                text-center.bind="true"
+            >
+                <l-icon
+                    icon="layers"
+                    color="var(--c_gray)"
+                    size="1em"
+                    align="-0.15em"
+                >
+                    <span class="small-italic">Categories</span>
+                </l-icon>
+            </l-center>
+            <l-center max-width="80ch">
+                <l-stack spacing="12ch">
+                    <l-stack spacing="8ch">
+                        <l-stack spacing="var(--s5)">
+                            <l-stack spacing="var(--s0)">
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <l-icon
+                                        icon="hash"
+                                        color="var(--c_gray)"
+                                        size="1.5em"
+                                        align="0em"
+                                    >
+                                        <c-h2>Tokens</c-h2>
+                                    </l-icon>
+                                </l-center>
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <c-p
+                                        size="xlarge"
+                                        color="var(--c_lightGray)"
+                                    >
+                                        Tokens are the main building blocks for other parts of Bindable. They are CSS
+                                        custom properties and set things like colors and fonts that other components
+                                        will use.
+                                    </c-p>
+                                </l-center>
+                            </l-stack>
+                            <l-center max-width="80ch">
+                                <l-grid
+                                    min-size="250px"
+                                    gap="var(--s4)"
+                                >
+                                    <l-stack spacing="var(--s0)">
+                                        <l-icon
+                                            icon="globe"
+                                            spacing="0"
+                                            size="3em"
+                                            color="var(--c_subOneMain)"
+                                        ></l-icon>
+                                        <c-h3>Global Properties</c-h3>
+                                        <c-p size="large">Things like the default font-family, body background, and body
+                                            color are set with Global Properties.</c-p>
+                                    </l-stack>
+                                    <l-stack spacing="var(--s0)">
+                                        <l-icon
+                                            icon="color"
+                                            spacing="0"
+                                            size="3em"
+                                            color="var(--c_subOneLight)"
+                                        ></l-icon>
+                                        <c-h3>Color</c-h3>
+                                        <c-p size="large">There are 36 color CSS custom properties you can set to color your app as you see fit.</c-p>
+                                    </l-stack>
+                                    <l-stack spacing="var(--s0)">
+                                        <l-icon
+                                            icon="type"
+                                            spacing="0"
+                                            size="3em"
+                                            color="var(--c_subOneLighter)"
+                                        ></l-icon>
+                                        <c-h3>Fonts</c-h3>
+                                        <c-p size="large">You can set a primary, secondary, and mono spaced fonts using
+                                            CSS custom properties.</c-p>
+                                    </l-stack>
+                                </l-grid>
+                            </l-center>
+                        </l-stack>
+                        <l-center
+                            max-width="80ch"
+                            text-center.bind="true"
+                        >
+                            <c-button
+                                color="neutral"
+                                icon="chevron-right"
+                                icon-dir="rtl"
+                                href="/#/tokens/overview"
+                                title="Learn More About Tokens"
+                            ></c-button>
+                        </l-center>
+                    </l-stack>
+
+                    <c-divider></c-divider>
+
+                    <l-stack spacing="8ch">
+                        <l-stack spacing="5ch">
+                            <l-stack spacing="var(--s0)">
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <l-icon
+                                        icon="layout"
+                                        color="var(--c_gray)"
+                                        size="1.5em"
+                                        align="0em"
+                                    >
+                                        <c-h2>Layouts</c-h2>
+                                    </l-icon>
+                                </l-center>
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <c-p
+                                        size="xlarge"
+                                        color="var(--c_lightGray)"
+                                    >
+										All spacing between items in Bindable happens with layouts. This allows for spacing around and between things to stay consistent and orderly. You can create complex layouts when using them together. Below are 6 of the 9 layouts included in Bindable.
+                                    </c-p>
+                                </l-center>
+                            </l-stack>
+                            <l-center max-width="80ch">
+                                <l-stack spacing="6ch">
+                                    <l-grid
+                                        min-size="250px"
+                                        gap="var(--s4)"
+                                    >
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="box"
+                                                spacing="0"
+                                                size="3em"
+                                                color="var(--c_secondaryMain)"
+                                            ></l-icon>
+                                            <c-h3>Box</c-h3>
+                                            <c-p size="large">
+												The box, the most simple layout of them all, simply centers your content in a container. You can configure margin, padding, and more.
+                                            </c-p>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="center"
+                                                spacing="0"
+                                                size="3em"
+                                                color="var(--c_secondaryLight)"
+                                            ></l-icon>
+                                            <c-h3>Center</c-h3>
+                                            <c-p size="large">
+												The center layout allows centering something within its parent. Some configuration options are spacing, max-width, and text-center.
+                                            </c-p>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="cluster"
+                                                spacing="0"
+                                                size="3em"
+                                                color="var(--c_secondaryLighter)"
+                                            ></l-icon>
+                                            <c-h3>Cluster</c-h3>
+                                            <c-p size="large">
+												The cluster places items in a nice orderly row for you. You can configure spacing, alignment, wrapping, and other properties.
+                                            </c-p>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="cover"
+                                                spacing="0"
+                                                size="3em"
+                                                color="var(--c_secondaryMain)"
+                                            ></l-icon>
+                                            <c-h3>Cover</c-h3>
+                                            <c-p size="large">
+												The cover simply covers all the available space that it can. Some configuration options are padding, scrolling, and gutter spacing.
+                                            </c-p>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="grid"
+                                                spacing="0"
+                                                size="3em"
+                                                color="var(--c_secondaryLight)"
+                                            ></l-icon>
+                                            <c-h3>Grid</c-h3>
+                                            <c-p size="large">
+												The grid places items in a nice grid formation for you. You can configure min-size, gap, auto-sizing, and others.
+                                            </c-p>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="sidebar"
+                                                spacing="0"
+                                                size="3em"
+                                                color="var(--c_secondaryLighter)"
+                                            ></l-icon>
+                                            <c-h3>Sidebar</c-h3>
+                                            <c-p size="large">The sidebar supports a content area and a sidebar. You can
+                                                configure scrolling, widths, spacing, and more.</c-p>
+                                        </l-stack>
+                                    </l-grid>
+                                </l-stack>
+                            </l-center>
+                        </l-stack>
+                        <l-center
+                            max-width="80ch"
+                            text-center.bind="true"
+                        >
+                            <c-button
+                                color="neutral"
+                                icon="chevron-right"
+                                icon-dir="rtl"
+                                href="/#/layouts/overview"
+                                title="Learn More About Layouts"
+                            ></c-button>
+                        </l-center>
+                    </l-stack>
+
+                    <c-divider></c-divider>
+
+                    <l-stack spacing="8ch">
+                        <l-stack spacing="5ch">
+                            <l-stack spacing="var(--s0)">
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <l-icon
+                                        icon="zap"
+                                        color="var(--c_gray)"
+                                        size="1.5em"
+                                        align="0em"
+                                    >
+                                        <c-h2>Components</c-h2>
+                                    </l-icon>
+                                </l-center>
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <c-p
+                                        size="xlarge"
+                                        color="var(--c_lightGray)"
+                                    >
+										Components make up the bulk of Bindable. There are over 40 components currently and more always being added. Each has its own set of properties and configurations. Below is an example of three components.
+                                    </c-p>
+                                </l-center>
+                            </l-stack>
+                            <l-stack spacing="var(--s5)">
+                                <l-stack spacing="var(--s-3)">
+                                    <c-h3>Button</c-h3>
+                                    <c-code-sample>
+                                        <l-cluster spacing="var(--s0)">
+                                            <div>
+                                                <c-button>Primary Button</c-button>
+                                                <c-button color="secondary">Secondary Button</c-button>
+                                                <c-button color="subOne">Sub One Button</c-button>
+                                                <c-button color="neutral">Neutral Button</c-button>
+                                            </div>
+                                        </l-cluster>
+                                    </c-code-sample>
+                                </l-stack>
+                                <l-stack spacing="var(--s-3)">
+                                    <c-h3>Notification</c-h3>
+                                    <c-code-sample>
+                                        <l-stack spacing="var(--s0)">
+                                            <c-notification type="info">Info Notification</c-notification>
+                                            <c-notification type="warning">Warning Notification</c-notification>
+                                            <c-notification type="critical">Critical Notification</c-notification>
+                                            <c-notification type="success">Success Notification</c-notification>
+                                            <c-notification
+                                                type="success"
+                                                state="hidden"
+                                            >Will not show</c-notification>
+                                        </l-stack>
+                                    </c-code-sample>
+                                </l-stack>
+                                <l-stack spacing="var(--s-3)">
+                                    <c-h3>Text Input</c-h3>
+                                    <c-code-sample>
+                                        <l-grid min-size="250px">
+                                            <c-form-text
+                                                text-value.bind="vFormTextOutput"
+                                                label="Normal Input"
+                                                placeholder="Placeholder Text"
+                                            ></c-form-text>
+                                            <c-form-text
+                                                label="Button Text Input"
+                                                button="lock"
+                                            ></c-form-text>
+                                            <c-form-text
+                                                label="Error Field"
+                                                text-value="Invalid Input"
+                                                error-msg="This is the error message"
+                                                state="error"
+                                            ></c-form-text>
+                                        </l-grid>
+                                    </c-code-sample>
+                                </l-stack>
+                            </l-stack>
+                        </l-stack>
+                        <l-center
+                            max-width="80ch"
+                            text-center.bind="true"
+                        >
+                            <c-button
+                                color="neutral"
+                                icon="chevron-right"
+                                icon-dir="rtl"
+                                href="/#/components/overview"
+                                title="Learn More About Components"
+                            ></c-button>
+                        </l-center>
+                    </l-stack>
+
+                    <c-divider></c-divider>
+
+                    <l-stack spacing="5ch">
+                        <l-stack spacing="5ch">
+                            <l-stack spacing="var(--s0)">
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <l-icon
+                                        icon="package"
+                                        color="var(--c_gray)"
+                                        size="1.5em"
+                                        align="0em"
+                                    >
+                                        <c-h2>Elements</c-h2>
+                                    </l-icon>
+                                </l-center>
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <c-p
+                                        size="xlarge"
+                                        color="var(--c_lightGray)"
+                                    >
+                                        An element is a set of packaged up components that performs one task. The
+                                        delete-confirm element is a perfect example. Altogether it uses the tip,
+                                        form-input, icon, paragraph and button components. See the example blow.
+                                    </c-p>
+                                </l-center>
+                            </l-stack>
+                            <l-stack spacing="var(--s5)">
+                                <l-stack spacing="var(--s-3)">
+                                    <c-h3>Delete Confirm</c-h3>
+                                    <c-code-sample>
+                                        <e-delete-confirm
+                                            tip-side="top"
+                                            tip-size="xlarge"
+                                            tip-arrow-position="leftEdge"
+                                            title="Thing"
+                                            delete-message="Confirm delete by typing DELETE ME in the field below."
+                                            action.call="testDelete()"
+                                            match="DELETE ME"
+                                        ></e-delete-confirm>
+                                    </c-code-sample>
+                                </l-stack>
+                            </l-stack>
+                        </l-stack>
+                        <l-center
+                            max-width="80ch"
+                            text-center.bind="true"
+                        >
+                            <c-button
+                                color="neutral"
+                                icon="chevron-right"
+                                icon-dir="rtl"
+                                href="/#/elements/overview"
+                                title="Learn More About Elements"
+                            ></c-button>
+                        </l-center>
+                    </l-stack>
+
+                    <c-divider></c-divider>
+
+                    <l-stack spacing="5ch">
+                        <l-stack spacing="5ch">
+                            <l-stack spacing="var(--s0)">
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <l-icon
+                                        icon="lock2"
+                                        color="var(--c_gray)"
+                                        size="1.5em"
+                                        align="0em"
+                                    >
+                                        <c-h2>Access Modifiers</c-h2>
+                                    </l-icon>
+                                </l-center>
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <c-p
+                                        size="xlarge"
+                                        color="var(--c_lightGray)"
+                                    >
+                                        Access Modifiers are used to show, hide, or disable components and elements
+                                        based on user permission or application states.
+                                    </c-p>
+                                </l-center>
+                            </l-stack>
+                        </l-stack>
+                        <l-center
+                            max-width="80ch"
+                            text-center.bind="true"
+                        >
+                            <c-button
+                                color="neutral"
+                                icon="chevron-right"
+                                icon-dir="rtl"
+                                href="/#/access-modifiers/overview"
+                                title="Learn More About Access Modifiers"
+                            ></c-button>
+                        </l-center>
+                    </l-stack>
+
+                    <c-divider></c-divider>
+
+                    <l-stack spacing="8ch">
+                        <l-stack spacing="5ch">
+                            <l-stack spacing="var(--s0)">
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <l-icon
+                                        icon="call_merge"
+                                        color="var(--c_gray)"
+                                        size="1.5em"
+                                        align="0em"
+                                    >
+                                        <c-h2>Value Converters</c-h2>
+                                    </l-icon>
+                                </l-center>
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <c-p
+                                        size="xlarge"
+                                        color="var(--c_lightGray)"
+                                    >
+										Value converters will take data and convert it into a more human-friendly version that can be displayed in the UI. Bindable has 18 converters currenlty. Below are a few examples.
+                                    </c-p>
+                                </l-center>
+                            </l-stack>
+                            <l-center max-width="80ch">
+                                <l-stack spacing="6ch">
+                                    <l-grid
+                                        min-size="250px"
+                                        gap="var(--s4)"
+                                    >
+                                        <l-stack spacing="var(--s-3)">
+                                            <c-h3>Pluralize</c-h3>
+                                            <l-stack spacing="var(--s3)">
+                                                <div>
+                                                    <c-code>Item\${2 | pluralize}</c-code>
+                                                    <c-p size="large">Item${2 | pluralize}</c-p>
+                                                </div>
+                                            </l-stack>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s-3)">
+                                            <c-h3>Capitalize</c-h3>
+                                            <l-stack spacing="var(--s3)">
+                                                <div>
+                                                    <c-code>\${'something' | capitalize}</c-code>
+                                                    <c-p size="large">${'something' | capitalize}</c-p>
+                                                </div>
+                                            </l-stack>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s-3)">
+                                            <c-h3>Datetime</c-h3>
+                                            <l-stack spacing="var(--s3)">
+                                                <div>
+                                                    <c-code>\${872386823 | msToHms}</c-code>
+                                                    <c-p size="large">${872386823 | msToHms}</c-p>
+                                                </div>
+                                            </l-stack>
+                                        </l-stack>
+                                    </l-grid>
+                                </l-stack>
+                            </l-center>
+                        </l-stack>
+                        <l-center
+                            max-width="80ch"
+                            text-center.bind="true"
+                        >
+                            <c-button
+                                color="neutral"
+                                icon="chevron-right"
+                                icon-dir="rtl"
+                                href="/#/value-converters/overview"
+                                title="Learn More About Value Converters"
+                            ></c-button>
+                        </l-center>
+                    </l-stack>
+
+                    <c-divider></c-divider>
+
+                    <l-stack spacing="5ch">
+                        <l-stack spacing="5ch">
+                            <l-stack spacing="var(--s0)">
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <l-icon
+                                        icon="github"
+                                        color="var(--c_gray)"
+                                        size="1.5em"
+                                        align="0em"
+                                    >
+                                        <c-h2>Repositories</c-h2>
+                                    </l-icon>
+                                </l-center>
+                                <l-center
+                                    max-width="80ch"
+                                    text-center.bind="true"
+                                >
+                                    <c-p
+                                        size="xlarge"
+                                        color="var(--c_lightGray)"
+                                    >
+										There are two repos hosted on Github for Bindable. The main repo has everything except for icons. The icons are located in their own repo. You don’t have to use the Bindable Icons. You can load your customized icons if you want.
+                                    </c-p>
+                                </l-center>
+                            </l-stack>
+                            <l-center max-width="80ch">
+                                <l-stack spacing="15ch">
+                                    <l-grid
+                                        min-size="250px"
+                                        gap="var(--s4)"
+                                    >
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="bindable"
+                                                spacing="0"
+                                                size="3em"
+                                                color="var(--c_primaryMain)"
+                                            ></l-icon>
+                                            <c-h3>Bindable</c-h3>
+                                            <c-p size="large">All the tokens, components, layouts, elements, access
+                                                modifiers, and value converters are contained in this repo. Please
+                                                report issues on Github. Pull requests are always welcome!</c-p>
+                                            <c-button
+                                                color="neutral"
+                                                icon="chevron-right"
+                                                icon-dir="rtl"
+                                                href="https://github.com/bindable-ui/bindable"
+                                                target-new.bind="true"
+                                                title="View Repo"
+                                            ></c-button>
+                                        </l-stack>
+                                        <l-stack spacing="var(--s0)">
+                                            <l-icon
+                                                icon="bindable-icons"
+                                                spacing="0"
+                                                size="3em"
+                                                style="width: 30px"
+                                                color="var(--c_primaryLighter)"
+                                            ></l-icon>
+                                            <c-h3>Bindable Icons</c-h3>
+                                            <c-p size="large">
+												All the icons used in Bindable are contained in this repo. If you choose to use your own icon set, you will need to load them as an SVG sprite. Then Bindable will have access to them.
+                                            </c-p>
+                                            <c-button
+                                                color="neutral"
+                                                icon="chevron-right"
+                                                icon-dir="rtl"
+                                                href="https://github.com/bindable-ui/bindable-icons"
+                                                target-new.bind="true"
+                                                title="View Repo"
+                                            ></c-button>
+                                        </l-stack>
+                                    </l-grid>
+                                    <span>&nbsp;</span>
+                                </l-stack>
+                            </l-center>
+                        </l-stack>
+                    </l-stack>
+                </l-stack>
+            </l-center>
+        </l-stack>
+    </l-stack>
 </template>

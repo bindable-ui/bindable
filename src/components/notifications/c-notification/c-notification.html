@@ -13,16 +13,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         "
         show.bind="_state !== 'hidden'"
     >
-        <c-icon icon="${type == 'info' ? 'info' : ''}${type == 'success' ? 'info' : ''}${type == 'warning' ? 'warning' : ''}${type == 'critical' ? 'warning' : ''}"></c-icon>
         <div
-            class="${styles.callout}"
-            if.bind="calloutTitle || calloutContent"
+            class="
+                ${styles.content}
+                ${calloutTitle && calloutContent ? styles.calloutContainer : ''}
+            "
         >
-            <c-h5>${calloutTitle}</c-h5>
-            <c-h2>${calloutContent}</c-h2>
-        </div>
-        <div class="${styles.content}">
-            <slot></slot>
+            <l-icon
+                align="-0.15em"
+                icon="${type == 'info' ? 'info' : ''}${type == 'success' ? 'info' : ''}${type == 'warning' ? 'warning' : ''}${type == 'critical' ? 'warning' : ''}"
+                size="1.1em"
+                spacing="var(--s-2)"
+            >
+                <div
+                    class="${styles.callout}"
+                    if.bind="calloutTitle || calloutContent"
+                >
+                    <c-h5>${calloutTitle}</c-h5>
+                    <c-h2>${calloutContent}</c-h2>
+                </div>
+                <div>
+                    <slot></slot>
+                </div>
+            </l-icon>
         </div>
     </div>
 </template>

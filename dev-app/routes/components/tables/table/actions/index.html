@@ -17,7 +17,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h3>actions</c-h3>
-                <c-notification type="info">
+                <c-notification
+                    callout-title="Extra Info"
+                    callout-content="Tables"
+                    type="info"
+                >
+                <span>
                     Pass in callbacks for c-table. These include:<br/>getRowClass - Assigns class to a tr<br/>getColClass - Assigns class to a td<br/>getBarColor - Sets the bar color of a row. Can be any CSS Color.<br><br>
                     Available classes to assign:
                     <c-list>
@@ -29,6 +34,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         <li>notAllowed</li>
                         <li>bar</li>
                     </c-list>
+                </span>
                 </c-notification>
     <c-code>constructor() {
     this.basicCols = [

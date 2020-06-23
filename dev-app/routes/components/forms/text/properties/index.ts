@@ -37,7 +37,7 @@ export class TextInputProperties {
             value: 'boolean',
         },
         {
-            description: 'This will add an icon button to the input. See icon component for the list of icons.',
+            description: 'This will add an icon button to the input.',
             name: 'button',
             value: 'Icon name',
         },
@@ -60,12 +60,12 @@ export class TextInputProperties {
         {
             description: 'Will not show until state is set to error.',
             name: 'error-msg',
-            value: '',
+            value: 'string',
         },
         {
             description: 'Will not show until state is set to warning.',
             name: 'warning-msg',
-            value: '',
+            value: 'string',
         },
         {
             default: 'false',
@@ -74,7 +74,7 @@ export class TextInputProperties {
             value: 'boolean',
         },
         {
-            description: 'See icon component for a list of all the icons.',
+            description: 'Add an icon to the input.',
             name: 'icon',
             value: 'Any icon',
         },
@@ -91,7 +91,7 @@ export class TextInputProperties {
         {
             description: 'Set the label text. If left off no label will be placed.',
             name: 'label',
-            value: '',
+            value: 'string',
         },
         {
             description: 'Place an icon in front of the label. See icon component for a list of icons.',
@@ -105,9 +105,14 @@ export class TextInputProperties {
             value: 'CSS Color',
         },
         {
-            description: 'Leave off if not needed.',
+            description: 'Use to place a pattern on the input.',
+            name: 'pattern',
+            value: 'string',
+        },
+        {
+            description: 'Set the placehodler text. Leave off if not needed.',
             name: 'placeholder',
-            value: '',
+            value: 'string',
         },
         {
             description: 'Set a state for the text input.',
@@ -117,13 +122,18 @@ export class TextInputProperties {
         {
             description: 'Sets the value of the text input',
             name: 'text-value',
-            value: '',
+            value: 'string',
+        },
+        {
+            description: 'Set the title of the input. Useful for setting the message if your "pattern" prop is not matched by the user.',
+            name: 'title',
+            value: 'string',
         },
         {
             default: 'text',
             description: 'Set if you need the input to have a type of "number".',
             name: 'type',
-            value: 'text | number',
+            value: 'text | number | email | tel | url | password',
         },
     ];
 
