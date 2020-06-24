@@ -739,7 +739,7 @@ export class CTimeline {
                 return;
             }
 
-            if (this.actions.getEntries && !day.entries.length) {
+            if (this.actions.getEntries && !day.entries.length && !day.isLoading) {
                 // Get the data
                 day.isLoading = true;
                 const entries = await this.actions.getEntries(day.startTime, day.endTime);
@@ -758,7 +758,7 @@ export class CTimeline {
                 this.taskQueue.queueMicroTask(() => {
                     day.isLoading = false;
                 });
-            } else if (day.entries.length) {
+            } else if (day.entries.length && !day.isLoading) {
                 // Update existing data
                 day.isLoading = true;
 
