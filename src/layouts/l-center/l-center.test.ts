@@ -45,6 +45,22 @@ describe('l-center component', () => {
             }
         });
 
+        it('is fill-space endabled', async done => {
+            component = StageComponent.withResources()
+                .inView('<l-center fill-space.bind="isFillSpace"></l-center>')
+                .boundTo({
+                    isFillSpace: 1,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.fillSpace).toBe(false);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
         describe('CSS Classes', () => {
             it('css class: center', async done => {
                 component = StageComponent.withResources().inView('<l-center></l-center>');

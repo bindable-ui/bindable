@@ -21,6 +21,8 @@ export class CNavHorizontal {
     public align = 'center';
     @bindable
     public justify = 'start';
+    @bindable
+    public textTransform = 'unset';
 
     public styles = styles;
     public mobileNavOpen;
