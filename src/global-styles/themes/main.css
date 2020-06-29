@@ -49,6 +49,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *      - c-timeline-block
  *      - timeline-container
  *      - c-timeline-week-container
+ *      - c-timeline-month-container
  *  TIP
  *  TOAST
  *  TYPE
@@ -942,6 +943,26 @@ c-timeline-week-container{
     --timeline-week-dates-first-border-right: solid 1px var(--c_gray);
     --timeline-week-content-border-left: solid 1px var(--c_gray);
     --timeline-week-dates-today-color: var(--c_primaryMain);
+}
+
+
+/**
+ * ^c-timeline-month-container
+ */
+
+c-timeline-month-container{
+    --timeline-month-min-width: 730px;
+    --timeline-month-border: solid 1px var(--c_slate);
+    --timeline-month-header-color: var(--c_white);
+    --timeline-month-header-padding: var(--s-4) var(--s-5);
+    --timeline-month-header-background: var(--c_soot);
+    --timeline-month-item-height: 9rem;
+    --timeline-month-item-padding: var(--s-5) var(--s-2);
+    --timeline-month-item-background: var(--c_darkGray);
+    --timeline-month-item-active-month: var(--c_smoke);
+    --timeline-month-item-not-active-month: var(--c_charcoal);
+    --timeline-month-item-today-color: var(--c_white);
+    --timeline-month-item-today-border-bottom: solid calc(var(--s-5) - 2px) var(--c_primaryMain);
 }
 
 

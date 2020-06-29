@@ -1,0 +1,21 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <require from="./c-timeline-month-item.css"></require>
+
+    <div class="${styles.container}">
+        <span class="
+            ${!activeMonth ? styles.notActiveMonth : styles.activeMonth}
+            ${today ? styles.today : ''}
+            "
+        >
+            ${dayDate}
+        </span>
+        <l-center text-center.bind="true">
+            <slot></slot>
+        </l-center>
+    </div>
+</template>

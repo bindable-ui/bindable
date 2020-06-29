@@ -18,6 +18,8 @@ export class LBoxLink {
     @bindable
     public color = 'unset';
     @bindable
+    public colorHover = 'unset';
+    @bindable
     public fillSpace = false;
     @bindable
     public href = '#';

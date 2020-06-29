@@ -1,0 +1,35 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <require from="./c-timeline-month-container.css"></require>
+
+    <l-cover
+        padding-bottom="var(--s3)"
+        class="${styles.container}"
+    >
+        <div data-value="cover">
+            <l-grid
+                min-size="14.28%"
+                gap="0"
+                class="${styles.header}"
+            >
+                <span>Sunday</span>
+                <span>Monday</span>
+                <span>Tuesday</span>
+                <span>Wednesday</span>
+                <span>Thursday</span>
+                <span>Friday</span>
+                <span>Saturday</span>
+            </l-grid>
+            <l-grid
+                min-size="14.28%"
+                gap="0"
+            >
+                <slot></slot>
+            </l-grid>
+        </div>
+    </l-cover>
+</template>

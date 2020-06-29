@@ -192,6 +192,8 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./components/timeline/c-timeline-block/c-timeline-block'),
         PLATFORM.moduleName('./components/timeline/c-timeline-container/c-timeline-container'),
         PLATFORM.moduleName('./components/timeline/c-timeline-week-container/c-timeline-week-container'),
+        PLATFORM.moduleName('./components/timeline/c-timeline-month-container/c-timeline-month-container'),
+        PLATFORM.moduleName('./components/timeline/c-timeline-month-item/c-timeline-month-item'),
         PLATFORM.moduleName('./components/timeline/c-timeline/c-timeline'),
         PLATFORM.moduleName('./components/tip/c-tip/c-tip'),
         PLATFORM.moduleName('./components/toasts/c-toasts/c-toasts'),
