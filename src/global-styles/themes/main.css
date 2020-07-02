@@ -825,9 +825,11 @@ c-table{
     --table-drag-padding-top: calc(var(--s-1) + 1px);
     --table-drag-padding-right: calc(var(--s-5) + 1px);
     --table-drag-padding-left: calc(var(--s-3) + 3px);
-    --table-drag-check-height: var(--s4);
-    --table-drag-check-padding-top: var(--s-2);
-    --table-drag-check-top: calc((var(--s-4) + 0.5px) * -1);
+
+    /* START HERE AND CHANGE THESE */
+    --table-drag-check-height: calc(var(--s4) - 1px);
+    --table-drag-check-padding-top: var(--s-3);
+    --table-drag-check-top: calc((var(--s-4) - 3px) * -1);
 
     /* Colored Cell */
     --table-background-healthy: var(--c_secondaryDark);

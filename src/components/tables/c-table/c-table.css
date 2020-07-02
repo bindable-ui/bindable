@@ -329,7 +329,8 @@ td.button{
     transition: background var(--trans_main), opacity var(--trans_main);
 }
 
-.drag compose span{
+/* .drag compose span{ */
+.drag compose c-drag-handle > span{
     top: 0px;
     left: 0px;
     line-height: 0;
@@ -339,7 +340,8 @@ td.button{
     padding-left: var(--table-drag-padding-left);
 }
 
-.drag-check compose span{
+/* .drag-check compose span{ */
+.drag-check compose c-drag-handle > span > l-icon > span{
     top: var(--table-drag-check-top);
     left: -8px;
     height: var(--table-drag-check-height);
