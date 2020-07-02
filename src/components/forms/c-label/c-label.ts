@@ -8,6 +8,8 @@ import * as styles from './c-label.css.json';
 
 export class CLabel {
     @bindable
+    public for;
+    @bindable
     public icon;
     @bindable
     public labelIconColor = 'lightGray';

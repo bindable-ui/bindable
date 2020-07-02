@@ -10,17 +10,15 @@ import * as styles from './c-slider.css.json';
 @authState
 export class CSlider {
     @bindable
+    public id;
+    @bindable
     public increments = 4;
-
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public sliderValue = 0;
-
     @bindable
     public state;
-
     @bindable
     public onChange;
-
     @bindable
     public debounceTime: number = 0;
 
