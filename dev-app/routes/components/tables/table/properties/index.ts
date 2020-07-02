@@ -126,7 +126,7 @@ export class TableProperties {
             {
                 _status: 'critical',
                 gender: 'Female',
-                name: 'Ray',
+                name: 'Rey',
                 ship: 'M. Falcon',
             },
             {
@@ -177,7 +177,7 @@ export class TableProperties {
             {
                 _status: 'healthy',
                 gender: 'Female',
-                name: 'Ray',
+                name: 'Rey',
                 ship: 'M. Falcon',
             },
         ];

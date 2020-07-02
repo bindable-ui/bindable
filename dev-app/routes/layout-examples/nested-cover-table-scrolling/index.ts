@@ -220,7 +220,7 @@ export class NestedCoverTableScrolling {
         {
             _status: 'neutral',
             gender: 'Female',
-            name: 'Ray',
+            name: 'Rey',
             ship: 'M. Falcon',
         },
     ];
@@ -247,7 +247,7 @@ export class NestedCoverTableScrolling {
         {
             _class: 'bgInfo',
             gender: 'Female',
-            name: 'Ray',
+            name: 'Rey',
             ship: 'M. Falcon',
         },
     ];

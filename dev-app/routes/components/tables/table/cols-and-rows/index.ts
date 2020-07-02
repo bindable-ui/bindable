@@ -85,7 +85,7 @@ export class TableColsRows {
             },
             {
                 gender: 'Female',
-                name: 'Ray',
+                name: 'Rey',
                 ship: 'M. Falcon',
             },
             {

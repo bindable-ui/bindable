@@ -212,7 +212,7 @@ export class HorizontalScrollTable {
         {
             _class: 'bgInfo',
             gender: 'Female',
-            name: 'Ray',
+            name: 'Rey',
             ship: 'M. Falcon',
         },
     ];
