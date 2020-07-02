@@ -12,6 +12,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     >
         <c-label
             state="${_state}"
+            for="${id}"
             if.bind="label"
         >
             ${label}
@@ -43,6 +44,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     </div>
     <c-file-input
         image-picker.bind="imagePicker"
+        id="${id}"
         state.bind="_state"
         files.bind="files"
         if.bind="_state !== 'disabled' && _state !== 'hidden'"

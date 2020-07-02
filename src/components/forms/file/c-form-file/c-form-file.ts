@@ -5,13 +5,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 import {bindable, bindingMode} from 'aurelia-framework';
 import {authState} from '../../../../decorators/auth-state';
-
+import {generateRandom} from '../../../../helpers/generate-random';
 import * as styles from './c-form-file.css.json';
 
 @authState
 export class CFormFile {
     @bindable
     public errorMsg;
+    @bindable
+    public id = generateRandom();
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public files;
     @bindable
