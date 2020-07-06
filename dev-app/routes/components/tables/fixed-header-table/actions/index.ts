@@ -176,7 +176,7 @@ export class FixedHeaderTableActions {
         {
             _status: 'neutral',
             gender: 'Female',
-            name: 'Ray',
+            name: 'Rey',
             ship: 'M. Falcon',
         },
     ];
@@ -203,7 +203,7 @@ export class FixedHeaderTableActions {
         {
             _class: 'bgInfo',
             gender: 'Female',
-            name: 'Ray',
+            name: 'Rey',
             ship: 'M. Falcon',
         },
     ];

@@ -2,7 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/bindable-ui/bindable/badge.svg?branch=master)](https://coveralls.io/github/bindable-ui/bindable?branch=master)
 
-Bindable is a design system that aims to provide the video products in <a href="https://www.verizondigitalmedia.com" target="_blank">Verizon Media</a> tools to build cohesive and consistent interfaces. Bindable will provide a common pattern for desginers and engineers to follow. Bindable is developed as an <a href="https://aurelia.io" target="_blank">Aurelia</a> plugin and built with the <a href="https://github.com/aurelia/cli" target="_blank">aurelia-cli</a>.
+Bindable is a design system that aims to provide the video products in <a href="https://www.verizondigitalmedia.com" target="_blank" rel="noopener">Verizon Media</a> tools to build cohesive and consistent interfaces. Bindable will provide a common pattern for desginers and engineers to follow. Bindable is developed as an <a href="https://aurelia.io" target="_blank" rel="noopener">Aurelia</a> plugin and built with the <a href="https://github.com/aurelia/cli" target="_blank" rel="noopener">aurelia-cli</a>.
 
 ## Table of Contents
 
@@ -93,7 +93,7 @@ This Aurelia plugin project has a built-in dev app to simplify development.
 3. You can use normal `npm start` and `npm test` in development just like developing an app.
 4. To ensure compatibility to other apps, always use `PLATFORM.moduleName()` wrapper in files inside `src/`. You don't need to use the wrapper in `dev-app/` folder as CLI built-in bundler supports module name without the wrapper.
 
-The dev-app contains the <a href="https://bindable-ui.com" target="_blank">docs</a>. Use that to view what parameters are available when using the components in Bindable.
+The dev-app contains the <a href="https://bindable-ui.com" target="_blank" rel="noopener">docs</a>. Use that to view what parameters are available when using the components in Bindable.
 
 ### Run dev app
 

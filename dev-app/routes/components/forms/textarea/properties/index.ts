@@ -30,6 +30,11 @@ export class TextAreaProperties {
             value: '',
         },
         {
+            description: 'Set if you need an id on the textarea.',
+            name: 'id',
+            value: 'string',
+        },
+        {
             description: 'Set the label text. If left off no label will be placed.',
             name: 'label',
             value: '',

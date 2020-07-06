@@ -8,6 +8,8 @@ import * as styles from './c-textarea-input.css.json';
 
 export class CTextareaInput {
     @bindable
+    public id;
+    @bindable
     public placeholder;
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public textareaValue;

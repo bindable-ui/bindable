@@ -33,7 +33,7 @@ export class TableActions {
                     return 'bgWarning';
                 }
             } else if (col.colHeadName === 'name') {
-                if (row.name === 'Ray') {
+                if (row.name === 'Rey') {
                     return 'bgCritical';
                 }
                 if (row.name === 'Yoda') {
@@ -136,7 +136,7 @@ export class TableActions {
                 _barColor: '#0000FF',
                 _status: 'bar',
                 gender: 'Female',
-                name: 'Ray',
+                name: 'Rey',
                 ship: 'M. Falcon',
             },
             {

@@ -15,6 +15,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles[_state]}
             ${iconOnly ? styles.iconOnly : ''}
         "
+        aria-label="${icon}"
         click.trigger="actionFunction()"
         type="${type}"
         hide.bind="href || _state === 'hidden'"
@@ -33,6 +34,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     <a
         href.bind="href"
         target="${targetNew ? '_blank' : '_self'}"
+        rel="noopener"
+        aria-label="${icon}"
         class="
             ${styles.button}
             ${styles[color]}
