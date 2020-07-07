@@ -329,10 +329,9 @@ td.button{
     transition: background var(--trans_main), opacity var(--trans_main);
 }
 
-/* .drag compose span{ */
-.drag compose c-drag-handle > span{
-    top: 0px;
-    left: 0px;
+.drag compose > span > l-icon > span{
+    top: var(--table-drag-top);
+    left: var(--table-drag-left);
     line-height: 0;
     height: var(--table-drag-height);
     padding-top: var(--table-drag-padding-top);
@@ -340,14 +339,13 @@ td.button{
     padding-left: var(--table-drag-padding-left);
 }
 
-/* .drag-check compose span{ */
 .drag-check compose c-drag-handle > span > l-icon > span{
     top: var(--table-drag-check-top);
-    left: -8px;
+    left: var(--table-drag-check-left);
     height: var(--table-drag-check-height);
     padding-top: var(--table-drag-check-padding-top);
     padding-right: 0;
-    padding-left: 3px;
+    padding-left: var(--table-drag-check-padding-left);
 }
 
 .drag compose l-icon span:hover,

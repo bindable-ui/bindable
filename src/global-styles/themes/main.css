@@ -822,14 +822,18 @@ c-table{
     /* Drag */
     --table-drag-background-hover: var(--c_darkGray);
     --table-drag-height: var(--s4);
+    --table-drag-top: calc((var(--s-3) + 2.23px) * -1);
+    --table-drag-left: calc(var(--s0) * -1);
     --table-drag-padding-top: calc(var(--s-1) + 1px);
     --table-drag-padding-right: calc(var(--s-5) + 1px);
-    --table-drag-padding-left: calc(var(--s-3) + 3px);
+    --table-drag-padding-left: calc(var(--s-3) + 4px);
 
-    /* START HERE AND CHANGE THESE */
-    --table-drag-check-height: calc(var(--s4) - 1px);
-    --table-drag-check-padding-top: var(--s-3);
-    --table-drag-check-top: calc((var(--s-4) - 3px) * -1);
+    /* Drag Check */
+    --table-drag-check-height: var(--s4);
+    --table-drag-check-padding-top: calc(var(--s-2) + .77px);
+    --table-drag-check-padding-left: 3px;
+    --table-drag-check-top: calc((var(--s-3) + 1.23px) * -1);
+    --table-drag-check-left: calc(var(--s0) * -1);
 
     /* Colored Cell */
     --table-background-healthy: var(--c_secondaryDark);
