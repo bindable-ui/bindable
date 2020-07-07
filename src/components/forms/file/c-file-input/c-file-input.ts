@@ -7,6 +7,8 @@ import {bindable, bindingMode} from 'aurelia-framework';
 import * as styles from './c-file-input.css.json';
 
 export class CFileInput {
+    @bindable
+    public id;
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public files;
     @bindable

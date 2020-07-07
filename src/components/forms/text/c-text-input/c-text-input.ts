@@ -6,7 +6,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 import {bindable, bindingMode, inject} from 'aurelia-framework';
 
 import {eventListeners} from '../../../../decorators/event-listeners';
-import {generateRandom} from '../../../../helpers/generate-random';
 import {IFormEventListener} from '../../../../interfaces/event-listeners';
 
 import * as styles from './c-text-input.css.json';
@@ -31,7 +30,7 @@ export class CTextInput {
     @bindable
     public iconPosition;
     @bindable
-    public id = generateRandom();
+    public id;
     @bindable
     public placeholder;
     @bindable

@@ -4,9 +4,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {bindable, bindingMode, inject} from 'aurelia-framework';
-
 import {authState} from '../../../../decorators/auth-state';
-
+import {generateRandom} from '../../../../helpers/generate-random';
 import {lazyLoadCheck} from '../../../../helpers/lazy-load-check';
 import multiIndexSplicer from '../../../../helpers/multi-index-splicer';
 
@@ -17,6 +16,8 @@ import * as styles from './c-form-select.css.json';
 export class CFormSelect {
     @bindable
     public actions;
+    @bindable
+    public id = generateRandom();
     @bindable
     public errorMsg;
     @bindable
