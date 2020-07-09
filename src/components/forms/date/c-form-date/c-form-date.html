@@ -28,14 +28,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         "
     >
         <c-text-input
-            if.bind="_state !== 'disabled' && _state !== 'hidden'"
+            class="
+                ${styles.icon}
+                ${styles[iconPosition]}
+                ${inline ? styles.inline : ''}
+            "
             placeholder.bind="placeholder"
             text-value.bind="textValue"
             state.bind="_state"
             icon="${!inline ? 'calendar' : ''}"
-            icon-position="${!inline ? 'right' : ''}"
-            class="${styles.icon}  ${styles.right}  ${inline ? styles.inline : ''}"
+            icon-position="${!inline ? iconPosition : ''}"
             id="${id}"
+            if.bind="_state !== 'disabled' && _state !== 'hidden'"
         >
         </c-text-input>
         <c-disabled if.bind="_state === 'disabled'">

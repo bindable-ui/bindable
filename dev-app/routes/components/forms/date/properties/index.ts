@@ -58,6 +58,12 @@ export class DateInputProperties {
             value: 'string',
         },
         {
+            default: 'right',
+            description: 'Set on which side the calendar icon will appear.',
+            name: 'icon-position',
+            value: 'right | left',
+        },
+        {
             default: 'false',
             description: 'Set if you would like the datepicker to show without and input.',
             name: 'inline',
