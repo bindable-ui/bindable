@@ -472,11 +472,6 @@ c-table{
  * ^c-form-date
  */
 
-c-text-input{
-    --form-date-calendar-icon-color: var(--c_smoke);
-    --form-date-calendar-icon-right-space: var(--s-2);
-}
-
 :global(.bootstrap-datetimepicker-widget){
     --form-date-calendar-background: var(--c_soot);
     --form-date-calendar-day-hover-background: var(--c_charcoal);
