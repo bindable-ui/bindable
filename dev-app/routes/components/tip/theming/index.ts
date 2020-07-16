@@ -35,6 +35,11 @@ export class TipThemeProperties {
             property: 'border-color',
         },
         {
+            default: '1px',
+            name: '--tip-border-width',
+            property: 'border-width',
+        },
+        {
             default: 'var(--c_charcoal)',
             name: '--tip-background',
             property: 'background',

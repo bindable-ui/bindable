@@ -959,6 +959,7 @@ c-popover{
     /* base */
     --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
     --tip-border-color: var(--c_soot);
+    --tip-border-width: 1px;
     --tip-background: var(--c_charcoal);
     --tip-color: var(--c_white);
 

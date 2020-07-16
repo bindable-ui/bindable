@@ -64,7 +64,7 @@ c-tip{
     display: inline-block;
     position: absolute;
     padding: var(--tip-padding);
-    border-width: 1px;
+    border-width: var(--tip-border-width);
     border-style: solid;
     border-color: var(--tip-border-color);
     background: var(--tip-background);
