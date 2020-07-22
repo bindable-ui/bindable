@@ -10,7 +10,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         class="${styles.labelWrapper}"
         show.bind="_state !== 'hidden' && label"
     >
-        <c-label state="${_state}">
+        <c-label
+            state="${_state}"
+            for="${id}"
+        >
             ${label}
         </c-label>
         <slot name="tip"></slot>
@@ -20,6 +23,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles[state]}
             ${styles.textarea}
         "
+        id="${id}"
         placeholder.bind="placeholder"
         state.bind="_state"
         textarea-value.bind="textareaValue"

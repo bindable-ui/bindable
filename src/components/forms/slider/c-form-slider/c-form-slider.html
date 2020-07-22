@@ -13,6 +13,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         >
             <c-label
                 state="${_state}"
+                for="${id}"
                 if.bind="label"
             >
                 ${label}
@@ -21,6 +22,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         </div>
         <c-slider
             slider-value.bind="sliderValue"
+            id="${id}"
             increments.bind="increments"
             state.bind="_state"
             on-change.call="valueChanged(val)"

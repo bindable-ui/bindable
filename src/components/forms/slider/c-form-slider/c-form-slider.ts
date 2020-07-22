@@ -5,12 +5,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 import {bindable, bindingMode} from 'aurelia-framework';
 import {authState} from '../../../../decorators/auth-state';
+import {generateRandom} from '../../../../helpers/generate-random';
 import * as styles from './c-form-slider.css.json';
 
 @authState
 export class CFormSlider {
     @bindable
     public errorMsg;
+    @bindable
+    public id = generateRandom();
     @bindable
     public increments = 4;
     @bindable

@@ -431,7 +431,7 @@ export class TableViews {
             },
             {
                 gender: 'Female',
-                name: 'Ray',
+                name: 'Rey',
                 ship: 'M. Falcon',
             },
         ];
@@ -558,7 +558,7 @@ export class TableViews {
             },
             {
                 gender: 'Female',
-                name: 'Ray',
+                name: 'Rey',
                 ship: 'M. Falcon',
             },
         ];

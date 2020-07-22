@@ -472,11 +472,6 @@ c-table{
  * ^c-form-date
  */
 
-c-text-input{
-    --form-date-calendar-icon-color: var(--c_smoke);
-    --form-date-calendar-icon-right-space: var(--s-2);
-}
-
 :global(.bootstrap-datetimepicker-widget){
     --form-date-calendar-background: var(--c_soot);
     --form-date-calendar-day-hover-background: var(--c_charcoal);
@@ -822,12 +817,18 @@ c-table{
     /* Drag */
     --table-drag-background-hover: var(--c_darkGray);
     --table-drag-height: var(--s4);
+    --table-drag-top: calc((var(--s-3) + 2.23px) * -1);
+    --table-drag-left: calc(var(--s0) * -1);
     --table-drag-padding-top: calc(var(--s-1) + 1px);
     --table-drag-padding-right: calc(var(--s-5) + 1px);
-    --table-drag-padding-left: calc(var(--s-3) + 3px);
+    --table-drag-padding-left: calc(var(--s-3) + 4px);
+
+    /* Drag Check */
     --table-drag-check-height: var(--s4);
-    --table-drag-check-padding-top: var(--s-2);
-    --table-drag-check-top: calc((var(--s-4) + 0.5px) * -1);
+    --table-drag-check-padding-top: calc(var(--s-2) + .77px);
+    --table-drag-check-padding-left: 3px;
+    --table-drag-check-top: calc((var(--s-3) + 1.23px) * -1);
+    --table-drag-check-left: calc(var(--s0) * -1);
 
     /* Colored Cell */
     --table-background-healthy: var(--c_secondaryDark);
@@ -958,6 +959,7 @@ c-popover{
     /* base */
     --tip-padding: var(--s-2) var(--s3) var(--s-2) var(--s-2);
     --tip-border-color: var(--c_soot);
+    --tip-border-width: 1px;
     --tip-background: var(--c_charcoal);
     --tip-color: var(--c_white);
 

@@ -34,6 +34,11 @@ export class FileProperties {
             value: '',
         },
         {
+            description: 'Set if you need an id on the input field.',
+            name: 'id',
+            value: 'string',
+        },
+        {
             description: 'Set if this file picker is going to be for choosing an image.',
             name: 'image-picker',
             value: 'boolean',

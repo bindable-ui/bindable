@@ -78,15 +78,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .icon svg{
     position: absolute;
-    top: calc(var(--s-3) + 1px);
-    width: var(--s0);
-    height: var(--s0);
-    color: var(--form-date-calendar-icon-color);
+
+    top: var(--input-icon-top-spacing);
+    width: var(--input-icon-size);
+    height: var(--input-icon-size);
+    color: var(--input-icon-color);
     z-index: var(--z_base);
 }
 
+.left svg{
+    left: var(--input-icon-side-spacing);
+}
+
 .right svg{
-    right: var(--form-date-calendar-icon-right-space);
+    right: var(--input-icon-side-spacing);
 }
 
 

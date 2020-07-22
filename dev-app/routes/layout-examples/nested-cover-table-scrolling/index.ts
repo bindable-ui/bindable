@@ -3,8 +3,18 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {PLATFORM} from 'aurelia-pal';
+
 export class NestedCoverTableScrolling {
     public testCols = [
+        {
+            _class: 'dragCheck',
+            colClass: 't30',
+            colHeadName: 'dragCheck',
+            colHeadValue: '',
+            view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html'),
+            viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check'),
+        },
         {
             colClass: 't270',
             colHeadName: 'name',
@@ -220,7 +230,7 @@ export class NestedCoverTableScrolling {
         {
             _status: 'neutral',
             gender: 'Female',
-            name: 'Ray',
+            name: 'Rey',
             ship: 'M. Falcon',
         },
     ];
@@ -247,7 +257,7 @@ export class NestedCoverTableScrolling {
         {
             _class: 'bgInfo',
             gender: 'Female',
-            name: 'Ray',
+            name: 'Rey',
             ship: 'M. Falcon',
         },
     ];

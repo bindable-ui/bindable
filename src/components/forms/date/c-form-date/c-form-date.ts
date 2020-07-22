@@ -33,6 +33,8 @@ export class CFormDate {
     @bindable
     public warningMsg;
     @bindable
+    public iconPosition = 'right';
+    @bindable
     public id = generateRandom();
     @bindable
     public inline = false;

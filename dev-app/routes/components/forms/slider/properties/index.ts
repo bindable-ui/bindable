@@ -36,6 +36,11 @@ export class SliderProperties {
             value: '',
         },
         {
+            description: 'Set if you need an id on the textarea.',
+            name: 'id',
+            value: 'string',
+        },
+        {
             default: '4',
             description: 'Set how many increments you want in the slider. It is zero based.',
             name: 'increments',
