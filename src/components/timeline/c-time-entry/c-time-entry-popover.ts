@@ -11,6 +11,5 @@ export class CTimeEntryPopover {
 
     public activate(model) {
         this.item = model.data;
-        //    console.log('in popover', this.item);
     }
 }

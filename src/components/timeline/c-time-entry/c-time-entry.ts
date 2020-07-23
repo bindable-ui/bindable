@@ -49,8 +49,6 @@ export class CTimeEntry {
 
         const {left, top} = this.getPopoverPosition($event);
 
-        // console.log(this.item);
-
         this.vPopoverService.open({
             left,
             top,
