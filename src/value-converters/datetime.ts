@@ -223,7 +223,9 @@ export class MonthYearValueConverter {
 
 // tslint:disable-next-line: max-classes-per-file
 export class TimezoneTimeToStandardDateTimeMSValueConverter {
-    public toView(value) {
-        return momentTimezone(value).format('MMM D, YYYY @ h:mm:ss.SSS A');
+    public toView(value, format?) {
+        return value !== null
+            ? momentTimezone(parseInt(value, 10)).format(format ? format : 'MMM D, YYYY @ h:mm:ss.SSS A')
+            : null;
     }
 }

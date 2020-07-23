@@ -50,6 +50,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 <c-notification type="info">Depending on your Webpack config, you may be required to handle CSS imports from Bindable manually.</c-notification>
                             </l-stack>
                             <l-stack spacing="var(--s-4)">
+                                <c-p size="large">In your app you'll need to add some lodash/jQuery config to your webpack.config.js</c-p>
+                                <c-code>{ test: require.resolve('jquery'), loader: 'expose-loader?$!expose-loader?jQuery' },
+{ test: require.resolve('lodash'), loader: 'expose-loader?_!expose-loader?lodash' },</c-code>
+                                <c-code>new ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    _: 'lodash',
+    lodash: 'lodash',
+    ...
+}),</c-code>
+                            </l-stack>
+                            <l-stack spacing="var(--s-4)">
                                 <c-p size="large">(Optional) Add Bindable Icons as a plugin into your Aurelia project</c-p>
                                 <c-code>aurelia.use
     ...

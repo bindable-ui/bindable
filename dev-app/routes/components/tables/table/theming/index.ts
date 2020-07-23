@@ -158,6 +158,16 @@ export class TableThemeProperties {
             property: 'height',
         },
         {
+            default: 'calc((var(--s-3) + 2.23px) * -1)',
+            name: '--table-drag-top',
+            property: 'top',
+        },
+        {
+            default: 'calc(var(--s0) * -1)',
+            name: '--table-drag-left',
+            property: 'left',
+        },
+        {
             default: 'calc(var(--s-1) + 1px)',
             name: '--table-drag-padding-top',
             property: 'padding-top',
@@ -168,19 +178,34 @@ export class TableThemeProperties {
             property: 'padding-right',
         },
         {
-            default: 'var(--s-3)',
+            default: 'calc(var(--s-3) + 4px)',
             name: '--table-drag-padding-left',
             property: 'padding-left',
         },
         {
-            default: 'calc(var(--s4) + 3%)',
+            default: 'var(--s4)',
             name: '--table-drag-check-height',
             property: 'height',
         },
         {
-            default: 'var(--s-2)',
+            default: 'calc(var(--s-2) + .77px)',
             name: '--table-drag-check-padding-top',
             property: 'padding-top',
+        },
+        {
+            default: '3px',
+            name: '--table-drag-check-padding-left',
+            property: 'padding-left',
+        },
+        {
+            default: 'calc((var(--s-3) + 1.23px) * -1)',
+            name: '--table-drag-check-top',
+            property: 'top',
+        },
+        {
+            default: 'calc(var(--s0) * -1)',
+            name: '--table-drag-check-left',
+            property: 'left',
         },
         {
             default: 'var(--c_secondaryDark)',

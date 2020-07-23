@@ -77,12 +77,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>id / label / placeholder / text-value</c-h3>
+                <c-h3>id / label / placeholder / text-value / icon-position</c-h3>
                 <c-code-sample>
                     <l-grid min-size="25ch">
                         <div>
                             <c-form-date
                                 id="test1"
+                                icon-position="left"
                                 callbacks.bind="callbacks"
                                 timestamp.bind="vFormDateOutput1"
                                 text-value.bind="vFormDateText"

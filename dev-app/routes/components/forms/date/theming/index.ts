@@ -23,19 +23,6 @@ export class FormDateThemeProperties {
         },
     ];
 
-    public formDateThemeProperties = [
-        {
-            default: 'var(--c_smoke)',
-            name: '--form-date-calendar-icon-color',
-            property: 'fill',
-        },
-        {
-            default: 'var(--s-2)',
-            name: '--form-date-calendar-icon-right-space',
-            property: 'right',
-        },
-    ];
-
     public formDateThemeProperties2 = [
         {
             default: 'var(--c_soot)',

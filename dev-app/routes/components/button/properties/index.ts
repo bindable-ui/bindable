@@ -59,6 +59,12 @@ export class ButtonProperties {
             value: 'ltr | rtl',
         },
         {
+            default: 'false',
+            description: 'Set to true if the button has no text.',
+            name: 'icon-only',
+            value: 'boolean',
+        },
+        {
             description: 'Set an icon in the button.',
             name: 'icon',
             value: 'string',
