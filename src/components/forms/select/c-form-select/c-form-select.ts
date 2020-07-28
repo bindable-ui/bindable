@@ -63,6 +63,8 @@ export class CFormSelect {
     public select2MaxInput = 0;
     @bindable
     public searchPlaceholder = 'Search';
+    @bindable
+    public tagAdd;
 
     public styles = styles;
     public filteredOptions = [];
@@ -115,8 +117,6 @@ export class CFormSelect {
     );
 
     constructor(public element: Element) {}
-    @bindable
-    public tagAdd = () => null // Empty callback
 
     public attached() {
         if (typeof this.multiple !== 'boolean') {
