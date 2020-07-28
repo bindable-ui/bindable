@@ -28,7 +28,7 @@
   "plugin": {
     "source": {
       "js": "src/**/*.ts",
-      "css": "src/**/*.css",
+      "css": ["src/**/*.css", "node_modules/select2/dist/css/select2.min.css"],
       "html": "src/**/*.html",
       "json": "src/**/*.json"
     }
@@ -42,7 +42,8 @@
   "cssProcessor": {
     "source": [
       "dev-app/**/*.css",
-      "src/**/*.css"
+      "src/**/*.css",
+      "node_modules/select2/dist/css/select2.min.css"
     ]
   },
   "jsonProcessor": {

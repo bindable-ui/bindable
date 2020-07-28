@@ -23,11 +23,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         if.bind="_state !== 'disabled'"
     >
         <c-form-text
-            if.bind="search && _state !== 'hidden'"
+            if.bind="search && _state !== 'hidden' && !enableSelect2"
             text-value.bind="searchText"
             class="${styles.search}"
             clearable.bind="true"
-            placeholder="Search"
+            placeholder="${searchPlaceholder}"
             button="search"
             button-action.call="searchSelect(textValue)">
         </c-form-text>
@@ -41,7 +41,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             value.bind="selectValue"
             multiple.bind="multiple"
             scroll.trigger="onScroll() & throttle"
-            if.bind="!isLoading && _state !== 'hidden'"
+            if.bind="!isLoading && _state !== 'hidden' && !enableSelect2"
         >
             <option
                 repeat.for="option of filteredOptions"
@@ -52,6 +52,30 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             </option>
             <option
                 repeat.for="option of filteredOptions"
+                value="${option}"
+                if.bind="simple"
+            >
+                ${option}
+            </option>
+        </select>
+        <select
+            class="
+                ${styles.select}
+                ${styles[_state]}
+            "
+            id="${id}"
+            value.bind="selectValue"
+            if.bind="!isLoading && _state !== 'hidden' && enableSelect2"
+        >
+            <option
+                repeat.for="option of options"
+                value="${option.value}"
+                if.bind="!simple"
+            >
+                ${option.text}
+            </option>
+            <option
+                repeat.for="option of options"
                 value="${option}"
                 if.bind="simple"
             >
