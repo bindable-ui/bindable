@@ -18,5 +18,11 @@ describe('Datetime Value Converter', () => {
                 expect(component.toView(0, 'HH:mm:ss')).toEqual('00:00:00');
             });
         });
+
+        describe('String to DateTime conversion', () => {
+            test('string input', () => {
+                expect(component.toView('2020-07-29T15:28:42.049303Z', 'MMM D, YYYY')).toEqual('Jul 29, 2020');
+            });
+        });
     });
 });
