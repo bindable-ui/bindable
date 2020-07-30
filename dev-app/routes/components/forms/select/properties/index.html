@@ -111,8 +111,28 @@ this.testSelectValues = [];</c-code>
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h2>select2</c-h2>
-                <c-code>this.testSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
-this.testSelectValues = [];</c-code>
+                <c-code>constructor() {
+    this.testOptions = [{
+        value: 'value1',
+        text: 'Value 1',
+    },
+    {
+        value: 'value2',
+        text: 'Value 2',
+    },
+    {
+        value: 'value3',
+        text: 'Value 3',
+    },
+    {
+        value: 'value4',
+        text: 'Value 4',
+    },
+    {
+        value: 'value5',
+        text: 'Value 5',
+    }];
+}</c-code>
                 <c-code-sample>
                     <l-grid min-size="25ch">
                         <c-form-select
@@ -123,6 +143,13 @@ this.testSelectValues = [];</c-code>
                         <c-form-select
                             enable-select2.bind="true"
                             label="Select2 Multiple"
+                            multiple.bind="true"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            label="Select2 Max Input"
+                            select2-max-input="2"
                             multiple.bind="true"
                             options.bind="testOptions"
                         ></c-form-select>

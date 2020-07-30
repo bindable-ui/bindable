@@ -36,6 +36,10 @@ c-form-select{
     position: relative;
 }
 
+.container > div{
+    height: auto !important;
+}
+
 .select{
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -71,7 +75,6 @@ c-form-select{
     select{
         padding-right: var(--select-padding-right) !important;
         background-image: var(--select-arrow-svg) !important;
-        background-image: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>') !important;
         background-repeat: no-repeat !important;
         background-position: var(--select-arrow-position) !important;
         transition: box-shadow var(--trans_main), border var(--trans_main), background var(--trans_main), color 0ms !important;
@@ -190,24 +193,21 @@ select.error{
     display: block !important;
 }
 
-:global .select2-container--default .select2-selection--single .select2-selection__rendered{
-    /* height: 32px !important; */
-    /* line-height: 33px !important; */
-}
-
-:global .select2-container--default .select2-selection--single{
+:global .select2-container--default .select2-selection--single,
+:global .select2-selection--multiple{
     height: unset !important;
     border: var(--input-border)!important;
     border-radius: 0 !important;
 }
 
-:global .select2-container .select2-selection--single .select2-selection__rendered{
+:global .select2-container .select2-selection--single .select2-selection__rendered,
+:global .select2-selection--multiple{
     padding: var(--input-padding) !important;
     padding-right: var(--select-padding-right) !important;
     color: var(--input-color) !important;
-    border-radius: 0;
+    border-radius: 0 !important;
     line-height: unset !important;
-    background: var(--input-background);
+    background: var(--input-background) !important;
     box-shadow: var(--input-box-shadow) !important;
 }
 
@@ -221,21 +221,50 @@ select.error{
     height: var(--select2-arrow-height);
     top: var(--select2-arrow-top-position);
     right: var(--select2-arrow-right-position);
+    background-image: var(--select-arrow-svg) !important;
+    background-repeat: no-repeat;
 }
 
 :global .select2-container--default .select2-selection--single .select2-selection__arrow b{
-    top: 0 !important;
-    left: 0 !important;
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-    border-width: var(--select2-arrow-border-width) !important;
-    border-color: var(--select2-arrow-color) transparent transparent transparent !important;
+    display: none;
+}
+
+
+/**
+ * ^Multiple
+ */
+
+:global .select2-selection--multiple{
+    padding: 0 !important;
+    min-height: unset !important;
+}
+
+:global .select2-selection--multiple ul li:last-child,
+:global .select2-selection--multiple ul li:last-child input{
+    width: 100% !important;
+}
+
+:global .select2-selection__choice{
+    background-color: var(--select2-multiple-choice-background) !important;
+    border: var(--select2-multiple-choice-border) !important;
+    border-radius: var(--s-5) !important;
+    margin-right: var(--s-5) !important;
+    padding: 0 var(--s-5) !important;
+    font-size: var(--s-1);
+}
+
+:global .select2-selection__choice__remove{
+    transition: color var(--trans_main);
+}
+
+:global .select2-selection__choice__remove:hover{
+    color: var(--c_primaryLight) !important;
 }
 
 
 /**
  * ^Drop Down
-*/
+ */
 
 :global .select2-dropdown{
     border: var(--select2-dropdown-border) !important;
@@ -253,9 +282,9 @@ select.error{
 }
 
 :global .select2-container--default .select2-search--dropdown .select2-search__field{
-    padding: var(--input-padding);
+    padding: var(--select2-search-padding);
     border: var(--input-border) !important;
-    background-color: var(--input-background);
+    background-color: var(--select2-search-background-color);
     box-shadow: var(--input-box-shadow);
     color: var(--input-color);
 }

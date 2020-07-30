@@ -109,6 +109,38 @@ export class SelectProperties {
             name: 'state',
             value: 'error | warning | disabled | hidden',
         },
+        {
+            default: 'false',
+            description:
+            'Set if you want to enable Select2. Select2 is a plugin that allows for fuzzy search of the <options> within the <select>. It also has multiple and tagging support.',
+            name: 'enable-select2',
+            value: 'boolean',
+        },
+        {
+            default: 'false',
+            description:
+            'When searching if no result is found and enter is pressed a new item will be added to the select.',
+            name: 'select2-tags',
+            value: 'boolean',
+        },
+        {
+            default: 'false',
+            description: 'Allow clearing the select out.',
+            name: 'select2-allow-clear',
+            value: 'boolean',
+        },
+        {
+            default: '0',
+            description: 'Cap the max amount of items that can be selected. 0 means no limit.',
+            name: 'select2-max-input',
+            value: 'number',
+        },
+        {
+            default: 'Search',
+            description: 'Set the text of the search placeholder.',
+            name: 'select2-placeholder',
+            value: 'string',
+        },
     ];
 
     public testOptions = [

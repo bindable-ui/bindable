@@ -502,8 +502,8 @@ c-form-select{
     --select2-arrow-right-position: var(--s-1);
     --select2-arrow-width: 13px;
     --select2-arrow-height: 10px;
-    --select2-arrow-border-width: 7px 6px 0;
-    --select2-arrow-color: var(--c_smoke);
+    --select2-multiple-choice-background: var(--c_ash);
+    --select2-multiple-choice-border: 1px solid var(--c_asphatl);
 }
 
 :global .select2-container{
@@ -511,6 +511,8 @@ c-form-select{
     --select2-dropdown-background: var(--c_charcoal);
     --select2-dropdown-search-padding: 8px;
     --select2-dropdown-list-padding: 6px 10px;
+    --select2-search-background-color: var(--c_ash);
+    --select2-search-padding: var(--s-5) var(--s-3) var(--s-4);
 }
 
 

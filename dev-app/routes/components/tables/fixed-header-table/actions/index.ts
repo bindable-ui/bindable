@@ -26,9 +26,9 @@ export class FixedHeaderTableActions {
     public fixedHeaderTableProperties = [
         {
             default: '',
-            description: 'In this function you should define all the scroll-to-load, is-loading, and other items.',
+            description: 'In this object you would define onScrollBottom and any other actions.',
             name: 'actions',
-            value: 'function',
+            value: 'object',
         },
     ];
 

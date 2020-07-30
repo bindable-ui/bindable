@@ -70,14 +70,14 @@ export class SelectThemeProperties {
             property: 'height',
         },
         {
-            default: '7px 6px 0',
-            name: '--select2-arrow-border-width',
-            property: 'border-width',
+            default: 'var(--c_ash)',
+            name: '--select2-multiple-choice-background',
+            property: 'background-color',
         },
         {
-            default: 'var(--c_smoke)',
-            name: '--select2-arrow-color',
-            property: 'color',
+            default: '1px border var(--c_asphalt)',
+            name: '--select2-multiple-choice-border',
+            property: 'border',
         },
     ];
 
@@ -100,6 +100,16 @@ export class SelectThemeProperties {
         {
             default: '6px 10px',
             name: '--select2-dropdown-list-padding',
+            property: 'padding',
+        },
+        {
+            default: 'var(--c_ash)',
+            name: '--select2-search-background-color',
+            property: 'background-color',
+        },
+        {
+            default: 'var(--s-5) var(--s-3) var(--s-4)',
+            name: '--select2-search-padding',
             property: 'padding',
         },
     ];
