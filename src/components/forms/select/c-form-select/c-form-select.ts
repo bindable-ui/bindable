@@ -56,8 +56,6 @@ export class CFormSelect {
     @bindable
     public select2AllowClear = false;
     @bindable
-    public select2Placeholder = null;
-    @bindable
     public select2Changed = 0;
     @bindable
     public select2MaxInput = 0;

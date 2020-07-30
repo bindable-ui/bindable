@@ -49,5 +49,58 @@ export class SelectThemeProperties {
             name: '--select-arrow-position',
             property: 'background-position',
         },
+        {
+            default: 'calc(var(--s-1) + 2px)',
+            name: '--select2-arrow-top-position',
+            property: 'top',
+        },
+        {
+            default: 'var(--s-1)',
+            name: '--select2-arrow-right-position',
+            property: 'right',
+        },
+        {
+            default: '13px',
+            name: '--select2-arrow-width',
+            property: 'width',
+        },
+        {
+            default: '10px',
+            name: '--select2-arrow-height',
+            property: 'height',
+        },
+        {
+            default: '7px 6px 0',
+            name: '--select2-arrow-border-width',
+            property: 'border-width',
+        },
+        {
+            default: 'var(--c_smoke)',
+            name: '--select2-arrow-color',
+            property: 'color',
+        },
+    ];
+
+    public selectThemeProperties2 = [
+        {
+            default: 'solid 1px var(--c_black)',
+            name: '--select2-dropdown-border',
+            property: 'border',
+        },
+        {
+            default: 'var(--c_charcoal)',
+            name: '--select2-dropdown-background',
+            property: 'background',
+        },
+        {
+            default: '8px',
+            name: '--select2-dropdown-search-padding',
+            property: 'padding',
+        },
+        {
+            default: '6px 10px',
+            name: '--select2-dropdown-list-padding',
+            property: 'padding',
+        },
     ];
 }

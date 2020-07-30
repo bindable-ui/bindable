@@ -16,6 +16,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  MULTPLE
  *  SEARCH
  *  LOADERS
+ *  SELECT2
  */
 
 
@@ -171,4 +172,111 @@ select.error{
     width: 100%;
     height: 30px;
     background: var(--select-multiple-load-more-background);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SELECT 2
+\*------------------------------------*/
+
+/**
+ * ^Select Area
+ */
+
+:global .select2-container{
+    display: block !important;
+}
+
+:global .select2-container--default .select2-selection--single .select2-selection__rendered{
+    /* height: 32px !important; */
+    /* line-height: 33px !important; */
+}
+
+:global .select2-container--default .select2-selection--single{
+    height: unset !important;
+    border: var(--input-border)!important;
+    border-radius: 0 !important;
+}
+
+:global .select2-container .select2-selection--single .select2-selection__rendered{
+    padding: var(--input-padding) !important;
+    padding-right: var(--select-padding-right) !important;
+    color: var(--input-color) !important;
+    border-radius: 0;
+    line-height: unset !important;
+    background: var(--input-background);
+    box-shadow: var(--input-box-shadow) !important;
+}
+
+:global .select2-container .select2-selection--single .select2-selection__rendered:focus,
+:global .select2-selection:focus{
+    outline: none !important;
+}
+
+:global .select2-container--default .select2-selection--single .select2-selection__arrow{
+    width: var(--select2-arrow-width);
+    height: var(--select2-arrow-height);
+    top: var(--select2-arrow-top-position);
+    right: var(--select2-arrow-right-position);
+}
+
+:global .select2-container--default .select2-selection--single .select2-selection__arrow b{
+    top: 0 !important;
+    left: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    border-width: var(--select2-arrow-border-width) !important;
+    border-color: var(--select2-arrow-color) transparent transparent transparent !important;
+}
+
+
+/**
+ * ^Drop Down
+*/
+
+:global .select2-dropdown{
+    border: var(--select2-dropdown-border) !important;
+    border-top: 0 !important;
+    border-radius: 0 !important;
+    background: var(--select2-dropdown-background) !important;
+}
+
+:global .select2-search--dropdown{
+    padding: var(--select2-dropdown-search-padding) !important;
+}
+
+:global .select2-results__option{
+    padding: var(--select2-dropdown-list-padding) !important;
+}
+
+:global .select2-container--default .select2-search--dropdown .select2-search__field{
+    padding: var(--input-padding);
+    border: var(--input-border) !important;
+    background-color: var(--input-background);
+    box-shadow: var(--input-box-shadow);
+    color: var(--input-color);
+}
+
+:global .select2-container--default .select2-search--dropdown .select2-search__field:focus{
+    outline: none !important;
+    box-shadow: var(--input-box-shadow-focus);
+}
+
+:global .select2-search--dropdown{
+    position: relative;
+}
+
+:global .select2-results__option{
+    transition: background-color var(--trans_main), color var(--trans_main);
+}
+
+:global .select2-container--default .select2-results__option--highlighted[aria-selected]{
+    background-color: var(--c_secondaryMain) !important;
+}
+
+:global .select2-container--default .select2-results__option[aria-selected=true]{
+    background-color: var(--c_ash) !important;
 }

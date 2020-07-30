@@ -498,6 +498,19 @@ c-form-select{
     --select-multiple-load-more-background: var(--c_asphalt);
     --select-arrow-svg: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>');
     --select-arrow-position: right var(--s-2) center;
+    --select2-arrow-top-position: calc(var(--s-1) + 2px);
+    --select2-arrow-right-position: var(--s-1);
+    --select2-arrow-width: 13px;
+    --select2-arrow-height: 10px;
+    --select2-arrow-border-width: 7px 6px 0;
+    --select2-arrow-color: var(--c_smoke);
+}
+
+:global .select2-container{
+    --select2-dropdown-border: solid 1px var(--c_black);
+    --select2-dropdown-background: var(--c_charcoal);
+    --select2-dropdown-search-padding: 8px;
+    --select2-dropdown-list-padding: 6px 10px;
 }
 
 
@@ -525,7 +538,8 @@ c-text-input,
 c-textarea-input,
 c-copy,
 c-file-input,
-c-form-select{
+c-form-select,
+:global(.select2-container){
     /* Base */
     --input-padding: var(--s-5) var(--s-3);
     --input-border: solid 1px var(--c_black);

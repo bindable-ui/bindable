@@ -19,7 +19,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h2>error-msg / warning-msg / state</c-h2>
                 <c-code-sample>
                     <l-grid min-size="25ch">
-                        <c-form-select options.bind="testOptions" label="Select Error" error-msg="This is an error" state="error" enable-select2.bind="true"></c-form-select>
+                        <c-form-select options.bind="testOptions" label="Select Error" error-msg="This is an error" state="error"></c-form-select>
                         <c-form-select options.bind="testOptions" label="Select Warning" warning-msg="This is a warning" state="warning"></c-form-select>
                         <c-form-select options.bind="testOptions" label="Select Disabled" state="disabled" select-value="Selected Value"></c-form-select>
                         <c-form-select options.bind="testOptions" label="Select Hidden" state="hidden"></c-form-select>
@@ -103,6 +103,49 @@ this.testSelectValues = [];</c-code>
                 </c-code-sample>
 
                 <c-p>Output: ${testSelectValues}</c-p>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>select2</c-h2>
+                <c-code>this.testSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
+this.testSelectValues = [];</c-code>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <c-form-select
+                            enable-select2.bind="true"
+                            label="Select2 Sample"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            label="Select2 Multiple"
+                            multiple.bind="true"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            select2-tags.bind="true"
+                            label="Select2 Tags"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            select2-allow-clear.bind="true"
+                            label="Select2 Allow Clear"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            search-placeholder="Custom Search Placeholder"
+                            label="Select2 Search Placeholder"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                    </l-grid>
+                </c-code-sample>
             </l-stack>
         </div>
     </l-stack>
