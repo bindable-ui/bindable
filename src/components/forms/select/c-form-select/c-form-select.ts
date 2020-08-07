@@ -55,7 +55,7 @@ export class CFormSelect {
     public select2Tags = false;
     @bindable
     public select2AllowClear = false;
-    @bindable
+    @bindable({defaultBindingMode: bindingMode.twoWay})
     public select2Changed = 0;
     @bindable
     public select2MaxInput = 0;
@@ -87,6 +87,8 @@ export class CFormSelect {
                     this.select2Changed = Date.now(); // Flag to signal change upstream
                     this.element.dispatchEvent(new Event('change'));
 
+                    this.selectValue = $(`#${this.id}`).val();
+
                     // Callback for adding tags
                     // Make sure you add the new tag to the array and select it yourself
                     const isNew = $(this.element).find('[data-select2-tag="true"]');
@@ -99,15 +101,41 @@ export class CFormSelect {
                 .on('select2:open', () => {
                     if (this.select2MaxInput > 0) {
                         // Workaround to limit like an input box
-                        $('.select2-search__field').attr('maxlength', this.select2MaxInput);
+                        $(`#${this.id}`)
+                            .siblings()
+                            .find('.select2-search__field')
+                            .attr('maxlength', this.select2MaxInput);
                     }
-                    $('.select2-search__field').attr('placeholder', this.searchPlaceholder);
+
+                    if (!this.multiple) {
+                        $('body')
+                            .children('.select2-container')
+                            .find('.select2-search__field')
+                            .attr('placeholder', this.searchPlaceholder);
+                    } else {
+                        $(`#${this.id}`)
+                            .siblings()
+                            .find('.select2-search__field')
+                            .attr('placeholder', this.searchPlaceholder);
+                    }
                 })
                 .on('select2:closing', () => {
-                    $('.select2-search__field').attr('placeholder', '');
+                    if (!this.multiple) {
+                        $('body')
+                            .children('.select2-container')
+                            .find('.select2-search__field')
+                            .removeAttr('placeholder');
+                    } else {
+                        $(`#${this.id}`)
+                            .siblings()
+                            .find('.select2-search__field')
+                            .attr('placeholder', this.searchPlaceholder);
+                    }
                 })
                 .on('select2:close', () => {
-                    $(':focus').blur();
+                    if (!this.multiple) {
+                        $(':focus').blur();
+                    }
                 });
         },
         500,
@@ -238,6 +266,10 @@ export class CFormSelect {
         if ($(`#${this.id}`).hasClass('select2-hidden-accessible')) {
             $(`#${this.id}`).select2('destroy');
             $(`#${this.id}`).off('select2:select');
+            $(`#${this.id}`).off('change');
+            $(`#${this.id}`).off('select2:open');
+            $(`#${this.id}`).off('select2:closing');
+            $(`#${this.id}`).off('select2:close');
         }
     }
 }

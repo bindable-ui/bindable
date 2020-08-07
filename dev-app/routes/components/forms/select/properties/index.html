@@ -138,6 +138,8 @@ this.testSelectValues = [];</c-code>
                         <c-form-select
                             enable-select2.bind="true"
                             label="Select2 Sample"
+                            select-value.two-way="testSelect2"
+                            select2-changed.bind="select2Updated"
                             options.bind="testOptions"
                         ></c-form-select>
                         <c-form-select
@@ -173,6 +175,7 @@ this.testSelectValues = [];</c-code>
                         ></c-form-select>
                     </l-grid>
                 </c-code-sample>
+                <c-p>Output: ${testSelect2}</c-p>
             </l-stack>
         </div>
     </l-stack>

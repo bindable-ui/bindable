@@ -3,6 +3,8 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {observable} from 'aurelia-framework';
+
 export class SelectProperties {
     public formSelectCols = [
         {
@@ -168,4 +170,14 @@ export class SelectProperties {
 
     public testSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
     public testSelectValues = [];
+    public testSelect2 = '';
+
+    @observable
+    select2Updated = 0;
+
+    select2UpdatedChanged(_val, oldVal) {
+        if (!_.isUndefined(oldVal)) {
+            console.log('Select2 changed');
+        }
+    }
 }
