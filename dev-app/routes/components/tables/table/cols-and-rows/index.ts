@@ -318,6 +318,13 @@ export class TableColsRows {
                 value: 'string',
             },
             {
+                description: 'This key will match the value of the "colHeadName" key plus the word "PillRight". ' +
+                'Set the position of the pill with this. If set to true the pill will be on the right side ' +
+                'of the text. Only available for use with the c-td-pill and c-td-truncate view and viewModel.',
+                key: '*PillRight',
+                value: 'boolean',
+            },
+            {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Span". Use this ' +
                 'on a cell to allow it span multiple cells. You will also need to set "_strictShow" to true on any ' +
                 ' cell using *Span.',
