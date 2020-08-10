@@ -42,7 +42,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         ></l-icon>
         <c-pill
             color.bind="row[col.colHeadName + 'PillColor']"
-            if.bind="row[col.colHeadName + 'Pill']"
+            if.bind="row[col.colHeadName + 'Pill'] && !row[col.colHeadName + 'PillRight']"
         >
             <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
         </c-pill>
@@ -55,5 +55,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ></span>
             </span>
         </div>
+        <c-pill
+            color.bind="row[col.colHeadName + 'PillColor']"
+            if.bind="row[col.colHeadName + 'Pill'] && row[col.colHeadName + 'PillRight']"
+        >
+            <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
+        </c-pill>
     </div>
 </template>
