@@ -40,7 +40,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             spacing="0"
             if.bind="row[col.colHeadName + 'Icon']"
         ></l-icon>
-        <c-pill if.bind="row[col.colHeadName + 'Pill']">
+        <c-pill
+            color.bind="row[col.colHeadName + 'PillColor']"
+            if.bind="row[col.colHeadName + 'Pill']"
+        >
             <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
         </c-pill>
         <div class="${styles.truncate}">

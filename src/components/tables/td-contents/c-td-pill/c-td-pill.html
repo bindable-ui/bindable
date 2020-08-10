@@ -6,7 +6,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-td-pill.css"></require>
 
-    <c-pill if.bind="row[col.colHeadName + 'Pill']">
+    <c-pill
+        color.bind="row[col.colHeadName + 'PillColor']"
+        if.bind="row[col.colHeadName + 'Pill']"
+    >
         <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
     </c-pill>
     <span

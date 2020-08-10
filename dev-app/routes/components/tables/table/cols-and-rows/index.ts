@@ -306,8 +306,15 @@ export class TableColsRows {
             {
                 description: 'This key will match the value of the "colHeadName" key plus the word "Pill". ' +
                 'Set the text of the pill in a cell. You must use the matching c-td-pill view and viewModel. ' +
-                'Only available for use with the c-td-pill view and viewModel.',
+                'Only available for use with the c-td-pill and c-td-truncate view and viewModel.',
                 key: '*Pill',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word "PillColor". ' +
+                'Set the color of the Pill.' +
+                'Only available for use with the c-td-pill and c-td-truncate view and viewModel.',
+                key: '*PillColor',
                 value: 'string',
             },
             {

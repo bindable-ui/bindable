@@ -388,6 +388,7 @@ export class TableViews {
                 gender: 'Male',
                 name: 'Han Solo is super cool and all that',
                 namePill: 'Pill',
+                namePillColor: 'var(--c_subTwoMain)',
                 ship: 'M. Falcon',
             },
             {
@@ -657,6 +658,7 @@ export class TableViews {
                 description: 'more text here',
                 name: 'stuff here',
                 namePill: 'Name Pill',
+                namePillColor: 'var(--c_secondaryMain)',
             },
         ];
 
