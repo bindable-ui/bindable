@@ -135,13 +135,16 @@ this.testSelectValues = [];</c-code>
 }</c-code>
                 <c-code-sample>
                     <l-grid min-size="25ch">
-                        <c-form-select
-                            enable-select2.bind="true"
-                            label="Select2 Sample"
-                            select-value.two-way="testSelect2"
-                            select2-changed.bind="select2Updated"
-                            options.bind="testOptions"
-                        ></c-form-select>
+                        <l-stack spacing="var(--s-5)">
+                            <c-form-select
+                                enable-select2.bind="true"
+                                label="Select2 Sample"
+                                select-value.two-way="testSelect2"
+                                select2-changed.bind="select2Updated"
+                                options.bind="testOptions"
+                            ></c-form-select>
+                            <c-p>Output: ${testSelect2}</c-p>
+                        </l-stack>
                         <c-form-select
                             enable-select2.bind="true"
                             label="Select2 Multiple"
@@ -175,7 +178,6 @@ this.testSelectValues = [];</c-code>
                         ></c-form-select>
                     </l-grid>
                 </c-code-sample>
-                <c-p>Output: ${testSelect2}</c-p>
             </l-stack>
         </div>
     </l-stack>
