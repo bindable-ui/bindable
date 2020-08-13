@@ -309,3 +309,7 @@ select.error{
 :global .select2-container--default .select2-results__option[aria-selected=true]{
     background-color: var(--c_ash) !important;
 }
+
+:global .select2-selection__rendered .select2-search--inline .select2-search__field{
+    color: var(--input-color);
+}
