@@ -21,19 +21,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .container{
     overflow: hidden;
-    /* For mobile only. Center vertically.*/
-    display: list-item;
+    display: flex;
+}
+
+.container > *{
+    margin-inline-end: var(--table-truncate-margin-right);
 }
 
 .container > l-icon{
-    float: left;
-    margin-right: var(--table-truncate-margin-right);
     margin-top: 1px;
 }
 
 .container > c-pill{
-    float: left;
-    margin-right: var(--table-truncate-margin-right);
     margin-top: -1px;
 }
 
@@ -41,7 +40,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: relative;
     height: var(--table-truncate-height) !important;
     overflow: hidden;
-    flex: unset !important;
+    flex: 1 !important;
 }
 
 .truncate > span{
