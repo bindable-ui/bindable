@@ -297,6 +297,20 @@ export class TableColsRows {
                 value: 'string',
             },
             {
+                description: 'This key will match the value of the "colHeadName" key plus the word "IconColor". ' +
+                'Set the color of the icon to be placed in a cell. ' +
+                'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
+                key: '*IconColor',
+                value: 'string',
+            },
+            {
+                description: 'This key will match the value of the "colHeadName" key plus the word "IconSpacing". ' +
+                'Set the spacing of the icon to be placed in a cell. ' +
+                'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
+                key: '*IconSpacing',
+                value: 'string',
+            },
+            {
                 description: 'This key will match the value of the "colHeadName" key plus the word "IconAlign". ' +
                 'Set the alignment of the icon to be placed in a cell. ' +
                 'Only available for use with the c-td-action and c-td-truncate view and viewModel.',
