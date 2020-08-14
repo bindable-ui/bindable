@@ -8,14 +8,13 @@ import * as cssnano from 'cssnano';
 import * as postcssUrl from 'postcss-url';
 import * as postcssModules from 'postcss-modules';
 
-// Don't use PostCSS on node_modules CSS files
+// Don't use PostCSS on css copied from node_modules
 const nodeSearch = file => {
   if (!file || !file.path) {
     return false;
   }
 
-  if (file.path.indexOf('node_modules/') > -1) {
-    console.log(file.path);
+  if (file.path.indexOf('select2.css') > -1) {
     return false;
   }
 
@@ -35,7 +34,11 @@ export default function processCSS() {
           autoprefixer({grid: true}),
           postcssUrl({url: 'inline', encodeType: 'base64'}),
           cssnano()
-        ])))
+        ]),
+        postcss([
+          cssnano()
+        ])
+      ))
     .pipe(build.bundle());
 }
 
@@ -50,10 +53,14 @@ export function pluginCSS(dest) {
               camelCase: true,
               generateScopedName: '[name]__[local]___[hash:base64:5]'
             }),
-            autoprefixer({grid: true}),
-            postcssUrl({url: 'inline', encodeType: 'base64'}),
+            autoprefixer({ grid: true }),
+            postcssUrl({ url: 'inline', encodeType: 'base64' }),
             cssnano()
-          ])))
+          ]),
+          postcss([
+            cssnano()
+          ])
+        ))
       .pipe(gulp.dest(dest));
   };
 }

@@ -1,7 +1,7 @@
 module.exports = {
     moduleNameMapper: {
         '^aurelia-binding$': '<rootDir>/node_modules/aurelia-binding',
-        '\\.(css)$': '<rootDir>/test/empty-module.js'
+        // '\\.(css)$': '<rootDir>/test/empty-module.js'
     },
     modulePaths: [
         '<rootDir>/src',
