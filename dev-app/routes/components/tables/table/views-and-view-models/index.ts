@@ -387,7 +387,16 @@ export class TableViews {
             {
                 gender: 'Male',
                 name: 'Han Solo is super cool and all that',
-                namePill: 'Pill',
+                namePill: 'Pill Left',
+                namePillColor: 'var(--c_subTwoMain)',
+                ship: 'M. Falcon',
+            },
+            {
+                gender: 'Male',
+                name: 'Han Solo is super cool and all that',
+                namePill: 'Pill Right',
+                namePillColor: 'var(--c_subTwoMain)',
+                namePillRight: true,
                 ship: 'M. Falcon',
             },
             {
@@ -655,8 +664,16 @@ export class TableViews {
         this.pillTableData = [
             {
                 description: 'more text here',
-                name: 'stuff here',
-                namePill: 'Name Pill',
+                name: 'Han Solo',
+                namePill: 'Pill Left',
+                namePillColor: 'var(--c_secondaryMain)',
+            },
+            {
+                description: 'more text here',
+                name: 'Obi-Wan Kenobi',
+                namePill: 'Pill Right',
+                namePillColor: 'var(--c_subFourMain)',
+                namePillRight: true,
             },
         ];
 

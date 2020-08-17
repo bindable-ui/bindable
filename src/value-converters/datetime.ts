@@ -225,7 +225,9 @@ export class MonthYearValueConverter {
 export class TimezoneTimeToStandardDateTimeMSValueConverter {
     public toView(value, format?) {
         return value !== null
-            ? momentTimezone(parseInt(value, 10)).format(format ? format : 'MMM D, YYYY @ h:mm:ss.SSS A')
+            ? momentTimezone(isNaN(Number(value)) ? value : Number(value)).format(
+                  format ? format : 'MMM D, YYYY @ h:mm:ss.SSS A',
+              )
             : null;
     }
 }

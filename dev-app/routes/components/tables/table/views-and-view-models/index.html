@@ -199,6 +199,7 @@ this.tdTruncateData = [
     {
         name: 'Han Solo is super cool and all that',
         namePill: 'Pill',
+        namePillColor: 'var(--c_subTwoMain)',
         ship: 'M. Falcon',
         gender: 'Male',
     },
@@ -514,6 +515,7 @@ this.pillTableData = [
     {
         name: 'stuff here',
         namePill: 'Name Pill',
+        namePillColor: 'var(--c_secondaryMain)',
         description: 'more text here',
         descriptionPill: 'Desc Pill',
     },
@@ -572,13 +574,13 @@ testModal() {
         model: {
             title: 'Hi',
             size: 'large',
-            bodyViewModel: PLATFORM.moduleName('/routes/components/modal/body'),
+            bodyViewModel: PLATFORM.moduleName('path-to-your/modal-body-file'),
             bodyModel: {
                 stuff: 'here',
             },
             footerEnable: true,
             footerText: 'footer',
-            footerViewModel: PLATFORM.moduleName('/routes/components/modal/footer'),
+            footerViewModel: PLATFORM.moduleName('path-to-your/modal-footer-file'),
             footerModel: {
                 stuff: 'here',
             },
@@ -621,12 +623,12 @@ this.tipTableData = [
         tipOneTipSize: 'small',
         tipOneTipTriggerText: 'Text here',
         tipOneTipViewModel:
-        PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-text'),
+        PLATFORM.moduleName('path-to-your/file-that-has/the-contents-of/the-tip'),
         tipTwoTipSide: 'top',
         tipTwoTipSize: 'large',
         tipTwoTipTriggerIcon: 'actions',
         tipTwoTipViewModel:
-        PLATFORM.moduleName('routes/components/tables/table/views-and-view-models/tip-actions'),
+        PLATFORM.moduleName('path-to-your/file-that-has/the-contents-of/the-tip'),
     },
 ];</c-code>
                 <c-code-sample>

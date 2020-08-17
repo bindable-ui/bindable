@@ -6,16 +6,26 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
 	<require from="./c-td-pill.css"></require>
 
-    <c-pill if.bind="row[col.colHeadName + 'Pill']">
+    <c-pill
+        color.bind="row[col.colHeadName + 'PillColor']"
+        class="${styles.firstPill}"
+        if.bind="row[col.colHeadName + 'Pill'] && !row[col.colHeadName + 'PillRight']"
+    >
         <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
     </c-pill>
     <span
         if.bind="row[col.colHeadName + 'Pill']"
-        class="${styles.text}"
     >
         ${value}
     </span>
     <span if.bind="!row[col.colHeadName + 'Pill']">
         ${value}
     </span>
+    <c-pill
+        color.bind="row[col.colHeadName + 'PillColor']"
+        class="${styles.lastPill}"
+        if.bind="row[col.colHeadName + 'Pill'] && row[col.colHeadName + 'PillRight']"
+    >
+        <span slot="pill-content">${row[col.colHeadName + 'Pill']}</span>
+    </c-pill>
 </template>
