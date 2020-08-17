@@ -105,5 +105,80 @@ this.testSelectValues = [];</c-code>
                 <c-p>Output: ${testSelectValues}</c-p>
             </l-stack>
         </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h2>select2</c-h2>
+                <c-code>constructor() {
+    this.testOptions = [{
+        value: 'value1',
+        text: 'Value 1',
+    },
+    {
+        value: 'value2',
+        text: 'Value 2',
+    },
+    {
+        value: 'value3',
+        text: 'Value 3',
+    },
+    {
+        value: 'value4',
+        text: 'Value 4',
+    },
+    {
+        value: 'value5',
+        text: 'Value 5',
+    }];
+}</c-code>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                        <l-stack spacing="var(--s-5)">
+                            <c-form-select
+                                enable-select2.bind="true"
+                                label="Select2 Sample"
+                                select-value.two-way="testSelect2"
+                                select2-changed.bind="select2Updated"
+                                options.bind="testOptions"
+                            ></c-form-select>
+                            <c-p>Output: ${testSelect2}</c-p>
+                        </l-stack>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            label="Select2 Multiple"
+                            multiple.bind="true"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            label="Select2 Max Input"
+                            select2-max-input="2"
+                            multiple.bind="true"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            select2-tags.bind="true"
+                            label="Select2 Tags"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            select2-allow-clear.bind="true"
+                            label="Select2 Allow Clear"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                        <c-form-select
+                            enable-select2.bind="true"
+                            search-placeholder="Custom Search Placeholder"
+                            label="Select2 Search Placeholder"
+                            options.bind="testOptions"
+                        ></c-form-select>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
     </l-stack>
 </template>

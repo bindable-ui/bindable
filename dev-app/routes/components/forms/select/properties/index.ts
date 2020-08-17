@@ -3,6 +3,8 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {observable} from 'aurelia-framework';
+
 export class SelectProperties {
     public formSelectCols = [
         {
@@ -109,6 +111,38 @@ export class SelectProperties {
             name: 'state',
             value: 'error | warning | disabled | hidden',
         },
+        {
+            default: 'false',
+            description:
+            'Set if you want to enable Select2. Select2 is a plugin that allows for fuzzy search of the <options> within the <select>. It also has multiple and tagging support.',
+            name: 'enable-select2',
+            value: 'boolean',
+        },
+        {
+            default: 'false',
+            description:
+            'When searching if no result is found and enter is pressed a new item will be added to the select.',
+            name: 'select2-tags',
+            value: 'boolean',
+        },
+        {
+            default: 'false',
+            description: 'Allow clearing the select out.',
+            name: 'select2-allow-clear',
+            value: 'boolean',
+        },
+        {
+            default: '0',
+            description: 'Cap the max amount of items that can be selected. 0 means no limit.',
+            name: 'select2-max-input',
+            value: 'number',
+        },
+        {
+            default: 'Search',
+            description: 'Set the text of the search placeholder.',
+            name: 'select2-placeholder',
+            value: 'string',
+        },
     ];
 
     public testOptions = [
@@ -136,4 +170,14 @@ export class SelectProperties {
 
     public testSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
     public testSelectValues = [];
+    public testSelect2 = '';
+
+    @observable
+    select2Updated = 0;
+
+    select2UpdatedChanged(_val, oldVal) {
+        if (!_.isUndefined(oldVal)) {
+            console.log('Select2 changed');
+        }
+    }
 }
