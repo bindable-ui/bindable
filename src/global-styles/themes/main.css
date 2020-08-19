@@ -499,7 +499,7 @@ c-form-select{
     --select-arrow-svg: url('data:image/svg+xml;utf8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h12L5.94 7 0 0z" fill="\%239B9B97"/></svg>');
     --select-arrow-position: right var(--s-2) center;
     --select2-arrow-top-position: calc(var(--s-1) + 2px);
-    --select2-arrow-right-position: var(--s-1);
+    --select2-arrow-right-position: var(--s-2);
     --select2-arrow-width: 13px;
     --select2-arrow-height: 10px;
     --select2-multiple-choice-background: var(--c_ash);
