@@ -492,7 +492,8 @@ c-table{
  * ^c-form-select
  */
 
-c-form-select{
+c-form-select,
+:global(.select2-container){
     --select-padding-right: var(--s3);
     --select-multiple-checked: var(--c_subOneMain);
     --select-multiple-load-more-background: var(--c_asphalt);
