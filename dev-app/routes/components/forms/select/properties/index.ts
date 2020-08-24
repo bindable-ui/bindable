@@ -157,6 +157,7 @@ export class SelectProperties {
         {
             text: 'Value 3',
             value: 'value3',
+            disabled: true,
         },
         {
             text: 'Value 4',

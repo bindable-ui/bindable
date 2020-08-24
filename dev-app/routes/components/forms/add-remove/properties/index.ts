@@ -144,16 +144,41 @@ export class AddRemoveProperties {
             text: '2',
             value: 2,
         },
-    ];
-
-    public rightVals = [
         {
             text: '3',
             value: 3,
+            disabled: true,
         },
         {
             text: '4',
             value: 4,
+        },
+        {
+            text: '5',
+            value: 5,
+        },
+    ];
+
+    public rightVals = [
+        {
+            text: '6',
+            value: 6,
+        },
+        {
+            text: '7',
+            value: 7,
+        },
+        {
+            text: '8',
+            value: 8,
+        },
+        {
+            text: '9',
+            value: 9,
+        },
+        {
+            text: '10',
+            value: 10,
         },
     ];
 }
