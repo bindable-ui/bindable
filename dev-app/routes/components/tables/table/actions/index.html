@@ -63,6 +63,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ship: 'X-Wing',
         },
         {
+            _barColor: 'var(--c_subThreeLight)',
+            _status: 'bar',
+            gender: 'Male',
+            name: 'Chewbacca',
+            ship: 'M.Falcon',
+        },
+        {
             _barColor: 'var(--c_subTwoMain)',
             _status: 'bar',
             gender: 'Female',
@@ -119,6 +126,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             }
             if (row.name === 'Yoda') {
                 return 'bgProcessing';
+            }
+            if (row.name === 'Yoda') {
+                return 'bgBuilding';
             }
         } else if (col.colHeadName === 'gender') {
             if (row.gender === 'Male') {
