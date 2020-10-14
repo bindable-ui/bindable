@@ -859,6 +859,7 @@ c-table{
     --table-background-processing: url('../assets/images/td-processing.gif');
     --table-background-building: url('../assets/images/td-building.gif');
     --table-color-processing: var(--table-td-color);
+    --table-color-building: var(--table-td-color);
 
     /* Sort */
     --table-sort-padding-right: 15px;

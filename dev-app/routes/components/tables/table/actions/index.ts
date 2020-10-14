@@ -122,13 +122,6 @@ export class TableActions {
                 ship: 'X-Wing',
             },
             {
-                _barColor: 'var(--c_subThreeLight)',
-                _status: 'bar',
-                gender: 'Male',
-                name: 'Chewbacca',
-                ship: 'M.Falcon',
-            },
-            {
                 _barColor: 'var(--c_subTwoMain)',
                 _status: 'bar',
                 gender: 'Female',
@@ -155,6 +148,13 @@ export class TableActions {
                 gender: 'Male',
                 name: 'Yoda',
                 ship: '',
+            },
+            {
+                _barColor: 'var(--c_subThreeLight)',
+                _status: 'bar',
+                gender: 'Male',
+                name: 'Chewbacca',
+                ship: 'M.Falcon',
             },
             {
                 _barColor: 'var(--c_subFourMain)',
