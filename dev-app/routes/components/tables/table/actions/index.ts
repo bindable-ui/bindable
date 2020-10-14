@@ -150,7 +150,7 @@ export class TableActions {
                 ship: '',
             },
             {
-                _barColor: 'var(--c_subThreeLight)',
+                _barColor: 'var(--c_subFourLight)',
                 _status: 'bar',
                 gender: 'Male',
                 name: 'Chewbacca',
