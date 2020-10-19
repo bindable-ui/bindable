@@ -4,8 +4,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 // Setup jQuery
-import * as datetimepicker from 'eonasdan-bootstrap-datetimepicker';
 import * as $ from 'jquery';
+
+import * as datetimepicker from 'eonasdan-bootstrap-datetimepicker';
+
+import 'select2';
 
 $.fn.extend({
     datetimepicker,

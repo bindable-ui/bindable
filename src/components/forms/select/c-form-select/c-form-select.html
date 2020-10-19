@@ -4,6 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
+    <require from="./select2.css"></require>
     <require from="./c-form-select.css"></require>
 
     <div
@@ -20,14 +21,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     </div>
     <l-stack
         spacing="var(--s-3)"
-        if.bind="_state !== 'disabled'"
+        class="${styles.search}"
+        if.bind="_state !== 'disabled' && !enableSelect2"
     >
         <c-form-text
-            if.bind="search && _state !== 'hidden'"
+            if.bind="search && _state !== 'hidden' && !enableSelect2"
             text-value.bind="searchText"
             class="${styles.search}"
             clearable.bind="true"
-            placeholder="Search"
+            placeholder="${searchPlaceholder}"
             button="search"
             button-action.call="searchSelect(textValue)">
         </c-form-text>
@@ -41,12 +43,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             value.bind="selectValue"
             multiple.bind="multiple"
             scroll.trigger="onScroll() & throttle"
-            if.bind="!isLoading && _state !== 'hidden'"
+            if.bind="!isLoading && _state !== 'hidden' && !enableSelect2"
         >
             <option
                 repeat.for="option of filteredOptions"
                 value="${option.value}"
                 if.bind="!simple"
+                disabled.bind="option.disabled"
             >
                 ${option.text}
             </option>
@@ -86,6 +89,31 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             </div>
         </l-cluster>
     </l-stack>
+    <select
+        class="
+            ${styles.select}
+            ${styles[_state]}
+        "
+        id="${id}"
+        value.bind="selectValue"
+        if.bind="!isLoading && _state !== 'hidden' && enableSelect2"
+        multiple.bind="multiple"
+    >
+        <option
+            repeat.for="option of options"
+            value="${option.value}"
+            if.bind="!simple"
+        >
+            ${option.text}
+        </option>
+        <option
+            repeat.for="option of options"
+            value="${option}"
+            if.bind="simple"
+        >
+            ${option}
+        </option>
+    </select>
     <div
         class="
             ${isLoading ? styles.loader : ''}
