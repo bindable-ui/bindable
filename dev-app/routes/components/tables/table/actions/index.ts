@@ -39,6 +39,9 @@ export class TableActions {
                 if (row.name === 'Yoda') {
                     return 'bgProcessing';
                 }
+                if (row.name === 'Chewbacca') {
+                    return 'bgBuilding';
+                }
             } else if (col.colHeadName === 'gender') {
                 if (row.gender === 'Male') {
                     return 'bgHealthy';
@@ -145,6 +148,13 @@ export class TableActions {
                 gender: 'Male',
                 name: 'Yoda',
                 ship: '',
+            },
+            {
+                _barColor: 'var(--c_subFourLight)',
+                _status: 'bar',
+                gender: 'Male',
+                name: 'Chewbacca',
+                ship: 'M.Falcon',
             },
             {
                 _barColor: 'var(--c_subFourMain)',

@@ -91,6 +91,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ship: '',
         },
         {
+            _barColor: 'var(--c_subFourLight)',
+            _status: 'bar',
+            gender: 'Male',
+            name: 'Chewbacca',
+            ship: 'M.Falcon',
+        },
+        {
             _barColor: 'var(--c_subFourMain)',
             _status: 'bar',
             gender: 'Male',
@@ -119,6 +126,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             }
             if (row.name === 'Yoda') {
                 return 'bgProcessing';
+            }
+            if (row.name === 'Chewbacca') {
+                return 'bgBuilding';
             }
         } else if (col.colHeadName === 'gender') {
             if (row.gender === 'Male') {
