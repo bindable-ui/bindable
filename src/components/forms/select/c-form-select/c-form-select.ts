@@ -84,6 +84,7 @@ export class CFormSelect {
                 })
                 .on('change', event => {
                     if (event.originalEvent) return; // http://stackoverflow.com/a/34121891/4354884
+
                     this.select2Changed = Date.now(); // Flag to signal change upstream
                     this.element.dispatchEvent(new Event('change'));
 
@@ -180,7 +181,16 @@ export class CFormSelect {
         this.filteredOptions = _.cloneDeep(this.options);
     }
 
-    public selectValueChanged() {
+    public selectValueChanged(newVal, oldVal) {
+        if (_.isUndefined(oldVal) || newVal === oldVal) {
+            return;
+        }
+
+        if (this.enableSelect2) {
+            $(`#${this.id}`).val(this.selectValue);
+            $(`#${this.id}`).trigger('change');
+        }
+
         if (this.actions && this.actions.onChange) {
             this.actions.onChange();
         }

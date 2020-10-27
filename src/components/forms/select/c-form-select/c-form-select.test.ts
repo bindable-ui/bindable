@@ -17,11 +17,11 @@ describe('c-form-select component', () => {
             value: 'value1',
         },
         {
-            text: 'Vaxue 2',
-            value: 'vaxue2',
+            text: 'Value 2',
+            value: 'Value2',
         },
     ];
-    const searchSimpleOptions = ['Value 1', 'Value 2', 'Vaxue 3'];
+    const searchSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
 
     beforeEach(() => {
         mockFn = jest.fn();
@@ -193,6 +193,7 @@ describe('c-form-select component', () => {
                 simple.bind="true"
                 options.bind="searchSimpleOptions"
                 search.bind="true"
+                value.bind="selectValue"
                 actions.bind="callbacks">
             </c-form-select>
         `;
@@ -207,7 +208,7 @@ describe('c-form-select component', () => {
 
             try {
                 await bootStrapEnvironment(component);
-                component.viewModel.selectValueChanged();
+                component.viewModel.selectValueChanged('Value 2', 'Value 1');
                 expect(mockFn).toHaveBeenCalled();
                 done();
             } catch (e) {
