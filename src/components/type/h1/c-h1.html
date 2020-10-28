@@ -7,6 +7,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 	<require from="./c-h1.css"></require>
 
     <span class="${truncate ? styles.truncate : ''}  bindable-h1">
-        <h1 class="${styles.base}  ${flushTop ? '' : styles.notFlushTop}"><slot></slot></h1>
+        <h1
+            class="
+                ${styles.base}
+                ${flushTop ? '' : styles.notFlushTop}
+            "
+            css="--h1-line-height: ${lineHeight}"
+        >
+            <slot></slot>
+        </h1>
     </span>
 </template>
