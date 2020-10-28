@@ -22,6 +22,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .base{
     margin-top: var(--h1-margin-top);
+    line-height: var(--h1-line-height);
     font-family: var(--h1-font-family);
     font-size: var(--h1-font-size);
     font-weight: normal;

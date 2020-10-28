@@ -12,6 +12,8 @@ export class CH1 {
     public flushTop = true;
     @bindable
     public truncate = false;
+    @bindable
+    public lineHeight = 'inherit';
 
     public styles = styles;
 

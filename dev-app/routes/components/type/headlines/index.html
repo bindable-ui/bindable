@@ -9,13 +9,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h2>&lt;c-h1&gt;</c-h2>
                 <c-h3>Properties</c-h3>
-                <c-table cols.bind='h1Cols' rows.bind='h1Properties'></c-table>
+                <c-table
+                    cols.bind='h1Cols'
+                    rows.bind='h1Properties'
+                ></c-table>
                 <c-h4>Theming - .bindable-h1</c-h4>
-                <c-table cols.bind='h1ThemeCols' rows.bind='h1ThemeProperties'></c-table>
+                <c-table
+                    cols.bind='h1ThemeCols'
+                    rows.bind='h1ThemeProperties'
+                ></c-table>
                 <c-code-sample>
                     <c-h1 flush-top.bind="false">Not flush on the top</c-h1>
+                    <c-h1 line-height="5rem">Adjusted line-height</c-h1>
                     <c-h1>Normal Headline 1</c-h1>
-                    <c-h1 truncate.bind="true">Headline 1 that is really long and will truncate at the end of the line or something. Shrink the width of the browser window if needed.</c-h1>
+                    <c-h1 truncate.bind="true">Headline 1 that is really long and will truncate at the end of the line
+                        or something. Shrink the width of the browser window if needed.</c-h1>
                     <l-cluster
                         align="flex-start"
                         justify="space-between"
@@ -38,7 +46,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                         color="var(--c_lightGray)"
                                         align="0.3em"
                                     ></l-icon>
-                                    <c-h1 truncate.bind="true">Headline 1 that is really long and will truncate at the end of the line or something. Shrink the width of the browser window if needed.</c-h1>
+                                    <c-h1 truncate.bind="true">Headline 1 that is really long and will truncate at the
+                                        end of the line or something. Shrink the width of the browser window if needed.
+                                    </c-h1>
                                 </div>
                             </l-cluster>
                             <c-button>Some Button</c-button>
@@ -54,13 +64,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h2>&lt;c-h2&gt;</c-h2>
                 <c-h3>Properties</c-h3>
-                <c-table cols.bind='h2Cols' rows.bind='h2Properties'></c-table>
+                <c-table
+                    cols.bind='h2Cols'
+                    rows.bind='h2Properties'
+                ></c-table>
                 <c-h4>Theming - .bindable-h2</c-h4>
-                <c-table cols.bind='h2ThemeCols' rows.bind='h2ThemeProperties'></c-table>
+                <c-table
+                    cols.bind='h2ThemeCols'
+                    rows.bind='h2ThemeProperties'
+                ></c-table>
                 <c-code-sample>
                     <l-grid>
+                        <c-h2 flush-top.bind="false">Not flush on the top</c-h2>
+                        <c-h2 line-height="5rem">Adjusted line-height</c-h2>
                         <c-h2>Headline 2</c-h2>
-                        <c-h2 truncate.bind="true">Headline 2 that is really long and will truncate at the end of the line. Shrink the width of the browser window if needed.</c-h2>
+                        <c-h2 truncate.bind="true">Headline 2 that is really long and will truncate at the end of the
+                            line. Shrink the width of the browser window if needed.</c-h2>
                     </l-grid>
                 </c-code-sample>
             </l-stack>
@@ -72,14 +91,25 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h2>&lt;c-h3&gt;</c-h2>
                 <c-h3>Properties</c-h3>
-                <c-table cols.bind='h3Cols' rows.bind='h3Properties'></c-table>
+                <c-table
+                    cols.bind='h3Cols'
+                    rows.bind='h3Properties'
+                ></c-table>
                 <c-h4>Theming - .bindable-h3</c-h4>
-                <c-table cols.bind='h3ThemeCols' rows.bind='h3ThemeProperties'></c-table>
+                <c-table
+                    cols.bind='h3ThemeCols'
+                    rows.bind='h3ThemeProperties'
+                ></c-table>
                 <c-code-sample>
                     <l-grid>
                         <c-h3>Headline 3</c-h3>
-                        <c-h3 truncate.bind="true">Headline 3 that is really long and will truncate at the end of the line. Shrink the width of the browser window if needed.</c-h3>
-                        <c-h3 truncate.bind="true" dark-back.bind="true">Headline 3 that is really long and will truncate at the end of the line. Shrink the width of the browser window if needed.</c-h3>
+                        <c-h3 truncate.bind="true">Headline 3 that is really long and will truncate at the end of the
+                            line. Shrink the width of the browser window if needed.</c-h3>
+                        <c-h3
+                            truncate.bind="true"
+                            dark-back.bind="true"
+                        >Headline 3 that is really long and will truncate at the end of the line. Shrink the width of
+                            the browser window if needed.</c-h3>
                     </l-grid>
                 </c-code-sample>
             </l-stack>
@@ -91,14 +121,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h2>&lt;c-h4&gt;</c-h2>
                 <c-h3>Properties</c-h3>
-                <c-table cols.bind='h4Cols' rows.bind='h4Properties'></c-table>
+                <c-table
+                    cols.bind='h4Cols'
+                    rows.bind='h4Properties'
+                ></c-table>
                 <c-h4>Theming - .bindable-h4</c-h4>
-                <c-table cols.bind='h4ThemeCols' rows.bind='h4ThemeProperties'></c-table>
+                <c-table
+                    cols.bind='h4ThemeCols'
+                    rows.bind='h4ThemeProperties'
+                ></c-table>
                 <c-code-sample>
                     <l-grid>
                         <c-h4>Headline 4</c-h4>
                         <c-h4>Headline 4</c-h4>
-                        <c-h4 truncate.bind="true">Truncated Headline 4 With A Really Long Title So we can see the truncation going on here.</c-h4>
+                        <c-h4 truncate.bind="true">Truncated Headline 4 With A Really Long Title So we can see the
+                            truncation going on here.</c-h4>
                     </l-grid>
                 </c-code-sample>
             </l-stack>
@@ -110,9 +147,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h2>&lt;c-h5&gt;</c-h2>
                 <c-h3>Properties</c-h3>
-                <c-table cols.bind='h5Cols' rows.bind='h5Properties'></c-table>
+                <c-table
+                    cols.bind='h5Cols'
+                    rows.bind='h5Properties'
+                ></c-table>
                 <c-h4>Theming - .bindable-h5</c-h4>
-                <c-table cols.bind='h5ThemeCols' rows.bind='h5ThemeProperties'></c-table>
+                <c-table
+                    cols.bind='h5ThemeCols'
+                    rows.bind='h5ThemeProperties'
+                ></c-table>
                 <c-code-sample>
                     <c-h5>Headline 5</c-h5>
                     <c-h5 color="var(--c_smoke)">Headline 5 Smoke Color</c-h5>
