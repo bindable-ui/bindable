@@ -104,6 +104,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     color: var(--list-container-light-a-icon-hover);
 }
 
+.transparent li:first-child a{
+    padding-top: 0;
+}
+
+.transparent li:last-child a{
+    padding-bottom: 0;
+}
+
 
 /**
  * ^All
