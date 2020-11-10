@@ -71,11 +71,10 @@ export class CTip {
     }
 
     public toggleVisible($event) {
-        if ($event && $event.type === 'click') {
-            $event.stopPropagation();
-        }
-
         if (this.triggerType === 'click') {
+            if ($event && $event.type === 'click') {
+                $event.stopPropagation();
+            }
             if (this.contentDisplay) {
                 this.hide();
             } else {
