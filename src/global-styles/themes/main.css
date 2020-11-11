@@ -301,6 +301,8 @@ c-button{
     --button-danger-disabled-color: var(--button-disabled-color);
     --button-danger-color: var(--button-color);
 
+    --button-sub-text-color: var(--c_marshmellow);
+
     /* Sizes */
     --button-medium-padding: var(--s-3) var(--s1);
     --button-medium-icon-only-padding: calc(var(--s-3) - 1px) var(--s-1) var(--s-3);

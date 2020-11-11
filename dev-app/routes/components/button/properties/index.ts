@@ -93,10 +93,15 @@ export class ButtonProperties {
             value: 'disabled | thinking | hidden',
         },
         {
+            description: 'Set some text below the main button text.',
+            name: 'sub-text',
+            value: 'string',
+        },
+        {
             default: 'false',
             description:
-            'Only works when title is used. This makes the button and <a> tag.' +
-            'This will allow the link to open in a new window.',
+                'Only works when title is used. This makes the button and <a> tag.' +
+                'This will allow the link to open in a new window.',
             name: 'target-new',
             value: 'boolean',
         },

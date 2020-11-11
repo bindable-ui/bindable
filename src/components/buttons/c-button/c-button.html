@@ -14,6 +14,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles[size]}
             ${styles[_state]}
             ${iconOnly ? styles.iconOnly : ''}
+            ${subText ? styles.subTextButton : ''}
         "
         aria-label="${icon}"
         click.trigger="actionFunction()"
@@ -29,6 +30,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             spacing="${iconSpacing}"
         >
             <slot></slot>
+            <span
+                class="${styles.subText}"
+                if.bind="subText"
+            >
+                ${subText}
+            </span>
         </l-icon>
     </button>
     <a
