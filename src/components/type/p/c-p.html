@@ -4,8 +4,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-	<require from="./c-p.css"></require>
-
+    <require from="./c-p.css"></require>
+    
     <p
         class="
             ${styles.base}
@@ -18,7 +18,5 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             --p-max-width: ${maxWidth};
             --p-color: ${color};
         "
-    >
-        <slot></slot>
-    </p>
+    ><slot></slot></p>
 </template>

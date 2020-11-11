@@ -123,5 +123,5 @@ export class TipProperties {
         },
     };
 
-    public stringWithNewline = "I'm a long string\n with \\n characters\n that can go\n on and on\n and on.";
+    public stringWithNewline = "I'm a long string\n with \\n characters\n that can go\n on and on\n and on with no end.\n Okay here is the end.";
 }
