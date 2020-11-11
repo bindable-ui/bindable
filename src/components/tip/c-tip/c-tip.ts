@@ -29,6 +29,8 @@ export class CTip {
     public side = 'right';
     @bindable
     public size = 'small';
+    @bindable
+    public contentMaxHeight = 'unset';
 
     public styles = styles;
     public contentDisplay;

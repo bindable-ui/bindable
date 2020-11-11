@@ -76,8 +76,8 @@ c-tip{
     cursor: default;
     z-index: var(--z_tip);
     transition: opacity var(--trans_main);
-    max-height: 500px;
-    overflow-y: scroll;
+    max-height: var(--tip-content-max-height);
+    overflow-y: var(--tip-content-overflow-y);
 }
 
 .tip p{
