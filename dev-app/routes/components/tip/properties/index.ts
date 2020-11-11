@@ -106,6 +106,12 @@ export class TipProperties {
             name: 'trigger-type',
             value: 'click | hover',
         },
+        {
+            default: 'unset',
+            description: 'Set the max height of tip content to make it scrollable.',
+            name: 'content-max-height',
+            value: '<number>px',
+        },
     ];
 
     public tipActions = {
@@ -116,4 +122,6 @@ export class TipProperties {
             logger.info('Hello from onShow callback');
         },
     };
+
+    public stringWithNewline = "I'm a long string\n with \\n characters\n that can go\n on and on\n and on.";
 }
