@@ -12,6 +12,8 @@ export class CTip {
     @bindable
     public arrowPosition;
     @bindable
+    public centeredContent = false;
+    @bindable
     public triggerType = 'click';
     @bindable
     public color = 'var(--c_subOneMain)';

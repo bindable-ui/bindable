@@ -3,7 +3,7 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {LogManager} from 'aurelia-framework';
+import { LogManager } from 'aurelia-framework';
 
 const logger = LogManager.getLogger('design-system: c-tip');
 export class TipProperties {
@@ -35,9 +35,9 @@ export class TipProperties {
     public tipProperties = [
         {
             description:
-            'Set position of the arrow on the tip. This is related to the side property and ' +
-            'not all combinations work. If side is set to left or right do not use arrow-position. ' +
-            'If side is set to top or bottom, arrow-position must be used.',
+                'Set position of the arrow on the tip. This is related to the side property and ' +
+                'not all combinations work. If side is set to left or right do not use arrow-position. ' +
+                'If side is set to top or bottom, arrow-position must be used.',
             name: 'arrow-position',
             value: 'center | rightEdge | leftEdge | none',
         },
@@ -49,6 +49,13 @@ export class TipProperties {
         },
         {
             default: 'false',
+            description: 'Set if you need the content of the tip to have text-align: center;',
+            name: 'centered-content',
+            value: 'boolean',
+        },
+
+        {
+            default: 'false',
             description: 'Force the tip to close when clicking anywhere after opening it.',
             name: 'force-close',
             value: 'boolean',
@@ -56,8 +63,8 @@ export class TipProperties {
         {
             default: '200',
             description:
-            'Set the number of milliseconds when the tip will open ' +
-            'after the mouse enters the tip trigger. Only used if trigger-type is set to hover.',
+                'Set the number of milliseconds when the tip will open ' +
+                'after the mouse enters the tip trigger. Only used if trigger-type is set to hover.',
             name: 'hover-delay',
             value: 'Number of milliseconds.',
         },
@@ -75,9 +82,9 @@ export class TipProperties {
         {
             default: 'right',
             description:
-            'Set which side you need the tip on. This is related to the arrow-position property and ' +
-            'not all combinations work. If side is set to right or left do not use arrow-position. ' +
-            'If side is set to top or bottom, arrow-position must be used.',
+                'Set which side you need the tip on. This is related to the arrow-position property and ' +
+                'not all combinations work. If side is set to right or left do not use arrow-position. ' +
+                'If side is set to top or bottom, arrow-position must be used.',
             name: 'side',
             value: 'top | right  | bottom | left',
         },
@@ -116,5 +123,5 @@ export class TipProperties {
         },
     };
 
-    public stringWithNewline = "I'm a long string\n with \\n characters\n that can go\n on and on\n and on.";
+    public stringWithNewline = "I'm a long string\n with \\n characters\n that can go\n on and on\n and on with no end.\n Okay here is the end.";
 }

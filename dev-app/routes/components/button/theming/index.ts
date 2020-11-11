@@ -190,6 +190,11 @@ export class ButtonThemeProperties {
             property: 'color',
         },
         {
+            default: 'var(--var(--c_marshmellow)',
+            name: '--button-sub-text-color',
+            property: 'color',
+        },
+        {
             default: 'var(--s-3) var(--s1)',
             name: '--button-medium-padding',
             property: 'padding',

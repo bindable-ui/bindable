@@ -25,6 +25,34 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <c-h1 truncate.bind="true">Headline 1 that is really long and will truncate at the end of the line
                         or something. Shrink the width of the browser window if needed.</c-h1>
                     <l-cluster
+                        justify="space-between"
+                        spacing="var(--s0)"
+                        spacing-direction="right"
+                        wrap.bind="false"
+                    >
+                        <div>
+                            <l-cluster
+                                spacing="var(--s-3)"
+                                spacing-direction="right"
+                                truncated-content.bind="true"
+                                style="width: 100%"
+                            >
+                                <div>
+                                    <l-icon
+                                        icon="chevron-left"
+                                        spacing="0"
+                                        size="1em"
+                                        color="var(--c_lightGray)"
+                                    ></l-icon>
+                                    <c-h1 flush-top.bind="false" truncate.bind="true">Headline 1 that is really long and will truncate at the
+                                        end of the line or something. Shrink the width of the browser window if needed.
+                                    </c-h1>
+                                </div>
+                            </l-cluster>
+                            <c-button>Some Button</c-button>
+                        </div>
+                    </l-cluster>
+                    <l-cluster
                         align="flex-start"
                         justify="space-between"
                         spacing="var(--s0)"
@@ -44,7 +72,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                         spacing="0"
                                         size="1em"
                                         color="var(--c_lightGray)"
-                                        align="0.3em"
+                                        align="0.9em"
                                     ></l-icon>
                                     <c-h1 truncate.bind="true">Headline 1 that is really long and will truncate at the
                                         end of the line or something. Shrink the width of the browser window if needed.
