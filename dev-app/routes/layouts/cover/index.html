@@ -15,18 +15,23 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <c-h1>Cover</c-h1>
                     <div>
                         <l-stack spacing="var(--s-1)">
-                            <c-notification type="info">NOTE: You can have three items in &lt;l-cover&gt;. The first and last ones are optional. The middle one has to have ' data-value="cover" ' on it.</c-notification>
+                            <c-notification type="info">NOTE: You can have three items in &lt;l-cover&gt;. The first and
+                                last ones are optional. The middle one has to have ' data-value="cover" ' on it.
+                            </c-notification>
                             <c-h2>Properties</c-h2>
                         </l-stack>
                     </div>
-                    <c-table cols.bind="coverCols" rows.bind="coverProperties"></c-table>
+                    <c-table
+                        cols.bind="coverCols"
+                        rows.bind="coverProperties"
+                    ></c-table>
                 </l-stack>
             </div>
 
             <c-divider></c-divider>
 
             <div>
-            	<l-stack spacing="var(--s-3)">
+                <l-stack spacing="var(--s-3)">
                     <c-h3>Default</c-h3>
                     <c-code-sample>
                         <l-sidebar side-width="28ch">
@@ -62,7 +67,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-divider></c-divider>
 
             <div>
-            	<l-stack spacing="var(--s-3)">
+                <l-stack spacing="var(--s-3)">
                     <c-h3>center</c-h3>
                     <c-code-sample>
                         <l-sidebar side-width="28ch">
@@ -100,7 +105,49 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-divider></c-divider>
 
             <div>
-            	<l-stack spacing="var(--s-3)">
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>row</c-h3>
+                    <c-code-sample>
+                        <l-sidebar side-width="28ch">
+                            <l-box background="var(--c_darkGray)">
+                                <l-stack>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                    <div>Sidebar Area</div>
+                                </l-stack>
+                            </l-box>
+                            <l-box
+                                background="var(--c_darkGray)"
+                                fill-space.bind="true"
+                            >
+                                <l-cover
+                                    row.bind="true"
+                                    left-gutter="var(--s5)"
+                                    right-gutter="var(--s5)"
+                                >
+                                    <div>I am at the left</div>
+                                    <div data-value="cover">
+                                        I am in the middle<br>
+                                        I am in the middle<br>
+                                        I am in the middle<br>
+                                    </div>
+                                    <div>I am at the right</div>
+                                </l-cover>
+                            </l-box>
+                        </l-sidebar>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
                     <c-h3>padding</c-h3>
                     <c-code-sample>
                         <l-sidebar side-width="28ch">
@@ -120,7 +167,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 background="var(--c_darkGray)"
                                 fill-space.bind="true"
                             >
-                                <l-cover padding-top="var(--s3)" padding-bottom="var(--s3)">
+                                <l-cover
+                                    padding-top="var(--s3)"
+                                    padding-bottom="var(--s3)"
+                                >
                                     <div>I am at the top</div>
                                     <div data-value="cover">
                                         I am in the center<br>
@@ -138,7 +188,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-divider></c-divider>
 
             <div>
-            	<l-stack spacing="var(--s-3)">
+                <l-stack spacing="var(--s-3)">
                     <c-h3>scroll</c-h3>
                     <c-code-sample>
                         <l-sidebar side-width="28ch">
@@ -163,7 +213,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                     spacing="medium"
                                 >
                                     <div>I am at the top</div>
-                                    <div data-value="cover" style="height: 300px; flex: 1 0 0px;">
+                                    <div
+                                        data-value="cover"
+                                        style="height: 300px; flex: 1 0 0px;"
+                                    >
                                         Setting height on this container will happen from the surrounding layout option.
                                         <br>More Content
                                         <br>More Content
@@ -197,7 +250,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <c-divider></c-divider>
 
             <div>
-            	<l-stack spacing="var(--s-3)">
+                <l-stack spacing="var(--s-3)">
                     <c-h3>gutters</c-h3>
                     <c-code-sample>
                         <l-sidebar side-width="28ch">
