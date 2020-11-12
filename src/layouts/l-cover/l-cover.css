@@ -97,6 +97,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     margin-right: auto;
 }
 
+.row.center > *{
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
 
 
 
