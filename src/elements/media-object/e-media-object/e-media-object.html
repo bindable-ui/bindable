@@ -1,0 +1,55 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <require from="./e-media-object.css"></require>
+
+    <l-box
+        background="${background}"
+        padding-ends="${paddingEnds}"
+        padding-sides="${paddingSides}"
+    >
+        <l-cover
+            row.bind="true"
+            center.bind="center"
+            left-gutter="${leftGutter}"
+            right-gutter="${rightGutter}"
+        >
+            <div
+                class="${styles.mediaContainer}"
+                css="
+                    --media-width: ${mediaWidth};
+                    --media-height: ${mediaHeight};
+                    --media-background: ${mediaBackground};
+                "
+            >
+                <div>
+                    <slot name="media"></slot>
+                </div>
+                <c-spinner
+                    class="
+                        ${styles.spinner}
+                        ${pillText ? styles.spinnerPill : ''}
+                    "
+                    size="small"
+                ></c-spinner>
+                <c-pill
+                    color="${pillColor}"
+                    if.bind="pillText"
+                >
+                    <span slot="pill-content">
+                        ${pillText}
+                    </span>
+                </c-pill>
+            </div>
+            <div data-value="cover">
+                <slot name="content"></slot>
+            </div>
+            <div id="${rightId}">
+                <slot name="right"></slot>
+            </div>
+        </l-cover>
+    </l-box>
+</template>
