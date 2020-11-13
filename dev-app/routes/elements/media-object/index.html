@@ -1,0 +1,81 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+    <l-box
+        padding-sides="var(--s3)"
+        padding-ends="var(--s3)"
+        background="transparent"
+    >
+        <l-stack spacing="var(--s5)">
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h1>Media Object</c-h1>
+                    <c-h2>Properties</c-h2>
+                    <c-table
+                        cols.bind="mediaObjectCols"
+                        rows.bind="mediaObjectProperties"
+                    ></c-table>
+                </l-stack>
+            </div>
+
+            <c-divider></c-divider>
+
+            <div>
+                <l-stack spacing="var(--s-3)">
+                    <c-h3>Example</c-h3>
+                    <c-code-sample>
+                        <e-media-object
+                            background="var(--c_soot)"
+                            media-width="200px"
+                            media-height="100px"
+                            media-background="var(--c_black)"
+                            left-gutter="var(--s1)"
+                            right-gutter="var(--s1)"
+                            padding-sides="var(--s-4)"
+                            padding-ends="var(--s-4)"
+                            pill-text="Pill Text"
+                            pill-color="var(--c_subTwoMain)"
+                        >
+                            <div slot="media">
+                                <img
+                                    src="https://picsum.photos/200/100"
+                                    alt="Alt"
+                                >
+                            </div>
+                            <div slot="content">
+                                <l-stack spacing="var(--s-5)">
+                                    <c-h3>Some Text</c-h3>
+                                    <c-form-checkbox-radio-container>
+                                        <c-form-checkbox id="first">First</c-form-checkbox>
+                                    </c-form-checkbox-radio-container>
+                                </l-stack>
+                            </div>
+                            <div slot="right">
+                                <c-tip
+                                    side="left"
+                                    size="large"
+                                    icon-tip.bind="true"
+                                >
+                                    <div slot="trigger">
+                                        <l-icon
+                                            icon="cog"
+                                            spacing="0"
+                                        ></l-icon>
+                                    </div>
+                                    <div slot="content">
+                                        <c-p color="var(--c_white)">
+                                            Top Tip Content that is really long and it will not wrap.
+                                        </c-p>
+                                    </div>
+                                </c-tip>
+                            </div>
+                        </e-media-object>
+                    </c-code-sample>
+                </l-stack>
+            </div>
+        </l-stack>
+    </l-box>
+</template>

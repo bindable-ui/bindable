@@ -10,6 +10,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /**
  *  BASE
  *  CENTER
+ *  ROW
  *  SCROLLING
  */
 
@@ -47,6 +48,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     margin-bottom: 0;
 }
 
+.cover > [data-value='cover']{
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
 
 
 
@@ -55,13 +61,45 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !CENTER
 \*------------------------------------*/
 
-.cover > [data-value='cover']{
-    margin-top: 0;
-    margin-bottom: auto;
-}
-
 .center > [data-value='cover']{
     margin-top: auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ROW
+\*------------------------------------*/
+
+.row{
+    flex-direction: row;
+}
+
+.row > *{
+    margin-left: var(--cover-right-gutter);
+    margin-right: var(--cover-left-gutter);
+}
+
+.row > :first-child:not([data-value='cover']){
+    flex: 0 0 auto;
+    margin-left: 0;
+}
+
+.row > :last-child:not([data-value='cover']){
+    flex: 0 0 auto;
+    margin-right: 0;
+}
+
+.row > [data-value='cover']{
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.row.center > *{
+    margin-top: auto !important;
+    margin-bottom: auto !important;
 }
 
 
