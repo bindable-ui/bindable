@@ -27,7 +27,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     height: var(--media-height);
 }
 
-.media-container img{
+.media-container div[slot="media"] > *{
     position: relative;
     z-index: 2;
 }
