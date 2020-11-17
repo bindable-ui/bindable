@@ -91,6 +91,11 @@ export class Headlines {
             property: 'min-height',
         },
         {
+            default: 'var(--s5)',
+            name: '--h1-not-flush-truncate-min-height',
+            property: 'min-height',
+        },
+        {
             default: 'var(--s-1)',
             name: '--h1-truncate-padding-right',
             property: 'padding-right',
