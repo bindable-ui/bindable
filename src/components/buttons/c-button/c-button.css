@@ -20,6 +20,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  STATE
  *      - Disabled
  *      - Thinking
+ *  SUB TEXT
  */
 
 
@@ -285,4 +286,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 @-webkit-keyframes spinner{
     to{-webkit-transform: rotate(360deg);}
+}
+
+
+
+
+
+/*------------------------------------*\
+    !SUB TEXT
+\*------------------------------------*/
+
+.sub-text{
+    display: block;
+    font-size: 0.8em;
+    color: var(--button-sub-text-color);
 }

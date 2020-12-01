@@ -253,8 +253,18 @@ export class TableThemeProperties {
             property: 'background-image',
         },
         {
+            default: 'url(\'../../../global-styles/assets/images/td-building.gif\')',
+            name: '--table-background-building',
+            property: 'background-image',
+        },
+        {
             default: 'var(--table-td-color)',
             name: '--table-color-processing',
+            property: 'color',
+        },
+        {
+            default: 'var(--table-td-color)',
+            name: '--table-color-building',
             property: 'color',
         },
         {

@@ -219,6 +219,7 @@ export function configure(config: FrameworkConfiguration) {
 
         // Elements
         PLATFORM.moduleName('./elements/delete-confirm/e-delete-confirm/e-delete-confirm'),
+        PLATFORM.moduleName('./elements/media-object/e-media-object/e-media-object'),
 
         // Layouts
         PLATFORM.moduleName('./layouts/l-box/l-box'),

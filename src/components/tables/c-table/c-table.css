@@ -404,6 +404,12 @@ td.bg-processing{
     color: var(--table-color-processing) !important;
 }
 
+.bg-building td,
+td.bg-building{
+    background-image: var(--table-background-building) !important;
+    color: var(--table-color-building) !important;
+}
+
 
 
 

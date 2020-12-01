@@ -1,0 +1,47 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  BASE
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !BASE
+\*------------------------------------*/
+
+.media-container{
+    position: relative;
+    line-height: 15px;
+    background-color: var(--media-background);
+    width: var(--media-width);
+    height: var(--media-height);
+}
+
+.media-container div[slot="media"] > *{
+    position: relative;
+    z-index: 2;
+}
+
+.media-container c-pill{
+    position: absolute;
+    top: var(--s-5);
+    left: var(--s-5);
+    z-index: 3;
+}
+
+.spinner{
+    position: absolute;
+    z-index: 1;
+    top: calc(50% - 16px);
+    left: calc(50% - 16px);
+}

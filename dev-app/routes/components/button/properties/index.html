@@ -8,7 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h2>Properties</c-h2>
-                <c-table cols.bind="buttonCols" rows.bind="buttonProperties"></c-table>
+                <c-table
+                    cols.bind="buttonCols"
+                    rows.bind="buttonProperties"
+                ></c-table>
             </l-stack>
         </div>
 
@@ -33,7 +36,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>href</c-h3>
                 <c-code-sample>
-                    <c-button title="I am an anchor tag" href="http://google.com"></c-button>
+                    <c-button
+                        title="I am an anchor tag"
+                        href="http://google.com"
+                    ></c-button>
                     <c-button
                         title="I am an anchor tag with an icon"
                         href="http://google.com"
@@ -80,7 +86,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     callout-content="l-icon"
                 >
                     <span>
-                        Using the l-icon layout inside a button allows for a lot of customization on the icon placed in the c-button component.<br><a href="/#/layouts/icon">Learn more about the l-icon layout</a>
+                        Using the l-icon layout inside a button allows for a lot of customization on the icon placed in
+                        the c-button component.<br><a href="/#/layouts/icon">Learn more about the l-icon layout</a>
                     </span>
                 </c-notification>
 
@@ -197,7 +204,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>target-new</c-h3>
                 <c-code-sample>
-                    <c-button title="I will open a new window" target-new.bind="true" href="http://google.com"></c-button>
+                    <c-button
+                        title="I will open a new window"
+                        target-new.bind="true"
+                        href="http://google.com"
+                    ></c-button>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -208,7 +219,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>title</c-h3>
                 <c-code-sample>
-                    <c-button title="I am an anchor tag" href="http://google.com"></c-button>
+                    <c-button
+                        title="I am an anchor tag"
+                        href="http://google.com"
+                    ></c-button>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>sub-text</c-h3>
+                <c-code-sample>
+                    <c-button sub-text="Sub Text Here">Button with sub text</c-button>
                 </c-code-sample>
             </l-stack>
         </div>

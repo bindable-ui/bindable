@@ -13,6 +13,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         size="${row[col.colHeadName + 'TipSize']}"
         fill-width-trigger.bind="true"
         force-close.bind="true"
+        content-max-height="${row[col.colHeadName + 'ContentMaxHeight']}"
     >
 		<div slot="trigger" >
 			<div class="${styles.container}">
@@ -28,7 +29,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 view-model.bind="row[col.colHeadName + 'TipViewModel']"
                 model.bind="{row:row, col:col}"
             ></compose>
-			<div else>${value}</div>
+			<c-p else>${value}</c-p>
 		</div>
 	</c-tip>
 

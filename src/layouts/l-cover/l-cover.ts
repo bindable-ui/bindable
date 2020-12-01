@@ -10,6 +10,8 @@ export class LCover {
     @bindable
     public center = false;
     @bindable
+    public row = false;
+    @bindable
     public paddingTop = '0';
     @bindable
     public paddingRight = '0';
@@ -23,12 +25,20 @@ export class LCover {
     public topGutter = '0';
     @bindable
     public bottomGutter = '0';
+    @bindable
+    public rightGutter = '0';
+    @bindable
+    public leftGutter = '0';
 
     public styles = styles;
 
     public attached() {
         if (typeof this.center !== 'boolean') {
             this.center = false;
+        }
+
+        if (typeof this.row !== 'boolean') {
+            this.row = false;
         }
 
         if (typeof this.scrolling !== 'boolean') {

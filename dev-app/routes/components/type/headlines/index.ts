@@ -37,6 +37,12 @@ export class Headlines {
             value: 'boolean',
         },
         {
+            default: 'inherit',
+            description: 'Use to set the line-height of the h1',
+            name: 'line-height',
+            value: 'string',
+        },
+        {
             default: 'false',
             description: 'Set if you would like the text to truncate.',
             name: 'truncate',
@@ -85,6 +91,11 @@ export class Headlines {
             property: 'min-height',
         },
         {
+            default: 'var(--s5)',
+            name: '--h1-not-flush-truncate-min-height',
+            property: 'min-height',
+        },
+        {
             default: 'var(--s-1)',
             name: '--h1-truncate-padding-right',
             property: 'padding-right',
@@ -121,6 +132,19 @@ export class Headlines {
     ];
 
     public h2Properties = [
+        {
+            default: 'true',
+            description: 'Set to false if you do not want the text to be flush to' +
+            'the top of the container.',
+            name: 'flush-top',
+            value: 'boolean',
+        },
+        {
+            default: 'inherit',
+            description: 'Use to set the line-height of the h2',
+            name: 'line-height',
+            value: 'string',
+        },
         {
             default: 'false',
             description:'Set if you would like the text to truncate.',

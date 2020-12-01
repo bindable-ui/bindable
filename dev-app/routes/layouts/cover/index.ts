@@ -36,32 +36,39 @@ export class CoverProperties {
             value: 'boolean',
         },
         {
+            default: 'false',
+            description: 'Set the cover to be horizontal.',
+            name: 'row',
+            value: 'boolean',
+        },
+
+        {
             default: '0',
             description: 'Set if you need padding at the top of l-cover.',
             name: 'padding-top',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: '0',
             description: 'Set if you need padding at the right of l-cover.',
             name: 'padding-right',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: '0',
             description: 'Set if you need padding at the bottom of l-cover.',
             name: 'padding-bottom',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: '0',
             description: 'Set if you need padding at the left of l-cover.',
             name: 'padding-left',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: 'false',
@@ -74,14 +81,14 @@ export class CoverProperties {
             description: 'Set if you need a gutter between the first and second items in the l-cover.',
             name: 'top-gutter',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: '0',
             description: 'Set if you need a gutter between the second and last items in the l-cover.',
             name: 'bottom-gutter',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
     ];
 }

@@ -12,6 +12,8 @@ export class CTip {
     @bindable
     public arrowPosition;
     @bindable
+    public centeredContent = false;
+    @bindable
     public triggerType = 'click';
     @bindable
     public color = 'var(--c_subOneMain)';
@@ -29,6 +31,8 @@ export class CTip {
     public side = 'right';
     @bindable
     public size = 'small';
+    @bindable
+    public contentMaxHeight = 'unset';
 
     public styles = styles;
     public contentDisplay;
@@ -71,11 +75,10 @@ export class CTip {
     }
 
     public toggleVisible($event) {
-        if ($event && $event.type === 'click') {
-            $event.stopPropagation();
-        }
-
         if (this.triggerType === 'click') {
+            if ($event && $event.type === 'click') {
+                $event.stopPropagation();
+            }
             if (this.contentDisplay) {
                 this.hide();
             } else {

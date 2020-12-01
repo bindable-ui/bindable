@@ -34,6 +34,8 @@ export class CButton {
     @bindable
     public state;
     @bindable
+    public subText;
+    @bindable
     public targetNew = false;
     @bindable
     public title;

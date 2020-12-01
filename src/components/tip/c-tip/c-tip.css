@@ -31,6 +31,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  FULL SCREEN CLOSE
  *  COMPONENT BASED SPACING
  *      - c-nav-horizontal
+ *  CENTERED CONTENT
+ *  MAX HEIGHT
  */
 
 
@@ -553,4 +555,39 @@ c-nav-horizontal .container{
 c-nav-horizontal .container p{
     margin-top: 4px;
     margin-bottom: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !CENTERED CONTENT
+\*------------------------------------*/
+
+.centered-content{
+    text-align: center;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !MAX HEIGHT
+\*------------------------------------*/
+
+.max-height{
+    padding-right: 0;    
+    padding-bottom: 0;    
+}
+
+.max-height > div{
+    max-height: var(--tip-content-max-height);
+    overflow-y: var(--tip-content-overflow-y);
+    padding-right: var(--s0);
+    padding-bottom: var(--s-2);
+}
+.max-height p{
+    white-space: pre-line;
 }

@@ -302,6 +302,8 @@ c-button{
     --button-danger-disabled-color: var(--button-disabled-color);
     --button-danger-color: var(--button-color);
 
+    --button-sub-text-color: var(--c_marshmellow);
+
     /* Sizes */
     --button-medium-padding: var(--s-3) var(--s1);
     --button-medium-icon-only-padding: calc(var(--s-3) - 1px) var(--s-1) var(--s-3);
@@ -858,7 +860,9 @@ c-table{
     --table-background-info: var(--c_subOneDark);
     --table-color-info: var(--c_subOneLight);
     --table-background-processing: url('../assets/images/td-processing.gif');
+    --table-background-building: url('../assets/images/td-building.gif');
     --table-color-processing: var(--table-td-color);
+    --table-color-building: var(--table-td-color);
 
     /* Sort */
     --table-sort-padding-right: 15px;
@@ -1107,6 +1111,7 @@ c-code{
     --h1-font-family: var(--ff_primary-bold);
     --h1-font-size: var(--s3);
     --h1-truncate-min-height: var(--s4);
+    --h1-not-flush-truncate-min-height: var(--s5);
     --h1-truncate-padding-right: var(--s-1);
     --h1-truncate-hover-background: var(--c_slate);
 }

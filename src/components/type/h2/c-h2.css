@@ -22,9 +22,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .base{
     margin-top: var(--h2-margin-top);
+    line-height: var(--h2-line-height);
     font-family: var(--h2-font-family);
     font-size: var(--h2-font-size);
     font-weight: normal;
+}
+
+.not-flush-top{
+    margin-top: initial;
 }
 
 

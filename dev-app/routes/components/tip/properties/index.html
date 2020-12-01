@@ -8,7 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h2>Properties</c-h2>
-                <c-table cols.bind="tipCols" rows.bind="tipProperties"></c-table>
+                <c-table
+                    cols.bind="tipCols"
+                    rows.bind="tipProperties"
+                ></c-table>
             </l-stack>
         </div>
 
@@ -19,12 +22,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>arrow-position / side</c-h3>
                 <c-code-sample>
                     <l-grid min-size="10rem">
-                        <c-tip side="top" arrow-position="leftEdge" size="auto">
+                        <c-tip
+                            side="top"
+                            arrow-position="leftEdge"
+                            size="auto"
+                        >
                             <div slot="trigger">
                                 <c-button>Top and Left Edge</c-button>
                             </div>
                             <div slot="content">
-                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.</c-p>
+                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.
+                                </c-p>
                             </div>
                         </c-tip>
                         <c-tip size="auto">
@@ -35,7 +43,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 <c-p color="var(--c_white)">Right Tip Content</c-p>
                             </div>
                         </c-tip>
-                        <c-tip side="bottom" arrow-position="rightEdge">
+                        <c-tip
+                            side="bottom"
+                            arrow-position="rightEdge"
+                        >
                             <div slot="trigger">
                                 <c-button>Bottom and Right Edge</c-button>
                             </div>
@@ -43,7 +54,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 <c-p color="var(--c_white)">Bottom Tip Content<c-p>
                             </div>
                         </c-tip>
-                        <c-tip side="left" size="auto">
+                        <c-tip
+                            side="left"
+                            size="auto"
+                        >
                             <div slot="trigger">
                                 <c-button>Left and Center</c-button>
                             </div>
@@ -51,7 +65,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 <c-p color="var(--c_white)">Center Tip Content</c-p>
                             </div>
                         </c-tip>
-                        <c-tip arrow-position="none" side="left">
+                        <c-tip
+                            arrow-position="none"
+                            side="left"
+                        >
                             <div slot="trigger">
                                 <c-button>No Arrow</c-button>
                             </div>
@@ -70,7 +87,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>color</c-h3>
                 <c-code-sample>
-                    <c-tip side="top" arrow-position="center" color="var(--c_primaryLight)">
+                    <c-tip
+                        side="top"
+                        arrow-position="center"
+                        color="var(--c_primaryLight)"
+                    >
                         <div slot="trigger">
                             <c-button>Color Primary Light</c-button>
                         </div>
@@ -107,7 +128,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>icon-tip</c-h3>
                 <c-code-sample>
                     <l-grid min-size="10rem">
-                        <c-tip side="top" arrow-position="leftEdge" size="auto" icon-tip.bind="true">
+                        <c-tip
+                            side="top"
+                            arrow-position="leftEdge"
+                            size="auto"
+                            icon-tip.bind="true"
+                        >
                             <div slot="trigger">
                                 <l-icon
                                     icon="question"
@@ -115,10 +141,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 ></l-icon>
                             </div>
                             <div slot="content">
-                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.<c-p>
+                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.
+                                    <c-p>
                             </div>
                         </c-tip>
-                        <c-tip side="right" size="auto" icon-tip.bind="true">
+                        <c-tip
+                            side="right"
+                            size="auto"
+                            icon-tip.bind="true"
+                        >
                             <div slot="trigger">
                                 <l-icon
                                     icon="question"
@@ -126,10 +157,16 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 ></l-icon>
                             </div>
                             <div slot="content">
-                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.<c-p>
+                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.
+                                    <c-p>
                             </div>
                         </c-tip>
-                        <c-tip side="bottom" arrow-position="leftEdge" size="auto" icon-tip.bind="true">
+                        <c-tip
+                            side="bottom"
+                            arrow-position="leftEdge"
+                            size="auto"
+                            icon-tip.bind="true"
+                        >
                             <div slot="trigger">
                                 <l-icon
                                     icon="question"
@@ -137,7 +174,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 ></l-icon>
                             </div>
                             <div slot="content">
-                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.<c-p>
+                                <c-p color="var(--c_white)">Top Tip Content that is really long and it will not wrap.
+                                    <c-p>
                             </div>
                         </c-tip>
                     </l-grid>
@@ -151,7 +189,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>position-trigger</c-h3>
                 <c-code-sample>
-                    <c-tip side="top" arrow-position="rightEdge" position-trigger="rightSide">
+                    <c-tip
+                        side="top"
+                        arrow-position="rightEdge"
+                        position-trigger="rightSide"
+                    >
                         <div slot="trigger">
                             <c-button>Position Trigger Right Side</c-button>
                         </div>
@@ -176,52 +218,85 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                             </div>
                             <div slot="content">
                                 <l-stack spacing="var(--s-3)">
-                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test</c-p>
-                                    <c-button size="small" click.delegate="vtipSmall.toggleVisible()">Close Tip</c-button>
+                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test
+                                    </c-p>
+                                    <c-button
+                                        size="small"
+                                        click.delegate="vtipSmall.toggleVisible()"
+                                    >Close Tip</c-button>
                                 </l-stack>
                             </div>
                         </c-tip>
-                        <c-tip size="medium" view-model.ref="vtipMedium">
+                        <c-tip
+                            size="medium"
+                            view-model.ref="vtipMedium"
+                        >
                             <div slot="trigger">
                                 <c-button>Size Medium</c-button>
                             </div>
                             <div slot="content">
                                 <l-stack spacing="var(--s-3)">
-                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test</c-p>
-                                    <c-button size="small" click.delegate="vtipMedium.toggleVisible()">Close Tip</c-button>
+                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test
+                                    </c-p>
+                                    <c-button
+                                        size="small"
+                                        click.delegate="vtipMedium.toggleVisible()"
+                                    >Close Tip</c-button>
                                 </l-stack>
                             </div>
                         </c-tip>
-                        <c-tip size="large" view-model.ref="vtipLarge">
+                        <c-tip
+                            size="large"
+                            view-model.ref="vtipLarge"
+                        >
                             <div slot="trigger">
                                 <c-button>Size Large</c-button>
                             </div>
                             <div slot="content">
                                 <l-stack spacing="var(--s-3)">
-                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test</c-p>
-                                    <c-button size="small" click.delegate="vtipLarge.toggleVisible()">Close Tip</c-button>
+                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test
+                                    </c-p>
+                                    <c-button
+                                        size="small"
+                                        click.delegate="vtipLarge.toggleVisible()"
+                                    >Close Tip</c-button>
                                 </l-stack>
                             </div>
                         </c-tip>
-                        <c-tip size="xlarge" view-model.ref="vtipXLarge">
+                        <c-tip
+                            size="xlarge"
+                            view-model.ref="vtipXLarge"
+                        >
                             <div slot="trigger">
                                 <c-button>Size XLarge</c-button>
                             </div>
                             <div slot="content">
                                 <l-stack spacing="var(--s-3)">
-                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test</c-p>
-                                    <c-button size="small" click.delegate="vtipXLarge.toggleVisible()">Close Tip</c-button>
+                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test
+                                    </c-p>
+                                    <c-button
+                                        size="small"
+                                        click.delegate="vtipXLarge.toggleVisible()"
+                                    >Close Tip</c-button>
                                 </l-stack>
                             </div>
                         </c-tip>
-                        <c-tip size="auto" side="left" view-model.ref="vtipAuto">
+                        <c-tip
+                            size="auto"
+                            side="left"
+                            view-model.ref="vtipAuto"
+                        >
                             <div slot="trigger">
                                 <c-button>Size Auto</c-button>
                             </div>
                             <div slot="content">
                                 <l-stack spacing="var(--s-3)">
-                                <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test</c-p>
-                                <c-button size="small" click.delegate="vtipAuto.toggleVisible()">Close Tip</c-button>
+                                    <c-p color="var(--c_white)">Content Here. Huzzah! that is a bit longer just to test
+                                    </c-p>
+                                    <c-button
+                                        size="small"
+                                        click.delegate="vtipAuto.toggleVisible()"
+                                    >Close Tip</c-button>
                                 </l-stack>
                             </div>
                         </c-tip>
@@ -237,28 +312,44 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>trigger-type / hover-delay</c-h3>
                 <c-code-sample>
                     <l-grid min-size="10rem">
-                        <c-tip side="top" arrow-position="center" trigger-type="click">
+                        <c-tip
+                            side="top"
+                            arrow-position="center"
+                            trigger-type="click"
+                        >
                             <div slot="trigger">
                                 <c-button>Show Tip on Click</c-button>
                             </div>
                             <div slot="content">
-                                <c-p color="var(--c_white)">Content Here. This was opened by clicking on the trigger.</c-p>
+                                <c-p color="var(--c_white)">Content Here. This was opened by clicking on the trigger.
+                                </c-p>
                             </div>
                         </c-tip>
-                        <c-tip side="top" arrow-position="center" trigger-type="hover">
+                        <c-tip
+                            side="top"
+                            arrow-position="center"
+                            trigger-type="hover"
+                        >
                             <div slot="trigger">
                                 <c-button>Show Tip on Hover</c-button>
                             </div>
                             <div slot="content">
-                                <c-p color="var(--c_white)">Content Here. This was opened by hovering over the trigger</c-p>
+                                <c-p color="var(--c_white)">Content Here. This was opened by hovering over the trigger
+                                </c-p>
                             </div>
                         </c-tip>
-                        <c-tip side="top" arrow-position="center" trigger-type="hover" hover-delay.bind="1000">
+                        <c-tip
+                            side="top"
+                            arrow-position="center"
+                            trigger-type="hover"
+                            hover-delay.bind="1000"
+                        >
                             <div slot="trigger">
                                 <c-button>Show Tip on Hover, Delay 1s to Show</c-button>
                             </div>
                             <div slot="content">
-                                <c-p color="var(--c_white)">Content Here. This was opened by hovering over the trigger with a 1s delay.</c-p>
+                                <c-p color="var(--c_white)">Content Here. This was opened by hovering over the trigger
+                                    with a 1s delay.</c-p>
                             </div>
                         </c-tip>
                     </l-grid>
@@ -272,12 +363,71 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>fill-width-trigger</c-h3>
                 <c-code-sample>
-                    <c-tip side="top" arrow-position="center" trigger-type="click" fill-width-trigger="true">
+                    <c-tip
+                        side="top"
+                        arrow-position="center"
+                        trigger-type="click"
+                        fill-width-trigger.bind="true"
+                    >
                         <div slot="trigger">
                             <c-button>Show Tip on Click</c-button>
                         </div>
                         <div slot="content">
                             <c-p color="var(--c_white)">Content Here. This was opened by clicking on the trigger.</c-p>
+                        </div>
+                    </c-tip>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>center-content</c-h3>
+                <c-code-sample>
+                    <l-center max-width="60ch">
+                        <c-tip
+                            centered-content.bind="true"
+                            side="top"
+                            size="large"
+                            arrow-position="center"
+                            trigger-type="click"
+                        >
+                            <div slot="trigger">
+                                <c-button>Centered Content Tip</c-button>
+                            </div>
+                            <div slot="content">
+                                <l-stack spacing="var(--s-1)">
+                                    <c-h4>Centered Title</c-h4>
+                                    <c-p color="var(--c_white)">Content Here. This was opened by clicking on the
+                                        trigger.
+                                    </c-p>
+                                    <c-button size="small">Centered Button</c-button>
+                                </l-stack>
+                            </div>
+                        </c-tip>
+                    </l-center>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>content-max-height</c-h3>
+                <c-code-sample>
+                    <c-tip
+                        side="top"
+                        size="large"
+                        content-max-height="100px"
+                    >
+                        <div slot="trigger">
+                            <c-button>Scrollabe Tip Content</c-button>
+                        </div>
+                        <div slot="content">
+                            <c-p color="var(--c_white)">${stringWithNewline}</c-p>
                         </div>
                     </c-tip>
                 </c-code-sample>
