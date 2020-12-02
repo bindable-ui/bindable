@@ -30,8 +30,22 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <l-grid max-size="25ch">
                         <c-form-file label="File Label" error-msg="This is an error" state="error"></c-form-file>
                         <c-form-file label="File Label" state="disabled"></c-form-file>
-                        <c-form-file></c-form-file>
                         <c-form-file label="File Label" state="hidden"></c-form-file>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+        	<l-stack spacing="var(--s-3)">
+                <c-h3>Accept Types</c-h3>
+                <c-code-sample>
+                    <l-grid max-size="25ch">
+                        <c-form-file label="Images Only" accept="image/*"></c-form-file>
+                        <c-form-file label="Video Only" accept="video/*"></c-form-file>
+                        <c-form-file label="Certificate Only" accept=".cer, .der"></c-form-file>
                     </l-grid>
                 </c-code-sample>
             </l-stack>

@@ -29,6 +29,11 @@ export class FileProperties {
 
     public formFileProperties = [
         {
+            description: 'Set if you want to accepted only certain file types using Unique File Type Specifiers. Use comma seperated values for multiple types.',
+            name: 'accept',
+            value: 'string',
+        },
+        {
             description: 'Set the text for the error message',
             name: 'error-msg',
             value: '',
