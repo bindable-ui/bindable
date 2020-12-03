@@ -13,12 +13,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     >
         <l-cover
             row.bind="true"
+            row-stack-small.bind="rowStackSmall"
             center.bind="center"
             left-gutter="${leftGutter}"
             right-gutter="${rightGutter}"
+            top-gutter="${topGutter}"
+            bottom-gutter="${bottomGutter}"
         >
             <div
-                class="${styles.mediaContainer}"
+                class="
+                    ${styles.mediaContainer}
+                    ${rowStackSmall ? styles.mediaContainerSmallStack : ''}
+                "
                 css="
                     --media-width: ${mediaWidth};
                     --media-height: ${mediaHeight};

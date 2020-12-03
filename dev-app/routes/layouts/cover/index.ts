@@ -41,7 +41,12 @@ export class CoverProperties {
             name: 'row',
             value: 'boolean',
         },
-
+        {
+            default: 'false',
+            description: 'Use only when row is set to true. If this is set to true the row will go back to a column on small screens.',
+            name: 'row-stack-small',
+            value: 'boolean',
+        },
         {
             default: '0',
             description: 'Set if you need padding at the top of l-cover.',

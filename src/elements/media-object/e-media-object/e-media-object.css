@@ -45,3 +45,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     top: calc(50% - 16px);
     left: calc(50% - 16px);
 }
+
+@media screen and (max-width: 500px) {
+    .media-container-small-stack{
+        width: 100%;
+        height: auto;
+    }
+
+    .media-container div[slot="media"] > *{
+        width: 100%;
+    }
+}
+

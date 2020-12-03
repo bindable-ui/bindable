@@ -109,6 +109,27 @@ export class MediaObject {
             name: 'right-gutter',
             value: 'Any length value (1rem, 15px). It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
+        {
+            default: 'var(--s-3)',
+            description:
+                'Set the spacing of the top gutter of the element.',
+            name: 'top-gutter',
+            value: 'Any length value (1rem, 15px). It is advised that you use the Core Scale Properties. ex: var(--s1).',
+        },
+        {
+            default: 'var(--s-3)',
+            description:
+                'Set the spacing of the bottom gutter of the element.',
+            name: 'bottom-gutter',
+            value: 'Any length value (1rem, 15px). It is advised that you use the Core Scale Properties. ex: var(--s1).',
+        },
+        {
+            default: 'true',
+            description:
+                'Set to false if you do not want the itmes to stack on small screens.',
+            name: 'row-stack-small',
+            value: 'boolean',
+        },
     ];
 
 }
