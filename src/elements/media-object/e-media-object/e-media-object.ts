@@ -31,6 +31,12 @@ export class EMediaObject {
     public leftGutter: string = 'var(--s-3)';
     @bindable
     public rightGutter: string = 'var(--s-3)';
+    @bindable
+    public topGutter: string = 'var(--s-3)';
+    @bindable
+    public bottomGutter: string = 'var(--s-3)';
+    @bindable
+    public rowStackSmall: boolean = true;
 
     public rightId = generateRandom();
 
