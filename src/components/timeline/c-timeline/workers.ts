@@ -3,6 +3,7 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
+import {nextTick} from 'process';
 import * as SWorker from 'simple-web-worker';
 
 import {ITimeEntry} from './c-timeline-interfaces';
@@ -157,7 +158,7 @@ function mapEntriesFn(
         },
     );
 
-    let entriesIndex = 1;
+    let entriesIndex = 0;
     const normalEntries = entries.filter(entry => !checkSmallEntry(entry));
 
     while (entriesIndex < normalEntries.length) {
@@ -173,10 +174,51 @@ function mapEntriesFn(
                 numOfEntries += 1;
             }
 
-            const slicedEntries = normalEntries.slice(entriesIndex - numOfEntries, entriesIndex + 1);
-            slicedEntries.sort((a, b) => b.column - a.column);
-            const numOfColumns = slicedEntries[0].column + 1;
+            // Get an array of the items we need to modify for priority
+            const nestedEntries = normalEntries.slice(entriesIndex - numOfEntries, entriesIndex + 1);
 
+            // Find the number of columns in a group
+            const numOfColumns =
+                nestedEntries.reduce((highestColumn, curVal) => {
+                    if (curVal.column > highestColumn) {
+                        return curVal.column;
+                    }
+
+                    return highestColumn;
+                }, 0) + 1;
+
+            // Figure out column priority:: higher priority is on the right
+            const columnsPriority: any[] = Array(numOfColumns);
+            const groupedEntries = nestedEntries.reduce((p, v) => {
+                p[v.column] = p[v.column] || [];
+                p[v.column].push(v);
+
+                return p;
+            }, Object.create(null));
+            const columnKeys = Object.keys(groupedEntries);
+
+            // Find highest priority entry from every column
+            columnKeys.forEach(column => {
+                const maxPriority = groupedEntries[column].sort((a, b) => b.priority || 0 - a.priority || 0)[0]
+                    .priority;
+
+                const columnNum = parseInt(column, 10);
+                columnsPriority[columnNum] = {originalIndex: columnNum, priority: maxPriority};
+            });
+
+            // Use array map to sort columns to keep the original index
+            columnsPriority.sort((a, b) => a.priority || 0 - b.priority || 0);
+
+            // Change the entry column to match priority
+            nestedEntries.forEach(entry => {
+                const newColumn = columnsPriority.findIndex(val => val.originalIndex === entry.column);
+                entry.column = newColumn;
+            });
+
+            // Sort columns
+            nestedEntries.sort((a, b) => b.column - a.column);
+
+            // Setup each entries size and position using `calc`
             for (let nestedIdx = 0; nestedIdx <= numOfEntries; nestedIdx += 1) {
                 const columnIndex = numOfColumns - 1 - normalEntries[entriesIndex - nestedIdx].column;
 

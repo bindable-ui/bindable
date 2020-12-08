@@ -26,6 +26,7 @@ const sortedEntries: any[] = [
     },
     {
         duration: 120,
+        priority: 10,
         start: moment(now)
             .add(1, 'hour')
             .toISOString(),
@@ -79,6 +80,12 @@ describe('Web worker functions', () => {
             const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
             expect(data[0].widthCalc).toBe(data[1].widthCalc);
+        });
+
+        it('tests same column priority', async () => {
+            const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
+
+            expect(data[2].column).toBe(1);
         });
     });
 });
