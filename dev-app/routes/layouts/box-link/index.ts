@@ -42,9 +42,33 @@ export class BoxLinkProperties {
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
         },
         {
+            default: 'unset',
             description: 'Set if you want a border on the top of the box.',
             name: 'border-top',
-            value: 'Any color',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the right of the box.',
+            name: 'border-right',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the bottom of the box.',
+            name: 'border-bottom',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the left of the box.',
+            name: 'border-left',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            description: 'Set if you want a border on all sides of the box.',
+            name: 'border',
+            value: '<border-style> <border-width> <border-color>',
         },
         {
             default: 'unset',
@@ -69,28 +93,28 @@ export class BoxLinkProperties {
             description: 'Set the left and right margin of the box.',
             name: 'margin-sides',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: '0px',
             description: 'Set the top and bottom margin of the box.',
             name: 'margin-ends',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: 'var(--s1)',
             description: 'Set the left and right padding of the box.',
             name: 'padding-sides',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: 'var(--s0)',
             description: 'Set the top and bottom padding of the box. Leave blank for not padding.',
             name: 'padding-ends',
             value: 'Any length value (1rem, 15px).' +
-            ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
+                ' It is advised that you use the Core Scale Properties. ex: var(--s1).',
         },
         {
             default: 'false',

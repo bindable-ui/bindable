@@ -10,7 +10,15 @@ export class LBox {
     @bindable
     public background = 'unset';
     @bindable
-    public borderTop;
+    public borderTop = 'unset';
+    @bindable
+    public borderRight = 'unset';
+    @bindable
+    public borderLeft = 'unset';
+    @bindable
+    public borderBottom = 'unset';
+    @bindable
+    public border;
     @bindable
     public color = 'unset';
     @bindable

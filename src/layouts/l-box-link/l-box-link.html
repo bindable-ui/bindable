@@ -10,7 +10,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         class="
             ${styles.box}
             ${styles.backgroundHover}
-            ${borderTop ? styles.borderTop : ''}
+            ${border ? styles.border : ''}
             ${scrolling ? styles.scrolling : ''}
             ${fillSpace ? styles.fillSpace : ''}
         "
@@ -21,8 +21,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             --box-padding-sides: ${paddingSides};
             --box-background: ${background};
             --box-color: ${color};
-            --box-top-border: ${borderTop};
             --box-background-hover: ${backgroundHover};
+            --box-border-top: ${borderTop};
+            --box-border-right: ${borderRight};
+            --box-border-bottom: ${borderBottom};
+            --box-border-left: ${borderLeft};
+            --box-border: ${border};
         "
         href.bind="href"
         target="${target}"
