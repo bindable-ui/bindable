@@ -12,6 +12,16 @@ export class EMediaObject {
     @bindable
     public background: string = 'var(--c_slate)';
     @bindable
+    public borderTop: string = 'unset';
+    @bindable
+    public borderRight: string = 'unset';
+    @bindable
+    public borderBottom: string = 'unset';
+    @bindable
+    public borderLeft: string = 'unset';
+    @bindable
+    public border: string;
+    @bindable
     public center: boolean = true;
     @bindable
     public mediaWidth: string = 'unset';
