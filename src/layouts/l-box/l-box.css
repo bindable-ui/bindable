@@ -32,6 +32,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     padding-left:  var(--box-padding-sides);
     background: var(--box-background);
     color: var(--box-color);
+    border-top: var(--box-border-top);
+    border-right: var(--box-border-right);
+    border-bottom: var(--box-border-bottom);
+    border-left: var(--box-border-left);
+    transition: border-color var(--trans_main);
     display: block;
 }
 
@@ -39,14 +44,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     height: 100%;
 }
 
-.border-top{
-    border-top: solid 1px var(--box-top-border);
+.border{
+    border: var(--box-border) !important;
 }
 
 /* used in l-box-link */
 .background-hover{
     text-decoration: none;
-    transition: background var(--trans_main);
+    transition: background var(--trans_main), border-color var(--trans_main);
 }
 
 .background-hover:hover{

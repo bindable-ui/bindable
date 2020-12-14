@@ -35,7 +35,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
             <div>
                 <l-stack spacing="var(--s-3)">
-                    <c-h3>background, background-hover, color, &amp; border-top</c-h3>
+                    <c-h3>background, background-hover, color, &amp; border</c-h3>
                     <c-code-sample>
                         <l-stack>
                             <l-box-link background="white" color="black">
@@ -47,8 +47,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                             <l-box-link>
                                 <span>I am in a transparent box</span>
                             </l-box-link>
-                            <l-box-link background="var(--c_darkGray)" border-top="var(--c_primaryMain)">
+                            <l-box-link background="var(--c_darkGray)" border-top="solid 2px var(--c_primaryMain)">
                                 <span>I am in a top border box</span>
+                            </l-box-link>
+                            <l-box-link background="var(--c_darkGray)" border="solid 2px var(--c_primaryMain)">
+                                <span>I am in a full border box</span>
                             </l-box-link>
                         </l-stack>
                     </c-code-sample>

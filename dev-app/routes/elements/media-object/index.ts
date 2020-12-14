@@ -37,6 +37,35 @@ export class MediaObject {
             value: 'CSS color',
         },
         {
+            default: 'unset',
+            description: 'Set if you want a border on the top of the media-object.',
+            name: 'border-top',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the right of the media-object.',
+            name: 'border-right',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the bottom of the media-object.',
+            name: 'border-bottom',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the left of the media-object.',
+            name: 'border-left',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            description: 'Set if you want a border on all sides of the media-object.',
+            name: 'border',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
             default: 'true',
             description:
                 'Vertically center the items in the element.',
