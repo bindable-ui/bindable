@@ -17,6 +17,7 @@ export interface ITimeEntryBasic {
     duration: number;
     end?: string;
     icons?: string[];
+    noSnap?: boolean;
     sizeDay?: string;
     sizeWeek?: string;
     start: string;
@@ -46,6 +47,7 @@ export interface ITimeBlock {
 }
 
 export interface ITimeDay {
+
     currentTimeLine?: number;
     blocks: ITimeBlock[];
     date: string;
@@ -59,4 +61,6 @@ export interface ITimeDay {
     pollingTracker?: any;
     startTime?: string;
     today?: boolean;
+    getEntries?(): Promise<void>;
+    pollEntries?(): Promise<void>;
 }

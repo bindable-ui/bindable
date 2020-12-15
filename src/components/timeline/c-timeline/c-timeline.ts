@@ -96,12 +96,6 @@ export class CTimeline {
     @bindable
     public isLoading: boolean = false;
 
-    @bindable
-    public isLoadingTop: boolean = false;
-
-    @bindable
-    public isLoadingBottom: boolean = false;
-
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public date: string;
 
@@ -146,6 +140,12 @@ export class CTimeline {
 
     @bindable
     public scrollTime: string = null;
+
+    @bindable
+    public forceUpdate: string = null;
+
+    @bindable
+    public forcePoll: string = null;
 
     @bindable
     public pollingInterval: number = MILLIS_IN_SECOND * SECONDS_IN_MINUTE;
@@ -270,10 +270,13 @@ export class CTimeline {
             const entries = dayWeek.entries;
 
             if (this.snapAdd) {
-                (matchingEntries as any[]) = _.filter(entries, entry =>
-                    moment(entry.start)
-                        .add(entry.duration, 'seconds')
-                        .isBetween(startTime, endTime, null, '[)'),
+                (matchingEntries as any[]) = _.filter(
+                    entries,
+                    entry =>
+                        !entry.noSnap &&
+                        moment(entry.start)
+                            .add(entry.duration, 'seconds')
+                            .isBetween(startTime, endTime, null, '[)'),
                 );
             }
 
@@ -471,6 +474,32 @@ export class CTimeline {
         }
 
         this.scrollToSpot(this.scrollTime);
+    }
+
+    public forcePollChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
+        _.forEach(this.displayDays, day => {
+            if (day.pollingTracker && _.isFunction(day.pollEntries)) {
+                day.pollEntries();
+            }
+        });
+    }
+
+    public forceUpdateChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
+        _.forEach(this.displayDays, day => {
+            if (_.isFunction(day.getEntries)) {
+                day.getEntries();
+            }
+        });
     }
 
     /**
@@ -739,25 +768,31 @@ export class CTimeline {
                 return;
             }
 
+            if (this.actions.getEntries) {
+                day.getEntries = async () => {
+                    day.isLoading = true;
+                    const entries = await this.actions.getEntries(day.startTime, day.endTime);
+                    day.entries = await filterMapEntries(
+                        entries,
+                        this.pxPerMinute,
+                        day.startTime,
+                        day.endTime,
+                        this.timeView,
+                        this.editEntryViewModel,
+                        day.date,
+                        this.tzOffset,
+                        this.zoomLevel,
+                    );
+
+                    this.taskQueue.queueMicroTask(() => {
+                        day.isLoading = false;
+                    });
+                };
+            }
+
             if (this.actions.getEntries && !day.entries.length && !day.isLoading) {
                 // Get the data
-                day.isLoading = true;
-                const entries = await this.actions.getEntries(day.startTime, day.endTime);
-                day.entries = await filterMapEntries(
-                    entries,
-                    this.pxPerMinute,
-                    day.startTime,
-                    day.endTime,
-                    this.timeView,
-                    this.editEntryViewModel,
-                    day.date,
-                    this.tzOffset,
-                    this.zoomLevel,
-                );
-
-                this.taskQueue.queueMicroTask(() => {
-                    day.isLoading = false;
-                });
+                day.getEntries();
             } else if (day.entries.length && !day.isLoading) {
                 // Update existing data
                 day.isLoading = true;
@@ -779,9 +814,8 @@ export class CTimeline {
                 });
             }
 
-            if (this.actions.pollEntries && !day.pollingTracker) {
-                // Start polling if possible
-                day.pollingTracker = setInterval(async () => {
+            if (this.actions.pollEntries) {
+                day.pollEntries = async () => {
                     const entries = await this.actions.pollEntries(day.startTime, day.endTime, day.entries);
 
                     if (entries && entries.length) {
@@ -797,6 +831,13 @@ export class CTimeline {
                             this.zoomLevel,
                         );
                     }
+                };
+            }
+
+            if (this.actions.pollEntries && !day.pollingTracker) {
+                // Start polling if possible
+                day.pollingTracker = setInterval(async () => {
+                    day.pollEntries();
                 }, this.pollingInterval);
             }
         });
