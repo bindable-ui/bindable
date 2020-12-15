@@ -95,11 +95,47 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .row > [data-value='cover']{
     margin-left: 0;
     margin-right: auto;
+    width: 100%;
 }
 
 .row.center > *{
     margin-top: auto !important;
     margin-bottom: auto !important;
+}
+
+@media screen and (max-width: 500px) {
+    .row-stack-small{
+        flex-direction: column;
+    }
+
+    .row-stack-small > *{
+        margin-right: unset !important;
+        margin-left: unset !important;
+    }
+
+    .row-stack-small > *,
+    .row-stack-small.center > *{
+        margin-top: var(--cover-bottom-gutter) !important;
+        margin-bottom: var(--cover-top-gutter) !important;
+    }
+
+    .row-stack-small > :first-child:not([data-value='cover']),
+    .row-stack-small.center > :first-child:not([data-value='cover']){
+        margin-top: 0 !important;
+    }
+
+    .row-stack-small > :last-child:not([data-value='cover']),
+    .row-stack-small.center > :last-child:not([data-value='cover']){
+        margin-bottom: 0 !important;
+    }
+
+    .row-stack-small > [data-value='cover'],
+    .row-stack-small.center > [data-value='cover']{
+        margin-top: 0 !important;
+        margin-bottom: auto !important;
+        width: auto;
+    }
+
 }
 
 

@@ -12,6 +12,8 @@ export class LCover {
     @bindable
     public row = false;
     @bindable
+    public rowStackSmall = false;
+    @bindable
     public paddingTop = '0';
     @bindable
     public paddingRight = '0';

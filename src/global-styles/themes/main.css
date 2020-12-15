@@ -1111,7 +1111,7 @@ c-code{
     --h1-font-family: var(--ff_primary-bold);
     --h1-font-size: var(--s3);
     --h1-truncate-min-height: var(--s4);
-    --h1-not-flush-truncate-min-height: var(--s5);
+    --h1-not-flush-truncate-min-height: calc(var(--s4) + 6.94px);
     --h1-truncate-padding-right: var(--s-1);
     --h1-truncate-hover-background: var(--c_slate);
 }

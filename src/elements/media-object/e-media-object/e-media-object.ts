@@ -12,6 +12,16 @@ export class EMediaObject {
     @bindable
     public background: string = 'var(--c_slate)';
     @bindable
+    public borderTop: string = 'unset';
+    @bindable
+    public borderRight: string = 'unset';
+    @bindable
+    public borderBottom: string = 'unset';
+    @bindable
+    public borderLeft: string = 'unset';
+    @bindable
+    public border: string;
+    @bindable
     public center: boolean = true;
     @bindable
     public mediaWidth: string = 'unset';
@@ -31,6 +41,12 @@ export class EMediaObject {
     public leftGutter: string = 'var(--s-3)';
     @bindable
     public rightGutter: string = 'var(--s-3)';
+    @bindable
+    public topGutter: string = 'var(--s-3)';
+    @bindable
+    public bottomGutter: string = 'var(--s-3)';
+    @bindable
+    public rowStackSmall: boolean = true;
 
     public rightId = generateRandom();
 

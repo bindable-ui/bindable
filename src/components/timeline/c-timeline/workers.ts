@@ -248,7 +248,7 @@ function filterEntriesDayFn(entries: any[], startTime: string, endTime: string) 
         const startDate = new Date(startTime);
         const endDate = new Date(endTime);
 
-        const startIn = entryStart.getTime() > startDate.getTime() && entryStart.getTime() < endDate.getTime();
+        const startIn = entryStart.getTime() >= startDate.getTime() && entryStart.getTime() < endDate.getTime();
         const endIn = entryEnd.getTime() > startDate.getTime() && entryStart.getTime() < endDate.getTime();
 
         return startIn || endIn;

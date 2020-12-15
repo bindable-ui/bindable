@@ -58,6 +58,18 @@ describe('l-box component', () => {
                 }
             });
 
+            it('css class: border', async done => {
+                component = StageComponent.withResources().inView('<l-box></l-box>');
+
+                try {
+                    await bootStrapEnvironment(component);
+                    expect(component.viewModel.styles.border).not.toBe(undefined);
+                    done();
+                } catch (e) {
+                    done.fail(e);
+                }
+            });
+
             it('css class: scrolling', async done => {
                 component = StageComponent.withResources().inView('<l-box></l-box>');
 

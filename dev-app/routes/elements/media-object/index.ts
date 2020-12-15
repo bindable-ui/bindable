@@ -37,6 +37,35 @@ export class MediaObject {
             value: 'CSS color',
         },
         {
+            default: 'unset',
+            description: 'Set if you want a border on the top of the media-object.',
+            name: 'border-top',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the right of the media-object.',
+            name: 'border-right',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the bottom of the media-object.',
+            name: 'border-bottom',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            default: 'unset',
+            description: 'Set if you want a border on the left of the media-object.',
+            name: 'border-left',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
+            description: 'Set if you want a border on all sides of the media-object.',
+            name: 'border',
+            value: '<border-style> <border-width> <border-color>',
+        },
+        {
             default: 'true',
             description:
                 'Vertically center the items in the element.',
@@ -108,6 +137,27 @@ export class MediaObject {
                 'Set the spacing of the right gutter of the element.',
             name: 'right-gutter',
             value: 'Any length value (1rem, 15px). It is advised that you use the Core Scale Properties. ex: var(--s1).',
+        },
+        {
+            default: 'var(--s-3)',
+            description:
+                'Set the spacing of the top gutter of the element.',
+            name: 'top-gutter',
+            value: 'Any length value (1rem, 15px). It is advised that you use the Core Scale Properties. ex: var(--s1).',
+        },
+        {
+            default: 'var(--s-3)',
+            description:
+                'Set the spacing of the bottom gutter of the element.',
+            name: 'bottom-gutter',
+            value: 'Any length value (1rem, 15px). It is advised that you use the Core Scale Properties. ex: var(--s1).',
+        },
+        {
+            default: 'true',
+            description:
+                'Set to false if you do not want the itmes to stack on small screens.',
+            name: 'row-stack-small',
+            value: 'boolean',
         },
     ];
 
