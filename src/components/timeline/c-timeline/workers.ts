@@ -3,7 +3,6 @@ Copyright 2020, Verizon Media
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
-import {nextTick} from 'process';
 import * as SWorker from 'simple-web-worker';
 
 import {ITimeEntry} from './c-timeline-interfaces';
@@ -84,6 +83,12 @@ function mapEntriesFn(
             if (!date) {
                 entry.start = startTime;
             }
+
+            // Cleanup from previous runs
+            entry.widthCalc = null;
+            entry.rightCalc = null;
+            entry.column = null;
+            entry.virtualColumn = null;
 
             entry.startTime = zoom === 5 ? formatHHmmss(entry.start) : formatHHmm(entry.start);
 

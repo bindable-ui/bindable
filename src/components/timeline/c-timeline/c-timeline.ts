@@ -782,18 +782,21 @@ export class CTimeline {
             if (this.actions.pollEntries && !day.pollingTracker) {
                 // Start polling if possible
                 day.pollingTracker = setInterval(async () => {
-                    const entries = await this.actions.pollEntries(day.startTime, day.endTime);
-                    day.entries = await filterMapEntries(
-                        entries,
-                        this.pxPerMinute,
-                        day.startTime,
-                        day.endTime,
-                        this.timeView,
-                        this.editEntryViewModel,
-                        day.date,
-                        this.tzOffset,
-                        this.zoomLevel,
-                    );
+                    const entries = await this.actions.pollEntries(day.startTime, day.endTime, day.entries);
+
+                    if (entries && entries.length) {
+                        day.entries = await filterMapEntries(
+                            entries,
+                            this.pxPerMinute,
+                            day.startTime,
+                            day.endTime,
+                            this.timeView,
+                            this.editEntryViewModel,
+                            day.date,
+                            this.tzOffset,
+                            this.zoomLevel,
+                        );
+                    }
                 }, this.pollingInterval);
             }
         });

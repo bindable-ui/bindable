@@ -5,7 +5,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 export interface ITimelineActions {
     getEntries?(start, end): Promise<any[]>;
-    pollEntries?(start, end): Promise<any[]>;
+    pollEntries?(start, end, entries): Promise<any[]>;
 }
 
 export interface ITimeEntryBasic {
