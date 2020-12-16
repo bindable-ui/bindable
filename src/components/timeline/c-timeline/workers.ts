@@ -212,7 +212,7 @@ function mapEntriesFn(
             });
 
             // Use array map to sort columns to keep the original index
-            columnsPriority.sort((a, b) => a.priority || 0 - b.priority || 0);
+            columnsPriority.sort((a, b) => b.priority || 0 - a.priority || 0);
 
             // Change the entry column to match priority
             nestedEntries.forEach(entry => {
