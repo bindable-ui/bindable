@@ -24,9 +24,25 @@ const actions = [
 
 let worker: any = null;
 
-if (window.Worker) {
-    worker = SWorker.create(actions);
-}
+// Cleanup workers after they have been used
+const cleanupWorkers = _.throttle(
+    () => {
+        if (worker) {
+            worker = null;
+        }
+    },
+    5000,
+    {leading: false, trailing: true},
+);
+
+const setupWorkers = () => {
+    if (!worker) {
+        worker = SWorker.create(actions);
+    }
+
+    // Stop any cleanup when we are starting a new function
+    cleanupWorkers.cancel();
+};
 
 function mapEntriesFn(
     sortedEntries: any[],
@@ -273,7 +289,8 @@ export const mapEntries = async (
     zoomLevel: number,
 ): Promise<ITimeEntry[]> => {
     if (window.Worker) {
-        return await worker.postMessage('mapEntries', [
+        setupWorkers();
+        const res = await worker.postMessage('mapEntries', [
             sortedEntries,
             pxPerMinute,
             startTime,
@@ -284,6 +301,8 @@ export const mapEntries = async (
             tzOffset,
             zoomLevel,
         ]);
+        cleanupWorkers();
+        return res;
     }
 
     return mapEntriesFn(
@@ -301,7 +320,10 @@ export const mapEntries = async (
 
 export const filterEntriesDay = async (entries: any[], startTime: string, endTime: string): Promise<any[]> => {
     if (window.Worker) {
-        return await worker.postMessage('filterEntriesDay', [entries, startTime, endTime]);
+        setupWorkers();
+        const res = await worker.postMessage('filterEntriesDay', [entries, startTime, endTime]);
+        cleanupWorkers();
+        return res;
     }
 
     return filterEntriesDayFn(entries, startTime, endTime);
@@ -309,7 +331,10 @@ export const filterEntriesDay = async (entries: any[], startTime: string, endTim
 
 export const sortEntries = async (entries: any[]): Promise<any[]> => {
     if (window.Worker) {
-        return await worker.postMessage('sortEntries', [entries]);
+        setupWorkers();
+        const res = await worker.postMessage('sortEntries', [entries]);
+        cleanupWorkers();
+        return res;
     }
 
     return sortEntriesFn(entries);
