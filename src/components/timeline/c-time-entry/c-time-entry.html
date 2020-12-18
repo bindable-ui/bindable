@@ -4,7 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-	<require from="./c-time-entry.css"></require>
+    <require from="./c-time-entry.css"></require>
 
     <div
         class="
@@ -70,4 +70,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             </div>
         </div>
     </div>
+    <div
+        class="
+            ${styles.arrow}
+            ${item.height < 6 ? styles.noTriangle : ''}
+        "
+        css="
+            height: ${item.height}px;
+            top: calc(${item.top}px + 2px);
+            right: calc(${item.widthCalc ? item.widthCalc : ''} + ${item.rightCalc ? item.rightCalc : ''} - 2px);
+            --time-entry-background: ${item.background ? item.background : '#252525'};
+            --time-entry-accent-color: ${item.accentColor ? item.accentColor : 'var(--c_gray)'};
+            --time-entry-color: ${item.color ? item.color : 'inherit'};
+        "
+        if.bind="item.arrow"
+    ></div>
 </template>

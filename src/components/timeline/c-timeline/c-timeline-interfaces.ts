@@ -12,6 +12,7 @@ export interface ITimeEntryBasic {
     accentColor?: string;
     active?: boolean;
     altTime?: string;
+    arrow?: boolean;
     background?: string;
     color?: string;
     duration: number;
@@ -47,7 +48,6 @@ export interface ITimeBlock {
 }
 
 export interface ITimeDay {
-
     currentTimeLine?: number;
     blocks: ITimeBlock[];
     date: string;

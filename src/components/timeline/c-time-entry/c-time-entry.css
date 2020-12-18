@@ -10,6 +10,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /**
  *  ENTRY
  *  CLICKABLE
+ *  ARROW
  *  ACTIVE
  *  CONTAINER
  *      - Info
@@ -73,6 +74,76 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 .clickable:hover:before{
     opacity: 0.8;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !ARROW
+\*------------------------------------*/
+
+.arrow{
+    position: absolute;
+    background: var(--time-crossover-arrow-color);
+    width: 8px !important;
+    max-height: 6px;
+    z-index: var(--z_timeLineEntryArrow);
+    transition: background var(--trans_main);
+}
+
+.arrow:before,
+.arrow:after{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    content: '';
+    border: 3px solid transparent;
+    border-collapse: separate;
+}
+
+.arrow:after{
+    border-right-color: var(--time-crossover-arrow-color);
+    right: 8px;
+    transition: border-right-color var(--trans_main);
+}
+
+.arrow:before{
+    border-left-color: var(--time-crossover-arrow-color);
+    left: 8px;
+    transition: border-left-color var(--trans_main);
+}
+
+.no-triangle:before,
+.no-triangle:after{
+    opacity: 0;
+}
+
+.entry:hover + .arrow,
+:global(.popover-open) + :local(.arrow){
+    z-index: 6;
+    height: 6px !important;
+    background: var(--time-crossover-arrow-color-hover);
+} 
+
+:global(.popover-open) + :local(.arrow){
+    z-index: var(--z_timeEntryActiveArrow) !important;
+}
+
+.entry:hover + .no-triangle:before,
+.entry:hover + .no-triangle:after{
+    opacity: 1 !important;
+}
+
+.entry:hover + .arrow:after,
+:global(.popover-open) + :local(.arrow:after){
+    border-right-color: var(--time-crossover-arrow-color-hover);
+}
+
+.entry:hover + .arrow:before,
+:global(.popover-open) + :local(.arrow:after){
+    border-left-color: var(--time-crossover-arrow-color-hover);
 }
 
 
