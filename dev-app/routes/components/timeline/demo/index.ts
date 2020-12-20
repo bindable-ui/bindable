@@ -6,7 +6,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 import * as moment from 'moment';
 
 export class TimelineExample {
-    public today = moment().startOf('day').startOf('week').add(4, 'days').toISOString();
+    public today = moment().startOf('day').toISOString();
     public entries: any = [
         {
             accentColor: '#8E5DB2',
@@ -87,61 +87,22 @@ export class TimelineExample {
     public preventCreate = false;
 
     public actions = {
-        getEntries: (start, _end) => {
-            const now = moment(start)
-                .startOf('day')
-                .add(12, 'hours');
+        getEntries: (start, _end) =>
+            _.map(_.times(this.genRandom(100, 200), () => {
+                let priority = parseInt(this.genRandom(0, 10), 10);
 
-            const sortedEntries: any[] = [
-                {
-                    duration: 240,
-                    start: now.toISOString(),
-                },
-                {
-                    duration: 120,
-                    start: moment(now)
-                        .add(3, 'minutes')
-                        .toISOString(),
-                },
-                {
-                    duration: 1200,
-                    priority: 10,
-                    title: 'has priority',
-                    start: moment(now)
-                        .add(1, 'hour')
-                        .toISOString(),
-                },
-                {
-                    duration: 1200,
-                    start: moment(now)
-                        .add(1, 'hour')
-                        .toISOString(),
-                },
-                {
-                    duration: 120,
-                    start: moment(now)
-                        .add(1, 'day')
-                        .toISOString(),
-                },
-            ];
+                if (priority < 5) {
+                    priority = null;
+                }
 
-            return sortedEntries;
-        }
-            // _.map(_.times(this.genRandom(10, 20), () => {
-            //     let priority = parseInt(this.genRandom(0, 10), 10);
-
-            //     if (priority < 5) {
-            //         priority = null;
-            //     }
-
-            //     return {
-            //         accentColor: this.genHex(),
-            //         duration: this.genRandom(60, 5000),
-            //         priority: priority,
-            //         start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
-            //         title: `Something Clever - Priority: ${priority}`,
-            //     };
-            // })),
+                return {
+                    accentColor: this.genHex(),
+                    duration: this.genRandom(60, 5000),
+                    priority: priority,
+                    start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
+                    title: `Something Clever - Priority: ${priority}`,
+                };
+            })),
         // pollEntries: (start, _end) =>
         //     _.map(_.times(this.genRandom(10, 500), () => ({
         //         accentColor: this.genHex(),

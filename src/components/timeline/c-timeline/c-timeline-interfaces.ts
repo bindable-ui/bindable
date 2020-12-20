@@ -51,6 +51,7 @@ export interface ITimeDay {
     currentTimeLine?: number;
     blocks: ITimeBlock[];
     date: string;
+    displayDate: string;
     endTime?: string;
     entries: ITimeEntry[];
     hidden?: boolean;
@@ -61,6 +62,4 @@ export interface ITimeDay {
     pollingTracker?: any;
     startTime?: string;
     today?: boolean;
-    getEntries?(): Promise<void>;
-    pollEntries?(): Promise<void>;
 }

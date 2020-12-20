@@ -288,6 +288,10 @@ export const mapEntries = async (
     tzOffset: number,
     zoomLevel: number,
 ): Promise<ITimeEntry[]> => {
+    if (!sortedEntries || !sortedEntries.length) {
+        return [];
+    }
+
     if (window.Worker) {
         setupWorkers();
         const res = await worker.postMessage('mapEntries', [
@@ -319,6 +323,10 @@ export const mapEntries = async (
 };
 
 export const filterEntriesDay = async (entries: any[], startTime: string, endTime: string): Promise<any[]> => {
+    if (!entries || !entries.length) {
+        return [];
+    }
+
     if (window.Worker) {
         setupWorkers();
         const res = await worker.postMessage('filterEntriesDay', [entries, startTime, endTime]);
@@ -330,6 +338,10 @@ export const filterEntriesDay = async (entries: any[], startTime: string, endTim
 };
 
 export const sortEntries = async (entries: any[]): Promise<any[]> => {
+    if (!entries || !entries.length) {
+        return [];
+    }
+
     if (window.Worker) {
         setupWorkers();
         const res = await worker.postMessage('sortEntries', [entries]);
@@ -351,6 +363,10 @@ export const filterMapEntries = async (
     tzOffset: number,
     zoomLevel: number,
 ): Promise<ITimeEntry[]> => {
+    if (!entries || !entries.length) {
+        return [];
+    }
+
     const filteredEntries = await filterEntriesDay(entries, startTime, endTime);
     const sortedEntries = await sortEntries(filteredEntries);
     return await mapEntries(

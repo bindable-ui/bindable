@@ -55,6 +55,7 @@ const HOURS_IN_DAY = 24;
 const TIME_REGEX = /^[0-9]{1,4}$/;
 const SECONDS_IN_MINUTE = 60;
 const MILLIS_IN_SECOND = 1000;
+const DATE_FORMAT = 'MMDDYYYY';
 
 /**
  * Create arrays that show the times allowed for blocks to appear at each zoom level
@@ -152,8 +153,8 @@ export class CTimeline {
 
     public blocks: ITimeBlock[] = [];
     public displayDays: ITimeDay[] = [];
-    public currentTimeLine: number = -1;
     public currentTimeLineTracker = null;
+    public pollingTracker = null;
     public scrollCurrentTime: boolean = true;
     public scrollLastSpot: boolean = false;
     public parentScrollElem: JQuery<HTMLElement> = null;
@@ -167,11 +168,13 @@ export class CTimeline {
     /**
      * Build out the timeline. Put in a throttle so it doesn't bind up
      */
-    public buildTimeline = _.debounce(
-        () => {
+    public buildTimeline = _.throttle(
+        async () => {
             this.buildBlocks();
             this.calculateCurrentTimeLine();
-            this.transformEntries();
+
+            this.getAndTransformEntries();
+            this.setupPolling();
 
             this.taskQueue.queueMicroTask(() => {
                 this.trackPosistion.cancel();
@@ -189,7 +192,7 @@ export class CTimeline {
             });
         },
         200,
-        {trailing: false, leading: true},
+        {trailing: true, leading: false},
     );
 
     /**
@@ -229,6 +232,9 @@ export class CTimeline {
         }
     }, 100);
 
+    /**
+     * Function that fires when you click on the timeline
+     */
     public togglePopover = _.debounce(
         ($event, day: ITimeDay) => {
             if (
@@ -343,6 +349,9 @@ export class CTimeline {
         {leading: true, trailing: false},
     );
 
+    /**
+     * Figure out where to put the current time indicator
+     */
     private calculateCurrentTimeLine = _.throttle(
         () => {
             if (this.timeView === 'month') {
@@ -352,25 +361,38 @@ export class CTimeline {
             const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
             const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
 
-            const [startTime, endTime] = this.getDayStartEndTimes();
             const now = moment();
 
             _.forEach(this.displayDays, day => {
-                if (now.isBetween(startTime, endTime, null, '()')) {
-                    const diff = now.diff(startTime, 'seconds');
+                if (now.isBetween(day.startTime, day.endTime, null, '()')) {
+                    const diff = now.diff(day.startTime, 'seconds');
                     day.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
                 } else {
                     day.currentTimeLine = -1;
                 }
-
-                startTime.add(1, 'day');
-                endTime.add(1, 'day');
             });
         },
         250,
         {trailing: true, leading: false},
     );
 
+    /**
+     * Render the timeline on a delay
+     */
+    private renderTimeline = _.throttle(
+        () => {
+            // If there is no delay, the browser chokes up and doesn't
+            // display the loading indicator until the very end
+            // 50ms wait seems to be a good middle ground
+            this.buildTimeline();
+        },
+        100,
+        {trailing: true, leading: false},
+    );
+
+    /**
+     * Track scrolling position
+     */
     private trackPosistion = _.debounce(
         () => {
             if (this.isLoading || this.preventScrollCheck) {
@@ -405,9 +427,12 @@ export class CTimeline {
         this.getParentScrollElem();
         this.buildTimeline();
 
-        this.currentTimeLineTracker = setInterval(() => {
-            this.calculateCurrentTimeLine();
-        }, SECONDS_IN_MINUTE * 1000);
+        // Wait for blocks to be built
+        _.delay(() => {
+            this.currentTimeLineTracker = setInterval(() => {
+                this.calculateCurrentTimeLine();
+            }, SECONDS_IN_MINUTE * 1000);
+        }, 250);
 
         $(this.parentScrollElem).on('scroll', this.trackPosistion);
     }
@@ -415,6 +440,10 @@ export class CTimeline {
     public detatched() {
         if (this.currentTimeLineTracker) {
             clearInterval(this.currentTimeLineTracker);
+        }
+
+        if (this.pollingTracker) {
+            clearInterval(this.pollingTracker);
         }
 
         if (this.parentScrollElem) {
@@ -473,7 +502,8 @@ export class CTimeline {
             return;
         }
 
-        this.scrollToSpot(this.scrollTime);
+        // Wait until the throttle has hit for building the blocks
+        _.delay(() => this.scrollToSpot(this.scrollTime), 250);
     }
 
     public forcePollChanged(_new, old) {
@@ -482,11 +512,7 @@ export class CTimeline {
             return;
         }
 
-        _.forEach(this.displayDays, day => {
-            if (day.pollingTracker && _.isFunction(day.pollEntries)) {
-                day.pollEntries();
-            }
-        });
+        this.pollDays();
     }
 
     public forceUpdateChanged(_new, old) {
@@ -495,11 +521,8 @@ export class CTimeline {
             return;
         }
 
-        _.forEach(this.displayDays, day => {
-            if (_.isFunction(day.getEntries)) {
-                day.getEntries();
-            }
-        });
+        _.forEach(this.displayDays, day => (day.entries = null));
+        _.delay(() => this.renderTimeline(), 50);
     }
 
     /**
@@ -532,7 +555,6 @@ export class CTimeline {
     private setupTimezone(updateDate?: boolean) {
         const tzNames = moment.tz.names();
         const tzIndex = tzNames.findIndex(name => name === this.timezone);
-        this.tzOffset = this.getTzOffset();
 
         if (tzIndex > -1) {
             moment.tz.setDefault(this.timezone);
@@ -540,14 +562,14 @@ export class CTimeline {
             moment.tz.setDefault();
         }
 
+        this.tzOffset = this.getTzOffset();
+
         if (updateDate) {
             // This prevents issues where the date will look in the past and throw off the three-day view
             this.date = moment(this.date)
                 .add(this.tzOffset * -1, 'minutes')
                 .toISOString();
         }
-
-        this.renderTimeline();
     }
 
     /**
@@ -576,13 +598,6 @@ export class CTimeline {
         }
     }
 
-    private renderTimeline() {
-        // If there is no delay, the browser chokes up and doesn't
-        // display the loading indicator until the very end
-        // 50ms wait seems to be a good middle ground
-        _.delay(() => this.buildTimeline(), 50);
-    }
-
     /**
      * Scroll to a designated spot on the timeline
      */
@@ -593,20 +608,16 @@ export class CTimeline {
             let scrollTop = 0;
 
             if (time) {
-                const [startTime, endTime] = this.getDayStartEndTimes();
                 const now = moment(time, 'HH:mm');
 
                 let timeToScroll = -1;
 
-                _.forEach(this.displayDays, () => {
-                    if (now.isBetween(startTime, endTime, null, '()')) {
-                        const diff = now.diff(startTime, 'seconds');
+                _.forEach(this.displayDays, day => {
+                    if (now.isBetween(day.startTime, day.endTime, null, '()')) {
+                        const diff = now.diff(day.startTime, 'seconds');
                         timeToScroll = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
                         return false;
                     }
-
-                    startTime.add(1, 'day');
-                    endTime.add(1, 'day');
                 });
 
                 if (timeToScroll > -1) {
@@ -646,13 +657,49 @@ export class CTimeline {
     }
 
     /**
+     * Go through each display day and process polling updates.
+     * Only works if `actions.pollEntries` is a function
+     */
+    private pollDays() {
+        if (!_.isFunction(this.actions.pollEntries)) {
+            return;
+        }
+
+        _.forEach(this.displayDays, async day => {
+            let entries;
+
+            try {
+                entries = await this.actions.pollEntries(day.startTime, day.endTime, day.entries);
+            } catch (e) {
+                entries = [];
+            }
+
+            if (_.isEqual(entries, day.entries) || !_.isNull(entries)) {
+                return;
+            }
+
+            day.entries = await filterMapEntries(
+                entries,
+                this.pxPerMinute,
+                day.startTime,
+                day.endTime,
+                this.timeView,
+                this.editEntryViewModel,
+                day.date,
+                this.tzOffset,
+                this.zoomLevel,
+            );
+        });
+    }
+
+    /**
      * Put together the time blocks needed for the different views
      */
-    private buildBlocks() {
+    private async buildBlocks() {
         this.fixZoomBounds();
 
         let date: any = this.date ? moment(this.date) : moment();
-        date = date.startOf('day').toISOString();
+        date = date.startOf('day');
 
         let startTime;
         let endTime;
@@ -660,96 +707,88 @@ export class CTimeline {
 
         const [displayBlocksDay, startIndexes] = this.calculateBlocksNumStart();
 
-        // console.log('building Blocks!', this);
-
         switch (this.timeView) {
             case 'day':
                 this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
                 [startTime, endTime] = this.getDayStartEndTimes();
 
                 dayOfWeek = {
-                    date,
                     blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                    date: date.toISOString(),
+                    displayDate: date.format(DATE_FORMAT),
                     endTime: endTime.toISOString(),
-                    entries: [],
+                    entries: null,
                     hidden: false,
                     startTime: startTime.toISOString(),
-                    today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
+                    today: moment().format(DATE_FORMAT) === moment(date).format(DATE_FORMAT),
                 };
 
                 this.updateDisplayDays(dayOfWeek);
 
                 break;
             case 'week':
-                date = moment(date)
-                    .startOf('week')
-                    .toISOString();
+                date = moment(date).startOf('week');
 
                 this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
                 [startTime, endTime] = this.getDayStartEndTimes();
 
-                _.times(this.days, index => {
+                for (let index = 0; index < this.days; index += 1) {
                     dayOfWeek = {
-                        date,
                         blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                        date: date.toISOString(),
+                        displayDate: date.format(DATE_FORMAT),
                         endTime: endTime.toISOString(),
-                        entries: [],
+                        entries: null,
                         hidden: false,
                         startTime: startTime.toISOString(),
-                        today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
+                        today: moment().format(DATE_FORMAT) === moment(date).format(DATE_FORMAT),
                     };
 
                     if (index === 0) {
-                        this.updateDisplayDays(dayOfWeek, true, true);
+                        this.updateDisplayDays(dayOfWeek, true);
                     } else if (index === this.days - 1) {
-                        this.updateDisplayDays(dayOfWeek, true, false, true);
+                        this.updateDisplayDays(dayOfWeek, true);
                     } else {
                         this.updateDisplayDays(dayOfWeek, true);
                     }
 
                     startTime.add(1, 'day');
                     endTime.add(1, 'day');
-
-                    date = moment(date)
-                        .add(1, 'days')
-                        .toISOString();
-                });
+                    date.add(1, 'day');
+                }
                 break;
             case 'three-day':
                 date = moment(date)
                     .subtract(1, 'day')
-                    .startOf('day')
-                    .toISOString();
+                    .startOf('day');
 
                 this.blocks = this.buildDayBlocks(displayBlocksDay, startIndexes, date);
                 [startTime, endTime] = this.getDayStartEndTimes();
 
-                _.times(3, index => {
+                for (let index = 0; index < 3; index += 1) {
                     dayOfWeek = {
-                        date,
                         blocks: this.buildDayBlocks(displayBlocksDay, startIndexes, date),
+                        date: date.toISOString(),
+                        displayDate: date.format(DATE_FORMAT),
                         endTime: endTime.toISOString(),
-                        entries: [],
+                        entries: null,
                         hidden: false,
                         startTime: startTime.toISOString(),
-                        today: moment().format('MMDDYYYY') === moment(date).format('MMDDYYYY'),
+                        today: moment().format(DATE_FORMAT) === moment(date).format(DATE_FORMAT),
                     };
 
                     if (index === 0) {
-                        this.updateDisplayDays(dayOfWeek, true, true);
+                        this.updateDisplayDays(dayOfWeek, true);
                     } else if (index === 2) {
-                        this.updateDisplayDays(dayOfWeek, true, false, true);
+                        this.updateDisplayDays(dayOfWeek, true);
                     } else {
                         this.updateDisplayDays(dayOfWeek, true);
                     }
 
                     startTime.add(1, 'day');
                     endTime.add(1, 'day');
-
-                    date = moment(date)
-                        .add(1, 'days')
-                        .toISOString();
-                });
+                    date.add(1, 'day');
+                }
                 break;
             case 'month':
                 date = moment(date)
@@ -758,89 +797,6 @@ export class CTimeline {
             default:
                 break;
         }
-
-        _.forEach(this.displayDays, async day => {
-            if (day.hidden) {
-                if (day.pollingTracker) {
-                    clearInterval(day.pollingTracker);
-                }
-
-                return;
-            }
-
-            if (this.actions.getEntries) {
-                day.getEntries = async () => {
-                    day.isLoading = true;
-                    const entries = await this.actions.getEntries(day.startTime, day.endTime);
-                    day.entries = await filterMapEntries(
-                        entries,
-                        this.pxPerMinute,
-                        day.startTime,
-                        day.endTime,
-                        this.timeView,
-                        this.editEntryViewModel,
-                        day.date,
-                        this.tzOffset,
-                        this.zoomLevel,
-                    );
-
-                    this.taskQueue.queueMicroTask(() => {
-                        day.isLoading = false;
-                    });
-                };
-            }
-
-            if (this.actions.getEntries && !day.entries.length && !day.isLoading) {
-                // Get the data
-                day.getEntries();
-            } else if (day.entries.length && !day.isLoading) {
-                // Update existing data
-                day.isLoading = true;
-
-                day.entries = await mapEntries(
-                    day.entries,
-                    this.pxPerMinute,
-                    day.startTime,
-                    day.endTime,
-                    this.timeView,
-                    this.editEntryViewModel,
-                    day.date,
-                    this.tzOffset,
-                    this.zoomLevel,
-                );
-
-                this.taskQueue.queueMicroTask(() => {
-                    day.isLoading = false;
-                });
-            }
-
-            if (this.actions.pollEntries) {
-                day.pollEntries = async () => {
-                    const entries = await this.actions.pollEntries(day.startTime, day.endTime, day.entries);
-
-                    if (entries && entries.length) {
-                        day.entries = await filterMapEntries(
-                            entries,
-                            this.pxPerMinute,
-                            day.startTime,
-                            day.endTime,
-                            this.timeView,
-                            this.editEntryViewModel,
-                            day.date,
-                            this.tzOffset,
-                            this.zoomLevel,
-                        );
-                    }
-                };
-            }
-
-            if (this.actions.pollEntries && !day.pollingTracker) {
-                // Start polling if possible
-                day.pollingTracker = setInterval(async () => {
-                    day.pollEntries();
-                }, this.pollingInterval);
-            }
-        });
     }
 
     /**
@@ -857,12 +813,94 @@ export class CTimeline {
         let a;
 
         for (a = 0; a < this.displayDays.length; a += 1) {
-            if (new Date(dayOfWeek.date).valueOf() < new Date(this.displayDays[a].date).valueOf()) {
+            if (
+                moment(dayOfWeek.displayDate, DATE_FORMAT).isBefore(
+                    moment(this.displayDays[a].displayDate, DATE_FORMAT),
+                )
+            ) {
                 break;
             }
         }
 
+        // Using splice for Aurelia to detect a change
         this.displayDays.splice(a, 0, dayOfWeek);
+    }
+
+    /**
+     * Will get entries per day if `actions.getEntries` is a function.
+     * Otherwise will just process the `entries` that were passed in.
+     */
+    private getAndTransformEntries() {
+        // If they just hand in a bucket of entries, handle that
+        if (this.entries.length) {
+            this.transformEntries();
+            return;
+        }
+
+        if (!_.isFunction(this.actions.getEntries)) {
+            return;
+        }
+
+        // Get data for every single date
+        _.forEach(this.displayDays, async day => {
+            if (day.isLoading) {
+                return;
+            }
+
+            day.isLoading = true;
+
+            // Just get the data once. Re-render the rest of the time
+            if (_.isNull(day.entries)) {
+                // Get the data
+                let entries;
+
+                try {
+                    entries = await this.actions.getEntries(day.startTime, day.endTime);
+                } catch (e) {
+                    entries = [];
+                }
+
+                day.entries = await filterMapEntries(
+                    entries,
+                    this.pxPerMinute,
+                    day.startTime,
+                    day.endTime,
+                    this.timeView,
+                    this.editEntryViewModel,
+                    day.date,
+                    this.tzOffset,
+                    this.zoomLevel,
+                );
+            } else if (day.entries.length) {
+                // Update existing data
+                day.entries = await mapEntries(
+                    day.entries,
+                    this.pxPerMinute,
+                    day.startTime,
+                    day.endTime,
+                    this.timeView,
+                    this.editEntryViewModel,
+                    day.date,
+                    this.tzOffset,
+                    this.zoomLevel,
+                );
+            }
+
+            this.taskQueue.queueMicroTask(() => {
+                day.isLoading = false;
+            });
+        });
+    }
+
+    /**
+     * Sets up the polling for individual days
+     */
+    private setupPolling() {
+        if (this.entries.length) {
+            return;
+        }
+
+        this.pollingTracker = setInterval(() => this.pollDays(), this.pollingInterval);
     }
 
     /**
@@ -871,49 +909,58 @@ export class CTimeline {
      *
      * @param dayOfWeek Current ITimeDay object
      * @param weekDay Is part of 3-Day or Week view
-     * @param beforeDay Update days before the start of the 3-Day/Week view
-     * @param afterDay Update days after the end of the 3-Day/Week view
      */
-    private updateDisplayDays(dayOfWeek: ITimeDay, weekDay?: boolean, beforeDay?: boolean, afterDay?: boolean) {
-        const existingDate = _.findIndex(this.displayDays, day => day.date === dayOfWeek.date);
+    private updateDisplayDays(dayOfWeek: ITimeDay, weekDay?: boolean) {
+        const existingDate = _.findIndex(this.displayDays, day => day.displayDate === dayOfWeek.displayDate);
 
-        if (!weekDay) {
-            // Single day view
-            for (let a = 0; a < this.displayDays.length; a += 1) {
-                if (dayOfWeek.date !== this.displayDays[a].date) {
-                    this.displayDays[a].hidden = true;
-                } else {
-                    this.displayDays[a].hidden = false;
-                    this.displayDays[a].blocks = dayOfWeek.blocks;
-                }
-
-                this.displayDays.splice(a, 1, this.displayDays[a]);
-            }
-
-            if (existingDate === -1) {
-                this.insertDayIntoWeek(dayOfWeek);
-            }
-        } else {
-            // 3-Day or Week view
-            if (existingDate > -1) {
-                this.displayDays[existingDate].hidden = false;
-                this.displayDays[existingDate].blocks = dayOfWeek.blocks;
-                this.displayDays.splice(existingDate, 1, this.displayDays[existingDate]);
-            } else {
-                this.insertDayIntoWeek(dayOfWeek);
-            }
+        if (existingDate === -1) {
+            this.insertDayIntoWeek(dayOfWeek);
+            return;
         }
 
-        // Start or End of week or 3-day view
-        if (beforeDay || afterDay) {
-            for (let a = 0; a < this.displayDays.length; a += 1) {
+        const newDay = _.cloneDeep(dayOfWeek);
+        newDay.entries = _.cloneDeep(this.displayDays[existingDate].entries);
+
+        let minDay;
+        let maxDay;
+
+        if (this.timeView === 'week') {
+            minDay = moment(this.date)
+                .startOf('week')
+                .format(DATE_FORMAT);
+            maxDay = moment(minDay, DATE_FORMAT)
+                .add(this.days, 'days')
+                .format(DATE_FORMAT);
+        } else if (this.timeView === 'three-day') {
+            minDay = moment(this.date)
+                .subtract(1, 'day')
+                .format(DATE_FORMAT);
+            maxDay = moment(this.date)
+                .add(1, 'day')
+                .format(DATE_FORMAT);
+        }
+
+        for (let a = 0; a < this.displayDays.length; a += 1) {
+            if (!weekDay) {
+                // Single day view
+                if (a !== existingDate) {
+                    this.displayDays[a].hidden = true;
+                }
+            } else {
+                // 3-day or Week view
                 if (
-                    (beforeDay && new Date(this.displayDays[a].date).valueOf() < new Date(dayOfWeek.date).valueOf()) ||
-                    (afterDay && new Date(this.displayDays[a].date).valueOf() > new Date(dayOfWeek.date).valueOf())
+                    moment(this.displayDays[a].displayDate, DATE_FORMAT).isAfter(moment(maxDay, DATE_FORMAT)) ||
+                    moment(this.displayDays[a].displayDate, DATE_FORMAT).isBefore(moment(minDay, DATE_FORMAT))
                 ) {
                     this.displayDays[a].hidden = true;
-                    this.displayDays.splice(a, 1, this.displayDays[a]);
                 }
+            }
+
+            // Using splice for Aurelia to detect a change
+            if (a === existingDate) {
+                this.displayDays.splice(a, 1, newDay);
+            } else {
+                this.displayDays.splice(a, 1, this.displayDays[a]);
             }
         }
     }
