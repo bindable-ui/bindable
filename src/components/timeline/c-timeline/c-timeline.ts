@@ -674,7 +674,7 @@ export class CTimeline {
                 entries = [];
             }
 
-            if (_.isEqual(entries, day.entries) || !_.isNull(entries)) {
+            if (_.isEqual(entries, day.entries) || _.isNull(entries)) {
                 return;
             }
 
