@@ -437,7 +437,7 @@ export class CTimeline {
         $(this.parentScrollElem).on('scroll', this.trackPosistion);
     }
 
-    public detatched() {
+    public detached() {
         if (this.currentTimeLineTracker) {
             clearInterval(this.currentTimeLineTracker);
         }
@@ -512,6 +512,8 @@ export class CTimeline {
             return;
         }
 
+        // Start interval over again
+        this.setupPolling();
         this.pollDays();
     }
 
@@ -896,6 +898,10 @@ export class CTimeline {
      * Sets up the polling for individual days
      */
     private setupPolling() {
+        if (this.pollingTracker) {
+            clearInterval(this.pollingTracker);
+        }
+
         if (this.entries.length) {
             return;
         }
@@ -911,15 +917,17 @@ export class CTimeline {
      * @param weekDay Is part of 3-Day or Week view
      */
     private updateDisplayDays(dayOfWeek: ITimeDay, weekDay?: boolean) {
-        const existingDate = _.findIndex(this.displayDays, day => day.displayDate === dayOfWeek.displayDate);
+        let existingDateIndex = _.findIndex(this.displayDays, day => day.displayDate === dayOfWeek.displayDate);
 
-        if (existingDate === -1) {
+        if (existingDateIndex === -1) {
             this.insertDayIntoWeek(dayOfWeek);
-            return;
         }
 
+        // Get this again now that it is inserted into the displayDays array
+        existingDateIndex = _.findIndex(this.displayDays, day => day.displayDate === dayOfWeek.displayDate);
+
         const newDay = _.cloneDeep(dayOfWeek);
-        newDay.entries = _.cloneDeep(this.displayDays[existingDate].entries);
+        newDay.entries = _.cloneDeep(this.displayDays[existingDateIndex].entries);
 
         let minDay;
         let maxDay;
@@ -943,7 +951,7 @@ export class CTimeline {
         for (let a = 0; a < this.displayDays.length; a += 1) {
             if (!weekDay) {
                 // Single day view
-                if (a !== existingDate) {
+                if (a !== existingDateIndex) {
                     this.displayDays[a].hidden = true;
                 }
             } else {
@@ -957,7 +965,7 @@ export class CTimeline {
             }
 
             // Using splice for Aurelia to detect a change
-            if (a === existingDate) {
+            if (a === existingDateIndex) {
                 this.displayDays.splice(a, 1, newDay);
             } else {
                 this.displayDays.splice(a, 1, this.displayDays[a]);
