@@ -431,7 +431,7 @@ export class CTimeline {
         _.delay(() => {
             this.currentTimeLineTracker = setInterval(() => {
                 this.calculateCurrentTimeLine();
-            }, (SECONDS_IN_MINUTE / 3) * 1000);
+            }, (SECONDS_IN_MINUTE / 2) * 1000);
         }, 250);
 
         $(this.parentScrollElem).on('scroll', this.trackPosistion);
