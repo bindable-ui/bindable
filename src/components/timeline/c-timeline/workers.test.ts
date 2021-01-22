@@ -85,7 +85,7 @@ describe('Web worker functions', () => {
         it('tests same column priority', async () => {
             const data = await mapEntries(sortedEntries, 2, startDay, endDay, 'day', '', now.toISOString(), 0, 2);
 
-            expect(data[2].column).toBe(1);
+            expect(data[2].column).toBe(0);
         });
     });
 });

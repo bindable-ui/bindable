@@ -14,9 +14,11 @@ import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
 const taskQueue = mock(TaskQueue);
 const toastsService = mock(CToastsService);
 
-// Mock _.debounce
+// Mock _.debounce and _.throttle
 // @ts-ignore
 jest.spyOn(_, 'debounce').mockImplementation(fn => fn);
+// @ts-ignore
+jest.spyOn(_, 'throttle').mockImplementation(fn => fn);
 
 $.fn.outerHeight = jest.fn().mockImplementation(() => 0);
 

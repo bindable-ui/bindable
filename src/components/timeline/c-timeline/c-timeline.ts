@@ -7,7 +7,7 @@ import {autoinject, bindable, bindingMode, containerless, TaskQueue} from 'aurel
 import * as moment from 'moment-timezone';
 
 import {ITimeBlock, ITimeDay, ITimeEntry, ITimeEntryBasic, ITimelineActions} from './c-timeline-interfaces';
-import {filterMapEntries, mapEntries} from './workers';
+import {cleanupWorkers, filterMapEntries, mapEntries} from './workers';
 
 import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
@@ -449,6 +449,8 @@ export class CTimeline {
         if (this.parentScrollElem) {
             $(this.parentScrollElem).off('scroll', this.trackPosistion);
         }
+
+        cleanupWorkers();
     }
 
     // Observable properties

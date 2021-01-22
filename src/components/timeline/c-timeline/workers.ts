@@ -25,23 +25,16 @@ const actions = [
 let worker: any = null;
 
 // Cleanup workers after they have been used
-const cleanupWorkers = _.throttle(
-    () => {
-        if (worker) {
-            worker = null;
-        }
-    },
-    5000,
-    {leading: false, trailing: true},
-);
+export const cleanupWorkers = () => {
+    if (worker) {
+        worker = null;
+    }
+};
 
 const setupWorkers = () => {
     if (!worker) {
         worker = SWorker.create(actions);
     }
-
-    // Stop any cleanup when we are starting a new function
-    cleanupWorkers.cancel();
 };
 
 function mapEntriesFn(
@@ -118,24 +111,24 @@ function mapEntriesFn(
             const startTimeDate: any = new Date(startTime);
             const entryEndDate: any = new Date(entry.end);
             const endTimeDate: any = new Date(endTime);
+            let entryDuration: number = entry.duration;
 
             let diff = (entryStartDate - startTimeDate) / 1000;
             const diffEnd = (endTimeDate - entryEndDate) / 1000;
 
             // If entry starts before the day, make sure it only displays what it needs
             if (diff < 0) {
-                entry.start = startTime;
-                entry.duration += diff;
+                entryDuration += diff;
                 diff = 0;
             }
 
             // If entry ends after the day, make sure it only displays what it needs
             if (diffEnd < 0) {
-                entry.duration += diffEnd;
+                entryDuration += diffEnd;
             }
 
             entry.top = (diff / SECONDS_IN_MINUTE) * pxPerMinute;
-            entry.height = (entry.duration / SECONDS_IN_MINUTE) * pxPerMinute;
+            entry.height = (entryDuration / SECONDS_IN_MINUTE) * pxPerMinute;
 
             if (editEntryViewModel) {
                 entry.contentViewModel = editEntryViewModel;
@@ -294,7 +287,8 @@ export const mapEntries = async (
 
     if (window.Worker) {
         setupWorkers();
-        const res = await worker.postMessage('mapEntries', [
+
+        return await worker.postMessage('mapEntries', [
             sortedEntries,
             pxPerMinute,
             startTime,
@@ -305,8 +299,6 @@ export const mapEntries = async (
             tzOffset,
             zoomLevel,
         ]);
-        cleanupWorkers();
-        return res;
     }
 
     return mapEntriesFn(
@@ -329,9 +321,8 @@ export const filterEntriesDay = async (entries: any[], startTime: string, endTim
 
     if (window.Worker) {
         setupWorkers();
-        const res = await worker.postMessage('filterEntriesDay', [entries, startTime, endTime]);
-        cleanupWorkers();
-        return res;
+
+        return await worker.postMessage('filterEntriesDay', [entries, startTime, endTime]);
     }
 
     return filterEntriesDayFn(entries, startTime, endTime);
@@ -344,9 +335,8 @@ export const sortEntries = async (entries: any[]): Promise<any[]> => {
 
     if (window.Worker) {
         setupWorkers();
-        const res = await worker.postMessage('sortEntries', [entries]);
-        cleanupWorkers();
-        return res;
+
+        return await worker.postMessage('sortEntries', [entries]);
     }
 
     return sortEntriesFn(entries);
