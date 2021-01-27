@@ -4,19 +4,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-	<require from="./l-sidebar.css"></require>
+    <require from="./l-sidebar.css"></require>
     <style
+        innerhtml.bind="styleTag"
         if.bind="scrolling && contentMin && sideWidth !== 'initial'"
-        media="screen and (max-width: ${whenToStack ? whenToStack : stackWidth})"
-    >
-        #${id},
-        #${id} > div,
-        #${id} > div > *{
-            height: auto;
-            max-height: unset
-        }
-    </style>
-
+    ></style>
+    
     <div
         class="
             ${scrolling ? styles.scrolling : ''}
