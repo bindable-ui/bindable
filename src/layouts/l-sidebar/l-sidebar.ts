@@ -27,6 +27,19 @@ export class LSidebar {
 
     public styles = styles;
     public stackWidth;
+    public styleTag;
+
+    public sideWidthChanged() {
+        this.setStyleTag();
+    }
+
+    public whenToStackChanged() {
+        this.setStyleTag();
+    }
+
+    public idChanged() {
+        this.setStyleTag();
+    }
 
     public attached() {
         if (typeof this.scrolling !== 'boolean') {
@@ -38,5 +51,20 @@ export class LSidebar {
         }
 
         this.stackWidth = `calc(${this.contentMin} + ${this.sideWidth})`;
+
+        this.setStyleTag();
+    }
+
+    private setStyleTag() {
+        this.styleTag = `
+            @media screen and (max-width: ${this.whenToStack ? this.whenToStack : this.sideWidth}){
+                #${this.id},
+                #${this.id} > div,
+                #${this.id} > div > *{
+                    height: auto;
+                    max-height: unset;
+                }
+            }
+        `;
     }
 }
