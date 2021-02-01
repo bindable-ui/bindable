@@ -916,8 +916,8 @@ c-tile{
     /* tip */
     --tile-tip-top: calc(var(--s-5) * -1);
     --tile-tip-right: calc(var(--s-5) * -1);
-    --tile-tip-padding: var(--s-5) var(--s-3);
-    --tile-tip-background: var(--c_charcoal);
+    --tile-tip-left: calc(var(--s-5) * -1);
+    --tile-tip-padding: var(--s-5) var(--s-2);
 
     /* status */
     --tile-status-height: var(--s-5);
