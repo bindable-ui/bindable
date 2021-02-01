@@ -200,13 +200,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     right: var(--tile-tip-right);
     padding: var(--tile-tip-padding);
     z-index: var(--z_tileTip);
-    background: var(--tile-tip-background);
-    opacity: 0;
-    transition: var(--trans_main) background, var(--trans_main) opacity;
+    background: var(--tile-background);
+    transition: var(--trans_main) background;
 }
 
 .tile:hover .tip{
-    opacity: 1;
+    background: var(--tile-background-hover);
 }
 
 .tip:hover{
