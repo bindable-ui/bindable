@@ -92,12 +92,6 @@ export class TileProperties {
             value: 'boolean',
         },
         {
-            default: 'false',
-            description: 'Set to true of you need to have a tip in the tile.',
-            name: 'show-tip',
-            value: 'boolean',
-        },
-        {
             default: '',
             description: 'Highlight search matches',
             name: 'search-match',
@@ -114,9 +108,27 @@ export class TileProperties {
             value: 'processing',
         },
         {
-            default: 'actions',
-            description: 'Set the icon that will trigger a tip.',
-            name: 'tip-icon',
+            default: 'false',
+            description: 'Set to true of you need to have the tip on the left always show. False will show it on hover.',
+            name: 'always-show-tip-left',
+            value: 'boolean',
+        },
+        {
+            default: '',
+            description: 'Set the icon on the left that will trigger a tip.',
+            name: 'tip-icon-left',
+            value: 'Any icon name',
+        },
+        {
+            default: 'false',
+            description: 'Set to true of you need to have the tip on the right always show. False will show it on hover.',
+            name: 'always-show-tip-right',
+            value: 'boolean',
+        },
+        {
+            default: '',
+            description: 'Set the icon on the right that will trigger a tip.',
+            name: 'tip-icon-right',
             value: 'Any icon name',
         },
         {
