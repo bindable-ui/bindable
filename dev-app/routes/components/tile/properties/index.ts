@@ -120,6 +120,12 @@ export class TileProperties {
             value: 'Any icon name',
         },
         {
+            default: '',
+            description: 'Set the color of the left icon.',
+            name: 'tip-icon-color-left',
+            value: 'CSS Color',
+        },
+        {
             default: 'false',
             description: 'Set to true of you need to have the tip on the right always show. False will show it on hover.',
             name: 'always-show-tip-right',
@@ -130,6 +136,12 @@ export class TileProperties {
             description: 'Set the icon on the right that will trigger a tip.',
             name: 'tip-icon-right',
             value: 'Any icon name',
+        },
+        {
+            default: '',
+            description: 'Set the color of the right icon.',
+            name: 'tip-icon-color-right',
+            value: 'CSS Color',
         },
         {
             description: 'Set what the title of the tile is.',
