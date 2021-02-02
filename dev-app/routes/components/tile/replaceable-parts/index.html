@@ -8,7 +8,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h2>Replaceable Parts</c-h2>
-                <c-table cols.bind="tileCols" rows.bind="tileReplaceableParts"></c-table>
+                <c-table
+                    cols.bind="tileCols"
+                    rows.bind="tileReplaceableParts"
+                ></c-table>
             </l-stack>
         </div>
 
@@ -19,9 +22,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>tip-content</c-h3>
                 <c-code-sample>
                     <l-grid>
-                        <c-tile image-url="https://placeimg.com/250/190/any" image-container-height.bind="190" title="Regular Tile" show-tip.bind="true">
-                            <template replace-part="tip-content">
-                                <c-list-container color="transparent" size="small">
+                        <c-tile
+                            image-url="https://placeimg.com/250/190/any"
+                            image-container-height.bind="190"
+                            title="Regular Tile"
+                            always-show-tip-right.bind="true"
+                            tip-icon-right="actions"
+                        >
+                            <template replace-part="tip-content-right">
+                                <c-list-container
+                                    color="transparent"
+                                    size="small"
+                                >
                                     <c-list-item>
                                         <a href="#">
                                             <l-icon
@@ -69,8 +81,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                                 </c-list-container>
                             </template>
                         </c-tile>
-                        <c-tile image-url="https://placeimg.com/250/190/any" image-container-height.bind="190" title="Drag Icon" message="Hover Me" show-drag.bind="true" show-tip.bind="true">
-                            <template replace-part="tip-content">Custom Tip Content</template>
+                        <c-tile
+                            image-url="https://placeimg.com/250/190/any"
+                            image-container-height.bind="190"
+                            title="Drag Icon"
+                            message="Hover Me"
+                            tip-icon-left="info"
+                        >
+                            <template replace-part="tip-content-left">Left Tip Content</template>
                         </c-tile>
                     </l-grid>
                 </c-code-sample>
