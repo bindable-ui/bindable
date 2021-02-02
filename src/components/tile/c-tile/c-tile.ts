@@ -53,9 +53,13 @@ export class CTile {
     @bindable
     public tipIconLeft;
     @bindable
+    public tipIconColorLeft;
+    @bindable
     public alwaysShowTipRight = false;
     @bindable
     public tipIconRight;
+    @bindable
+    public tipIconColorRight;
     @bindable
     public title;
     @bindable
