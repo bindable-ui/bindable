@@ -4,7 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-	<require from="./c-tile.css"></require>
+    <require from="./c-tile.css"></require>
 
     <div
         class="
@@ -20,21 +20,52 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             class="${styles.container}"
         >
             <c-tip
-                side="left"
+                side="right"
                 size="small"
                 icon-tip.bind="true"
-                class="${styles.tip}"
-                if.bind="showTip"
+                class="
+                    ${styles.tip}
+                    ${styles.tipLeft}
+                    ${alwaysShowTipLeft ? styles.alwaysShow : ''}
+                "
+                if.bind="tipIconLeft"
             >
                 <div slot="trigger">
                     <l-icon
-                        icon="${tipIcon}"
+                        color="${tipIconColorLeft}"
+                        icon="${tipIconLeft}"
+                        spacing="0"
+
+                    ></l-icon>
+                </div>
+                <div slot="content">
+                    <template
+                        part="tip-content-left"
+                        replaceable
+                    ></template>
+                </div>
+            </c-tip>
+            <c-tip
+                side="left"
+                size="small"
+                icon-tip.bind="true"
+                class="
+                    ${styles.tip}
+                    ${styles.tipRight}
+                    ${alwaysShowTipRight ? styles.alwaysShow : ''}
+                "
+                if.bind="tipIconRight"
+            >
+                <div slot="trigger">
+                    <l-icon
+                        color="${tipIconColorRight}"
+                        icon="${tipIconRight}"
                         spacing="0"
                     ></l-icon>
                 </div>
                 <div slot="content">
                     <template
-                        part="tip-content"
+                        part="tip-content-right"
                         replaceable
                     ></template>
                 </div>
@@ -92,9 +123,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                             truncate.bind="true"
                             click.trigger="showCheckbox && state !== 'disabled' ? checkedValue = !checkedValue : ''"
                         >
-                            <l-icon
-                                icon="${titleIcon}"
-                            >
+                            <l-icon icon="${titleIcon}">
                                 <span if.bind="!searchHighlight">${title}</span>
                                 <span
                                     if.bind="searchHighlight"

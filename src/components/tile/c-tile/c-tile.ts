@@ -43,15 +43,23 @@ export class CTile {
     @bindable
     public showDrag = false;
     @bindable
-    public showTip = false;
-    @bindable
     public state;
     @bindable
     public status;
     @bindable
     public color;
     @bindable
-    public tipIcon = 'actions';
+    public alwaysShowTipLeft = false;
+    @bindable
+    public tipIconLeft;
+    @bindable
+    public tipIconColorLeft;
+    @bindable
+    public alwaysShowTipRight = false;
+    @bindable
+    public tipIconRight;
+    @bindable
+    public tipIconColorRight;
     @bindable
     public title;
     @bindable
@@ -74,8 +82,12 @@ export class CTile {
             this.showDrag = false;
         }
 
-        if (typeof this.showTip !== 'boolean') {
-            this.showTip = false;
+        if (typeof this.alwaysShowTipRight !== 'boolean') {
+            this.alwaysShowTipRight = false;
+        }
+
+        if (typeof this.alwaysShowTipLeft !== 'boolean') {
+            this.alwaysShowTipLeft = false;
         }
 
         if (typeof this.imageContainerHeight !== 'number') {

@@ -25,8 +25,13 @@ export class TileReplaceableParts {
 
     public tileReplaceableParts = [
         {
-            description: 'Set what you want to go in the tip.',
-            name: 'tip-content',
+            description: 'Set what you want to go in the left tip.',
+            name: 'tip-content-left',
+            value: 'Text or other components',
+        },
+        {
+            description: 'Set what you want to go in the right tip.',
+            name: 'tip-content-right',
             value: 'Text or other components',
         },
     ];

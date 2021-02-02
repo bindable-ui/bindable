@@ -24,10 +24,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 </c-timeline-container>
             </div>
             <c-timeline-container
-                repeat.for="day of displayDays | visibleDays"
+                repeat.for="day of displayDays"
                 current-time-top.bind="day.currentTimeLine"
                 click.delegate="togglePopover($event, day)"
                 loading.bind="day.isLoading"
+                show.bind="!day.hidden"
             >
                 <c-timeline-block repeat.for="block of day.blocks"></c-timeline-block>
                 <div slot="entries">

@@ -11,6 +11,7 @@ import {cleanupWorkers, filterMapEntries, mapEntries} from './workers';
 
 import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
+import {sleep} from '../../../helpers/sleep';
 import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
 
 import * as CTimelineWeekContainerStyles from '../c-timeline-week-container/c-timeline-week-container.css.json';
@@ -316,6 +317,7 @@ export class CTimeline {
                 top += Math.floor((diff / SECONDS_IN_MINUTE) * pxPerMinute);
                 startIso = moment(firstEntry.start)
                     .add(firstEntry.duration, 'seconds')
+                    .add(1, 'ms')
                     .toISOString();
             }
 
@@ -411,6 +413,76 @@ export class CTimeline {
         },
         1000,
         {trailing: true, leading: false},
+    );
+
+    /**
+     * Will get entries per day if `actions.getEntries` is a function.
+     * Otherwise will just process the `entries` that were passed in.
+     */
+    private getAndTransformEntries = _.throttle(
+        () => {
+            // If they just hand in a bucket of entries, handle that
+            if (this.entries.length) {
+                this.transformEntries();
+                return;
+            }
+
+            if (!_.isFunction(this.actions.getEntries)) {
+                return;
+            }
+
+            // Get data for every single date
+            _.forEach(this.displayDays, async day => {
+                if (day.isLoading) {
+                    return;
+                }
+
+                day.isLoading = true;
+
+                // Just get the data once. Re-render the rest of the time
+                if (_.isNull(day.entries)) {
+                    // Get the data
+                    let entries;
+
+                    try {
+                        entries = await this.actions.getEntries(day.startTime, day.endTime);
+                    } catch (e) {
+                        entries = [];
+                    }
+
+                    day.entries = await filterMapEntries(
+                        entries,
+                        this.pxPerMinute,
+                        day.startTime,
+                        day.endTime,
+                        this.timeView,
+                        this.editEntryViewModel,
+                        day.date,
+                        this.tzOffset,
+                        this.zoomLevel,
+                    );
+                } else if (day.entries.length) {
+                    // Update existing data
+                    day.entries = await mapEntries(
+                        day.entries,
+                        this.pxPerMinute,
+                        day.startTime,
+                        day.endTime,
+                        this.timeView,
+                        this.editEntryViewModel,
+                        day.date,
+                        this.tzOffset,
+                        this.zoomLevel,
+                    );
+                }
+
+                this.taskQueue.queueMicroTask(() => {
+                    day.isLoading = false;
+                });
+            });
+        },
+        250,
+        {leading: false, trailing: true},
     );
 
     constructor(private taskQueue: TaskQueue, private notification: CToastsService) {
@@ -672,6 +744,11 @@ export class CTimeline {
         _.forEach(this.displayDays, async day => {
             let entries;
 
+            // If the zoom changed or something let that finish rendering first
+            while (day.isLoading) {
+                await sleep(100);
+            }
+
             try {
                 entries = await this.actions.pollEntries(day.startTime, day.endTime, day.entries);
             } catch (e) {
@@ -748,13 +825,7 @@ export class CTimeline {
                         today: moment().format(DATE_FORMAT) === moment(date).format(DATE_FORMAT),
                     };
 
-                    if (index === 0) {
-                        this.updateDisplayDays(dayOfWeek, true);
-                    } else if (index === this.days - 1) {
-                        this.updateDisplayDays(dayOfWeek, true);
-                    } else {
-                        this.updateDisplayDays(dayOfWeek, true);
-                    }
+                    this.updateDisplayDays(dayOfWeek, true);
 
                     startTime.add(1, 'day');
                     endTime.add(1, 'day');
@@ -781,13 +852,7 @@ export class CTimeline {
                         today: moment().format(DATE_FORMAT) === moment(date).format(DATE_FORMAT),
                     };
 
-                    if (index === 0) {
-                        this.updateDisplayDays(dayOfWeek, true);
-                    } else if (index === 2) {
-                        this.updateDisplayDays(dayOfWeek, true);
-                    } else {
-                        this.updateDisplayDays(dayOfWeek, true);
-                    }
+                    this.updateDisplayDays(dayOfWeek, true);
 
                     startTime.add(1, 'day');
                     endTime.add(1, 'day');
@@ -831,84 +896,16 @@ export class CTimeline {
     }
 
     /**
-     * Will get entries per day if `actions.getEntries` is a function.
-     * Otherwise will just process the `entries` that were passed in.
-     */
-    private getAndTransformEntries() {
-        // If they just hand in a bucket of entries, handle that
-        if (this.entries.length) {
-            this.transformEntries();
-            return;
-        }
-
-        if (!_.isFunction(this.actions.getEntries)) {
-            return;
-        }
-
-        // Get data for every single date
-        _.forEach(this.displayDays, async day => {
-            if (day.isLoading) {
-                return;
-            }
-
-            day.isLoading = true;
-
-            // Just get the data once. Re-render the rest of the time
-            if (_.isNull(day.entries)) {
-                // Get the data
-                let entries;
-
-                try {
-                    entries = await this.actions.getEntries(day.startTime, day.endTime);
-                } catch (e) {
-                    entries = [];
-                }
-
-                day.entries = await filterMapEntries(
-                    entries,
-                    this.pxPerMinute,
-                    day.startTime,
-                    day.endTime,
-                    this.timeView,
-                    this.editEntryViewModel,
-                    day.date,
-                    this.tzOffset,
-                    this.zoomLevel,
-                );
-            } else if (day.entries.length) {
-                // Update existing data
-                day.entries = await mapEntries(
-                    day.entries,
-                    this.pxPerMinute,
-                    day.startTime,
-                    day.endTime,
-                    this.timeView,
-                    this.editEntryViewModel,
-                    day.date,
-                    this.tzOffset,
-                    this.zoomLevel,
-                );
-            }
-
-            this.taskQueue.queueMicroTask(() => {
-                day.isLoading = false;
-            });
-        });
-    }
-
-    /**
      * Sets up the polling for individual days
      */
     private setupPolling() {
-        if (this.pollingTracker) {
-            clearInterval(this.pollingTracker);
-        }
-
         if (this.entries.length) {
             return;
         }
 
-        this.pollingTracker = setInterval(() => this.pollDays(), this.pollingInterval);
+        if (!this.pollingTracker) {
+            this.pollingTracker = setInterval(() => this.pollDays(), this.pollingInterval);
+        }
     }
 
     /**
