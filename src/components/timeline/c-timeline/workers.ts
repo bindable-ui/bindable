@@ -240,7 +240,7 @@ function mapEntriesFn(
                     numOfColumns}px)`;
                 normalEntries[entriesIndex - nestedIdx].rightCalc = `calc(
                     ${columnIndex * (100 / numOfColumns)}% -
-                    ${columnIndex === 0 ? 0 : (width / numOfColumns) * columnIndex - 1}px)`;
+                    ${columnIndex === 0 ? 0 : (width / numOfColumns) * columnIndex}px)`;
             }
         }
 

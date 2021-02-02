@@ -25,7 +25,7 @@ export class TimelineExample {
         {
             accentColor: '#8E5DB2',
             background: '#252525 url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23161616\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E")',
-            duration: 6000,
+            duration: 3000,
             icons: ['play'],
             start: moment(this.today).add(9, 'hours').add(48, 'minutes').toISOString(),
             title: 'Ace Ventura',
@@ -46,6 +46,17 @@ export class TimelineExample {
             icons: ['slicer', 'rules'],
             start: moment(this.today).add(11, 'hours').add(15, 'minutes').toISOString(),
             title: 'Ace Ventura 2',
+            priority: 1,
+        },
+        {
+            accentColor: '#7D7D7D',
+            active: true,
+            child: true,
+            duration: 3500,
+            icons: ['slicer', 'rules'],
+            start: moment(this.today).add(11, 'hours').add(15, 'minutes').toISOString(),
+            title: 'Ace Ventura 2b',
+            priority: 2,
         },
         {
             accentColor: '#359AC5',
@@ -88,21 +99,22 @@ export class TimelineExample {
 
     public actions = {
         getEntries: (start, _end) =>
-            _.map(_.times(this.genRandom(100, 200), () => {
-                let priority = parseInt(this.genRandom(0, 10), 10);
+            this.entries
+            // _.map(_.times(this.genRandom(100, 200), () => {
+            //     let priority = parseInt(this.genRandom(0, 10), 10);
 
-                if (priority < 5) {
-                    priority = null;
-                }
+            //     if (priority < 5) {
+            //         priority = null;
+            //     }
 
-                return {
-                    accentColor: this.genHex(),
-                    duration: this.genRandom(60, 5000),
-                    priority: priority,
-                    start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
-                    title: `Something Clever - Priority: ${priority}`,
-                };
-            })),
+            //     return {
+            //         accentColor: this.genHex(),
+            //         duration: this.genRandom(60, 5000),
+            //         priority: priority,
+            //         start: moment(start).add(this.genRandom(-5, 23), 'hours').toISOString(),
+            //         title: `Something Clever - Priority: ${priority}`,
+            //     };
+            // })),
         // pollEntries: (start, _end) =>
         //     _.map(_.times(this.genRandom(10, 500), () => ({
         //         accentColor: this.genHex(),

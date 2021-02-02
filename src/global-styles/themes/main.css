@@ -198,12 +198,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     --z_tileTip: 9;
     --z_weekTimelineDays: 2;
     --z_timeLineEntry: 3;
-    --z_timeLineEntryArrow: 4;
+    --z_timeLineEntryChild: 4;
     --z_timeLineEntryHover: 5;
     --z_timeEntrySmall: 6;
     --z_currentTimeMarker: 7;
     --z_timeEntryActive: 9;
-    --z_timeEntryActiveArrow: 10;
     --z_timelineContainer: 11;
     --z_weekTimelineHours: 12;
     --z_weekTimelineDates: 13;
@@ -944,16 +943,6 @@ c-timeline-block{
     --time-block-border-bottom: solid 1px #444;
     --time-color: var(--c_smoke);
     --time-font-size: 12px;
-}
-
-
-/**
- * ^c-time-entry
- */
-
-c-time-entry{
-    --time-crossover-arrow-color: var(--c_gray);
-    --time-crossover-arrow-color-hover: var(--c_subTwoMain);
 }
 
 
