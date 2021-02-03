@@ -52,6 +52,19 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     height: 100%;
 }
 
+/* Used for the left border that shows when the tip is open. See POPOVER section below */
+.entry:after{
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    left: 0;
+    top: 0;
+    background: var(--time-entry-accent-color);
+    opacity: 0;
+    content: '';
+    transition: opacity var(--trans_main);
+}
+
 
 
 
@@ -266,6 +279,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     min-height: 45px !important;
     overflow: visible;
     border: solid 1px var(--time-entry-accent-color);
+    border-left: 0px;
     border-right: solid 3px var(--time-entry-accent-color);
     z-index: var(--z_timeEntryActive);
 }
@@ -276,5 +290,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 :global .timeline-day .popover-open.expandable-day > div > div,
 :global .timeline-week .popover-open.expandable-week > div > div{
+    opacity: 1;
+}
+
+:global .popover-open:after{
     opacity: 1;
 }
