@@ -207,7 +207,11 @@ export class CTimeline {
         try {
             if (this.timeView !== 'month') {
                 _.forEach(this.displayDays, async day => {
-                    if (!day.entries.length) {
+                    if (day.isLoading) {
+                        return;
+                    }
+
+                    if (!day.entries) {
                         day.isLoading = true;
                     }
 
