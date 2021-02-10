@@ -66,6 +66,7 @@ export class CFormSelect {
 
     public styles = styles;
     public filteredOptions = [];
+    public disableDisplay = null;
 
     private setupSelect2 = _.throttle(
         () => {
@@ -182,6 +183,16 @@ export class CFormSelect {
     }
 
     public selectValueChanged(newVal, oldVal) {
+        if (this.selectValue) {
+            _.forEach(this.options, option => {
+                if (!this.simple && option.value === this.selectValue) {
+                    this.disableDisplay = option.text;
+                } else if (this.simple && option === this.selectValue) {
+                    this.disableDisplay = option;
+                }
+            });
+        }
+
         if (_.isUndefined(oldVal) || newVal === oldVal) {
             return;
         }
