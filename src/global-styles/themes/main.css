@@ -47,8 +47,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  TILE
  *  TIMELINE
  *      - c-timeline-block
+ *      - c-time-entry
  *      - timeline-container
  *      - c-timeline-week-container
+ *      - c-timeline-month-container
  *  TIP
  *  TOAST
  *  TYPE
@@ -196,14 +198,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     --z_tileTip: 9;
     --z_weekTimelineDays: 2;
     --z_timeLineEntry: 3;
-    --z_timeLineEntryHover: 4;
-    --z_timeEntrySmall: 5;
-    --z_currentTimeMarker: 6;
-    --z_timeEntryActive: 8;
-    --z_timelineContainer: 9;
-    --z_weekTimelineHours: 10;
-    --z_weekTimelineDates: 11;
-    --z_tileCheckbox: 12;
+    --z_timeLineEntryChild: 4;
+    --z_timeLineEntryHover: 5;
+    --z_timeEntrySmall: 6;
+    --z_currentTimeMarker: 7;
+    --z_timeEntryActive: 9;
+    --z_timelineContainer: 11;
+    --z_weekTimelineHours: 12;
+    --z_weekTimelineDates: 13;
+    --z_tileCheckbox: 14;
     --z_tipFullScreenClose: 17;
     --z_copy: 20;
     --z_tip: 21;
@@ -949,7 +952,6 @@ c-timeline-block{
 
 :global .timeline-container{
     --current-time-line-color: #00AC3E;
-    --loading-spinner-background: rgba(0, 0, 0, 0.5);
 }
 
 
@@ -965,6 +967,26 @@ c-timeline-week-container{
     --timeline-week-dates-first-border-right: solid 1px var(--c_gray);
     --timeline-week-content-border-left: solid 1px var(--c_gray);
     --timeline-week-dates-today-color: var(--c_primaryMain);
+}
+
+
+/**
+ * ^c-timeline-month-container
+ */
+
+c-timeline-month-container{
+    --timeline-month-min-width: 730px;
+    --timeline-month-border: solid 1px var(--c_slate);
+    --timeline-month-header-color: var(--c_white);
+    --timeline-month-header-padding: var(--s-4) var(--s-5);
+    --timeline-month-header-background: var(--c_soot);
+    --timeline-month-item-height: 9rem;
+    --timeline-month-item-padding: var(--s-5) var(--s-2);
+    --timeline-month-item-background: var(--c_darkGray);
+    --timeline-month-item-active-month: var(--c_smoke);
+    --timeline-month-item-not-active-month: var(--c_charcoal);
+    --timeline-month-item-today-color: var(--c_white);
+    --timeline-month-item-today-border-bottom: solid calc(var(--s-5) - 2px) var(--c_primaryMain);
 }
 
 
@@ -1228,8 +1250,11 @@ c-divider{
     !SPINNER
 \*------------------------------------*/
 
-:global .c-spinner{
+c-spinner{
     --spinner-color: var(--c_white);
+    --spinner-border: unset;
+    --spinner-border-radius: var(--s-5);
+    --spinner-background: var(--c_asphalt);
 }
 
 

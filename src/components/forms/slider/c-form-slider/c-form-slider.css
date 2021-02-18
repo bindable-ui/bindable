@@ -30,6 +30,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     margin-right: 5px;
 }
 
+.slider{
+    flex: 1;
+}
+
 
 
 

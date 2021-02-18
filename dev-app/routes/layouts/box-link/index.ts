@@ -77,6 +77,12 @@ export class BoxLinkProperties {
             value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
         },
         {
+            default: 'unset',
+            description: 'Set the hover color of the box.',
+            name: 'color-hover',
+            value: 'Any color value. It is advised that you use the Core Color CSS Properties.',
+        },
+        {
             default: 'false',
             description: 'Set to true if you want height: 100% set on the box.',
             name: 'fill-space',

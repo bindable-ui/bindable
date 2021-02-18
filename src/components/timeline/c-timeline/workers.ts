@@ -16,13 +16,26 @@ const actions = [
         func: mapEntriesFn,
         message: 'mapEntries',
     },
+    {
+        func: sortEntriesFn,
+        message: 'sortEntries',
+    },
 ];
 
 let worker: any = null;
 
-if (window.Worker) {
-    worker = SWorker.create(actions);
-}
+// Cleanup workers after they have been used
+export const cleanupWorkers = () => {
+    if (worker) {
+        worker = null;
+    }
+};
+
+const setupWorkers = () => {
+    if (!worker) {
+        worker = SWorker.create(actions);
+    }
+};
 
 function mapEntriesFn(
     sortedEntries: any[],
@@ -57,14 +70,6 @@ function mapEntriesFn(
         )}:${appendLeadingZeroes(dateObj.getSeconds())}`;
     };
 
-    const upToMm = isoString => {
-        const dateObj = new Date(isoString);
-        const year = dateObj.getFullYear();
-        const month = appendLeadingZeroes(dateObj.getMonth());
-        const day = appendLeadingZeroes(dateObj.getDate());
-        return `${year}-${month}-${day} ${formatHHmm(isoString)}`;
-    };
-
     const checkSmallEntry = timeEntry => {
         return (
             timeEntry.sizeWeek === 'expandable' ||
@@ -77,15 +82,22 @@ function mapEntriesFn(
     // Sometimes zoomLevel is passed as a string
     const zoom = parseInt(zoomLevel.toString(), 10);
 
-    const width = timeView === 'week' || timeView === 'three-day' ? 30 : 60;
+    const width = 30;
 
-    let nestedEntryWidth = 80;
+    const columns = Array(sortedEntries.length).fill(0); // The max number of columns you can have
+    const pseudoColumns = Array(sortedEntries.length).fill(0); // The max number of columns you can have
 
-    return sortedEntries.map(
-        (entry: ITimeEntry, index: number): ITimeEntry => {
+    const entries = sortedEntries.map(
+        (entry: ITimeEntry): ITimeEntry => {
             if (!date) {
                 entry.start = startTime;
             }
+
+            // Cleanup from previous runs
+            entry.widthCalc = null;
+            entry.rightCalc = null;
+            entry.column = null;
+            entry.virtualColumn = null;
 
             entry.startTime = zoom === 5 ? formatHHmmss(entry.start) : formatHHmm(entry.start);
 
@@ -99,134 +111,163 @@ function mapEntriesFn(
             const startTimeDate: any = new Date(startTime);
             const entryEndDate: any = new Date(entry.end);
             const endTimeDate: any = new Date(endTime);
+            let entryDuration: number = entry.duration;
 
             let diff = (entryStartDate - startTimeDate) / 1000;
             const diffEnd = (endTimeDate - entryEndDate) / 1000;
 
-            // If entry starts before the day make sure it only displays what it needs
+            // If entry starts before the day, make sure it only displays what it needs
             if (diff < 0) {
-                entry.start = startTime;
-                entry.duration += diff;
+                entryDuration += diff;
                 diff = 0;
             }
 
-            // If entry ends after the day make sure it only displays what it needs
+            // If entry ends after the day, make sure it only displays what it needs
             if (diffEnd < 0) {
-                entry.duration += diffEnd;
+                entryDuration += diffEnd;
             }
 
             entry.top = (diff / SECONDS_IN_MINUTE) * pxPerMinute;
-            entry.height = (entry.duration / SECONDS_IN_MINUTE) * pxPerMinute;
+            entry.height = (entryDuration / SECONDS_IN_MINUTE) * pxPerMinute;
 
             if (editEntryViewModel) {
                 entry.contentViewModel = editEntryViewModel;
             }
 
-            let sameTimeEntries = [];
-            let nestedEntries = [];
-
+            // Check for columns on normal entries
             if (!checkSmallEntry(entry)) {
-                const nextEntries = sortedEntries.slice(index + 1);
+                let foundRealColumn = false;
+                let foundPseudoColumn = false;
 
-                sameTimeEntries = nextEntries.filter(filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = new Date(
-                            new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
-                        ).toISOString();
+                const buffer = pxPerMinute * (10 / 60); // 10 second buffer
+                const entryBottom = entry.top + entry.height - buffer;
+
+                for (let idx = 0; idx < columns.length; idx += 1) {
+                    if (columns[idx] <= entry.top && !foundRealColumn) {
+                        entry.column = idx;
+                        columns[idx] = entryBottom;
+
+                        foundRealColumn = true;
                     }
 
-                    // Not the same time if it's just a really short entry
-                    return (
-                        upToMm(entry.start) === upToMm(filterEntry.start) &&
-                        new Date(filterEntry.start).getTime() < new Date(entry.end).getTime()
-                    );
-                });
+                    if (pseudoColumns[idx] <= entry.top && !foundPseudoColumn) {
+                        entry.virtualColumn = idx;
 
-                nestedEntries = nextEntries.filter(filterEntry => {
-                    if (!filterEntry.end) {
-                        filterEntry.end = new Date(
-                            new Date(filterEntry.start).getTime() + filterEntry.duration * 1000,
-                        ).toISOString();
-                    }
-
-                    const filterEntryStart = new Date(filterEntry.start);
-
-                    // 10 second buffer
-                    return (
-                        filterEntryStart.getTime() > new Date(entry.start).getTime() &&
-                        filterEntryStart.getTime() < new Date(new Date(entry.end).getTime() - 10 * 1000).getTime()
-                    );
-                });
-
-                // Check if we need to shift icons over
-                if (entry.icons && entry.icons.length) {
-                    const iconHeight = entry.icons.length > 1 ? 42 : 26;
-                    const diffWindow = iconHeight / pxPerMinute;
-
-                    if (sameTimeEntries.length) {
-                        entry.shiftIcons = true;
-                    }
-
-                    if (!entry.shiftIcons) {
-                        nestedEntries.forEach(filterEntry => {
-                            const startDiff =
-                                (new Date(filterEntry.start).getTime() - entryStartDate.getTime()) /
-                                1000 /
-                                SECONDS_IN_MINUTE;
-                            if (startDiff <= diffWindow) {
-                                entry.shiftIcons = true;
-                                return false;
+                        if (pseudoColumns[0] < entryBottom) {
+                            for (let a = 0; a <= idx; a += 1) {
+                                pseudoColumns[a] = entryBottom;
                             }
-                        });
+                        }
+
+                        foundPseudoColumn = true;
                     }
-                }
 
-                // Filter out items that would be considered 'small'
-                sameTimeEntries = sameTimeEntries.filter(filterEntry => !checkSmallEntry(filterEntry));
-                nestedEntries = nestedEntries.filter(filterEntry => !checkSmallEntry(filterEntry));
-            }
-
-            const nestedEntry = nestedEntries[0]; // We only care about the first one
-
-            if (!entry.widthCalc && sameTimeEntries.length) {
-                const totalSameTime = sameTimeEntries.length + 1;
-                const entryWidth = 100 / totalSameTime;
-
-                entry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-
-                sameTimeEntries.reverse().forEach((sameTimeEntry, sameTimeIndex) => {
-                    const offsetIndex = sameTimeIndex + 1;
-
-                    sameTimeEntry.widthCalc = `calc(${entryWidth}% - ${width / totalSameTime}px - 5px)`;
-                    sameTimeEntry.rightCalc = `calc(${offsetIndex * entryWidth}% - ${(width / totalSameTime) *
-                        offsetIndex}px)`;
-                });
-            } else if (nestedEntry) {
-                if (nestedEntryWidth >= 40) {
-                    nestedEntry.widthCalc = `calc(${nestedEntryWidth}% - ${width}px)`;
-                    nestedEntryWidth -= 20;
-                } else {
-                    nestedEntryWidth = 80; // Reset
+                    if (foundRealColumn && foundPseudoColumn) {
+                        break;
+                    }
                 }
             }
 
             return entry;
         },
     );
+
+    let entriesIndex = 0;
+    const normalEntries = entries.filter(entry => !checkSmallEntry(entry));
+
+    while (entriesIndex < normalEntries.length) {
+        if (normalEntries[entriesIndex].column > 0) {
+            // This loop will shortcut to the highest column in a group
+            let numOfEntries = 1;
+            while (entriesIndex < normalEntries.length - 1) {
+                if (normalEntries[entriesIndex + 1].virtualColumn === 0) {
+                    break;
+                }
+
+                entriesIndex += 1;
+                numOfEntries += 1;
+            }
+
+            // Get an array of the items we need to modify for priority
+            const nestedEntries = normalEntries.slice(entriesIndex - numOfEntries, entriesIndex + 1);
+
+            // Find the number of columns in a group
+            const numOfColumns =
+                nestedEntries.reduce((highestColumn, curVal) => {
+                    if (curVal.column > highestColumn) {
+                        return curVal.column;
+                    }
+
+                    return highestColumn;
+                }, 0) + 1;
+
+            // Figure out column priority:: higher priority is on the right
+            const columnsPriority: any[] = Array(numOfColumns);
+            const groupedEntries = nestedEntries.reduce((p, v) => {
+                p[v.column] = p[v.column] || [];
+                p[v.column].push(v);
+
+                return p;
+            }, Object.create(null));
+            const columnKeys = Object.keys(groupedEntries);
+
+            // Find highest priority entry from every column
+            columnKeys.forEach(column => {
+                const maxPriority = groupedEntries[column].sort((a, b) => b.priority || 0 - a.priority || 0)[0]
+                    .priority;
+
+                const columnNum = parseInt(column, 10);
+                columnsPriority[columnNum] = {originalIndex: columnNum, priority: maxPriority};
+            });
+
+            // Use array map to sort columns to keep the original index
+            columnsPriority.sort((a, b) => b.priority || 0 - a.priority || 0);
+
+            // Change the entry column to match priority
+            nestedEntries.forEach(entry => {
+                const newColumn = columnsPriority.findIndex(val => val.originalIndex === entry.column);
+                entry.column = newColumn;
+            });
+
+            // Sort columns
+            nestedEntries.sort((a, b) => b.column - a.column);
+
+            // Setup each entries size and position using `calc`
+            for (let nestedIdx = 0; nestedIdx <= numOfEntries; nestedIdx += 1) {
+                const columnIndex = numOfColumns - 1 - normalEntries[entriesIndex - nestedIdx].column;
+
+                normalEntries[entriesIndex - nestedIdx].widthCalc = `calc(${100 / numOfColumns}% - ${width /
+                    numOfColumns}px)`;
+                normalEntries[entriesIndex - nestedIdx].rightCalc = `calc(
+                    ${columnIndex * (100 / numOfColumns)}% -
+                    ${columnIndex === 0 ? 0 : (width / numOfColumns) * columnIndex}px)`;
+            }
+        }
+
+        entriesIndex += 1;
+    }
+
+    return entries;
 }
 
-function filterEntriesDayFn(sortedEntries: any[], startTime: string, endTime: string) {
-    return sortedEntries.filter(entry => {
+function filterEntriesDayFn(entries: any[], startTime: string, endTime: string) {
+    return entries.filter(entry => {
         const entryStart = new Date(entry.start);
         const entryEnd = new Date(new Date(entryStart).getTime() + entry.duration * 1000);
         const startDate = new Date(startTime);
         const endDate = new Date(endTime);
 
-        const startIn = entryStart.getTime() > startDate.getTime() && entryStart.getTime() < endDate.getTime();
+        const startIn = entryStart.getTime() >= startDate.getTime() && entryStart.getTime() < endDate.getTime();
         const endIn = entryEnd.getTime() > startDate.getTime() && entryStart.getTime() < endDate.getTime();
 
         return startIn || endIn;
     });
+}
+
+function sortEntriesFn(entries: any[]) {
+    return entries.sort(
+        (entryA: any, entryB: any) => new Date(entryA.start).valueOf() - new Date(entryB.start).valueOf(),
+    );
 }
 
 export const mapEntries = async (
@@ -240,7 +281,13 @@ export const mapEntries = async (
     tzOffset: number,
     zoomLevel: number,
 ): Promise<ITimeEntry[]> => {
+    if (!sortedEntries || !sortedEntries.length) {
+        return [];
+    }
+
     if (window.Worker) {
+        setupWorkers();
+
         return await worker.postMessage('mapEntries', [
             sortedEntries,
             pxPerMinute,
@@ -267,10 +314,60 @@ export const mapEntries = async (
     );
 };
 
-export const filterEntriesDay = async (sortedEntries: any[], startTime: string, endTime: string): Promise<any[]> => {
-    if (window.Worker) {
-        return await worker.postMessage('filterEntriesDay', [sortedEntries, startTime, endTime]);
+export const filterEntriesDay = async (entries: any[], startTime: string, endTime: string): Promise<any[]> => {
+    if (!entries || !entries.length) {
+        return [];
     }
 
-    return filterEntriesDayFn(sortedEntries, startTime, endTime);
+    if (window.Worker) {
+        setupWorkers();
+
+        return await worker.postMessage('filterEntriesDay', [entries, startTime, endTime]);
+    }
+
+    return filterEntriesDayFn(entries, startTime, endTime);
+};
+
+export const sortEntries = async (entries: any[]): Promise<any[]> => {
+    if (!entries || !entries.length) {
+        return [];
+    }
+
+    if (window.Worker) {
+        setupWorkers();
+
+        return await worker.postMessage('sortEntries', [entries]);
+    }
+
+    return sortEntriesFn(entries);
+};
+
+export const filterMapEntries = async (
+    entries: any[],
+    pxPerMinute: number,
+    startTime: string,
+    endTime: string,
+    timeView: string,
+    editEntryViewModel: string,
+    date: string,
+    tzOffset: number,
+    zoomLevel: number,
+): Promise<ITimeEntry[]> => {
+    if (!entries || !entries.length) {
+        return [];
+    }
+
+    const filteredEntries = await filterEntriesDay(entries, startTime, endTime);
+    const sortedEntries = await sortEntries(filteredEntries);
+    return await mapEntries(
+        sortedEntries,
+        pxPerMinute,
+        startTime,
+        endTime,
+        timeView,
+        editEntryViewModel,
+        date,
+        tzOffset,
+        zoomLevel,
+    );
 };

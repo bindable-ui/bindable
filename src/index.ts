@@ -17,6 +17,17 @@ $.fn.extend({
 import {FrameworkConfiguration} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 
+import 'ts-polyfill/lib/es2015-collection';
+import 'ts-polyfill/lib/es2016-array-include';
+import 'ts-polyfill/lib/es2017-object';
+import 'ts-polyfill/lib/es2017-string';
+import 'ts-polyfill/lib/es2018-async-iterable';
+import 'ts-polyfill/lib/es2018-promise';
+import 'ts-polyfill/lib/es2019-array';
+import 'ts-polyfill/lib/es2019-object';
+import 'ts-polyfill/lib/es2019-string';
+import 'ts-polyfill/lib/es2020-string';
+
 // Helpers
 import {copyToClipboard} from './helpers/copy-to-clipboard';
 import {generateRandom} from './helpers/generate-random';
@@ -33,6 +44,7 @@ import {CToastsService} from './components/toasts/c-toasts/c-toasts-service';
 import {dirtyCheckPrompt} from './decorators/dirty-check-prompt/index';
 
 // Value Converters
+import {TransformEntriesValueConverter} from './components/timeline/c-timeline/c-time-entries-value-converter';
 import {AsyncBindingBehavior} from './value-converters/async-binding';
 import {BooleanYesNoValueConverter} from './value-converters/boolean-yes-no';
 import {CapitalizeValueConverter} from './value-converters/capitalize';
@@ -134,6 +146,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./value-converters/th-class-for'),
         PLATFORM.moduleName('./value-converters/vsort'),
         PLATFORM.moduleName('./value-converters/async-binding'),
+        PLATFORM.moduleName('./components/timeline/c-timeline/c-time-entries-value-converter'),
 
         // Components
         PLATFORM.moduleName('./components/copy/c-copy/c-copy'),
@@ -193,6 +206,8 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./components/timeline/c-timeline-block/c-timeline-block'),
         PLATFORM.moduleName('./components/timeline/c-timeline-container/c-timeline-container'),
         PLATFORM.moduleName('./components/timeline/c-timeline-week-container/c-timeline-week-container'),
+        PLATFORM.moduleName('./components/timeline/c-timeline-month-container/c-timeline-month-container'),
+        PLATFORM.moduleName('./components/timeline/c-timeline-month-item/c-timeline-month-item'),
         PLATFORM.moduleName('./components/timeline/c-timeline/c-timeline'),
         PLATFORM.moduleName('./components/tip/c-tip/c-tip'),
         PLATFORM.moduleName('./components/toasts/c-toasts/c-toasts'),
@@ -281,6 +296,7 @@ export {
     ThClassForValueConverter,
     CsortValueConverter,
     AsyncBindingBehavior,
+    TransformEntriesValueConverter,
 };
 
 // Interfaces

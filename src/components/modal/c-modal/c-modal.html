@@ -15,32 +15,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         "
     >
         <ux-dialog-header class="${styles.header}">
-            <l-cluster
-                spacing="var(--s-1)"
-                spacing-direction="right"
-                align="flex-start"
-            >
-                <div>
-                    <c-h2>${model.title}</c-h2>
-                    <c-tip
-                        side="right"
-                        size="large"
-                        icon-tip.bind="true"
-                        if.bind="model.titleHelp"
-                    >
-                        <div slot="trigger">
-                            <l-icon
-                                icon="question"
-                                spacing="0"
-                                color="var(--c_lightGray)"
-                            ></l-icon>
-                        </div>
-                        <div slot="content">
-                            <c-p color="var(--c_white)">${model.titleHelp}</c-p>
-                        </div>
-                    </c-tip>
-                </div>
-            </l-cluster>
+            <c-h2 truncate.bind="true">${model.title}</c-h2>
             <c-button
                 class="${styles.closeButton}"
                 click.delegate="controller.cancel()"

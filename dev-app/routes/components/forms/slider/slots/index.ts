@@ -22,5 +22,13 @@ export class SliderSlots {
             description: 'Use when you need to put a tip next to the label.',
             name: 'tip',
         },
+        {
+            description: 'Use to place content before the slider.',
+            name: 'before',
+        },
+        {
+            description: 'Use to place content after the slider.',
+            name: 'after',
+        },
     ];
 }

@@ -1,0 +1,76 @@
+/*
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+*/
+
+/*------------------------------------*\
+    CONTENTS
+\*------------------------------------*/
+
+/**
+ *  CONTAINER
+ *  DAY COUNT
+ *  LINK BLOCK
+ */
+
+
+
+
+
+/*------------------------------------*\
+    !CONTAINER
+\*------------------------------------*/
+
+.container{
+    height: var(--timeline-month-item-height);
+    padding: var(--timeline-month-item-padding);
+    background: var(--timeline-month-item-background);
+    position: relative;
+}
+
+.container:after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    position: absolute;
+    border: var(--timeline-month-border);
+    border-top: none;
+    border-right: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    !DAY COUNT
+\*------------------------------------*/
+
+.active-month{
+    color: var(--timeline-month-item-active-month);
+}
+
+.not-active-month{
+    color: var(--timeline-month-item-not-active-month);
+}
+
+.today{
+    color: var(--timeline-month-item-today-color);
+    border-bottom: var(--timeline-month-item-today-border-bottom);
+}
+
+
+
+
+
+/*------------------------------------*\
+    !LINK BLOCK
+\*------------------------------------*/
+
+c-timeline-month-item l-box-link a{
+    position: relative;
+    z-index: 1;
+}

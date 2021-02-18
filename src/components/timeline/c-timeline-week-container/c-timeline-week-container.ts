@@ -13,10 +13,13 @@ export class CTimelineWeekContainer {
     @bindable
     public dayClick;
 
+    @bindable
+    public timeView: string = 'week';
+
     public styles = styles;
 
     public changeDate(date) {
-        if (this.dayClick && _.isFunction(this.dayClick)) {
+        if (this.dayClick && _.isFunction(this.dayClick) && this.timeView !== 'day') {
             this.dayClick({date});
         }
     }

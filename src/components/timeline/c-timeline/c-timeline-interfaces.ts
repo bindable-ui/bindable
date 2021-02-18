@@ -4,19 +4,21 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 export interface ITimelineActions {
-    scrollTop?(): void;
-    scrollBottom?(): void;
+    getEntries?(start, end): Promise<any[]>;
+    pollEntries?(start, end, entries): Promise<any[]>;
 }
 
 export interface ITimeEntryBasic {
     accentColor?: string;
     active?: boolean;
     altTime?: string;
+    arrow?: boolean;
     background?: string;
     color?: string;
     duration: number;
     end?: string;
     icons?: string[];
+    noSnap?: boolean;
     sizeDay?: string;
     sizeWeek?: string;
     start: string;
@@ -24,16 +26,19 @@ export interface ITimeEntryBasic {
 }
 
 export interface ITimeEntry extends ITimeEntryBasic {
+    column?: number;
     contentViewModel?: string;
     endTime: string;
     height: number;
     isoTime?: string;
+    priority?: number;
     placeholder?: boolean;
-    rightCalc?: number;
+    rightCalc?: number | string;
     shiftIcons?: boolean;
     startTime: string;
     top: number;
-    widthCalc?: string;
+    virtualColumn?: number;
+    widthCalc?: number | string;
 }
 
 export interface ITimeBlock {
@@ -46,9 +51,15 @@ export interface ITimeDay {
     currentTimeLine?: number;
     blocks: ITimeBlock[];
     date: string;
+    displayDate: string;
+    endTime?: string;
     entries: ITimeEntry[];
+    hidden?: boolean;
+    isLoading?: boolean;
     newItem?: any;
     parsedDate?: string;
     placeholderEntry?: any;
+    pollingTracker?: any;
+    startTime?: string;
     today?: boolean;
 }

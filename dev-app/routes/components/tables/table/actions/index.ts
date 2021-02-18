@@ -124,7 +124,7 @@ export class TableActions {
             {
                 _barColor: 'var(--c_subTwoMain)',
                 _status: 'bar',
-                gender: 'Female',
+                gender: 'Male',
                 name: 'Han Solo',
                 ship: 'M.Falcon',
             },

@@ -14,9 +14,13 @@ import {CToastsService} from '../../toasts/c-toasts/c-toasts-service';
 const taskQueue = mock(TaskQueue);
 const toastsService = mock(CToastsService);
 
-// Mock _.debounce
+// Mock _.debounce and _.throttle
 // @ts-ignore
 jest.spyOn(_, 'debounce').mockImplementation(fn => fn);
+// @ts-ignore
+jest.spyOn(_, 'throttle').mockImplementation(fn => fn);
+
+$.fn.outerHeight = jest.fn().mockImplementation(() => 0);
 
 const now = moment('12/12/2020', 'MM/DD/YYYY')
     .startOf('day')
@@ -71,10 +75,8 @@ describe('c-timeline-block element', () => {
             component = new CTimeline(instance(taskQueue), instance(toastsService));
 
             component.date = startDay;
+            component.timeView = 'day';
             component.entries = sortedEntries;
-            component.placeholderEntry = {
-                openPopover: jest.fn(),
-            };
 
             component.attached();
 
@@ -136,16 +138,16 @@ describe('c-timeline-block element', () => {
                     pageY: 10,
                 };
 
-                component.togglePopover(ev);
-                expect(component.newItem.title).toBe('00:00 (New Item)');
+                component.togglePopover(ev, component.displayDays[0]);
+                expect(component.displayDays[0].newItem.title).toBe('00:00 (New Item)');
 
                 ev.layerY = 30;
-                component.togglePopover(ev);
-                expect(component.newItem.title).toBe('00:15 (New Item)');
+                component.togglePopover(ev, component.displayDays[0]);
+                expect(component.displayDays[0].newItem.title).toBe('00:15 (New Item)');
 
                 ev.pageY = 60;
-                component.togglePopover(ev);
-                expect(component.newItem.title).toBe('00:45 (New Item)');
+                component.togglePopover(ev, component.displayDays[0]);
+                expect(component.displayDays[0].newItem.title).toBe('00:45 (New Item)');
             });
 
             test('snap add positioning', () => {
@@ -157,13 +159,13 @@ describe('c-timeline-block element', () => {
                 component.snapAdd = true;
 
                 // No snapping
-                component.togglePopover(ev);
-                expect(component.newItem.title).toBe('16:00 (New Item)');
+                component.togglePopover(ev, component.displayDays[0]);
+                expect(component.displayDays[0].newItem.title).toBe('16:00 (New Item)');
 
                 // Snapping
                 ev.pageY = 1200;
-                component.togglePopover(ev);
-                expect(component.newItem.title).toBe('12:04 (New Item)');
+                component.togglePopover(ev, component.displayDays[0]);
+                expect(component.displayDays[0].newItem.title).toBe('12:04 (New Item)');
             });
 
             test('opening popover', () => {
@@ -172,11 +174,15 @@ describe('c-timeline-block element', () => {
                     pageY: 10,
                 };
 
-                component.togglePopover(ev);
+                component.displayDays[0].placeholderEntry = {
+                    openPopover: jest.fn(),
+                };
+
+                component.togglePopover(ev, component.displayDays[0]);
 
                 jest.runOnlyPendingTimers();
 
-                expect(component.placeholderEntry.openPopover).toHaveBeenCalled();
+                expect(component.displayDays[0].placeholderEntry.openPopover).toHaveBeenCalled();
             });
         });
 

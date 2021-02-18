@@ -47,11 +47,6 @@ export class TimelineBlockThemeProperties {
             name: '--current-time-line-color',
             property: 'background',
         },
-        {
-            default: 'rgba(0, 0, 0, 0.5)',
-            name: '--loading-spinner-background',
-            property: 'background',
-        },
     ];
 
     public timelineBlockThemeProperties3 = [
@@ -89,6 +84,69 @@ export class TimelineBlockThemeProperties {
             default: 'var(--c_primaryMain)',
             name: '--timeline-week-dates-today-color',
             property: 'background',
+        },
+    ];
+
+    public timelineBlockThemeProperties4 = [
+        {
+            default: '730px',
+            name: '--timeline-month-min-width',
+            property: 'min-width',
+        },
+        {
+            default: 'solid 1px var(--c_slate)',
+            name: '--timeline-month-border',
+            property: 'border',
+        },
+        {
+            default: 'var(--c_white)',
+            name: '--timeline-month-header-color',
+            property: 'color',
+        },
+        {
+            default: 'var(--s-4) var(--s-5)',
+            name: '--timeline-month-header-padding',
+            property: 'padding',
+        },
+        {
+            default: 'var(--c_soot)',
+            name: '--timeline-month-header-background',
+            property: 'background',
+        },
+        {
+            default: '9rem',
+            name: '--timeline-month-item-height',
+            property: 'height',
+        },
+        {
+            default: 'var(--s-5) var(--s-2)',
+            name: '--timeline-month-item-padding',
+            property: 'padding',
+        },
+        {
+            default: 'var(--c_darkGray)',
+            name: '--timeline-month-item-background',
+            property: 'background',
+        },
+        {
+            default: 'var(--c_smoke)',
+            name: '--timeline-month-item-active-month',
+            property: 'color',
+        },
+        {
+            default: 'var(--c_charcoal)',
+            name: '--timeline-month-item-no-active-month',
+            property: 'color',
+        },
+        {
+            default: 'var(--c_white)',
+            name: '--timeline-month-item-today-color',
+            property: 'color',
+        },
+        {
+            default: 'solid calc(var(--s-5) - 2px) var(--c_primaryMain)',
+            name: '--timeline-month-item-today-border-bottom',
+            property: 'border-bottom',
         },
     ];
 }
