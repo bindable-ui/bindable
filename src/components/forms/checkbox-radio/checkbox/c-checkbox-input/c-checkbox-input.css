@@ -29,6 +29,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .check{
     width: var(--checkbox-size) !important;
     height: var(--checkbox-size) !important;
+    flex: 0 0 var(--checkbox-size);
+    margin-top: var(--checkbox-margin-top) !important;
     border: var(--checkbox-border);
     border-radius: var(--checkbox-border-radius);
     outline: none;
