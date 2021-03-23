@@ -34,6 +34,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     position: relative;
     width: var(--s2);
     height: var(--s0);
+    flex: 0 0 var(--s2);
     margin: calc(var(--s-5) - 3px) var(--s0) calc(var(--s-5) - 3px) var(--s-5);
     display: inline-block;
     cursor: pointer;

@@ -10,7 +10,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         show.bind="_state !== 'hidden'"
         drag-dropzone.bind="dropOptions"
     >
-        <l-cluster spacing="var(--s-5)">
+        <l-cluster
+            align="flex-start"
+            spacing="var(--s-5)"
+            wrap.bind="false"
+        >
             <div>
                 <c-drag-handle
                     if.bind="draggable && _state !== 'disabled'"

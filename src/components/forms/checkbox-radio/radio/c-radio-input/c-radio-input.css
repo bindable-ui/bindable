@@ -29,6 +29,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .radio{
     width: var(--radio-size) !important;
     height: var(--radio-size) !important;
+    flex: 0 0 var(--radio-size);
+    margin-top: var(--radio-margin-top) !important;
     border: var(--radio-border);
     border-radius: 50%;
     outline: none;
