@@ -48,6 +48,12 @@ export class PProperties {
             value: 'boolean',
         },
         {
+            default: 'inherit',
+            description: 'Will set the font for the paragraph.',
+            name: 'font-family',
+            value: 'string',
+        },
+        {
             default: 'unset',
             description: 'Set the max-width on a <p> tag.',
             name: 'max-width',

@@ -331,6 +331,12 @@ export class Headlines {
             name: 'truncate',
             value: 'boolean',
         },
+        {
+            default: 'inherit',
+            description: 'Set the color of the h4.',
+            name: 'color',
+            value: 'string',
+        },
     ];
 
     public h4ThemeCols = [
