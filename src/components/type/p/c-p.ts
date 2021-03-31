@@ -12,6 +12,8 @@ export class CP {
     @bindable
     public color = 'var(--p-default-color)';
     @bindable
+    public fontFamily = 'inherit';
+    @bindable
     public flushTop = true;
     @bindable
     public maxWidth = 'unset';
