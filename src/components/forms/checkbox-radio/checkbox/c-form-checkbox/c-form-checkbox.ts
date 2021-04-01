@@ -11,6 +11,8 @@ import * as styles from './c-form-checkbox.css.json';
 @authState
 @containerless
 export class CFormCheckbox {
+    @bindable
+    public align = 'flex-start';
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public checkedValue;
     @bindable

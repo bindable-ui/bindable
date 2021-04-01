@@ -24,7 +24,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  *  TEXT INPUT
  *  DRAG
  *  TD BACKGROUND
- *  ALIGN RIGHT
+ *  ALIGN
  *  SORT
  *  RESPONSIVE
  */
@@ -415,11 +415,15 @@ td.bg-building{
 
 
 /*------------------------------------*\
-    !ALIGN RIGHT
+    !ALIGN
 \*------------------------------------*/
 
 .align-right{
     text-align: right !important;
+}
+
+.align-center{
+    text-align: center !important;
 }
 
 
@@ -442,17 +446,14 @@ c-table-fixed-header .sort{
 }
 
 .sort-none{
-    composes: sort;
     background-image: var(--table-sort-icon-none);
 }
 
 .sort-desc{
-    composes: sort;
     background-image: var(--table-sort-icon-desc);
 }
 
 .sort-asc{
-    composes: sort;
     background-image: var(--table-sort-icon-asc);
 }
 

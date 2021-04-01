@@ -6,11 +6,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 <template>
     <div show.bind="_state !== 'hidden'">
         <l-cluster
-            align="flex-start"
+            align="${align}"
             spacing="var(--s-5)"
             wrap.bind="false"
         >
-            <div>
+            <div css="
+                ${align === 'center' ? '--radio-margin-top: calc(var(--cluster-spacing)/2) !important' : ''};
+            ">
                 <c-radio-input
                     name="${name}"
                     id="${id}"
