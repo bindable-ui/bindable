@@ -17,7 +17,6 @@ export class RadioProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't240',
             colHeadName: 'value',
             colHeadValue: 'Value',
         },
@@ -28,6 +27,12 @@ export class RadioProperties {
     ];
 
     public formRadioProperties = [
+        {
+            default: 'flex-start',
+            description: 'Flexbox alignment of the radio with the label.',
+            name: 'align',
+            value: 'center | flex-start | flex-end | stretch | baseline',
+        },
         {
             description: '',
             name: 'checked',

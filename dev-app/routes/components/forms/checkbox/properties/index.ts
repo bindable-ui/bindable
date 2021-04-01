@@ -19,7 +19,6 @@ export class CheckboxProperties {
         },
         {
             _class: 'monospaced',
-            colClass: 't240',
             colHeadName: 'value',
             colHeadValue: 'Value',
         },
@@ -34,6 +33,12 @@ export class CheckboxProperties {
     ];
 
     public formCheckboxProperties = [
+        {
+            default: 'flex-start',
+            description: 'Flexbox alignment of the checkbox with the label.',
+            name: 'align',
+            value: 'center | flex-start | flex-end | stretch | baseline',
+        },
         {
             description: 'Sets the value of the checkbox.',
             name: 'checked-value',

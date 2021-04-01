@@ -10,6 +10,8 @@ import {authState} from '../../../../../decorators/auth-state';
 export class CFormRadio {
     @bindable
     public actions;
+    @bindable
+    public align = 'flex-start';
     @bindable({defaultBindingMode: bindingMode.twoWay})
     public checked;
     @bindable

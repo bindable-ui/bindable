@@ -11,11 +11,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         drag-dropzone.bind="dropOptions"
     >
         <l-cluster
-            align="flex-start"
+            align="${align}"
             spacing="var(--s-5)"
             wrap.bind="false"
         >
-            <div>
+            <div css="
+                ${align === 'center' ? '--checkbox-margin-top: calc(var(--cluster-spacing)/2) !important' : ''};
+            ">
                 <c-drag-handle
                     if.bind="draggable && _state !== 'disabled'"
                     class="${styles.draggable}"

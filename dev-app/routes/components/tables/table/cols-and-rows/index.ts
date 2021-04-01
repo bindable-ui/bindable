@@ -118,7 +118,7 @@ export class TableColsRows {
             {
                 description: 'Set a class for specific use cases.',
                 key: '_class',
-                value: 'textInput, monospaced, alighRight, active, bgHealthy, bgWarning, bgCritical, ' +
+                value: 'textInput, monospaced, alighRight, alignCenter, active, bgHealthy, bgWarning, bgCritical, ' +
                 'bgInfo, bgProcess, footer, dragCheck, button',
             },
             {
@@ -420,7 +420,7 @@ export class TableColsRows {
             {
                 description: 'Set a class for specific use cases.',
                 key: '_class',
-                value: 'textInput, monospaced, alighRight, active, bgHealthy, bgWarning, bgCritical, bgInfo, ' +
+                value: 'textInput, monospaced, alighRight, alignCenter, active, bgHealthy, bgWarning, bgCritical, bgInfo, ' +
                 'bgProcess, footer',
             },
             {

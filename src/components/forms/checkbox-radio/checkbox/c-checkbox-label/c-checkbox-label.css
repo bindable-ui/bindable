@@ -32,6 +32,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     cursor: pointer;
 }
 
+.label select{
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
 
 
 
