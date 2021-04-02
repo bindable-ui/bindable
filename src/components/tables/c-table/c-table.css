@@ -446,14 +446,17 @@ c-table-fixed-header .sort{
 }
 
 .sort-none{
+    composes: sort;
     background-image: var(--table-sort-icon-none);
 }
 
 .sort-desc{
+    composes: sort;
     background-image: var(--table-sort-icon-desc);
 }
 
 .sort-asc{
+    composes: sort;
     background-image: var(--table-sort-icon-asc);
 }
 
