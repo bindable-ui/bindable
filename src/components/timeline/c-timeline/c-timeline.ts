@@ -289,7 +289,7 @@ export class CTimeline {
      */
     private renderTimeline = _.throttle(
         () => {
-            // If there is no delay, the browser chokes up and doesn't
+            // If there is no delay, the browser can choke up and doesn't
             // display the loading indicator until the very end
             // 50ms wait seems to be a good middle ground
             this.buildTimeline();
@@ -340,7 +340,7 @@ export class CTimeline {
             this.currentTimeLineTracker = setInterval(() => {
                 this.calculateCurrentTimeLine();
             }, (SECONDS_IN_MINUTE / 2) * 1000);
-        }, 250);
+        }, 100);
 
         $(this.parentScrollElem).on('scroll', this.trackPosistion);
     }
@@ -1096,7 +1096,7 @@ export class CTimeline {
     }
 
     /**
-     * Build out the timeline. Put in a throttle so it doesn't bind up
+     * Build out the timeline.
      */
     private buildTimeline() {
         this.buildBlocks();
@@ -1109,15 +1109,14 @@ export class CTimeline {
             this.trackPosistion.cancel();
             this.preventScrollCheck = true;
 
-            // Could potentially be 350ms behind with the combined throttles
-            _.delay(() => {
+            _.defer(() => {
                 this.trackPosistion.cancel();
 
                 if (!this.scrollLastSpot) {
                     this.scrollCurrentTime = true;
                 }
                 this.scrollToSpot();
-            }, 400);
+            });
         });
     }
 
