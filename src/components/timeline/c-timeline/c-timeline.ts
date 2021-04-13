@@ -167,77 +167,6 @@ export class CTimeline {
     public tzOffset: number;
 
     /**
-     * Build out the timeline. Put in a throttle so it doesn't bind up
-     */
-    public buildTimeline = _.throttle(
-        async () => {
-            this.buildBlocks();
-            this.calculateCurrentTimeLine();
-
-            this.getAndTransformEntries();
-            this.setupPolling();
-
-            this.taskQueue.queueMicroTask(() => {
-                this.trackPosistion.cancel();
-                this.preventScrollCheck = true;
-
-                // Could potentially be 350ms behind with the combined throttles
-                _.delay(() => {
-                    this.trackPosistion.cancel();
-
-                    if (!this.scrollLastSpot) {
-                        this.scrollCurrentTime = true;
-                    }
-                    this.scrollToSpot();
-                }, 400);
-            });
-        },
-        200,
-        {trailing: true, leading: false},
-    );
-
-    /**
-     * Take entries that are input and transform them into entries the calendar can use
-     */
-    public transformEntries = _.throttle(() => {
-        if (this.actions.getEntries || !this.entries.length) {
-            return;
-        }
-
-        try {
-            if (this.timeView !== 'month') {
-                _.forEach(this.displayDays, async day => {
-                    if (day.isLoading) {
-                        return;
-                    }
-
-                    if (!day.entries) {
-                        day.isLoading = true;
-                    }
-
-                    day.entries = await filterMapEntries(
-                        this.entries,
-                        this.pxPerMinute,
-                        day.startTime,
-                        day.endTime,
-                        this.timeView,
-                        this.editEntryViewModel,
-                        day.date,
-                        this.tzOffset,
-                        this.zoomLevel,
-                    );
-
-                    this.taskQueue.queueMicroTask(() => {
-                        day.isLoading = false;
-                    });
-                });
-            }
-        } catch (e) {
-            this.notification.error('There was an error parsing the entries. Please try again.');
-        }
-    }, 100);
-
-    /**
      * Function that fires when you click on the timeline
      */
     public togglePopover = _.debounce(
@@ -356,43 +285,16 @@ export class CTimeline {
     );
 
     /**
-     * Figure out where to put the current time indicator
-     */
-    private calculateCurrentTimeLine = _.throttle(
-        () => {
-            if (this.timeView === 'month') {
-                return;
-            }
-
-            const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
-            const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
-
-            const now = moment();
-
-            _.forEach(this.displayDays, day => {
-                if (now.isBetween(day.startTime, day.endTime, null, '()')) {
-                    const diff = now.diff(day.startTime, 'seconds');
-                    day.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
-                } else {
-                    day.currentTimeLine = -1;
-                }
-            });
-        },
-        250,
-        {trailing: true, leading: false},
-    );
-
-    /**
      * Render the timeline on a delay
      */
     private renderTimeline = _.throttle(
         () => {
-            // If there is no delay, the browser chokes up and doesn't
+            // If there is no delay, the browser can choke up and doesn't
             // display the loading indicator until the very end
             // 50ms wait seems to be a good middle ground
             this.buildTimeline();
         },
-        100,
+        50,
         {trailing: true, leading: false},
     );
 
@@ -419,76 +321,6 @@ export class CTimeline {
         {trailing: true, leading: false},
     );
 
-    /**
-     * Will get entries per day if `actions.getEntries` is a function.
-     * Otherwise will just process the `entries` that were passed in.
-     */
-    private getAndTransformEntries = _.throttle(
-        () => {
-            // If they just hand in a bucket of entries, handle that
-            if (this.entries.length) {
-                this.transformEntries();
-                return;
-            }
-
-            if (!_.isFunction(this.actions.getEntries)) {
-                return;
-            }
-
-            // Get data for every single date
-            _.forEach(this.displayDays, async day => {
-                if (day.isLoading) {
-                    return;
-                }
-
-                day.isLoading = true;
-
-                // Just get the data once. Re-render the rest of the time
-                if (_.isNull(day.entries)) {
-                    // Get the data
-                    let entries;
-
-                    try {
-                        entries = await this.actions.getEntries(day.startTime, day.endTime);
-                    } catch (e) {
-                        entries = [];
-                    }
-
-                    day.entries = await filterMapEntries(
-                        entries,
-                        this.pxPerMinute,
-                        day.startTime,
-                        day.endTime,
-                        this.timeView,
-                        this.editEntryViewModel,
-                        day.date,
-                        this.tzOffset,
-                        this.zoomLevel,
-                    );
-                } else if (day.entries.length) {
-                    // Update existing data
-                    day.entries = await mapEntries(
-                        day.entries,
-                        this.pxPerMinute,
-                        day.startTime,
-                        day.endTime,
-                        this.timeView,
-                        this.editEntryViewModel,
-                        day.date,
-                        this.tzOffset,
-                        this.zoomLevel,
-                    );
-                }
-
-                this.taskQueue.queueMicroTask(() => {
-                    day.isLoading = false;
-                });
-            });
-        },
-        250,
-        {leading: false, trailing: true},
-    );
-
     constructor(private taskQueue: TaskQueue, private notification: CToastsService) {
         // Generate allowed times at each level
         mapAllowedTimes();
@@ -501,14 +333,14 @@ export class CTimeline {
         }
 
         this.getParentScrollElem();
-        this.buildTimeline();
+        this.renderTimeline();
 
         // Wait for blocks to be built
         _.delay(() => {
             this.currentTimeLineTracker = setInterval(() => {
                 this.calculateCurrentTimeLine();
             }, (SECONDS_IN_MINUTE / 2) * 1000);
-        }, 250);
+        }, 100);
 
         $(this.parentScrollElem).on('scroll', this.trackPosistion);
     }
@@ -543,28 +375,53 @@ export class CTimeline {
         this.renderTimeline();
     }
 
-    public timeViewChanged() {
+    public timeViewChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
         this.renderTimeline();
     }
 
-    public daysChanged() {
+    public daysChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
         if (this.timeView === 'week') {
             this.renderTimeline();
         }
     }
 
-    public entriesChanged() {
+    public entriesChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
         // Don't update unless there are blocks displaying
         if (this.blocks.length) {
             this.transformEntries();
         }
     }
 
-    public dateChanged() {
+    public dateChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
         this.renderTimeline();
     }
 
-    public timezoneChanged() {
+    public timezoneChanged(_new, old) {
+        // Doesn't need to run on init
+        if (_.isUndefined(old)) {
+            return;
+        }
+
         this.setupTimezone(true);
     }
 
@@ -581,7 +438,7 @@ export class CTimeline {
         }
 
         // Wait until the throttle has hit for building the blocks
-        _.delay(() => this.scrollToSpot(this.scrollTime), 250);
+        _.delay(() => this.scrollToSpot(this.scrollTime), 50);
     }
 
     public forcePollChanged(_new, old) {
@@ -711,7 +568,7 @@ export class CTimeline {
                 let currentTimeTop = -1;
 
                 _.forEach(this.displayDays, day => {
-                    if (day.currentTimeLine > -1) {
+                    if (day.currentTimeLine > -1 && moment(day.date).isSame(this.date, 'day')) {
                         currentTimeTop = day.currentTimeLine;
                         return false;
                     }
@@ -1213,5 +1070,160 @@ export class CTimeline {
         const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
 
         return [zoomLevelData, pxPerMinute];
+    }
+
+    /**
+     * Figure out where to put the current time indicator
+     */
+    private calculateCurrentTimeLine() {
+        if (this.timeView === 'month') {
+            return;
+        }
+
+        const zoomLevelData = ZOOM_LEVELS[this.zoomLevel];
+        const pxPerMinute = BLOCK_HEIGHT / zoomLevelData.minutes;
+
+        const now = moment();
+
+        _.forEach(this.displayDays, day => {
+            if (now.isBetween(day.startTime, day.endTime, null, '()')) {
+                const diff = now.diff(day.startTime, 'seconds');
+                day.currentTimeLine = (diff / SECONDS_IN_MINUTE) * pxPerMinute + 1;
+            } else {
+                day.currentTimeLine = -1;
+            }
+        });
+    }
+
+    /**
+     * Build out the timeline.
+     */
+    private buildTimeline() {
+        this.buildBlocks();
+        this.calculateCurrentTimeLine();
+
+        this.getAndTransformEntries();
+        this.setupPolling();
+
+        this.taskQueue.queueMicroTask(() => {
+            this.trackPosistion.cancel();
+            this.preventScrollCheck = true;
+
+            _.defer(() => {
+                this.trackPosistion.cancel();
+
+                if (!this.scrollLastSpot) {
+                    this.scrollCurrentTime = true;
+                }
+                this.scrollToSpot();
+            });
+        });
+    }
+
+    /**
+     * Take entries that are input and transform them into entries the calendar can use
+     */
+    private transformEntries() {
+        if (this.actions.getEntries || !this.entries.length) {
+            return;
+        }
+
+        try {
+            if (this.timeView !== 'month') {
+                _.forEach(this.displayDays, async day => {
+                    if (day.isLoading) {
+                        return;
+                    }
+
+                    if (!day.entries) {
+                        day.isLoading = true;
+                    }
+
+                    day.entries = await filterMapEntries(
+                        this.entries,
+                        this.pxPerMinute,
+                        day.startTime,
+                        day.endTime,
+                        this.timeView,
+                        this.editEntryViewModel,
+                        day.date,
+                        this.tzOffset,
+                        this.zoomLevel,
+                    );
+
+                    this.taskQueue.queueMicroTask(() => {
+                        day.isLoading = false;
+                    });
+                });
+            }
+        } catch (e) {
+            this.notification.error('There was an error parsing the entries. Please try again.');
+        }
+    }
+
+    /**
+     * Will get entries per day if `actions.getEntries` is a function.
+     * Otherwise will just process the `entries` that were passed in.
+     */
+    private getAndTransformEntries() {
+        // If they just hand in a bucket of entries, handle that
+        if (this.entries.length) {
+            this.transformEntries();
+            return;
+        }
+
+        if (!_.isFunction(this.actions.getEntries)) {
+            return;
+        }
+
+        // Get data for every single date
+        _.forEach(this.displayDays, async day => {
+            if (day.isLoading) {
+                return;
+            }
+
+            day.isLoading = true;
+
+            // Just get the data once. Re-render the rest of the time
+            if (_.isNull(day.entries)) {
+                // Get the data
+                let entries;
+
+                try {
+                    entries = await this.actions.getEntries(day.startTime, day.endTime);
+                } catch (e) {
+                    entries = [];
+                }
+
+                day.entries = await filterMapEntries(
+                    entries,
+                    this.pxPerMinute,
+                    day.startTime,
+                    day.endTime,
+                    this.timeView,
+                    this.editEntryViewModel,
+                    day.date,
+                    this.tzOffset,
+                    this.zoomLevel,
+                );
+            } else if (day.entries.length) {
+                // Update existing data
+                day.entries = await mapEntries(
+                    day.entries,
+                    this.pxPerMinute,
+                    day.startTime,
+                    day.endTime,
+                    this.timeView,
+                    this.editEntryViewModel,
+                    day.date,
+                    this.tzOffset,
+                    this.zoomLevel,
+                );
+            }
+
+            this.taskQueue.queueMicroTask(() => {
+                day.isLoading = false;
+            });
+        });
     }
 }
