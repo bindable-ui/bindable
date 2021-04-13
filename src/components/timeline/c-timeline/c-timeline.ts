@@ -413,6 +413,7 @@ export class CTimeline {
             return;
         }
 
+        this.scrollLastSpot = true;
         this.renderTimeline();
     }
 
