@@ -759,6 +759,8 @@ c-pill{
     --pill-border-radius: 5px;
     --pill-text-color: var(--c_white);
     --pill-font-size: var(--s-2);
+    --pill-font-weight: normal;
+    --pill-font-family: inherit;
     --pill-link-color: var(--c_white);
 }
 

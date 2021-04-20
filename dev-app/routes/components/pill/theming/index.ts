@@ -45,6 +45,16 @@ export class PillThemeProperties {
             property: 'font-size',
         },
         {
+            default: 'normal',
+            name: '--pill-font-weight',
+            property: 'font-weight',
+        },
+        {
+            default: 'inherit',
+            name: '--pill-font-family',
+            property: 'font-family',
+        },
+        {
             default: 'var(--c_white)',
             name: '--pill-link-color',
             property: 'color',

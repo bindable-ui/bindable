@@ -10,6 +10,14 @@ export class CPill {
     @bindable
     public color = 'var(--c_subOneMain)';
     @bindable
+    public textColor = 'var(--pill-text-color);';
+    @bindable
+    public fontWeight = 'var(--pill-font-weight)';
+    @bindable
+    public fontFamily = 'var(--pill-font-family)';
+    @bindable
+    public linkColor = 'var(--pill-link-color)';
+    @bindable
     public href;
     @bindable
     public icon;

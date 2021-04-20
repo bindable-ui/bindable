@@ -57,6 +57,33 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <c-divider></c-divider>
 
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>font-family, font-weight, text-color &amp; link-color</c-h3>
+                <c-code-sample>
+                    <c-cluster align="start">
+                        <div>
+                            <c-h3>Text in a paragraph</c-h3>
+                            <c-pill text-color="var(--c_black)" color="var(--c_secondaryMain)" font-family="var(--ff_primary-bold)">
+                                <span slot="pill-content">
+                                    font-family &amp; text-color
+                                </span>
+                            </c-pill>
+                            <c-pill color="var(--c_subOneLighter)" href="http://google.com" link-color="blue" font-weight="900">
+                                <span slot="pill-link-content">
+                                    link-color &amp; font-weight
+                                </span>
+                            </c-pill>
+                        </div>
+                    </c-cluster>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h3>In a table</c-h3>
