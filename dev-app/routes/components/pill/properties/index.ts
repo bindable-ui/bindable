@@ -38,12 +38,14 @@ export class PillProperties {
             value: 'CSS Color',
         },
         {
-            description: 'Set the font color of the pill',
+            default: 'var(--c_white)',
+            description: 'Set the text color of the pill',
             name: 'text-color',
             value: 'CSS Color',
         },
         {
-            description: 'Set the font color for a pill link',
+            default: 'var(--c_white)',
+            description: 'Set the text color for a pill link',
             name: 'link-color',
             value: 'CSS Color',
         },
@@ -54,6 +56,7 @@ export class PillProperties {
             value: 'CSS font-weight',
         },
         {
+            default: 'inherit',
             description: 'Set an alternate font-family for the pill',
             name: 'font-family',
             value: 'CSS Color',
