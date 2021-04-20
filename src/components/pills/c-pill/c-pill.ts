@@ -10,6 +10,14 @@ export class CPill {
     @bindable
     public color = 'var(--c_subOneMain)';
     @bindable
+    public textColor;
+    @bindable
+    public fontWeight = 'normal';
+    @bindable
+    public fontFamily;
+    @bindable
+    public linkColor;
+    @bindable
     public href;
     @bindable
     public icon;

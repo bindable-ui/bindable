@@ -25,6 +25,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     border-radius: var(--pill-border-radius);
     color: var(--pill-text-color);
     font-size: var(--pill-font-size);
+    font-weight: var(--pill-font-weight);
+    font-family: var(--pill-font-family);
     display: inline-block;
     background-color: var(--pill-color);
 }
@@ -45,4 +47,8 @@ a.pill{
     color: var(--pill-link-color) !important;
     text-decoration: none;
     transition: background var(--trans_main);
+}
+
+a.pill:hover{
+    opacity:.8;
 }

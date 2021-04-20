@@ -33,8 +33,29 @@ export class PillProperties {
     public pillProperties = [
         {
             default: 'var(--c_subOneMain)',
-            description: 'Set the color',
+            description: 'Set the background color',
             name: 'color',
+            value: 'CSS Color',
+        },
+        {
+            description: 'Set the font color of the pill',
+            name: 'text-color',
+            value: 'CSS Color',
+        },
+        {
+            description: 'Set the font color for a pill link',
+            name: 'link-color',
+            value: 'CSS Color',
+        },
+        {
+            default: 'normal',
+            description: 'Set an alternate font-weight for the pill text',
+            name: 'font-weight',
+            value: 'CSS font-weight',
+        },
+        {
+            description: 'Set an alternate font-family for the pill',
+            name: 'font-family',
             value: 'CSS Color',
         },
         {
