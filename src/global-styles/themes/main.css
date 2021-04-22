@@ -86,6 +86,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     --ratio: 1.25;
 
     /* smaller */
+    --s-7: calc(var(--s-6) / var(--ratio));
+    --s-6: calc(var(--s-5) / var(--ratio));
     --s-5: calc(var(--s-4) / var(--ratio));
     --s-4: calc(var(--s-3) / var(--ratio));
     --s-3: calc(var(--s-2) / var(--ratio));

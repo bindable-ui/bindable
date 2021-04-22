@@ -22,6 +22,10 @@ export class CPill {
     @bindable
     public icon;
     @bindable
+    public iconColor;
+    @bindable
+    public iconDir = 'ltr';
+    @bindable
     public iconAction;
 
     public styles = styles;

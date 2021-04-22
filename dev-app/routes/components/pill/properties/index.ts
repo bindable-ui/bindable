@@ -72,6 +72,17 @@ export class PillProperties {
             value: 'Any icon',
         },
         {
+            description: 'If using an icon, set an alternate color.',
+            name: 'icon-color',
+            value: 'CSS Color',
+        },
+        {
+            default: 'ltr',
+            description: 'Set the direction of the icon.',
+            name: 'icon-dir',
+            value: 'ltr | rtl',
+        },
+        {
             description: 'Sets which direction there the spacing shows up.',
             name: 'spacing',
             value: 'spacingRight | spacingLeft',
