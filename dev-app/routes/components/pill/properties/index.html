@@ -41,7 +41,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>icon</c-h3>
+                <c-h3>icon &amp; icon-color</c-h3>
                 <c-code-sample>
                     <c-pill icon="x" icon-action.call="testFunction()">
                         <span slot="pill-content">Icon in pill</span>
@@ -49,6 +49,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <c-pill color="var(--c_charcoal)" href="http://google.com" icon="x" icon-action.call="testFunction()">
                         <span slot="pill-link-content">
                             Pill link
+                        </span>
+                    </c-pill>
+                    <c-pill color="var(--c_lightGray)" link-color="#000" icon-color="blue" icon="lock" href="https://youtube.com/watch?v=kfVsfOSbJY0">
+                        <span slot="pill-link-content">
+                            Alternate Icon Color
                         </span>
                     </c-pill>
                 </c-code-sample>
