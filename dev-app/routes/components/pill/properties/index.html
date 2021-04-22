@@ -41,17 +41,20 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>icon &amp; icon-color</c-h3>
+                <c-h3>icon, icon-action, icon-dir &amp; icon-color</c-h3>
                 <c-code-sample>
                     <c-pill icon="x" icon-action.call="testFunction()">
                         <span slot="pill-content">Icon in pill</span>
+                    </c-pill>
+                    <c-pill icon="x" icon-dir="rtl">
+                        <span slot="pill-content">Icon on right</span>
                     </c-pill>
                     <c-pill color="var(--c_charcoal)" href="http://google.com" icon="x" icon-action.call="testFunction()">
                         <span slot="pill-link-content">
                             Pill link
                         </span>
                     </c-pill>
-                    <c-pill color="var(--c_lightGray)" link-color="#000" icon-color="blue" icon="lock" href="https://youtube.com/watch?v=kfVsfOSbJY0">
+                    <c-pill color="var(--c_primaryMain)" link-color="#FFF" icon-color="var(--c_primaryLighter)" icon="lock" href="https://youtube.com/watch?v=kfVsfOSbJY0">
                         <span slot="pill-link-content">
                             Alternate Icon Color
                         </span>
