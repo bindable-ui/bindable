@@ -9,6 +9,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         arrow-position="${row[col.colHeadName + 'TipArrowPosition']}"
         size="${row[col.colHeadName + 'TipSize']}"
         icon-tip.bind="true"
+        actions.bind="row[col.colHeadName + 'TipActions']"
     >
         <div slot="trigger">
             <span if.bind="row[col.colHeadName + 'TipTriggerIcon']">
