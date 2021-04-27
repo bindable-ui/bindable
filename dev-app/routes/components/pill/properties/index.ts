@@ -33,8 +33,32 @@ export class PillProperties {
     public pillProperties = [
         {
             default: 'var(--c_subOneMain)',
-            description: 'Set the color',
+            description: 'Set the background color',
             name: 'color',
+            value: 'CSS Color',
+        },
+        {
+            default: 'var(--c_white)',
+            description: 'Set the text color of the pill',
+            name: 'text-color',
+            value: 'CSS Color',
+        },
+        {
+            default: 'var(--c_white)',
+            description: 'Set the text color for a pill link',
+            name: 'link-color',
+            value: 'CSS Color',
+        },
+        {
+            default: 'normal',
+            description: 'Set an alternate font-weight for the pill text',
+            name: 'font-weight',
+            value: 'CSS font-weight',
+        },
+        {
+            default: 'inherit',
+            description: 'Set an alternate font-family for the pill',
+            name: 'font-family',
             value: 'CSS Color',
         },
         {
@@ -46,6 +70,17 @@ export class PillProperties {
             description: 'Set the icon to be in the pill.',
             name: 'icon',
             value: 'Any icon',
+        },
+        {
+            description: 'If using an icon, set an alternate color.',
+            name: 'icon-color',
+            value: 'CSS Color',
+        },
+        {
+            default: 'ltr',
+            description: 'Set the direction of the icon.',
+            name: 'icon-dir',
+            value: 'ltr | rtl',
         },
         {
             description: 'Sets which direction there the spacing shows up.',

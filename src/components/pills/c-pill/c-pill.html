@@ -12,10 +12,12 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles.pill}
             ${styles[color]}
         "
-        css="--pill-color: ${color}"
+        css="--pill-color: ${color}; --pill-text-color: ${textColor}; --pill-font-weight: ${fontWeight}; --pill-font-family: ${fontFamily}"
     >
         <l-icon
             icon="${icon}"
+            dir="${iconDir}"
+            color="${iconColor}"
             action.call="actionFunction()"
         >
             <span>
@@ -29,11 +31,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ${styles.pill}
             ${styles[color]}
         "
-        css="--pill-color: ${color}"
+        css="--pill-color: ${color}; --pill-link-color: ${linkColor}; --pill-font-weight: ${fontWeight}; --pill-font-family: ${fontFamily}"
         show.bind="href"
     >
         <l-icon
             icon="${icon}"
+            dir="${iconDir}"
+            color="${iconColor}"
             action.call="actionFunction()"
         >
             <span>
