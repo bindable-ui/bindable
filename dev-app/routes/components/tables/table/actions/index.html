@@ -29,6 +29,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                         <li>bgHealthy</li>
                         <li>bgWarning</li>
                         <li>bgCritical</li>
+                        <li>bgMajor</li>
                         <li>bgInfo</li>
                         <li>bgProcess</li>
                         <li>notAllowed</li>
@@ -98,6 +99,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             ship: 'M.Falcon',
         },
         {
+            _barColor: 'var(--c_subFourLighter)',
+            _status: 'bar',
+            gender: 'Null',
+            name: 'Wicket',
+            ship: 'Speeder Bike',
+        },
+        {
             _barColor: 'var(--c_subFourMain)',
             _status: 'bar',
             gender: 'Male',
@@ -133,6 +141,9 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         } else if (col.colHeadName === 'gender') {
             if (row.gender === 'Male') {
                 return 'bgHealthy';
+            }
+            if (row.gender === 'Null') {
+                return 'bgMajor';
             }
         }
         return col._class;

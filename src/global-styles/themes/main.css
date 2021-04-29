@@ -865,6 +865,8 @@ c-table{
     --table-color-warning: var(--c_subTwoLight);
     --table-background-critical: var(--c_primaryDark);
     --table-color-critical: var(--c_primaryLighter);
+    --table-background-major: var(--c_subFourDark);
+    --table-color-major: var(--table-td-color);
     --table-background-info: var(--c_subOneDark);
     --table-color-info: var(--c_subOneLight);
     --table-background-processing: url('../assets/images/td-processing.gif');

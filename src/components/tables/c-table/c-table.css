@@ -410,6 +410,12 @@ td.bg-building{
     color: var(--table-color-building) !important;
 }
 
+.bg-major td,
+td.bg-major{
+    background-color: var(--table-background-major) !important;
+    color: var(--table-color-major) !important;
+}
+
 
 
 
