@@ -238,6 +238,16 @@ export class TableThemeProperties {
             property: 'color',
         },
         {
+            default: 'var(--c_subFourDark)',
+            name: '--table-background-major',
+            property: 'background-color',
+        },
+        {
+            default: 'var(--c_marshmellow)',
+            name: '--table-color-major',
+            property: 'color',
+        },
+        {
             default: 'var(--c_subOneDark)',
             name: '--table-background-info',
             property: 'backgrond-color',
