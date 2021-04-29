@@ -412,8 +412,8 @@ td.bg-building{
 
 .bg-major td,
 td.bg-major{
-    background-image: var(--table-background-building) !important;
-    color: var(--table-color-building) !important;
+    background-color: var(--table-background-major) !important;
+    color: var(--table-color-major) !important;
 }
 
 

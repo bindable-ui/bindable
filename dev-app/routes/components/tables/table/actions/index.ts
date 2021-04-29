@@ -46,6 +46,9 @@ export class TableActions {
                 if (row.gender === 'Male') {
                     return 'bgHealthy';
                 }
+                if (row.gender === 'Null') {
+                    return 'bgMajor';
+                }
             }
             return col._class;
         },
@@ -155,6 +158,13 @@ export class TableActions {
                 gender: 'Male',
                 name: 'Chewbacca',
                 ship: 'M.Falcon',
+            },
+            {
+                _barColor: 'var(--c_subFourLighter)',
+                _status: 'bar',
+                gender: 'Null',
+                name: 'Wicket',
+                ship: 'Speeder Bike',
             },
             {
                 _barColor: 'var(--c_subFourMain)',

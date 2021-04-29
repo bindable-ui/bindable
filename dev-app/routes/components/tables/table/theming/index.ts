@@ -243,7 +243,7 @@ export class TableThemeProperties {
             property: 'background-color',
         },
         {
-            default: 'var(--c_marshmellow)',
+            default: 'var(--table-td-color)',
             name: '--table-color-major',
             property: 'color',
         },
