@@ -10,7 +10,7 @@ export class Playground {
                 this.basicRows.forEach(row => {row.checkbox = isChecked});
             },
             colHeadSelectedVal: false,
-            colHeadValue: '',
+            colHeadValue: 'Select',
             view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check.html'),
             viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-check/c-td-check'),
         },

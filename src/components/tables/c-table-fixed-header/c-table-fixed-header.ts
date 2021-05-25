@@ -42,7 +42,10 @@ export class CTableFixedHeader {
         $(window).off('resize', this.setWindowWidth.bind(this));
     }
 
-    public isLoadingChanged() {
+    public isLoadingChanged(_newVal, oldVal) {
+        if (_.isUndefined(oldVal) || this.isLoading) {
+            return;
+        }
         // Do a simple check after it does a lazy load to see if we need to load more
         this.onScroll();
     }
@@ -77,7 +80,7 @@ export class CTableFixedHeader {
     }
 
     public onScroll() {
-        if (!this.scrollToLoad) {
+        if (!this.scrollToLoad || this.isLoading) {
             return;
         }
 
