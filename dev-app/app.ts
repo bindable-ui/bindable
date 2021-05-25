@@ -89,6 +89,13 @@ export class App {
             route: 'layout-examples',
             title: 'Layout Examples',
         },
+        {
+            moduleId: PLATFORM.moduleName('./routes/playground/index'),
+            name: 'playground',
+            nav: false,
+            route: 'playground',
+            title: 'Playground',
+        },
     ];
 
     public configureRouter(config, router) {

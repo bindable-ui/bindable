@@ -5,6 +5,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 import {bindable, inject} from 'aurelia-framework';
 
+import {generateRandom} from '../../../helpers/generate-random';
 import {lazyLoadCheck} from '../../../helpers/lazy-load-check';
 import {CTableActions, CTableCol} from '../c-table/c-table-interfaces';
 
@@ -24,6 +25,7 @@ export class CTableFixedHeader {
     public scrollToLoad = false;
 
     public styles = styles;
+    public id = generateRandom();
     public totalWidth = 0;
     public windowWidth;
 
@@ -79,7 +81,7 @@ export class CTableFixedHeader {
             return;
         }
 
-        const elem = $(this.element.ownerDocument).find(`.${this.styles.fixedTableHeader}`);
+        const elem = $(this.element.ownerDocument).find(`#${this.id}`);
 
         if (lazyLoadCheck(elem) && this.actions && this.actions.onScrollBottom) {
             this.actions.onScrollBottom();

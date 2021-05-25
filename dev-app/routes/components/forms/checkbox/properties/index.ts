@@ -113,6 +113,6 @@ export class CheckboxProperties {
     }
 
     public attached() {
-        document.getElementById('indeterminate').indeterminate = true;
+        $('#indeterminate').prop('indeterminate', true);
     }
 }

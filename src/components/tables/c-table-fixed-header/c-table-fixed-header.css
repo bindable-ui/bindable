@@ -98,7 +98,7 @@ c-table-fixed-header{
     }
 
     .fixed-table-header{
-        overflow: visible;
+        overflow: auto;
     }
 
     .fixed-table-header table{

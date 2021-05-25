@@ -14,6 +14,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
         class="${styles.fixedTableHeader}"
         css="${(totalWidth > windowWidth) ? 'width:' + totalWidth + 'px' : ''}"
         scroll.trigger="onScroll() & throttle"
+        id="${id}"
     >
         <slot></slot>
     </div>
