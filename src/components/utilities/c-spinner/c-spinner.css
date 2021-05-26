@@ -62,8 +62,6 @@ table .container{
 
 .base{
     display: block;
-    min-width: 24px;
-    min-height: 30px;
 }
 
 .base::before{
@@ -106,24 +104,34 @@ table .container{
  * ^Medium
  */
 
+.medium{
+    min-width: 50px;
+    min-height: 50px;
+}
+
 .medium::before{
     width: 20px;
     height: 20px;
-    margin-top: -14px;
-    margin-left: -14px;
+    margin-top: -10px;
+    margin-left: -10px;
 }
 
 .medium::after{
     width: 50px;
     height: 50px;
-    margin-top: -29px;
-    margin-left: -29px;
+    margin-top: -25px;
+    margin-left: -25px;
 }
 
 
 /**
  * ^Small
  */
+
+.small{
+    min-width: 30px;
+    min-height: 30px;
+ }
 
 .small::before{
     width: 13px;
@@ -133,8 +141,8 @@ table .container{
 }
 
 .small::after{
-    width: 29px;
-    height: 29px;
+    width: 30px;
+    height: 30px;
     margin-top: -15px;
     margin-left: -15px;
 }
