@@ -97,10 +97,6 @@ c-table-fixed-header{
         display: none;
     }
 
-    .fixed-table-header{
-        overflow: visible;
-    }
-
     .fixed-table-header table{
         margin-top: 0;
     }

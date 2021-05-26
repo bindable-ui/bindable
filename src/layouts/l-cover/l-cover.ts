@@ -24,6 +24,8 @@ export class LCover {
     @bindable
     public scrolling = false;
     @bindable
+    public scrollingMobile = false;
+    @bindable
     public topGutter = '0';
     @bindable
     public bottomGutter = '0';
@@ -45,6 +47,10 @@ export class LCover {
 
         if (typeof this.scrolling !== 'boolean') {
             this.scrolling = false;
+        }
+
+        if (typeof this.scrollingMobile !== 'boolean') {
+            this.scrollingMobile = false;
         }
     }
 }

@@ -160,7 +160,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 }
 
 @media screen and (max-width: 550px){
-    .scrolling{
+    .scrolling-not-mobile{
         height: auto;
         max-height: unset;
     }

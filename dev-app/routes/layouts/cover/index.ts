@@ -82,6 +82,12 @@ export class CoverProperties {
             value: 'boolean',
         },
         {
+            default: 'false',
+            description: 'If scrolling is true and you want the contents of the cover to continue to have scrollbars on mobile set this to true. If you want regular scrolling in and around the layout leave it false.',
+            name: 'scrolling-mobile',
+            value: 'boolean',
+        },
+        {
             default: '0',
             description: 'Set if you need a gutter between the first and second items in the l-cover.',
             name: 'top-gutter',

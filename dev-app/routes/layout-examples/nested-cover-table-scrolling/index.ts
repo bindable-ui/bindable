@@ -11,9 +11,14 @@ export class NestedCoverTableScrolling {
             _class: 'dragCheck',
             colClass: 't30',
             colHeadName: 'dragCheck',
-            colHeadValue: '',
-            view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html'),
-            viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check'),
+            colHeadSelectedChanged: () => null,
+            colHeadValue: 'Select',
+            view: PLATFORM.moduleName(
+                '@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html',
+            ),
+            viewModel: PLATFORM.moduleName(
+                '@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check',
+            ),
         },
         {
             colClass: 't270',
@@ -274,7 +279,7 @@ export class NestedCoverTableScrolling {
         getColClass: (row, col) => {
             let cls = col._class;
 
-            if (col.colHeadName === 'name') {
+            if (col.colHeadName === 'dragCheck') {
                 cls = `${cls} ${row._status}`;
 
                 // if (row._status === 'healthy') {

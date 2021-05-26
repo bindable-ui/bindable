@@ -58,9 +58,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
+.check:checked::before,
+.check:indeterminate::before{
+    opacity: 1;
+}
+
 .check:checked::before{
     background-color: var(--checkbox-selected-background);
-    opacity: 1;
+}
+
+.check:indeterminate::before{
+    background-color: var(--checkbox-indeterminate-background);
+    background-image: url('data:image/svg+xml;utf8,<svg width="30" height="7" viewBox="0 0 30 7" xmlns="http://www.w3.org/2000/svg"><rect id="Rectangle" fill="\%23FFF" x="0" y="0" width="30" height="7"></rect></svg>');
 }
 
 

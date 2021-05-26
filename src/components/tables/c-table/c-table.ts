@@ -4,6 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {bindable} from 'aurelia-framework';
+
 import {authState} from '../../../decorators/auth-state';
 import {generateRandom} from '../../../helpers/generate-random';
 import sorting from '../../../helpers/sorting';
@@ -64,6 +65,7 @@ export class CTable {
     @bindable
     public striped = true;
 
+    public id = generateRandom();
     public styles = styles;
     public vCheckboxInputStyles = vCheckboxInputStyles;
 
@@ -89,16 +91,22 @@ export class CTable {
         }
     }
 
+    public detached() {
+        $('compose > input[type=checkbox]').off('change', this.checkChange.bind(this));
+    }
+
+    public rowsChanged() {
+        this.setUpListener();
+    }
+
     public bind() {
         if (this.sortable) {
             this.cols.forEach(col => {
                 this.setColSortClass(col);
             });
         }
-    }
 
-    public generateRandomId() {
-        return generateRandom();
+        this.setUpListener();
     }
 
     public getRowClass(row) {
@@ -224,6 +232,38 @@ export class CTable {
         } else {
             // client-side sort
             this.rows.sort(sorting(col.colHeadName, reverse));
+        }
+    }
+
+    private checkChange() {
+        if (
+            !this.cols ||
+            !this.cols.length ||
+            !this.cols[0].colHeadSelectedChanged ||
+            !this.cols[0].colHeadSelectedVal
+        ) {
+            $(`#${this.id}`).prop('indeterminate', false);
+            return;
+        }
+
+        if (this.cols[0].colHeadSelectedVal) {
+            const allSelected = _.every(this.rows, row => !!row[this.cols[0].colHeadName]);
+
+            if (!allSelected) {
+                $(`#${this.id}`).prop('indeterminate', true);
+                return;
+            }
+        }
+
+        $(`#${this.id}`).prop('indeterminate', false);
+    }
+
+    private setUpListener() {
+        // Clean up for when rows get updated
+        $('compose > input[type=checkbox]').off('change', this.checkChange.bind(this));
+
+        if (this.rows && this.rows.length) {
+            _.defer(() => $('compose > input[type=checkbox]').on('change', this.checkChange.bind(this)));
         }
     }
 }

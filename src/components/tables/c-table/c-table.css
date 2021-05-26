@@ -41,7 +41,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Set Up
  */
 
-.table{
+.table {
     width: 100%;
     border-top: var(--table-border-top);
     border-right: var(--table-border-right);
@@ -50,13 +50,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     font-size: var(--table-font-size);
 }
 
-.table th{
+.table th {
     font-family: var(--table-th-font-family);
     font-size: var(--table-th-font-size);
 }
 
 .table th,
-.table td{
+.table td {
     padding: var(--table-td-padding);
     border-top: var(--table-td-border-top);
     border-right: var(--table-td-border-right);
@@ -67,23 +67,23 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     vertical-align: top;
 }
 
-.table td compose{
+.table td compose {
     display: block;
     line-height: 0;
 }
 
-.table td compose *{
+.table td compose * {
     line-height: initial;
 }
 
-.table td compose c-drag-handle{
+.table td compose c-drag-handle {
     line-height: 0;
 }
 
 .table td input[type='checkbox'],
 .table th input[type='checkbox'],
 .table td input[type='radio'],
-.table th input[type='radio']{
+.table th input[type='radio'] {
     margin-top: var(--table-checkbox-margin-top) !important;
     margin-right: 0;
     margin-bottom: 0;
@@ -94,7 +94,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Header
  */
 
-.table thead th{
+.table thead th {
     padding: var(--table-th-padding);
     background-color: var(--table-th-background);
     color: var(--table-th-color);
@@ -108,7 +108,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !STRIPED
 \*------------------------------------*/
 
-.striped tbody tr:nth-of-type(odd){
+.striped tbody tr:nth-of-type(odd) {
     background-color: var(--table-striped-background);
 }
 
@@ -120,11 +120,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !ROW HOVER
 \*------------------------------------*/
 
-.hover tbody tr{
+.hover tbody tr {
     transition: background-color var(--trans_main);
 }
 
-.hover tbody tr:hover{
+.hover tbody tr:hover {
     background-color: var(--table-hover-background);
     cursor: pointer;
 }
@@ -137,7 +137,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !ROW NOT ALLOWED
 \*------------------------------------*/
 
-.not-allowed:hover{
+.not-allowed:hover {
     cursor: not-allowed !important;
 }
 
@@ -149,7 +149,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !ROW ACTIVE
 \*------------------------------------*/
 
-.active{
+.active {
     background-color: var(--table-active-background) !important;
 }
 
@@ -162,18 +162,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 \*------------------------------------*/
 
 .no-vertical-borders th,
-.no-vertical-borders td{
+.no-vertical-borders td {
     border-right: 0;
     border-left: 0;
 }
 
 .no-vertical-borders th:last-child,
-.no-vert td:last-child{
+.no-vert td:last-child {
     border-right: var(--table-td-border);
 }
 
 .no-vertical-borders th:first-child,
-.no-vertical-bordres td:first-child{
+.no-vertical-bordres td:first-child {
     border-left: var(--table-td-border);
 }
 
@@ -185,24 +185,77 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !CELL WIDTHS
 \*------------------------------------*/
 
-.t30{width: 30px;}
-.t40{width: 40px;}
-.t50{width: 50px;}
-.t65{width: 65px;}
-.t75{width: 75px;}
-.t85{width: 85px;}
-.t90{width: 90px;}
-.t105{width: 105px;}
-.t120{width: 120px;}
-.t150{width: 150px;}
-.t175{width: 175px;}
-.t190{width: 190px;}
-.t215{width: 215px;}
-.t240{width: 240px;}
-.t270{width: 270px;}
-.t350{width: 350px;}
-.t450{width: 450px;}
-.t550{width: 550px;}
+.t30 {
+    width: 30px;
+}
+
+.t40 {
+    width: 40px;
+}
+
+.t50 {
+    width: 50px;
+}
+
+.t65 {
+    width: 65px;
+}
+
+.t75 {
+    width: 75px;
+}
+
+.t85 {
+    width: 85px;
+}
+
+.t90 {
+    width: 90px;
+}
+
+.t105 {
+    width: 105px;
+}
+
+.t120 {
+    width: 120px;
+}
+
+.t150 {
+    width: 150px;
+}
+
+.t175 {
+    width: 175px;
+}
+
+.t190 {
+    width: 190px;
+}
+
+.t215 {
+    width: 215px;
+}
+
+.t240 {
+    width: 240px;
+}
+
+.t270 {
+    width: 270px;
+}
+
+.t350 {
+    width: 350px;
+}
+
+.t450 {
+    width: 450px;
+}
+
+.t550 {
+    width: 550px;
+}
 
 
 
@@ -212,11 +265,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !BAR
 \*------------------------------------*/
 
-.bar{
+.bar {
     position: relative;
 }
 
-.bar:before{
+.bar:before {
     content: '';
     position: absolute;
     width: 5px;
@@ -225,6 +278,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     left: 0;
     background-color: var(--cell-bar-color);
 }
+
+@media screen and (max-width: 780px) {
+    .bar:before {
+        position: relative;
+    }
+}
+
+
 
 
 
@@ -238,28 +299,28 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Bar
 */
 
-.healthy{
+.healthy {
     background-image: var(--table-row-bar-healthy);
     background-repeat: repeat-y;
 }
 
-.info{
+.info {
     background-image: var(--table-row-bar-info);
     background-repeat: repeat-y;
 }
 
-.warning{
+.warning {
     background-image: var(--table-row-bar-warning);
     background-repeat: repeat-y;
 }
 
 .critical,
-.error{
+.error {
     background-image: var(--table-row-bar-critical);
     background-repeat: repeat-y;
 }
 
-.neutral{
+.neutral {
     background-image: var(--table-row-bar-neutral);
     background-repeat: repeat-y;
 }
@@ -276,11 +337,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
  * ^Mono
  */
 
-.monospaced{
+.monospaced {
     font-family: var(--ff_mono);
 }
 
-th.monospaced{
+th.monospaced {
     font-family: inherit;
 }
 
@@ -292,9 +353,9 @@ th.monospaced{
     !TEXT INPUT
 \*------------------------------------*/
 
-td.text-input{
+td.text-input {
     padding-top: var(--table-text-input-cell-padding) !important;
-    padding-bottom: var(--table-text-input-cell-padding)!important;
+    padding-bottom: var(--table-text-input-cell-padding) !important;
 }
 
 
@@ -305,9 +366,9 @@ td.text-input{
     !BUTTON
 \*------------------------------------*/
 
-td.button{
+td.button {
     padding-top: var(--s-4) !important;
-    padding-bottom: var(--s-4)!important;
+    padding-bottom: var(--s-4) !important;
 }
 
 
@@ -319,17 +380,17 @@ td.button{
 \*------------------------------------*/
 
 .drag,
-.drag-check c-drag-handle{
+.drag-check c-drag-handle {
     position: relative;
 }
 
 .drag compose span,
-.drag-check compose span{
+.drag-check compose span {
     position: absolute;
     transition: background var(--trans_main), opacity var(--trans_main);
 }
 
-.drag compose > span > l-icon > span{
+.drag compose>span>l-icon>span {
     top: var(--table-drag-top);
     left: var(--table-drag-left);
     line-height: 0;
@@ -339,7 +400,7 @@ td.button{
     padding-left: var(--table-drag-padding-left);
 }
 
-.drag-check compose c-drag-handle > span > l-icon > span{
+.drag-check compose c-drag-handle>span>l-icon>span {
     top: var(--table-drag-check-top);
     left: var(--table-drag-check-left);
     height: var(--table-drag-check-height);
@@ -349,20 +410,20 @@ td.button{
 }
 
 .drag compose l-icon span:hover,
-.drag-check compose l-icon span:hover{
+.drag-check compose l-icon span:hover {
     background: var(--table-drag-background-hover);
 }
 
 .drag input[type=checkbox],
-.drag-check input[type=checkbox]{
+.drag-check input[type=checkbox] {
     margin-left: 0;
 }
 
-.table tbody td c-drag-handle > span{
+.table tbody td c-drag-handle>span {
     opacity: 0;
 }
 
-.table tbody tr:hover td c-drag-handle > span{
+.table tbody tr:hover td c-drag-handle>span {
     opacity: 1;
 }
 
@@ -375,43 +436,43 @@ td.button{
 \*------------------------------------*/
 
 .bg-healthy td,
-td.bg-healthy{
+td.bg-healthy {
     background-color: var(--table-background-healthy) !important;
     color: var(--table-color-healthy) !important;
 }
 
 .bg-warning td,
-td.bg-warning{
+td.bg-warning {
     background-color: var(--table-background-warning) !important;
     color: var(--table-color-warning) !important;
 }
 
 .bg-critical td,
-td.bg-critical{
+td.bg-critical {
     background-color: var(--table-background-critical) !important;
     color: var(--table-color-critical) !important;
 }
 
 .bg-info td,
-td.bg-info{
+td.bg-info {
     background-color: var(--table-background-info) !important;
     color: var(--table-color-info) !important;
 }
 
 .bg-processing td,
-td.bg-processing{
+td.bg-processing {
     background-image: var(--table-background-processing) !important;
     color: var(--table-color-processing) !important;
 }
 
 .bg-building td,
-td.bg-building{
+td.bg-building {
     background-image: var(--table-background-building) !important;
     color: var(--table-color-building) !important;
 }
 
 .bg-major td,
-td.bg-major{
+td.bg-major {
     background-color: var(--table-background-major) !important;
     color: var(--table-color-major) !important;
 }
@@ -424,11 +485,11 @@ td.bg-major{
     !ALIGN
 \*------------------------------------*/
 
-.align-right{
+.align-right {
     text-align: right !important;
 }
 
-.align-center{
+.align-center {
     text-align: center !important;
 }
 
@@ -440,28 +501,28 @@ td.bg-major{
     !SORT
 \*------------------------------------*/
 
-.sort{
+.sort {
     padding-right: var(--table-sort-padding-right);
     background-repeat: no-repeat;
     background-position: var(--table-sort-icon-position);
     cursor: pointer;
 }
 
-c-table-fixed-header .sort{
+c-table-fixed-header .sort {
     background-position: var(--table-fixed-header-sort-icon-position);
 }
 
-.sort-none{
+.sort-none {
     composes: sort;
     background-image: var(--table-sort-icon-none);
 }
 
-.sort-desc{
+.sort-desc {
     composes: sort;
     background-image: var(--table-sort-icon-desc);
 }
 
-.sort-asc{
+.sort-asc {
     composes: sort;
     background-image: var(--table-sort-icon-asc);
 }
@@ -474,13 +535,13 @@ c-table-fixed-header .sort{
     !RESPONSIVE
 \*------------------------------------*/
 
-@media only screen and (max-width: 780px){
-    .responsive{
+@media only screen and (max-width: 780px) {
+    .responsive {
         border-right: 0;
         border-left: 0;
     }
 
-    .responsive td::before{
+    .responsive td::before {
         display: inline-block;
         margin-right: 15px;
         color: var(--table-mobile-label-color);
@@ -488,58 +549,59 @@ c-table-fixed-header .sort{
         content: attr(data-th) ': ';
     }
 
-    .responsive td{
+    .responsive td {
         display: block;
         border-bottom: 0;
     }
 
-    .responsive th{
+    .responsive th {
         display: none;
     }
 
-    .responsive td{
+    .responsive td {
         margin-top: -1px;
     }
 
     .responsive th,
-    .responsive td{
+    .responsive td {
         text-align: left !important;
     }
 
     /* For Firefox only */
-    .responsive colgroup{
+    .responsive colgroup {
         display: none;
     }
+
     /* End Firefox only */
 
-    .responsive td > div.au-target{
+    .responsive td>div.au-target {
         display: inline-block;
     }
 
-    .responsive tr:first-child td:first-child{
+    .responsive tr:first-child td:first-child {
         margin-top: 0;
     }
 
     /* Line Up Cell Titles and Cell Content On Mobile Responsive Tables */
-    .responsive td{
+    .responsive td {
         display: table;
         width: 100%;
     }
 
-    .responsive td::before{
+    .responsive td::before {
         display: table-cell;
         width: 110px;
         padding: 11px 15px;
         word-break: break-word;
     }
 
-    .responsive td::after{
+    .responsive td::after {
         display: block;
         height: 11px;
         content: '';
     }
 
-    .responsive td .spinner-container{
+    .responsive td .spinner-container {
         margin-top: 8px;
     }
 }

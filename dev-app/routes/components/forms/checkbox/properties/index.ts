@@ -111,4 +111,8 @@ export class CheckboxProperties {
             }
         };
     }
+
+    public attached() {
+        $('#indeterminate').prop('indeterminate', true);
+    }
 }

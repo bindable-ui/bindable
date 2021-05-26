@@ -439,6 +439,7 @@ c-table{
     --checkbox-background: var(--c_charcoal);
     --checkbox-hover-background: var(--c_gray);
     --checkbox-selected-background: var(--c_secondaryMain);
+    --checkbox-indeterminate-background: var(--c_subOneMain);
     --checkbox-selected-check-size: var(--s-2);
     --checkbox-disabled-background: var(--c_slate);
 
