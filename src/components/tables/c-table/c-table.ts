@@ -89,8 +89,6 @@ export class CTable {
         if (typeof this.responsive !== 'boolean') {
             this.responsive = true;
         }
-
-        $('compose > input[type=checkbox]').on('change', this.checkChange.bind(this));
     }
 
     public detached() {
@@ -98,10 +96,7 @@ export class CTable {
     }
 
     public rowsChanged() {
-        // Clean up for when rows get updated
-        $('compose > input[type=checkbox]').off('change', this.checkChange.bind(this));
-
-        _.defer(() => $('compose > input[type=checkbox]').on('change', this.checkChange.bind(this)));
+        this.setUpListener();
     }
 
     public bind() {
@@ -110,6 +105,8 @@ export class CTable {
                 this.setColSortClass(col);
             });
         }
+
+        this.setUpListener();
     }
 
     public getRowClass(row) {
@@ -259,5 +256,14 @@ export class CTable {
         }
 
         $(`#${this.id}`).prop('indeterminate', false);
+    }
+
+    private setUpListener() {
+        // Clean up for when rows get updated
+        $('compose > input[type=checkbox]').off('change', this.checkChange.bind(this));
+
+        if (this.rows && this.rows.length) {
+            _.defer(() => $('compose > input[type=checkbox]').on('change', this.checkChange.bind(this)));
+        }
     }
 }
