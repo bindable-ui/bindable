@@ -7,7 +7,7 @@ export class Playground {
             colClass: 't30',
             colHeadName: 'checkbox',
             colHeadSelectedChanged: isChecked => {
-                this.basicRows.forEach(row => {row.checkbox = isChecked});
+                this.basicRows.forEach(row => {if (row.checkboxState !== 'disabled') { row.checkbox = isChecked; }});
             },
             colHeadSelectedVal: false,
             colHeadValue: 'Select',
@@ -36,6 +36,7 @@ export class Playground {
             gender: 'Male',
             name: 'Luke Skywalker',
             ship: 'X-Wing',
+            checkboxState: 'disabled',
         },
         {
             checkbox: false,
