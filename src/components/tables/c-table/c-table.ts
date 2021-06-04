@@ -89,14 +89,16 @@ export class CTable {
         if (typeof this.responsive !== 'boolean') {
             this.responsive = true;
         }
+
+        this.setUpListeners();
     }
 
     public detached() {
-        $('compose > input[type=checkbox]').off('change', this.checkChange.bind(this));
+        this.cleanupListeners();
     }
 
     public rowsChanged() {
-        this.setUpListener();
+        this.setUpListeners();
     }
 
     public bind() {
@@ -105,8 +107,6 @@ export class CTable {
                 this.setColSortClass(col);
             });
         }
-
-        this.setUpListener();
     }
 
     public getRowClass(row) {
@@ -258,12 +258,20 @@ export class CTable {
         $(`#${this.id}`).prop('indeterminate', false);
     }
 
-    private setUpListener() {
+    private setUpListeners() {
         // Clean up for when rows get updated
-        $('compose > input[type=checkbox]').off('change', this.checkChange.bind(this));
+        this.cleanupListeners();
 
         if (this.rows && this.rows.length) {
-            _.defer(() => $('compose > input[type=checkbox]').on('change', this.checkChange.bind(this)));
+            _.defer(() => {
+                $('compose > input[type=checkbox]').on('change', this.checkChange.bind(this));
+                $(`#${this.id}`).on('change', this.checkChange.bind(this));
+            });
         }
+    }
+
+    private cleanupListeners() {
+        $('compose > input[type=checkbox]').off('change', this.checkChange.bind(this));
+        $(`#${this.id}`).off('change', this.checkChange.bind(this));
     }
 }

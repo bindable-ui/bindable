@@ -4,5 +4,5 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <c-checkbox-input checked-value.bind="row[col.colHeadName]"></c-checkbox-input>
+    <c-checkbox-input checked-value.bind="row[col.colHeadName]" state.bind="row[col.colHeadName + 'State']"></c-checkbox-input>
 </template>
