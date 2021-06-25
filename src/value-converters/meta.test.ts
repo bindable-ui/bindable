@@ -5,6 +5,7 @@ import {CountValueConverter} from './count';
 import {
     AltTimestampToDMYValueConverter,
     IsoToFormattedMomentValueConverter,
+    MsToHmsValueConverter,
     SecondsToHmsValueConverter,
     TimezoneTimeToStandardDateTimeMSValueConverter,
 } from './datetime';
@@ -23,6 +24,7 @@ describe('Meta', () => {
     const isoToFormattedMoment: IsoToFormattedMomentValueConverter = new IsoToFormattedMomentValueConverter();
     const moneyFormat: MoneyFormatValueConverter = new MoneyFormatValueConverter();
     const secondsToHms: SecondsToHmsValueConverter = new SecondsToHmsValueConverter();
+    const msToHms: MsToHmsValueConverter = new MsToHmsValueConverter();
     // tslint:disable-next-line:max-line-length
     const timezoneTimeToStandardDateTimeMS: TimezoneTimeToStandardDateTimeMSValueConverter = new TimezoneTimeToStandardDateTimeMSValueConverter();
     const notApplicable: NotApplicableValueConverter = new NotApplicableValueConverter();
@@ -38,6 +40,7 @@ describe('Meta', () => {
                 isoToFormattedMoment,
                 moneyFormat,
                 secondsToHms,
+                msToHms,
                 timezoneTimeToStandardDateTimeMS,
                 notApplicable,
             );
