@@ -10,6 +10,7 @@ import {CountValueConverter} from './count';
 import {
     AltTimestampToDMYValueConverter,
     IsoToFormattedMomentValueConverter,
+    MsToHmsValueConverter,
     SecondsToHmsValueConverter,
     TimezoneTimeToStandardDateTimeMSValueConverter,
 } from './datetime';
@@ -28,6 +29,7 @@ export class MetaValueConverter {
         public isoToFormattedMoment: IsoToFormattedMomentValueConverter,
         public moneyFormat: MoneyFormatValueConverter,
         public secondsToHms: SecondsToHmsValueConverter,
+        public msToHms: MsToHmsValueConverter,
         public timezoneTimeToStandardDateTimeMS: TimezoneTimeToStandardDateTimeMSValueConverter,
         public notApplicable: NotApplicableValueConverter,
     ) {}
