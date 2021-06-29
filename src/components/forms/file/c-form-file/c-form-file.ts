@@ -11,6 +11,8 @@ import * as styles from './c-form-file.css.json';
 @authState
 export class CFormFile {
     @bindable
+    public accept;
+    @bindable
     public errorMsg;
     @bindable
     public id = generateRandom();
