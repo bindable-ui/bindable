@@ -1,5 +1,5 @@
 /*
-Copyright 2020, Verizon Media
+Copyright 2021, Yahoo EdgeCast
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
@@ -28,14 +28,18 @@ export function dirtyCheckPrompt<T extends new (...args: any[]) => {}>(construct
                     .get(DialogService)
                     .open({
                         model: {
-                            bodyViewModel: PLATFORM.moduleName('@bindable-ui/bindable/decorators/dirty-check-prompt/modal/body'),
+                            bodyViewModel: PLATFORM.moduleName(
+                                '@bindable-ui/bindable/decorators/dirty-check-prompt/modal/body',
+                            ),
                             footerEnable: true,
                             footerModel: {
                                 canSave: _.isFunction(this.save),
                                 isLoading: false,
                                 save: async () => await this.save(),
                             },
-                            footerViewModel: PLATFORM.moduleName('@bindable-ui/bindable/decorators/dirty-check-prompt/modal/footer'),
+                            footerViewModel: PLATFORM.moduleName(
+                                '@bindable-ui/bindable/decorators/dirty-check-prompt/modal/footer',
+                            ),
                             size: 'medium',
                             title: 'Are you sure you want to leave?',
                         },
