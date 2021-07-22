@@ -17,6 +17,8 @@ export class TableViews {
     public textInputData;
     public tdTruncateCols;
     public tdTruncateData;
+    public tdTruncateToggleCols;
+    public tdTruncateToggleData;
     public tdImageCols;
     public tdImageData;
     public checkboxCols;
@@ -444,6 +446,42 @@ export class TableViews {
                 ship: 'M. Falcon',
             },
         ];
+
+        // td truncate toggle example
+        this.tdTruncateToggleCols = [
+            {
+                colClass: 't175',
+                colHeadName: 'name',
+                colHeadValue: 'Name',
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate-toggle/c-td-truncate-toggle.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate-toggle/c-td-truncate-toggle'),
+            },
+            {
+                colHeadName: 'ship',
+                colHeadValue: 'Ship',
+                sort: true,
+            },
+            {
+                colClass: 't50',
+                colHeadName: 'gender',
+                colHeadValue: 'Gender',
+            },
+        ];
+
+        this.tdTruncateToggleData = [
+            {
+                _status: 'healthy',
+                gender: 'Male',
+                name: 'Luke Skywalker with a lot of text',
+                ship: 'X-Wing',
+            },
+            {
+                gender: 'Null',
+                name: "Boba Fett is a clone of the Mandalorian mercenary Jango Fett, specifically made to be raised as Jango's own son.",
+                ship: 'Starship Fett',
+            },
+        ];
+
 
         // td image example
         this.tdImageCols = [

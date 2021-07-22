@@ -259,6 +259,55 @@ this.tdTruncateData = [
         </div>
 
         <c-divider></c-divider>
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>c-td-truncate-toggle</c-h3>
+    <c-code>
+        this.tdTruncateToggleCols = [
+            {
+                colClass: 't175',
+                colHeadName: 'name',
+                colHeadValue: 'Name',
+                view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate-toggle/c-td-truncate-toggle.html'),
+                viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-truncate-toggle/c-td-truncate-toggle'),
+            },
+            {
+                colHeadName: 'ship',
+                colHeadValue: 'Ship',
+                sort: true,
+            },
+            {
+                colClass: 't50',
+                colHeadName: 'gender',
+                colHeadValue: 'Gender',
+            },
+        ];
+
+        this.tdTruncateToggleData = [
+            {
+                _status: 'healthy',
+                gender: 'Female',
+                name: 'Zorii Bliss is a spice-smuggler based on the ice-planet Kijimi',
+                ship: 'X-Wing',
+            },
+            {
+                gender: 'Null',
+                name: 'Boba Fett is a clone of the Mandalorian mercenary Jango Fett, specifically made to be raised as Jango's own son. '
+                ship: 'Starship Fett',
+            },
+        ];
+    </c-code>
+                <c-code-sample>
+                    <c-table
+                        actions.bind="tableActions"
+                        cols.bind="tdTruncateToggleCols"
+                        rows.bind="tdTruncateToggleData"
+                    ></c-table>
+                </c-code-sample>
+            </l-stack>
+            </div>
+
+            <c-divider></c-divider>
 
         <div>
             <l-stack spacing="var(--s-3)">

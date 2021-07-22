@@ -1,0 +1,22 @@
+<!--
+Copyright 2020, Verizon Media
+Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
+-->
+
+<template>
+	<require from="./c-td-truncate-toggle.css"></require>
+
+    <div class="${styles.container}">
+        <div class="${isClicked ? styles.visible : styles.truncate}" click.trigger="changeClassOnClick(this)">
+            <span title="${value}">
+                <span if.bind="!searchHighlight">
+                    ${value}
+                </span>
+                <span
+                    if.bind="searchHighlight"
+                    innerhtml.bind="searchHighlight"
+                ></span>
+            </span>
+        </div>
+    </div>
+</template>
