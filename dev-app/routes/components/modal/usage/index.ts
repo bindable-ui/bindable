@@ -91,7 +91,7 @@ export class Modal {
                 bodyModel: {
                     stuff: 'here',
                 },
-                bodyText: 'Modal Body of a medium with modal',
+                bodyViewModel: PLATFORM.moduleName('routes/components/modal/body'),
                 footerEnable: true,
                 footerModel: {
                     stuff: 'here',
@@ -111,7 +111,7 @@ export class Modal {
                 bodyModel: {
                     stuff: 'here',
                 },
-                bodyText: 'Modal Body of a large with modal',
+                bodyViewModel: PLATFORM.moduleName('routes/components/modal/body'),
                 footerEnable: true,
                 footerModel: {
                     stuff: 'here',
