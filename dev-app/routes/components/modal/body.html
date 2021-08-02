@@ -4,20 +4,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 -->
 
 <template>
-    <l-cover top-gutter="var(--s0)">
-        <div>Some other Text</div>
-        <c-table-fixed-header data-value="cover">
-            <c-table
-                actions.bind="tableActions"
-                cols.bind="testCols"
-                rows.bind="testData"
-                hover.bind="true"
-                sortable="true"
-            ></c-table>
-        </c-table-fixed-header>
-    </l-cover>
-
-    <l-grid if.bind="false">
+    <l-grid>
         <c-form-text
             label="Error Field"
             placeholder="Placeholder Text"
