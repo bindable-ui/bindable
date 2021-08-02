@@ -21,7 +21,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !BASE
 \*------------------------------------*/
 
-.container{
+.container {
     width: calc(100% * 2);
     height: 100%;
     opacity: 1;
@@ -29,15 +29,15 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     background-color: var(--nav-sliding-background);
 }
 
-.hidden{
+.hidden {
     opacity: 0;
 }
 
-.container nav ul{
+.container nav ul {
     padding-top: 0;
 }
 
-.block{
+.block {
     display: flex;
     flex-direction: column;
     width: calc(100% / 2);
@@ -47,23 +47,29 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     transition: margin-left 0.4s ease-in-out;
 }
 
-.container c-spinner{
+.container c-spinner {
     display: inline-block;
     margin: 122px;
 }
 
-.container c-nav-vertical{
+.container c-nav-vertical {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.container.left > div:first-child{
+.container.left>div:first-child {
     margin-left: 0%;
 }
 
-.container.right > div:first-child{
+.container.right>div:first-child {
     margin-left: -50%;
+}
+
+@media screen and (max-width: 59rem) {
+    c-nav-vertical-sliding {
+        max-height: 275px !important;
+    }
 }
 
 
@@ -74,24 +80,24 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !TRIGGER
 \*------------------------------------*/
 
-.trigger-container{
+.trigger-container {
     max-height: 100px;
     margin: var(--nav-sliding-trigger-container-margin);
     opacity: 1;
     transition: max-height 0.6s ease-in-out 0.2s, opacity 0.4s ease-out 0s;
 }
 
-.trigger-content-hidden{
+.trigger-content-hidden {
     height: auto;
     max-height: 0px;
     opacity: 0;
 }
 
-.trigger-container h3{
+.trigger-container h3 {
     margin-bottom: 0;
 }
 
-.trigger{
+.trigger {
     display: inline-block;
     position: relative;
     padding-bottom: var(--nav-sliding-trigger-padding-bottom);
@@ -99,39 +105,39 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     font-size: var(--nav-sliding-trigger-font-size);
 }
 
-.trigger span{
+.trigger span {
     transition: color var(--trans_main);
 }
 
-.trigger:hover{
+.trigger:hover {
     color: var(--nav-sliding-trigger-hover-color);
     cursor: pointer;
 }
 
-.trigger svg{
+.trigger svg {
     position: absolute;
     top: 3px;
 }
 
-.container > div:first-child .trigger > l-icon > span > span{
+.container>div:first-child .trigger>l-icon>span>span {
     margin-right: 10px;
 }
 
-.container > div:first-child .trigger svg{
+.container>div:first-child .trigger svg {
     right: 0;
     transition: right 0.4s ease-in-out;
 }
 
-.container > div:first-child .trigger:hover svg{
+.container>div:first-child .trigger:hover svg {
     right: -5px;
 }
 
-.container > div:nth-child(2) .trigger svg{
+.container>div:nth-child(2) .trigger svg {
     left: -10px;
     transition: left 0.4s ease-in-out;
 }
 
-.container > div:nth-child(2) .trigger:hover svg{
+.container>div:nth-child(2) .trigger:hover svg {
     left: -15px;
 }
 
@@ -143,13 +149,13 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     !SEARCH
 \*------------------------------------*/
 
-.container c-form-text{
+.container c-form-text {
     display: block;
     margin: 0 0 10px;
 }
 
 /* Don't apply search input margin on
  * tip inputs */
-.container c-tip c-form-text{
+.container c-tip c-form-text {
     margin: 0;
 }
