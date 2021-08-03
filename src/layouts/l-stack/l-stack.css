@@ -28,12 +28,6 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
     justify-content: flex-start;
 }
 
-/* Where the Stack is the only child of its parent, nothing
- * forces it to stretch to fill the space. This allows that. */
-.stack:only-child{
-    height: 100%;
-}
-
 .stack > *{
     margin-top: 0;
     margin-bottom: 0;
@@ -58,6 +52,10 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 /*------------------------------------*\
     !SPLIT AFTER
 \*------------------------------------*/
+
+.split-after:only-child{
+    height: 100%;
+}
 
 .one > :nth-child(1),
 .two > :nth-child(2),
