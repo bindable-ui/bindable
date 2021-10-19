@@ -273,31 +273,6 @@ describe('c-tip component', () => {
             }
         });
 
-        it('toggles disable trigger ', async done => {
-            const {viewModel} = component;
-
-            expect(viewModel.contentVisible).toBe(false);
-            expect(viewModel.contentDisplay).toBe(false);
-            expect(viewModel.disableTrigger).toBe(false);
-
-            await viewModel.toggleVisible();
-
-            jest.runOnlyPendingTimers();
-
-            expect(viewModel.contentVisible).toBe(true);
-            expect(viewModel.contentDisplay).toBe(true);
-
-            viewModel.disableTrigger = true;
-            await viewModel.toggleVisible();
-
-            jest.runOnlyPendingTimers();
-
-            expect(viewModel.contentVisible).toBe(false);
-            expect(viewModel.contentDisplay).toBe(false);
-            expect(viewModel.disableTrigger).toBe(true);
-            done();
-        });
-
         it('calls actions', async done => {
             try {
                 const {viewModel} = component;
@@ -336,6 +311,34 @@ describe('c-tip component', () => {
         try {
             await bootStrapEnvironment(component);
             expect(component.viewModel.iconTip).toBe(false);
+            done();
+        } catch (e) {
+            done.fail(e);
+        }
+    });
+
+    it('testing disableTrigger', async done => {
+        component = StageComponent.withResources()
+            .inView('<c-tip disable-trigger.bind="disableTrigger"></c-tip>')
+            .boundTo({
+                disableTrigger: true,
+            });
+
+        try {
+            await bootStrapEnvironment(component);
+            expect(component.viewModel.disableTrigger).toBe(true);
+            expect(component.viewModel.contentDisplay).toBe(false);
+
+            component.viewModel.show();
+            expect(component.viewModel.disableTrigger).toBe(true);
+            expect(component.viewModel.contentDisplay).toBe(false);
+
+            component.viewModel.contentDisplay = true;
+            component.viewModel.disableTriggerChanged(true);
+
+            expect(component.viewModel.disableTrigger).toBe(true);
+            expect(component.viewModel.contentDisplay).toBe(false);
+
             done();
         } catch (e) {
             done.fail(e);
