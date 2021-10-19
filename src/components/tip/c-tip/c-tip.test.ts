@@ -295,6 +295,7 @@ describe('c-tip component', () => {
             expect(viewModel.contentVisible).toBe(false);
             expect(viewModel.contentDisplay).toBe(false);
             expect(viewModel.disableTrigger).toBe(true);
+            done();
         });
 
         it('calls actions', async done => {
