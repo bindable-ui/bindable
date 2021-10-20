@@ -53,7 +53,12 @@ export class TipProperties {
             name: 'centered-content',
             value: 'boolean',
         },
-
+        {
+            default: 'false',
+            description: 'disables the tip from showing when clicked or hoover',
+            name: 'disable-trigger',
+            value: 'boolean',
+        },
         {
             default: 'false',
             description: 'Force the tip to close when clicking anywhere after opening it.',

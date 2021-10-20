@@ -317,6 +317,34 @@ describe('c-tip component', () => {
         }
     });
 
+    it('testing disableTrigger', async done => {
+        component = StageComponent.withResources()
+            .inView('<c-tip disable-trigger.bind="disableTrigger"></c-tip>')
+            .boundTo({
+                disableTrigger: true,
+            });
+
+        try {
+            await bootStrapEnvironment(component);
+            expect(component.viewModel.disableTrigger).toBe(true);
+            expect(component.viewModel.contentDisplay).toBe(false);
+
+            component.viewModel.show();
+            expect(component.viewModel.disableTrigger).toBe(true);
+            expect(component.viewModel.contentDisplay).toBe(false);
+
+            component.viewModel.contentDisplay = true;
+            component.viewModel.disableTriggerChanged(true);
+
+            expect(component.viewModel.disableTrigger).toBe(true);
+            expect(component.viewModel.contentDisplay).toBe(false);
+
+            done();
+        } catch (e) {
+            done.fail(e);
+        }
+    });
+
     afterEach(() => {
         component.dispose();
     });

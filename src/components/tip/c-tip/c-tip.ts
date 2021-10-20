@@ -33,6 +33,8 @@ export class CTip {
     public size = 'small';
     @bindable
     public contentMaxHeight = 'unset';
+    @bindable
+    public disableTrigger = false;
 
     public styles = styles;
     public contentDisplay;
@@ -98,6 +100,10 @@ export class CTip {
     }
 
     public show() {
+        if (this.disableTrigger) {
+            return;
+        }
+
         this.contentDisplay = true;
         setTimeout(() => {
             this.contentVisible = true;
@@ -105,5 +111,11 @@ export class CTip {
                 this.actions.onShow();
             }
         }, 100);
+    }
+
+    public disableTriggerChanged(newValue) {
+        if (newValue && this.contentDisplay) {
+            this.contentDisplay = false;
+        }
     }
 }
