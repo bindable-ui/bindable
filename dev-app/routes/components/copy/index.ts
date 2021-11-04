@@ -22,6 +22,13 @@ export class Copy {
             title: 'Properties',
         },
         {
+            moduleId: PLATFORM.moduleName('./methods/index'),
+            name: 'methods',
+            nav: true,
+            route: 'methods',
+            title: 'Methods',
+        },
+        {
             moduleId: PLATFORM.moduleName('./slots/index'),
             name: 'slots',
             nav: true,
