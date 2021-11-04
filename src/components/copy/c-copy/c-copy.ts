@@ -38,7 +38,7 @@ export class CCopy {
     public async copy(text: string) {
         let copyText = text;
 
-        if (this.action) {
+        if (this.action && _.isFunction(this.action)) {
             copyText = await this.action(text);
         }
 

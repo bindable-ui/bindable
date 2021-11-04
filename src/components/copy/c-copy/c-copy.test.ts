@@ -4,17 +4,60 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 */
 
 import {StageComponent} from 'aurelia-testing';
+import {anything, instance, mock, verify} from 'ts-mockito';
 
 import {copyToClipboard} from '../../../helpers/copy-to-clipboard';
+
+import {CToastsService} from 'index';
+import {CCopy} from './c-copy';
 
 jest.mock('../../../helpers/copy-to-clipboard');
 
 describe('c-copy component', () => {
     let component;
+    let mockedNotification: CToastsService;
+
+    describe('Unit', () => {
+        afterEach(() => {
+            jest.useRealTimers();
+        });
+
+        beforeEach(() => {
+            jest.useFakeTimers();
+            jest.clearAllMocks();
+
+            mockedNotification = mock(CToastsService);
+            component = new CCopy(instance(mockedNotification));
+        });
+
+        describe('#copy', () => {
+            test('without action callback', async () => {
+                await component.copy('test');
+
+                verify(mockedNotification.success(anything())).once();
+            });
+
+            test('with action callback', async () => {
+                component.action = jest.fn(async () => 'Success');
+
+                expect(component.action).toBeDefined();
+
+                await component.copy('***');
+
+                expect(component.action).toHaveBeenCalled();
+
+                verify(mockedNotification.success(anything())).once();
+            });
+        });
+    });
 
     describe('Integration', () => {
         afterEach(() => {
             component.dispose();
+        });
+
+        beforeEach(() => {
+            jest.clearAllMocks();
         });
 
         it('testing link enabled', async done => {
