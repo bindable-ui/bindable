@@ -18,6 +18,8 @@ export class CCopy {
     public link = false;
     @bindable
     public wrap = false;
+    @bindable
+    public action: (text: string) => Promise<string>;
 
     public styles = styles;
 
@@ -33,7 +35,13 @@ export class CCopy {
         }
     }
 
-    public copy(text) {
-        copyToClipboard(text, this.vToastsService.success('Copied to clipboard'));
+    public async copy(text: string) {
+        let copyText = text;
+
+        if (this.action && _.isFunction(this.action)) {
+            copyText = await this.action(text);
+        }
+
+        copyToClipboard(copyText, this.vToastsService.success('Copied to clipboard'));
     }
 }
