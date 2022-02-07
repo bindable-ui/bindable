@@ -639,5 +639,60 @@ this.tipTableData = [
                 </c-code-sample>
             </l-stack>
         </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
+                <c-h3>c-radio-input</c-h3>
+                <c-code>this.radioCols = [
+            {
+                _class: "",
+                checkChanged: () => { return; },
+                colClass: "t30",
+                colHeadName: "selected",
+                radioName: "hummingbirds",
+                radioSelected: undefined,
+                view: PLATFORM.moduleName("@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio.html"),
+                viewModel: PLATFORM.moduleName("@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio"),
+            },
+            {
+                colHeadValue: "Hummingbird",
+                colHeadName: "hummingbird",
+                sort: true,
+            },
+            {
+                colHeadValue: "Species",
+                colHeadName: "species",
+                sort: true,
+            },
+        ];
+
+        this.radioData = [
+            {
+                id: "allens",
+                hummingbird: "Allen's Hummingbird",
+                species: "Selasphorus sasin",
+            },
+            {
+                id: "annas",
+                hummingbird: "Anna's Hummingbird",
+                species: "Calypte anna",
+            },
+            {
+                id: "rufous",
+                hummingbird: "Rufous Hummingbird",
+                species: "Selasphorus rufus",
+            },
+        ];</c-code>
+                <c-code-sample>
+                    <c-table
+                        cols.bind="radioCols"
+                        rows.bind="radioData"
+                    ></c-table>
+                </c-code-sample>
+                <c-p>selected radio: ${radioCols[0].radioSelected}</c-p>
+            </l-stack>
+        </div>
     </l-stack>
 </template>
