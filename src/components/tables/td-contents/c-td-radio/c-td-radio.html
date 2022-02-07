@@ -1,0 +1,9 @@
+<template>
+    <c-form-radio
+        actions.bind="actions"
+        checked.bind="col.radioSelected"
+        id="${row['id']}"
+        name="${col.radioName}"
+        state.bind="row[col.colHeadName + 'State']"
+    ></c-form-radio>
+</template>

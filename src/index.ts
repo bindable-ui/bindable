@@ -185,6 +185,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./components/tables/td-contents/c-td-drag-check/c-td-drag-check'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-image/c-td-image'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-pill/c-td-pill'),
+        PLATFORM.moduleName('./components/tables/td-contents/c-td-radio/c-td-radio'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-text-input/c-td-text-input'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-truncate/c-td-truncate'),
         PLATFORM.moduleName('./components/tables/c-table-fixed-header/c-table-fixed-header'),

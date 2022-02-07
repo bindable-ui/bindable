@@ -232,6 +232,18 @@ export class TableViews {
                 type: 'viewModel',
                 value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-tip/c-td-tip')",
             },
+            {
+                description: 'Set to place c-form-radio in a cell.',
+                name: 'c-td-radio',
+                type: 'view',
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio.html')",
+            },
+            {
+                description: '',
+                name: '',
+                type: 'viewModel',
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio')",
+            },
         ];
 
         // button example
@@ -746,6 +758,47 @@ export class TableViews {
             },
         ];
     }
+
+    public radioCols = [
+        {
+            _class: '',
+            checkChanged: () => { return; },
+            colClass: 't30',
+            colHeadName: 'selected',
+            radioName: 'hummingbirds',
+            radioSelected: undefined,
+            view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio.html'),
+            viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio'),
+        },
+        {
+            colHeadValue: 'Hummingbird',
+            colHeadName: 'hummingbird',
+            sort: true,
+        },
+        {
+            colHeadValue: 'Species',
+            colHeadName: 'species',
+            sort: true,
+        },
+    ];
+
+    public radioData = [
+        {
+            id: 'allens',
+            hummingbird: 'Allen\'s Hummingbird',
+            species: 'Selasphorus sasin',
+        },
+        {
+            id: 'annas',
+            hummingbird: 'Anna\'s Hummingbird',
+            species: 'Calypte anna',
+        },
+        {
+            id: 'rufous',
+            hummingbird: 'Rufous Hummingbird',
+            species: 'Selasphorus rufus',
+        },
+    ];
 
     public dropzoneActions = (row) => {
         const self = this;
