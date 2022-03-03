@@ -17,6 +17,8 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <c-divider></c-divider>
 
+
+
         <div>
             <l-stack spacing="var(--s-3)">
                 <c-h3>c-td-button</c-h3>
@@ -370,54 +372,53 @@ this.checkboxData = [
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h3>c-drag-handle</c-h3>
-                <c-code>this.dragHandleCols = [
-    {
-        colClass: 't30',
-        colHeadValue: '',
-        colHeadName: 'drag',
-        _class: 'drag',
-        view: PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html'),
-        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle'),
-    },
-    {
-        colHeadValue: 'Ship',
-        colHeadName: 'ship',
-        sort: true,
-    },
-    {
-        colClass: 't50',
-        colHeadValue: 'Gender',
-        colHeadName: 'gender',
-    },
-];
+                <c-h3>c-td-drag</c-h3>
+                <c-code>this.dragCols = [
+                    {
+                        colClass: 't30',
+                        colHeadValue: '',
+                        colHeadName: 'drag',
+                        _class: 'drag',
+                        view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag/c-td-drag.html'),
+                        viewModel: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag/c-td-drag'),
+                    },
+                    {
+                        colHeadValue: 'Ship',
+                        colHeadName: 'ship',
+                        sort: true,
+                    },
+                    {
+                        colClass: 't50',
+                        colHeadValue: 'Order',
+                        colHeadName: 'order',
+                    },
+                ];
 
-this.dragHandleData = [
-    {
-        ship: 'X-Wing',
-        gender: 'Male',
-    },
-    {
-        _barColor: 'var(--c_subFourMain)',
-        _status: 'bar',
-        ship: 'M. Falcon',
-        gender: 'Male',
-    },
-    {
-        ship: 'Tie Fighter',
-        gender: 'Male',
-    },
-    {
-        name: 'Rey',
-        ship: 'M. Falcon',
-        gender: 'Female',
-    },
+                this.dragCheckData = [
+                    {
+                        ship: 'X-Wing',
+                        order: 1,
+                    },
+                    {
+                        ship: 'M. Falcon',
+                        order: 2,
+                    },
+                    {
+                        _barColor: 'var(--c_subFourMain)',
+                        _status: 'bar',
+                        ship: 'Tie Fighter',
+                        order: 3,
+                    },
+                    {
+                        ship: 'M. Falcon',
+                        order: 4,
+                    },
 ];</c-code>
                 <c-code-sample>
                     <c-table
-                        cols.bind="dragHandleCols"
-                        rows.bind="dragHandleData"
-                        actions.bind="tableActionsSample"
+                        cols.bind="dragCols"
+                        rows.bind="dragData"
+                        row-dropzone-actions.bind="dragDropActions"
                         hover.bind="true"
                     ></c-table>
                 </c-code-sample>
@@ -483,7 +484,7 @@ this.dragCheckData = [
                         actions.bind="tableActionsSample2"
                         cols.bind="dragCheckCols"
                         rows.bind="dragCheckData"
-                        row-dropzone-actions.bind="dropzoneActions"
+                        row-dropzone-actions.bind="dragCheckDropActions"
                         hover.bind="true"
                     ></c-table>
                 </c-code-sample>

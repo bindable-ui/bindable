@@ -25,6 +25,8 @@ export class TableViews {
     public dragHandleData;
     public dragCheckCols;
     public dragCheckData;
+    public dragCols;
+    public dragData;
     public pillTableCols;
     public pillTableData;
     public actionTableCols;
@@ -172,22 +174,21 @@ export class TableViews {
             },
             {
                 description: 'Set to place c-drag-handle in a cell.',
-                name: 'c-drag-handle',
+                name: 'c-td-drag',
                 type: 'view',
-                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag/c-td-drag.html')",
             },
             {
                 description: '',
                 name: '',
                 type: 'viewModel',
-                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/utilities/c-drag-handle/c-drag-handle.html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag/c-td-drag')",
             },
             {
                 description: 'Set to place c-checkbox-input and a drag in a cell.',
                 name: 'c-td-drag-check',
                 type: 'view',
-                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check" +
-                ".html')",
+                value: "PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-drag-check/c-td-drag-check.html')",
             },
             {
                 description: '',
@@ -585,6 +586,72 @@ export class TableViews {
         ];
 
         // drag handle checkbox example
+        this.dragCols = [
+            {
+                _class: 'drag',
+                colClass: 't30',
+                colHeadName: 'drag',
+                colHeadValue: '',
+                getDragOptions: (row): IDragOptions => {
+                    return {
+                        dragData: (event) => {
+                            const trEl = this.findParentByType(event.target, 'TR');
+                            trEl.style.opacity = '0.4';
+                            return row;
+                        },
+                        getDragTarget: (target) => {
+                            return this.findParentByType(target, 'TR');
+                        },
+
+                        onDragEnd: (event) => {
+                            const trEl = this.findParentByType(event.target, 'TR');
+                            trEl.style.opacity = '1';
+                            return false;
+                        },
+
+                    };
+                },
+                view: PLATFORM.moduleName(
+                    '@bindable-ui/bindable/components/tables/td-contents/c-td-drag/c-td-drag.html',
+                ),
+                viewModel: PLATFORM.moduleName(
+                    '@bindable-ui/bindable/components/tables/td-contents/c-td-drag/c-td-drag',
+                ),
+            },
+            {
+                colHeadName: 'ship',
+                colHeadValue: 'Ship',
+                sort: true,
+            },
+            {
+                colHeadName: 'order',
+                colHeadValue: 'Order',
+                sort: false,
+            },
+        ];
+
+        this.dragData = [
+            {
+                order: 1,
+                ship: 'X-Wing',
+            },
+            {
+                order: 2,
+                ship: 'M. Falcon',
+            },
+            {
+                _barColor: 'var(--c_subFourMain)',
+                _status: 'bar',
+                order: 3,
+                ship: 'Tie Fighter',
+            },
+            {
+                order: 4,
+                ship: 'Star Destroyer',
+            },
+        ];
+
+        // drag handle checkbox example
         this.dragCheckCols = [
             {
                 _class: 'dragCheck',
@@ -800,7 +867,7 @@ export class TableViews {
         },
     ];
 
-    public dropzoneActions = (row) => {
+    public dragCheckDropActions = (row) => {
         const self = this;
 
         return {
@@ -817,6 +884,27 @@ export class TableViews {
                 target.style.border = '';
 
                 self.dragCheckData = sortDropData(data, row, self.dragCheckData, 'order');
+            },
+        };
+    }
+
+    public dragDropActions = (row) => {
+        const self = this;
+
+        return {
+            onDragEnter(event) {
+                const target = self.findParentByType(event.target, 'TR');
+                target.style.border = '2px dashed red';
+            },
+            onDragLeave(event) {
+                const target = self.findParentByType(event.target, 'TR');
+                target.style.border = '';
+            },
+            onDrop(event, data) {
+                const target = self.findParentByType(event.target, 'TR');
+                target.style.border = '';
+
+                self.dragData = sortDropData(data, row, self.dragData, 'order');
             },
         };
     }
