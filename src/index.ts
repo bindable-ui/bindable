@@ -182,6 +182,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./components/tables/td-contents/c-td-button/c-td-button'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-action/c-td-action'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-check/c-td-check'),
+        PLATFORM.moduleName('./components/tables/td-contents/c-td-drag/c-td-drag'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-drag-check/c-td-drag-check'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-image/c-td-image'),
         PLATFORM.moduleName('./components/tables/td-contents/c-td-pill/c-td-pill'),

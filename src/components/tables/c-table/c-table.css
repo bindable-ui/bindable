@@ -373,31 +373,46 @@ td.button {
 
 
 
-
-
 /*------------------------------------*\
     !DRAG
 \*------------------------------------*/
 
-.drag,
+.drag {
+    position: relative;
+}
+
+.drag compose c-drag-handle>span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.drag compose c-drag-handle l-icon {
+    line-height: 1;
+    align-self: center;
+}
+
+.drag compose c-drag-handle>span:hover {
+    background: var(--table-drag-background-hover);
+}
+
+
+/*------------------------------------*\
+    !DRAG-CHECK
+\*------------------------------------*/
+
 .drag-check c-drag-handle {
     position: relative;
 }
 
-.drag compose span,
 .drag-check compose span {
     position: absolute;
     transition: background var(--trans_main), opacity var(--trans_main);
-}
-
-.drag compose>span>l-icon>span {
-    top: var(--table-drag-top);
-    left: var(--table-drag-left);
-    line-height: 0;
-    height: var(--table-drag-height);
-    padding-top: var(--table-drag-padding-top);
-    padding-right: var(--table-drag-padding-right);
-    padding-left: var(--table-drag-padding-left);
 }
 
 .drag-check compose c-drag-handle>span>l-icon>span {
@@ -409,21 +424,19 @@ td.button {
     padding-left: var(--table-drag-check-padding-left);
 }
 
-.drag compose l-icon span:hover,
 .drag-check compose l-icon span:hover {
     background: var(--table-drag-background-hover);
 }
 
-.drag input[type=checkbox],
 .drag-check input[type=checkbox] {
     margin-left: 0;
 }
 
-.table tbody td c-drag-handle>span {
+.table tbody td.drag-check c-drag-handle>span {
     opacity: 0;
 }
 
-.table tbody tr:hover td c-drag-handle>span {
+.table tbody tr:hover td.drag-check c-drag-handle>span {
     opacity: 1;
 }
 
