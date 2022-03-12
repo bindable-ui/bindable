@@ -649,9 +649,9 @@ this.tipTableData = [
                 <c-code>this.radioCols = [
             {
                 _class: "",
-                checkChanged: () => { return; },
                 colClass: "t30",
                 colHeadName: "selected",
+                radioChanged: (row?) => { console.log(row); },
                 radioName: "hummingbirds",
                 radioSelected: undefined,
                 view: PLATFORM.moduleName("@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio.html"),

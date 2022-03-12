@@ -829,9 +829,9 @@ export class TableViews {
     public radioCols = [
         {
             _class: '',
-            checkChanged: () => { return; },
             colClass: 't30',
             colHeadName: 'selected',
+            radioChanged: () => { return; },
             radioName: 'hummingbirds',
             radioSelected: undefined,
             view: PLATFORM.moduleName('@bindable-ui/bindable/components/tables/td-contents/c-td-radio/c-td-radio.html'),
