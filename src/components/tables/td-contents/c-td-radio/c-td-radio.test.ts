@@ -1,66 +1,42 @@
-import {StageComponent} from 'aurelia-testing';
+import {CTableCol} from 'components/tables/c-table/c-table-interfaces';
+import {CTdRadio} from './c-td-radio';
 
 describe('c-td-radio component', () => {
+    const test_col = {} as CTableCol;
+    const test_row = {};
     let component;
-    let viewModel;
-    const model = {
-        col: {},
-        row: 0,
-        value: 1,
-    };
 
-    beforeEach(async done => {
-        component = StageComponent.withResources().inView('<c-td-radio></c-td-radio>');
-
-        await bootStrapEnvironment(component).then(() => {
-            viewModel = component.viewModel;
-            done();
+    beforeEach(() => {
+        component = new CTdRadio();
+        component.activate({
+            col: test_col,
+            row: test_row,
         });
     });
 
-    describe('Integration', () => {
-        // Base Test
-        it('testing for radio component', async done => {
-            expect(document.querySelector('c-form-radio')).toBeDefined();
-            done();
-        });
+    it('activates successfully', () => {
+        expect(component.col).toStrictEqual(test_col);
+        expect(component.row).toBe(test_row);
+    });
 
-        // activate with model
-        it('tests activate', async done => {
-            viewModel.activate(model);
-            expect(viewModel.col).toStrictEqual({});
-            expect(viewModel.row).toBe(0);
-            done();
+    describe('.onChange', () => {
+        it('calls radioChanged when defined', () => {
+            component.col.radioChanged = jest.fn();
+            component.onChange();
+            expect(component.col.radioChanged).toHaveBeenCalledTimes(1);
         });
-
-        // activate value change with checkChanged
-        it('tests activate valueChanged with col.checkChanged', async done => {
-            const mockFn = jest.fn();
-            viewModel.activate({
-                col: {
-                    checkChanged: mockFn,
-                },
-                row: {},
-            });
-            viewModel.actions.onChange();
-            expect(mockFn).toHaveBeenCalled();
-            done();
+        it('does not call radioChanged when undefined', () => {
+            component.col.radioChanged = undefined;
+            component.onChange();
         });
+    });
 
-        // activate value change without checkChanged
-        it('tests activate valueChanged with col.checkChanged', async done => {
-            const mockFn = jest.fn();
-            viewModel.activate({
-                col: {},
-                row: {},
-            });
-            viewModel.actions.onChange();
-            expect(mockFn).toHaveBeenCalledTimes(0);
-            done();
-        });
-
-        afterEach(() => {
-            component.dispose();
+    describe('.state', () => {
+        it('returns value of `${colHeadName}State`', () => {
+            component.col.colHeadName = 'test';
+            component.row.testState = 'disabled';
+            const result = component.state;
+            expect(result).toBe('disabled');
         });
     });
 });

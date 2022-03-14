@@ -1,9 +1,18 @@
 <template>
-    <c-form-radio
-        actions.bind="actions"
+	<require from="../../../forms/checkbox-radio/radio/c-radio-input/c-radio-input.css"></require>
+
+    <input
+        change.delegate="onChange()"
         checked.bind="col.radioSelected"
+        class="
+            ${styles.radio}
+            ${state === 'disabled' ? styles.disabled : ''}
+            js-radio
+        "
+        disabled.bind="state === 'disabled'"
         id="${row['id']}"
-        name="${col.radioName}"
-        state.bind="row[col.colHeadName + 'State']"
-    ></c-form-radio>
+        model="${row['id']}"
+        name.bind="col.radioName"
+        type="radio"
+    >
 </template>

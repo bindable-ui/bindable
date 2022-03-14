@@ -20,6 +20,10 @@ export interface CTableCol {
     colHeadValue?: string;
     /** Fixed width for a column. */
     colWidth?: number;
+    /** If using the `c-td-radio` View, this is the name of the radio group */
+    radioName?: string;
+    /** If using the `c-td-radio` View, this is the currently selected radio's value */
+    radioSelected?: string;
     /** Make this column sortable */
     sort?: boolean;
     /** Makes initial sort order descending for this column */
@@ -44,6 +48,12 @@ export interface CTableCol {
      * @param row
      */
     checkChanged?(row: any): void;
+
+    /**
+     * If using the `c-td-radio` View, this function will trigger when radio is toggled.
+     * @param row
+     */
+    radioChanged?(row: any): void;
 
     /**
      * If using the `c-td-text-input`, this function will trigger when input is changed.
