@@ -63,7 +63,7 @@ export class SecondsToHmsValueConverter {
         }
 
         const isNegativeTime = timeInSeconds < 0;
-        const time = Math.abs(parseInt(timeInSeconds, 10));
+        const time = Math.abs(Math.round(timeInSeconds));
 
         const hours = Math.floor(time / SECONDS_IN_HOUR);
         const minutes = Math.floor((time % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
