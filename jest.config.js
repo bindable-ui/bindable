@@ -39,4 +39,5 @@ module.exports = {
         'text',
         'html'
     ],
+    globalSetup: "<rootDir>/jest.global-setup.js",
 };
