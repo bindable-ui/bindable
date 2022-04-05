@@ -157,6 +157,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./components/forms/file/c-form-file/c-form-file'),
         PLATFORM.moduleName('./components/forms/select/c-form-add-remove/c-form-add-remove'),
         PLATFORM.moduleName('./components/forms/select/c-form-select/c-form-select'),
+        PLATFORM.moduleName('./components/forms/select/c-form-virtual-select/c-form-virtual-select'),
         PLATFORM.moduleName('./components/forms/slider/c-form-slider/c-form-slider'),
         PLATFORM.moduleName('./components/forms/slider/c-slider/c-slider'),
         PLATFORM.moduleName('./components/forms/text/c-form-text/c-form-text'),

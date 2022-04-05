@@ -16,6 +16,7 @@ export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
         .plugin(PLATFORM.moduleName('aurelia-dialog'))
+        .plugin(PLATFORM.moduleName('aurelia-ui-virtualization'))
         .plugin(PLATFORM.moduleName('@bindable-ui/bindable-icons'))
     // load the plugin ../src
     // The "resources" is mapped to "../src" in aurelia.json "paths"
