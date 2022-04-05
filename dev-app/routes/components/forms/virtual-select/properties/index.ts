@@ -73,7 +73,7 @@ export class SelectProperties {
         },
         {
             description: 'This is where you will store the value of the selected item(s).',
-            name: 'selectValue',
+            name: 'select-value',
             value: 'array',
         },
         {
