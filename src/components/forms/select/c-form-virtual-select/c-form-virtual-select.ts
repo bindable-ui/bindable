@@ -115,6 +115,14 @@ export class CFormVirtualSelect {
             });
         }
 
+        if (this.selectValue) {
+            this.optionsData.forEach(obj => {
+                if (this.selectValue.includes(obj.value)) {
+                    obj.selected = true;
+                }
+            });
+        }
+
         const selects = document.getElementsByClassName('virtual-select');
         if (selects.length) {
             Array.from(selects).forEach(s => {
@@ -125,6 +133,7 @@ export class CFormVirtualSelect {
     }
 
     public select(event, opt, idx) {
+        if (this.state === 'disabled') return;
         const selected = !opt.selected;
 
         if (this.multiple) {
@@ -146,6 +155,8 @@ export class CFormVirtualSelect {
             this.selectNone();
             opt.selected = selected;
         }
+
+        this.getValue();
     }
 
     public selectAll() {
@@ -161,15 +172,14 @@ export class CFormVirtualSelect {
         this.optionsData = res;
     }
 
+    public getValue() {
+        const selected = this.optionsData.filter(o => o.selected === true);
+        this.selectValue = selected.map(obj => obj.value);
+    }
+
     public selectValueChanged(newVal, oldVal) {
         if (this.selectValue) {
-            _.forEach(this.options, option => {
-                if (!this.simple && option.value === this.selectValue) {
-                    this.disableDisplay = option.text;
-                } else if (this.simple && option === this.selectValue) {
-                    this.disableDisplay = option;
-                }
-            });
+            this.disableDisplay = this.selectValue;
         }
 
         if (_.isUndefined(oldVal) || newVal === oldVal) {

@@ -21,7 +21,7 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                     <l-grid min-size="25ch">
                         <c-form-virtual-select options.bind="testOptions" label="Select Error" error-msg="This is an error" state="error"></c-form-virtual-select>
                         <c-form-virtual-select options.bind="testOptions" label="Select Warning" warning-msg="This is a warning" state="warning"></c-form-virtual-select>
-                        <c-form-virtual-select options.bind="testOptions" label="Select Disabled" state="disabled" select-value="Selected Value"></c-form-virtual-select>
+                        <c-form-virtual-select options.bind="testOptions" label="Select Disabled" state="disabled" select-value="10007"></c-form-virtual-select>
                         <c-form-virtual-select options.bind="testOptions" label="Select Hidden" state="hidden"></c-form-virtual-select>
                     </l-grid>
                 </c-code-sample>
@@ -32,11 +32,11 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
         <div>
             <l-stack spacing="var(--s-3)">
-                <c-h2>is-loading / is-loading-more / multiple / reorder</c-h2>
+                <c-h2>multiple / is-loading / is-loading-more</c-h2>
                 <c-code-sample>
                     <l-grid min-size="25ch">
-                        <c-form-virtual-select options.bind="testOptions" label="Select Label" error-msg="This is an error" multiple.bind="true"></c-form-virtual-select>
-                        <c-form-virtual-select options.bind="testOptions" label="Reorder Select" multiple.bind="true" reorder.bind="true"></c-form-virtual-select>
+                        <c-form-virtual-select options.bind="testOptions" label="Select Label" multiple.bind="true" select-value.one-way="testSelectValues"></c-form-virtual-select>
+                        <c-form-virtual-select options.bind="testOptions" label="Select Label" multiple.bind="true" select-value.bind="testSelectValues" state="disabled"></c-form-virtual-select>
                         <c-form-virtual-select options.bind="testOptions" label="Select Label" error-msg="This is an error" multiple.bind="true" is-loading.bind="true"></c-form-virtual-select>
                         <c-form-virtual-select options.bind="testOptions" label="Select Label" error-msg="This is an error" multiple.bind="true" is-loading-more.bind="true"></c-form-virtual-select>
                     </l-grid>

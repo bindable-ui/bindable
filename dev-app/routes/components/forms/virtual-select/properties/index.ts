@@ -72,38 +72,9 @@ export class SelectProperties {
             value: 'array of objects | array',
         },
         {
-            default: 'false',
-            description: 'Set on a multiple if you need to reorder the contents.',
-            name: 'reorder',
-            value: 'boolean',
-        },
-        {
-            default: 'false',
-            description: 'Set if you would like to enable loading more when scrolling down.',
-            name: 'scroll-to-load',
-            value: 'boolean',
-        },
-        {
-            default: 'false',
-            description:
-                'Set if you need a search input above the multiselect. Multiselect must be true for this to work.',
-            name: 'search',
-            value: 'boolean',
-        },
-        {
-            description: 'Place to store/get the search text value.',
-            name: 'search-text',
-            value: 'string',
-        },
-        {
             description: 'This is where you will store the value of the selected item(s).',
             name: 'selectValue',
             value: 'array',
-        },
-        {
-            description: 'Set to true if you just use an array for the select values instead of an array of objects.',
-            name: 'simple',
-            value: 'boolean',
         },
         {
             description: 'Set the form in a specific state',
@@ -114,7 +85,7 @@ export class SelectProperties {
 
     public testOptions = [];
     public testSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
-    public testSelectValues = [];
+    public testSelectValues = [10001, 10005];
     public testSelect2 = '';
 
     public attached() {
