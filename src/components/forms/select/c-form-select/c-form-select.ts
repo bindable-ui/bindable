@@ -34,7 +34,11 @@ export class CFormSelect {
     @bindable
     public multiple = false;
     @bindable
+    public virtual = false;
+    @bindable
     public options = [];
+    @bindable
+    public placeholder;
     @bindable
     public reorder = false;
     @bindable
@@ -66,7 +70,9 @@ export class CFormSelect {
 
     public styles = styles;
     public filteredOptions = [];
+    public virtualOptions = [];
     public disableDisplay = null;
+    public lastClicked = null;
 
     private setupSelect2 = _.throttle(
         () => {
@@ -159,6 +165,10 @@ export class CFormSelect {
             this.simple = false;
         }
 
+        if (typeof this.virtual !== 'boolean') {
+            this.virtual = false;
+        }
+
         if (typeof this.isLoading !== 'boolean') {
             this.isLoading = false;
         }
@@ -171,15 +181,96 @@ export class CFormSelect {
             this.reorder = false;
         }
 
+        if (!this.placeholder || typeof this.placeholder !== 'string') {
+            this.placeholder = this.multiple ? 'Select Multiple Options' : 'Select an Option';
+        }
+
         this.setupSelect2();
+        this.setupVirtualSelect();
+    }
+
+    public setupVirtualSelect() {
+        if (this.isLoading || !this.virtual) {
+            return;
+        }
+
+        if (typeof this.options[0] === 'object') {
+            this.options.forEach(obj => {
+                this.virtualOptions.push({value: obj.value, text: obj.text, selected: false});
+            });
+        } else {
+            this.options.forEach(val => {
+                this.virtualOptions.push({value: val, text: val, selected: false});
+            });
+        }
+
+        if (this.selectValue) {
+            this.virtualOptions.forEach(obj => {
+                if (this.selectValue.includes(obj.value)) {
+                    obj.selected = true;
+                }
+            });
+        }
+
+        // const selects = document.getElementsByClassName(this.styles.virtualSelect);
+        //
+        // if (selects.length) {
+        //     Array.from(selects).forEach(s => {
+        //         // @ts-ignore
+        //         s.onselectstart = () => false;
+        //     });
+        // }
     }
 
     public detached() {
         this.cleanupSelect2();
     }
 
+    public filterSearch(searchText) {
+        this.selectValue = [];
+        this.filteredOptions = [];
+
+        const regex = new RegExp(searchText, 'i');
+
+        _.forEach(this.options, option => {
+            if (!this.simple && regex.test(option.text)) {
+                this.filteredOptions.push(option);
+            } else if (this.simple && regex.test(option)) {
+                this.filteredOptions.push(option);
+            }
+        });
+    }
+
+    public getValue() {
+        const selected = this.virtualOptions.filter(o => o.selected === true);
+        this.selectValue = selected.map(obj => obj.value);
+    }
+
     public optionsChanged() {
         this.filteredOptions = _.cloneDeep(this.options);
+        this.setupVirtualSelect();
+    }
+
+    public searchSelect(textValue) {
+        // do backend search if actions.onSearch availale otherwise do simple filter search.
+        if (this.actions && this.actions.onSearch) {
+            this.actions.onSearch(textValue);
+        } else {
+            this.filterSearch(textValue);
+        }
+    }
+
+    public selectAll() {
+        this.virtualOptions.forEach(o => (o.selected = true));
+    }
+
+    public selectNone() {
+        this.virtualOptions.forEach(o => (o.selected = false));
+    }
+
+    public removeSelected() {
+        const res = this.options.filter(o => o.selected === false);
+        this.options = res;
     }
 
     public selectValueChanged(newVal, oldVal) {
@@ -207,36 +298,39 @@ export class CFormSelect {
         }
     }
 
+    public selectVirtualOption(event, opt, idx) {
+        if (this.state === 'disabled') return;
+        const selected = !opt.selected;
+
+        if (this.multiple) {
+            if (event.shiftKey && this.lastClicked !== null) {
+                let start = this.lastClicked;
+                let end = idx;
+                if (start > end) {
+                    start = end;
+                    end = this.lastClicked;
+                }
+                for (let i = start; i <= end; i += 1) {
+                    this.options[i].selected = selected;
+                }
+            } else {
+                opt.selected = selected;
+            }
+            this.lastClicked = idx;
+        } else {
+            this.selectNone();
+            opt.selected = selected;
+        }
+
+        this.getValue();
+    }
+
     public isLoadingChanged() {
         this.setupSelect2();
     }
 
     public enableSelect2Changed() {
         this.setupSelect2();
-    }
-
-    public filterSearch(searchText) {
-        this.selectValue = [];
-        this.filteredOptions = [];
-
-        const regex = new RegExp(searchText, 'i');
-
-        _.forEach(this.options, option => {
-            if (!this.simple && regex.test(option.text)) {
-                this.filteredOptions.push(option);
-            } else if (this.simple && regex.test(option)) {
-                this.filteredOptions.push(option);
-            }
-        });
-    }
-
-    public searchSelect(textValue) {
-        // do backend search if actions.onSearch availale otherwise do simple filter search.
-        if (this.actions && this.actions.onSearch) {
-            this.actions.onSearch(textValue);
-        } else {
-            this.filterSearch(textValue);
-        }
     }
 
     public onScroll() {

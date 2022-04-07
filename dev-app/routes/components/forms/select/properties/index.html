@@ -125,6 +125,30 @@ this.testSelectValues = [];</c-code>
 
         <div>
             <l-stack spacing="var(--s-3)">
+                <c-h2>Virtualized Select</c-h2>
+                <c-code-sample>
+                    <l-grid min-size="25ch">
+                      <c-form-select
+                          simple.bind="true"
+                          virtual.bind="true"
+                          options.bind="stressTestOptions"
+                          label="Virtual Select Simple Single" error-msg="This is an error"
+                      ></c-form-select>
+                        <c-form-select
+                            multiple.bind="true"
+                            virtual.bind="true"
+                            options.bind="stressTestOptions"
+                            label="Virtual Select Multiple" error-msg="This is an error"
+                        ></c-form-select>
+                    </l-grid>
+                </c-code-sample>
+            </l-stack>
+        </div>
+
+        <c-divider></c-divider>
+
+        <div>
+            <l-stack spacing="var(--s-3)">
                 <c-h2>select2</c-h2>
                 <c-code>constructor() {
     this.testOptions = [{
