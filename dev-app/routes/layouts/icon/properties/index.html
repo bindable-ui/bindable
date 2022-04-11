@@ -19,20 +19,153 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
              <c-h3>align &amp; size</c-h3>
                 <c-code-sample>
                     <l-stack>
-                        <l-icon
-                            icon="warning"
-                            size="1.25em"
-                            align="-0.325em"
-                        >
-                            Warning
-                        </l-icon>
-                        <c-button
-                            icon="warning"
-                            icon-size="1.25em"
-                            icon-align="-0.25em"
-                        >
-                            Warning
-                        </c-button>
+                        <div>
+                            <l-icon
+                                icon="warning"
+                                align="-0.5em"
+                                size="1.25em"
+                            >
+                                Align -0.5em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                align="-0.325em"
+                                size="1.25em"
+                            >
+                                Align -0.325em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                align="0em"
+                                size="1.25em"
+                            >
+                                Align 0em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                align="0.325em"
+                                size="1.25em"
+                            >
+                                Align 0.325em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                align="0.5em"
+                                size="1.25em"
+                            >
+                                Align 0.5em
+                            </l-icon>
+                        </div>
+                        <div>
+                            <l-icon
+                                icon="warning"
+                                size="0.5em"
+                            >
+                                Size 0.5em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                size="0.75em"
+                            >
+                                Size 0.75em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                size="1em"
+                            >
+                                Size 1em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                size="1.25em"
+                            >
+                                Size 1.25em
+                            </l-icon>
+                            <l-icon
+                                icon="warning"
+                                size="1.5em"
+                            >
+                                Size 1.5em
+                            </l-icon>
+                        </div>
+                    </l-stack>
+                </c-code-sample>
+                <c-code-sample>
+                    <l-stack>
+                        <div>
+                            <c-button
+                                icon="warning"
+                                icon-size="1.25em"
+                                icon-align="-0.5em"
+                            >
+                                Align -0.5em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="1.25em"
+                                icon-align="-0.25em"
+                            >
+                                Align -0.25em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="1.25em"
+                                icon-align="0em"
+                            >
+                                Align 0em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="1.25em"
+                                icon-align="0.25em"
+                            >
+                                Align 0.25em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="1.25em"
+                                icon-align="0.5em"
+                            >
+                                Align 0.5em
+                            </c-button>
+                        </div>
+                        <div>
+                            <c-button
+                                icon="warning"
+                                icon-size="0.7em"
+                                icon-align="-0.25em"
+                            >
+                                Size 0.5em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="0.75em"
+                                icon-align="-0.25em"
+                            >
+                                Size 0.75em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="1em"
+                                icon-align="-0.25em"
+                            >
+                                Size 1em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="1.25em"
+                                icon-align="-0.25em"
+                            >
+                                Size 1.25em
+                            </c-button>
+                            <c-button
+                                icon="warning"
+                                icon-size="1.5em"
+                                icon-align="-0.25em"
+                            >
+                                Size 1.5em
+                            </c-button>
+                        </div>
                     </l-stack>
                 </c-code-sample>
             </l-stack>
@@ -44,22 +177,65 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             <l-stack spacing="var(--s-3)">
                 <c-h3>color</c-h3>
                 <c-code-sample>
-                    <l-stack>
-                        <l-icon
-                            icon="info"
-                            color="var(--c_subOneMain)"
-                        >
-                            Info
-                        </l-icon>
-                        <c-button
-                            icon="warning"
-                            icon-size="1.25em"
-                            icon-align="-0.25em"
-                            icon-color="var(--c_primaryLighter)"
-                        >
-                            Warning
-                        </c-button>
-                    </l-stack>
+                    <l-grid>
+                        <l-stack spacing="0">
+                            Primary
+                            <l-icon icon="bin" color="var(--c_primaryMain)">var(--c_primaryMain)</l-icon>
+                            <l-icon icon="bin" color="var(--c_primaryLight)">var(--c_primaryLight)</l-icon>
+                            <l-icon icon="bin" color="var(--c_primaryLighter)">var(--c_primaryLighter)</l-icon>
+                            <l-icon icon="bin" color="var(--c_primaryDark)">var(--c_primaryDark)</l-icon>
+                        </l-stack>
+                        <l-stack spacing="0">
+                            Secondary
+                            <l-icon icon="bin" color="var(--c_secondaryMain)">var(--c_secondaryMain)</l-icon>
+                            <l-icon icon="bin" color="var(--c_secondaryLight)">var(--c_secondaryLight)</l-icon>
+                            <l-icon icon="bin" color="var(--c_secondaryLighter)">var(--c_secondaryLighter)</l-icon>
+                            <l-icon icon="bin" color="var(--c_secondaryDark)">var(--c_secondaryDark)</l-icon>
+                        </l-stack>
+                        <l-stack spacing="0">
+                            Sub One
+                            <l-icon icon="bin" color="var(--c_subOneMain)">var(--c_subOneMain)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subOneLight)">var(--c_subOneLight)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subOneLighter)">var(--c_subOneLighter)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subOneDark)">var(--c_subOneDark)</l-icon>
+                        </l-stack>
+                        <l-stack spacing="0">
+                            Sub Two
+                            <l-icon icon="bin" color="var(--c_subTwoMain)">var(--c_subTwoMain)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subTwoLight)">var(--c_subTwoLight)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subTwoLighter)">var(--c_subTwoLighter)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subTwoDark)">var(--c_subTwoDark)</l-icon>
+                        </l-stack>
+                        <l-stack spacing="0">
+                            Sub Three
+                            <l-icon icon="bin" color="var(--c_subThreeMain)">var(--c_subThreeMain)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subThreeLight)">var(--c_subThreeLight)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subThreeLighter)">var(--c_subThreeLighter)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subThreeDark)">var(--c_subThreeDark)</l-icon>
+                        </l-stack>
+                        <l-stack spacing="0">
+                            Sub Four
+                            <l-icon icon="bin" color="var(--c_subFourMain)">var(--c_subFourMain)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subFourLight)">var(--c_subFourLight)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subFourLighter)">var(--c_subFourLighter)</l-icon>
+                            <l-icon icon="bin" color="var(--c_subFourDark)">var(--c_subFourDark)</l-icon>
+                        </l-stack>
+                        <l-stack spacing="0">
+                            Grays
+                            <l-icon icon="bin" color="var(--c_black)">var(--c_black)</l-icon>
+                            <l-icon icon="bin" color="var(--c_soot)">var(--c_soot)</l-icon>
+                            <l-icon icon="bin" color="var(--c_darkGray)">var(--c_darkGray)</l-icon>
+                            <l-icon icon="bin" color="var(--c_asphalt)">var(--c_asphalt)</l-icon>
+                            <l-icon icon="bin" color="var(--c_slate)">var(--c_slate)</l-icon>
+                            <l-icon icon="bin" color="var(--c_ash)">var(--c_ash)</l-icon>
+                            <l-icon icon="bin" color="var(--c_charcoal)">var(--c_charcoal)</l-icon>
+                            <l-icon icon="bin" color="var(--c_gray)">var(--c_gray)</l-icon>
+                            <l-icon icon="bin" color="var(--c_smoke)">var(--c_smoke)</l-icon>
+                            <l-icon icon="bin" color="var(--c_lightGray)">var(--c_lightGray)</l-icon>
+                            <l-icon icon="bin" color="var(--c_marshmellow)">var(--c_marshmellow)</l-icon>
+                            <l-icon icon="bin" color="var(--c_white)">var(--c_white)</l-icon>
+                        </l-stack>
+                    </l-grid>
                 </c-code-sample>
             </l-stack>
         </div>
@@ -92,38 +268,88 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 <c-h3>icon</c-h3>
                 <c-code-sample>
                     <l-grid>
-                        <l-stack>
-                            <l-icon icon="info">
-                                info
-                            </l-icon>
-                            <l-icon icon="lock">
-                                lock
-                            </l-icon>
-                            <l-icon icon="chevron-left">
-                                chevron-left
-                            </l-icon>
-                            <l-icon icon="chevron-right">
-                                chevron-right
-                            </l-icon>
-                            <l-icon icon="">
-                                no icon
-                            </l-icon>
+                        <l-stack spacing="0">
+                            <c-h3>Bindable Icons</c-h3>
+                            <l-icon icon="actions">actions</l-icon>
+                            <l-icon icon="ad-break">ad-break</l-icon>
+                            <l-icon icon="android">android</l-icon>
+                            <l-icon icon="appleinc">appleinc</l-icon>
+                            <l-icon icon="arrow-tip-down">arrow-tip-down</l-icon>
+                            <l-icon icon="arrow-tip-up">arrow-tip-up</l-icon>
+                            <l-icon icon="ban">ban</l-icon>
+                            <l-icon icon="bin-undo">bin-undo</l-icon>
+                            <l-icon icon="bin">bin</l-icon>
+                            <l-icon icon="calendar">calendar</l-icon>
+                            <l-icon icon="checkmark">checkmark</l-icon>
+                            <l-icon icon="chevron-down">chevron-down</l-icon>
+                            <l-icon icon="chevron-left">chevron-left</l-icon>
+                            <l-icon icon="chevron-right">chevron-right</l-icon>
+                            <l-icon icon="chevron-up">chevron-up</l-icon>
+                            <l-icon icon="circle">circle</l-icon>
+                            <l-icon icon="clip">clip</l-icon>
+                            <l-icon icon="cog">cog</l-icon>
+                            <l-icon icon="cols">cols</l-icon>
+                            <l-icon icon="copy">copy</l-icon>
+                            <l-icon icon="dollar">dollar</l-icon>
+                            <l-icon icon="download">download</l-icon>
+                            <l-icon icon="draggable">draggable</l-icon>
+                            <l-icon icon="external-link">external-link</l-icon>
+                            <l-icon icon="facebook">facebook</l-icon>
+                            <l-icon icon="filter">filter</l-icon>
+                            <l-icon icon="form-dirty">form-dirty</l-icon>
+                            <l-icon icon="graph">graph</l-icon>
+                            <l-icon icon="grid-large">grid-large</l-icon>
+                            <l-icon icon="info">info</l-icon>
+                            <l-icon icon="key">key</l-icon>
+                            <l-icon icon="lines-three">lines-three</l-icon>
+                            <l-icon icon="lines">lines</l-icon>
+                            <l-icon icon="linux">linux</l-icon>
+                            <l-icon icon="lock">lock</l-icon>
+                            <l-icon icon="log">log</l-icon>
+                            <l-icon icon="monitor">monitor</l-icon>
+                            <l-icon icon="play">play</l-icon>
+                            <l-icon icon="plus-circle">plus-circle</l-icon>
+                            <l-icon icon="plus">plus</l-icon>
+                            <l-icon icon="print">print</l-icon>
+                            <l-icon icon="question">question</l-icon>
+                            <l-icon icon="rules">rules</l-icon>
+                            <l-icon icon="save">save</l-icon>
+                            <l-icon icon="search">search</l-icon>
+                            <l-icon icon="server">server</l-icon>
+                            <l-icon icon="signal">signal</l-icon>
+                            <l-icon icon="slicer">slicer</l-icon>
+                            <l-icon icon="star">star</l-icon>
+                            <l-icon icon="time">time</l-icon>
+                            <l-icon icon="unlocked">unlocked</l-icon>
+                            <l-icon icon="volume-x">volume-x</l-icon>
+                            <l-icon icon="volume">volume</l-icon>
+                            <l-icon icon="warning">warning</l-icon>
+                            <l-icon icon="windows8">windows8</l-icon>
+                            <l-icon icon="x">x</l-icon>
+                            <l-icon icon="xbox">xbox</l-icon>
                         </l-stack>
-                        <l-stack>
-                            <l-icon
-                                icon="calendar"
-                                spacing="0"
-                                ></l-icon>
-                            <l-icon
-                                icon="lock"
-                                spacing="0"
-                            ></l-icon>
-                            <c-button
-                                icon="lock"
-                                icon-size="1.25em"
-                                icon-align="-0.25em"
-                                icon-only.bind="true"
-                            ></c-button>
+                        <l-stack spacing="0">
+                            <c-h3>Bindable Dev-App</c-h3>
+                            <l-icon icon="bindable-icons">bindable-icons</l-icon>
+                            <l-icon icon="bindable">bindable</l-icon>
+                            <l-icon icon="box">box</l-icon>
+                            <l-icon icon="call_merge">call_merge</l-icon>
+                            <l-icon icon="center">center</l-icon>
+                            <l-icon icon="cluster">cluster</l-icon>
+                            <l-icon icon="color">color</l-icon>
+                            <l-icon icon="cover">cover</l-icon>
+                            <l-icon icon="github">github</l-icon>
+                            <l-icon icon="globe">globe</l-icon>
+                            <l-icon icon="grid">grid</l-icon>
+                            <l-icon icon="hash">hash</l-icon>
+                            <l-icon icon="layers">layers</l-icon>
+                            <l-icon icon="layout">layout</l-icon>
+                            <l-icon icon="lock2">lock2</l-icon>
+                            <l-icon icon="package">package</l-icon>
+                            <l-icon icon="sidebar">sidebar</l-icon>
+                            <l-icon icon="tech">tech</l-icon>
+                            <l-icon icon="type">type</l-icon>
+                            <l-icon icon="zap">zap</l-icon>
                         </l-stack>
                     </l-grid>
                 </c-code-sample>
