@@ -478,6 +478,7 @@ export class CTimeline {
      * Return the offset in minutes from the selected timezone to the browser timezone
      */
     private getTzOffset(): number {
+        // @ts-ignore
         const browserOffset = moment.tz.zone(moment.tz.guess()).utcOffset(moment());
         const offset = moment().utcOffset();
 
