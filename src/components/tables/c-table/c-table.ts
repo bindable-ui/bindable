@@ -101,12 +101,12 @@ export class CTable {
         this.setUpListeners();
     }
 
+    public colsChanged() {
+        this.setColsSortClass();
+    }
+
     public bind() {
-        if (this.sortable) {
-            this.cols.forEach(col => {
-                this.setColSortClass(col);
-            });
-        }
+        this.setColsSortClass();
     }
 
     public getRowClass(row) {
@@ -174,6 +174,14 @@ export class CTable {
         const classes = keys.map(key => this.styles[key]);
 
         return classes.join(' ');
+    }
+
+    private setColsSortClass() {
+        if (this.sortable) {
+            this.cols.forEach(col => {
+                this.setColSortClass(col);
+            });
+        }
     }
 
     private setColSortClass(col) {
