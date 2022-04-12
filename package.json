@@ -97,7 +97,7 @@
     "prepare": "npm run build",
     "preversion": "au test",
     "test-coverage": "jest --coverage true",
-    "test": "au test"
+    "test": "jest --coverage true"
   },
   "engines": {
     "node": ">=8.9.0"
