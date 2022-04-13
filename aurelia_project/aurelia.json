@@ -113,5 +113,5 @@
       ]
     }
   },
-  "packageManager": "npm"
+  "packageManager": "yarn"
 }
