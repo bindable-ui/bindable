@@ -90,25 +90,25 @@ This Aurelia plugin project has a built-in dev app to simplify development.
 
 1. The local `src/` folder, is the source code for the plugin.
 2. The local `dev-app/` folder, is the code for the dev app, just like a normal app bootstrapped by aurelia-cli.
-3. You can use normal `npm start` and `npm test` in development just like developing an app.
+3. You can use normal `yarn start` and `yarn test` in development just like developing an app.
 4. To ensure compatibility to other apps, always use `PLATFORM.moduleName()` wrapper in files inside `src/`. You don't need to use the wrapper in `dev-app/` folder as CLI built-in bundler supports module name without the wrapper.
 
 The dev-app contains the <a href="https://bindable-ui.com" target="_blank" rel="noopener">docs</a>. Use that to view what parameters are available when using the components in Bindable.
 
 ### Run dev app
 
-Run `npm start`, then open `http://localhost:9000`
+Run `yarn start`, then open `http://localhost:9000`
 
 ### Unit tests
 
-Run `npm test`
+Run `yarn test`
 
 ### Release
 This is used when updating Bindable.
 
-With your changes update the version number in `dev-app/app.html` in the `title` attribute (around line 37), and the package.json and package-lock.json files. Then make a release on Github.
+With your changes update the version number in `dev-app/app.html` in the `title` attribute (around line 37), and the package.json file. Then make a release on Github.
 
-Update your app to point to the new release in package.json and package-lock.json and `npm install`.
+Update your app to point to the new release in package.json (and package-lock.json if you're not using Yarn) and then `yarn install` or `npm install`.
 
 Please refer to [the contributing.md file](Contributing.md) for information about how to get involved. We welcome issues, questions, and pull requests.
 
