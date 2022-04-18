@@ -20,6 +20,7 @@ module.exports = {
         '^.+\\.ts$': 'ts-jest'
     },
     testRegex: '\\.test\\.ts$',
+    testTimeout: 60000,
     setupFiles: [
         '<rootDir>/test/jest-pretest.ts',
         'jest-localstorage-mock'

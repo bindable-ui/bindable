@@ -1,5 +1,5 @@
 /*
-Copyright 2020, Verizon Media
+© 2022 Edgecast Inc.
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
@@ -478,6 +478,7 @@ export class CTimeline {
      * Return the offset in minutes from the selected timezone to the browser timezone
      */
     private getTzOffset(): number {
+        // @ts-ignore
         const browserOffset = moment.tz.zone(moment.tz.guess()).utcOffset(moment());
         const offset = moment().utcOffset();
 

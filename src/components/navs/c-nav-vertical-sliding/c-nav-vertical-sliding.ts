@@ -1,5 +1,5 @@
 /*
-Copyright 2020, Verizon Media
+© 2022 Edgecast Inc.
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
@@ -63,13 +63,13 @@ export class CNavVerticalSliding {
     get isTriggerContentHidden() {
         if (
             this.nav &&
-            (this.nav.pages[this.nav.shownIndex] &&
-                (this.nav.pages[this.nav.shownIndex].prevText ||
-                    this.nav.pages[this.nav.shownIndex].nextText ||
-                    this.nav.pages[this.nav.shownIndex].title ||
-                    this.nav.pages[this.nav.shownIndex].searchFn ||
-                    this.nav.pages[this.nav.shownIndex].searchQuery ||
-                    this.nav.pages[this.nav.shownIndex].searchPlaceholder)) &&
+            this.nav.pages[this.nav.shownIndex] &&
+            (this.nav.pages[this.nav.shownIndex].prevText ||
+                this.nav.pages[this.nav.shownIndex].nextText ||
+                this.nav.pages[this.nav.shownIndex].title ||
+                this.nav.pages[this.nav.shownIndex].searchFn ||
+                this.nav.pages[this.nav.shownIndex].searchQuery ||
+                this.nav.pages[this.nav.shownIndex].searchPlaceholder) &&
             this.nav.activeIndex === 0
         ) {
             _.delay(() => {

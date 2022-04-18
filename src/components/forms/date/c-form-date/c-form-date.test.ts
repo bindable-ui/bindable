@@ -1,5 +1,5 @@
 /*
-Copyright 2020, Verizon Media
+© 2022 Edgecast Inc.
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
@@ -137,11 +137,11 @@ describe('c-form-date component', () => {
                 });
             });
 
-            // it('MUST render datetimepicker component.', () => {
-            //     expect(document.getElementById('date-time-picker-id')).toBeDefined();
-            //     const setTime = moment(viewModel.datetimepicker.data('DateTimePicker').date()).format('x');
-            //     expect(setTime).toBeDefined();
-            // });
+            it('MUST render datetimepicker component.', () => {
+                expect(document.getElementById('date-time-picker-id')).toBeDefined();
+                const setTime = moment(viewModel.datetimepicker.data('DateTimePicker').date()).format('x');
+                expect(setTime).toBeDefined();
+            });
 
             it('updateDate: Should update date, but not not handler executed', () => {
                 viewModel.timestamp = moment().format('x');
