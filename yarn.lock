@@ -1123,7 +1123,7 @@ aurelia-animator-css@^1.0.4:
     aurelia-pal "^1.0.0"
     aurelia-templating "^1.0.0"
 
-aurelia-binding@^2.0.0, aurelia-binding@^2.1.4:
+aurelia-binding@^2.0.0, aurelia-binding@^2.1.4, aurelia-binding@^2.1.7:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/aurelia-binding/-/aurelia-binding-2.5.4.tgz#c1c9221dd351bbf749df5e71aedc29b993a9ada0"
   integrity sha512-tYhYCFvQne+chO3p8KntCWj0r8oCXiCOGQ0yFbthHDBpjjTA4QlBwpGQ8nlGoGDKj7n4PoobeIjN3lEDKgKUyw==
@@ -1361,7 +1361,7 @@ aurelia-templating-binding@^1.0.0:
     aurelia-logging "^1.0.0"
     aurelia-templating "^1.11.1"
 
-aurelia-templating-resources@^1.7.0:
+aurelia-templating-resources@^1.0.0, aurelia-templating-resources@^1.7.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/aurelia-templating-resources/-/aurelia-templating-resources-1.14.1.tgz#483862e02d0716ec98c36f004d00a15eae20a365"
   integrity sha512-pt1RJHKAY9U81XeuNk+PVXo492UZoMA7lebpq60yI+hQRhA2lCcKu/9xA+NmMVNaVnMXXZvv+WL/unH/2S58sQ==
@@ -1389,7 +1389,7 @@ aurelia-templating-router@^1.0.0:
     aurelia-path "^1.1.7"
     aurelia-templating "^1.11.1"
 
-aurelia-templating@^1.0.0, aurelia-templating@^1.11.1, aurelia-templating@^1.8.1, aurelia-templating@^1.8.2:
+aurelia-templating@^1.0.0, aurelia-templating@^1.10.1, aurelia-templating@^1.11.1, aurelia-templating@^1.8.1, aurelia-templating@^1.8.2:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/aurelia-templating/-/aurelia-templating-1.11.1.tgz#661df6d9ff09ec280ccf0fc4a94b702fceff0b24"
   integrity sha512-7Zrb/yvnIYBIlqGaLXIiBsmWMoFwo3SSoxyoucqWe/M80YpR4LJaTEKoZxhZZI6x9pU+tlFOBkwd/sA1JqPR8w==
@@ -1421,6 +1421,20 @@ aurelia-tools@^2.0.0:
   dependencies:
     breeze-dag "^0.1.0"
     through2 "^2.0.0"
+
+aurelia-ui-virtualization@^1.0.0-rc2:
+  version "1.0.0-rc2"
+  resolved "https://registry.yarnpkg.com/aurelia-ui-virtualization/-/aurelia-ui-virtualization-1.0.0-rc2.tgz#0c9469c6e9715bb3a090bca346cda887144099a9"
+  integrity sha512-WD8Twx9JRVvX13bJtHmDUyfL0xEGjyZZSk/DPelgFJlK5DnaNspIujaO46Dx+rhW3MI69cxutcCaSECED947hg==
+  dependencies:
+    aurelia-binding "^2.1.7"
+    aurelia-dependency-injection "^1.0.0"
+    aurelia-logging "^1.0.0"
+    aurelia-logging-console "^1.0.0"
+    aurelia-path "^1.0.0"
+    aurelia-task-queue "^1.0.0"
+    aurelia-templating "^1.10.1"
+    aurelia-templating-resources "^1.0.0"
 
 autoprefixer@^9.8.8:
   version "9.8.8"

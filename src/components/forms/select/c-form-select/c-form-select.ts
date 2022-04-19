@@ -194,6 +194,7 @@ export class CFormSelect {
             return;
         }
 
+        this.virtualOptions = [];
         if (typeof this.options[0] === 'object') {
             this.options.forEach(obj => {
                 this.virtualOptions.push({value: obj.value, text: obj.text, selected: false});
@@ -212,14 +213,11 @@ export class CFormSelect {
             });
         }
 
-        // const selects = document.getElementsByClassName(this.styles.virtualSelect);
-        //
-        // if (selects.length) {
-        //     Array.from(selects).forEach(s => {
-        //         // @ts-ignore
-        //         s.onselectstart = () => false;
-        //     });
-        // }
+        // Disable default text select functionality to select multiple with shift key
+        const $ul = document.getElementById(this.id);
+        if ($ul) {
+            $ul.onselectstart = () => false;
+        }
     }
 
     public detached() {
@@ -311,7 +309,7 @@ export class CFormSelect {
                     end = this.lastClicked;
                 }
                 for (let i = start; i <= end; i += 1) {
-                    this.options[i].selected = selected;
+                    this.virtualOptions[i].selected = selected;
                 }
             } else {
                 opt.selected = selected;
