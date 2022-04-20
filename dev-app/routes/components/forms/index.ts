@@ -105,13 +105,6 @@ export class Forms {
             route: 'toggle',
             title: 'Toggle',
         },
-        {
-            moduleId: PLATFORM.moduleName('./virtual-select/index'),
-            name: 'virtual-select',
-            nav: true,
-            route: 'virtual-select',
-            title: 'Virtual Select',
-        },
     ];
 
     constructor(public router: Router) {}

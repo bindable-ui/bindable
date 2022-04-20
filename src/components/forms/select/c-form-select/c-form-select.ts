@@ -218,6 +218,15 @@ export class CFormSelect {
         if ($ul) {
             $ul.onselectstart = () => false;
         }
+
+        // Hijack cmd+a/ctrl+a if component is active
+        document.addEventListener('keydown', e => {
+            const activeElement = document.activeElement;
+            if (activeElement.id === this.id && e.key === 'a' && (e.metaKey || e.ctrlKey)) {
+                this.selectAll();
+                e.preventDefault();
+            }
+        });
     }
 
     public detached() {
@@ -260,10 +269,12 @@ export class CFormSelect {
 
     public selectAll() {
         this.virtualOptions.forEach(o => (o.selected = true));
+        this.getValue();
     }
 
     public selectNone() {
         this.virtualOptions.forEach(o => (o.selected = false));
+        this.getValue();
     }
 
     public removeSelected() {
