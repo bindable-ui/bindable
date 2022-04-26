@@ -216,6 +216,7 @@ export class CFormSelect {
         // Disable default text select functionality to select multiple with shift key
         const $ul = document.getElementById(this.id);
         if ($ul) {
+            /* istanbul ignore next */
             $ul.onselectstart = () => false;
         }
 
@@ -275,11 +276,6 @@ export class CFormSelect {
     public selectNone() {
         this.virtualOptions.forEach(o => (o.selected = false));
         this.getValue();
-    }
-
-    public removeSelected() {
-        const res = this.options.filter(o => o.selected === false);
-        this.options = res;
     }
 
     public selectValueChanged(newVal, oldVal) {

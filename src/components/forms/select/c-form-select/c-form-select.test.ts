@@ -1,16 +1,25 @@
+import {
+    IVNavSliderNavDropzone,
+    IVNavSliderObj,
+} from './../../../navs/c-nav-vertical-sliding/c-nav-vertical-sliding-interfaces';
 /*
 © 2022 Edgecast Inc.
 Licensed under the terms of the MIT license. See the LICENSE file in the project root for license terms.
 */
 
 import {StageComponent} from 'aurelia-testing';
+import {instance, mock} from 'ts-mockito';
+
 import multiIndexSplicer from '../../../../helpers/multi-index-splicer';
+
+import {CFormSelect} from './c-form-select';
 
 jest.mock('../../../../helpers/multi-index-splicer');
 
 describe('c-form-select component', () => {
-    let component;
-    let mockFn;
+    let component: any;
+    let cFormSelect: any;
+    let mockFn: any;
     const searchOptions = [
         {
             text: 'Value 1',
@@ -76,6 +85,25 @@ describe('c-form-select component', () => {
             try {
                 await bootStrapEnvironment(component);
                 expect(component.viewModel.simple).toBe(false);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        // Test if virtual is enabled
+        it('testing virtual', async done => {
+            // @ts-ignore
+            global.innerHeight = 100;
+            component = StageComponent.withResources()
+                .inView('<c-form-select virtual.bind="customVirtual"></c-form-select>')
+                .boundTo({
+                    customVirtual: 1,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.virtual).toBe(false);
                 done();
             } catch (e) {
                 done.fail(e);
@@ -186,6 +214,51 @@ describe('c-form-select component', () => {
             }
         });
 
+        it('should highlight all with cmd+a or ctrl+a on a virtual select', async done => {
+            const template = `
+            <c-form-select
+                options.bind="searchOptions"
+                virtual.bind="true"
+            >
+            </c-form-select>
+        `;
+            component = StageComponent.withResources()
+                .inView(template)
+                .boundTo({
+                    searchOptions,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                document.getElementById(component.viewModel.id).focus();
+                document.dispatchEvent(
+                    new window.KeyboardEvent('keydown', {
+                        key: 'a',
+                        metaKey: true,
+                    }),
+                );
+                const expected = [
+                    {value: 'value1', text: 'Value 1', selected: true},
+                    {value: 'Value2', text: 'Value 2', selected: true},
+                ];
+                expect(component.viewModel.virtualOptions).toEqual(expected);
+
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.virtualOptions[0].selected).toBeFalsy();
+                document.getElementById(component.viewModel.id).focus();
+                document.dispatchEvent(
+                    new window.KeyboardEvent('keydown', {
+                        ctrlKey: true,
+                        key: 'a',
+                    }),
+                );
+                expect(component.viewModel.virtualOptions).toEqual(expected);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
         // Test select value changed and executes on change event.
         it('calls selectValueChanged with action handler', async done => {
             const template = `
@@ -210,6 +283,18 @@ describe('c-form-select component', () => {
                 await bootStrapEnvironment(component);
                 component.viewModel.selectValueChanged('Value 2', 'Value 1');
                 expect(mockFn).toHaveBeenCalled();
+
+                component.viewModel.selectValue = 'Value 2';
+                component.viewModel.selectValueChanged('Value 2', 'Value 1');
+                expect(component.viewModel.disableDisplay).toEqual('Value 2');
+
+                component.viewModel.simple = false;
+                component.viewModel.options = searchOptions;
+                component.viewModel.enableSelect2 = true;
+                component.viewModel.selectValue = 'Value2';
+                component.viewModel.selectValueChanged('value2', 'value1');
+                expect(component.viewModel.disableDisplay).toEqual('Value 2');
+
                 done();
             } catch (e) {
                 done.fail(e);
@@ -453,6 +538,121 @@ describe('c-form-select component', () => {
                 } catch (e) {
                     done.fail(e);
                 }
+            });
+        });
+    });
+
+    describe('Non UI', () => {
+        beforeEach(() => {
+            const element = mock(instance(Element));
+            cFormSelect = new CFormSelect(element);
+        });
+
+        describe('.setupSelect2', () => {
+            beforeEach(() => {
+                cFormSelect.isLoading = false;
+                cFormSelect.enableSelect2 = true;
+                // @ts-ignore
+                jest.spyOn(_, 'throttle').mockImplementation(fn => fn);
+            });
+            it('should setup select2', () => {
+                const res = {
+                    on: jest.fn().mockImplementation(() => res),
+                };
+                const mockSelect2 = jest.fn().mockImplementation(options => res);
+                // @ts-ignore
+                $.fn.select2 = mockSelect2;
+                cFormSelect.setupSelect2();
+
+                expect(cFormSelect.isLoading).toBeFalsy();
+                expect(cFormSelect.enableSelect2).toBeTruthy();
+            });
+        });
+
+        describe('.setupVirtualSelect', () => {
+            beforeEach(() => {
+                cFormSelect.isLoading = false;
+                cFormSelect.virtual = true;
+            });
+            it('should clear virtualOptions', () => {
+                cFormSelect.virtualOptions = [1, 2, 3];
+                cFormSelect.setupVirtualSelect();
+                expect(cFormSelect.virtualOptions).toEqual([]);
+            });
+            it('should set virtual options for list of objects', () => {
+                cFormSelect.options = searchOptions;
+                cFormSelect.setupVirtualSelect();
+                const expected = [
+                    {value: 'value1', text: 'Value 1', selected: false},
+                    {value: 'Value2', text: 'Value 2', selected: false},
+                ];
+                expect(cFormSelect.virtualOptions).toEqual(expected);
+            });
+            it('should set virtual options for simple list', () => {
+                cFormSelect.options = searchSimpleOptions;
+                cFormSelect.setupVirtualSelect();
+                const expected = [
+                    {value: 'Value 1', text: 'Value 1', selected: false},
+                    {value: 'Value 2', text: 'Value 2', selected: false},
+                    {value: 'Value 3', text: 'Value 3', selected: false},
+                ];
+                expect(cFormSelect.virtualOptions).toEqual(expected);
+            });
+            it('should set the selected value', () => {
+                cFormSelect.options = searchOptions;
+                cFormSelect.selectValue = 'value1';
+                cFormSelect.setupVirtualSelect();
+                const expected = [
+                    {value: 'value1', text: 'Value 1', selected: true},
+                    {value: 'Value2', text: 'Value 2', selected: false},
+                ];
+                expect(cFormSelect.virtualOptions).toEqual(expected);
+            });
+            it('should select none', () => {
+                cFormSelect.options = searchOptions;
+                cFormSelect.selectValue = 'value1';
+                cFormSelect.setupVirtualSelect();
+                cFormSelect.selectNone();
+                expect(cFormSelect.virtualOptions[0].selected).toBeFalsy();
+            });
+            it('should select virtual option', () => {
+                cFormSelect.options = searchOptions;
+                cFormSelect.selectValue = 'value1';
+                cFormSelect.setupVirtualSelect();
+                cFormSelect.selectVirtualOption(jest.fn(), cFormSelect.virtualOptions[0], 0);
+                expect(cFormSelect.virtualOptions[0].selected).toBeFalsy();
+            });
+        });
+
+        describe('.selectVirtualOption', () => {
+            beforeEach(() => {
+                cFormSelect.isLoading = false;
+                cFormSelect.virtual = true;
+                cFormSelect.options = searchSimpleOptions;
+                cFormSelect.selectValue = 'Value 1';
+                cFormSelect.setupVirtualSelect();
+            });
+            it("should change the selected option's value", () => {
+                cFormSelect.selectVirtualOption(jest.fn(), cFormSelect.virtualOptions[0], 0);
+                expect(cFormSelect.virtualOptions[0].selected).toBeFalsy();
+            });
+            it('should not change the value if the component is disabled', () => {
+                cFormSelect.state = 'disabled';
+                cFormSelect.selectVirtualOption(jest.fn(), cFormSelect.virtualOptions[0], 0);
+                expect(cFormSelect.virtualOptions[0].selected).toBeTruthy();
+            });
+            it('should select multiple if shift key is held', () => {
+                cFormSelect.multiple = true;
+                cFormSelect.selectVirtualOption(jest.fn(), cFormSelect.virtualOptions[0], 0);
+                expect(cFormSelect.lastClicked).toEqual(0);
+                cFormSelect.selectVirtualOption({shiftKey: true}, cFormSelect.virtualOptions[2], 2);
+                expect(cFormSelect.virtualOptions[1].selected).toBeTruthy();
+                cFormSelect.virtualOptions.forEach(o => {
+                    o.selected = false;
+                });
+                cFormSelect.selectVirtualOption({shiftKey: false}, cFormSelect.virtualOptions[2], 2);
+                cFormSelect.selectVirtualOption({shiftKey: true}, cFormSelect.virtualOptions[0], 0);
+                expect(cFormSelect.virtualOptions[1].selected).toBeTruthy();
             });
         });
     });
