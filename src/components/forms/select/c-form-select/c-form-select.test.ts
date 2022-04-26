@@ -596,21 +596,6 @@ describe('c-form-select component', () => {
             cFormSelect = new CFormSelect(element);
         });
 
-        describe('.setupSelect2', () => {
-            beforeEach(() => {
-                cFormSelect.isLoading = false;
-                cFormSelect.enableSelect2 = true;
-                // @ts-ignore
-                jest.spyOn(_, 'throttle').mockImplementation(fn => fn);
-            });
-            it('should setup select2', () => {
-                cFormSelect.setupSelect2();
-
-                expect(cFormSelect.isLoading).toBeFalsy();
-                expect(cFormSelect.enableSelect2).toBeTruthy();
-            });
-        });
-
         describe('.setupVirtualSelect', () => {
             beforeEach(() => {
                 cFormSelect.isLoading = false;
