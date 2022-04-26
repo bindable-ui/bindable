@@ -32,6 +32,15 @@ describe('c-form-select component', () => {
     ];
     const searchSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
 
+    beforeAll(() => {
+        const res = {
+            on: jest.fn().mockImplementation(() => res),
+        };
+        const mockSelect2 = jest.fn().mockImplementation(options => res);
+        // @ts-ignore
+        $.fn.select2 = mockSelect2;
+    });
+
     beforeEach(() => {
         mockFn = jest.fn();
     });
@@ -155,6 +164,45 @@ describe('c-form-select component', () => {
             try {
                 await bootStrapEnvironment(component);
                 expect(component.viewModel.reorder).toBe(false);
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('should set default placeholder text', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-form-select placeholder.bind="customPlaceholder"></c-form-select>')
+                .boundTo({
+                    customPlaceholder: 1,
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.placeholder).toBe('Select an Option');
+                component = StageComponent.withResources()
+                    .inView('<c-form-select placeholder.bind="customPlaceholder" multiple.bind="true"></c-form-select>')
+                    .boundTo({
+                        customPlaceholder: 1,
+                    });
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.placeholder).toBe('Select Multiple Options');
+                done();
+            } catch (e) {
+                done.fail(e);
+            }
+        });
+
+        it('should set placeholder text', async done => {
+            component = StageComponent.withResources()
+                .inView('<c-form-select placeholder.bind="customPlaceholder"></c-form-select>')
+                .boundTo({
+                    customPlaceholder: 'placeholder test',
+                });
+
+            try {
+                await bootStrapEnvironment(component);
+                expect(component.viewModel.placeholder).toBe('placeholder test');
                 done();
             } catch (e) {
                 done.fail(e);
@@ -556,12 +604,6 @@ describe('c-form-select component', () => {
                 jest.spyOn(_, 'throttle').mockImplementation(fn => fn);
             });
             it('should setup select2', () => {
-                const res = {
-                    on: jest.fn().mockImplementation(() => res),
-                };
-                const mockSelect2 = jest.fn().mockImplementation(options => res);
-                // @ts-ignore
-                $.fn.select2 = mockSelect2;
                 cFormSelect.setupSelect2();
 
                 expect(cFormSelect.isLoading).toBeFalsy();
