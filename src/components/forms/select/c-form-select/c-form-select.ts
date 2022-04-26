@@ -74,6 +74,7 @@ export class CFormSelect {
     public disableDisplay = null;
     public lastClicked = null;
 
+    /* istanbul ignore next */
     private setupSelect2 = _.throttle(
         () => {
             this.cleanupSelect2();
@@ -382,6 +383,7 @@ export class CFormSelect {
         this.options = multiIndexSplicer(this.filteredOptions, indexes, dir);
     }
 
+    /* istanbul ignore next */
     private cleanupSelect2() {
         if ($(`#${this.id}`).hasClass('select2-hidden-accessible')) {
             $(`#${this.id}`).select2('destroy');
