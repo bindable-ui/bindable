@@ -89,6 +89,7 @@
           "aurelia-bootstrapper",
           "aurelia-loader-default",
           "aurelia-pal-browser",
+          "aurelia-ui-virtualization",
           {
             "name": "aurelia-testing",
             "env": "dev"

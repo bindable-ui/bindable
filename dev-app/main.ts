@@ -25,7 +25,7 @@ export function configure(aurelia: Aurelia) {
     aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
     if (environment.testing) {
-        aurelia.use.plugin('aurelia-testing');
+        aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
     }
 
     aurelia.start().then(() => aurelia.setRoot());
