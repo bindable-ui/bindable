@@ -18,7 +18,7 @@ jobs:
     - run: npm install -g jest
     - run: npm install -g yarn
     - run: yarn
-    - run: yarn test
+    - run: yarn test:ci
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
