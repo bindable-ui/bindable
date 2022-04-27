@@ -43,7 +43,7 @@ describe('c-form-select component', () => {
 
         // Mock throttle
         // @ts-ignore
-        jest.spyOn(_, 'throttle').mockImplementation(() => jest.fn());
+        jest.spyOn(_, 'throttle').mockImplementation(func => func);
     });
 
     beforeEach(() => {

@@ -100,7 +100,7 @@
     "test-coverage": "jest --coverage=true",
     "test": "jest --coverage=true",
     "test:debug": "jest --coverage=false --runInBand --detectOpenHandles .",
-    "test:ci": "jest --coverage=true --ci"
+    "test:ci": "jest --coverage=true --ci --detectOpenHandles"
   },
   "engines": {
     "node": ">=12.22.12"
