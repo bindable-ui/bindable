@@ -39,8 +39,8 @@
     "gulp-typescript": "^5.0.0",
     "gulp-watch": "^5.0.1",
     "husky": "^2.4.1",
-    "jest": "^24.1.0",
-    "jest-cli": "^24.1.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
     "jest-localstorage-mock": "^2.4.21",
     "jest-transform-stub": "^2.0.0",
     "js-beautify": "^1.14.3",
@@ -57,7 +57,7 @@
     "requirejs": "^2.3.6",
     "text": "github:requirejs/text#latest",
     "through2": "^3.0.2",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^26.5.6",
     "ts-mockito": "^2.6.1",
     "ts-polyfill": "^3.8.2",
     "tslint": "^5.20.1",
@@ -97,8 +97,10 @@
     "build-site": "au build",
     "prepare": "npm run build",
     "preversion": "au test",
-    "test-coverage": "jest --coverage true",
-    "test": "jest --coverage true"
+    "test-coverage": "jest --coverage=true",
+    "test": "jest --coverage=true",
+    "test:debug": "jest --coverage=false --runInBand --detectOpenHandles .",
+    "test:ci": "jest --coverage=true --ci"
   },
   "engines": {
     "node": ">=12.22.12"

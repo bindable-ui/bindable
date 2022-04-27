@@ -33,12 +33,17 @@ describe('c-form-select component', () => {
     const searchSimpleOptions = ['Value 1', 'Value 2', 'Value 3'];
 
     beforeAll(() => {
-        const res = {
-            on: jest.fn().mockImplementation(() => res),
+        // mock select2
+        const select2Response = {
+            on: jest.fn().mockImplementation(() => select2Response),
         };
-        const mockSelect2 = jest.fn().mockImplementation(options => res);
+        const mockSelect2 = jest.fn().mockImplementation(options => select2Response);
         // @ts-ignore
         $.fn.select2 = mockSelect2;
+
+        // Mock throttle
+        // @ts-ignore
+        jest.spyOn(_, 'throttle').mockImplementation(() => jest.fn());
     });
 
     beforeEach(() => {
