@@ -99,8 +99,8 @@
     "preversion": "au test",
     "test-coverage": "jest --coverage=true",
     "test": "jest --coverage=true",
-    "test:debug": "jest --coverage=false --runInBand --detectOpenHandles .",
-    "test:ci": "jest --coverage=true --ci --detectOpenHandles"
+    "test:debug": "jest --coverage=false --runInBand --detectOpenHandles --forceExit",
+    "test:ci": "jest --coverage=true --ci --detectOpenHandles --forceExit"
   },
   "engines": {
     "node": ">=12.22.12"
