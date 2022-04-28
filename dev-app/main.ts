@@ -16,6 +16,7 @@ export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
         .plugin(PLATFORM.moduleName('aurelia-dialog'))
+        .plugin(PLATFORM.moduleName('aurelia-ui-virtualization'))
         .plugin(PLATFORM.moduleName('@bindable-ui/bindable-icons'))
     // load the plugin ../src
     // The "resources" is mapped to "../src" in aurelia.json "paths"
@@ -24,7 +25,7 @@ export function configure(aurelia: Aurelia) {
     aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
     if (environment.testing) {
-        aurelia.use.plugin('aurelia-testing');
+        aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
     }
 
     aurelia.start().then(() => aurelia.setRoot());

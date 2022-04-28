@@ -38,29 +38,83 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
                 ${styles.select}
                 ${styles[_state]}
                 ${multiple ? styles.multiple : ''}
+                ${virtual ? styles.virtual : ''}
             "
             id="${id}"
             value.bind="selectValue"
             multiple.bind="multiple"
             scroll.trigger="onScroll() & throttle"
-            if.bind="!isLoading && _state !== 'hidden' && !enableSelect2"
+            if.bind="!virtual && !isLoading && _state !== 'hidden' && !enableSelect2"
         >
             <option
                 repeat.for="option of filteredOptions"
                 value="${option.value}"
-                if.bind="!simple"
+                if.bind="!simple && !virtual"
                 disabled.bind="option.disabled"
             >
                 ${option.text}
             </option>
             <option
-                repeat.for="option of filteredOptions"
+              repeat.for="option of filteredOptions"
                 value="${option}"
-                if.bind="simple"
+                if.bind="simple && !virtual"
             >
                 ${option}
             </option>
         </select>
+        <div
+            if.bind="virtual && !isLoading && _state !== 'hidden' && !enableSelect2"
+        >
+          <div
+            if.bind="!multiple"
+            class="
+              ${styles.select}
+              ${styles.virtualSelectField}
+              ${styles[_state]}
+            "
+          >
+
+            ${selectValue.length ? selectValue : placeholder}
+          </div>
+          <ul
+              class="
+                ${styles.virtualSelectList}
+                ${styles[_state]}
+              "
+              id="${id}"
+              tabindex="0"
+          >
+              <li
+                  class="
+                    ${styles.virtualSelectOption}
+                    ${option.selected ? styles.isSelected : ''}
+                    ${option.disabled ? styles.isDisabled : ''}
+                  "
+                  virtual-repeat.for="option of virtualOptions"
+                  value.bind="option.value"
+                  click.trigger="selectVirtualOption($event, option, $index)"
+              >
+                  <span
+                    class="
+                      ${styles.virtualSelectPrefix}
+                    "
+                  >
+                    <l-icon
+                      if.bind="option.selected"
+                      icon="checkmark"
+                      ></l-icon>
+                  </span>
+                  <span
+                    class="
+                      ${styles.virtualSelectLabel}
+                    "
+                  >
+                    ${option.text}
+                  </span>
+              </li>
+          </ul>
+        </div>
+
         <l-cluster
             spacing="var(--s-3)"
             if.bind="reorder"

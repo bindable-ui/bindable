@@ -112,6 +112,11 @@ export class SelectProperties {
             value: 'error | warning | disabled | hidden',
         },
         {
+            description: 'Replaces native select with virtualized list when running into performance issues due to massive (>1000) options. Virtualization will automatically convert a simple array into an array of objects.',
+            name: 'virtual',
+            value: 'boolean',
+        },
+        {
             default: 'false',
             description:
             'Set if you want to enable Select2. Select2 is a plugin that allows for fuzzy search of the <options> within the <select>. It also has multiple and tagging support.',
@@ -145,6 +150,7 @@ export class SelectProperties {
         },
     ];
 
+    public stressTestOptions = [];
     public testOptions = [
         {
             text: 'Value 1',
@@ -180,5 +186,13 @@ export class SelectProperties {
         if (!_.isUndefined(oldVal)) {
             console.log('Select2 changed');
         }
+    };
+
+    constructor() {
+      const ZIPCOUNT = 10000;
+      for (let i = 10000; i < ZIPCOUNT + 10000; i += 1) {
+          this.stressTestOptions.push(i);
+      }
     }
+
 }
