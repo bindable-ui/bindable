@@ -142,6 +142,9 @@ export class CFormDate {
     }
 
     public detached() {
+        this.timestamp = null;
+        this.isoDate = null;
+
         if (this.datetimepicker) {
             this.datetimepicker.off('dp.show');
             this.datetimepicker.off('dp.change');
@@ -149,12 +152,7 @@ export class CFormDate {
             if (this.datetimepicker.data('DateTimePicker')) {
                 this.datetimepicker.data('DateTimePicker').destroy();
             }
-
-            this.datetimepicker = null;
         }
-
-        this.timestamp = null;
-        this.isoDate = null;
     }
 
     private attachDatepicker() {
