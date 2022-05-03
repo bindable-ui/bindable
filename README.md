@@ -104,9 +104,12 @@ Run `yarn start`, then open `http://localhost:9000`
 Run `yarn test`
 
 ### Release
+
 This is used when updating Bindable.
 
-With your changes update the version number in `dev-app/app.html` in the `title` attribute (around line 37), and the package.json file. Then make a release on Github.
+Run `yarn update-version`. This will update the version in `package.json` and the title attribe in `dev-app/app.html` to the new version you specify.
+
+Once you merge your changes to master, [create a new release on Github](https://github.com/bindable-ui/bindable/releases).
 
 Update your app to point to the new release in package.json (and package-lock.json if you're not using Yarn) and then `yarn install` or `npm install`.
 

@@ -1,7 +1,7 @@
 {
   "name": "@bindable-ui/bindable",
   "description": "An Aurelia component library",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/bindable-ui/bindable"
@@ -100,7 +100,8 @@
     "test-coverage": "jest --coverage=true",
     "test": "jest --coverage=true",
     "test:debug": "jest --coverage=false --runInBand --detectOpenHandles --forceExit",
-    "test:ci": "jest --coverage=true --ci --detectOpenHandles --forceExit"
+    "test:ci": "jest --coverage=true --ci --detectOpenHandles --forceExit",
+    "update-version": "node ./update-version.js"
   },
   "engines": {
     "node": ">=12.22.12"
