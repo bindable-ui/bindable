@@ -51,8 +51,8 @@ describe('Datetime Value Converter', () => {
             expect(component.toView(33 * 60 * 60)).toEqual('33:00:00');
         });
 
-        it('should not exceed 99 hours', () => {
-            expect(component.toView(100 * 60 * 60)).toEqual('99:00:00');
+        it('should exceed 99 hours', () => {
+            expect(component.toView(100 * 60 * 60)).toEqual('100:00:00');
         });
 
         it('should account for null or undefined', () => {
