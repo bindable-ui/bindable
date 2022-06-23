@@ -75,8 +75,6 @@ export class SecondsToHmsValueConverter {
 
         if (hoursDisplay.length === 1) {
             hoursDisplay = `0${hours}`;
-        } else if (hoursDisplay.length > 2) {
-            hoursDisplay = '99';
         }
 
         if (minutesDisplay.length === 1) {
