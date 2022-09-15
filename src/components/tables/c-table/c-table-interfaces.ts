@@ -71,6 +71,11 @@ export interface CTableCol {
      * If you need to highlight a search string in the table (currently only supported on c-td-truncate)
      */
     getSearchVal?(): string;
+
+    /**
+     * For custom search queries, pass in the words and phrases in an array that you would like to highlight
+     */
+    getSearchPhrases?(): string[];
 }
 
 export interface CTableActions {
