@@ -5,9 +5,9 @@ export const highlightSearchPhrases = (searchPhrases: string[], matchAgainst?: s
         .replace('<', '&lt;')
         .replace('>', '&gt;');
     if (searchPhrases && searchPhrases.length > 0) {
-        searchPhrases.forEach(orig => {
-            const regEx = new RegExp(orig, 'ig');
-            title = title.replace(regEx, `<span style="background-color: #226684;">${orig}</span>`);
+        searchPhrases.forEach(sp => {
+            const regEx = new RegExp(sp, 'gi');
+            title = title.replace(regEx, '<span style="background-color: #226684;">$&</span>');
         });
     }
     return title;
