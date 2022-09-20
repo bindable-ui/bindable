@@ -10,5 +10,7 @@ describe('Highlight Search Phrases Helper', () => {
                 '<span style="background-color: #226684;">and</span> ' +
                 '<span style="background-color: #226684;">Dumb</span>er',
         );
+        const empty = highlightSearchPhrases(searchPhrases);
+        expect(empty).toEqual('');
     });
 });

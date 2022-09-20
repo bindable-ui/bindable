@@ -101,7 +101,13 @@ Run `yarn start`, then open `http://localhost:9000`
 
 ### Unit tests
 
-Run `yarn test`
+Run `yarn test` to run all unit tests.
+
+To test one file and watch for changes, run:
+
+```shell
+yarn test:1 <relative_path_to_test_file.test.ts>
+```
 
 ### Release
 
