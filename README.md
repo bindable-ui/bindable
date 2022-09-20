@@ -113,7 +113,7 @@ yarn test:1 <relative_path_to_test_file.test.ts>
 
 This is used when updating Bindable.
 
-Run `yarn update-version`. This will update the version in `package.json` and the title attribe in `dev-app/app.html` to the new version you specify.
+Run `yarn update-version`. This will update the version in `package.json` and the title attribute in `dev-app/app.html` to the new version you specify.
 
 Once you merge your changes to master, [create a new release on Github](https://github.com/bindable-ui/bindable/releases).
 
