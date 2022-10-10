@@ -171,7 +171,7 @@ export class CTable {
 
     public getClasses(str = '') {
         const keys = str.split(' ');
-        const classes = keys.map(key => this.styles[key]);
+        const classes = keys.map(key => (this.styles[key] ? this.styles[key] : key));
 
         return classes.join(' ');
     }
