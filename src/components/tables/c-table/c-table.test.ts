@@ -615,5 +615,26 @@ describe('c-table component', () => {
                 expect(col.sortClass).toBe(component.styles.sortDesc);
             });
         });
+
+        describe('#getClasses', () => {
+            it('will update with css class names from styles', () => {
+                const str = 'bgWarning';
+
+                const classes = component.getClasses(str);
+
+                expect(classes.split(' ')).toHaveLength(1);
+                expect(classes).toContain(component.styles.bgWarning);
+            });
+
+            it("will keep CSS class names applied that aren't in styles", () => {
+                const str = 'bgWarning my-custom-class';
+
+                const classes = component.getClasses(str);
+
+                expect(classes.split(' ')).toHaveLength(2);
+                expect(classes).toContain(component.styles.bgWarning);
+                expect(classes).toContain('my-custom-class');
+            });
+        });
     });
 });
