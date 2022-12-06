@@ -579,7 +579,7 @@ describe('c-table component', () => {
                 expect(col.sortClass).toBe(component.styles.sortDesc);
             });
 
-            it('will sort desc when col reverseSort', () => {
+            it('will sort asc still when col reverseSort', () => {
                 const col: any = {
                     _class: 'code',
                     _status: 'warning',
@@ -594,25 +594,7 @@ describe('c-table component', () => {
 
                 component.setColSortClass(col);
 
-                expect(col.sortClass).toBe(component.styles.sortDesc);
-            });
-
-            it('will sort desc when table reverseSort', () => {
-                const col: any = {
-                    _class: 'code',
-                    _status: 'warning',
-                    colClass: 't150',
-                    colHeadName: 'name',
-                    colHeadValue: 'Name',
-                    sort: true,
-                };
-
-                component.reverseSort = true;
-                component.defaultSortCol = `${col.colHeadName}`;
-
-                component.setColSortClass(col);
-
-                expect(col.sortClass).toBe(component.styles.sortDesc);
+                expect(col.sortClass).toBe(component.styles.sortAsc);
             });
         });
 
