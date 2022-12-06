@@ -190,19 +190,18 @@ export class CTable {
         }
 
         let sortClass = this.styles.sortNone;
-        const isReverse = /^-/.test(this.defaultSortCol);
+        const isDescending = /^-/.test(this.defaultSortCol);
         const defaultSortCol = this.defaultSortCol.replace(/^-/, '');
 
+        // I think the classes are backwards
+        const asc = this.styles.sortAsc;
+        const desc = this.styles.sortDesc;
+
         if (col.colHeadName === defaultSortCol) {
+            const reversedColumn: boolean = Boolean(col.reverseSort);
             const {reverseSort = false} = col;
 
-            if (isReverse) {
-                sortClass = this.styles.sortDesc;
-            } else if (reverseSort) {
-                sortClass = col.reverseSort ? this.styles.sortDesc : this.styles.sortAsc;
-            } else {
-                sortClass = this.reverseSort ? this.styles.sortDesc : this.styles.sortAsc;
-            }
+            sortClass = isDescending ? desc : asc;
         }
 
         col.sortClass = sortClass;
@@ -217,21 +216,26 @@ export class CTable {
         });
 
         let reverse: boolean;
+        const reversedColumn: boolean = Boolean(col.reverseSort);
+
+        const asc = this.styles.sortAsc;
+        const desc = this.styles.sortDesc;
+
         // Use reverseSort property of column or reverse-sort binding of table (in that order)
         // to determine initial sort. After initial sort, just toggle.
         if (col.sortClass === this.styles.sortNone) {
-            if (typeof col.reverseSort === 'boolean') {
-                col.sortClass = col.reverseSort ? this.styles.sortDesc : this.styles.sortAsc;
-                reverse = col.reverseSort;
+            if (reversedColumn) {
+                col.sortClass = desc;
+                reverse = true;
             } else {
-                col.sortClass = this.reverseSort ? this.styles.sortDesc : this.styles.sortAsc;
-                reverse = this.reverseSort;
+                col.sortClass = asc;
+                reverse = false;
             }
-        } else if (col.sortClass === this.styles.sortAsc) {
-            col.sortClass = this.styles.sortDesc;
+        } else if (col.sortClass === asc) {
+            col.sortClass = desc;
             reverse = true;
         } else {
-            col.sortClass = this.styles.sortAsc;
+            col.sortClass = asc;
             reverse = false;
         }
         if (this.actions && this.actions.sortColumn) {
