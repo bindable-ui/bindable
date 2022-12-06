@@ -155,6 +155,13 @@ export class TableProperties {
                 colHeadName: 'gender',
                 colHeadValue: 'Gender',
             },
+            {
+                colClass: 't85',
+                colHeadName: 'number',
+                colHeadValue: 'revSort',
+                sort: true,
+                reverseSort: true,
+            },
         ];
 
         this.sortableData = [
@@ -162,23 +169,27 @@ export class TableProperties {
                 gender: 'Male',
                 name: 'Luke Skywalker',
                 ship: 'X-Wing',
+                number: 4,
             },
             {
                 _status: 'critical',
                 gender: 'Male',
                 name: 'Fin',
                 ship: 'Tie Fighter',
+                number: 2,
             },
             {
                 gender: 'Male',
                 name: 'Han Solo',
                 ship: 'M. Falcon',
+                number: 3,
             },
             {
                 _status: 'healthy',
                 gender: 'Female',
                 name: 'Rey',
                 ship: 'M. Falcon',
+                number: 1,
             },
         ];
     }
