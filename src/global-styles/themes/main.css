@@ -673,7 +673,7 @@ c-nav-vertical{
     --nav-item-background-hover: var(--c_ash);
     --nav-item-color-active: var(--c_white);
     --nav-item-background-active: var(--c_black);
-    --nav-item-active-bar-size: var(--s-5);
+    --nav-item-active-bar-size: 4px;
     --nav-item-active-bar-color-active: var(--c_primaryMain);
     --nav-item-active-bar-color-hover: var(--nav-background);
     --nav-item-active-bar-color: var(--nav-background-color);

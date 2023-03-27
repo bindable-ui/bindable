@@ -37,6 +37,14 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
             if.bind="!accordionItem && title"
             click.delegate="clickTrigger()"
         >
+            <l-icon
+                if.bind="prefixIcon"
+                icon="${prefixIcon}"
+                size="0.875em"
+                align="-0.125em"
+                spacing="0"
+                class="${styles.prefixIcon}"
+            ></l-icon>
             ${title}
             <span
                 class="${styles.sub}"

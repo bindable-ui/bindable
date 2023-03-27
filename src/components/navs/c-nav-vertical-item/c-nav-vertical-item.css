@@ -187,9 +187,17 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 .nav-vertical-item c-nav-vertical ul li a{
     padding-top: 0;
     padding-bottom: 0;
-    padding-left: 50px;
+    padding-left: 36px;
     font-size: inherit;
     word-break: break-word;
+}
+
+.nav-vertical-item c-nav-vertical ul li a l-icon.prefix-icon {
+    position: absolute;
+    top:  8px;
+    left: 14px;
+    padding: 0 0 5px 5px;
+    display: inline-flex;
 }
 
 /* If the nav item has sub-text */
@@ -294,6 +302,18 @@ Licensed under the terms of the MIT license. See the LICENSE file in the project
 
 
 
+/*------------------------------------*\
+    !PREFIX ICON
+\*------------------------------------*/
+
+.prefix-icon {
+    position: absolute;
+    top:  8px;
+    left: 2px;
+    padding: 0 0 5px 5px;
+    display: inline-flex;
+/*    margin-left: -16px;*/
+}
 
 
 /*------------------------------------*\
