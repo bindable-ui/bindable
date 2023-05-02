@@ -32,7 +32,7 @@ export function copyToClipboard(textToCopy, notification) {
     }
     */
 
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
         if (window.clipboardData && window.clipboardData.setData) {
             // IE specific code path to prevent textarea being shown while dialog is visible.
             const rval = window.clipboardData.setData('Text', textToCopy);
