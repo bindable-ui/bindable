@@ -13,4 +13,26 @@ describe('Highlight Search Phrases Helper', () => {
         const empty = highlightSearchPhrases(searchPhrases);
         expect(empty).toEqual('');
     });
+
+    it('should should not highlight span tags', () => {
+        const searchPhrases = ['pan', 'span', 'color'];
+        const desc = 'Peter Pan';
+        const highlighted = highlightSearchPhrases(searchPhrases, desc);
+        expect(highlighted).toEqual('Peter <span style="background-color: #226684;">Pan</span>');
+        const empty = highlightSearchPhrases(searchPhrases);
+        expect(empty).toEqual('');
+    });
+
+    it('should escape html characters', () => {
+        const searchPhrases = ['dumb', 'and'];
+        const desc = 'Dumb & Dumber <HD>';
+        const highlighted = highlightSearchPhrases(searchPhrases, desc);
+        expect(highlighted).toEqual(
+            '<span style="background-color: #226684;">Dumb</span> ' +
+                '&amp; ' +
+                '<span style="background-color: #226684;">Dumb</span>er &lt;HD&gt;',
+        );
+        const empty = highlightSearchPhrases(searchPhrases);
+        expect(empty).toEqual('');
+    });
 });
