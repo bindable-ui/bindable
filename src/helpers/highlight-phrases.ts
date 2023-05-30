@@ -1,14 +1,17 @@
-export const highlightSearchPhrases = (searchPhrases: string[], matchAgainst?: string): string => {
-    let title = matchAgainst || '';
-    title = title
-        .replace('&', '&amp;')
-        .replace('<', '&lt;')
-        .replace('>', '&gt;');
-    if (searchPhrases && searchPhrases.length > 0) {
-        searchPhrases.forEach(sp => {
-            const regEx = new RegExp(sp, 'gi');
-            title = title.replace(regEx, '<span style="background-color: #226684;">$&</span>');
-        });
+export function highlightSearchPhrases(searchPhrases: string[], desc: string = ''): string {
+    if (desc === '') {
+        return '';
     }
-    return title;
-};
+
+    const openTag = '<span style="background-color: #226684;">';
+    const closeTag = '</span>';
+
+    let highlightedDesc = _.escape(desc);
+
+    searchPhrases.forEach(phrase => {
+        const regex = new RegExp(`(${phrase})(?![^<]*>|[^<>]*<\/)`, 'gi');
+        highlightedDesc = highlightedDesc.replace(regex, `${openTag}$1${closeTag}`);
+    });
+
+    return highlightedDesc;
+}
