@@ -23,6 +23,8 @@ export class CNavVerticalItem {
     @bindable
     public href;
     @bindable
+    public prefixIcon;
+    @bindable
     public icon;
     @bindable
     public iconAction;

@@ -953,8 +953,8 @@ export class CTimeline {
             return [_.last(zoomLevelData.allowedHours), _.last(zoomLevelData.allowedMinutes)];
         }
 
-        let hour = 0;
-        let minute = 0;
+        let hour: number = 0;
+        let minute: number = 0;
 
         switch (timeClone.length) {
             case 4:
@@ -973,8 +973,8 @@ export class CTimeline {
         }
 
         if (zoomLevelData.allowedMinutes.indexOf(minute) === -1) {
-            if (minute > _.last(zoomLevelData.allowedMinutes)) {
-                minute = _.last(zoomLevelData.allowedMinutes);
+            if (minute > _.toNumber(_.last(zoomLevelData.allowedMinutes))) {
+                minute = _.toNumber(_.last(zoomLevelData.allowedMinutes));
             } else {
                 for (let a = 0; a < zoomLevelData.allowedMinutes.length - 1; a += 1) {
                     if (minute > zoomLevelData.allowedMinutes[a] && minute < zoomLevelData.allowedMinutes[a + 1]) {
@@ -990,8 +990,8 @@ export class CTimeline {
         }
 
         if (zoomLevelData.allowedHours.indexOf(hour) === -1) {
-            if (hour > _.last(zoomLevelData.allowedHours)) {
-                hour = _.last(zoomLevelData.allowedHours);
+            if (hour > _.toNumber(_.last(zoomLevelData.allowedHours))) {
+                hour = _.toNumber(_.last(zoomLevelData.allowedHours));
             } else {
                 for (let a = 0; a < zoomLevelData.allowedHours.length - 1; a += 1) {
                     if (hour > zoomLevelData.allowedHours[a] && hour < zoomLevelData.allowedHours[a + 1]) {

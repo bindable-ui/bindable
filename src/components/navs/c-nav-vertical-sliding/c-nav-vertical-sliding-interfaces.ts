@@ -28,6 +28,7 @@ export interface IVNavSliderNavList {
     active?: boolean;
     sectionTitle?: string;
     icon?: string;
+    prefixIcon?:string;
     subText?: string;
     isAccordion?: boolean;
     accordionState?: string;

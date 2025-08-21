@@ -10,6 +10,7 @@ describe('Audience List route', () => {
 
     beforeEach(() => {
         jest.useFakeTimers();
+        jest.spyOn(global, 'setTimeout');
         component = new CToastsService();
     });
 
