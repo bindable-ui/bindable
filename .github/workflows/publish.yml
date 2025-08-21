@@ -1,4 +1,4 @@
-name: Publish to NPM (use latest ubuntu)
+name: Publish to NPM
 
 on:
   release:
