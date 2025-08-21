@@ -1,7 +1,7 @@
 {
   "name": "@bindable-ui/bindable",
   "description": "An Aurelia component library",
-  "version": "1.12.2",
+  "version": "1.12.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/bindable-ui/bindable"
@@ -81,7 +81,7 @@
   "dependencies": {
     "aurelia-dialog": "^2.0.0-rc.7",
     "aurelia-ui-virtualization": "^1.0.0-rc2",
-    "dompurify": "^2.3.6",
+    "dompurify": "^2.4.2",
     "eonasdan-bootstrap-datetimepicker": "^4.17.49",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
