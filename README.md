@@ -132,4 +132,3 @@ Joe Ipson: joe@ipson.me
 ## License
 
 This project is licensed under the terms of the [MIT](LICENSE) open source license. Please refer to [LICENSE](LICENSE) for the full terms.
-
